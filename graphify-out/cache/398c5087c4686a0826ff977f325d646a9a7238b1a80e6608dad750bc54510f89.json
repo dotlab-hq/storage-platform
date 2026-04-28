@@ -1,1 +1,245 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts", "label": "agent.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L1"}, {"id": "agent_getdefaultsubagentmodel", "label": "getDefaultSubagentModel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L25"}, {"id": "agent_getagentmodel", "label": "getAgentModel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L37"}, {"id": "agent_aliasmatchesparenttier", "label": "aliasMatchesParentTier()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L110"}, {"id": "agent_getagentmodeldisplay", "label": "getAgentModelDisplay()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L124"}, {"id": "agent_getagentmodeloptions", "label": "getAgentModelOptions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L134"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionmode_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_aliases_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_bedrock_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_providers_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts", "target": "agent_getdefaultsubagentmodel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts", "target": "agent_getagentmodel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts", "target": "agent_aliasmatchesparenttier", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L110", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts", "target": "agent_getagentmodeldisplay", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L124", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts", "target": "agent_getagentmodeloptions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L134", "weight": 1.0}, {"source": "agent_getagentmodel", "target": "agent_aliasmatchesparenttier", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L71", "weight": 1.0}, {"source": "agent_getagentmodel", "target": "agent_getdefaultsubagentmodel", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L78", "weight": 1.0}], "raw_calls": [{"caller_nid": "agent_getagentmodel", "callee": "parseUserSpecifiedModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L44"}, {"caller_nid": "agent_getagentmodel", "callee": "getBedrockRegionPrefix", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L50"}, {"caller_nid": "agent_getagentmodel", "callee": "parseUserSpecifiedModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L74"}, {"caller_nid": "agent_getagentmodel", "callee": "applyParentRegionPrefix", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L75"}, {"caller_nid": "agent_getagentmodel", "callee": "getRuntimeMainLoopModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L83"}, {"caller_nid": "agent_getagentmodel", "callee": "parseUserSpecifiedModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L93"}, {"caller_nid": "agent_getagentmodel", "callee": "applyParentRegionPrefix", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L94"}, {"caller_nid": "agent_aliasmatchesparenttier", "callee": "getCanonicalName", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L111"}, {"caller_nid": "agent_aliasmatchesparenttier", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L112"}, {"caller_nid": "agent_aliasmatchesparenttier", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L114"}, {"caller_nid": "agent_aliasmatchesparenttier", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L116"}, {"caller_nid": "agent_aliasmatchesparenttier", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L118"}, {"caller_nid": "agent_getagentmodeldisplay", "callee": "capitalize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts", "source_location": "L128"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts",
+      "label": "agent.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "agent_getdefaultsubagentmodel",
+      "label": "getDefaultSubagentModel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L25"
+    },
+    {
+      "id": "agent_getagentmodel",
+      "label": "getAgentModel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L37"
+    },
+    {
+      "id": "agent_aliasmatchesparenttier",
+      "label": "aliasMatchesParentTier()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L110"
+    },
+    {
+      "id": "agent_getagentmodeldisplay",
+      "label": "getAgentModelDisplay()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L124"
+    },
+    {
+      "id": "agent_getagentmodeloptions",
+      "label": "getAgentModelOptions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L134"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionmode_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_aliases_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_bedrock_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_providers_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts",
+      "target": "agent_getdefaultsubagentmodel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts",
+      "target": "agent_getagentmodel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts",
+      "target": "agent_aliasmatchesparenttier",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts",
+      "target": "agent_getagentmodeldisplay",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_agent_ts",
+      "target": "agent_getagentmodeloptions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "agent_getagentmodel",
+      "target": "agent_aliasmatchesparenttier",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "agent_getagentmodel",
+      "target": "agent_getdefaultsubagentmodel",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L78",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "agent_getagentmodel",
+      "callee": "parseUserSpecifiedModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "agent_getagentmodel",
+      "callee": "getBedrockRegionPrefix",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "agent_getagentmodel",
+      "callee": "parseUserSpecifiedModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "agent_getagentmodel",
+      "callee": "applyParentRegionPrefix",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "agent_getagentmodel",
+      "callee": "getRuntimeMainLoopModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "agent_getagentmodel",
+      "callee": "parseUserSpecifiedModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "agent_getagentmodel",
+      "callee": "applyParentRegionPrefix",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L94"
+    },
+    {
+      "caller_nid": "agent_aliasmatchesparenttier",
+      "callee": "getCanonicalName",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "agent_aliasmatchesparenttier",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "agent_aliasmatchesparenttier",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "agent_aliasmatchesparenttier",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "agent_aliasmatchesparenttier",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "agent_getagentmodeldisplay",
+      "callee": "capitalize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\agent.ts",
+      "source_location": "L128"
+    }
+  ]
+}

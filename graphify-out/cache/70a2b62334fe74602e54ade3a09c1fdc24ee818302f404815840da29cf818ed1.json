@@ -1,1 +1,127 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_words_ts", "label": "words.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts", "source_location": "L1"}, {"id": "words_randomint", "label": "randomInt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts", "source_location": "L767"}, {"id": "words_pickrandom", "label": "pickRandom()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts", "source_location": "L777"}, {"id": "words_generatewordslug", "label": "generateWordSlug()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts", "source_location": "L785"}, {"id": "words_generateshortwordslug", "label": "generateShortWordSlug()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts", "source_location": "L796"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_words_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_words_ts", "target": "words_randomint", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts", "source_location": "L767", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_words_ts", "target": "words_pickrandom", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts", "source_location": "L777", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_words_ts", "target": "words_generatewordslug", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts", "source_location": "L785", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_words_ts", "target": "words_generateshortwordslug", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts", "source_location": "L796", "weight": 1.0}, {"source": "words_pickrandom", "target": "words_randomint", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts", "source_location": "L778", "weight": 1.0}, {"source": "words_generatewordslug", "target": "words_pickrandom", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts", "source_location": "L786", "weight": 1.0}, {"source": "words_generateshortwordslug", "target": "words_pickrandom", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts", "source_location": "L797", "weight": 1.0}], "raw_calls": [{"caller_nid": "words_randomint", "callee": "randomBytes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts", "source_location": "L769"}, {"caller_nid": "words_randomint", "callee": "readUInt32BE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts", "source_location": "L770"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_words_ts",
+      "label": "words.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "words_randomint",
+      "label": "randomInt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts",
+      "source_location": "L767"
+    },
+    {
+      "id": "words_pickrandom",
+      "label": "pickRandom()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts",
+      "source_location": "L777"
+    },
+    {
+      "id": "words_generatewordslug",
+      "label": "generateWordSlug()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts",
+      "source_location": "L785"
+    },
+    {
+      "id": "words_generateshortwordslug",
+      "label": "generateShortWordSlug()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts",
+      "source_location": "L796"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_words_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_words_ts",
+      "target": "words_randomint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts",
+      "source_location": "L767",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_words_ts",
+      "target": "words_pickrandom",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts",
+      "source_location": "L777",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_words_ts",
+      "target": "words_generatewordslug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts",
+      "source_location": "L785",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_words_ts",
+      "target": "words_generateshortwordslug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts",
+      "source_location": "L796",
+      "weight": 1.0
+    },
+    {
+      "source": "words_pickrandom",
+      "target": "words_randomint",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts",
+      "source_location": "L778",
+      "weight": 1.0
+    },
+    {
+      "source": "words_generatewordslug",
+      "target": "words_pickrandom",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts",
+      "source_location": "L786",
+      "weight": 1.0
+    },
+    {
+      "source": "words_generateshortwordslug",
+      "target": "words_pickrandom",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts",
+      "source_location": "L797",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "words_randomint",
+      "callee": "randomBytes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts",
+      "source_location": "L769"
+    },
+    {
+      "caller_nid": "words_randomint",
+      "callee": "readUInt32BE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\words.ts",
+      "source_location": "L770"
+    }
+  ]
+}

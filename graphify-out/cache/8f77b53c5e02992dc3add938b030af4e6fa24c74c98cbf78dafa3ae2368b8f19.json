@@ -1,1 +1,329 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_notifier_ts", "label": "notifier.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L1"}, {"id": "notifier_sendnotification", "label": "sendNotification()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L18"}, {"id": "notifier_sendtochannel", "label": "sendToChannel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L40"}, {"id": "notifier_sendauto", "label": "sendAuto()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L77"}, {"id": "notifier_generatekittyid", "label": "generateKittyId()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L106"}, {"id": "notifier_isappleterminalbelldisabled", "label": "isAppleTerminalBellDisabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L110"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_useterminalnotification_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_env_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts", "target": "notifier_sendnotification", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts", "target": "notifier_sendtochannel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L40", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts", "target": "notifier_sendauto", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L77", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts", "target": "notifier_generatekittyid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L106", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts", "target": "notifier_isappleterminalbelldisabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L110", "weight": 1.0}, {"source": "notifier_sendnotification", "target": "notifier_sendtochannel", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L27", "weight": 1.0}, {"source": "notifier_sendtochannel", "target": "notifier_sendauto", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L50", "weight": 1.0}, {"source": "notifier_sendtochannel", "target": "notifier_generatekittyid", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L59", "weight": 1.0}, {"source": "notifier_sendauto", "target": "notifier_isappleterminalbelldisabled", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L85", "weight": 1.0}, {"source": "notifier_sendauto", "target": "notifier_generatekittyid", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L96", "weight": 1.0}], "raw_calls": [{"caller_nid": "notifier_sendnotification", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L22"}, {"caller_nid": "notifier_sendnotification", "callee": "executeNotificationHooks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L25"}, {"caller_nid": "notifier_sendnotification", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L29"}, {"caller_nid": "notifier_sendtochannel", "callee": "notifyITerm2", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L52"}, {"caller_nid": "notifier_sendtochannel", "callee": "notifyITerm2", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L55"}, {"caller_nid": "notifier_sendtochannel", "callee": "notifyBell", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L56"}, {"caller_nid": "notifier_sendtochannel", "callee": "notifyKitty", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L59"}, {"caller_nid": "notifier_sendtochannel", "callee": "notifyGhostty", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L62"}, {"caller_nid": "notifier_sendtochannel", "callee": "notifyBell", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L65"}, {"caller_nid": "notifier_sendauto", "callee": "notifyBell", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L87"}, {"caller_nid": "notifier_sendauto", "callee": "notifyITerm2", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L93"}, {"caller_nid": "notifier_sendauto", "callee": "notifyKitty", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L96"}, {"caller_nid": "notifier_sendauto", "callee": "notifyGhostty", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L99"}, {"caller_nid": "notifier_generatekittyid", "callee": "floor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L107"}, {"caller_nid": "notifier_generatekittyid", "callee": "random", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L107"}, {"caller_nid": "notifier_isappleterminalbelldisabled", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L116"}, {"caller_nid": "notifier_isappleterminalbelldisabled", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L120"}, {"caller_nid": "notifier_isappleterminalbelldisabled", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L126"}, {"caller_nid": "notifier_isappleterminalbelldisabled", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L138"}, {"caller_nid": "notifier_isappleterminalbelldisabled", "callee": "parse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L139"}, {"caller_nid": "notifier_isappleterminalbelldisabled", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts", "source_location": "L153"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_notifier_ts",
+      "label": "notifier.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "notifier_sendnotification",
+      "label": "sendNotification()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L18"
+    },
+    {
+      "id": "notifier_sendtochannel",
+      "label": "sendToChannel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L40"
+    },
+    {
+      "id": "notifier_sendauto",
+      "label": "sendAuto()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L77"
+    },
+    {
+      "id": "notifier_generatekittyid",
+      "label": "generateKittyId()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L106"
+    },
+    {
+      "id": "notifier_isappleterminalbelldisabled",
+      "label": "isAppleTerminalBellDisabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L110"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_useterminalnotification_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_env_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts",
+      "target": "notifier_sendnotification",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts",
+      "target": "notifier_sendtochannel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts",
+      "target": "notifier_sendauto",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts",
+      "target": "notifier_generatekittyid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_notifier_ts",
+      "target": "notifier_isappleterminalbelldisabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "notifier_sendnotification",
+      "target": "notifier_sendtochannel",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "notifier_sendtochannel",
+      "target": "notifier_sendauto",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "notifier_sendtochannel",
+      "target": "notifier_generatekittyid",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "notifier_sendauto",
+      "target": "notifier_isappleterminalbelldisabled",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "notifier_sendauto",
+      "target": "notifier_generatekittyid",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L96",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "notifier_sendnotification",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "notifier_sendnotification",
+      "callee": "executeNotificationHooks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "notifier_sendnotification",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "notifier_sendtochannel",
+      "callee": "notifyITerm2",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "notifier_sendtochannel",
+      "callee": "notifyITerm2",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "notifier_sendtochannel",
+      "callee": "notifyBell",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "notifier_sendtochannel",
+      "callee": "notifyKitty",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "notifier_sendtochannel",
+      "callee": "notifyGhostty",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "notifier_sendtochannel",
+      "callee": "notifyBell",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "notifier_sendauto",
+      "callee": "notifyBell",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "notifier_sendauto",
+      "callee": "notifyITerm2",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "notifier_sendauto",
+      "callee": "notifyKitty",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "notifier_sendauto",
+      "callee": "notifyGhostty",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "notifier_generatekittyid",
+      "callee": "floor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "notifier_generatekittyid",
+      "callee": "random",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "notifier_isappleterminalbelldisabled",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "notifier_isappleterminalbelldisabled",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "notifier_isappleterminalbelldisabled",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "notifier_isappleterminalbelldisabled",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "notifier_isappleterminalbelldisabled",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "notifier_isappleterminalbelldisabled",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\notifier.ts",
+      "source_location": "L153"
+    }
+  ]
+}

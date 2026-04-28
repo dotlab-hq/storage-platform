@@ -1,1 +1,295 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_activitymanager_ts", "label": "activityManager.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L1"}, {"id": "activitymanager_activitymanager", "label": "ActivityManager", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L13"}, {"id": "activitymanager_activitymanager_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L28"}, {"id": "activitymanager_activitymanager_getinstance", "label": ".getInstance()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L35"}, {"id": "activitymanager_activitymanager_resetinstance", "label": ".resetInstance()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L45"}, {"id": "activitymanager_activitymanager_createinstance", "label": ".createInstance()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L52"}, {"id": "activitymanager_activitymanager_recorduseractivity", "label": ".recordUserActivity()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L60"}, {"id": "activitymanager_activitymanager_startcliactivity", "label": ".startCLIActivity()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L86"}, {"id": "activitymanager_activitymanager_endcliactivity", "label": ".endCLIActivity()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L106"}, {"id": "activitymanager_activitymanager_trackoperation", "label": ".trackOperation()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L130"}, {"id": "activitymanager_activitymanager_getactivitystates", "label": ".getActivityStates()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L145"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_activitymanager_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_activitymanager_ts", "target": "activitymanager_activitymanager", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L13", "weight": 1.0}, {"source": "activitymanager_activitymanager", "target": "activitymanager_activitymanager_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L28", "weight": 1.0}, {"source": "activitymanager_activitymanager", "target": "activitymanager_activitymanager_getinstance", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L35", "weight": 1.0}, {"source": "activitymanager_activitymanager", "target": "activitymanager_activitymanager_resetinstance", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L45", "weight": 1.0}, {"source": "activitymanager_activitymanager", "target": "activitymanager_activitymanager_createinstance", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L52", "weight": 1.0}, {"source": "activitymanager_activitymanager", "target": "activitymanager_activitymanager_recorduseractivity", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L60", "weight": 1.0}, {"source": "activitymanager_activitymanager", "target": "activitymanager_activitymanager_startcliactivity", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L86", "weight": 1.0}, {"source": "activitymanager_activitymanager", "target": "activitymanager_activitymanager_endcliactivity", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L106", "weight": 1.0}, {"source": "activitymanager_activitymanager", "target": "activitymanager_activitymanager_trackoperation", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L130", "weight": 1.0}, {"source": "activitymanager_activitymanager", "target": "activitymanager_activitymanager_getactivitystates", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L145", "weight": 1.0}, {"source": "activitymanager_activitymanager_startcliactivity", "target": "activitymanager_activitymanager_endcliactivity", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L91", "weight": 1.0}, {"source": "activitymanager_activitymanager_trackoperation", "target": "activitymanager_activitymanager_startcliactivity", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L134", "weight": 1.0}, {"source": "activitymanager_activitymanager_trackoperation", "target": "activitymanager_activitymanager_endcliactivity", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L138", "weight": 1.0}], "raw_calls": [{"caller_nid": "activitymanager_activitymanager_constructor", "callee": "getNow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L32"}, {"caller_nid": "activitymanager_activitymanager_recorduseractivity", "callee": "getNow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L63"}, {"caller_nid": "activitymanager_activitymanager_recorduseractivity", "callee": "getActiveTimeCounter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L67"}, {"caller_nid": "activitymanager_activitymanager_recorduseractivity", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L73"}, {"caller_nid": "activitymanager_activitymanager_recorduseractivity", "callee": "getNow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L80"}, {"caller_nid": "activitymanager_activitymanager_startcliactivity", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L90"}, {"caller_nid": "activitymanager_activitymanager_startcliactivity", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L95"}, {"caller_nid": "activitymanager_activitymanager_startcliactivity", "callee": "getNow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L99"}, {"caller_nid": "activitymanager_activitymanager_endcliactivity", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L107"}, {"caller_nid": "activitymanager_activitymanager_endcliactivity", "callee": "getNow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L112"}, {"caller_nid": "activitymanager_activitymanager_endcliactivity", "callee": "getActiveTimeCounter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L116"}, {"caller_nid": "activitymanager_activitymanager_endcliactivity", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L118"}, {"caller_nid": "activitymanager_activitymanager_trackoperation", "callee": "fn", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L136"}, {"caller_nid": "activitymanager_activitymanager_getactivitystates", "callee": "getNow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts", "source_location": "L150"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_activitymanager_ts",
+      "label": "activityManager.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "activitymanager_activitymanager",
+      "label": "ActivityManager",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L13"
+    },
+    {
+      "id": "activitymanager_activitymanager_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L28"
+    },
+    {
+      "id": "activitymanager_activitymanager_getinstance",
+      "label": ".getInstance()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L35"
+    },
+    {
+      "id": "activitymanager_activitymanager_resetinstance",
+      "label": ".resetInstance()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L45"
+    },
+    {
+      "id": "activitymanager_activitymanager_createinstance",
+      "label": ".createInstance()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L52"
+    },
+    {
+      "id": "activitymanager_activitymanager_recorduseractivity",
+      "label": ".recordUserActivity()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L60"
+    },
+    {
+      "id": "activitymanager_activitymanager_startcliactivity",
+      "label": ".startCLIActivity()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L86"
+    },
+    {
+      "id": "activitymanager_activitymanager_endcliactivity",
+      "label": ".endCLIActivity()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L106"
+    },
+    {
+      "id": "activitymanager_activitymanager_trackoperation",
+      "label": ".trackOperation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L130"
+    },
+    {
+      "id": "activitymanager_activitymanager_getactivitystates",
+      "label": ".getActivityStates()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L145"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_activitymanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_activitymanager_ts",
+      "target": "activitymanager_activitymanager",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "activitymanager_activitymanager",
+      "target": "activitymanager_activitymanager_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "activitymanager_activitymanager",
+      "target": "activitymanager_activitymanager_getinstance",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "activitymanager_activitymanager",
+      "target": "activitymanager_activitymanager_resetinstance",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "activitymanager_activitymanager",
+      "target": "activitymanager_activitymanager_createinstance",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "activitymanager_activitymanager",
+      "target": "activitymanager_activitymanager_recorduseractivity",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "activitymanager_activitymanager",
+      "target": "activitymanager_activitymanager_startcliactivity",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "activitymanager_activitymanager",
+      "target": "activitymanager_activitymanager_endcliactivity",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "activitymanager_activitymanager",
+      "target": "activitymanager_activitymanager_trackoperation",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "activitymanager_activitymanager",
+      "target": "activitymanager_activitymanager_getactivitystates",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L145",
+      "weight": 1.0
+    },
+    {
+      "source": "activitymanager_activitymanager_startcliactivity",
+      "target": "activitymanager_activitymanager_endcliactivity",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "activitymanager_activitymanager_trackoperation",
+      "target": "activitymanager_activitymanager_startcliactivity",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "activitymanager_activitymanager_trackoperation",
+      "target": "activitymanager_activitymanager_endcliactivity",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L138",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "activitymanager_activitymanager_constructor",
+      "callee": "getNow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "activitymanager_activitymanager_recorduseractivity",
+      "callee": "getNow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "activitymanager_activitymanager_recorduseractivity",
+      "callee": "getActiveTimeCounter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "activitymanager_activitymanager_recorduseractivity",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "activitymanager_activitymanager_recorduseractivity",
+      "callee": "getNow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L80"
+    },
+    {
+      "caller_nid": "activitymanager_activitymanager_startcliactivity",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "activitymanager_activitymanager_startcliactivity",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "activitymanager_activitymanager_startcliactivity",
+      "callee": "getNow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "activitymanager_activitymanager_endcliactivity",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "activitymanager_activitymanager_endcliactivity",
+      "callee": "getNow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "activitymanager_activitymanager_endcliactivity",
+      "callee": "getActiveTimeCounter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "activitymanager_activitymanager_endcliactivity",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "activitymanager_activitymanager_trackoperation",
+      "callee": "fn",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L136"
+    },
+    {
+      "caller_nid": "activitymanager_activitymanager_getactivitystates",
+      "callee": "getNow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\activityManager.ts",
+      "source_location": "L150"
+    }
+  ]
+}

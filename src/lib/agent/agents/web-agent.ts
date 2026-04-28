@@ -16,7 +16,7 @@ export class WebAgent {
   }
 
   createNode() {
-    return createWorkerNode( this.name, this.getTools() )
+    return createWorkerNode(this.name, this.getTools())
   }
 }
 

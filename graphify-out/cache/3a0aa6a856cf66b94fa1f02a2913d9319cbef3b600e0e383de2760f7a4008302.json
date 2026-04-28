@@ -1,1 +1,84 @@
-{"nodes": [{"id": "f_storage_platform_src_components_shell_shell_actions_registry_ts", "label": "shell-actions-registry.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts", "source_location": "L1"}, {"id": "shell_actions_registry_getactiveconfig", "label": "getActiveConfig()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts", "source_location": "L27"}, {"id": "shell_actions_registry_registershellview", "label": "registerShellView()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts", "source_location": "L31"}, {"id": "shell_actions_registry_useshellview", "label": "useShellView()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts", "source_location": "L48"}], "edges": [{"source": "f_storage_platform_src_components_shell_shell_actions_registry_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_components_shell_shell_actions_registry_ts", "target": "shell_actions_registry_getactiveconfig", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_src_components_shell_shell_actions_registry_ts", "target": "shell_actions_registry_registershellview", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_src_components_shell_shell_actions_registry_ts", "target": "shell_actions_registry_useshellview", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts", "source_location": "L48", "weight": 1.0}], "raw_calls": [{"caller_nid": "shell_actions_registry_registershellview", "callee": "dispatchEvent", "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts", "source_location": "L37"}, {"caller_nid": "shell_actions_registry_useshellview", "callee": "useEffect", "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts", "source_location": "L49"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_components_shell_shell_actions_registry_ts",
+      "label": "shell-actions-registry.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "shell_actions_registry_getactiveconfig",
+      "label": "getActiveConfig()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts",
+      "source_location": "L27"
+    },
+    {
+      "id": "shell_actions_registry_registershellview",
+      "label": "registerShellView()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts",
+      "source_location": "L31"
+    },
+    {
+      "id": "shell_actions_registry_useshellview",
+      "label": "useShellView()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts",
+      "source_location": "L48"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_components_shell_shell_actions_registry_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_shell_shell_actions_registry_ts",
+      "target": "shell_actions_registry_getactiveconfig",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_shell_shell_actions_registry_ts",
+      "target": "shell_actions_registry_registershellview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_shell_shell_actions_registry_ts",
+      "target": "shell_actions_registry_useshellview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "shell_actions_registry_registershellview",
+      "callee": "dispatchEvent",
+      "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "shell_actions_registry_useshellview",
+      "callee": "useEffect",
+      "source_file": "F:\\storage-platform\\src\\components\\shell\\shell-actions-registry.ts",
+      "source_location": "L49"
+    }
+  ]
+}

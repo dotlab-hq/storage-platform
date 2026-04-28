@@ -1,1 +1,864 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "label": "filesApi.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L1"}, {"id": "filesapi_getdefaultapibaseurl", "label": "getDefaultApiBaseUrl()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L32"}, {"id": "filesapi_logdebugerror", "label": "logDebugError()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L40"}, {"id": "filesapi_logdebug", "label": "logDebug()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L44"}, {"id": "filesapi_retrywithbackoff", "label": "retryWithBackoff()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L97"}, {"id": "filesapi_downloadfile", "label": "downloadFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L132"}, {"id": "filesapi_builddownloadpath", "label": "buildDownloadPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L187"}, {"id": "filesapi_downloadandsavefile", "label": "downloadAndSaveFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L219"}, {"id": "filesapi_parallelwithlimit", "label": "parallelWithLimit()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L280"}, {"id": "filesapi_downloadsessionfiles", "label": "downloadSessionFiles()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L317"}, {"id": "filesapi_uploadfile", "label": "uploadFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L378"}, {"id": "filesapi_uploadnonretriableerror", "label": "UploadNonRetriableError", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L555"}, {"id": "filesapi_uploadnonretriableerror_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L556"}, {"id": "filesapi_uploadsessionfiles", "label": "uploadSessionFiles()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L570"}, {"id": "filesapi_listfilescreatedafter", "label": "listFilesCreatedAfter()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L617"}, {"id": "filesapi_parsefilespecs", "label": "parseFileSpecs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L722"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "axios", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_array_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sleep_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "filesapi_getdefaultapibaseurl", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "filesapi_logdebugerror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L40", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "filesapi_logdebug", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L44", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "filesapi_retrywithbackoff", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L97", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "filesapi_downloadfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L132", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "filesapi_builddownloadpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L187", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "filesapi_downloadandsavefile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L219", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "filesapi_parallelwithlimit", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L280", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "filesapi_downloadsessionfiles", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L317", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "filesapi_uploadfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L378", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "filesapi_uploadnonretriableerror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L555", "weight": 1.0}, {"source": "filesapi_uploadnonretriableerror", "target": "filesapi_uploadnonretriableerror_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L556", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "filesapi_uploadsessionfiles", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L570", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "filesapi_listfilescreatedafter", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L617", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts", "target": "filesapi_parsefilespecs", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L722", "weight": 1.0}, {"source": "filesapi_retrywithbackoff", "target": "filesapi_logdebug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L111", "weight": 1.0}, {"source": "filesapi_downloadfile", "target": "filesapi_getdefaultapibaseurl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L136", "weight": 1.0}, {"source": "filesapi_downloadfile", "target": "filesapi_logdebug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L145", "weight": 1.0}, {"source": "filesapi_downloadfile", "target": "filesapi_retrywithbackoff", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L147", "weight": 1.0}, {"source": "filesapi_builddownloadpath", "target": "filesapi_logdebugerror", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L194", "weight": 1.0}, {"source": "filesapi_downloadandsavefile", "target": "filesapi_builddownloadpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L224", "weight": 1.0}, {"source": "filesapi_downloadandsavefile", "target": "filesapi_downloadfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L237", "weight": 1.0}, {"source": "filesapi_downloadandsavefile", "target": "filesapi_logdebug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L246", "weight": 1.0}, {"source": "filesapi_downloadandsavefile", "target": "filesapi_logdebugerror", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L255", "weight": 1.0}, {"source": "filesapi_downloadsessionfiles", "target": "filesapi_logdebug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L326", "weight": 1.0}, {"source": "filesapi_downloadsessionfiles", "target": "filesapi_parallelwithlimit", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L332", "weight": 1.0}, {"source": "filesapi_uploadfile", "target": "filesapi_getdefaultapibaseurl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L384", "weight": 1.0}, {"source": "filesapi_uploadfile", "target": "filesapi_logdebug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L393", "weight": 1.0}, {"source": "filesapi_uploadfile", "target": "filesapi_retrywithbackoff", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L458", "weight": 1.0}, {"source": "filesapi_uploadsessionfiles", "target": "filesapi_logdebug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L579", "weight": 1.0}, {"source": "filesapi_uploadsessionfiles", "target": "filesapi_parallelwithlimit", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L582", "weight": 1.0}, {"source": "filesapi_listfilescreatedafter", "target": "filesapi_getdefaultapibaseurl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L621", "weight": 1.0}, {"source": "filesapi_listfilescreatedafter", "target": "filesapi_logdebug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L628", "weight": 1.0}, {"source": "filesapi_listfilescreatedafter", "target": "filesapi_retrywithbackoff", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L642", "weight": 1.0}, {"source": "filesapi_parsefilespecs", "target": "filesapi_logdebugerror", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L738", "weight": 1.0}], "raw_calls": [{"caller_nid": "filesapi_logdebugerror", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L41"}, {"caller_nid": "filesapi_logdebug", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L45"}, {"caller_nid": "filesapi_retrywithbackoff", "callee": "attemptFn", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L104"}, {"caller_nid": "filesapi_retrywithbackoff", "callee": "pow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L116"}, {"caller_nid": "filesapi_retrywithbackoff", "callee": "sleep", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L118"}, {"caller_nid": "filesapi_builddownloadpath", "callee": "normalize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L192"}, {"caller_nid": "filesapi_builddownloadpath", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L193"}, {"caller_nid": "filesapi_builddownloadpath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L200"}, {"caller_nid": "filesapi_builddownloadpath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L202"}, {"caller_nid": "filesapi_builddownloadpath", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L205"}, {"caller_nid": "filesapi_builddownloadpath", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L207"}, {"caller_nid": "filesapi_builddownloadpath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L209"}, {"caller_nid": "filesapi_downloadandsavefile", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L224"}, {"caller_nid": "filesapi_downloadandsavefile", "callee": "dirname", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L240"}, {"caller_nid": "filesapi_downloadandsavefile", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L241"}, {"caller_nid": "filesapi_downloadandsavefile", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L244"}, {"caller_nid": "filesapi_downloadandsavefile", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L255"}, {"caller_nid": "filesapi_downloadandsavefile", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L257"}, {"caller_nid": "filesapi_downloadandsavefile", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L264"}, {"caller_nid": "filesapi_parallelwithlimit", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L300"}, {"caller_nid": "filesapi_parallelwithlimit", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L302"}, {"caller_nid": "filesapi_parallelwithlimit", "callee": "worker", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L302"}, {"caller_nid": "filesapi_parallelwithlimit", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L305"}, {"caller_nid": "filesapi_downloadsessionfiles", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L329"}, {"caller_nid": "filesapi_downloadsessionfiles", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L338"}, {"caller_nid": "filesapi_downloadsessionfiles", "callee": "count", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L339"}, {"caller_nid": "filesapi_uploadfile", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L398"}, {"caller_nid": "filesapi_uploadfile", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L400"}, {"caller_nid": "filesapi_uploadfile", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L406"}, {"caller_nid": "filesapi_uploadfile", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L414"}, {"caller_nid": "filesapi_uploadfile", "callee": "randomUUID", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L426"}, {"caller_nid": "filesapi_uploadfile", "callee": "basename", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L427"}, {"caller_nid": "filesapi_uploadfile", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L433"}, {"caller_nid": "filesapi_uploadfile", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L434"}, {"caller_nid": "filesapi_uploadfile", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L440"}, {"caller_nid": "filesapi_uploadfile", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L441"}, {"caller_nid": "filesapi_uploadfile", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L441"}, {"caller_nid": "filesapi_uploadfile", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L444"}, {"caller_nid": "filesapi_uploadfile", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L445"}, {"caller_nid": "filesapi_uploadfile", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L453"}, {"caller_nid": "filesapi_uploadfile", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L453"}, {"caller_nid": "filesapi_uploadfile", "callee": "concat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L455"}, {"caller_nid": "filesapi_uploadfile", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L542"}, {"caller_nid": "filesapi_uploadfile", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L548"}, {"caller_nid": "filesapi_uploadnonretriableerror_constructor", "callee": "super", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L557"}, {"caller_nid": "filesapi_uploadsessionfiles", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L580"}, {"caller_nid": "filesapi_uploadsessionfiles", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L588"}, {"caller_nid": "filesapi_uploadsessionfiles", "callee": "count", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L589"}, {"caller_nid": "filesapi_listfilescreatedafter", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L688"}, {"caller_nid": "filesapi_listfilescreatedafter", "callee": "at", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L700"}, {"caller_nid": "filesapi_parsefilespecs", "callee": "flatMap", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L726"}, {"caller_nid": "filesapi_parsefilespecs", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L729"}, {"caller_nid": "filesapi_parsefilespecs", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L734"}, {"caller_nid": "filesapi_parsefilespecs", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L735"}, {"caller_nid": "filesapi_parsefilespecs", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts", "source_location": "L744"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "label": "filesApi.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "filesapi_getdefaultapibaseurl",
+      "label": "getDefaultApiBaseUrl()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "filesapi_logdebugerror",
+      "label": "logDebugError()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L40"
+    },
+    {
+      "id": "filesapi_logdebug",
+      "label": "logDebug()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L44"
+    },
+    {
+      "id": "filesapi_retrywithbackoff",
+      "label": "retryWithBackoff()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L97"
+    },
+    {
+      "id": "filesapi_downloadfile",
+      "label": "downloadFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L132"
+    },
+    {
+      "id": "filesapi_builddownloadpath",
+      "label": "buildDownloadPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L187"
+    },
+    {
+      "id": "filesapi_downloadandsavefile",
+      "label": "downloadAndSaveFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L219"
+    },
+    {
+      "id": "filesapi_parallelwithlimit",
+      "label": "parallelWithLimit()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L280"
+    },
+    {
+      "id": "filesapi_downloadsessionfiles",
+      "label": "downloadSessionFiles()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L317"
+    },
+    {
+      "id": "filesapi_uploadfile",
+      "label": "uploadFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L378"
+    },
+    {
+      "id": "filesapi_uploadnonretriableerror",
+      "label": "UploadNonRetriableError",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L555"
+    },
+    {
+      "id": "filesapi_uploadnonretriableerror_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L556"
+    },
+    {
+      "id": "filesapi_uploadsessionfiles",
+      "label": "uploadSessionFiles()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L570"
+    },
+    {
+      "id": "filesapi_listfilescreatedafter",
+      "label": "listFilesCreatedAfter()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L617"
+    },
+    {
+      "id": "filesapi_parsefilespecs",
+      "label": "parseFileSpecs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L722"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_array_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sleep_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "filesapi_getdefaultapibaseurl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "filesapi_logdebugerror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "filesapi_logdebug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "filesapi_retrywithbackoff",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "filesapi_downloadfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "filesapi_builddownloadpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "filesapi_downloadandsavefile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L219",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "filesapi_parallelwithlimit",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L280",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "filesapi_downloadsessionfiles",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L317",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "filesapi_uploadfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L378",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "filesapi_uploadnonretriableerror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L555",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_uploadnonretriableerror",
+      "target": "filesapi_uploadnonretriableerror_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L556",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "filesapi_uploadsessionfiles",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L570",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "filesapi_listfilescreatedafter",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L617",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_filesapi_ts",
+      "target": "filesapi_parsefilespecs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L722",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_retrywithbackoff",
+      "target": "filesapi_logdebug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_downloadfile",
+      "target": "filesapi_getdefaultapibaseurl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_downloadfile",
+      "target": "filesapi_logdebug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L145",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_downloadfile",
+      "target": "filesapi_retrywithbackoff",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L147",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_builddownloadpath",
+      "target": "filesapi_logdebugerror",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_downloadandsavefile",
+      "target": "filesapi_builddownloadpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L224",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_downloadandsavefile",
+      "target": "filesapi_downloadfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L237",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_downloadandsavefile",
+      "target": "filesapi_logdebug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L246",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_downloadandsavefile",
+      "target": "filesapi_logdebugerror",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L255",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_downloadsessionfiles",
+      "target": "filesapi_logdebug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L326",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_downloadsessionfiles",
+      "target": "filesapi_parallelwithlimit",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L332",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_uploadfile",
+      "target": "filesapi_getdefaultapibaseurl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L384",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_uploadfile",
+      "target": "filesapi_logdebug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L393",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_uploadfile",
+      "target": "filesapi_retrywithbackoff",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L458",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_uploadsessionfiles",
+      "target": "filesapi_logdebug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L579",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_uploadsessionfiles",
+      "target": "filesapi_parallelwithlimit",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L582",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_listfilescreatedafter",
+      "target": "filesapi_getdefaultapibaseurl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L621",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_listfilescreatedafter",
+      "target": "filesapi_logdebug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L628",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_listfilescreatedafter",
+      "target": "filesapi_retrywithbackoff",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L642",
+      "weight": 1.0
+    },
+    {
+      "source": "filesapi_parsefilespecs",
+      "target": "filesapi_logdebugerror",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L738",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "filesapi_logdebugerror",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "filesapi_logdebug",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "filesapi_retrywithbackoff",
+      "callee": "attemptFn",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "filesapi_retrywithbackoff",
+      "callee": "pow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "filesapi_retrywithbackoff",
+      "callee": "sleep",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "filesapi_builddownloadpath",
+      "callee": "normalize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "filesapi_builddownloadpath",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L193"
+    },
+    {
+      "caller_nid": "filesapi_builddownloadpath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "filesapi_builddownloadpath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "filesapi_builddownloadpath",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L205"
+    },
+    {
+      "caller_nid": "filesapi_builddownloadpath",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L207"
+    },
+    {
+      "caller_nid": "filesapi_builddownloadpath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L209"
+    },
+    {
+      "caller_nid": "filesapi_downloadandsavefile",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L224"
+    },
+    {
+      "caller_nid": "filesapi_downloadandsavefile",
+      "callee": "dirname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L240"
+    },
+    {
+      "caller_nid": "filesapi_downloadandsavefile",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L241"
+    },
+    {
+      "caller_nid": "filesapi_downloadandsavefile",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L244"
+    },
+    {
+      "caller_nid": "filesapi_downloadandsavefile",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L255"
+    },
+    {
+      "caller_nid": "filesapi_downloadandsavefile",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L257"
+    },
+    {
+      "caller_nid": "filesapi_downloadandsavefile",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L264"
+    },
+    {
+      "caller_nid": "filesapi_parallelwithlimit",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L300"
+    },
+    {
+      "caller_nid": "filesapi_parallelwithlimit",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L302"
+    },
+    {
+      "caller_nid": "filesapi_parallelwithlimit",
+      "callee": "worker",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L302"
+    },
+    {
+      "caller_nid": "filesapi_parallelwithlimit",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L305"
+    },
+    {
+      "caller_nid": "filesapi_downloadsessionfiles",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L329"
+    },
+    {
+      "caller_nid": "filesapi_downloadsessionfiles",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L338"
+    },
+    {
+      "caller_nid": "filesapi_downloadsessionfiles",
+      "callee": "count",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L339"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L398"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L400"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L406"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L414"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "randomUUID",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L426"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "basename",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L427"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L433"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L434"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L440"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L441"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L441"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L444"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L445"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L453"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L453"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "concat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L455"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L542"
+    },
+    {
+      "caller_nid": "filesapi_uploadfile",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L548"
+    },
+    {
+      "caller_nid": "filesapi_uploadnonretriableerror_constructor",
+      "callee": "super",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L557"
+    },
+    {
+      "caller_nid": "filesapi_uploadsessionfiles",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L580"
+    },
+    {
+      "caller_nid": "filesapi_uploadsessionfiles",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L588"
+    },
+    {
+      "caller_nid": "filesapi_uploadsessionfiles",
+      "callee": "count",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L589"
+    },
+    {
+      "caller_nid": "filesapi_listfilescreatedafter",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L688"
+    },
+    {
+      "caller_nid": "filesapi_listfilescreatedafter",
+      "callee": "at",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L700"
+    },
+    {
+      "caller_nid": "filesapi_parsefilespecs",
+      "callee": "flatMap",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L726"
+    },
+    {
+      "caller_nid": "filesapi_parsefilespecs",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L729"
+    },
+    {
+      "caller_nid": "filesapi_parsefilespecs",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L734"
+    },
+    {
+      "caller_nid": "filesapi_parsefilespecs",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L735"
+    },
+    {
+      "caller_nid": "filesapi_parsefilespecs",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\filesApi.ts",
+      "source_location": "L744"
+    }
+  ]
+}

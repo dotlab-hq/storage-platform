@@ -101,6 +101,7 @@ return (
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 return (
+
 <html>
 <head>
 <HeadContent />
@@ -149,6 +150,7 @@ const updatePostFn = useServerFn(updatePost)
 const [title, setTitle] = useState('')
 
 return (
+
 <form
 onSubmit={async (e) => {
 e.preventDefault()

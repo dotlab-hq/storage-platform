@@ -1,1 +1,170 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_circularbuffer_ts", "label": "CircularBuffer.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L1"}, {"id": "circularbuffer_circularbuffer", "label": "CircularBuffer", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L5"}, {"id": "circularbuffer_circularbuffer_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L10"}, {"id": "circularbuffer_circularbuffer_add", "label": ".add()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L18"}, {"id": "circularbuffer_circularbuffer_addall", "label": ".addAll()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L29"}, {"id": "circularbuffer_circularbuffer_getrecent", "label": ".getRecent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L39"}, {"id": "circularbuffer_circularbuffer_toarray", "label": ".toArray()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L55"}, {"id": "circularbuffer_circularbuffer_clear", "label": ".clear()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L72"}, {"id": "circularbuffer_circularbuffer_length", "label": ".length()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L81"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_circularbuffer_ts", "target": "circularbuffer_circularbuffer", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L5", "weight": 1.0}, {"source": "circularbuffer_circularbuffer", "target": "circularbuffer_circularbuffer_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L10", "weight": 1.0}, {"source": "circularbuffer_circularbuffer", "target": "circularbuffer_circularbuffer_add", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L18", "weight": 1.0}, {"source": "circularbuffer_circularbuffer", "target": "circularbuffer_circularbuffer_addall", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L29", "weight": 1.0}, {"source": "circularbuffer_circularbuffer", "target": "circularbuffer_circularbuffer_getrecent", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L39", "weight": 1.0}, {"source": "circularbuffer_circularbuffer", "target": "circularbuffer_circularbuffer_toarray", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L55", "weight": 1.0}, {"source": "circularbuffer_circularbuffer", "target": "circularbuffer_circularbuffer_clear", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L72", "weight": 1.0}, {"source": "circularbuffer_circularbuffer", "target": "circularbuffer_circularbuffer_length", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L81", "weight": 1.0}, {"source": "circularbuffer_circularbuffer_addall", "target": "circularbuffer_circularbuffer_add", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L31", "weight": 1.0}], "raw_calls": [{"caller_nid": "circularbuffer_circularbuffer_getrecent", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L42"}, {"caller_nid": "circularbuffer_circularbuffer_getrecent", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L46"}, {"caller_nid": "circularbuffer_circularbuffer_toarray", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts", "source_location": "L63"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_circularbuffer_ts",
+      "label": "CircularBuffer.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "circularbuffer_circularbuffer",
+      "label": "CircularBuffer",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L5"
+    },
+    {
+      "id": "circularbuffer_circularbuffer_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "circularbuffer_circularbuffer_add",
+      "label": ".add()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L18"
+    },
+    {
+      "id": "circularbuffer_circularbuffer_addall",
+      "label": ".addAll()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L29"
+    },
+    {
+      "id": "circularbuffer_circularbuffer_getrecent",
+      "label": ".getRecent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L39"
+    },
+    {
+      "id": "circularbuffer_circularbuffer_toarray",
+      "label": ".toArray()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L55"
+    },
+    {
+      "id": "circularbuffer_circularbuffer_clear",
+      "label": ".clear()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L72"
+    },
+    {
+      "id": "circularbuffer_circularbuffer_length",
+      "label": ".length()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L81"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_circularbuffer_ts",
+      "target": "circularbuffer_circularbuffer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "circularbuffer_circularbuffer",
+      "target": "circularbuffer_circularbuffer_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "circularbuffer_circularbuffer",
+      "target": "circularbuffer_circularbuffer_add",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "circularbuffer_circularbuffer",
+      "target": "circularbuffer_circularbuffer_addall",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "circularbuffer_circularbuffer",
+      "target": "circularbuffer_circularbuffer_getrecent",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "circularbuffer_circularbuffer",
+      "target": "circularbuffer_circularbuffer_toarray",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "circularbuffer_circularbuffer",
+      "target": "circularbuffer_circularbuffer_clear",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "circularbuffer_circularbuffer",
+      "target": "circularbuffer_circularbuffer_length",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "circularbuffer_circularbuffer_addall",
+      "target": "circularbuffer_circularbuffer_add",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "circularbuffer_circularbuffer_getrecent",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "circularbuffer_circularbuffer_getrecent",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "circularbuffer_circularbuffer_toarray",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\CircularBuffer.ts",
+      "source_location": "L63"
+    }
+  ]
+}

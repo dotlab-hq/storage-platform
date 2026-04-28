@@ -1,1 +1,61 @@
-{"nodes": [{"id": "f_storage_platform_src_hooks_use_home_shell_actions_ts", "label": "use-home-shell-actions.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\use-home-shell-actions.ts", "source_location": "L1"}, {"id": "use_home_shell_actions_usehomeshellactions", "label": "useHomeShellActions()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\use-home-shell-actions.ts", "source_location": "L4"}], "edges": [{"source": "f_storage_platform_src_hooks_use_home_shell_actions_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-home-shell-actions.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_home_shell_actions_ts", "target": "shell_actions_registry", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-home-shell-actions.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_home_shell_actions_ts", "target": "use_home_shell_actions_usehomeshellactions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-home-shell-actions.ts", "source_location": "L4", "weight": 1.0}], "raw_calls": [{"caller_nid": "use_home_shell_actions_usehomeshellactions", "callee": "useMemo", "source_file": "F:\\storage-platform\\src\\hooks\\use-home-shell-actions.ts", "source_location": "L5"}, {"caller_nid": "use_home_shell_actions_usehomeshellactions", "callee": "useShellView", "source_file": "F:\\storage-platform\\src\\hooks\\use-home-shell-actions.ts", "source_location": "L49"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_hooks_use_home_shell_actions_ts",
+      "label": "use-home-shell-actions.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-home-shell-actions.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "use_home_shell_actions_usehomeshellactions",
+      "label": "useHomeShellActions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-home-shell-actions.ts",
+      "source_location": "L4"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_hooks_use_home_shell_actions_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-home-shell-actions.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_home_shell_actions_ts",
+      "target": "shell_actions_registry",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-home-shell-actions.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_home_shell_actions_ts",
+      "target": "use_home_shell_actions_usehomeshellactions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-home-shell-actions.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "use_home_shell_actions_usehomeshellactions",
+      "callee": "useMemo",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-home-shell-actions.ts",
+      "source_location": "L5"
+    },
+    {
+      "caller_nid": "use_home_shell_actions_usehomeshellactions",
+      "callee": "useShellView",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-home-shell-actions.ts",
+      "source_location": "L49"
+    }
+  ]
+}

@@ -1,1 +1,111 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_ink_events_emitter_ts", "label": "emitter.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts", "source_location": "L1"}, {"id": "emitter_eventemitter", "label": "EventEmitter", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts", "source_location": "L6"}, {"id": "emitter_eventemitter_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts", "source_location": "L7"}, {"id": "emitter_eventemitter_emit", "label": ".emit()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts", "source_location": "L15"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_ink_events_emitter_ts", "target": "events", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_events_emitter_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_events_event_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_events_emitter_ts", "target": "emitter_eventemitter", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts", "source_location": "L6", "weight": 1.0}, {"source": "emitter_eventemitter", "target": "emitter_eventemitter_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts", "source_location": "L7", "weight": 1.0}, {"source": "emitter_eventemitter", "target": "emitter_eventemitter_emit", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts", "source_location": "L15", "weight": 1.0}], "raw_calls": [{"caller_nid": "emitter_eventemitter_constructor", "callee": "super", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts", "source_location": "L8"}, {"caller_nid": "emitter_eventemitter_constructor", "callee": "setMaxListeners", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts", "source_location": "L12"}, {"caller_nid": "emitter_eventemitter_emit", "callee": "rawListeners", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts", "source_location": "L21"}, {"caller_nid": "emitter_eventemitter_emit", "callee": "apply", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts", "source_location": "L30"}, {"caller_nid": "emitter_eventemitter_emit", "callee": "didStopImmediatePropagation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts", "source_location": "L32"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_ink_events_emitter_ts",
+      "label": "emitter.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "emitter_eventemitter",
+      "label": "EventEmitter",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts",
+      "source_location": "L6"
+    },
+    {
+      "id": "emitter_eventemitter_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "emitter_eventemitter_emit",
+      "label": ".emit()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts",
+      "source_location": "L15"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_events_emitter_ts",
+      "target": "events",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_events_emitter_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_events_event_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_events_emitter_ts",
+      "target": "emitter_eventemitter",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "emitter_eventemitter",
+      "target": "emitter_eventemitter_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "emitter_eventemitter",
+      "target": "emitter_eventemitter_emit",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "emitter_eventemitter_constructor",
+      "callee": "super",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts",
+      "source_location": "L8"
+    },
+    {
+      "caller_nid": "emitter_eventemitter_constructor",
+      "callee": "setMaxListeners",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts",
+      "source_location": "L12"
+    },
+    {
+      "caller_nid": "emitter_eventemitter_emit",
+      "callee": "rawListeners",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "emitter_eventemitter_emit",
+      "callee": "apply",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts",
+      "source_location": "L30"
+    },
+    {
+      "caller_nid": "emitter_eventemitter_emit",
+      "callee": "didStopImmediatePropagation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\events\\emitter.ts",
+      "source_location": "L32"
+    }
+  ]
+}

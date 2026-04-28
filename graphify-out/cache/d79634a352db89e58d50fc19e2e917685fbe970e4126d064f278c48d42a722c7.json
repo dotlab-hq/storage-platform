@@ -1,1 +1,218 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts", "label": "elicitationHandler.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L1"}, {"id": "elicitationhandler_getelicitationmode", "label": "getElicitationMode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L49"}, {"id": "elicitationhandler_findelicitationinqueue", "label": "findElicitationInQueue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L54"}, {"id": "elicitationhandler_registerelicitationhandler", "label": "registerElicitationHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L68"}, {"id": "elicitationhandler_runelicitationhooks", "label": "runElicitationHooks()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L214"}, {"id": "elicitationhandler_runelicitationresulthooks", "label": "runElicitationResultHooks()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L264"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts", "target": "index_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts", "target": "types_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts", "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts", "target": "elicitationhandler_getelicitationmode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L49", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts", "target": "elicitationhandler_findelicitationinqueue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L54", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts", "target": "elicitationhandler_registerelicitationhandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L68", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts", "target": "elicitationhandler_runelicitationhooks", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L214", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts", "target": "elicitationhandler_runelicitationresulthooks", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L264", "weight": 1.0}], "raw_calls": [{"caller_nid": "elicitationhandler_findelicitationinqueue", "callee": "findIndex", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L59"}, {"caller_nid": "elicitationhandler_registerelicitationhandler", "callee": "setRequestHandler", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L77"}, {"caller_nid": "elicitationhandler_registerelicitationhandler", "callee": "setNotificationHandler", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L175"}, {"caller_nid": "elicitationhandler_runelicitationhooks", "callee": "executeElicitationHooks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L228"}, {"caller_nid": "elicitationhandler_runelicitationhooks", "callee": "logMCPError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L254"}, {"caller_nid": "elicitationhandler_runelicitationresulthooks", "callee": "executeElicitationResultHooks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L273"}, {"caller_nid": "elicitationhandler_runelicitationresulthooks", "callee": "executeNotificationHooks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L283"}, {"caller_nid": "elicitationhandler_runelicitationresulthooks", "callee": "executeNotificationHooks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L298"}, {"caller_nid": "elicitationhandler_runelicitationresulthooks", "callee": "logMCPError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L305"}, {"caller_nid": "elicitationhandler_runelicitationresulthooks", "callee": "executeNotificationHooks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts", "source_location": "L307"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts",
+      "label": "elicitationHandler.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "elicitationhandler_getelicitationmode",
+      "label": "getElicitationMode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L49"
+    },
+    {
+      "id": "elicitationhandler_findelicitationinqueue",
+      "label": "findElicitationInQueue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L54"
+    },
+    {
+      "id": "elicitationhandler_registerelicitationhandler",
+      "label": "registerElicitationHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L68"
+    },
+    {
+      "id": "elicitationhandler_runelicitationhooks",
+      "label": "runElicitationHooks()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L214"
+    },
+    {
+      "id": "elicitationhandler_runelicitationresulthooks",
+      "label": "runElicitationResultHooks()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L264"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts",
+      "target": "index_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts",
+      "target": "types_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts",
+      "target": "elicitationhandler_getelicitationmode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts",
+      "target": "elicitationhandler_findelicitationinqueue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts",
+      "target": "elicitationhandler_registerelicitationhandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts",
+      "target": "elicitationhandler_runelicitationhooks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L214",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_elicitationhandler_ts",
+      "target": "elicitationhandler_runelicitationresulthooks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L264",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "elicitationhandler_findelicitationinqueue",
+      "callee": "findIndex",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "elicitationhandler_registerelicitationhandler",
+      "callee": "setRequestHandler",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "elicitationhandler_registerelicitationhandler",
+      "callee": "setNotificationHandler",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "elicitationhandler_runelicitationhooks",
+      "callee": "executeElicitationHooks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L228"
+    },
+    {
+      "caller_nid": "elicitationhandler_runelicitationhooks",
+      "callee": "logMCPError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L254"
+    },
+    {
+      "caller_nid": "elicitationhandler_runelicitationresulthooks",
+      "callee": "executeElicitationResultHooks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L273"
+    },
+    {
+      "caller_nid": "elicitationhandler_runelicitationresulthooks",
+      "callee": "executeNotificationHooks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L283"
+    },
+    {
+      "caller_nid": "elicitationhandler_runelicitationresulthooks",
+      "callee": "executeNotificationHooks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L298"
+    },
+    {
+      "caller_nid": "elicitationhandler_runelicitationresulthooks",
+      "callee": "logMCPError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L305"
+    },
+    {
+      "caller_nid": "elicitationhandler_runelicitationresulthooks",
+      "callee": "executeNotificationHooks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\elicitationHandler.ts",
+      "source_location": "L307"
+    }
+  ]
+}

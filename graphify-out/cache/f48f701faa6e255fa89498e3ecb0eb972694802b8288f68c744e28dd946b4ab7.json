@@ -1,1 +1,91 @@
-{"nodes": [{"id": "f_storage_platform_src_integrations_tanstack_query_root_provider_tsx", "label": "root-provider.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx", "source_location": "L1"}, {"id": "root_provider_getcontext", "label": "getContext()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx", "source_location": "L12"}, {"id": "root_provider_tanstackqueryprovider", "label": "TanStackQueryProvider()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx", "source_location": "L26"}], "edges": [{"source": "f_storage_platform_src_integrations_tanstack_query_root_provider_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_integrations_tanstack_query_root_provider_tsx", "target": "react_hotkeys", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_integrations_tanstack_query_root_provider_tsx", "target": "react_query", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_integrations_tanstack_query_root_provider_tsx", "target": "profiler_boundary", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_integrations_tanstack_query_root_provider_tsx", "target": "root_provider_getcontext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_src_integrations_tanstack_query_root_provider_tsx", "target": "root_provider_tanstackqueryprovider", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx", "source_location": "L26", "weight": 1.0}, {"source": "root_provider_tanstackqueryprovider", "target": "root_provider_getcontext", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx", "source_location": "L31", "weight": 1.0}], "raw_calls": []}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_integrations_tanstack_query_root_provider_tsx",
+      "label": "root-provider.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "root_provider_getcontext",
+      "label": "getContext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx",
+      "source_location": "L12"
+    },
+    {
+      "id": "root_provider_tanstackqueryprovider",
+      "label": "TanStackQueryProvider()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx",
+      "source_location": "L26"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_integrations_tanstack_query_root_provider_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_integrations_tanstack_query_root_provider_tsx",
+      "target": "react_hotkeys",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_integrations_tanstack_query_root_provider_tsx",
+      "target": "react_query",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_integrations_tanstack_query_root_provider_tsx",
+      "target": "profiler_boundary",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_integrations_tanstack_query_root_provider_tsx",
+      "target": "root_provider_getcontext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_integrations_tanstack_query_root_provider_tsx",
+      "target": "root_provider_tanstackqueryprovider",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "root_provider_tanstackqueryprovider",
+      "target": "root_provider_getcontext",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\integrations\\tanstack-query\\root-provider.tsx",
+      "source_location": "L31",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": []
+}

@@ -1,1 +1,479 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "label": "inboundAttachments.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L1"}, {"id": "inboundattachments_debug", "label": "debug()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L27"}, {"id": "inboundattachments_extractinboundattachments", "label": "extractInboundAttachments()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L42"}, {"id": "inboundattachments_sanitizefilename", "label": "sanitizeFileName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L55"}, {"id": "inboundattachments_uploadsdir", "label": "uploadsDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L60"}, {"id": "inboundattachments_resolveone", "label": "resolveOne()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L68"}, {"id": "inboundattachments_resolveinboundattachments", "label": "resolveInboundAttachments()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L123"}, {"id": "inboundattachments_prependpathrefs", "label": "prependPathRefs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L142"}, {"id": "inboundattachments_resolveandprepend", "label": "resolveAndPrepend()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L167"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "messages_mjs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "axios", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "v4", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "f_storage_platform_claude_code_source_main_src_bridge_bridgeconfig_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "inboundattachments_debug", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "inboundattachments_extractinboundattachments", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "inboundattachments_sanitizefilename", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L55", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "inboundattachments_uploadsdir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L60", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "inboundattachments_resolveone", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L68", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "inboundattachments_resolveinboundattachments", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L123", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "inboundattachments_prependpathrefs", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L142", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts", "target": "inboundattachments_resolveandprepend", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L167", "weight": 1.0}, {"source": "inboundattachments_resolveone", "target": "inboundattachments_debug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L71", "weight": 1.0}, {"source": "inboundattachments_resolveone", "target": "inboundattachments_sanitizefilename", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L100", "weight": 1.0}, {"source": "inboundattachments_resolveone", "target": "inboundattachments_uploadsdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L104", "weight": 1.0}, {"source": "inboundattachments_resolveinboundattachments", "target": "inboundattachments_debug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L127", "weight": 1.0}, {"source": "inboundattachments_resolveandprepend", "target": "inboundattachments_extractinboundattachments", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L171", "weight": 1.0}, {"source": "inboundattachments_resolveandprepend", "target": "inboundattachments_resolveinboundattachments", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L173", "weight": 1.0}, {"source": "inboundattachments_resolveandprepend", "target": "inboundattachments_prependpathrefs", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L174", "weight": 1.0}], "raw_calls": [{"caller_nid": "inboundattachments_debug", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L28"}, {"caller_nid": "inboundattachments_extractinboundattachments", "callee": "safeParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L46"}, {"caller_nid": "inboundattachments_extractinboundattachments", "callee": "attachmentsArraySchema", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L46"}, {"caller_nid": "inboundattachments_sanitizefilename", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L56"}, {"caller_nid": "inboundattachments_sanitizefilename", "callee": "basename", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L56"}, {"caller_nid": "inboundattachments_uploadsdir", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L61"}, {"caller_nid": "inboundattachments_uploadsdir", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L61"}, {"caller_nid": "inboundattachments_uploadsdir", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L61"}, {"caller_nid": "inboundattachments_resolveone", "callee": "getBridgeAccessToken", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L69"}, {"caller_nid": "inboundattachments_resolveone", "callee": "getBridgeBaseUrl", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L81"}, {"caller_nid": "inboundattachments_resolveone", "callee": "encodeURIComponent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L81"}, {"caller_nid": "inboundattachments_resolveone", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L82"}, {"caller_nid": "inboundattachments_resolveone", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L92"}, {"caller_nid": "inboundattachments_resolveone", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L101"}, {"caller_nid": "inboundattachments_resolveone", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L102"}, {"caller_nid": "inboundattachments_resolveone", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L102"}, {"caller_nid": "inboundattachments_resolveone", "callee": "randomUUID", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L102"}, {"caller_nid": "inboundattachments_resolveone", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L105"}, {"caller_nid": "inboundattachments_resolveone", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L108"}, {"caller_nid": "inboundattachments_resolveone", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L109"}, {"caller_nid": "inboundattachments_resolveinboundattachments", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L128"}, {"caller_nid": "inboundattachments_resolveinboundattachments", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L128"}, {"caller_nid": "inboundattachments_resolveinboundattachments", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L129"}, {"caller_nid": "inboundattachments_resolveinboundattachments", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L133"}, {"caller_nid": "inboundattachments_resolveinboundattachments", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L133"}, {"caller_nid": "inboundattachments_prependpathrefs", "callee": "findLastIndex", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L148"}, {"caller_nid": "inboundattachments_prependpathrefs", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L153"}, {"caller_nid": "inboundattachments_prependpathrefs", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L155"}, {"caller_nid": "inboundattachments_prependpathrefs", "callee": "trimEnd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts", "source_location": "L160"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "label": "inboundAttachments.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "inboundattachments_debug",
+      "label": "debug()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L27"
+    },
+    {
+      "id": "inboundattachments_extractinboundattachments",
+      "label": "extractInboundAttachments()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L42"
+    },
+    {
+      "id": "inboundattachments_sanitizefilename",
+      "label": "sanitizeFileName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L55"
+    },
+    {
+      "id": "inboundattachments_uploadsdir",
+      "label": "uploadsDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L60"
+    },
+    {
+      "id": "inboundattachments_resolveone",
+      "label": "resolveOne()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L68"
+    },
+    {
+      "id": "inboundattachments_resolveinboundattachments",
+      "label": "resolveInboundAttachments()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L123"
+    },
+    {
+      "id": "inboundattachments_prependpathrefs",
+      "label": "prependPathRefs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L142"
+    },
+    {
+      "id": "inboundattachments_resolveandprepend",
+      "label": "resolveAndPrepend()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L167"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "messages_mjs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "v4",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bridge_bridgeconfig_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "inboundattachments_debug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "inboundattachments_extractinboundattachments",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "inboundattachments_sanitizefilename",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "inboundattachments_uploadsdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "inboundattachments_resolveone",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "inboundattachments_resolveinboundattachments",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "inboundattachments_prependpathrefs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L142",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_inboundattachments_ts",
+      "target": "inboundattachments_resolveandprepend",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L167",
+      "weight": 1.0
+    },
+    {
+      "source": "inboundattachments_resolveone",
+      "target": "inboundattachments_debug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "inboundattachments_resolveone",
+      "target": "inboundattachments_sanitizefilename",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "inboundattachments_resolveone",
+      "target": "inboundattachments_uploadsdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L104",
+      "weight": 1.0
+    },
+    {
+      "source": "inboundattachments_resolveinboundattachments",
+      "target": "inboundattachments_debug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "inboundattachments_resolveandprepend",
+      "target": "inboundattachments_extractinboundattachments",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "inboundattachments_resolveandprepend",
+      "target": "inboundattachments_resolveinboundattachments",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L173",
+      "weight": 1.0
+    },
+    {
+      "source": "inboundattachments_resolveandprepend",
+      "target": "inboundattachments_prependpathrefs",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L174",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "inboundattachments_debug",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "inboundattachments_extractinboundattachments",
+      "callee": "safeParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "inboundattachments_extractinboundattachments",
+      "callee": "attachmentsArraySchema",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "inboundattachments_sanitizefilename",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "inboundattachments_sanitizefilename",
+      "callee": "basename",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "inboundattachments_uploadsdir",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "inboundattachments_uploadsdir",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "inboundattachments_uploadsdir",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveone",
+      "callee": "getBridgeAccessToken",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveone",
+      "callee": "getBridgeBaseUrl",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveone",
+      "callee": "encodeURIComponent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveone",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveone",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveone",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveone",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveone",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveone",
+      "callee": "randomUUID",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveone",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveone",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L108"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveone",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveinboundattachments",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveinboundattachments",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveinboundattachments",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveinboundattachments",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "inboundattachments_resolveinboundattachments",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "inboundattachments_prependpathrefs",
+      "callee": "findLastIndex",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "inboundattachments_prependpathrefs",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L153"
+    },
+    {
+      "caller_nid": "inboundattachments_prependpathrefs",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L155"
+    },
+    {
+      "caller_nid": "inboundattachments_prependpathrefs",
+      "callee": "trimEnd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\inboundAttachments.ts",
+      "source_location": "L160"
+    }
+  ]
+}

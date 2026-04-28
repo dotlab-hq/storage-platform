@@ -1,1 +1,170 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts", "label": "reconnection.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L1"}, {"id": "reconnection_computeinitialteamcontext", "label": "computeInitialTeamContext()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L23"}, {"id": "reconnection_initializeteammatecontextfromsession", "label": "initializeTeammateContextFromSession()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L75"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts", "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_teammate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_swarm_teamhelpers_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts", "target": "reconnection_computeinitialteamcontext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts", "target": "reconnection_initializeteammatecontextfromsession", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L75", "weight": 1.0}], "raw_calls": [{"caller_nid": "reconnection_computeinitialteamcontext", "callee": "getDynamicTeamContext", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L27"}, {"caller_nid": "reconnection_computeinitialteamcontext", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L30"}, {"caller_nid": "reconnection_computeinitialteamcontext", "callee": "readTeamFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L39"}, {"caller_nid": "reconnection_computeinitialteamcontext", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L41"}, {"caller_nid": "reconnection_computeinitialteamcontext", "callee": "getTeamFilePath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L49"}, {"caller_nid": "reconnection_computeinitialteamcontext", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L53"}, {"caller_nid": "reconnection_initializeteammatecontextfromsession", "callee": "readTeamFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L81"}, {"caller_nid": "reconnection_initializeteammatecontextfromsession", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L83"}, {"caller_nid": "reconnection_initializeteammatecontextfromsession", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L92"}, {"caller_nid": "reconnection_initializeteammatecontextfromsession", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L94"}, {"caller_nid": "reconnection_initializeteammatecontextfromsession", "callee": "getTeamFilePath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L100"}, {"caller_nid": "reconnection_initializeteammatecontextfromsession", "callee": "setAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L103"}, {"caller_nid": "reconnection_initializeteammatecontextfromsession", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts", "source_location": "L116"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts",
+      "label": "reconnection.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "reconnection_computeinitialteamcontext",
+      "label": "computeInitialTeamContext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L23"
+    },
+    {
+      "id": "reconnection_initializeteammatecontextfromsession",
+      "label": "initializeTeammateContextFromSession()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L75"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teammate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_swarm_teamhelpers_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts",
+      "target": "reconnection_computeinitialteamcontext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_reconnection_ts",
+      "target": "reconnection_initializeteammatecontextfromsession",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L75",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "reconnection_computeinitialteamcontext",
+      "callee": "getDynamicTeamContext",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "reconnection_computeinitialteamcontext",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L30"
+    },
+    {
+      "caller_nid": "reconnection_computeinitialteamcontext",
+      "callee": "readTeamFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "reconnection_computeinitialteamcontext",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "reconnection_computeinitialteamcontext",
+      "callee": "getTeamFilePath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "reconnection_computeinitialteamcontext",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "reconnection_initializeteammatecontextfromsession",
+      "callee": "readTeamFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "reconnection_initializeteammatecontextfromsession",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "reconnection_initializeteammatecontextfromsession",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "reconnection_initializeteammatecontextfromsession",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L94"
+    },
+    {
+      "caller_nid": "reconnection_initializeteammatecontextfromsession",
+      "callee": "getTeamFilePath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "reconnection_initializeteammatecontextfromsession",
+      "callee": "setAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L103"
+    },
+    {
+      "caller_nid": "reconnection_initializeteammatecontextfromsession",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\reconnection.ts",
+      "source_location": "L116"
+    }
+  ]
+}

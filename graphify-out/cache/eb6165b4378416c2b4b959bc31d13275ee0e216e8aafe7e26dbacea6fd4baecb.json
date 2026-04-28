@@ -1,1 +1,189 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts", "label": "hit-test.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L1"}, {"id": "hit_test_hittest", "label": "hitTest()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L18"}, {"id": "hit_test_dispatchclick", "label": "dispatchClick()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L49"}, {"id": "hit_test_dispatchhover", "label": "dispatchHover()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L102"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_events_click_event_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_events_event_handlers_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_node_cache_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts", "target": "hit_test_hittest", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts", "target": "hit_test_dispatchclick", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L49", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts", "target": "hit_test_dispatchhover", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L102", "weight": 1.0}, {"source": "hit_test_dispatchclick", "target": "hit_test_hittest", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L55", "weight": 1.0}, {"source": "hit_test_dispatchhover", "target": "hit_test_hittest", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L109", "weight": 1.0}], "raw_calls": [{"caller_nid": "hit_test_hittest", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L23"}, {"caller_nid": "hit_test_dispatchclick", "callee": "handleClickFocus", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L64"}, {"caller_nid": "hit_test_dispatchclick", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L78"}, {"caller_nid": "hit_test_dispatchclick", "callee": "handler", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L83"}, {"caller_nid": "hit_test_dispatchclick", "callee": "didStopImmediatePropagation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L84"}, {"caller_nid": "hit_test_dispatchhover", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L112"}, {"caller_nid": "hit_test_dispatchhover", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L116"}, {"caller_nid": "hit_test_dispatchhover", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L117"}, {"caller_nid": "hit_test_dispatchhover", "callee": "onMouseLeave", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L120"}, {"caller_nid": "hit_test_dispatchhover", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L125"}, {"caller_nid": "hit_test_dispatchhover", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L126"}, {"caller_nid": "hit_test_dispatchhover", "callee": "onMouseEnter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts", "source_location": "L127"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts",
+      "label": "hit-test.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "hit_test_hittest",
+      "label": "hitTest()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L18"
+    },
+    {
+      "id": "hit_test_dispatchclick",
+      "label": "dispatchClick()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L49"
+    },
+    {
+      "id": "hit_test_dispatchhover",
+      "label": "dispatchHover()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L102"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_events_click_event_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_events_event_handlers_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_node_cache_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts",
+      "target": "hit_test_hittest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts",
+      "target": "hit_test_dispatchclick",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hit_test_ts",
+      "target": "hit_test_dispatchhover",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "hit_test_dispatchclick",
+      "target": "hit_test_hittest",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "hit_test_dispatchhover",
+      "target": "hit_test_hittest",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L109",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "hit_test_hittest",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "hit_test_dispatchclick",
+      "callee": "handleClickFocus",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "hit_test_dispatchclick",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "hit_test_dispatchclick",
+      "callee": "handler",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "hit_test_dispatchclick",
+      "callee": "didStopImmediatePropagation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "hit_test_dispatchhover",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "hit_test_dispatchhover",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "hit_test_dispatchhover",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "hit_test_dispatchhover",
+      "callee": "onMouseLeave",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "hit_test_dispatchhover",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "hit_test_dispatchhover",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "hit_test_dispatchhover",
+      "callee": "onMouseEnter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hit-test.ts",
+      "source_location": "L127"
+    }
+  ]
+}

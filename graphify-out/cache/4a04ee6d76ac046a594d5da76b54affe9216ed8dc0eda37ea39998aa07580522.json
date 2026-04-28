@@ -1,1 +1,432 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts", "label": "prefix.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L1"}, {"id": "prefix_toarray", "label": "toArray()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L14"}, {"id": "prefix_isknownsubcommand", "label": "isKnownSubcommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L18"}, {"id": "prefix_getcommandprefixstatic", "label": "getCommandPrefixStatic()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L28"}, {"id": "prefix_handlewrapper", "label": "handleWrapper()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L72"}, {"id": "prefix_getcompoundcommandprefixesstatic", "label": "getCompoundCommandPrefixesStatic()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L135"}, {"id": "prefix_longestcommonprefix", "label": "longestCommonPrefix()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L182"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_commands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_parser_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_registry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts", "target": "prefix_toarray", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts", "target": "prefix_isknownsubcommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts", "target": "prefix_getcommandprefixstatic", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts", "target": "prefix_handlewrapper", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L72", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts", "target": "prefix_getcompoundcommandprefixesstatic", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L135", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts", "target": "prefix_longestcommonprefix", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L182", "weight": 1.0}, {"source": "prefix_getcommandprefixstatic", "target": "prefix_toarray", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L52", "weight": 1.0}, {"source": "prefix_getcommandprefixstatic", "target": "prefix_isknownsubcommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L56", "weight": 1.0}, {"source": "prefix_getcommandprefixstatic", "target": "prefix_handlewrapper", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L61", "weight": 1.0}, {"source": "prefix_handlewrapper", "target": "prefix_toarray", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L81", "weight": 1.0}, {"source": "prefix_handlewrapper", "target": "prefix_getcommandprefixstatic", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L88", "weight": 1.0}, {"source": "prefix_getcompoundcommandprefixesstatic", "target": "prefix_getcommandprefixstatic", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L141", "weight": 1.0}, {"source": "prefix_getcompoundcommandprefixesstatic", "target": "prefix_longestcommonprefix", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L172", "weight": 1.0}], "raw_calls": [{"caller_nid": "prefix_toarray", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L14"}, {"caller_nid": "prefix_isknownsubcommand", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L23"}, {"caller_nid": "prefix_getcommandprefixstatic", "callee": "parseCommand", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L35"}, {"caller_nid": "prefix_getcommandprefixstatic", "callee": "extractCommandArguments", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L42"}, {"caller_nid": "prefix_getcommandprefixstatic", "callee": "getCommandSpec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L48"}, {"caller_nid": "prefix_getcommandprefixstatic", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L51"}, {"caller_nid": "prefix_getcommandprefixstatic", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L52"}, {"caller_nid": "prefix_getcommandprefixstatic", "callee": "buildPrefix", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L62"}, {"caller_nid": "prefix_getcommandprefixstatic", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L68"}, {"caller_nid": "prefix_handlewrapper", "callee": "getCommandSpec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L78"}, {"caller_nid": "prefix_handlewrapper", "callee": "findIndex", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L81"}, {"caller_nid": "prefix_handlewrapper", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L89"}, {"caller_nid": "prefix_handlewrapper", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L89"}, {"caller_nid": "prefix_handlewrapper", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L94"}, {"caller_nid": "prefix_handlewrapper", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L94"}, {"caller_nid": "prefix_handlewrapper", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L95"}, {"caller_nid": "prefix_handlewrapper", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L99"}, {"caller_nid": "prefix_handlewrapper", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L101"}, {"caller_nid": "prefix_handlewrapper", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L103"}, {"caller_nid": "prefix_handlewrapper", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L109"}, {"caller_nid": "prefix_handlewrapper", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L115"}, {"caller_nid": "prefix_handlewrapper", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L115"}, {"caller_nid": "prefix_handlewrapper", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L115"}, {"caller_nid": "prefix_getcompoundcommandprefixesstatic", "callee": "splitCommand_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L139"}, {"caller_nid": "prefix_getcompoundcommandprefixesstatic", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L147"}, {"caller_nid": "prefix_getcompoundcommandprefixesstatic", "callee": "excludeSubcommand", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L148"}, {"caller_nid": "prefix_getcompoundcommandprefixesstatic", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L151"}, {"caller_nid": "prefix_getcompoundcommandprefixesstatic", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L160"}, {"caller_nid": "prefix_getcompoundcommandprefixesstatic", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L161"}, {"caller_nid": "prefix_getcompoundcommandprefixesstatic", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L163"}, {"caller_nid": "prefix_getcompoundcommandprefixesstatic", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L165"}, {"caller_nid": "prefix_getcompoundcommandprefixesstatic", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L172"}, {"caller_nid": "prefix_longestcommonprefix", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L187"}, {"caller_nid": "prefix_longestcommonprefix", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L191"}, {"caller_nid": "prefix_longestcommonprefix", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L203"}, {"caller_nid": "prefix_longestcommonprefix", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L203"}, {"caller_nid": "prefix_longestcommonprefix", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts", "source_location": "L203"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts",
+      "label": "prefix.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "prefix_toarray",
+      "label": "toArray()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L14"
+    },
+    {
+      "id": "prefix_isknownsubcommand",
+      "label": "isKnownSubcommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L18"
+    },
+    {
+      "id": "prefix_getcommandprefixstatic",
+      "label": "getCommandPrefixStatic()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L28"
+    },
+    {
+      "id": "prefix_handlewrapper",
+      "label": "handleWrapper()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L72"
+    },
+    {
+      "id": "prefix_getcompoundcommandprefixesstatic",
+      "label": "getCompoundCommandPrefixesStatic()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L135"
+    },
+    {
+      "id": "prefix_longestcommonprefix",
+      "label": "longestCommonPrefix()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L182"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_commands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_parser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_registry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts",
+      "target": "prefix_toarray",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts",
+      "target": "prefix_isknownsubcommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts",
+      "target": "prefix_getcommandprefixstatic",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts",
+      "target": "prefix_handlewrapper",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts",
+      "target": "prefix_getcompoundcommandprefixesstatic",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L135",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_prefix_ts",
+      "target": "prefix_longestcommonprefix",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L182",
+      "weight": 1.0
+    },
+    {
+      "source": "prefix_getcommandprefixstatic",
+      "target": "prefix_toarray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "prefix_getcommandprefixstatic",
+      "target": "prefix_isknownsubcommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "prefix_getcommandprefixstatic",
+      "target": "prefix_handlewrapper",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "prefix_handlewrapper",
+      "target": "prefix_toarray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "prefix_handlewrapper",
+      "target": "prefix_getcommandprefixstatic",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "prefix_getcompoundcommandprefixesstatic",
+      "target": "prefix_getcommandprefixstatic",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L141",
+      "weight": 1.0
+    },
+    {
+      "source": "prefix_getcompoundcommandprefixesstatic",
+      "target": "prefix_longestcommonprefix",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L172",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "prefix_toarray",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L14"
+    },
+    {
+      "caller_nid": "prefix_isknownsubcommand",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "prefix_getcommandprefixstatic",
+      "callee": "parseCommand",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "prefix_getcommandprefixstatic",
+      "callee": "extractCommandArguments",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "prefix_getcommandprefixstatic",
+      "callee": "getCommandSpec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "prefix_getcommandprefixstatic",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "prefix_getcommandprefixstatic",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "prefix_getcommandprefixstatic",
+      "callee": "buildPrefix",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "prefix_getcommandprefixstatic",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "prefix_handlewrapper",
+      "callee": "getCommandSpec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "prefix_handlewrapper",
+      "callee": "findIndex",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "prefix_handlewrapper",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "prefix_handlewrapper",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "prefix_handlewrapper",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L94"
+    },
+    {
+      "caller_nid": "prefix_handlewrapper",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L94"
+    },
+    {
+      "caller_nid": "prefix_handlewrapper",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "prefix_handlewrapper",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "prefix_handlewrapper",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "prefix_handlewrapper",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L103"
+    },
+    {
+      "caller_nid": "prefix_handlewrapper",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "prefix_handlewrapper",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "prefix_handlewrapper",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "prefix_handlewrapper",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "prefix_getcompoundcommandprefixesstatic",
+      "callee": "splitCommand_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "prefix_getcompoundcommandprefixesstatic",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "prefix_getcompoundcommandprefixesstatic",
+      "callee": "excludeSubcommand",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "prefix_getcompoundcommandprefixesstatic",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "prefix_getcompoundcommandprefixesstatic",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L160"
+    },
+    {
+      "caller_nid": "prefix_getcompoundcommandprefixesstatic",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "prefix_getcompoundcommandprefixesstatic",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L163"
+    },
+    {
+      "caller_nid": "prefix_getcompoundcommandprefixesstatic",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "prefix_getcompoundcommandprefixesstatic",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "prefix_longestcommonprefix",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L187"
+    },
+    {
+      "caller_nid": "prefix_longestcommonprefix",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L191"
+    },
+    {
+      "caller_nid": "prefix_longestcommonprefix",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "prefix_longestcommonprefix",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "prefix_longestcommonprefix",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\prefix.ts",
+      "source_location": "L203"
+    }
+  ]
+}

@@ -1,1 +1,76 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_telemetry_skillloadedevent_ts", "label": "skillLoadedEvent.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts", "source_location": "L1"}, {"id": "skillloadedevent_logskillsloaded", "label": "logSkillsLoaded()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts", "source_location": "L13"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_skillloadedevent_ts", "target": "f_storage_platform_claude_code_source_main_src_commands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_skillloadedevent_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_skillloadedevent_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_skilltool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_skillloadedevent_ts", "target": "skillloadedevent_logskillsloaded", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts", "source_location": "L13", "weight": 1.0}], "raw_calls": [{"caller_nid": "skillloadedevent_logskillsloaded", "callee": "getSkillToolCommands", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts", "source_location": "L17"}, {"caller_nid": "skillloadedevent_logskillsloaded", "callee": "getCharBudget", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts", "source_location": "L18"}, {"caller_nid": "skillloadedevent_logskillsloaded", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts", "source_location": "L23"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_telemetry_skillloadedevent_ts",
+      "label": "skillLoadedEvent.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "skillloadedevent_logskillsloaded",
+      "label": "logSkillsLoaded()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts",
+      "source_location": "L13"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_skillloadedevent_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_commands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_skillloadedevent_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_skillloadedevent_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_skilltool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_skillloadedevent_ts",
+      "target": "skillloadedevent_logskillsloaded",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "skillloadedevent_logskillsloaded",
+      "callee": "getSkillToolCommands",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "skillloadedevent_logskillsloaded",
+      "callee": "getCharBudget",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "skillloadedevent_logskillsloaded",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\skillLoadedEvent.ts",
+      "source_location": "L23"
+    }
+  ]
+}

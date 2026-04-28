@@ -1,1 +1,887 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts", "label": "chromeNativeHost.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L1"}, {"id": "chromenativehost_log", "label": "log()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L34"}, {"id": "chromenativehost_sendchromemessage", "label": "sendChromeMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L50"}, {"id": "chromenativehost_runchromenativehost", "label": "runChromeNativeHost()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L59"}, {"id": "chromenativehost_chromenativehost", "label": "ChromeNativeHost", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L103"}, {"id": "chromenativehost_chromenativehost_start", "label": ".start()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L110"}, {"id": "chromenativehost_chromenativehost_stop", "label": ".stop()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L193"}, {"id": "chromenativehost_chromenativehost_isrunning", "label": ".isRunning()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L237"}, {"id": "chromenativehost_chromenativehost_getclientcount", "label": ".getClientCount()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L241"}, {"id": "chromenativehost_chromenativehost_handlemessage", "label": ".handleMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L245"}, {"id": "chromenativehost_chromenativehost_handlemcpclient", "label": ".handleMcpClient()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L354"}, {"id": "chromenativehost_chromemessagereader", "label": "ChromeMessageReader", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L440"}, {"id": "chromenativehost_chromemessagereader_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L445"}, {"id": "chromenativehost_chromemessagereader_tryprocessmessage", "label": ".tryProcessMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L468"}, {"id": "chromenativehost_chromemessagereader_read", "label": ".read()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L501"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts", "target": "net", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts", "target": "os", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts", "target": "zod", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_common_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts", "target": "chromenativehost_log", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L34", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts", "target": "chromenativehost_sendchromemessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L50", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts", "target": "chromenativehost_runchromenativehost", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L59", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts", "target": "chromenativehost_chromenativehost", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L103", "weight": 1.0}, {"source": "chromenativehost_chromenativehost", "target": "chromenativehost_chromenativehost_start", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L110", "weight": 1.0}, {"source": "chromenativehost_chromenativehost", "target": "chromenativehost_chromenativehost_stop", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L193", "weight": 1.0}, {"source": "chromenativehost_chromenativehost", "target": "chromenativehost_chromenativehost_isrunning", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L237", "weight": 1.0}, {"source": "chromenativehost_chromenativehost", "target": "chromenativehost_chromenativehost_getclientcount", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L241", "weight": 1.0}, {"source": "chromenativehost_chromenativehost", "target": "chromenativehost_chromenativehost_handlemessage", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L245", "weight": 1.0}, {"source": "chromenativehost_chromenativehost", "target": "chromenativehost_chromenativehost_handlemcpclient", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L354", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts", "target": "chromenativehost_chromemessagereader", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L440", "weight": 1.0}, {"source": "chromenativehost_chromemessagereader", "target": "chromenativehost_chromemessagereader_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L445", "weight": 1.0}, {"source": "chromenativehost_chromemessagereader", "target": "chromenativehost_chromemessagereader_tryprocessmessage", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L468", "weight": 1.0}, {"source": "chromenativehost_chromemessagereader", "target": "chromenativehost_chromemessagereader_read", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L501", "weight": 1.0}, {"source": "chromenativehost_runchromenativehost", "target": "chromenativehost_log", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L60", "weight": 1.0}, {"source": "chromenativehost_runchromenativehost", "target": "chromenativehost_chromenativehost_start", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L66", "weight": 1.0}, {"source": "chromenativehost_runchromenativehost", "target": "chromenativehost_chromemessagereader_read", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L71", "weight": 1.0}, {"source": "chromenativehost_runchromenativehost", "target": "chromenativehost_chromenativehost_handlemessage", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L77", "weight": 1.0}, {"source": "chromenativehost_runchromenativehost", "target": "chromenativehost_chromenativehost_stop", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L81", "weight": 1.0}, {"source": "chromenativehost_chromenativehost_start", "target": "chromenativehost_log", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L157", "weight": 1.0}, {"source": "chromenativehost_chromenativehost_stop", "target": "chromenativehost_log", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L216", "weight": 1.0}, {"source": "chromenativehost_chromenativehost_handlemessage", "target": "chromenativehost_log", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L250", "weight": 1.0}, {"source": "chromenativehost_chromenativehost_handlemessage", "target": "chromenativehost_sendchromemessage", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L251", "weight": 1.0}, {"source": "chromenativehost_chromenativehost_handlemcpclient", "target": "chromenativehost_log", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L363", "weight": 1.0}, {"source": "chromenativehost_chromenativehost_handlemcpclient", "target": "chromenativehost_sendchromemessage", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L368", "weight": 1.0}, {"source": "chromenativehost_chromemessagereader_tryprocessmessage", "target": "chromenativehost_log", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L481", "weight": 1.0}], "raw_calls": [{"caller_nid": "chromenativehost_log", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L36"}, {"caller_nid": "chromenativehost_log", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L37"}, {"caller_nid": "chromenativehost_log", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L41"}, {"caller_nid": "chromenativehost_log", "callee": "appendFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L41"}, {"caller_nid": "chromenativehost_log", "callee": "error", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L45"}, {"caller_nid": "chromenativehost_sendchromemessage", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L51"}, {"caller_nid": "chromenativehost_sendchromemessage", "callee": "alloc", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L52"}, {"caller_nid": "chromenativehost_sendchromemessage", "callee": "writeUInt32LE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L53"}, {"caller_nid": "chromenativehost_sendchromemessage", "callee": "write", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L55"}, {"caller_nid": "chromenativehost_sendchromemessage", "callee": "write", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L56"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "getSecureSocketPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L115"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "platform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L117"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "getSocketDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L118"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "stat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L122"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "isDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L123"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L124"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L131"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L134"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "chmod", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L134"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L140"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L142"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L145"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L145"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "isNaN", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L146"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "kill", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L150"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L154"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L154"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L154"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "createServer", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L167"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "platform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L183"}, {"caller_nid": "chromenativehost_chromenativehost_start", "callee": "chmod", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L185"}, {"caller_nid": "chromenativehost_chromenativehost_stop", "callee": "destroy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L200"}, {"caller_nid": "chromenativehost_chromenativehost_stop", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L202"}, {"caller_nid": "chromenativehost_chromenativehost_stop", "callee": "platform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L213"}, {"caller_nid": "chromenativehost_chromenativehost_stop", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L215"}, {"caller_nid": "chromenativehost_chromenativehost_stop", "callee": "getSocketDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L223"}, {"caller_nid": "chromenativehost_chromenativehost_stop", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L224"}, {"caller_nid": "chromenativehost_chromenativehost_stop", "callee": "rmdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L226"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L248"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L252"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "safeParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L259"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "messageSchema", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L259"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L263"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L279"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L281"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L288"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L301"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L301"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "alloc", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L302"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "writeUInt32LE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L303"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "concat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L304"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "write", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L308"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L323"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L323"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "alloc", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L324"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "writeUInt32LE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L325"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "concat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L326"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "write", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L333"}, {"caller_nid": "chromenativehost_chromenativehost_handlemessage", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L346"}, {"caller_nid": "chromenativehost_chromenativehost_handlemcpclient", "callee": "alloc", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L359"}, {"caller_nid": "chromenativehost_chromenativehost_handlemcpclient", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L362"}, {"caller_nid": "chromenativehost_chromenativehost_handlemcpclient", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L369"}, {"caller_nid": "chromenativehost_chromenativehost_handlemcpclient", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L374"}, {"caller_nid": "chromenativehost_chromenativehost_handlemcpclient", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L416"}, {"caller_nid": "chromenativehost_chromenativehost_handlemcpclient", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L420"}, {"caller_nid": "chromenativehost_chromemessagereader_constructor", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L446"}, {"caller_nid": "chromenativehost_chromemessagereader_constructor", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L451"}, {"caller_nid": "chromenativehost_chromemessagereader_constructor", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L459"}, {"caller_nid": "chromenativehost_chromemessagereader_tryprocessmessage", "callee": "readUInt32LE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L478"}, {"caller_nid": "chromenativehost_chromemessagereader_tryprocessmessage", "callee": "pendingResolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L482"}, {"caller_nid": "chromenativehost_chromemessagereader_tryprocessmessage", "callee": "subarray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L493"}, {"caller_nid": "chromenativehost_chromemessagereader_tryprocessmessage", "callee": "subarray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L494"}, {"caller_nid": "chromenativehost_chromemessagereader_tryprocessmessage", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L496"}, {"caller_nid": "chromenativehost_chromemessagereader_tryprocessmessage", "callee": "pendingResolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L497"}, {"caller_nid": "chromenativehost_chromemessagereader_read", "callee": "readUInt32LE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L508"}, {"caller_nid": "chromenativehost_chromemessagereader_read", "callee": "subarray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L514"}, {"caller_nid": "chromenativehost_chromemessagereader_read", "callee": "subarray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L515"}, {"caller_nid": "chromenativehost_chromemessagereader_read", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts", "source_location": "L516"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts",
+      "label": "chromeNativeHost.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "chromenativehost_log",
+      "label": "log()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L34"
+    },
+    {
+      "id": "chromenativehost_sendchromemessage",
+      "label": "sendChromeMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L50"
+    },
+    {
+      "id": "chromenativehost_runchromenativehost",
+      "label": "runChromeNativeHost()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L59"
+    },
+    {
+      "id": "chromenativehost_chromenativehost",
+      "label": "ChromeNativeHost",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L103"
+    },
+    {
+      "id": "chromenativehost_chromenativehost_start",
+      "label": ".start()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L110"
+    },
+    {
+      "id": "chromenativehost_chromenativehost_stop",
+      "label": ".stop()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L193"
+    },
+    {
+      "id": "chromenativehost_chromenativehost_isrunning",
+      "label": ".isRunning()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L237"
+    },
+    {
+      "id": "chromenativehost_chromenativehost_getclientcount",
+      "label": ".getClientCount()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L241"
+    },
+    {
+      "id": "chromenativehost_chromenativehost_handlemessage",
+      "label": ".handleMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L245"
+    },
+    {
+      "id": "chromenativehost_chromenativehost_handlemcpclient",
+      "label": ".handleMcpClient()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L354"
+    },
+    {
+      "id": "chromenativehost_chromemessagereader",
+      "label": "ChromeMessageReader",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L440"
+    },
+    {
+      "id": "chromenativehost_chromemessagereader_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L445"
+    },
+    {
+      "id": "chromenativehost_chromemessagereader_tryprocessmessage",
+      "label": ".tryProcessMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L468"
+    },
+    {
+      "id": "chromenativehost_chromemessagereader_read",
+      "label": ".read()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L501"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts",
+      "target": "net",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts",
+      "target": "os",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts",
+      "target": "zod",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_common_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts",
+      "target": "chromenativehost_log",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts",
+      "target": "chromenativehost_sendchromemessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts",
+      "target": "chromenativehost_runchromenativehost",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts",
+      "target": "chromenativehost_chromenativehost",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromenativehost",
+      "target": "chromenativehost_chromenativehost_start",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromenativehost",
+      "target": "chromenativehost_chromenativehost_stop",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L193",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromenativehost",
+      "target": "chromenativehost_chromenativehost_isrunning",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L237",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromenativehost",
+      "target": "chromenativehost_chromenativehost_getclientcount",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L241",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromenativehost",
+      "target": "chromenativehost_chromenativehost_handlemessage",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L245",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromenativehost",
+      "target": "chromenativehost_chromenativehost_handlemcpclient",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L354",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_chromenativehost_ts",
+      "target": "chromenativehost_chromemessagereader",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L440",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromemessagereader",
+      "target": "chromenativehost_chromemessagereader_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L445",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromemessagereader",
+      "target": "chromenativehost_chromemessagereader_tryprocessmessage",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L468",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromemessagereader",
+      "target": "chromenativehost_chromemessagereader_read",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L501",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_runchromenativehost",
+      "target": "chromenativehost_log",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_runchromenativehost",
+      "target": "chromenativehost_chromenativehost_start",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_runchromenativehost",
+      "target": "chromenativehost_chromemessagereader_read",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_runchromenativehost",
+      "target": "chromenativehost_chromenativehost_handlemessage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_runchromenativehost",
+      "target": "chromenativehost_chromenativehost_stop",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromenativehost_start",
+      "target": "chromenativehost_log",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L157",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromenativehost_stop",
+      "target": "chromenativehost_log",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L216",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromenativehost_handlemessage",
+      "target": "chromenativehost_log",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L250",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromenativehost_handlemessage",
+      "target": "chromenativehost_sendchromemessage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L251",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromenativehost_handlemcpclient",
+      "target": "chromenativehost_log",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L363",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromenativehost_handlemcpclient",
+      "target": "chromenativehost_sendchromemessage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L368",
+      "weight": 1.0
+    },
+    {
+      "source": "chromenativehost_chromemessagereader_tryprocessmessage",
+      "target": "chromenativehost_log",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L481",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "chromenativehost_log",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "chromenativehost_log",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "chromenativehost_log",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "chromenativehost_log",
+      "callee": "appendFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "chromenativehost_log",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "chromenativehost_sendchromemessage",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "chromenativehost_sendchromemessage",
+      "callee": "alloc",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "chromenativehost_sendchromemessage",
+      "callee": "writeUInt32LE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "chromenativehost_sendchromemessage",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "chromenativehost_sendchromemessage",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "getSecureSocketPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "platform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "getSocketDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "stat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "isDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L123"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "chmod",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L140"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "isNaN",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "kill",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "createServer",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L167"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "platform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L183"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_start",
+      "callee": "chmod",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_stop",
+      "callee": "destroy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_stop",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_stop",
+      "callee": "platform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L213"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_stop",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L215"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_stop",
+      "callee": "getSocketDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L223"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_stop",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L224"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_stop",
+      "callee": "rmdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L226"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L248"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L252"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "safeParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L259"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "messageSchema",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L259"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L263"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L279"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L281"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L301"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L301"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "alloc",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L302"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "writeUInt32LE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L303"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "concat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L304"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L308"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L323"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L323"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "alloc",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L324"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "writeUInt32LE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L325"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "concat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L326"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L333"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemessage",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L346"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemcpclient",
+      "callee": "alloc",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L359"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemcpclient",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L362"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemcpclient",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L369"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemcpclient",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L374"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemcpclient",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L416"
+    },
+    {
+      "caller_nid": "chromenativehost_chromenativehost_handlemcpclient",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L420"
+    },
+    {
+      "caller_nid": "chromenativehost_chromemessagereader_constructor",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L446"
+    },
+    {
+      "caller_nid": "chromenativehost_chromemessagereader_constructor",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L451"
+    },
+    {
+      "caller_nid": "chromenativehost_chromemessagereader_constructor",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L459"
+    },
+    {
+      "caller_nid": "chromenativehost_chromemessagereader_tryprocessmessage",
+      "callee": "readUInt32LE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L478"
+    },
+    {
+      "caller_nid": "chromenativehost_chromemessagereader_tryprocessmessage",
+      "callee": "pendingResolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L482"
+    },
+    {
+      "caller_nid": "chromenativehost_chromemessagereader_tryprocessmessage",
+      "callee": "subarray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L493"
+    },
+    {
+      "caller_nid": "chromenativehost_chromemessagereader_tryprocessmessage",
+      "callee": "subarray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L494"
+    },
+    {
+      "caller_nid": "chromenativehost_chromemessagereader_tryprocessmessage",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L496"
+    },
+    {
+      "caller_nid": "chromenativehost_chromemessagereader_tryprocessmessage",
+      "callee": "pendingResolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L497"
+    },
+    {
+      "caller_nid": "chromenativehost_chromemessagereader_read",
+      "callee": "readUInt32LE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L508"
+    },
+    {
+      "caller_nid": "chromenativehost_chromemessagereader_read",
+      "callee": "subarray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L514"
+    },
+    {
+      "caller_nid": "chromenativehost_chromemessagereader_read",
+      "callee": "subarray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L515"
+    },
+    {
+      "caller_nid": "chromenativehost_chromemessagereader_read",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\chromeNativeHost.ts",
+      "source_location": "L516"
+    }
+  ]
+}

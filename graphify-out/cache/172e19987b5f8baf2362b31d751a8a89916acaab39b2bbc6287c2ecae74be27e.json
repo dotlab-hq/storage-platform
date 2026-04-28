@@ -1,1 +1,469 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts", "label": "specPrefix.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L1"}, {"id": "specprefix_toarray", "label": "toArray()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L36"}, {"id": "specprefix_isknownsubcommand", "label": "isKnownSubcommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L40"}, {"id": "specprefix_flagtakesarg", "label": "flagTakesArg()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L51"}, {"id": "specprefix_findfirstsubcommand", "label": "findFirstSubcommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L71"}, {"id": "specprefix_buildprefix", "label": "buildPrefix()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L88"}, {"id": "specprefix_calculatedepth", "label": "calculateDepth()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L139"}, {"id": "specprefix_shouldstopatarg", "label": "shouldStopAtArg()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L211"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_registry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts", "target": "specprefix_toarray", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L36", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts", "target": "specprefix_isknownsubcommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L40", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts", "target": "specprefix_flagtakesarg", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L51", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts", "target": "specprefix_findfirstsubcommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L71", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts", "target": "specprefix_buildprefix", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L88", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts", "target": "specprefix_calculatedepth", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L139", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts", "target": "specprefix_shouldstopatarg", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L211", "weight": 1.0}, {"source": "specprefix_flagtakesarg", "target": "specprefix_isknownsubcommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L65", "weight": 1.0}, {"source": "specprefix_findfirstsubcommand", "target": "specprefix_flagtakesarg", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L79", "weight": 1.0}, {"source": "specprefix_findfirstsubcommand", "target": "specprefix_isknownsubcommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L83", "weight": 1.0}, {"source": "specprefix_buildprefix", "target": "specprefix_calculatedepth", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L93", "weight": 1.0}, {"source": "specprefix_buildprefix", "target": "specprefix_toarray", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L114", "weight": 1.0}, {"source": "specprefix_buildprefix", "target": "specprefix_flagtakesarg", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L123", "weight": 1.0}, {"source": "specprefix_buildprefix", "target": "specprefix_shouldstopatarg", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L129", "weight": 1.0}, {"source": "specprefix_buildprefix", "target": "specprefix_isknownsubcommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L131", "weight": 1.0}, {"source": "specprefix_calculatedepth", "target": "specprefix_findfirstsubcommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L145", "weight": 1.0}, {"source": "specprefix_calculatedepth", "target": "specprefix_toarray", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L162", "weight": 1.0}, {"source": "specprefix_shouldstopatarg", "target": "specprefix_toarray", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L234", "weight": 1.0}], "raw_calls": [{"caller_nid": "specprefix_toarray", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L36"}, {"caller_nid": "specprefix_isknownsubcommand", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L42"}, {"caller_nid": "specprefix_isknownsubcommand", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L43"}, {"caller_nid": "specprefix_flagtakesarg", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L58"}, {"caller_nid": "specprefix_flagtakesarg", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L64"}, {"caller_nid": "specprefix_findfirstsubcommand", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L78"}, {"caller_nid": "specprefix_buildprefix", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L102"}, {"caller_nid": "specprefix_buildprefix", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L104"}, {"caller_nid": "specprefix_buildprefix", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L104"}, {"caller_nid": "specprefix_buildprefix", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L109"}, {"caller_nid": "specprefix_buildprefix", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L114"}, {"caller_nid": "specprefix_buildprefix", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L116"}, {"caller_nid": "specprefix_buildprefix", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L129"}, {"caller_nid": "specprefix_buildprefix", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L133"}, {"caller_nid": "specprefix_buildprefix", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L136"}, {"caller_nid": "specprefix_calculatedepth", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L146"}, {"caller_nid": "specprefix_calculatedepth", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L148"}, {"caller_nid": "specprefix_calculatedepth", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L154"}, {"caller_nid": "specprefix_calculatedepth", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L156"}, {"caller_nid": "specprefix_calculatedepth", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L157"}, {"caller_nid": "specprefix_calculatedepth", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L162"}, {"caller_nid": "specprefix_calculatedepth", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L170"}, {"caller_nid": "specprefix_calculatedepth", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L171"}, {"caller_nid": "specprefix_calculatedepth", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L179"}, {"caller_nid": "specprefix_calculatedepth", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L180"}, {"caller_nid": "specprefix_calculatedepth", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L196"}, {"caller_nid": "specprefix_calculatedepth", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L197"}, {"caller_nid": "specprefix_calculatedepth", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L199"}, {"caller_nid": "specprefix_calculatedepth", "callee": "findIndex", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L199"}, {"caller_nid": "specprefix_calculatedepth", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L203"}, {"caller_nid": "specprefix_calculatedepth", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L208"}, {"caller_nid": "specprefix_shouldstopatarg", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L216"}, {"caller_nid": "specprefix_shouldstopatarg", "callee": "lastIndexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L218"}, {"caller_nid": "specprefix_shouldstopatarg", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L222"}, {"caller_nid": "specprefix_shouldstopatarg", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L222"}, {"caller_nid": "specprefix_shouldstopatarg", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L224"}, {"caller_nid": "specprefix_shouldstopatarg", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L225"}, {"caller_nid": "specprefix_shouldstopatarg", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L231"}, {"caller_nid": "specprefix_shouldstopatarg", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts", "source_location": "L234"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts",
+      "label": "specPrefix.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "specprefix_toarray",
+      "label": "toArray()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L36"
+    },
+    {
+      "id": "specprefix_isknownsubcommand",
+      "label": "isKnownSubcommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L40"
+    },
+    {
+      "id": "specprefix_flagtakesarg",
+      "label": "flagTakesArg()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L51"
+    },
+    {
+      "id": "specprefix_findfirstsubcommand",
+      "label": "findFirstSubcommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L71"
+    },
+    {
+      "id": "specprefix_buildprefix",
+      "label": "buildPrefix()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L88"
+    },
+    {
+      "id": "specprefix_calculatedepth",
+      "label": "calculateDepth()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L139"
+    },
+    {
+      "id": "specprefix_shouldstopatarg",
+      "label": "shouldStopAtArg()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L211"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_registry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts",
+      "target": "specprefix_toarray",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts",
+      "target": "specprefix_isknownsubcommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts",
+      "target": "specprefix_flagtakesarg",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts",
+      "target": "specprefix_findfirstsubcommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts",
+      "target": "specprefix_buildprefix",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts",
+      "target": "specprefix_calculatedepth",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_specprefix_ts",
+      "target": "specprefix_shouldstopatarg",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L211",
+      "weight": 1.0
+    },
+    {
+      "source": "specprefix_flagtakesarg",
+      "target": "specprefix_isknownsubcommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "specprefix_findfirstsubcommand",
+      "target": "specprefix_flagtakesarg",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "specprefix_findfirstsubcommand",
+      "target": "specprefix_isknownsubcommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "specprefix_buildprefix",
+      "target": "specprefix_calculatedepth",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "specprefix_buildprefix",
+      "target": "specprefix_toarray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "specprefix_buildprefix",
+      "target": "specprefix_flagtakesarg",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "specprefix_buildprefix",
+      "target": "specprefix_shouldstopatarg",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "specprefix_buildprefix",
+      "target": "specprefix_isknownsubcommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L131",
+      "weight": 1.0
+    },
+    {
+      "source": "specprefix_calculatedepth",
+      "target": "specprefix_findfirstsubcommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L145",
+      "weight": 1.0
+    },
+    {
+      "source": "specprefix_calculatedepth",
+      "target": "specprefix_toarray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L162",
+      "weight": 1.0
+    },
+    {
+      "source": "specprefix_shouldstopatarg",
+      "target": "specprefix_toarray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L234",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "specprefix_toarray",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "specprefix_isknownsubcommand",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "specprefix_isknownsubcommand",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "specprefix_flagtakesarg",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "specprefix_flagtakesarg",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "specprefix_findfirstsubcommand",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "specprefix_buildprefix",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "specprefix_buildprefix",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "specprefix_buildprefix",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "specprefix_buildprefix",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "specprefix_buildprefix",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "specprefix_buildprefix",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "specprefix_buildprefix",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "specprefix_buildprefix",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "specprefix_buildprefix",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L136"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L157"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L170"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L171"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L180"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L196"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L199"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "findIndex",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L199"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "specprefix_calculatedepth",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L208"
+    },
+    {
+      "caller_nid": "specprefix_shouldstopatarg",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L216"
+    },
+    {
+      "caller_nid": "specprefix_shouldstopatarg",
+      "callee": "lastIndexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "specprefix_shouldstopatarg",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L222"
+    },
+    {
+      "caller_nid": "specprefix_shouldstopatarg",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L222"
+    },
+    {
+      "caller_nid": "specprefix_shouldstopatarg",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L224"
+    },
+    {
+      "caller_nid": "specprefix_shouldstopatarg",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L225"
+    },
+    {
+      "caller_nid": "specprefix_shouldstopatarg",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L231"
+    },
+    {
+      "caller_nid": "specprefix_shouldstopatarg",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\specPrefix.ts",
+      "source_location": "L234"
+    }
+  ]
+}

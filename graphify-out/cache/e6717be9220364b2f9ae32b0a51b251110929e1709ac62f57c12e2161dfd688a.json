@@ -1,1 +1,86 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_file_summary_client_ts", "label": "client.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts", "source_location": "L1"}, {"id": "client_wait", "label": "wait()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts", "source_location": "L7"}, {"id": "client_generatefilesummaryforitem", "label": "generateFileSummaryForItem()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts", "source_location": "L13"}], "edges": [{"source": "f_storage_platform_src_lib_file_summary_client_ts", "target": "f_storage_platform_src_lib_file_summary_queries", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_client_ts", "target": "f_storage_platform_src_lib_file_summary_request", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_client_ts", "target": "client_wait", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_client_ts", "target": "client_generatefilesummaryforitem", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts", "source_location": "L13", "weight": 1.0}, {"source": "client_generatefilesummaryforitem", "target": "client_wait", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts", "source_location": "L26", "weight": 1.0}], "raw_calls": [{"caller_nid": "client_generatefilesummaryforitem", "callee": "requestFileSummaryFn", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts", "source_location": "L16"}, {"caller_nid": "client_generatefilesummaryforitem", "callee": "getLatestFileSummaryFn", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts", "source_location": "L21"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_file_summary_client_ts",
+      "label": "client.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_wait",
+      "label": "wait()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "client_generatefilesummaryforitem",
+      "label": "generateFileSummaryForItem()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts",
+      "source_location": "L13"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_file_summary_client_ts",
+      "target": "f_storage_platform_src_lib_file_summary_queries",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_client_ts",
+      "target": "f_storage_platform_src_lib_file_summary_request",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_client_ts",
+      "target": "client_wait",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_client_ts",
+      "target": "client_generatefilesummaryforitem",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "client_generatefilesummaryforitem",
+      "target": "client_wait",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "client_generatefilesummaryforitem",
+      "callee": "requestFileSummaryFn",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts",
+      "source_location": "L16"
+    },
+    {
+      "caller_nid": "client_generatefilesummaryforitem",
+      "callee": "getLatestFileSummaryFn",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\client.ts",
+      "source_location": "L21"
+    }
+  ]
+}

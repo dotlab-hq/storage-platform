@@ -1,1 +1,185 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_app_chat_tools_math_tools_ts", "label": "-math-tools.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L1"}, {"id": "math_tools_addtool", "label": "AddTool", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L4"}, {"id": "math_tools_addtool_call", "label": "._call()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L16"}, {"id": "math_tools_subtracttool", "label": "SubtractTool", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L22"}, {"id": "math_tools_subtracttool_call", "label": "._call()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L32"}, {"id": "math_tools_multiplytool", "label": "MultiplyTool", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L38"}, {"id": "math_tools_multiplytool_call", "label": "._call()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L50"}, {"id": "math_tools_dividetool", "label": "DivideTool", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L56"}, {"id": "math_tools_dividetool_call", "label": "._call()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L66"}], "edges": [{"source": "f_storage_platform_src_routes_app_chat_tools_math_tools_ts", "target": "tools", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_math_tools_ts", "target": "zod", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_math_tools_ts", "target": "math_tools_addtool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L4", "weight": 1.0}, {"source": "math_tools_addtool", "target": "math_tools_addtool_call", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_math_tools_ts", "target": "math_tools_subtracttool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L22", "weight": 1.0}, {"source": "math_tools_subtracttool", "target": "math_tools_subtracttool_call", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_math_tools_ts", "target": "math_tools_multiplytool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L38", "weight": 1.0}, {"source": "math_tools_multiplytool", "target": "math_tools_multiplytool_call", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L50", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_math_tools_ts", "target": "math_tools_dividetool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L56", "weight": 1.0}, {"source": "math_tools_dividetool", "target": "math_tools_dividetool_call", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L66", "weight": 1.0}], "raw_calls": [{"caller_nid": "math_tools_addtool_call", "callee": "reduce", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L17"}, {"caller_nid": "math_tools_addtool_call", "callee": "join", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L18"}, {"caller_nid": "math_tools_multiplytool_call", "callee": "reduce", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L51"}, {"caller_nid": "math_tools_multiplytool_call", "callee": "join", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts", "source_location": "L52"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_app_chat_tools_math_tools_ts",
+      "label": "-math-tools.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "math_tools_addtool",
+      "label": "AddTool",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "math_tools_addtool_call",
+      "label": "._call()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "math_tools_subtracttool",
+      "label": "SubtractTool",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "math_tools_subtracttool_call",
+      "label": "._call()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "math_tools_multiplytool",
+      "label": "MultiplyTool",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L38"
+    },
+    {
+      "id": "math_tools_multiplytool_call",
+      "label": "._call()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L50"
+    },
+    {
+      "id": "math_tools_dividetool",
+      "label": "DivideTool",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L56"
+    },
+    {
+      "id": "math_tools_dividetool_call",
+      "label": "._call()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L66"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_math_tools_ts",
+      "target": "tools",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_math_tools_ts",
+      "target": "zod",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_math_tools_ts",
+      "target": "math_tools_addtool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "math_tools_addtool",
+      "target": "math_tools_addtool_call",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_math_tools_ts",
+      "target": "math_tools_subtracttool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "math_tools_subtracttool",
+      "target": "math_tools_subtracttool_call",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_math_tools_ts",
+      "target": "math_tools_multiplytool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "math_tools_multiplytool",
+      "target": "math_tools_multiplytool_call",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_math_tools_ts",
+      "target": "math_tools_dividetool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "math_tools_dividetool",
+      "target": "math_tools_dividetool_call",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L66",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "math_tools_addtool_call",
+      "callee": "reduce",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "math_tools_addtool_call",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "math_tools_multiplytool_call",
+      "callee": "reduce",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "math_tools_multiplytool_call",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-math-tools.ts",
+      "source_location": "L52"
+    }
+  ]
+}

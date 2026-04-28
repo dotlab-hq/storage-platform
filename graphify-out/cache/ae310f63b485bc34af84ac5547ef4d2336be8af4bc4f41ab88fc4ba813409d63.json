@@ -1,1 +1,201 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx", "label": "ErrorOverview.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L1"}, {"id": "erroroverview_cleanuppath", "label": "cleanupPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L12"}, {"id": "erroroverview_getstackutils", "label": "getStackUtils()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L16"}, {"id": "erroroverview_erroroverview", "label": "ErrorOverview()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L28"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx", "target": "code_excerpt", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx", "target": "fs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx", "target": "stack_utils", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx", "target": "f_storage_platform_claude_code_source_main_src_ink_components_box_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx", "target": "f_storage_platform_claude_code_source_main_src_ink_components_text_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx", "target": "erroroverview_cleanuppath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx", "target": "erroroverview_getstackutils", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx", "target": "erroroverview_erroroverview", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L28", "weight": 1.0}, {"source": "erroroverview_erroroverview", "target": "erroroverview_getstackutils", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L32", "weight": 1.0}, {"source": "erroroverview_erroroverview", "target": "erroroverview_cleanuppath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L33", "weight": 1.0}], "raw_calls": [{"caller_nid": "erroroverview_cleanuppath", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L13"}, {"caller_nid": "erroroverview_cleanuppath", "callee": "cwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L13"}, {"caller_nid": "erroroverview_getstackutils", "callee": "cwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L18"}, {"caller_nid": "erroroverview_getstackutils", "callee": "nodeInternals", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L19"}, {"caller_nid": "erroroverview_erroroverview", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L31"}, {"caller_nid": "erroroverview_erroroverview", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L31"}, {"caller_nid": "erroroverview_erroroverview", "callee": "parseLine", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L32"}, {"caller_nid": "erroroverview_erroroverview", "callee": "readFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L39"}, {"caller_nid": "erroroverview_erroroverview", "callee": "codeExcerpt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L40"}, {"caller_nid": "erroroverview_erroroverview", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L45"}, {"caller_nid": "erroroverview_erroroverview", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx", "source_location": "L45"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx",
+      "label": "ErrorOverview.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "erroroverview_cleanuppath",
+      "label": "cleanupPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L12"
+    },
+    {
+      "id": "erroroverview_getstackutils",
+      "label": "getStackUtils()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L16"
+    },
+    {
+      "id": "erroroverview_erroroverview",
+      "label": "ErrorOverview()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L28"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx",
+      "target": "code_excerpt",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx",
+      "target": "fs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx",
+      "target": "stack_utils",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_components_box_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_components_text_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx",
+      "target": "erroroverview_cleanuppath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx",
+      "target": "erroroverview_getstackutils",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_components_erroroverview_tsx",
+      "target": "erroroverview_erroroverview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "erroroverview_erroroverview",
+      "target": "erroroverview_getstackutils",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "erroroverview_erroroverview",
+      "target": "erroroverview_cleanuppath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L33",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "erroroverview_cleanuppath",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L13"
+    },
+    {
+      "caller_nid": "erroroverview_cleanuppath",
+      "callee": "cwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L13"
+    },
+    {
+      "caller_nid": "erroroverview_getstackutils",
+      "callee": "cwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "erroroverview_getstackutils",
+      "callee": "nodeInternals",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "erroroverview_erroroverview",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L31"
+    },
+    {
+      "caller_nid": "erroroverview_erroroverview",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L31"
+    },
+    {
+      "caller_nid": "erroroverview_erroroverview",
+      "callee": "parseLine",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "erroroverview_erroroverview",
+      "callee": "readFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "erroroverview_erroroverview",
+      "callee": "codeExcerpt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "erroroverview_erroroverview",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "erroroverview_erroroverview",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\components\\ErrorOverview.tsx",
+      "source_location": "L45"
+    }
+  ]
+}

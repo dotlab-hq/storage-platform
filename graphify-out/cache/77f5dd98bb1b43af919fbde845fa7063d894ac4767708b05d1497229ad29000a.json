@@ -1,1 +1,89 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_folder_paths_ts", "label": "folder-paths.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts", "source_location": "L1"}, {"id": "folder_paths_buildfolderpathoptions", "label": "buildFolderPathOptions()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts", "source_location": "L12"}, {"id": "folder_paths_isdescendantfolder", "label": "isDescendantFolder()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts", "source_location": "L79"}], "edges": [{"source": "f_storage_platform_src_lib_folder_paths_ts", "target": "folder_paths_buildfolderpathoptions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_paths_ts", "target": "folder_paths_isdescendantfolder", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts", "source_location": "L79", "weight": 1.0}], "raw_calls": [{"caller_nid": "folder_paths_buildfolderpathoptions", "callee": "forEach", "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts", "source_location": "L14"}, {"caller_nid": "folder_paths_buildfolderpathoptions", "callee": "forEach", "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts", "source_location": "L70"}, {"caller_nid": "folder_paths_buildfolderpathoptions", "callee": "sort", "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts", "source_location": "L74"}, {"caller_nid": "folder_paths_buildfolderpathoptions", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts", "source_location": "L74"}, {"caller_nid": "folder_paths_buildfolderpathoptions", "callee": "values", "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts", "source_location": "L74"}, {"caller_nid": "folder_paths_isdescendantfolder", "callee": "forEach", "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts", "source_location": "L85"}, {"caller_nid": "folder_paths_isdescendantfolder", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts", "source_location": "L92"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_folder_paths_ts",
+      "label": "folder-paths.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "folder_paths_buildfolderpathoptions",
+      "label": "buildFolderPathOptions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts",
+      "source_location": "L12"
+    },
+    {
+      "id": "folder_paths_isdescendantfolder",
+      "label": "isDescendantFolder()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts",
+      "source_location": "L79"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_folder_paths_ts",
+      "target": "folder_paths_buildfolderpathoptions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_paths_ts",
+      "target": "folder_paths_isdescendantfolder",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts",
+      "source_location": "L79",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "folder_paths_buildfolderpathoptions",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts",
+      "source_location": "L14"
+    },
+    {
+      "caller_nid": "folder_paths_buildfolderpathoptions",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "folder_paths_buildfolderpathoptions",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "folder_paths_buildfolderpathoptions",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "folder_paths_buildfolderpathoptions",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "folder_paths_isdescendantfolder",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "folder_paths_isdescendantfolder",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-paths.ts",
+      "source_location": "L92"
+    }
+  ]
+}

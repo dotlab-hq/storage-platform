@@ -1,1 +1,173 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx", "label": "bucket-settings.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L1"}, {"id": "bucket_settings_toerror", "label": "toError()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L78"}, {"id": "bucket_settings_loaduserbucket", "label": "loadUserBucket()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L93"}], "edges": [{"source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx", "target": "react_router", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx", "target": "zod", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx", "target": "s3_gateway", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx", "target": "server_auth_server", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx", "target": "s3_bucket_controls", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx", "target": "s3_acl", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx", "target": "bucket_settings_toerror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L78", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx", "target": "bucket_settings_loaduserbucket", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L93", "weight": 1.0}], "raw_calls": [{"caller_nid": "bucket_settings_loaduserbucket", "callee": "limit", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L97"}, {"caller_nid": "bucket_settings_loaduserbucket", "callee": "where", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L97"}, {"caller_nid": "bucket_settings_loaduserbucket", "callee": "from", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L97"}, {"caller_nid": "bucket_settings_loaduserbucket", "callee": "select", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L97"}, {"caller_nid": "bucket_settings_loaduserbucket", "callee": "and", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L108"}, {"caller_nid": "bucket_settings_loaduserbucket", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L109"}, {"caller_nid": "bucket_settings_loaduserbucket", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L110"}, {"caller_nid": "bucket_settings_loaduserbucket", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L111"}, {"caller_nid": "bucket_settings_loaduserbucket", "callee": "at", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx", "source_location": "L116"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx",
+      "label": "bucket-settings.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "bucket_settings_toerror",
+      "label": "toError()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L78"
+    },
+    {
+      "id": "bucket_settings_loaduserbucket",
+      "label": "loadUserBucket()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L93"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx",
+      "target": "react_router",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx",
+      "target": "zod",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx",
+      "target": "s3_gateway",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx",
+      "target": "server_auth_server",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx",
+      "target": "s3_bucket_controls",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx",
+      "target": "s3_acl",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx",
+      "target": "bucket_settings_toerror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_settings_tsx",
+      "target": "bucket_settings_loaduserbucket",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L93",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "bucket_settings_loaduserbucket",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "bucket_settings_loaduserbucket",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "bucket_settings_loaduserbucket",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "bucket_settings_loaduserbucket",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "bucket_settings_loaduserbucket",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L108"
+    },
+    {
+      "caller_nid": "bucket_settings_loaduserbucket",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "bucket_settings_loaduserbucket",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "bucket_settings_loaduserbucket",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "bucket_settings_loaduserbucket",
+      "callee": "at",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-settings.tsx",
+      "source_location": "L116"
+    }
+  ]
+}

@@ -1,1 +1,155 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts", "label": "match.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L1"}, {"id": "match_getinkmodifiers", "label": "getInkModifiers()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L15"}, {"id": "match_getkeyname", "label": "getKeyName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L29"}, {"id": "match_modifiersmatch", "label": "modifiersMatch()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L60"}, {"id": "match_matcheskeystroke", "label": "matchesKeystroke()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L86"}, {"id": "match_matchesbinding", "label": "matchesBinding()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L111"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts", "target": "f_storage_platform_claude_code_source_main_src_keybindings_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts", "target": "match_getinkmodifiers", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts", "target": "match_getkeyname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts", "target": "match_modifiersmatch", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L60", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts", "target": "match_matcheskeystroke", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L86", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts", "target": "match_matchesbinding", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L111", "weight": 1.0}, {"source": "match_matcheskeystroke", "target": "match_getkeyname", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L91", "weight": 1.0}, {"source": "match_matcheskeystroke", "target": "match_getinkmodifiers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L94", "weight": 1.0}, {"source": "match_matcheskeystroke", "target": "match_modifiersmatch", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L101", "weight": 1.0}, {"source": "match_matchesbinding", "target": "match_matcheskeystroke", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L119", "weight": 1.0}], "raw_calls": [{"caller_nid": "match_getkeyname", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts", "source_location": "L45"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts",
+      "label": "match.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "match_getinkmodifiers",
+      "label": "getInkModifiers()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L15"
+    },
+    {
+      "id": "match_getkeyname",
+      "label": "getKeyName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L29"
+    },
+    {
+      "id": "match_modifiersmatch",
+      "label": "modifiersMatch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L60"
+    },
+    {
+      "id": "match_matcheskeystroke",
+      "label": "matchesKeystroke()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L86"
+    },
+    {
+      "id": "match_matchesbinding",
+      "label": "matchesBinding()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L111"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts",
+      "target": "match_getinkmodifiers",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts",
+      "target": "match_getkeyname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts",
+      "target": "match_modifiersmatch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts",
+      "target": "match_matcheskeystroke",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_match_ts",
+      "target": "match_matchesbinding",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "match_matcheskeystroke",
+      "target": "match_getkeyname",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "match_matcheskeystroke",
+      "target": "match_getinkmodifiers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "match_matcheskeystroke",
+      "target": "match_modifiersmatch",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "match_matchesbinding",
+      "target": "match_matcheskeystroke",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L119",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "match_getkeyname",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\match.ts",
+      "source_location": "L45"
+    }
+  ]
+}

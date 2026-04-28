@@ -1,1 +1,315 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts", "label": "list-bucket-items.server.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L1"}, {"id": "list_bucket_items_server_tofolderentry", "label": "toFolderEntry()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L30"}, {"id": "list_bucket_items_server_normalizeprefix", "label": "normalizePrefix()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L36"}, {"id": "list_bucket_items_server_listbucketitems", "label": "listBucketItems()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L56"}], "edges": [{"source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts", "target": "s3_gateway", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts", "target": "s3_object_store", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts", "target": "s3_context", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts", "target": "list_bucket_items_server_tofolderentry", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts", "target": "list_bucket_items_server_normalizeprefix", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L36", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts", "target": "list_bucket_items_server_listbucketitems", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L56", "weight": 1.0}, {"source": "list_bucket_items_server_listbucketitems", "target": "list_bucket_items_server_normalizeprefix", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L97", "weight": 1.0}], "raw_calls": [{"caller_nid": "list_bucket_items_server_tofolderentry", "callee": "endsWith", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L31"}, {"caller_nid": "list_bucket_items_server_tofolderentry", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L31"}, {"caller_nid": "list_bucket_items_server_tofolderentry", "callee": "at", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L32"}, {"caller_nid": "list_bucket_items_server_tofolderentry", "callee": "split", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L32"}, {"caller_nid": "list_bucket_items_server_normalizeprefix", "callee": "endsWith", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L40"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L61"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L61"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L61"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L61"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L73"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L74"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L75"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L76"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "listObjectsV2", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L98"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "startsWith", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L104"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L108"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "indexOf", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L113"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L115"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "add", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L117"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L122"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "toISOString", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L127"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L132"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L132"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L137"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L137"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "values", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L137"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "sort", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L144"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "findIndex", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L148"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L150"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "push", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L159"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "push", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L161"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "error", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L179"}, {"caller_nid": "list_bucket_items_server_listbucketitems", "callee": "String", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts", "source_location": "L181"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts",
+      "label": "list-bucket-items.server.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "list_bucket_items_server_tofolderentry",
+      "label": "toFolderEntry()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L30"
+    },
+    {
+      "id": "list_bucket_items_server_normalizeprefix",
+      "label": "normalizePrefix()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L36"
+    },
+    {
+      "id": "list_bucket_items_server_listbucketitems",
+      "label": "listBucketItems()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L56"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts",
+      "target": "s3_gateway",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts",
+      "target": "s3_object_store",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts",
+      "target": "s3_context",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts",
+      "target": "list_bucket_items_server_tofolderentry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts",
+      "target": "list_bucket_items_server_normalizeprefix",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_list_bucket_items_server_ts",
+      "target": "list_bucket_items_server_listbucketitems",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "list_bucket_items_server_listbucketitems",
+      "target": "list_bucket_items_server_normalizeprefix",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L97",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "list_bucket_items_server_tofolderentry",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L31"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_tofolderentry",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L31"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_tofolderentry",
+      "callee": "at",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_tofolderentry",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_normalizeprefix",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "listObjectsV2",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L98"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L108"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "findIndex",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "list_bucket_items_server_listbucketitems",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\list-bucket-items.server.ts",
+      "source_location": "L181"
+    }
+  ]
+}

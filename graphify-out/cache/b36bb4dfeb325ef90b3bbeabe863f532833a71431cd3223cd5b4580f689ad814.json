@@ -1,1 +1,77 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_telemetry_ts", "label": "telemetry.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts", "source_location": "L1"}, {"id": "telemetry_startspan", "label": "startSpan()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts", "source_location": "L8"}, {"id": "telemetry_getcurrentspan", "label": "getCurrentSpan()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts", "source_location": "L22"}], "edges": [{"source": "f_storage_platform_src_lib_telemetry_ts", "target": "api", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_telemetry_ts", "target": "node_async_hooks", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_telemetry_ts", "target": "telemetry_startspan", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_src_lib_telemetry_ts", "target": "telemetry_getcurrentspan", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts", "source_location": "L22", "weight": 1.0}], "raw_calls": [{"caller_nid": "telemetry_startspan", "callee": "startActiveSpan", "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts", "source_location": "L13"}, {"caller_nid": "telemetry_getcurrentspan", "callee": "getActiveSpan", "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts", "source_location": "L25"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_telemetry_ts",
+      "label": "telemetry.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "telemetry_startspan",
+      "label": "startSpan()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts",
+      "source_location": "L8"
+    },
+    {
+      "id": "telemetry_getcurrentspan",
+      "label": "getCurrentSpan()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts",
+      "source_location": "L22"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_telemetry_ts",
+      "target": "api",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_telemetry_ts",
+      "target": "node_async_hooks",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_telemetry_ts",
+      "target": "telemetry_startspan",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_telemetry_ts",
+      "target": "telemetry_getcurrentspan",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "telemetry_startspan",
+      "callee": "startActiveSpan",
+      "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts",
+      "source_location": "L13"
+    },
+    {
+      "caller_nid": "telemetry_getcurrentspan",
+      "callee": "getActiveSpan",
+      "source_file": "F:\\storage-platform\\src\\lib\\telemetry.ts",
+      "source_location": "L25"
+    }
+  ]
+}

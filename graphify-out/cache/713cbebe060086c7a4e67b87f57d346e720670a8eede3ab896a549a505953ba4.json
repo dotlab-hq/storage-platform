@@ -1,1 +1,222 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts", "label": "shellQuoting.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L1"}, {"id": "shellquoting_containsheredoc", "label": "containsHeredoc()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L7"}, {"id": "shellquoting_containsmultilinestring", "label": "containsMultilineString()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L27"}, {"id": "shellquoting_quoteshellcommand", "label": "quoteShellCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L46"}, {"id": "shellquoting_hasstdinredirect", "label": "hasStdinRedirect()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L81"}, {"id": "shellquoting_shouldaddstdinredirect", "label": "shouldAddStdinRedirect()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L93"}, {"id": "shellquoting_rewritewindowsnullredirect", "label": "rewriteWindowsNullRedirect()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L126"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts", "target": "shellquoting_containsheredoc", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts", "target": "shellquoting_containsmultilinestring", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts", "target": "shellquoting_quoteshellcommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L46", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts", "target": "shellquoting_hasstdinredirect", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L81", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts", "target": "shellquoting_shouldaddstdinredirect", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L93", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts", "target": "shellquoting_rewritewindowsnullredirect", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L126", "weight": 1.0}, {"source": "shellquoting_quoteshellcommand", "target": "shellquoting_containsheredoc", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L52", "weight": 1.0}, {"source": "shellquoting_quoteshellcommand", "target": "shellquoting_containsmultilinestring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L52", "weight": 1.0}, {"source": "shellquoting_shouldaddstdinredirect", "target": "shellquoting_containsheredoc", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L95", "weight": 1.0}, {"source": "shellquoting_shouldaddstdinredirect", "target": "shellquoting_hasstdinredirect", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L100", "weight": 1.0}], "raw_calls": [{"caller_nid": "shellquoting_containsheredoc", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L12"}, {"caller_nid": "shellquoting_containsheredoc", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L13"}, {"caller_nid": "shellquoting_containsheredoc", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L14"}, {"caller_nid": "shellquoting_containsheredoc", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L21"}, {"caller_nid": "shellquoting_containsmultilinestring", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L36"}, {"caller_nid": "shellquoting_containsmultilinestring", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L36"}, {"caller_nid": "shellquoting_quoteshellcommand", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L56"}, {"caller_nid": "shellquoting_quoteshellcommand", "callee": "quote", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L70"}, {"caller_nid": "shellquoting_quoteshellcommand", "callee": "quote", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L73"}, {"caller_nid": "shellquoting_hasstdinredirect", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L85"}, {"caller_nid": "shellquoting_rewritewindowsnullredirect", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts", "source_location": "L127"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts",
+      "label": "shellQuoting.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "shellquoting_containsheredoc",
+      "label": "containsHeredoc()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "shellquoting_containsmultilinestring",
+      "label": "containsMultilineString()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L27"
+    },
+    {
+      "id": "shellquoting_quoteshellcommand",
+      "label": "quoteShellCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L46"
+    },
+    {
+      "id": "shellquoting_hasstdinredirect",
+      "label": "hasStdinRedirect()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L81"
+    },
+    {
+      "id": "shellquoting_shouldaddstdinredirect",
+      "label": "shouldAddStdinRedirect()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L93"
+    },
+    {
+      "id": "shellquoting_rewritewindowsnullredirect",
+      "label": "rewriteWindowsNullRedirect()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L126"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts",
+      "target": "shellquoting_containsheredoc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts",
+      "target": "shellquoting_containsmultilinestring",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts",
+      "target": "shellquoting_quoteshellcommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts",
+      "target": "shellquoting_hasstdinredirect",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts",
+      "target": "shellquoting_shouldaddstdinredirect",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquoting_ts",
+      "target": "shellquoting_rewritewindowsnullredirect",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "shellquoting_quoteshellcommand",
+      "target": "shellquoting_containsheredoc",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "shellquoting_quoteshellcommand",
+      "target": "shellquoting_containsmultilinestring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "shellquoting_shouldaddstdinredirect",
+      "target": "shellquoting_containsheredoc",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "shellquoting_shouldaddstdinredirect",
+      "target": "shellquoting_hasstdinredirect",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L100",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "shellquoting_containsheredoc",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L12"
+    },
+    {
+      "caller_nid": "shellquoting_containsheredoc",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L13"
+    },
+    {
+      "caller_nid": "shellquoting_containsheredoc",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L14"
+    },
+    {
+      "caller_nid": "shellquoting_containsheredoc",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "shellquoting_containsmultilinestring",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "shellquoting_containsmultilinestring",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "shellquoting_quoteshellcommand",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "shellquoting_quoteshellcommand",
+      "callee": "quote",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "shellquoting_quoteshellcommand",
+      "callee": "quote",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "shellquoting_hasstdinredirect",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "shellquoting_rewritewindowsnullredirect",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuoting.ts",
+      "source_location": "L127"
+    }
+  ]
+}

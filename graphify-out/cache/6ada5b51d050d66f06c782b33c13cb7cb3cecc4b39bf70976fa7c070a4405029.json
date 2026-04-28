@@ -1,1 +1,437 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts", "label": "terminalPanel.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L1"}, {"id": "terminalpanel_getterminalpanelsocket", "label": "getTerminalPanelSocket()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L32"}, {"id": "terminalpanel_getterminalpanel", "label": "getTerminalPanel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L43"}, {"id": "terminalpanel_terminalpanel", "label": "TerminalPanel", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L50"}, {"id": "terminalpanel_terminalpanel_toggle", "label": ".toggle()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L56"}, {"id": "terminalpanel_terminalpanel_checktmux", "label": ".checkTmux()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L62"}, {"id": "terminalpanel_terminalpanel_hassession", "label": ".hasSession()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L74"}, {"id": "terminalpanel_terminalpanel_createsession", "label": ".createSession()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L83"}, {"id": "terminalpanel_terminalpanel_attachsession", "label": ".attachSession()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L144"}, {"id": "terminalpanel_terminalpanel_showshell", "label": ".showShell()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L154"}, {"id": "terminalpanel_terminalpanel_ensuresession", "label": ".ensureSession()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L176"}, {"id": "terminalpanel_terminalpanel_runshelldirect", "label": ".runShellDirect()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L182"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts", "target": "child_process", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_instances_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts", "target": "terminalpanel_getterminalpanelsocket", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts", "target": "terminalpanel_getterminalpanel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts", "target": "terminalpanel_terminalpanel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L50", "weight": 1.0}, {"source": "terminalpanel_terminalpanel", "target": "terminalpanel_terminalpanel_toggle", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L56", "weight": 1.0}, {"source": "terminalpanel_terminalpanel", "target": "terminalpanel_terminalpanel_checktmux", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L62", "weight": 1.0}, {"source": "terminalpanel_terminalpanel", "target": "terminalpanel_terminalpanel_hassession", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L74", "weight": 1.0}, {"source": "terminalpanel_terminalpanel", "target": "terminalpanel_terminalpanel_createsession", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L83", "weight": 1.0}, {"source": "terminalpanel_terminalpanel", "target": "terminalpanel_terminalpanel_attachsession", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L144", "weight": 1.0}, {"source": "terminalpanel_terminalpanel", "target": "terminalpanel_terminalpanel_showshell", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L154", "weight": 1.0}, {"source": "terminalpanel_terminalpanel", "target": "terminalpanel_terminalpanel_ensuresession", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L176", "weight": 1.0}, {"source": "terminalpanel_terminalpanel", "target": "terminalpanel_terminalpanel_runshelldirect", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L182", "weight": 1.0}, {"source": "terminalpanel_terminalpanel_toggle", "target": "terminalpanel_terminalpanel_showshell", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L57", "weight": 1.0}, {"source": "terminalpanel_terminalpanel_hassession", "target": "terminalpanel_getterminalpanelsocket", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L77", "weight": 1.0}, {"source": "terminalpanel_terminalpanel_createsession", "target": "terminalpanel_getterminalpanelsocket", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L86", "weight": 1.0}, {"source": "terminalpanel_terminalpanel_attachsession", "target": "terminalpanel_getterminalpanelsocket", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L147", "weight": 1.0}, {"source": "terminalpanel_terminalpanel_showshell", "target": "terminalpanel_terminalpanel_checktmux", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L163", "weight": 1.0}, {"source": "terminalpanel_terminalpanel_showshell", "target": "terminalpanel_terminalpanel_ensuresession", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L163", "weight": 1.0}, {"source": "terminalpanel_terminalpanel_showshell", "target": "terminalpanel_terminalpanel_attachsession", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L164", "weight": 1.0}, {"source": "terminalpanel_terminalpanel_showshell", "target": "terminalpanel_terminalpanel_runshelldirect", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L166", "weight": 1.0}, {"source": "terminalpanel_terminalpanel_ensuresession", "target": "terminalpanel_terminalpanel_hassession", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L177", "weight": 1.0}, {"source": "terminalpanel_terminalpanel_ensuresession", "target": "terminalpanel_terminalpanel_createsession", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L178", "weight": 1.0}], "raw_calls": [{"caller_nid": "terminalpanel_getterminalpanelsocket", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L34"}, {"caller_nid": "terminalpanel_getterminalpanelsocket", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L35"}, {"caller_nid": "terminalpanel_terminalpanel_checktmux", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L64"}, {"caller_nid": "terminalpanel_terminalpanel_checktmux", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L67"}, {"caller_nid": "terminalpanel_terminalpanel_hassession", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L75"}, {"caller_nid": "terminalpanel_terminalpanel_createsession", "callee": "pwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L85"}, {"caller_nid": "terminalpanel_terminalpanel_createsession", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L88"}, {"caller_nid": "terminalpanel_terminalpanel_createsession", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L106"}, {"caller_nid": "terminalpanel_terminalpanel_createsession", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L116"}, {"caller_nid": "terminalpanel_terminalpanel_createsession", "callee": "registerCleanup", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L127"}, {"caller_nid": "terminalpanel_terminalpanel_attachsession", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L145"}, {"caller_nid": "terminalpanel_terminalpanel_showshell", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L155"}, {"caller_nid": "terminalpanel_terminalpanel_showshell", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L157"}, {"caller_nid": "terminalpanel_terminalpanel_showshell", "callee": "enterAlternateScreen", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L161"}, {"caller_nid": "terminalpanel_terminalpanel_showshell", "callee": "exitAlternateScreen", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L169"}, {"caller_nid": "terminalpanel_terminalpanel_runshelldirect", "callee": "pwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L184"}, {"caller_nid": "terminalpanel_terminalpanel_runshelldirect", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts", "source_location": "L185"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts",
+      "label": "terminalPanel.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "terminalpanel_getterminalpanelsocket",
+      "label": "getTerminalPanelSocket()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "terminalpanel_getterminalpanel",
+      "label": "getTerminalPanel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "terminalpanel_terminalpanel",
+      "label": "TerminalPanel",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L50"
+    },
+    {
+      "id": "terminalpanel_terminalpanel_toggle",
+      "label": ".toggle()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L56"
+    },
+    {
+      "id": "terminalpanel_terminalpanel_checktmux",
+      "label": ".checkTmux()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L62"
+    },
+    {
+      "id": "terminalpanel_terminalpanel_hassession",
+      "label": ".hasSession()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L74"
+    },
+    {
+      "id": "terminalpanel_terminalpanel_createsession",
+      "label": ".createSession()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L83"
+    },
+    {
+      "id": "terminalpanel_terminalpanel_attachsession",
+      "label": ".attachSession()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L144"
+    },
+    {
+      "id": "terminalpanel_terminalpanel_showshell",
+      "label": ".showShell()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L154"
+    },
+    {
+      "id": "terminalpanel_terminalpanel_ensuresession",
+      "label": ".ensureSession()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L176"
+    },
+    {
+      "id": "terminalpanel_terminalpanel_runshelldirect",
+      "label": ".runShellDirect()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L182"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts",
+      "target": "child_process",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_instances_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts",
+      "target": "terminalpanel_getterminalpanelsocket",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts",
+      "target": "terminalpanel_getterminalpanel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_terminalpanel_ts",
+      "target": "terminalpanel_terminalpanel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel",
+      "target": "terminalpanel_terminalpanel_toggle",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel",
+      "target": "terminalpanel_terminalpanel_checktmux",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel",
+      "target": "terminalpanel_terminalpanel_hassession",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel",
+      "target": "terminalpanel_terminalpanel_createsession",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel",
+      "target": "terminalpanel_terminalpanel_attachsession",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel",
+      "target": "terminalpanel_terminalpanel_showshell",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L154",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel",
+      "target": "terminalpanel_terminalpanel_ensuresession",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L176",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel",
+      "target": "terminalpanel_terminalpanel_runshelldirect",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L182",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel_toggle",
+      "target": "terminalpanel_terminalpanel_showshell",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel_hassession",
+      "target": "terminalpanel_getterminalpanelsocket",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel_createsession",
+      "target": "terminalpanel_getterminalpanelsocket",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel_attachsession",
+      "target": "terminalpanel_getterminalpanelsocket",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L147",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel_showshell",
+      "target": "terminalpanel_terminalpanel_checktmux",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel_showshell",
+      "target": "terminalpanel_terminalpanel_ensuresession",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel_showshell",
+      "target": "terminalpanel_terminalpanel_attachsession",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel_showshell",
+      "target": "terminalpanel_terminalpanel_runshelldirect",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel_ensuresession",
+      "target": "terminalpanel_terminalpanel_hassession",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L177",
+      "weight": 1.0
+    },
+    {
+      "source": "terminalpanel_terminalpanel_ensuresession",
+      "target": "terminalpanel_terminalpanel_createsession",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L178",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "terminalpanel_getterminalpanelsocket",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "terminalpanel_getterminalpanelsocket",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "terminalpanel_terminalpanel_checktmux",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "terminalpanel_terminalpanel_checktmux",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "terminalpanel_terminalpanel_hassession",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "terminalpanel_terminalpanel_createsession",
+      "callee": "pwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "terminalpanel_terminalpanel_createsession",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "terminalpanel_terminalpanel_createsession",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L106"
+    },
+    {
+      "caller_nid": "terminalpanel_terminalpanel_createsession",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "terminalpanel_terminalpanel_createsession",
+      "callee": "registerCleanup",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "terminalpanel_terminalpanel_attachsession",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "terminalpanel_terminalpanel_showshell",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L155"
+    },
+    {
+      "caller_nid": "terminalpanel_terminalpanel_showshell",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L157"
+    },
+    {
+      "caller_nid": "terminalpanel_terminalpanel_showshell",
+      "callee": "enterAlternateScreen",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "terminalpanel_terminalpanel_showshell",
+      "callee": "exitAlternateScreen",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L169"
+    },
+    {
+      "caller_nid": "terminalpanel_terminalpanel_runshelldirect",
+      "callee": "pwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L184"
+    },
+    {
+      "caller_nid": "terminalpanel_terminalpanel_runshelldirect",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\terminalPanel.ts",
+      "source_location": "L185"
+    }
+  ]
+}

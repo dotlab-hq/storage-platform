@@ -1,9 +1,5 @@
 import { eq, and, inArray } from 'drizzle-orm'
-import { getProviderClientById } from '@/lib/s3-provider-client'
-import {
-  deleteNodeByEntity,
-  markFolderSubtreeDeleted,
-} from '@/lib/storage-btree/index'
+import { markFolderSubtreeDeleted } from '@/lib/storage-btree/index'
 import { seedNodeById } from '@/lib/storage-btree/seed'
 
 export async function restoreItems(
@@ -125,10 +121,10 @@ export async function permanentDeleteItems(
   itemIds: string[],
   itemTypes: ('file' | 'folder')[],
 ) {
-  const [{ db }, { file: storageFile, folder, userStorage }] =
-    await Promise.all([import('@/db'), import('@/db/schema/storage')])
-
-  const { DeleteObjectCommand } = await import('@aws-sdk/client-s3')
+  const [{ db }, { file: storageFile, folder }] = await Promise.all([
+    import('@/db'),
+    import('@/db/schema/storage'),
+  ])
 
   const fileIds: string[] = []
   const folderIds: string[] = []
@@ -137,65 +133,48 @@ export async function permanentDeleteItems(
     else folderIds.push(itemIds[i])
   }
 
-  let freedBytes = 0
+  const now = new Date()
+  const CHUNK_SIZE = 500
 
-  // Delete files from S3 + DB
-  for (const id of fileIds) {
-    const fileRows = await db
-      .select({
-        objectKey: storageFile.objectKey,
-        sizeInBytes: storageFile.sizeInBytes,
-        providerId: storageFile.providerId,
-      })
-      .from(storageFile)
-      .where(and(eq(storageFile.id, id), eq(storageFile.userId, userId)))
-      .limit(1)
-    if (fileRows.length === 0) {
-      continue
-    }
-    const row = fileRows[0]
-
-    try {
-      const provider = await getProviderClientById(row.providerId ?? null)
-      await provider.client.send(
-        new DeleteObjectCommand({
-          Bucket: provider.bucketName,
-          Key: row.objectKey,
-        }),
-      )
-    } catch (err) {
-      console.error(`[Server] S3 delete failed for key=${row.objectKey}:`, err)
-    }
-    freedBytes += row.sizeInBytes
-    await db
-      .delete(storageFile)
-      .where(and(eq(storageFile.id, id), eq(storageFile.userId, userId)))
-    await deleteNodeByEntity(userId, 'file', id)
-  }
-
-  // Delete folders from DB
-  for (const id of folderIds) {
-    await db
-      .delete(folder)
-      .where(and(eq(folder.id, id), eq(folder.userId, userId)))
-    await deleteNodeByEntity(userId, 'folder', id)
-  }
-
-  // Update used storage
-  if (freedBytes > 0) {
-    const currentStorageRows = await db
-      .select({ usedStorage: userStorage.usedStorage })
-      .from(userStorage)
-      .where(eq(userStorage.userId, userId))
-      .limit(1)
-
-    if (currentStorageRows.length > 0) {
-      const currentStorage = currentStorageRows[0]
-      const newUsed = Math.max(0, currentStorage.usedStorage - freedBytes)
+  // Mark files for deletion by queue - update only the flags, let cron handle actual deletion
+  if (fileIds.length > 0) {
+    for (let i = 0; i < fileIds.length; i += CHUNK_SIZE) {
+      const chunk = fileIds.slice(i, i + CHUNK_SIZE)
       await db
-        .update(userStorage)
-        .set({ usedStorage: newUsed })
-        .where(eq(userStorage.userId, userId))
+        .update(storageFile)
+        .set({
+          isTrashed: false,
+          deletedAt: now,
+          deletionQueuedAt: null,
+        })
+        .where(
+          and(
+            inArray(storageFile.id, chunk),
+            eq(storageFile.userId, userId),
+            eq(storageFile.isTrashed, true),
+          ),
+        )
+    }
+  }
+
+  // Mark folders for deletion by queue
+  if (folderIds.length > 0) {
+    for (let i = 0; i < folderIds.length; i += CHUNK_SIZE) {
+      const chunk = folderIds.slice(i, i + CHUNK_SIZE)
+      await db
+        .update(folder)
+        .set({
+          isTrashed: false,
+          deletedAt: now,
+          deletionQueuedAt: null,
+        })
+        .where(
+          and(
+            inArray(folder.id, chunk),
+            eq(folder.userId, userId),
+            eq(folder.isTrashed, true),
+          ),
+        )
     }
   }
 
@@ -207,7 +186,6 @@ export async function permanentDeleteItems(
   return {
     deletedFiles: fileIds.length,
     deletedFolders: folderIds.length,
-    freedBytes,
   }
 }
 
@@ -266,35 +244,45 @@ export async function emptyAllTrash(userId: string) {
   const CHUNK_SIZE = 500
   const now = new Date()
 
-  // Update files in chunks
+  // Update files in chunks (parallel for speed)
+  const fileChunks = []
   for (let i = 0; i < fileIds.length; i += CHUNK_SIZE) {
-    const chunk = fileIds.slice(i, i + CHUNK_SIZE)
-    await db
-      .update(storageFile)
-      .set({ isTrashed: false, deletedAt: now, deletionQueuedAt: null })
-      .where(
-        and(
-          inArray(storageFile.id, chunk),
-          eq(storageFile.userId, userId),
-          eq(storageFile.isTrashed, true),
-        ),
-      )
+    fileChunks.push(fileIds.slice(i, i + CHUNK_SIZE))
   }
+  await Promise.all(
+    fileChunks.map((chunk) =>
+      db
+        .update(storageFile)
+        .set({ isTrashed: false, deletedAt: now, deletionQueuedAt: null })
+        .where(
+          and(
+            inArray(storageFile.id, chunk),
+            eq(storageFile.userId, userId),
+            eq(storageFile.isTrashed, true),
+          ),
+        ),
+    ),
+  )
 
-  // Update folders in chunks
+  // Update folders in chunks (parallel for speed)
+  const folderChunks = []
   for (let i = 0; i < folderIds.length; i += CHUNK_SIZE) {
-    const chunk = folderIds.slice(i, i + CHUNK_SIZE)
-    await db
-      .update(folder)
-      .set({ isTrashed: false, deletedAt: now, deletionQueuedAt: null })
-      .where(
-        and(
-          inArray(folder.id, chunk),
-          eq(folder.userId, userId),
-          eq(folder.isTrashed, true),
-        ),
-      )
+    folderChunks.push(folderIds.slice(i, i + CHUNK_SIZE))
   }
+  await Promise.all(
+    folderChunks.map((chunk) =>
+      db
+        .update(folder)
+        .set({ isTrashed: false, deletedAt: now, deletionQueuedAt: null })
+        .where(
+          and(
+            inArray(folder.id, chunk),
+            eq(folder.userId, userId),
+            eq(folder.isTrashed, true),
+          ),
+        ),
+    ),
+  )
 
   const { invalidateFolderCache, invalidateQuotaCache } =
     await import('@/lib/cache-invalidation')

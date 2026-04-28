@@ -1,1 +1,91 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts", "label": "useStartupNotification.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts", "source_location": "L1"}, {"id": "usestartupnotification_usestartupnotification", "label": "useStartupNotification()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts", "source_location": "L19"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts", "target": "f_storage_platform_claude_code_source_main_src_context_notifications_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts", "target": "usestartupnotification_usestartupnotification", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts", "source_location": "L19", "weight": 1.0}], "raw_calls": [{"caller_nid": "usestartupnotification_usestartupnotification", "callee": "useNotifications", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts", "source_location": "L22"}, {"caller_nid": "usestartupnotification_usestartupnotification", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts", "source_location": "L23"}, {"caller_nid": "usestartupnotification_usestartupnotification", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts", "source_location": "L24"}, {"caller_nid": "usestartupnotification_usestartupnotification", "callee": "useEffect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts", "source_location": "L27"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts",
+      "label": "useStartupNotification.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "usestartupnotification_usestartupnotification",
+      "label": "useStartupNotification()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts",
+      "source_location": "L19"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_context_notifications_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts",
+      "target": "usestartupnotification_usestartupnotification",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "usestartupnotification_usestartupnotification",
+      "callee": "useNotifications",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "usestartupnotification_usestartupnotification",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "usestartupnotification_usestartupnotification",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts",
+      "source_location": "L24"
+    },
+    {
+      "caller_nid": "usestartupnotification_usestartupnotification",
+      "callee": "useEffect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useStartupNotification.ts",
+      "source_location": "L27"
+    }
+  ]
+}

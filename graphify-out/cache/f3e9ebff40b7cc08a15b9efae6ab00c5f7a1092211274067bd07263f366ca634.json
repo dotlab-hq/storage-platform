@@ -1,1 +1,556 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "label": "prompt.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L1"}, {"id": "prompt_getdefaulttimeoutms", "label": "getDefaultTimeoutMs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L27"}, {"id": "prompt_getmaxtimeoutms", "label": "getMaxTimeoutMs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L31"}, {"id": "prompt_getbackgroundusagenote", "label": "getBackgroundUsageNote()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L35"}, {"id": "prompt_getcommitandprinstructions", "label": "getCommitAndPRInstructions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L42"}, {"id": "prompt_dedup", "label": "dedup()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L167"}, {"id": "prompt_getsimplesandboxsection", "label": "getSimpleSandboxSection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L172"}, {"id": "prompt_getsimpleprompt", "label": "getSimplePrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L275"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_prompts_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_attribution_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_embeddedtools_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_gitsettings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_filesystem_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sandbox_sandbox_adapter_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_timeouts_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_undercover_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_fileedittool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_filewritetool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_globtool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_greptool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_todowritetool_todowritetool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_toolname_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "prompt_getdefaulttimeoutms", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "prompt_getmaxtimeoutms", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "prompt_getbackgroundusagenote", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "prompt_getcommitandprinstructions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "prompt_dedup", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L167", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "prompt_getsimplesandboxsection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L172", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts", "target": "prompt_getsimpleprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L275", "weight": 1.0}, {"source": "prompt_getsimplesandboxsection", "target": "prompt_dedup", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L194", "weight": 1.0}, {"source": "prompt_getsimpleprompt", "target": "prompt_getbackgroundusagenote", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L329", "weight": 1.0}, {"source": "prompt_getsimpleprompt", "target": "prompt_getmaxtimeoutms", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L335", "weight": 1.0}, {"source": "prompt_getsimpleprompt", "target": "prompt_getdefaulttimeoutms", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L335", "weight": 1.0}, {"source": "prompt_getsimpleprompt", "target": "prompt_getsimplesandboxsection", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L366", "weight": 1.0}, {"source": "prompt_getsimpleprompt", "target": "prompt_getcommitandprinstructions", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L367", "weight": 1.0}], "raw_calls": [{"caller_nid": "prompt_getdefaulttimeoutms", "callee": "getDefaultBashTimeoutMs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L28"}, {"caller_nid": "prompt_getmaxtimeoutms", "callee": "getMaxBashTimeoutMs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L32"}, {"caller_nid": "prompt_getbackgroundusagenote", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L36"}, {"caller_nid": "prompt_getcommitandprinstructions", "callee": "isUndercover", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L49"}, {"caller_nid": "prompt_getcommitandprinstructions", "callee": "getUndercoverInstructions", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L50"}, {"caller_nid": "prompt_getcommitandprinstructions", "callee": "shouldIncludeGitInstructions", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L53"}, {"caller_nid": "prompt_getcommitandprinstructions", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L57"}, {"caller_nid": "prompt_getcommitandprinstructions", "callee": "getAttributionTexts", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L79"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "isSandboxingEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L173"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "getFsReadConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L177"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "getFsWriteConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L178"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "getNetworkRestrictionConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L179"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "getAllowUnixSockets", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L180"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "getIgnoreViolations", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L181"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "areUnsandboxedCommandsAllowed", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L183"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "getClaudeTempDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L188"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "normalizeAllowOnly", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L200"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L216"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L217"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L217"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L219"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L220"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L220"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L223"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L224"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L263"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L269"}, {"caller_nid": "prompt_getsimplesandboxsection", "callee": "prependBullets", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L271"}, {"caller_nid": "prompt_getsimpleprompt", "callee": "hasEmbeddedSearchTools", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L278"}, {"caller_nid": "prompt_getsimpleprompt", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L312"}, {"caller_nid": "prompt_getsimpleprompt", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L320"}, {"caller_nid": "prompt_getsimpleprompt", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L354"}, {"caller_nid": "prompt_getsimpleprompt", "callee": "prependBullets", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L361"}, {"caller_nid": "prompt_getsimpleprompt", "callee": "prependBullets", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts", "source_location": "L365"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "label": "prompt.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "prompt_getdefaulttimeoutms",
+      "label": "getDefaultTimeoutMs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L27"
+    },
+    {
+      "id": "prompt_getmaxtimeoutms",
+      "label": "getMaxTimeoutMs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L31"
+    },
+    {
+      "id": "prompt_getbackgroundusagenote",
+      "label": "getBackgroundUsageNote()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L35"
+    },
+    {
+      "id": "prompt_getcommitandprinstructions",
+      "label": "getCommitAndPRInstructions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L42"
+    },
+    {
+      "id": "prompt_dedup",
+      "label": "dedup()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L167"
+    },
+    {
+      "id": "prompt_getsimplesandboxsection",
+      "label": "getSimpleSandboxSection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L172"
+    },
+    {
+      "id": "prompt_getsimpleprompt",
+      "label": "getSimplePrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L275"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_prompts_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_attribution_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_embeddedtools_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_gitsettings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_filesystem_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sandbox_sandbox_adapter_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_timeouts_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_undercover_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_fileedittool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_filewritetool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_globtool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_greptool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_todowritetool_todowritetool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_toolname_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "prompt_getdefaulttimeoutms",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "prompt_getmaxtimeoutms",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "prompt_getbackgroundusagenote",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "prompt_getcommitandprinstructions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "prompt_dedup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L167",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "prompt_getsimplesandboxsection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L172",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_prompt_ts",
+      "target": "prompt_getsimpleprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L275",
+      "weight": 1.0
+    },
+    {
+      "source": "prompt_getsimplesandboxsection",
+      "target": "prompt_dedup",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "prompt_getsimpleprompt",
+      "target": "prompt_getbackgroundusagenote",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L329",
+      "weight": 1.0
+    },
+    {
+      "source": "prompt_getsimpleprompt",
+      "target": "prompt_getmaxtimeoutms",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L335",
+      "weight": 1.0
+    },
+    {
+      "source": "prompt_getsimpleprompt",
+      "target": "prompt_getdefaulttimeoutms",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L335",
+      "weight": 1.0
+    },
+    {
+      "source": "prompt_getsimpleprompt",
+      "target": "prompt_getsimplesandboxsection",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L366",
+      "weight": 1.0
+    },
+    {
+      "source": "prompt_getsimpleprompt",
+      "target": "prompt_getcommitandprinstructions",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L367",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "prompt_getdefaulttimeoutms",
+      "callee": "getDefaultBashTimeoutMs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "prompt_getmaxtimeoutms",
+      "callee": "getMaxBashTimeoutMs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "prompt_getbackgroundusagenote",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "prompt_getcommitandprinstructions",
+      "callee": "isUndercover",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "prompt_getcommitandprinstructions",
+      "callee": "getUndercoverInstructions",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "prompt_getcommitandprinstructions",
+      "callee": "shouldIncludeGitInstructions",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "prompt_getcommitandprinstructions",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "prompt_getcommitandprinstructions",
+      "callee": "getAttributionTexts",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "isSandboxingEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "getFsReadConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L177"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "getFsWriteConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "getNetworkRestrictionConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "getAllowUnixSockets",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L180"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "getIgnoreViolations",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L181"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "areUnsandboxedCommandsAllowed",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L183"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "getClaudeTempDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L188"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "normalizeAllowOnly",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L216"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L217"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L217"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L219"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L220"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L220"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L223"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L224"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L263"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L269"
+    },
+    {
+      "caller_nid": "prompt_getsimplesandboxsection",
+      "callee": "prependBullets",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L271"
+    },
+    {
+      "caller_nid": "prompt_getsimpleprompt",
+      "callee": "hasEmbeddedSearchTools",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L278"
+    },
+    {
+      "caller_nid": "prompt_getsimpleprompt",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L312"
+    },
+    {
+      "caller_nid": "prompt_getsimpleprompt",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L320"
+    },
+    {
+      "caller_nid": "prompt_getsimpleprompt",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L354"
+    },
+    {
+      "caller_nid": "prompt_getsimpleprompt",
+      "callee": "prependBullets",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L361"
+    },
+    {
+      "caller_nid": "prompt_getsimpleprompt",
+      "callee": "prependBullets",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\prompt.ts",
+      "source_location": "L365"
+    }
+  ]
+}

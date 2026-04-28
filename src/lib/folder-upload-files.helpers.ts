@@ -8,9 +8,9 @@ export type FlatFolderFile = {
   size: number
 }
 
-export function getParentPath( relativePath: string ): string {
-  const idx = relativePath.lastIndexOf( '/' )
-  return idx === -1 ? '' : relativePath.slice( 0, idx )
+export function getParentPath(relativePath: string): string {
+  const idx = relativePath.lastIndexOf('/')
+  return idx === -1 ? '' : relativePath.slice(0, idx)
 }
 
 // Track folders created during this upload session to avoid duplicates
@@ -22,28 +22,28 @@ export async function resolvePathFolderId(
   folderIdsByPath: Map<string, string>,
   _userId: string,
 ): Promise<string> {
-  if ( !path ) return rootFolderId
-  const cached = folderIdsByPath.get( path )
-  if ( cached ) return cached
+  if (!path) return rootFolderId
+  const cached = folderIdsByPath.get(path)
+  if (cached) return cached
 
-  const parentPath = getParentPath( path )
+  const parentPath = getParentPath(path)
   const parentFolderId = await resolvePathFolderId(
     parentPath,
     rootFolderId,
     folderIdsByPath,
     _userId,
   )
-  const folderName = path.slice( path.lastIndexOf( '/' ) + 1 )
+  const folderName = path.slice(path.lastIndexOf('/') + 1)
 
   // Create folder - createFolderFn handles deduplication by checking existing names
-  const { folder: newFolder } = await createFolderFn( {
+  const { folder: newFolder } = await createFolderFn({
     data: {
       name: folderName,
       parentFolderId,
     },
-  } )
+  })
 
-  folderIdsByPath.set( path, newFolder.id )
+  folderIdsByPath.set(path, newFolder.id)
   return newFolder.id
 }
 

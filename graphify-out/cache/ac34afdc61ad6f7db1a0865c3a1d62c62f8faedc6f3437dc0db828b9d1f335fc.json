@@ -1,1 +1,125 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts", "label": "renderOptions.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts", "source_location": "L1"}, {"id": "renderoptions_getstdinoverride", "label": "getStdinOverride()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts", "source_location": "L15"}, {"id": "renderoptions_getbaserenderoptions", "label": "getBaseRenderOptions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts", "source_location": "L68"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts", "target": "fs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts", "target": "tty", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts", "target": "renderoptions_getstdinoverride", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts", "target": "renderoptions_getbaserenderoptions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts", "source_location": "L68", "weight": 1.0}, {"source": "renderoptions_getbaserenderoptions", "target": "renderoptions_getstdinoverride", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts", "source_location": "L71", "weight": 1.0}], "raw_calls": [{"caller_nid": "renderoptions_getstdinoverride", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts", "source_location": "L28"}, {"caller_nid": "renderoptions_getstdinoverride", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts", "source_location": "L34"}, {"caller_nid": "renderoptions_getstdinoverride", "callee": "openSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts", "source_location": "L47"}, {"caller_nid": "renderoptions_getstdinoverride", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts", "source_location": "L56"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts",
+      "label": "renderOptions.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "renderoptions_getstdinoverride",
+      "label": "getStdinOverride()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts",
+      "source_location": "L15"
+    },
+    {
+      "id": "renderoptions_getbaserenderoptions",
+      "label": "getBaseRenderOptions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts",
+      "source_location": "L68"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts",
+      "target": "fs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts",
+      "target": "tty",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts",
+      "target": "renderoptions_getstdinoverride",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_renderoptions_ts",
+      "target": "renderoptions_getbaserenderoptions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "renderoptions_getbaserenderoptions",
+      "target": "renderoptions_getstdinoverride",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "renderoptions_getstdinoverride",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "renderoptions_getstdinoverride",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "renderoptions_getstdinoverride",
+      "callee": "openSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "renderoptions_getstdinoverride",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\renderOptions.ts",
+      "source_location": "L56"
+    }
+  ]
+}

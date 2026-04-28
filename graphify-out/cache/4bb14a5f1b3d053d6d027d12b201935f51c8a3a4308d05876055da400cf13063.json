@@ -1,1 +1,113 @@
-{"nodes": [{"id": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx", "label": "open-in-chat.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx", "source_location": "L1"}, {"id": "open_in_chat_useopenincontext", "label": "useOpenInContext()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx", "source_location": "L189"}, {"id": "open_in_chat_openin", "label": "OpenIn()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx", "source_location": "L201"}], "edges": [{"source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx", "target": "button", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx", "target": "dropdown_menu", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx", "target": "utils", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx", "target": "lucide_react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx", "target": "open_in_chat_useopenincontext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx", "source_location": "L189", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx", "target": "open_in_chat_openin", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx", "source_location": "L201", "weight": 1.0}], "raw_calls": [{"caller_nid": "open_in_chat_useopenincontext", "callee": "useContext", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx", "source_location": "L190"}, {"caller_nid": "open_in_chat_openin", "callee": "useMemo", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx", "source_location": "L202"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx",
+      "label": "open-in-chat.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "open_in_chat_useopenincontext",
+      "label": "useOpenInContext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx",
+      "source_location": "L189"
+    },
+    {
+      "id": "open_in_chat_openin",
+      "label": "OpenIn()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx",
+      "source_location": "L201"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx",
+      "target": "button",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx",
+      "target": "dropdown_menu",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx",
+      "target": "utils",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx",
+      "target": "lucide_react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx",
+      "target": "open_in_chat_useopenincontext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx",
+      "source_location": "L189",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_open_in_chat_tsx",
+      "target": "open_in_chat_openin",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx",
+      "source_location": "L201",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "open_in_chat_useopenincontext",
+      "callee": "useContext",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx",
+      "source_location": "L190"
+    },
+    {
+      "caller_nid": "open_in_chat_openin",
+      "callee": "useMemo",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\open-in-chat.tsx",
+      "source_location": "L202"
+    }
+  ]
+}

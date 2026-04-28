@@ -1,1 +1,219 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_queryguard_ts", "label": "QueryGuard.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L1"}, {"id": "queryguard_queryguard", "label": "QueryGuard", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L29"}, {"id": "queryguard_queryguard_reserve", "label": ".reserve()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L38"}, {"id": "queryguard_queryguard_cancelreservation", "label": ".cancelReservation()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L49"}, {"id": "queryguard_queryguard_trystart", "label": ".tryStart()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L61"}, {"id": "queryguard_queryguard_end", "label": ".end()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L74"}, {"id": "queryguard_queryguard_forceend", "label": ".forceEnd()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L88"}, {"id": "queryguard_queryguard_isactive", "label": ".isActive()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L99"}, {"id": "queryguard_queryguard_generation", "label": ".generation()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L103"}, {"id": "queryguard_queryguard_notify", "label": "._notify()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L118"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_queryguard_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_signal_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_queryguard_ts", "target": "queryguard_queryguard", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L29", "weight": 1.0}, {"source": "queryguard_queryguard", "target": "queryguard_queryguard_reserve", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L38", "weight": 1.0}, {"source": "queryguard_queryguard", "target": "queryguard_queryguard_cancelreservation", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L49", "weight": 1.0}, {"source": "queryguard_queryguard", "target": "queryguard_queryguard_trystart", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L61", "weight": 1.0}, {"source": "queryguard_queryguard", "target": "queryguard_queryguard_end", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L74", "weight": 1.0}, {"source": "queryguard_queryguard", "target": "queryguard_queryguard_forceend", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L88", "weight": 1.0}, {"source": "queryguard_queryguard", "target": "queryguard_queryguard_isactive", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L99", "weight": 1.0}, {"source": "queryguard_queryguard", "target": "queryguard_queryguard_generation", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L103", "weight": 1.0}, {"source": "queryguard_queryguard", "target": "queryguard_queryguard_notify", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L118", "weight": 1.0}, {"source": "queryguard_queryguard_reserve", "target": "queryguard_queryguard_notify", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L41", "weight": 1.0}, {"source": "queryguard_queryguard_cancelreservation", "target": "queryguard_queryguard_notify", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L52", "weight": 1.0}, {"source": "queryguard_queryguard_trystart", "target": "queryguard_queryguard_notify", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L65", "weight": 1.0}, {"source": "queryguard_queryguard_end", "target": "queryguard_queryguard_notify", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L78", "weight": 1.0}, {"source": "queryguard_queryguard_forceend", "target": "queryguard_queryguard_notify", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L92", "weight": 1.0}], "raw_calls": [{"caller_nid": "queryguard_queryguard_notify", "callee": "emit", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts", "source_location": "L119"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_queryguard_ts",
+      "label": "QueryGuard.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "queryguard_queryguard",
+      "label": "QueryGuard",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L29"
+    },
+    {
+      "id": "queryguard_queryguard_reserve",
+      "label": ".reserve()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L38"
+    },
+    {
+      "id": "queryguard_queryguard_cancelreservation",
+      "label": ".cancelReservation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L49"
+    },
+    {
+      "id": "queryguard_queryguard_trystart",
+      "label": ".tryStart()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L61"
+    },
+    {
+      "id": "queryguard_queryguard_end",
+      "label": ".end()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L74"
+    },
+    {
+      "id": "queryguard_queryguard_forceend",
+      "label": ".forceEnd()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L88"
+    },
+    {
+      "id": "queryguard_queryguard_isactive",
+      "label": ".isActive()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L99"
+    },
+    {
+      "id": "queryguard_queryguard_generation",
+      "label": ".generation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L103"
+    },
+    {
+      "id": "queryguard_queryguard_notify",
+      "label": "._notify()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L118"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_queryguard_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_signal_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_queryguard_ts",
+      "target": "queryguard_queryguard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "queryguard_queryguard",
+      "target": "queryguard_queryguard_reserve",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "queryguard_queryguard",
+      "target": "queryguard_queryguard_cancelreservation",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "queryguard_queryguard",
+      "target": "queryguard_queryguard_trystart",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "queryguard_queryguard",
+      "target": "queryguard_queryguard_end",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "queryguard_queryguard",
+      "target": "queryguard_queryguard_forceend",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "queryguard_queryguard",
+      "target": "queryguard_queryguard_isactive",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "queryguard_queryguard",
+      "target": "queryguard_queryguard_generation",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "queryguard_queryguard",
+      "target": "queryguard_queryguard_notify",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "queryguard_queryguard_reserve",
+      "target": "queryguard_queryguard_notify",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "queryguard_queryguard_cancelreservation",
+      "target": "queryguard_queryguard_notify",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "queryguard_queryguard_trystart",
+      "target": "queryguard_queryguard_notify",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "queryguard_queryguard_end",
+      "target": "queryguard_queryguard_notify",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "queryguard_queryguard_forceend",
+      "target": "queryguard_queryguard_notify",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L92",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "queryguard_queryguard_notify",
+      "callee": "emit",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\QueryGuard.ts",
+      "source_location": "L119"
+    }
+  ]
+}

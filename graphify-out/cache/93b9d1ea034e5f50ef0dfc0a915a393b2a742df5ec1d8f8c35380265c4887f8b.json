@@ -1,1 +1,212 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts", "label": "mcpInstructionsDelta.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L1"}, {"id": "mcpinstructionsdelta_ismcpinstructionsdeltaenabled", "label": "isMcpInstructionsDeltaEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L37"}, {"id": "mcpinstructionsdelta_getmcpinstructionsdelta", "label": "getMcpInstructionsDelta()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L55"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts", "target": "f_storage_platform_claude_code_source_main_src_types_message_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts", "target": "mcpinstructionsdelta_ismcpinstructionsdeltaenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts", "target": "mcpinstructionsdelta_getmcpinstructionsdelta", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L55", "weight": 1.0}], "raw_calls": [{"caller_nid": "mcpinstructionsdelta_ismcpinstructionsdeltaenabled", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L38"}, {"caller_nid": "mcpinstructionsdelta_ismcpinstructionsdeltaenabled", "callee": "isEnvDefinedFalsy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L39"}, {"caller_nid": "mcpinstructionsdelta_ismcpinstructionsdeltaenabled", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L42"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L68"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L69"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L72"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L75"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L81"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L84"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L85"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L86"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L96"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L96"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L107"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L107"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L114"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L124"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L126"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L127"}, {"caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts", "source_location": "L128"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts",
+      "label": "mcpInstructionsDelta.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "mcpinstructionsdelta_ismcpinstructionsdeltaenabled",
+      "label": "isMcpInstructionsDeltaEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L37"
+    },
+    {
+      "id": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "label": "getMcpInstructionsDelta()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L55"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts",
+      "target": "mcpinstructionsdelta_ismcpinstructionsdeltaenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_mcpinstructionsdelta_ts",
+      "target": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L55",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "mcpinstructionsdelta_ismcpinstructionsdeltaenabled",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_ismcpinstructionsdeltaenabled",
+      "callee": "isEnvDefinedFalsy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_ismcpinstructionsdeltaenabled",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "mcpinstructionsdelta_getmcpinstructionsdelta",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\mcpInstructionsDelta.ts",
+      "source_location": "L128"
+    }
+  ]
+}

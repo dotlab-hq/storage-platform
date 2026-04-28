@@ -1,1 +1,2016 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "label": "installedPluginsManager.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1"}, {"id": "installedpluginsmanager_getinstalledpluginsfilepath", "label": "getInstalledPluginsFilePath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L78"}, {"id": "installedpluginsmanager_getinstalledpluginsv2filepath", "label": "getInstalledPluginsV2FilePath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L86"}, {"id": "installedpluginsmanager_clearinstalledpluginscache", "label": "clearInstalledPluginsCache()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L99"}, {"id": "installedpluginsmanager_migratetosinglepluginfile", "label": "migrateToSinglePluginFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L115"}, {"id": "installedpluginsmanager_cleanuplegacycache", "label": "cleanupLegacyCache()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L192"}, {"id": "installedpluginsmanager_resetmigrationstate", "label": "resetMigrationState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L250"}, {"id": "installedpluginsmanager_readinstalledpluginsfileraw", "label": "readInstalledPluginsFileRaw()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L259"}, {"id": "installedpluginsmanager_migratev1tov2", "label": "migrateV1ToV2()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L284"}, {"id": "installedpluginsmanager_loadinstalledpluginsv2", "label": "loadInstalledPluginsV2()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L315"}, {"id": "installedpluginsmanager_saveinstalledpluginsv2", "label": "saveInstalledPluginsV2()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L370"}, {"id": "installedpluginsmanager_addplugininstallation", "label": "addPluginInstallation()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L406"}, {"id": "installedpluginsmanager_removeplugininstallation", "label": "removePluginInstallation()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L452"}, {"id": "installedpluginsmanager_getinmemoryinstalledplugins", "label": "getInMemoryInstalledPlugins()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L488"}, {"id": "installedpluginsmanager_loadinstalledpluginsfromdisk", "label": "loadInstalledPluginsFromDisk()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L502"}, {"id": "installedpluginsmanager_updateinstallationpathondisk", "label": "updateInstallationPathOnDisk()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L537"}, {"id": "installedpluginsmanager_haspendingupdates", "label": "hasPendingUpdates()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L595"}, {"id": "installedpluginsmanager_getpendingupdatecount", "label": "getPendingUpdateCount()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L625"}, {"id": "installedpluginsmanager_getpendingupdatesdetails", "label": "getPendingUpdatesDetails()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L656"}, {"id": "installedpluginsmanager_resetinmemorystate", "label": "resetInMemoryState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L702"}, {"id": "installedpluginsmanager_initializeversionedplugins", "label": "initializeVersionedPlugins()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L714"}, {"id": "installedpluginsmanager_removeallpluginsformarketplace", "label": "removeAllPluginsForMarketplace()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L746"}, {"id": "installedpluginsmanager_isinstallationrelevanttocurrentproject", "label": "isInstallationRelevantToCurrentProject()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L800"}, {"id": "installedpluginsmanager_isplugininstalled", "label": "isPluginInstalled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L818"}, {"id": "installedpluginsmanager_isplugingloballyinstalled", "label": "isPluginGloballyInstalled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L849"}, {"id": "installedpluginsmanager_addinstalledplugin", "label": "addInstalledPlugin()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L874"}, {"id": "installedpluginsmanager_removeinstalledplugin", "label": "removeInstalledPlugin()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L924"}, {"id": "installedpluginsmanager_deleteplugincache", "label": "deletePluginCache()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L965"}, {"id": "installedpluginsmanager_getgitcommitsha", "label": "getGitCommitSha()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1002"}, {"id": "installedpluginsmanager_getpluginversionfrommanifest", "label": "getPluginVersionFromManifest()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1010"}, {"id": "installedpluginsmanager_migratefromenabledplugins", "label": "migrateFromEnabledPlugins()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1048"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_plugindirectories_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_schemas_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L44", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_git_gitfilesystem_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L45", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L46", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L47", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacemanager_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L51", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginidentifier_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L52", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginloader_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L56", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_getinstalledpluginsfilepath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L78", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_getinstalledpluginsv2filepath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L86", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_clearinstalledpluginscache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L99", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_migratetosinglepluginfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L115", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_cleanuplegacycache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L192", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_resetmigrationstate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L250", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_readinstalledpluginsfileraw", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L259", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_migratev1tov2", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L284", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_loadinstalledpluginsv2", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L315", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_saveinstalledpluginsv2", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L370", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_addplugininstallation", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L406", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_removeplugininstallation", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L452", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_getinmemoryinstalledplugins", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L488", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_loadinstalledpluginsfromdisk", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L502", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_updateinstallationpathondisk", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L537", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_haspendingupdates", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L595", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_getpendingupdatecount", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L625", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_getpendingupdatesdetails", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L656", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_resetinmemorystate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L702", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_initializeversionedplugins", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L714", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_removeallpluginsformarketplace", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L746", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_isinstallationrelevanttocurrentproject", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L800", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_isplugininstalled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L818", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_isplugingloballyinstalled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L849", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_addinstalledplugin", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L874", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_removeinstalledplugin", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L924", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_deleteplugincache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L965", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_getgitcommitsha", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1002", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_getpluginversionfrommanifest", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1010", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "target": "installedpluginsmanager_migratefromenabledplugins", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1048", "weight": 1.0}, {"source": "installedpluginsmanager_migratetosinglepluginfile", "target": "installedpluginsmanager_getinstalledpluginsfilepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L121", "weight": 1.0}, {"source": "installedpluginsmanager_migratetosinglepluginfile", "target": "installedpluginsmanager_getinstalledpluginsv2filepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L122", "weight": 1.0}, {"source": "installedpluginsmanager_migratetosinglepluginfile", "target": "installedpluginsmanager_loadinstalledpluginsv2", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L132", "weight": 1.0}, {"source": "installedpluginsmanager_migratetosinglepluginfile", "target": "installedpluginsmanager_cleanuplegacycache", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L133", "weight": 1.0}, {"source": "installedpluginsmanager_migratetosinglepluginfile", "target": "installedpluginsmanager_migratev1tov2", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L157", "weight": 1.0}, {"source": "installedpluginsmanager_readinstalledpluginsfileraw", "target": "installedpluginsmanager_getinstalledpluginsfilepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L264", "weight": 1.0}, {"source": "installedpluginsmanager_loadinstalledpluginsv2", "target": "installedpluginsmanager_getinstalledpluginsfilepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L321", "weight": 1.0}, {"source": "installedpluginsmanager_loadinstalledpluginsv2", "target": "installedpluginsmanager_readinstalledpluginsfileraw", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L324", "weight": 1.0}, {"source": "installedpluginsmanager_loadinstalledpluginsv2", "target": "installedpluginsmanager_migratev1tov2", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L339", "weight": 1.0}, {"source": "installedpluginsmanager_saveinstalledpluginsv2", "target": "installedpluginsmanager_getinstalledpluginsfilepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L372", "weight": 1.0}, {"source": "installedpluginsmanager_addplugininstallation", "target": "installedpluginsmanager_loadinstalledpluginsfromdisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L413", "weight": 1.0}, {"source": "installedpluginsmanager_addplugininstallation", "target": "installedpluginsmanager_saveinstalledpluginsv2", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L442", "weight": 1.0}, {"source": "installedpluginsmanager_removeplugininstallation", "target": "installedpluginsmanager_loadinstalledpluginsfromdisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L457", "weight": 1.0}, {"source": "installedpluginsmanager_removeplugininstallation", "target": "installedpluginsmanager_saveinstalledpluginsv2", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L473", "weight": 1.0}, {"source": "installedpluginsmanager_getinmemoryinstalledplugins", "target": "installedpluginsmanager_loadinstalledpluginsv2", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L490", "weight": 1.0}, {"source": "installedpluginsmanager_loadinstalledpluginsfromdisk", "target": "installedpluginsmanager_readinstalledpluginsfileraw", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L505", "weight": 1.0}, {"source": "installedpluginsmanager_loadinstalledpluginsfromdisk", "target": "installedpluginsmanager_migratev1tov2", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L513", "weight": 1.0}, {"source": "installedpluginsmanager_updateinstallationpathondisk", "target": "installedpluginsmanager_loadinstalledpluginsfromdisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L545", "weight": 1.0}, {"source": "installedpluginsmanager_updateinstallationpathondisk", "target": "installedpluginsmanager_getinstalledpluginsfilepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L567", "weight": 1.0}, {"source": "installedpluginsmanager_haspendingupdates", "target": "installedpluginsmanager_getinmemoryinstalledplugins", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L596", "weight": 1.0}, {"source": "installedpluginsmanager_haspendingupdates", "target": "installedpluginsmanager_loadinstalledpluginsfromdisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L597", "weight": 1.0}, {"source": "installedpluginsmanager_getpendingupdatecount", "target": "installedpluginsmanager_getinmemoryinstalledplugins", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L627", "weight": 1.0}, {"source": "installedpluginsmanager_getpendingupdatecount", "target": "installedpluginsmanager_loadinstalledpluginsfromdisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L628", "weight": 1.0}, {"source": "installedpluginsmanager_getpendingupdatesdetails", "target": "installedpluginsmanager_getinmemoryinstalledplugins", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L669", "weight": 1.0}, {"source": "installedpluginsmanager_getpendingupdatesdetails", "target": "installedpluginsmanager_loadinstalledpluginsfromdisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L670", "weight": 1.0}, {"source": "installedpluginsmanager_initializeversionedplugins", "target": "installedpluginsmanager_migratetosinglepluginfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L716", "weight": 1.0}, {"source": "installedpluginsmanager_initializeversionedplugins", "target": "installedpluginsmanager_migratefromenabledplugins", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L721", "weight": 1.0}, {"source": "installedpluginsmanager_initializeversionedplugins", "target": "installedpluginsmanager_getinmemoryinstalledplugins", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L730", "weight": 1.0}, {"source": "installedpluginsmanager_removeallpluginsformarketplace", "target": "installedpluginsmanager_loadinstalledpluginsfromdisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L754", "weight": 1.0}, {"source": "installedpluginsmanager_removeallpluginsformarketplace", "target": "installedpluginsmanager_saveinstalledpluginsv2", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L778", "weight": 1.0}, {"source": "installedpluginsmanager_isplugininstalled", "target": "installedpluginsmanager_loadinstalledpluginsv2", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L819", "weight": 1.0}, {"source": "installedpluginsmanager_isplugingloballyinstalled", "target": "installedpluginsmanager_loadinstalledpluginsv2", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L850", "weight": 1.0}, {"source": "installedpluginsmanager_addinstalledplugin", "target": "installedpluginsmanager_loadinstalledpluginsfromdisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L880", "weight": 1.0}, {"source": "installedpluginsmanager_addinstalledplugin", "target": "installedpluginsmanager_saveinstalledpluginsv2", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L907", "weight": 1.0}, {"source": "installedpluginsmanager_removeinstalledplugin", "target": "installedpluginsmanager_loadinstalledpluginsfromdisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L927", "weight": 1.0}, {"source": "installedpluginsmanager_removeinstalledplugin", "target": "installedpluginsmanager_saveinstalledpluginsv2", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L947", "weight": 1.0}, {"source": "installedpluginsmanager_migratefromenabledplugins", "target": "installedpluginsmanager_readinstalledpluginsfileraw", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1059", "weight": 1.0}, {"source": "installedpluginsmanager_migratefromenabledplugins", "target": "installedpluginsmanager_loadinstalledpluginsv2", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1136", "weight": 1.0}, {"source": "installedpluginsmanager_migratefromenabledplugins", "target": "installedpluginsmanager_getpluginversionfrommanifest", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1195", "weight": 1.0}, {"source": "installedpluginsmanager_migratefromenabledplugins", "target": "installedpluginsmanager_getgitcommitsha", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1196", "weight": 1.0}, {"source": "installedpluginsmanager_migratefromenabledplugins", "target": "installedpluginsmanager_saveinstalledpluginsv2", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1263", "weight": 1.0}], "raw_calls": [{"caller_nid": "installedpluginsmanager_getinstalledpluginsfilepath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L79"}, {"caller_nid": "installedpluginsmanager_getinstalledpluginsfilepath", "callee": "getPluginsDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L79"}, {"caller_nid": "installedpluginsmanager_getinstalledpluginsv2filepath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L87"}, {"caller_nid": "installedpluginsmanager_getinstalledpluginsv2filepath", "callee": "getPluginsDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L87"}, {"caller_nid": "installedpluginsmanager_clearinstalledpluginscache", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L102"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L120"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "renameSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L127"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L128"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "isENOENT", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L137"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "readFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L143"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "isENOENT", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L145"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L151"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "parse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L156"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "InstalledPluginsFileSchemaV1", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L156"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "writeFileSync_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L159"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L159"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L163"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L164"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L174"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L175"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L178"}, {"caller_nid": "installedpluginsmanager_migratetosinglepluginfile", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L178"}, {"caller_nid": "installedpluginsmanager_cleanuplegacycache", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L193"}, {"caller_nid": "installedpluginsmanager_cleanuplegacycache", "callee": "getPluginCachePath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L194"}, {"caller_nid": "installedpluginsmanager_cleanuplegacycache", "callee": "values", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L198"}, {"caller_nid": "installedpluginsmanager_cleanuplegacycache", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L200"}, {"caller_nid": "installedpluginsmanager_cleanuplegacycache", "callee": "readdirSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L205"}, {"caller_nid": "installedpluginsmanager_cleanuplegacycache", "callee": "isDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L208"}, {"caller_nid": "installedpluginsmanager_cleanuplegacycache", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L213"}, {"caller_nid": "installedpluginsmanager_cleanuplegacycache", "callee": "readdirSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L217"}, {"caller_nid": "installedpluginsmanager_cleanuplegacycache", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L218"}, {"caller_nid": "installedpluginsmanager_cleanuplegacycache", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L233"}, {"caller_nid": "installedpluginsmanager_cleanuplegacycache", "callee": "rmSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L235"}, {"caller_nid": "installedpluginsmanager_cleanuplegacycache", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L236"}, {"caller_nid": "installedpluginsmanager_cleanuplegacycache", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L240"}, {"caller_nid": "installedpluginsmanager_cleanuplegacycache", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L241"}, {"caller_nid": "installedpluginsmanager_readinstalledpluginsfileraw", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L263"}, {"caller_nid": "installedpluginsmanager_readinstalledpluginsfileraw", "callee": "readFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L268"}, {"caller_nid": "installedpluginsmanager_readinstalledpluginsfileraw", "callee": "isENOENT", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L270"}, {"caller_nid": "installedpluginsmanager_readinstalledpluginsfileraw", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L275"}, {"caller_nid": "installedpluginsmanager_migratev1tov2", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L287"}, {"caller_nid": "installedpluginsmanager_migratev1tov2", "callee": "getVersionedCachePath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L290"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsv2", "callee": "parse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L329"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsv2", "callee": "InstalledPluginsFileSchemaV2", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L329"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsv2", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L331"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsv2", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L332"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsv2", "callee": "parse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L338"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsv2", "callee": "InstalledPluginsFileSchemaV1", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L338"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsv2", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L341"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsv2", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L342"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsv2", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L348"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsv2", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L354"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsv2", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L355"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsv2", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L359"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsv2", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L359"}, {"caller_nid": "installedpluginsmanager_saveinstalledpluginsv2", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L371"}, {"caller_nid": "installedpluginsmanager_saveinstalledpluginsv2", "callee": "mkdirSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L375"}, {"caller_nid": "installedpluginsmanager_saveinstalledpluginsv2", "callee": "getPluginsDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L375"}, {"caller_nid": "installedpluginsmanager_saveinstalledpluginsv2", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L377"}, {"caller_nid": "installedpluginsmanager_saveinstalledpluginsv2", "callee": "writeFileSync_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L378"}, {"caller_nid": "installedpluginsmanager_saveinstalledpluginsv2", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L386"}, {"caller_nid": "installedpluginsmanager_saveinstalledpluginsv2", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L387"}, {"caller_nid": "installedpluginsmanager_saveinstalledpluginsv2", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L390"}, {"caller_nid": "installedpluginsmanager_saveinstalledpluginsv2", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L391"}, {"caller_nid": "installedpluginsmanager_saveinstalledpluginsv2", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L391"}, {"caller_nid": "installedpluginsmanager_addplugininstallation", "callee": "findIndex", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L419"}, {"caller_nid": "installedpluginsmanager_addplugininstallation", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L427"}, {"caller_nid": "installedpluginsmanager_addplugininstallation", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L428"}, {"caller_nid": "installedpluginsmanager_addplugininstallation", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L435"}, {"caller_nid": "installedpluginsmanager_addplugininstallation", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L437"}, {"caller_nid": "installedpluginsmanager_addplugininstallation", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L438"}, {"caller_nid": "installedpluginsmanager_removeplugininstallation", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L464"}, {"caller_nid": "installedpluginsmanager_removeplugininstallation", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L474"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsfromdisk", "callee": "parse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L509"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsfromdisk", "callee": "InstalledPluginsFileSchemaV2", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L509"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsfromdisk", "callee": "parse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L512"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsfromdisk", "callee": "InstalledPluginsFileSchemaV1", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L512"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsfromdisk", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L518"}, {"caller_nid": "installedpluginsmanager_loadinstalledpluginsfromdisk", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L519"}, {"caller_nid": "installedpluginsmanager_updateinstallationpathondisk", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L549"}, {"caller_nid": "installedpluginsmanager_updateinstallationpathondisk", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L555"}, {"caller_nid": "installedpluginsmanager_updateinstallationpathondisk", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L562"}, {"caller_nid": "installedpluginsmanager_updateinstallationpathondisk", "callee": "writeFileSync_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L570"}, {"caller_nid": "installedpluginsmanager_updateinstallationpathondisk", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L570"}, {"caller_nid": "installedpluginsmanager_updateinstallationpathondisk", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L578"}, {"caller_nid": "installedpluginsmanager_updateinstallationpathondisk", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L582"}, {"caller_nid": "installedpluginsmanager_haspendingupdates", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L599"}, {"caller_nid": "installedpluginsmanager_haspendingupdates", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L606"}, {"caller_nid": "installedpluginsmanager_getpendingupdatecount", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L630"}, {"caller_nid": "installedpluginsmanager_getpendingupdatecount", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L637"}, {"caller_nid": "installedpluginsmanager_getpendingupdatesdetails", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L672"}, {"caller_nid": "installedpluginsmanager_getpendingupdatesdetails", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L679"}, {"caller_nid": "installedpluginsmanager_getpendingupdatesdetails", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L685"}, {"caller_nid": "installedpluginsmanager_initializeversionedplugins", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L723"}, {"caller_nid": "installedpluginsmanager_initializeversionedplugins", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L731"}, {"caller_nid": "installedpluginsmanager_initializeversionedplugins", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L732"}, {"caller_nid": "installedpluginsmanager_removeallpluginsformarketplace", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L759"}, {"caller_nid": "installedpluginsmanager_removeallpluginsformarketplace", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L760"}, {"caller_nid": "installedpluginsmanager_removeallpluginsformarketplace", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L766"}, {"caller_nid": "installedpluginsmanager_removeallpluginsformarketplace", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L771"}, {"caller_nid": "installedpluginsmanager_removeallpluginsformarketplace", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L772"}, {"caller_nid": "installedpluginsmanager_removeallpluginsformarketplace", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L781"}, {"caller_nid": "installedpluginsmanager_isinstallationrelevanttocurrentproject", "callee": "getOriginalCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L806"}, {"caller_nid": "installedpluginsmanager_isplugininstalled", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L824"}, {"caller_nid": "installedpluginsmanager_isplugininstalled", "callee": "getSettings_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L830"}, {"caller_nid": "installedpluginsmanager_isplugingloballyinstalled", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L855"}, {"caller_nid": "installedpluginsmanager_isplugingloballyinstalled", "callee": "getSettings_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L861"}, {"caller_nid": "installedpluginsmanager_addinstalledplugin", "callee": "findIndex", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L895"}, {"caller_nid": "installedpluginsmanager_addinstalledplugin", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L903"}, {"caller_nid": "installedpluginsmanager_addinstalledplugin", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L909"}, {"caller_nid": "installedpluginsmanager_removeinstalledplugin", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L939"}, {"caller_nid": "installedpluginsmanager_removeinstalledplugin", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L949"}, {"caller_nid": "installedpluginsmanager_deleteplugincache", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L966"}, {"caller_nid": "installedpluginsmanager_deleteplugincache", "callee": "rmSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L969"}, {"caller_nid": "installedpluginsmanager_deleteplugincache", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L970"}, {"caller_nid": "installedpluginsmanager_deleteplugincache", "callee": "getPluginCachePath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L974"}, {"caller_nid": "installedpluginsmanager_deleteplugincache", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L975"}, {"caller_nid": "installedpluginsmanager_deleteplugincache", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L975"}, {"caller_nid": "installedpluginsmanager_deleteplugincache", "callee": "dirname", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L976"}, {"caller_nid": "installedpluginsmanager_deleteplugincache", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L977"}, {"caller_nid": "installedpluginsmanager_deleteplugincache", "callee": "readdirSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L979"}, {"caller_nid": "installedpluginsmanager_deleteplugincache", "callee": "rmdirSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L981"}, {"caller_nid": "installedpluginsmanager_deleteplugincache", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L982"}, {"caller_nid": "installedpluginsmanager_deleteplugincache", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L990"}, {"caller_nid": "installedpluginsmanager_deleteplugincache", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L991"}, {"caller_nid": "installedpluginsmanager_deleteplugincache", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L991"}, {"caller_nid": "installedpluginsmanager_getgitcommitsha", "callee": "getHeadForDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1003"}, {"caller_nid": "installedpluginsmanager_getpluginversionfrommanifest", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1014"}, {"caller_nid": "installedpluginsmanager_getpluginversionfrommanifest", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1015"}, {"caller_nid": "installedpluginsmanager_getpluginversionfrommanifest", "callee": "readFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1018"}, {"caller_nid": "installedpluginsmanager_getpluginversionfrommanifest", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1019"}, {"caller_nid": "installedpluginsmanager_getpluginversionfrommanifest", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1022"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "getSettings_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1050"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1054"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "safeParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1067"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "InstalledPluginsFileSchemaV2", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1067"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "every", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1073"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1073"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1073"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1081"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1087"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1093"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1094"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1114"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1117"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1119"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "settingSourceToScope", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1123"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1124"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1163"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "parsePluginIdentifier", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1169"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1176"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "getPluginById", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1179"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1181"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1194"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "getPluginCachePath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1198"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1199"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1200"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1210"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1211"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1211"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "isENOENT", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1214"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1215"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1224"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1235"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "getVersionedCachePath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1241"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1253"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1255"}, {"caller_nid": "installedpluginsmanager_migratefromenabledplugins", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts", "source_location": "L1264"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "label": "installedPluginsManager.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "installedpluginsmanager_getinstalledpluginsfilepath",
+      "label": "getInstalledPluginsFilePath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L78"
+    },
+    {
+      "id": "installedpluginsmanager_getinstalledpluginsv2filepath",
+      "label": "getInstalledPluginsV2FilePath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L86"
+    },
+    {
+      "id": "installedpluginsmanager_clearinstalledpluginscache",
+      "label": "clearInstalledPluginsCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L99"
+    },
+    {
+      "id": "installedpluginsmanager_migratetosinglepluginfile",
+      "label": "migrateToSinglePluginFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L115"
+    },
+    {
+      "id": "installedpluginsmanager_cleanuplegacycache",
+      "label": "cleanupLegacyCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L192"
+    },
+    {
+      "id": "installedpluginsmanager_resetmigrationstate",
+      "label": "resetMigrationState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L250"
+    },
+    {
+      "id": "installedpluginsmanager_readinstalledpluginsfileraw",
+      "label": "readInstalledPluginsFileRaw()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L259"
+    },
+    {
+      "id": "installedpluginsmanager_migratev1tov2",
+      "label": "migrateV1ToV2()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L284"
+    },
+    {
+      "id": "installedpluginsmanager_loadinstalledpluginsv2",
+      "label": "loadInstalledPluginsV2()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L315"
+    },
+    {
+      "id": "installedpluginsmanager_saveinstalledpluginsv2",
+      "label": "saveInstalledPluginsV2()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L370"
+    },
+    {
+      "id": "installedpluginsmanager_addplugininstallation",
+      "label": "addPluginInstallation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L406"
+    },
+    {
+      "id": "installedpluginsmanager_removeplugininstallation",
+      "label": "removePluginInstallation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L452"
+    },
+    {
+      "id": "installedpluginsmanager_getinmemoryinstalledplugins",
+      "label": "getInMemoryInstalledPlugins()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L488"
+    },
+    {
+      "id": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "label": "loadInstalledPluginsFromDisk()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L502"
+    },
+    {
+      "id": "installedpluginsmanager_updateinstallationpathondisk",
+      "label": "updateInstallationPathOnDisk()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L537"
+    },
+    {
+      "id": "installedpluginsmanager_haspendingupdates",
+      "label": "hasPendingUpdates()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L595"
+    },
+    {
+      "id": "installedpluginsmanager_getpendingupdatecount",
+      "label": "getPendingUpdateCount()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L625"
+    },
+    {
+      "id": "installedpluginsmanager_getpendingupdatesdetails",
+      "label": "getPendingUpdatesDetails()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L656"
+    },
+    {
+      "id": "installedpluginsmanager_resetinmemorystate",
+      "label": "resetInMemoryState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L702"
+    },
+    {
+      "id": "installedpluginsmanager_initializeversionedplugins",
+      "label": "initializeVersionedPlugins()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L714"
+    },
+    {
+      "id": "installedpluginsmanager_removeallpluginsformarketplace",
+      "label": "removeAllPluginsForMarketplace()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L746"
+    },
+    {
+      "id": "installedpluginsmanager_isinstallationrelevanttocurrentproject",
+      "label": "isInstallationRelevantToCurrentProject()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L800"
+    },
+    {
+      "id": "installedpluginsmanager_isplugininstalled",
+      "label": "isPluginInstalled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L818"
+    },
+    {
+      "id": "installedpluginsmanager_isplugingloballyinstalled",
+      "label": "isPluginGloballyInstalled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L849"
+    },
+    {
+      "id": "installedpluginsmanager_addinstalledplugin",
+      "label": "addInstalledPlugin()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L874"
+    },
+    {
+      "id": "installedpluginsmanager_removeinstalledplugin",
+      "label": "removeInstalledPlugin()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L924"
+    },
+    {
+      "id": "installedpluginsmanager_deleteplugincache",
+      "label": "deletePluginCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L965"
+    },
+    {
+      "id": "installedpluginsmanager_getgitcommitsha",
+      "label": "getGitCommitSha()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1002"
+    },
+    {
+      "id": "installedpluginsmanager_getpluginversionfrommanifest",
+      "label": "getPluginVersionFromManifest()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1010"
+    },
+    {
+      "id": "installedpluginsmanager_migratefromenabledplugins",
+      "label": "migrateFromEnabledPlugins()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1048"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_plugindirectories_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_schemas_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_git_gitfilesystem_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacemanager_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginidentifier_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginloader_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_getinstalledpluginsfilepath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_getinstalledpluginsv2filepath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_clearinstalledpluginscache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_migratetosinglepluginfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_cleanuplegacycache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L192",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_resetmigrationstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L250",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_readinstalledpluginsfileraw",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L259",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_migratev1tov2",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L284",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_loadinstalledpluginsv2",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L315",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_saveinstalledpluginsv2",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L370",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_addplugininstallation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L406",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_removeplugininstallation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L452",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_getinmemoryinstalledplugins",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L488",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L502",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_updateinstallationpathondisk",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L537",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_haspendingupdates",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L595",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_getpendingupdatecount",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L625",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_getpendingupdatesdetails",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L656",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_resetinmemorystate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L702",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_initializeversionedplugins",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L714",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_removeallpluginsformarketplace",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L746",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_isinstallationrelevanttocurrentproject",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L800",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_isplugininstalled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L818",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_isplugingloballyinstalled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L849",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_addinstalledplugin",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L874",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_removeinstalledplugin",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L924",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_deleteplugincache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L965",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_getgitcommitsha",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1002",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_getpluginversionfrommanifest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1010",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "target": "installedpluginsmanager_migratefromenabledplugins",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1048",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_migratetosinglepluginfile",
+      "target": "installedpluginsmanager_getinstalledpluginsfilepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L121",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_migratetosinglepluginfile",
+      "target": "installedpluginsmanager_getinstalledpluginsv2filepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_migratetosinglepluginfile",
+      "target": "installedpluginsmanager_loadinstalledpluginsv2",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_migratetosinglepluginfile",
+      "target": "installedpluginsmanager_cleanuplegacycache",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_migratetosinglepluginfile",
+      "target": "installedpluginsmanager_migratev1tov2",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L157",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_readinstalledpluginsfileraw",
+      "target": "installedpluginsmanager_getinstalledpluginsfilepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L264",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_loadinstalledpluginsv2",
+      "target": "installedpluginsmanager_getinstalledpluginsfilepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L321",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_loadinstalledpluginsv2",
+      "target": "installedpluginsmanager_readinstalledpluginsfileraw",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L324",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_loadinstalledpluginsv2",
+      "target": "installedpluginsmanager_migratev1tov2",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L339",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_saveinstalledpluginsv2",
+      "target": "installedpluginsmanager_getinstalledpluginsfilepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L372",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_addplugininstallation",
+      "target": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L413",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_addplugininstallation",
+      "target": "installedpluginsmanager_saveinstalledpluginsv2",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L442",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_removeplugininstallation",
+      "target": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L457",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_removeplugininstallation",
+      "target": "installedpluginsmanager_saveinstalledpluginsv2",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L473",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_getinmemoryinstalledplugins",
+      "target": "installedpluginsmanager_loadinstalledpluginsv2",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L490",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "target": "installedpluginsmanager_readinstalledpluginsfileraw",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L505",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "target": "installedpluginsmanager_migratev1tov2",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L513",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_updateinstallationpathondisk",
+      "target": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L545",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_updateinstallationpathondisk",
+      "target": "installedpluginsmanager_getinstalledpluginsfilepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L567",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_haspendingupdates",
+      "target": "installedpluginsmanager_getinmemoryinstalledplugins",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L596",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_haspendingupdates",
+      "target": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L597",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_getpendingupdatecount",
+      "target": "installedpluginsmanager_getinmemoryinstalledplugins",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L627",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_getpendingupdatecount",
+      "target": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L628",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_getpendingupdatesdetails",
+      "target": "installedpluginsmanager_getinmemoryinstalledplugins",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L669",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_getpendingupdatesdetails",
+      "target": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L670",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_initializeversionedplugins",
+      "target": "installedpluginsmanager_migratetosinglepluginfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L716",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_initializeversionedplugins",
+      "target": "installedpluginsmanager_migratefromenabledplugins",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L721",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_initializeversionedplugins",
+      "target": "installedpluginsmanager_getinmemoryinstalledplugins",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L730",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_removeallpluginsformarketplace",
+      "target": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L754",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_removeallpluginsformarketplace",
+      "target": "installedpluginsmanager_saveinstalledpluginsv2",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L778",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_isplugininstalled",
+      "target": "installedpluginsmanager_loadinstalledpluginsv2",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L819",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_isplugingloballyinstalled",
+      "target": "installedpluginsmanager_loadinstalledpluginsv2",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L850",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_addinstalledplugin",
+      "target": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L880",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_addinstalledplugin",
+      "target": "installedpluginsmanager_saveinstalledpluginsv2",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L907",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_removeinstalledplugin",
+      "target": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L927",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_removeinstalledplugin",
+      "target": "installedpluginsmanager_saveinstalledpluginsv2",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L947",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_migratefromenabledplugins",
+      "target": "installedpluginsmanager_readinstalledpluginsfileraw",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1059",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_migratefromenabledplugins",
+      "target": "installedpluginsmanager_loadinstalledpluginsv2",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1136",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_migratefromenabledplugins",
+      "target": "installedpluginsmanager_getpluginversionfrommanifest",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1195",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_migratefromenabledplugins",
+      "target": "installedpluginsmanager_getgitcommitsha",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1196",
+      "weight": 1.0
+    },
+    {
+      "source": "installedpluginsmanager_migratefromenabledplugins",
+      "target": "installedpluginsmanager_saveinstalledpluginsv2",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1263",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "installedpluginsmanager_getinstalledpluginsfilepath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_getinstalledpluginsfilepath",
+      "callee": "getPluginsDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_getinstalledpluginsv2filepath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_getinstalledpluginsv2filepath",
+      "callee": "getPluginsDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_clearinstalledpluginscache",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "renameSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "isENOENT",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "readFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "isENOENT",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "InstalledPluginsFileSchemaV1",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "writeFileSync_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L163"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L174"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratetosinglepluginfile",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_cleanuplegacycache",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L193"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_cleanuplegacycache",
+      "callee": "getPluginCachePath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L194"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_cleanuplegacycache",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L198"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_cleanuplegacycache",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_cleanuplegacycache",
+      "callee": "readdirSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L205"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_cleanuplegacycache",
+      "callee": "isDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L208"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_cleanuplegacycache",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L213"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_cleanuplegacycache",
+      "callee": "readdirSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L217"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_cleanuplegacycache",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_cleanuplegacycache",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L233"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_cleanuplegacycache",
+      "callee": "rmSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L235"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_cleanuplegacycache",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L236"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_cleanuplegacycache",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L240"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_cleanuplegacycache",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L241"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_readinstalledpluginsfileraw",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L263"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_readinstalledpluginsfileraw",
+      "callee": "readFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L268"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_readinstalledpluginsfileraw",
+      "callee": "isENOENT",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L270"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_readinstalledpluginsfileraw",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L275"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratev1tov2",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L287"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratev1tov2",
+      "callee": "getVersionedCachePath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L290"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsv2",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L329"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsv2",
+      "callee": "InstalledPluginsFileSchemaV2",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L329"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsv2",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L331"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsv2",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L332"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsv2",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L338"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsv2",
+      "callee": "InstalledPluginsFileSchemaV1",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L338"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsv2",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L341"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsv2",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L342"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsv2",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L348"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsv2",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L354"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsv2",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L355"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsv2",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L359"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsv2",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L359"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_saveinstalledpluginsv2",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L371"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_saveinstalledpluginsv2",
+      "callee": "mkdirSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L375"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_saveinstalledpluginsv2",
+      "callee": "getPluginsDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L375"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_saveinstalledpluginsv2",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L377"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_saveinstalledpluginsv2",
+      "callee": "writeFileSync_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L378"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_saveinstalledpluginsv2",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L386"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_saveinstalledpluginsv2",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L387"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_saveinstalledpluginsv2",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L390"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_saveinstalledpluginsv2",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L391"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_saveinstalledpluginsv2",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L391"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_addplugininstallation",
+      "callee": "findIndex",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L419"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_addplugininstallation",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L427"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_addplugininstallation",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L428"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_addplugininstallation",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L435"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_addplugininstallation",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L437"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_addplugininstallation",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L438"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_removeplugininstallation",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L464"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_removeplugininstallation",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L474"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L509"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "callee": "InstalledPluginsFileSchemaV2",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L509"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L512"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "callee": "InstalledPluginsFileSchemaV1",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L512"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L518"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_loadinstalledpluginsfromdisk",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L519"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_updateinstallationpathondisk",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L549"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_updateinstallationpathondisk",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L555"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_updateinstallationpathondisk",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L562"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_updateinstallationpathondisk",
+      "callee": "writeFileSync_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L570"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_updateinstallationpathondisk",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L570"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_updateinstallationpathondisk",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L578"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_updateinstallationpathondisk",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L582"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_haspendingupdates",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L599"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_haspendingupdates",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L606"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_getpendingupdatecount",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L630"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_getpendingupdatecount",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L637"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_getpendingupdatesdetails",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L672"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_getpendingupdatesdetails",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L679"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_getpendingupdatesdetails",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L685"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_initializeversionedplugins",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L723"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_initializeversionedplugins",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L731"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_initializeversionedplugins",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L732"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_removeallpluginsformarketplace",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L759"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_removeallpluginsformarketplace",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L760"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_removeallpluginsformarketplace",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L766"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_removeallpluginsformarketplace",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L771"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_removeallpluginsformarketplace",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L772"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_removeallpluginsformarketplace",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L781"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_isinstallationrelevanttocurrentproject",
+      "callee": "getOriginalCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L806"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_isplugininstalled",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L824"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_isplugininstalled",
+      "callee": "getSettings_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L830"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_isplugingloballyinstalled",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L855"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_isplugingloballyinstalled",
+      "callee": "getSettings_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L861"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_addinstalledplugin",
+      "callee": "findIndex",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L895"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_addinstalledplugin",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L903"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_addinstalledplugin",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L909"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_removeinstalledplugin",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L939"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_removeinstalledplugin",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L949"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_deleteplugincache",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L966"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_deleteplugincache",
+      "callee": "rmSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L969"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_deleteplugincache",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L970"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_deleteplugincache",
+      "callee": "getPluginCachePath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L974"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_deleteplugincache",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L975"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_deleteplugincache",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L975"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_deleteplugincache",
+      "callee": "dirname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L976"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_deleteplugincache",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L977"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_deleteplugincache",
+      "callee": "readdirSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L979"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_deleteplugincache",
+      "callee": "rmdirSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L981"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_deleteplugincache",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L982"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_deleteplugincache",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L990"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_deleteplugincache",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L991"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_deleteplugincache",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L991"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_getgitcommitsha",
+      "callee": "getHeadForDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1003"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_getpluginversionfrommanifest",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1014"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_getpluginversionfrommanifest",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1015"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_getpluginversionfrommanifest",
+      "callee": "readFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1018"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_getpluginversionfrommanifest",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1019"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_getpluginversionfrommanifest",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1022"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "getSettings_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1050"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1054"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "safeParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1067"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "InstalledPluginsFileSchemaV2",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1067"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "every",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1073"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1073"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1073"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1081"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1087"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1093"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1094"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1114"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1117"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1119"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "settingSourceToScope",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1123"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1124"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1163"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "parsePluginIdentifier",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1169"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1176"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "getPluginById",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1179"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1181"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1194"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "getPluginCachePath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1198"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1199"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1200"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1210"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1211"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1211"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "isENOENT",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1214"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1215"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1224"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1235"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "getVersionedCachePath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1241"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1253"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1255"
+    },
+    {
+      "caller_nid": "installedpluginsmanager_migratefromenabledplugins",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\installedPluginsManager.ts",
+      "source_location": "L1264"
+    }
+  ]
+}

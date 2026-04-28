@@ -1,1 +1,170 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_cache_invalidation_ts", "label": "cache-invalidation.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L1"}, {"id": "cache_invalidation_folderitemscachekeys", "label": "folderItemsCacheKeys()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L34"}, {"id": "cache_invalidation_patchfoldercache", "label": "patchFolderCache()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L49"}, {"id": "cache_invalidation_invalidatefoldercache", "label": "invalidateFolderCache()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L92"}, {"id": "cache_invalidation_invalidatequotacache", "label": "invalidateQuotaCache()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L99"}, {"id": "cache_invalidation_patchquotausedstorage", "label": "patchQuotaUsedStorage()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L103"}], "edges": [{"source": "f_storage_platform_src_lib_cache_invalidation_ts", "target": "cache", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_cache_invalidation_ts", "target": "cache_invalidation_folderitemscachekeys", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L34", "weight": 1.0}, {"source": "f_storage_platform_src_lib_cache_invalidation_ts", "target": "cache_invalidation_patchfoldercache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L49", "weight": 1.0}, {"source": "f_storage_platform_src_lib_cache_invalidation_ts", "target": "cache_invalidation_invalidatefoldercache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L92", "weight": 1.0}, {"source": "f_storage_platform_src_lib_cache_invalidation_ts", "target": "cache_invalidation_invalidatequotacache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L99", "weight": 1.0}, {"source": "f_storage_platform_src_lib_cache_invalidation_ts", "target": "cache_invalidation_patchquotausedstorage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L103", "weight": 1.0}, {"source": "cache_invalidation_patchfoldercache", "target": "cache_invalidation_folderitemscachekeys", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L54", "weight": 1.0}, {"source": "cache_invalidation_invalidatefoldercache", "target": "cache_invalidation_folderitemscachekeys", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L96", "weight": 1.0}], "raw_calls": [{"caller_nid": "cache_invalidation_patchfoldercache", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L56"}, {"caller_nid": "cache_invalidation_patchfoldercache", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L57"}, {"caller_nid": "cache_invalidation_invalidatefoldercache", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L96"}, {"caller_nid": "cache_invalidation_invalidatefoldercache", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L96"}, {"caller_nid": "cache_invalidation_invalidatequotacache", "callee": "delete", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L100"}, {"caller_nid": "cache_invalidation_patchquotausedstorage", "callee": "await Cache.get", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L108"}, {"caller_nid": "cache_invalidation_patchquotausedstorage", "callee": "max", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L114"}, {"caller_nid": "cache_invalidation_patchquotausedstorage", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts", "source_location": "L115"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_cache_invalidation_ts",
+      "label": "cache-invalidation.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "cache_invalidation_folderitemscachekeys",
+      "label": "folderItemsCacheKeys()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L34"
+    },
+    {
+      "id": "cache_invalidation_patchfoldercache",
+      "label": "patchFolderCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L49"
+    },
+    {
+      "id": "cache_invalidation_invalidatefoldercache",
+      "label": "invalidateFolderCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L92"
+    },
+    {
+      "id": "cache_invalidation_invalidatequotacache",
+      "label": "invalidateQuotaCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L99"
+    },
+    {
+      "id": "cache_invalidation_patchquotausedstorage",
+      "label": "patchQuotaUsedStorage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L103"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_cache_invalidation_ts",
+      "target": "cache",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_cache_invalidation_ts",
+      "target": "cache_invalidation_folderitemscachekeys",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_cache_invalidation_ts",
+      "target": "cache_invalidation_patchfoldercache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_cache_invalidation_ts",
+      "target": "cache_invalidation_invalidatefoldercache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L92",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_cache_invalidation_ts",
+      "target": "cache_invalidation_invalidatequotacache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_cache_invalidation_ts",
+      "target": "cache_invalidation_patchquotausedstorage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "cache_invalidation_patchfoldercache",
+      "target": "cache_invalidation_folderitemscachekeys",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "cache_invalidation_invalidatefoldercache",
+      "target": "cache_invalidation_folderitemscachekeys",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L96",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "cache_invalidation_patchfoldercache",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "cache_invalidation_patchfoldercache",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "cache_invalidation_invalidatefoldercache",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "cache_invalidation_invalidatefoldercache",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "cache_invalidation_invalidatequotacache",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "cache_invalidation_patchquotausedstorage",
+      "callee": "await Cache.get",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L108"
+    },
+    {
+      "caller_nid": "cache_invalidation_patchquotausedstorage",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "cache_invalidation_patchquotausedstorage",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\cache-invalidation.ts",
+      "source_location": "L115"
+    }
+  ]
+}

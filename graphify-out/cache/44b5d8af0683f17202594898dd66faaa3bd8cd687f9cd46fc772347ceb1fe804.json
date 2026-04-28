@@ -1,1 +1,854 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "label": "vcr.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L1"}, {"id": "vcr_shouldusevcr", "label": "shouldUseVCR()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L23"}, {"id": "vcr_withfixture", "label": "withFixture()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L39"}, {"id": "vcr_withvcr", "label": "withVCR()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L88"}, {"id": "vcr_addcachedcosttototalsessioncost", "label": "addCachedCostToTotalSessionCost()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L163"}, {"id": "vcr_mapmessages", "label": "mapMessages()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L175"}, {"id": "vcr_mapvaluesdeep", "label": "mapValuesDeep()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L221"}, {"id": "vcr_mapassistantmessage", "label": "mapAssistantMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L238"}, {"id": "vcr_mapmessage", "label": "mapMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L278"}, {"id": "vcr_dehydratevalue", "label": "dehydrateValue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L291"}, {"id": "vcr_hydratevalue", "label": "hydrateValue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L338"}, {"id": "vcr_withtokencountvcr", "label": "withTokenCountVCR()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L382"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "messages_mjs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "isplainobject_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "mapvalues_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "cost_tracker_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "modelcost_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "f_storage_platform_claude_code_source_main_src_types_message_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_env_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "vcr_shouldusevcr", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "vcr_withfixture", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "vcr_withvcr", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L88", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "vcr_addcachedcosttototalsessioncost", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L163", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "vcr_mapmessages", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L175", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "vcr_mapvaluesdeep", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L221", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "vcr_mapassistantmessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L238", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "vcr_mapmessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L278", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "vcr_dehydratevalue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L291", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "vcr_hydratevalue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L338", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "target": "vcr_withtokencountvcr", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L382", "weight": 1.0}, {"source": "vcr_withfixture", "target": "vcr_shouldusevcr", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L44", "weight": 1.0}, {"source": "vcr_withvcr", "target": "vcr_shouldusevcr", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L92", "weight": 1.0}, {"source": "vcr_withvcr", "target": "vcr_mapmessages", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L108", "weight": 1.0}, {"source": "vcr_mapmessage", "target": "vcr_mapassistantmessage", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L285", "weight": 1.0}, {"source": "vcr_withtokencountvcr", "target": "vcr_dehydratevalue", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L394", "weight": 1.0}, {"source": "vcr_withtokencountvcr", "target": "vcr_withfixture", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L402", "weight": 1.0}], "raw_calls": [{"caller_nid": "vcr_shouldusevcr", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L28"}, {"caller_nid": "vcr_withfixture", "callee": "f", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L45"}, {"caller_nid": "vcr_withfixture", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L49"}, {"caller_nid": "vcr_withfixture", "callee": "digest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L49"}, {"caller_nid": "vcr_withfixture", "callee": "update", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L49"}, {"caller_nid": "vcr_withfixture", "callee": "createHash", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L49"}, {"caller_nid": "vcr_withfixture", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L50"}, {"caller_nid": "vcr_withfixture", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L53"}, {"caller_nid": "vcr_withfixture", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L54"}, {"caller_nid": "vcr_withfixture", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L60"}, {"caller_nid": "vcr_withfixture", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L61"}, {"caller_nid": "vcr_withfixture", "callee": "getErrnoCode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L65"}, {"caller_nid": "vcr_withfixture", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L71"}, {"caller_nid": "vcr_withfixture", "callee": "f", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L78"}, {"caller_nid": "vcr_withfixture", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L80"}, {"caller_nid": "vcr_withfixture", "callee": "dirname", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L80"}, {"caller_nid": "vcr_withfixture", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L81"}, {"caller_nid": "vcr_withfixture", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L81"}, {"caller_nid": "vcr_withvcr", "callee": "f", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L93"}, {"caller_nid": "vcr_withvcr", "callee": "normalizeMessagesForAPI", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L96"}, {"caller_nid": "vcr_withvcr", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L97"}, {"caller_nid": "vcr_withvcr", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L109"}, {"caller_nid": "vcr_withvcr", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L112"}, {"caller_nid": "vcr_withvcr", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L113"}, {"caller_nid": "vcr_withvcr", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L114"}, {"caller_nid": "vcr_withvcr", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L114"}, {"caller_nid": "vcr_withvcr", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L119"}, {"caller_nid": "vcr_withvcr", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L120"}, {"caller_nid": "vcr_withvcr", "callee": "forEach", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L122"}, {"caller_nid": "vcr_withvcr", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L123"}, {"caller_nid": "vcr_withvcr", "callee": "getErrnoCode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L127"}, {"caller_nid": "vcr_withvcr", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L133"}, {"caller_nid": "vcr_withvcr", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L135"}, {"caller_nid": "vcr_withvcr", "callee": "f", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L140"}, {"caller_nid": "vcr_withvcr", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L141"}, {"caller_nid": "vcr_withvcr", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L145"}, {"caller_nid": "vcr_withvcr", "callee": "dirname", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L145"}, {"caller_nid": "vcr_withvcr", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L146"}, {"caller_nid": "vcr_withvcr", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L148"}, {"caller_nid": "vcr_withvcr", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L151"}, {"caller_nid": "vcr_addcachedcosttototalsessioncost", "callee": "calculateUSDCost", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L171"}, {"caller_nid": "vcr_addcachedcosttototalsessioncost", "callee": "addToTotalSessionCost", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L172"}, {"caller_nid": "vcr_mapmessages", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L179"}, {"caller_nid": "vcr_mapvaluesdeep", "callee": "mapValues", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L227"}, {"caller_nid": "vcr_mapassistantmessage", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L254"}, {"caller_nid": "vcr_mapassistantmessage", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L254"}, {"caller_nid": "vcr_dehydratevalue", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L295"}, {"caller_nid": "vcr_dehydratevalue", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L296"}, {"caller_nid": "vcr_dehydratevalue", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L297"}, {"caller_nid": "vcr_dehydratevalue", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L297"}, {"caller_nid": "vcr_dehydratevalue", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L297"}, {"caller_nid": "vcr_dehydratevalue", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L297"}, {"caller_nid": "vcr_dehydratevalue", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L297"}, {"caller_nid": "vcr_dehydratevalue", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L297"}, {"caller_nid": "vcr_dehydratevalue", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L311"}, {"caller_nid": "vcr_dehydratevalue", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L312"}, {"caller_nid": "vcr_dehydratevalue", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L314"}, {"caller_nid": "vcr_dehydratevalue", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L314"}, {"caller_nid": "vcr_dehydratevalue", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L315"}, {"caller_nid": "vcr_dehydratevalue", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L315"}, {"caller_nid": "vcr_dehydratevalue", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L316"}, {"caller_nid": "vcr_dehydratevalue", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L316"}, {"caller_nid": "vcr_dehydratevalue", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L316"}, {"caller_nid": "vcr_dehydratevalue", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L316"}, {"caller_nid": "vcr_dehydratevalue", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L325"}, {"caller_nid": "vcr_dehydratevalue", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L325"}, {"caller_nid": "vcr_dehydratevalue", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L332"}, {"caller_nid": "vcr_hydratevalue", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L342"}, {"caller_nid": "vcr_hydratevalue", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L342"}, {"caller_nid": "vcr_hydratevalue", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L342"}, {"caller_nid": "vcr_hydratevalue", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L342"}, {"caller_nid": "vcr_hydratevalue", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L345"}, {"caller_nid": "vcr_hydratevalue", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L346"}, {"caller_nid": "vcr_withtokencountvcr", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L392"}, {"caller_nid": "vcr_withtokencountvcr", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L392"}, {"caller_nid": "vcr_withtokencountvcr", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L393"}, {"caller_nid": "vcr_withtokencountvcr", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L393"}, {"caller_nid": "vcr_withtokencountvcr", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L393"}, {"caller_nid": "vcr_withtokencountvcr", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts", "source_location": "L394"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "label": "vcr.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "vcr_shouldusevcr",
+      "label": "shouldUseVCR()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L23"
+    },
+    {
+      "id": "vcr_withfixture",
+      "label": "withFixture()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L39"
+    },
+    {
+      "id": "vcr_withvcr",
+      "label": "withVCR()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L88"
+    },
+    {
+      "id": "vcr_addcachedcosttototalsessioncost",
+      "label": "addCachedCostToTotalSessionCost()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L163"
+    },
+    {
+      "id": "vcr_mapmessages",
+      "label": "mapMessages()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L175"
+    },
+    {
+      "id": "vcr_mapvaluesdeep",
+      "label": "mapValuesDeep()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L221"
+    },
+    {
+      "id": "vcr_mapassistantmessage",
+      "label": "mapAssistantMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L238"
+    },
+    {
+      "id": "vcr_mapmessage",
+      "label": "mapMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L278"
+    },
+    {
+      "id": "vcr_dehydratevalue",
+      "label": "dehydrateValue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L291"
+    },
+    {
+      "id": "vcr_hydratevalue",
+      "label": "hydrateValue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L338"
+    },
+    {
+      "id": "vcr_withtokencountvcr",
+      "label": "withTokenCountVCR()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L382"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "messages_mjs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "isplainobject_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "mapvalues_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "cost_tracker_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "modelcost_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_env_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "vcr_shouldusevcr",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "vcr_withfixture",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "vcr_withvcr",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "vcr_addcachedcosttototalsessioncost",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "vcr_mapmessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L175",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "vcr_mapvaluesdeep",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L221",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "vcr_mapassistantmessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L238",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "vcr_mapmessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L278",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "vcr_dehydratevalue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L291",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "vcr_hydratevalue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L338",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "target": "vcr_withtokencountvcr",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L382",
+      "weight": 1.0
+    },
+    {
+      "source": "vcr_withfixture",
+      "target": "vcr_shouldusevcr",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "vcr_withvcr",
+      "target": "vcr_shouldusevcr",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L92",
+      "weight": 1.0
+    },
+    {
+      "source": "vcr_withvcr",
+      "target": "vcr_mapmessages",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "vcr_mapmessage",
+      "target": "vcr_mapassistantmessage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L285",
+      "weight": 1.0
+    },
+    {
+      "source": "vcr_withtokencountvcr",
+      "target": "vcr_dehydratevalue",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L394",
+      "weight": 1.0
+    },
+    {
+      "source": "vcr_withtokencountvcr",
+      "target": "vcr_withfixture",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L402",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "vcr_shouldusevcr",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "f",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "digest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "createHash",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L54"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "getErrnoCode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "f",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L80"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "dirname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L80"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "vcr_withfixture",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "f",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "normalizeMessagesForAPI",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L123"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "getErrnoCode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "f",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L140"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "dirname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "vcr_withvcr",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "vcr_addcachedcosttototalsessioncost",
+      "callee": "calculateUSDCost",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L171"
+    },
+    {
+      "caller_nid": "vcr_addcachedcosttototalsessioncost",
+      "callee": "addToTotalSessionCost",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "vcr_mapmessages",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "vcr_mapvaluesdeep",
+      "callee": "mapValues",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L227"
+    },
+    {
+      "caller_nid": "vcr_mapassistantmessage",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L254"
+    },
+    {
+      "caller_nid": "vcr_mapassistantmessage",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L254"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L295"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L296"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L297"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L297"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L297"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L297"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L297"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L297"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L311"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L312"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L314"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L314"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L315"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L315"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L316"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L316"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L316"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L316"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L325"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L325"
+    },
+    {
+      "caller_nid": "vcr_dehydratevalue",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L332"
+    },
+    {
+      "caller_nid": "vcr_hydratevalue",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L342"
+    },
+    {
+      "caller_nid": "vcr_hydratevalue",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L342"
+    },
+    {
+      "caller_nid": "vcr_hydratevalue",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L342"
+    },
+    {
+      "caller_nid": "vcr_hydratevalue",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L342"
+    },
+    {
+      "caller_nid": "vcr_hydratevalue",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L345"
+    },
+    {
+      "caller_nid": "vcr_hydratevalue",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L346"
+    },
+    {
+      "caller_nid": "vcr_withtokencountvcr",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L392"
+    },
+    {
+      "caller_nid": "vcr_withtokencountvcr",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L392"
+    },
+    {
+      "caller_nid": "vcr_withtokencountvcr",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L393"
+    },
+    {
+      "caller_nid": "vcr_withtokencountvcr",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L393"
+    },
+    {
+      "caller_nid": "vcr_withtokencountvcr",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L393"
+    },
+    {
+      "caller_nid": "vcr_withtokencountvcr",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\vcr.ts",
+      "source_location": "L394"
+    }
+  ]
+}

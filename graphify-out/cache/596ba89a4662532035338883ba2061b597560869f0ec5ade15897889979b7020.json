@@ -1,1 +1,162 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts", "label": "adminRequests.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L1"}, {"id": "adminrequests_createadminrequest", "label": "createAdminRequest()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L49"}, {"id": "adminrequests_getmyadminrequests", "label": "getMyAdminRequests()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L71"}, {"id": "adminrequests_checkadminrequesteligibility", "label": "checkAdminRequestEligibility()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L102"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts", "target": "axios", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_api_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts", "target": "adminrequests_createadminrequest", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L49", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts", "target": "adminrequests_getmyadminrequests", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L71", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts", "target": "adminrequests_checkadminrequesteligibility", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L102", "weight": 1.0}], "raw_calls": [{"caller_nid": "adminrequests_createadminrequest", "callee": "prepareApiRequest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L52"}, {"caller_nid": "adminrequests_createadminrequest", "callee": "getOAuthHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L55"}, {"caller_nid": "adminrequests_createadminrequest", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L59"}, {"caller_nid": "adminrequests_createadminrequest", "callee": "await axios.post", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L61"}, {"caller_nid": "adminrequests_getmyadminrequests", "callee": "prepareApiRequest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L75"}, {"caller_nid": "adminrequests_getmyadminrequests", "callee": "getOAuthHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L78"}, {"caller_nid": "adminrequests_getmyadminrequests", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L82"}, {"caller_nid": "adminrequests_getmyadminrequests", "callee": "await axios.get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L87"}, {"caller_nid": "adminrequests_checkadminrequesteligibility", "callee": "prepareApiRequest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L105"}, {"caller_nid": "adminrequests_checkadminrequesteligibility", "callee": "getOAuthHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L108"}, {"caller_nid": "adminrequests_checkadminrequesteligibility", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L112"}, {"caller_nid": "adminrequests_checkadminrequesteligibility", "callee": "await axios.get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts", "source_location": "L114"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts",
+      "label": "adminRequests.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "adminrequests_createadminrequest",
+      "label": "createAdminRequest()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L49"
+    },
+    {
+      "id": "adminrequests_getmyadminrequests",
+      "label": "getMyAdminRequests()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L71"
+    },
+    {
+      "id": "adminrequests_checkadminrequesteligibility",
+      "label": "checkAdminRequestEligibility()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L102"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_api_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts",
+      "target": "adminrequests_createadminrequest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts",
+      "target": "adminrequests_getmyadminrequests",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts",
+      "target": "adminrequests_checkadminrequesteligibility",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L102",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "adminrequests_createadminrequest",
+      "callee": "prepareApiRequest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "adminrequests_createadminrequest",
+      "callee": "getOAuthHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "adminrequests_createadminrequest",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "adminrequests_createadminrequest",
+      "callee": "await axios.post",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "adminrequests_getmyadminrequests",
+      "callee": "prepareApiRequest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "adminrequests_getmyadminrequests",
+      "callee": "getOAuthHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "adminrequests_getmyadminrequests",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "adminrequests_getmyadminrequests",
+      "callee": "await axios.get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "adminrequests_checkadminrequesteligibility",
+      "callee": "prepareApiRequest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "adminrequests_checkadminrequesteligibility",
+      "callee": "getOAuthHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L108"
+    },
+    {
+      "caller_nid": "adminrequests_checkadminrequesteligibility",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "adminrequests_checkadminrequesteligibility",
+      "callee": "await axios.get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\adminRequests.ts",
+      "source_location": "L114"
+    }
+  ]
+}

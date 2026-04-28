@@ -1,1 +1,2134 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "label": "ide.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1"}, {"id": "ide_ideonboardingdialog", "label": "ideOnboardingDialog()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L33"}, {"id": "ide_isprocessrunning", "label": "isProcessRunning()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L49"}, {"id": "ide_makeancestorpidlookup", "label": "makeAncestorPidLookup()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L61"}, {"id": "ide_isvscodeide", "label": "isVSCodeIde()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L259"}, {"id": "ide_isjetbrainside", "label": "isJetBrainsIde()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L265"}, {"id": "ide_getterminalidetype", "label": "getTerminalIdeType()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L287"}, {"id": "ide_getsortedidelockfiles", "label": "getSortedIdeLockfiles()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L298"}, {"id": "ide_readidelockfile", "label": "readIdeLockfile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L346"}, {"id": "ide_checkideconnection", "label": "checkIdeConnection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L402"}, {"id": "ide_getidelockfilespaths", "label": "getIdeLockfilesPaths()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L462"}, {"id": "ide_cleanupstaleidelockfiles", "label": "cleanupStaleIdeLockfiles()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L522"}, {"id": "ide_maybeinstallideextension", "label": "maybeInstallIDEExtension()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L590"}, {"id": "ide_findavailableide", "label": "findAvailableIDE()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L626"}, {"id": "ide_detectides", "label": "detectIDEs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L664"}, {"id": "ide_maybenotifyideconnected", "label": "maybeNotifyIDEConnected()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L829"}, {"id": "ide_hasaccesstoideextensiondifffeature", "label": "hasAccessToIDEExtensionDiffFeature()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L838"}, {"id": "ide_isideextensioninstalled", "label": "isIDEExtensionInstalled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L852"}, {"id": "ide_installideextension", "label": "installIDEExtension()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L879"}, {"id": "ide_getinstallationenv", "label": "getInstallationEnv()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L913"}, {"id": "ide_getclaudecodeversion", "label": "getClaudeCodeVersion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L927"}, {"id": "ide_getinstalledvscodeextensionversion", "label": "getInstalledVSCodeExtensionVersion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L931"}, {"id": "ide_getvscodeidecommandbyparentprocess", "label": "getVSCodeIDECommandByParentProcess()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L951"}, {"id": "ide_getvscodeidecommand", "label": "getVSCodeIDECommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1017"}, {"id": "ide_iscursorinstalled", "label": "isCursorInstalled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1051"}, {"id": "ide_iswindsurfinstalled", "label": "isWindsurfInstalled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1056"}, {"id": "ide_isvscodeinstalled", "label": "isVSCodeInstalled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1061"}, {"id": "ide_detectrunningidesimpl", "label": "detectRunningIDEsImpl()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1075"}, {"id": "ide_detectrunningides", "label": "detectRunningIDEs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1154"}, {"id": "ide_detectrunningidescached", "label": "detectRunningIDEsCached()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1164"}, {"id": "ide_resetdetectrunningides", "label": "resetDetectRunningIDEs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1175"}, {"id": "ide_getconnectedidename", "label": "getConnectedIdeName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1179"}, {"id": "ide_getideclientname", "label": "getIdeClientName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1188"}, {"id": "ide_toidedisplayname", "label": "toIDEDisplayName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1214"}, {"id": "ide_getconnectedideclient", "label": "getConnectedIdeClient()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1251"}, {"id": "ide_closeopendiffs", "label": "closeOpenDiffs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1270"}, {"id": "ide_initializeideintegration", "label": "initializeIdeIntegration()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1288"}, {"id": "ide_installfromartifactory", "label": "installFromArtifactory()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1392"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "index_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "axios", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "execa", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "capitalize_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "memoize_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "net", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "os", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "index_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_client_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_env_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_genericprocessutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_jetbrains_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_semver_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_ideonboardingdialog", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L33", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L38", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envdynamic_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L40", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_idepathconversion_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sleep_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L46", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L47", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_isprocessrunning", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L49", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_makeancestorpidlookup", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L61", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_isvscodeide", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L259", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_isjetbrainside", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L265", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_getterminalidetype", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L287", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_getsortedidelockfiles", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L298", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_readidelockfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L346", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_checkideconnection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L402", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_getidelockfilespaths", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L462", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_cleanupstaleidelockfiles", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L522", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_maybeinstallideextension", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L590", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_findavailableide", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L626", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_detectides", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L664", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_maybenotifyideconnected", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L829", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_hasaccesstoideextensiondifffeature", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L838", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_isideextensioninstalled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L852", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_installideextension", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L879", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_getinstallationenv", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L913", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_getclaudecodeversion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L927", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_getinstalledvscodeextensionversion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L931", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_getvscodeidecommandbyparentprocess", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L951", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_getvscodeidecommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1017", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_iscursorinstalled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1051", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_iswindsurfinstalled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1056", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_isvscodeinstalled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1061", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_detectrunningidesimpl", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1075", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_detectrunningides", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1154", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_detectrunningidescached", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1164", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_resetdetectrunningides", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1175", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_getconnectedidename", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1179", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_getideclientname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1188", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_toidedisplayname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1214", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_getconnectedideclient", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1251", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_closeopendiffs", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1270", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_initializeideintegration", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1288", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "target": "ide_installfromartifactory", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1392", "weight": 1.0}, {"source": "ide_getsortedidelockfiles", "target": "ide_getidelockfilespaths", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L300", "weight": 1.0}, {"source": "ide_cleanupstaleidelockfiles", "target": "ide_getsortedidelockfiles", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L524", "weight": 1.0}, {"source": "ide_cleanupstaleidelockfiles", "target": "ide_readidelockfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L527", "weight": 1.0}, {"source": "ide_cleanupstaleidelockfiles", "target": "ide_isprocessrunning", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L548", "weight": 1.0}, {"source": "ide_cleanupstaleidelockfiles", "target": "ide_checkideconnection", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L553", "weight": 1.0}, {"source": "ide_maybeinstallideextension", "target": "ide_installideextension", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L595", "weight": 1.0}, {"source": "ide_findavailableide", "target": "ide_cleanupstaleidelockfiles", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L634", "weight": 1.0}, {"source": "ide_findavailableide", "target": "ide_detectides", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L644", "weight": 1.0}, {"source": "ide_detectides", "target": "ide_getsortedidelockfiles", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L683", "weight": 1.0}, {"source": "ide_detectides", "target": "ide_makeancestorpidlookup", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L689", "weight": 1.0}, {"source": "ide_detectides", "target": "ide_isprocessrunning", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L773", "weight": 1.0}, {"source": "ide_detectides", "target": "ide_toidedisplayname", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L787", "weight": 1.0}, {"source": "ide_isideextensioninstalled", "target": "ide_isvscodeide", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L855", "weight": 1.0}, {"source": "ide_isideextensioninstalled", "target": "ide_getvscodeidecommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L856", "weight": 1.0}, {"source": "ide_isideextensioninstalled", "target": "ide_getinstallationenv", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L863", "weight": 1.0}, {"source": "ide_isideextensioninstalled", "target": "ide_isjetbrainside", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L873", "weight": 1.0}, {"source": "ide_installideextension", "target": "ide_isvscodeide", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L880", "weight": 1.0}, {"source": "ide_installideextension", "target": "ide_getvscodeidecommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L881", "weight": 1.0}, {"source": "ide_installideextension", "target": "ide_installfromartifactory", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L885", "weight": 1.0}, {"source": "ide_installideextension", "target": "ide_getinstalledvscodeextensionversion", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L887", "weight": 1.0}, {"source": "ide_installideextension", "target": "ide_getclaudecodeversion", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L889", "weight": 1.0}, {"source": "ide_installideextension", "target": "ide_getinstallationenv", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L896", "weight": 1.0}, {"source": "ide_getinstalledvscodeextensionversion", "target": "ide_getinstallationenv", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L938", "weight": 1.0}, {"source": "ide_getvscodeidecommand", "target": "ide_getvscodeidecommandbyparentprocess", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1018", "weight": 1.0}, {"source": "ide_detectrunningides", "target": "ide_detectrunningidesimpl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1155", "weight": 1.0}, {"source": "ide_detectrunningidescached", "target": "ide_detectrunningides", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1166", "weight": 1.0}, {"source": "ide_getconnectedidename", "target": "ide_getideclientname", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1185", "weight": 1.0}, {"source": "ide_getideclientname", "target": "ide_toidedisplayname", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1195", "weight": 1.0}, {"source": "ide_initializeideintegration", "target": "ide_findavailableide", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1297", "weight": 1.0}, {"source": "ide_initializeideintegration", "target": "ide_getterminalidetype", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1304", "weight": 1.0}, {"source": "ide_initializeideintegration", "target": "ide_isvscodeide", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1306", "weight": 1.0}, {"source": "ide_initializeideintegration", "target": "ide_isideextensioninstalled", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1307", "weight": 1.0}, {"source": "ide_initializeideintegration", "target": "ide_isjetbrainside", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1335", "weight": 1.0}, {"source": "ide_installfromartifactory", "target": "ide_getinstallationenv", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1469", "weight": 1.0}], "raw_calls": [{"caller_nid": "ide_ideonboardingdialog", "callee": "require", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L35"}, {"caller_nid": "ide_isprocessrunning", "callee": "kill", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L51"}, {"caller_nid": "ide_getterminalidetype", "callee": "isSupportedTerminal", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L288"}, {"caller_nid": "ide_getsortedidelockfiles", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L304"}, {"caller_nid": "ide_getsortedidelockfiles", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L305"}, {"caller_nid": "ide_getsortedidelockfiles", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L336"}, {"caller_nid": "ide_getsortedidelockfiles", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L336"}, {"caller_nid": "ide_getsortedidelockfiles", "callee": "flat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L336"}, {"caller_nid": "ide_getsortedidelockfiles", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L341"}, {"caller_nid": "ide_readidelockfile", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L348"}, {"caller_nid": "ide_readidelockfile", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L348"}, {"caller_nid": "ide_readidelockfile", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L360"}, {"caller_nid": "ide_readidelockfile", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L371"}, {"caller_nid": "ide_readidelockfile", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L371"}, {"caller_nid": "ide_readidelockfile", "callee": "pop", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L375"}, {"caller_nid": "ide_readidelockfile", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L375"}, {"caller_nid": "ide_readidelockfile", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L378"}, {"caller_nid": "ide_readidelockfile", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L382"}, {"caller_nid": "ide_readidelockfile", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L390"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L463"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L463"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L465"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "getWindowsUserProfile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L472"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "toLocalPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L476"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L477"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "resolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L477"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L484"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L484"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "isDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L491"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "isSymbolicLink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L491"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L502"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L502"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "isFsInaccessible", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L505"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L507"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L508"}, {"caller_nid": "ide_getidelockfilespaths", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L511"}, {"caller_nid": "ide_cleanupstaleidelockfiles", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L532"}, {"caller_nid": "ide_cleanupstaleidelockfiles", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L532"}, {"caller_nid": "ide_cleanupstaleidelockfiles", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L534"}, {"caller_nid": "ide_cleanupstaleidelockfiles", "callee": "detectHostIP", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L539"}, {"caller_nid": "ide_cleanupstaleidelockfiles", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L549"}, {"caller_nid": "ide_cleanupstaleidelockfiles", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L572"}, {"caller_nid": "ide_cleanupstaleidelockfiles", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L572"}, {"caller_nid": "ide_cleanupstaleidelockfiles", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L574"}, {"caller_nid": "ide_cleanupstaleidelockfiles", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L579"}, {"caller_nid": "ide_maybeinstallideextension", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L597"}, {"caller_nid": "ide_maybeinstallideextension", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L600"}, {"caller_nid": "ide_maybeinstallideextension", "callee": "saveGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L602"}, {"caller_nid": "ide_maybeinstallideextension", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L611"}, {"caller_nid": "ide_maybeinstallideextension", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L613"}, {"caller_nid": "ide_maybeinstallideextension", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L614"}, {"caller_nid": "ide_findavailableide", "callee": "abort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L628"}, {"caller_nid": "ide_findavailableide", "callee": "createAbortController", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L630"}, {"caller_nid": "ide_findavailableide", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L635"}, {"caller_nid": "ide_findavailableide", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L636"}, {"caller_nid": "ide_findavailableide", "callee": "getIsScrollDraining", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L640"}, {"caller_nid": "ide_findavailableide", "callee": "sleep", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L641"}, {"caller_nid": "ide_findavailableide", "callee": "sleep", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L654"}, {"caller_nid": "ide_detectides", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L672"}, {"caller_nid": "ide_detectides", "callee": "normalize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L678"}, {"caller_nid": "ide_detectides", "callee": "getOriginalCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L678"}, {"caller_nid": "ide_detectides", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L684"}, {"caller_nid": "ide_detectides", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L684"}, {"caller_nid": "ide_detectides", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L690"}, {"caller_nid": "ide_detectides", "callee": "isSupportedTerminal", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L690"}, {"caller_nid": "ide_detectides", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L697"}, {"caller_nid": "ide_detectides", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L704"}, {"caller_nid": "ide_detectides", "callee": "getAncestors", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L777"}, {"caller_nid": "ide_detectides", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L778"}, {"caller_nid": "ide_detectides", "callee": "isSupportedTerminal", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L787"}, {"caller_nid": "ide_detectides", "callee": "detectHostIP", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L789"}, {"caller_nid": "ide_detectides", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L800"}, {"caller_nid": "ide_detectides", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L815"}, {"caller_nid": "ide_detectides", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L823"}, {"caller_nid": "ide_maybenotifyideconnected", "callee": "notification", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L830"}, {"caller_nid": "ide_hasaccesstoideextensiondifffeature", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L842"}, {"caller_nid": "ide_isideextensioninstalled", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L859"}, {"caller_nid": "ide_isideextensioninstalled", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L866"}, {"caller_nid": "ide_isideextensioninstalled", "callee": "isJetBrainsPluginInstalledCached", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L874"}, {"caller_nid": "ide_installideextension", "callee": "lt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L889"}, {"caller_nid": "ide_installideextension", "callee": "sleep", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L891"}, {"caller_nid": "ide_installideextension", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L892"}, {"caller_nid": "ide_getinstallationenv", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L918"}, {"caller_nid": "ide_getinstalledvscodeextensionversion", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L934"}, {"caller_nid": "ide_getinstalledvscodeextensionversion", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L941"}, {"caller_nid": "ide_getinstalledvscodeextensionversion", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L943"}, {"caller_nid": "ide_getvscodeidecommandbyparentprocess", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L953"}, {"caller_nid": "ide_getvscodeidecommandbyparentprocess", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L969"}, {"caller_nid": "ide_getvscodeidecommandbyparentprocess", "callee": "execSyncWithDefaults_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L969"}, {"caller_nid": "ide_getvscodeidecommandbyparentprocess", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L985"}, {"caller_nid": "ide_getvscodeidecommandbyparentprocess", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L986"}, {"caller_nid": "ide_getvscodeidecommandbyparentprocess", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L992"}, {"caller_nid": "ide_getvscodeidecommandbyparentprocess", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1002"}, {"caller_nid": "ide_getvscodeidecommandbyparentprocess", "callee": "execSyncWithDefaults_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1002"}, {"caller_nid": "ide_getvscodeidecommandbyparentprocess", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1009"}, {"caller_nid": "ide_getvscodeidecommandbyparentprocess", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1009"}, {"caller_nid": "ide_getvscodeidecommand", "callee": "stat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1022"}, {"caller_nid": "ide_getvscodeidecommand", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1022"}, {"caller_nid": "ide_getvscodeidecommand", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1037"}, {"caller_nid": "ide_iscursorinstalled", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1052"}, {"caller_nid": "ide_iswindsurfinstalled", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1057"}, {"caller_nid": "ide_isvscodeinstalled", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1062"}, {"caller_nid": "ide_isvscodeinstalled", "callee": "Boolean", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1065"}, {"caller_nid": "ide_isvscodeinstalled", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1065"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1079"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "execa", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1082"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1087"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1089"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1090"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "execa", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1097"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1103"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1105"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1107"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1107"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1108"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "execa", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1115"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1121"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1123"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1125"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1127"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1130"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1131"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1134"}, {"caller_nid": "ide_detectrunningidesimpl", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1143"}, {"caller_nid": "ide_getconnectedidename", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1182"}, {"caller_nid": "ide_getideclientname", "callee": "isSupportedTerminal", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1194"}, {"caller_nid": "ide_toidedisplayname", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1223"}, {"caller_nid": "ide_toidedisplayname", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1223"}, {"caller_nid": "ide_toidedisplayname", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1229"}, {"caller_nid": "ide_toidedisplayname", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1230"}, {"caller_nid": "ide_toidedisplayname", "callee": "basename", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1230"}, {"caller_nid": "ide_toidedisplayname", "callee": "capitalize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1237"}, {"caller_nid": "ide_toidedisplayname", "callee": "capitalize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1241"}, {"caller_nid": "ide_getconnectedideclient", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1258"}, {"caller_nid": "ide_closeopendiffs", "callee": "callIdeRpc", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1274"}, {"caller_nid": "ide_initializeideintegration", "callee": "then", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1297"}, {"caller_nid": "ide_initializeideintegration", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1299"}, {"caller_nid": "ide_initializeideintegration", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1301"}, {"caller_nid": "ide_initializeideintegration", "callee": "then", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1307"}, {"caller_nid": "ide_initializeideintegration", "callee": "then", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1337"}, {"caller_nid": "ide_installfromartifactory", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1394"}, {"caller_nid": "ide_installfromartifactory", "callee": "homedir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1394"}, {"caller_nid": "ide_installfromartifactory", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1396"}, {"caller_nid": "ide_installfromartifactory", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1399"}, {"caller_nid": "ide_installfromartifactory", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1402"}, {"caller_nid": "ide_installfromartifactory", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1405"}, {"caller_nid": "ide_installfromartifactory", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1409"}, {"caller_nid": "ide_installfromartifactory", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1414"}, {"caller_nid": "ide_installfromartifactory", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1427"}, {"caller_nid": "ide_installfromartifactory", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1433"}, {"caller_nid": "ide_installfromartifactory", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1440"}, {"caller_nid": "ide_installfromartifactory", "callee": "tmpdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1441"}, {"caller_nid": "ide_installfromartifactory", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1442"}, {"caller_nid": "ide_installfromartifactory", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1446"}, {"caller_nid": "ide_installfromartifactory", "callee": "createWriteStream", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1454"}, {"caller_nid": "ide_installfromartifactory", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1454"}, {"caller_nid": "ide_installfromartifactory", "callee": "sleep", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1463"}, {"caller_nid": "ide_installfromartifactory", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1465"}, {"caller_nid": "ide_installfromartifactory", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1481"}, {"caller_nid": "ide_installfromartifactory", "callee": "isAxiosError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts", "source_location": "L1487"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "label": "ide.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "ide_ideonboardingdialog",
+      "label": "ideOnboardingDialog()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L33"
+    },
+    {
+      "id": "ide_isprocessrunning",
+      "label": "isProcessRunning()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L49"
+    },
+    {
+      "id": "ide_makeancestorpidlookup",
+      "label": "makeAncestorPidLookup()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L61"
+    },
+    {
+      "id": "ide_isvscodeide",
+      "label": "isVSCodeIde()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L259"
+    },
+    {
+      "id": "ide_isjetbrainside",
+      "label": "isJetBrainsIde()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L265"
+    },
+    {
+      "id": "ide_getterminalidetype",
+      "label": "getTerminalIdeType()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L287"
+    },
+    {
+      "id": "ide_getsortedidelockfiles",
+      "label": "getSortedIdeLockfiles()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L298"
+    },
+    {
+      "id": "ide_readidelockfile",
+      "label": "readIdeLockfile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L346"
+    },
+    {
+      "id": "ide_checkideconnection",
+      "label": "checkIdeConnection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L402"
+    },
+    {
+      "id": "ide_getidelockfilespaths",
+      "label": "getIdeLockfilesPaths()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L462"
+    },
+    {
+      "id": "ide_cleanupstaleidelockfiles",
+      "label": "cleanupStaleIdeLockfiles()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L522"
+    },
+    {
+      "id": "ide_maybeinstallideextension",
+      "label": "maybeInstallIDEExtension()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L590"
+    },
+    {
+      "id": "ide_findavailableide",
+      "label": "findAvailableIDE()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L626"
+    },
+    {
+      "id": "ide_detectides",
+      "label": "detectIDEs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L664"
+    },
+    {
+      "id": "ide_maybenotifyideconnected",
+      "label": "maybeNotifyIDEConnected()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L829"
+    },
+    {
+      "id": "ide_hasaccesstoideextensiondifffeature",
+      "label": "hasAccessToIDEExtensionDiffFeature()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L838"
+    },
+    {
+      "id": "ide_isideextensioninstalled",
+      "label": "isIDEExtensionInstalled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L852"
+    },
+    {
+      "id": "ide_installideextension",
+      "label": "installIDEExtension()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L879"
+    },
+    {
+      "id": "ide_getinstallationenv",
+      "label": "getInstallationEnv()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L913"
+    },
+    {
+      "id": "ide_getclaudecodeversion",
+      "label": "getClaudeCodeVersion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L927"
+    },
+    {
+      "id": "ide_getinstalledvscodeextensionversion",
+      "label": "getInstalledVSCodeExtensionVersion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L931"
+    },
+    {
+      "id": "ide_getvscodeidecommandbyparentprocess",
+      "label": "getVSCodeIDECommandByParentProcess()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L951"
+    },
+    {
+      "id": "ide_getvscodeidecommand",
+      "label": "getVSCodeIDECommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1017"
+    },
+    {
+      "id": "ide_iscursorinstalled",
+      "label": "isCursorInstalled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1051"
+    },
+    {
+      "id": "ide_iswindsurfinstalled",
+      "label": "isWindsurfInstalled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1056"
+    },
+    {
+      "id": "ide_isvscodeinstalled",
+      "label": "isVSCodeInstalled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1061"
+    },
+    {
+      "id": "ide_detectrunningidesimpl",
+      "label": "detectRunningIDEsImpl()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1075"
+    },
+    {
+      "id": "ide_detectrunningides",
+      "label": "detectRunningIDEs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1154"
+    },
+    {
+      "id": "ide_detectrunningidescached",
+      "label": "detectRunningIDEsCached()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1164"
+    },
+    {
+      "id": "ide_resetdetectrunningides",
+      "label": "resetDetectRunningIDEs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1175"
+    },
+    {
+      "id": "ide_getconnectedidename",
+      "label": "getConnectedIdeName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1179"
+    },
+    {
+      "id": "ide_getideclientname",
+      "label": "getIdeClientName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1188"
+    },
+    {
+      "id": "ide_toidedisplayname",
+      "label": "toIDEDisplayName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1214"
+    },
+    {
+      "id": "ide_getconnectedideclient",
+      "label": "getConnectedIdeClient()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1251"
+    },
+    {
+      "id": "ide_closeopendiffs",
+      "label": "closeOpenDiffs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1270"
+    },
+    {
+      "id": "ide_initializeideintegration",
+      "label": "initializeIdeIntegration()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1288"
+    },
+    {
+      "id": "ide_installfromartifactory",
+      "label": "installFromArtifactory()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1392"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "index_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "execa",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "capitalize_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "memoize_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "net",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "os",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "index_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_env_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_genericprocessutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_jetbrains_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_semver_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_ideonboardingdialog",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envdynamic_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_idepathconversion_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sleep_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_isprocessrunning",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_makeancestorpidlookup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_isvscodeide",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L259",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_isjetbrainside",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L265",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_getterminalidetype",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L287",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_getsortedidelockfiles",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L298",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_readidelockfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L346",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_checkideconnection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L402",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_getidelockfilespaths",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L462",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_cleanupstaleidelockfiles",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L522",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_maybeinstallideextension",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L590",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_findavailableide",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L626",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_detectides",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L664",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_maybenotifyideconnected",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L829",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_hasaccesstoideextensiondifffeature",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L838",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_isideextensioninstalled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L852",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_installideextension",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L879",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_getinstallationenv",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L913",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_getclaudecodeversion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L927",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_getinstalledvscodeextensionversion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L931",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_getvscodeidecommandbyparentprocess",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L951",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_getvscodeidecommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1017",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_iscursorinstalled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1051",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_iswindsurfinstalled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1056",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_isvscodeinstalled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1061",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_detectrunningidesimpl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1075",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_detectrunningides",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1154",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_detectrunningidescached",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1164",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_resetdetectrunningides",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1175",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_getconnectedidename",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1179",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_getideclientname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1188",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_toidedisplayname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1214",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_getconnectedideclient",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1251",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_closeopendiffs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1270",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_initializeideintegration",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1288",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "target": "ide_installfromartifactory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1392",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_getsortedidelockfiles",
+      "target": "ide_getidelockfilespaths",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L300",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_cleanupstaleidelockfiles",
+      "target": "ide_getsortedidelockfiles",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L524",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_cleanupstaleidelockfiles",
+      "target": "ide_readidelockfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L527",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_cleanupstaleidelockfiles",
+      "target": "ide_isprocessrunning",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L548",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_cleanupstaleidelockfiles",
+      "target": "ide_checkideconnection",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L553",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_maybeinstallideextension",
+      "target": "ide_installideextension",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L595",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_findavailableide",
+      "target": "ide_cleanupstaleidelockfiles",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L634",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_findavailableide",
+      "target": "ide_detectides",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L644",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_detectides",
+      "target": "ide_getsortedidelockfiles",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L683",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_detectides",
+      "target": "ide_makeancestorpidlookup",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L689",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_detectides",
+      "target": "ide_isprocessrunning",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L773",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_detectides",
+      "target": "ide_toidedisplayname",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L787",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_isideextensioninstalled",
+      "target": "ide_isvscodeide",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L855",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_isideextensioninstalled",
+      "target": "ide_getvscodeidecommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L856",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_isideextensioninstalled",
+      "target": "ide_getinstallationenv",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L863",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_isideextensioninstalled",
+      "target": "ide_isjetbrainside",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L873",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_installideextension",
+      "target": "ide_isvscodeide",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L880",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_installideextension",
+      "target": "ide_getvscodeidecommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L881",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_installideextension",
+      "target": "ide_installfromartifactory",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L885",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_installideextension",
+      "target": "ide_getinstalledvscodeextensionversion",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L887",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_installideextension",
+      "target": "ide_getclaudecodeversion",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L889",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_installideextension",
+      "target": "ide_getinstallationenv",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L896",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_getinstalledvscodeextensionversion",
+      "target": "ide_getinstallationenv",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L938",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_getvscodeidecommand",
+      "target": "ide_getvscodeidecommandbyparentprocess",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1018",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_detectrunningides",
+      "target": "ide_detectrunningidesimpl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1155",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_detectrunningidescached",
+      "target": "ide_detectrunningides",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1166",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_getconnectedidename",
+      "target": "ide_getideclientname",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1185",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_getideclientname",
+      "target": "ide_toidedisplayname",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1195",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_initializeideintegration",
+      "target": "ide_findavailableide",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1297",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_initializeideintegration",
+      "target": "ide_getterminalidetype",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1304",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_initializeideintegration",
+      "target": "ide_isvscodeide",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1306",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_initializeideintegration",
+      "target": "ide_isideextensioninstalled",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1307",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_initializeideintegration",
+      "target": "ide_isjetbrainside",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1335",
+      "weight": 1.0
+    },
+    {
+      "source": "ide_installfromartifactory",
+      "target": "ide_getinstallationenv",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1469",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "ide_ideonboardingdialog",
+      "callee": "require",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "ide_isprocessrunning",
+      "callee": "kill",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "ide_getterminalidetype",
+      "callee": "isSupportedTerminal",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "ide_getsortedidelockfiles",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L304"
+    },
+    {
+      "caller_nid": "ide_getsortedidelockfiles",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L305"
+    },
+    {
+      "caller_nid": "ide_getsortedidelockfiles",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L336"
+    },
+    {
+      "caller_nid": "ide_getsortedidelockfiles",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L336"
+    },
+    {
+      "caller_nid": "ide_getsortedidelockfiles",
+      "callee": "flat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L336"
+    },
+    {
+      "caller_nid": "ide_getsortedidelockfiles",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L341"
+    },
+    {
+      "caller_nid": "ide_readidelockfile",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L348"
+    },
+    {
+      "caller_nid": "ide_readidelockfile",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L348"
+    },
+    {
+      "caller_nid": "ide_readidelockfile",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L360"
+    },
+    {
+      "caller_nid": "ide_readidelockfile",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L371"
+    },
+    {
+      "caller_nid": "ide_readidelockfile",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L371"
+    },
+    {
+      "caller_nid": "ide_readidelockfile",
+      "callee": "pop",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L375"
+    },
+    {
+      "caller_nid": "ide_readidelockfile",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L375"
+    },
+    {
+      "caller_nid": "ide_readidelockfile",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L378"
+    },
+    {
+      "caller_nid": "ide_readidelockfile",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L382"
+    },
+    {
+      "caller_nid": "ide_readidelockfile",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L390"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L463"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L463"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L465"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "getWindowsUserProfile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L472"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "toLocalPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L476"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L477"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "resolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L477"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L484"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L484"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "isDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L491"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "isSymbolicLink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L491"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L502"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L502"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "isFsInaccessible",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L505"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L507"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L508"
+    },
+    {
+      "caller_nid": "ide_getidelockfilespaths",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L511"
+    },
+    {
+      "caller_nid": "ide_cleanupstaleidelockfiles",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L532"
+    },
+    {
+      "caller_nid": "ide_cleanupstaleidelockfiles",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L532"
+    },
+    {
+      "caller_nid": "ide_cleanupstaleidelockfiles",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L534"
+    },
+    {
+      "caller_nid": "ide_cleanupstaleidelockfiles",
+      "callee": "detectHostIP",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L539"
+    },
+    {
+      "caller_nid": "ide_cleanupstaleidelockfiles",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L549"
+    },
+    {
+      "caller_nid": "ide_cleanupstaleidelockfiles",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L572"
+    },
+    {
+      "caller_nid": "ide_cleanupstaleidelockfiles",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L572"
+    },
+    {
+      "caller_nid": "ide_cleanupstaleidelockfiles",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L574"
+    },
+    {
+      "caller_nid": "ide_cleanupstaleidelockfiles",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L579"
+    },
+    {
+      "caller_nid": "ide_maybeinstallideextension",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L597"
+    },
+    {
+      "caller_nid": "ide_maybeinstallideextension",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L600"
+    },
+    {
+      "caller_nid": "ide_maybeinstallideextension",
+      "callee": "saveGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L602"
+    },
+    {
+      "caller_nid": "ide_maybeinstallideextension",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L611"
+    },
+    {
+      "caller_nid": "ide_maybeinstallideextension",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L613"
+    },
+    {
+      "caller_nid": "ide_maybeinstallideextension",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L614"
+    },
+    {
+      "caller_nid": "ide_findavailableide",
+      "callee": "abort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L628"
+    },
+    {
+      "caller_nid": "ide_findavailableide",
+      "callee": "createAbortController",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L630"
+    },
+    {
+      "caller_nid": "ide_findavailableide",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L635"
+    },
+    {
+      "caller_nid": "ide_findavailableide",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L636"
+    },
+    {
+      "caller_nid": "ide_findavailableide",
+      "callee": "getIsScrollDraining",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L640"
+    },
+    {
+      "caller_nid": "ide_findavailableide",
+      "callee": "sleep",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L641"
+    },
+    {
+      "caller_nid": "ide_findavailableide",
+      "callee": "sleep",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L654"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L672"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "normalize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L678"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "getOriginalCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L678"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L684"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L684"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L690"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "isSupportedTerminal",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L690"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L697"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L704"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "getAncestors",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L777"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L778"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "isSupportedTerminal",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L787"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "detectHostIP",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L789"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L800"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L815"
+    },
+    {
+      "caller_nid": "ide_detectides",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L823"
+    },
+    {
+      "caller_nid": "ide_maybenotifyideconnected",
+      "callee": "notification",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L830"
+    },
+    {
+      "caller_nid": "ide_hasaccesstoideextensiondifffeature",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L842"
+    },
+    {
+      "caller_nid": "ide_isideextensioninstalled",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L859"
+    },
+    {
+      "caller_nid": "ide_isideextensioninstalled",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L866"
+    },
+    {
+      "caller_nid": "ide_isideextensioninstalled",
+      "callee": "isJetBrainsPluginInstalledCached",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L874"
+    },
+    {
+      "caller_nid": "ide_installideextension",
+      "callee": "lt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L889"
+    },
+    {
+      "caller_nid": "ide_installideextension",
+      "callee": "sleep",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L891"
+    },
+    {
+      "caller_nid": "ide_installideextension",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L892"
+    },
+    {
+      "caller_nid": "ide_getinstallationenv",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L918"
+    },
+    {
+      "caller_nid": "ide_getinstalledvscodeextensionversion",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L934"
+    },
+    {
+      "caller_nid": "ide_getinstalledvscodeextensionversion",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L941"
+    },
+    {
+      "caller_nid": "ide_getinstalledvscodeextensionversion",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L943"
+    },
+    {
+      "caller_nid": "ide_getvscodeidecommandbyparentprocess",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L953"
+    },
+    {
+      "caller_nid": "ide_getvscodeidecommandbyparentprocess",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L969"
+    },
+    {
+      "caller_nid": "ide_getvscodeidecommandbyparentprocess",
+      "callee": "execSyncWithDefaults_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L969"
+    },
+    {
+      "caller_nid": "ide_getvscodeidecommandbyparentprocess",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L985"
+    },
+    {
+      "caller_nid": "ide_getvscodeidecommandbyparentprocess",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L986"
+    },
+    {
+      "caller_nid": "ide_getvscodeidecommandbyparentprocess",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L992"
+    },
+    {
+      "caller_nid": "ide_getvscodeidecommandbyparentprocess",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1002"
+    },
+    {
+      "caller_nid": "ide_getvscodeidecommandbyparentprocess",
+      "callee": "execSyncWithDefaults_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1002"
+    },
+    {
+      "caller_nid": "ide_getvscodeidecommandbyparentprocess",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1009"
+    },
+    {
+      "caller_nid": "ide_getvscodeidecommandbyparentprocess",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1009"
+    },
+    {
+      "caller_nid": "ide_getvscodeidecommand",
+      "callee": "stat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1022"
+    },
+    {
+      "caller_nid": "ide_getvscodeidecommand",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1022"
+    },
+    {
+      "caller_nid": "ide_getvscodeidecommand",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1037"
+    },
+    {
+      "caller_nid": "ide_iscursorinstalled",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1052"
+    },
+    {
+      "caller_nid": "ide_iswindsurfinstalled",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1057"
+    },
+    {
+      "caller_nid": "ide_isvscodeinstalled",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1062"
+    },
+    {
+      "caller_nid": "ide_isvscodeinstalled",
+      "callee": "Boolean",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1065"
+    },
+    {
+      "caller_nid": "ide_isvscodeinstalled",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1065"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1079"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "execa",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1082"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1087"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1089"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1090"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "execa",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1097"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1103"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1105"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1107"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1107"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1108"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "execa",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1115"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1121"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1123"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1125"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1127"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1130"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1131"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1134"
+    },
+    {
+      "caller_nid": "ide_detectrunningidesimpl",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1143"
+    },
+    {
+      "caller_nid": "ide_getconnectedidename",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1182"
+    },
+    {
+      "caller_nid": "ide_getideclientname",
+      "callee": "isSupportedTerminal",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1194"
+    },
+    {
+      "caller_nid": "ide_toidedisplayname",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1223"
+    },
+    {
+      "caller_nid": "ide_toidedisplayname",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1223"
+    },
+    {
+      "caller_nid": "ide_toidedisplayname",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1229"
+    },
+    {
+      "caller_nid": "ide_toidedisplayname",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1230"
+    },
+    {
+      "caller_nid": "ide_toidedisplayname",
+      "callee": "basename",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1230"
+    },
+    {
+      "caller_nid": "ide_toidedisplayname",
+      "callee": "capitalize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1237"
+    },
+    {
+      "caller_nid": "ide_toidedisplayname",
+      "callee": "capitalize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1241"
+    },
+    {
+      "caller_nid": "ide_getconnectedideclient",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1258"
+    },
+    {
+      "caller_nid": "ide_closeopendiffs",
+      "callee": "callIdeRpc",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1274"
+    },
+    {
+      "caller_nid": "ide_initializeideintegration",
+      "callee": "then",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1297"
+    },
+    {
+      "caller_nid": "ide_initializeideintegration",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1299"
+    },
+    {
+      "caller_nid": "ide_initializeideintegration",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1301"
+    },
+    {
+      "caller_nid": "ide_initializeideintegration",
+      "callee": "then",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1307"
+    },
+    {
+      "caller_nid": "ide_initializeideintegration",
+      "callee": "then",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1337"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1394"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "homedir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1394"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1396"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1399"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1402"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1405"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1409"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1414"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1427"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1433"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1440"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "tmpdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1441"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1442"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1446"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "createWriteStream",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1454"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1454"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "sleep",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1463"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1465"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1481"
+    },
+    {
+      "caller_nid": "ide_installfromartifactory",
+      "callee": "isAxiosError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ide.ts",
+      "source_location": "L1487"
+    }
+  ]
+}

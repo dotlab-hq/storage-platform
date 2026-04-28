@@ -1,1 +1,280 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts", "label": "preventSleep.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L1"}, {"id": "preventsleep_startpreventsleep", "label": "startPreventSleep()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L36"}, {"id": "preventsleep_stoppreventsleep", "label": "stopPreventSleep()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L49"}, {"id": "preventsleep_forcestoppreventsleep", "label": "forceStopPreventSleep()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L64"}, {"id": "preventsleep_startrestartinterval", "label": "startRestartInterval()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L70"}, {"id": "preventsleep_stoprestartinterval", "label": "stopRestartInterval()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L94"}, {"id": "preventsleep_spawncaffeinate", "label": "spawnCaffeinate()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L101"}, {"id": "preventsleep_killcaffeinate", "label": "killCaffeinate()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L153"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts", "target": "child_process", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts", "target": "preventsleep_startpreventsleep", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L36", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts", "target": "preventsleep_stoppreventsleep", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L49", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts", "target": "preventsleep_forcestoppreventsleep", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L64", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts", "target": "preventsleep_startrestartinterval", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L70", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts", "target": "preventsleep_stoprestartinterval", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L94", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts", "target": "preventsleep_spawncaffeinate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L101", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts", "target": "preventsleep_killcaffeinate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L153", "weight": 1.0}, {"source": "preventsleep_startpreventsleep", "target": "preventsleep_spawncaffeinate", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L40", "weight": 1.0}, {"source": "preventsleep_startpreventsleep", "target": "preventsleep_startrestartinterval", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L41", "weight": 1.0}, {"source": "preventsleep_stoppreventsleep", "target": "preventsleep_stoprestartinterval", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L55", "weight": 1.0}, {"source": "preventsleep_stoppreventsleep", "target": "preventsleep_killcaffeinate", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L56", "weight": 1.0}, {"source": "preventsleep_forcestoppreventsleep", "target": "preventsleep_stoprestartinterval", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L66", "weight": 1.0}, {"source": "preventsleep_forcestoppreventsleep", "target": "preventsleep_killcaffeinate", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L67", "weight": 1.0}], "raw_calls": [{"caller_nid": "preventsleep_startrestartinterval", "callee": "setInterval", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L81"}, {"caller_nid": "preventsleep_startrestartinterval", "callee": "unref", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L91"}, {"caller_nid": "preventsleep_stoprestartinterval", "callee": "clearInterval", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L96"}, {"caller_nid": "preventsleep_spawncaffeinate", "callee": "registerCleanup", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L115"}, {"caller_nid": "preventsleep_spawncaffeinate", "callee": "spawn", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L125"}, {"caller_nid": "preventsleep_spawncaffeinate", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L127"}, {"caller_nid": "preventsleep_spawncaffeinate", "callee": "unref", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L134"}, {"caller_nid": "preventsleep_spawncaffeinate", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L137"}, {"caller_nid": "preventsleep_spawncaffeinate", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L142"}, {"caller_nid": "preventsleep_spawncaffeinate", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L146"}, {"caller_nid": "preventsleep_killcaffeinate", "callee": "kill", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L159"}, {"caller_nid": "preventsleep_killcaffeinate", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts", "source_location": "L160"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts",
+      "label": "preventSleep.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "preventsleep_startpreventsleep",
+      "label": "startPreventSleep()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L36"
+    },
+    {
+      "id": "preventsleep_stoppreventsleep",
+      "label": "stopPreventSleep()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L49"
+    },
+    {
+      "id": "preventsleep_forcestoppreventsleep",
+      "label": "forceStopPreventSleep()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L64"
+    },
+    {
+      "id": "preventsleep_startrestartinterval",
+      "label": "startRestartInterval()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L70"
+    },
+    {
+      "id": "preventsleep_stoprestartinterval",
+      "label": "stopRestartInterval()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L94"
+    },
+    {
+      "id": "preventsleep_spawncaffeinate",
+      "label": "spawnCaffeinate()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L101"
+    },
+    {
+      "id": "preventsleep_killcaffeinate",
+      "label": "killCaffeinate()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L153"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts",
+      "target": "child_process",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts",
+      "target": "preventsleep_startpreventsleep",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts",
+      "target": "preventsleep_stoppreventsleep",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts",
+      "target": "preventsleep_forcestoppreventsleep",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts",
+      "target": "preventsleep_startrestartinterval",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts",
+      "target": "preventsleep_stoprestartinterval",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts",
+      "target": "preventsleep_spawncaffeinate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_preventsleep_ts",
+      "target": "preventsleep_killcaffeinate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "preventsleep_startpreventsleep",
+      "target": "preventsleep_spawncaffeinate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "preventsleep_startpreventsleep",
+      "target": "preventsleep_startrestartinterval",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "preventsleep_stoppreventsleep",
+      "target": "preventsleep_stoprestartinterval",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "preventsleep_stoppreventsleep",
+      "target": "preventsleep_killcaffeinate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "preventsleep_forcestoppreventsleep",
+      "target": "preventsleep_stoprestartinterval",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "preventsleep_forcestoppreventsleep",
+      "target": "preventsleep_killcaffeinate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L67",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "preventsleep_startrestartinterval",
+      "callee": "setInterval",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "preventsleep_startrestartinterval",
+      "callee": "unref",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L91"
+    },
+    {
+      "caller_nid": "preventsleep_stoprestartinterval",
+      "callee": "clearInterval",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "preventsleep_spawncaffeinate",
+      "callee": "registerCleanup",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "preventsleep_spawncaffeinate",
+      "callee": "spawn",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "preventsleep_spawncaffeinate",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "preventsleep_spawncaffeinate",
+      "callee": "unref",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "preventsleep_spawncaffeinate",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "preventsleep_spawncaffeinate",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "preventsleep_spawncaffeinate",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "preventsleep_killcaffeinate",
+      "callee": "kill",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "preventsleep_killcaffeinate",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\preventSleep.ts",
+      "source_location": "L160"
+    }
+  ]
+}

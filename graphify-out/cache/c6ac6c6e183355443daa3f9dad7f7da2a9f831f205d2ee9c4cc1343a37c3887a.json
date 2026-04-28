@@ -1,1 +1,166 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts", "label": "modeValidation.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L1"}, {"id": "modevalidation_isfilesystemcommand", "label": "isFilesystemCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L19"}, {"id": "modevalidation_validatecommandformode", "label": "validateCommandForMode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L23"}, {"id": "modevalidation_checkpermissionmode", "label": "checkPermissionMode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L72"}, {"id": "modevalidation_getautoallowedcommands", "label": "getAutoAllowedCommands()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L111"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts", "target": "v4", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_commands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionresult_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_bashtool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts", "target": "modevalidation_isfilesystemcommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts", "target": "modevalidation_validatecommandformode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts", "target": "modevalidation_checkpermissionmode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L72", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts", "target": "modevalidation_getautoallowedcommands", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L111", "weight": 1.0}, {"source": "modevalidation_validatecommandformode", "target": "modevalidation_isfilesystemcommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L40", "weight": 1.0}, {"source": "modevalidation_checkpermissionmode", "target": "modevalidation_validatecommandformode", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L96", "weight": 1.0}], "raw_calls": [{"caller_nid": "modevalidation_isfilesystemcommand", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L20"}, {"caller_nid": "modevalidation_validatecommandformode", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L27"}, {"caller_nid": "modevalidation_validatecommandformode", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L28"}, {"caller_nid": "modevalidation_checkpermissionmode", "callee": "splitCommand_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts", "source_location": "L92"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts",
+      "label": "modeValidation.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "modevalidation_isfilesystemcommand",
+      "label": "isFilesystemCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L19"
+    },
+    {
+      "id": "modevalidation_validatecommandformode",
+      "label": "validateCommandForMode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L23"
+    },
+    {
+      "id": "modevalidation_checkpermissionmode",
+      "label": "checkPermissionMode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L72"
+    },
+    {
+      "id": "modevalidation_getautoallowedcommands",
+      "label": "getAutoAllowedCommands()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L111"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts",
+      "target": "v4",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_commands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionresult_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_bashtool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts",
+      "target": "modevalidation_isfilesystemcommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts",
+      "target": "modevalidation_validatecommandformode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts",
+      "target": "modevalidation_checkpermissionmode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_modevalidation_ts",
+      "target": "modevalidation_getautoallowedcommands",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "modevalidation_validatecommandformode",
+      "target": "modevalidation_isfilesystemcommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "modevalidation_checkpermissionmode",
+      "target": "modevalidation_validatecommandformode",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L96",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "modevalidation_isfilesystemcommand",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L20"
+    },
+    {
+      "caller_nid": "modevalidation_validatecommandformode",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "modevalidation_validatecommandformode",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "modevalidation_checkpermissionmode",
+      "callee": "splitCommand_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\modeValidation.ts",
+      "source_location": "L92"
+    }
+  ]
+}

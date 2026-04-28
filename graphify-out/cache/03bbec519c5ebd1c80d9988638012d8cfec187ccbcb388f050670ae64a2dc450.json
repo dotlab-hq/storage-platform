@@ -1,1 +1,119 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_vendor_url_handler_src_index_ts", "label": "index.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts", "source_location": "L1"}, {"id": "index_loadmodule", "label": "loadModule()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts", "source_location": "L11"}, {"id": "index_waitforurlevent", "label": "waitForUrlEvent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts", "source_location": "L52"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_vendor_url_handler_src_index_ts", "target": "module", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_vendor_url_handler_src_index_ts", "target": "url", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_vendor_url_handler_src_index_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_vendor_url_handler_src_index_ts", "target": "index_loadmodule", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_vendor_url_handler_src_index_ts", "target": "index_waitforurlevent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts", "source_location": "L52", "weight": 1.0}, {"source": "index_waitforurlevent", "target": "index_loadmodule", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts", "source_location": "L53", "weight": 1.0}], "raw_calls": [{"caller_nid": "index_loadmodule", "callee": "require", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts", "source_location": "L25"}, {"caller_nid": "index_loadmodule", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts", "source_location": "L28"}, {"caller_nid": "index_loadmodule", "callee": "dirname", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts", "source_location": "L29"}, {"caller_nid": "index_loadmodule", "callee": "fileURLToPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts", "source_location": "L29"}, {"caller_nid": "index_loadmodule", "callee": "createRequire(import.meta.url)", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts", "source_location": "L35"}, {"caller_nid": "index_loadmodule", "callee": "createRequire", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts", "source_location": "L35"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_vendor_url_handler_src_index_ts",
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "index_loadmodule",
+      "label": "loadModule()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts",
+      "source_location": "L11"
+    },
+    {
+      "id": "index_waitforurlevent",
+      "label": "waitForUrlEvent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts",
+      "source_location": "L52"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_vendor_url_handler_src_index_ts",
+      "target": "module",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_vendor_url_handler_src_index_ts",
+      "target": "url",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_vendor_url_handler_src_index_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_vendor_url_handler_src_index_ts",
+      "target": "index_loadmodule",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_vendor_url_handler_src_index_ts",
+      "target": "index_waitforurlevent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "index_waitforurlevent",
+      "target": "index_loadmodule",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts",
+      "source_location": "L53",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "index_loadmodule",
+      "callee": "require",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "index_loadmodule",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "index_loadmodule",
+      "callee": "dirname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "index_loadmodule",
+      "callee": "fileURLToPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "index_loadmodule",
+      "callee": "createRequire(import.meta.url)",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "index_loadmodule",
+      "callee": "createRequire",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\url-handler-src\\index.ts",
+      "source_location": "L35"
+    }
+  ]
+}

@@ -1,1 +1,103 @@
-{"nodes": [{"id": "f_storage_platform_src_components_admin_floating_action_bar_tsx", "label": "floating-action-bar.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx", "source_location": "L1"}, {"id": "floating_action_bar_adminfloatingactionbar", "label": "AdminFloatingActionBar()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx", "source_location": "L27"}], "edges": [{"source": "f_storage_platform_src_components_admin_floating_action_bar_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_components_admin_floating_action_bar_tsx", "target": "lucide_react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_components_admin_floating_action_bar_tsx", "target": "button", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_src_components_admin_floating_action_bar_tsx", "target": "input", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_src_components_admin_floating_action_bar_tsx", "target": "utils", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_src_components_admin_floating_action_bar_tsx", "target": "sonner", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_src_components_admin_floating_action_bar_tsx", "target": "floating_action_bar_adminfloatingactionbar", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx", "source_location": "L27", "weight": 1.0}], "raw_calls": [{"caller_nid": "floating_action_bar_adminfloatingactionbar", "callee": "useState", "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx", "source_location": "L37"}, {"caller_nid": "floating_action_bar_adminfloatingactionbar", "callee": "useState", "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx", "source_location": "L38"}, {"caller_nid": "floating_action_bar_adminfloatingactionbar", "callee": "(\r\n    <>\r\n      <div\r\n        className={cn(\r\n          'fixed bottom-6 left-1/2 z-40 -translate-x-1/2',\r\n          'animate-in slide-in-from-bottom-4 fade-in duration-300',\r\n        )}\r\n      >\r\n        <div className=\"bg-card flex items-center gap-2 rounded-xl border px-4 py-2 shadow-lg backdrop-blur-sm\">\r\n          <span className=\"text-foreground mr-2 text-sm font-medium\">\r\n            {selectedCount} user{selectedCount > 1 ? 's' : ''} selected\r\n          </span>\r\n\r\n          <div className=\"bg-border mx-1 h-6 w-px\" />\r\n\r\n          <Button\r\n            size=\"sm\"\r\n            variant=\"ghost\"\r\n            onClick={() => onBan(true)}\r\n            disabled={isLoading}\r\n            className=\"text-destructive hover:text-destructive\"\r\n          >\r\n            <Ban className=\"mr-1 h-4 w-4\" />\r\n            Ban\r\n          </Button>\r\n          <Button\r\n            size=\"sm\"\r\n            variant=\"ghost\"\r\n            onClick={()", "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx", "source_location": "L53"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_components_admin_floating_action_bar_tsx",
+      "label": "floating-action-bar.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "floating_action_bar_adminfloatingactionbar",
+      "label": "AdminFloatingActionBar()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx",
+      "source_location": "L27"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_components_admin_floating_action_bar_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_admin_floating_action_bar_tsx",
+      "target": "lucide_react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_admin_floating_action_bar_tsx",
+      "target": "button",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_admin_floating_action_bar_tsx",
+      "target": "input",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_admin_floating_action_bar_tsx",
+      "target": "utils",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_admin_floating_action_bar_tsx",
+      "target": "sonner",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_admin_floating_action_bar_tsx",
+      "target": "floating_action_bar_adminfloatingactionbar",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx",
+      "source_location": "L27",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "floating_action_bar_adminfloatingactionbar",
+      "callee": "useState",
+      "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "floating_action_bar_adminfloatingactionbar",
+      "callee": "useState",
+      "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "floating_action_bar_adminfloatingactionbar",
+      "callee": "(\r\n    <>\r\n      <div\r\n        className={cn(\r\n          'fixed bottom-6 left-1/2 z-40 -translate-x-1/2',\r\n          'animate-in slide-in-from-bottom-4 fade-in duration-300',\r\n        )}\r\n      >\r\n        <div className=\"bg-card flex items-center gap-2 rounded-xl border px-4 py-2 shadow-lg backdrop-blur-sm\">\r\n          <span className=\"text-foreground mr-2 text-sm font-medium\">\r\n            {selectedCount} user{selectedCount > 1 ? 's' : ''} selected\r\n          </span>\r\n\r\n          <div className=\"bg-border mx-1 h-6 w-px\" />\r\n\r\n          <Button\r\n            size=\"sm\"\r\n            variant=\"ghost\"\r\n            onClick={() => onBan(true)}\r\n            disabled={isLoading}\r\n            className=\"text-destructive hover:text-destructive\"\r\n          >\r\n            <Ban className=\"mr-1 h-4 w-4\" />\r\n            Ban\r\n          </Button>\r\n          <Button\r\n            size=\"sm\"\r\n            variant=\"ghost\"\r\n            onClick={()",
+      "source_file": "F:\\storage-platform\\src\\components\\admin\\floating-action-bar.tsx",
+      "source_location": "L53"
+    }
+  ]
+}

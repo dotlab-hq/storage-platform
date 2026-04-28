@@ -1,4 +1,10 @@
-import { useCallback, useMemo, useOptimistic, useRef, useTransition } from 'react'
+import {
+  useCallback,
+  useMemo,
+  useOptimistic,
+  useRef,
+  useTransition,
+} from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from '@/components/ui/sonner'
 import { STORAGE_QUERY_KEYS } from '@/lib/query-keys'
@@ -40,11 +46,10 @@ export function useBulkActions({
   const [, startTransition] = useTransition()
 
   // Optimistic state for items during bulk operations
-  const [, addOptimisticRemoval] = useOptimistic<
-    StorageItem[],
-    Set<string>
-  >(items, (currentItems, idsToRemove) =>
-    currentItems.filter((item) => !idsToRemove.has(item.id)),
+  const [, addOptimisticRemoval] = useOptimistic<StorageItem[], Set<string>>(
+    items,
+    (currentItems, idsToRemove) =>
+      currentItems.filter((item) => !idsToRemove.has(item.id)),
   )
 
   // Memoized query key for the current folder
@@ -53,7 +58,7 @@ export function useBulkActions({
     if (!firstItem) return null
     return firstItem.type === 'folder'
       ? firstItem.parentFolderId
-      : firstItem.folderId ?? null
+      : (firstItem.folderId ?? null)
   }, [items])
 
   // Delete mutation

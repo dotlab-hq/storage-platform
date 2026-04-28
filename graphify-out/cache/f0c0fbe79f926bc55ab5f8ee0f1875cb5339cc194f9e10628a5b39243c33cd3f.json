@@ -1,1 +1,428 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_cli_transports_serialbatcheventuploader_ts", "label": "SerialBatchEventUploader.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L1"}, {"id": "serialbatcheventuploader_retryableerror", "label": "RetryableError", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L26"}, {"id": "serialbatcheventuploader_retryableerror_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L27"}, {"id": "serialbatcheventuploader_serialbatcheventuploader", "label": "SerialBatchEventUploader", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L64"}, {"id": "serialbatcheventuploader_serialbatcheventuploader_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L75"}, {"id": "serialbatcheventuploader_serialbatcheventuploader_droppedbatchcount", "label": ".droppedBatchCount()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L84"}, {"id": "serialbatcheventuploader_serialbatcheventuploader_pendingcount", "label": ".pendingCount()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L92"}, {"id": "serialbatcheventuploader_serialbatcheventuploader_enqueue", "label": ".enqueue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L101"}, {"id": "serialbatcheventuploader_serialbatcheventuploader_flush", "label": ".flush()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L125"}, {"id": "serialbatcheventuploader_serialbatcheventuploader_close", "label": ".close()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L139"}, {"id": "serialbatcheventuploader_serialbatcheventuploader_drain", "label": ".drain()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L156"}, {"id": "serialbatcheventuploader_serialbatcheventuploader_takebatch", "label": ".takeBatch()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L213"}, {"id": "serialbatcheventuploader_serialbatcheventuploader_retrydelay", "label": ".retryDelay()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L235"}, {"id": "serialbatcheventuploader_serialbatcheventuploader_releasebackpressure", "label": ".releaseBackpressure()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L255"}, {"id": "serialbatcheventuploader_serialbatcheventuploader_sleep", "label": ".sleep()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L261"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_cli_transports_serialbatcheventuploader_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_transports_serialbatcheventuploader_ts", "target": "serialbatcheventuploader_retryableerror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L26", "weight": 1.0}, {"source": "serialbatcheventuploader_retryableerror", "target": "serialbatcheventuploader_retryableerror_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_transports_serialbatcheventuploader_ts", "target": "serialbatcheventuploader_serialbatcheventuploader", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L64", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader", "target": "serialbatcheventuploader_serialbatcheventuploader_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L75", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader", "target": "serialbatcheventuploader_serialbatcheventuploader_droppedbatchcount", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L84", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader", "target": "serialbatcheventuploader_serialbatcheventuploader_pendingcount", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L92", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader", "target": "serialbatcheventuploader_serialbatcheventuploader_enqueue", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L101", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader", "target": "serialbatcheventuploader_serialbatcheventuploader_flush", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L125", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader", "target": "serialbatcheventuploader_serialbatcheventuploader_close", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L139", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader", "target": "serialbatcheventuploader_serialbatcheventuploader_drain", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L156", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader", "target": "serialbatcheventuploader_serialbatcheventuploader_takebatch", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L213", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader", "target": "serialbatcheventuploader_serialbatcheventuploader_retrydelay", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L235", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader", "target": "serialbatcheventuploader_serialbatcheventuploader_releasebackpressure", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L255", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader", "target": "serialbatcheventuploader_serialbatcheventuploader_sleep", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L261", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader_enqueue", "target": "serialbatcheventuploader_serialbatcheventuploader_drain", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L118", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader_flush", "target": "serialbatcheventuploader_serialbatcheventuploader_drain", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L129", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader_drain", "target": "serialbatcheventuploader_serialbatcheventuploader_takebatch", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L163", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader_drain", "target": "serialbatcheventuploader_serialbatcheventuploader_releasebackpressure", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L178", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader_drain", "target": "serialbatcheventuploader_serialbatcheventuploader_sleep", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L187", "weight": 1.0}, {"source": "serialbatcheventuploader_serialbatcheventuploader_drain", "target": "serialbatcheventuploader_serialbatcheventuploader_retrydelay", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L187", "weight": 1.0}], "raw_calls": [{"caller_nid": "serialbatcheventuploader_retryableerror_constructor", "callee": "super", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L31"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_enqueue", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L103"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_enqueue", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L117"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_flush", "callee": "resolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L127"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_close", "callee": "sleepResolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L144"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_close", "callee": "resolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L146"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_close", "callee": "resolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L148"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_drain", "callee": "send", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L167"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_drain", "callee": "onBatchDropped", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L176"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_drain", "callee": "concat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L184"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_drain", "callee": "resolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L198"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_takebatch", "callee": "splice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L216"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_takebatch", "callee": "byteLength", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L223"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_takebatch", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L223"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_takebatch", "callee": "splice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L225"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_takebatch", "callee": "splice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L232"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_retrydelay", "callee": "random", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L236"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_retrydelay", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L242"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_retrydelay", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L244"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_retrydelay", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L248"}, {"caller_nid": "serialbatcheventuploader_serialbatcheventuploader_releasebackpressure", "callee": "resolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts", "source_location": "L258"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_cli_transports_serialbatcheventuploader_ts",
+      "label": "SerialBatchEventUploader.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "serialbatcheventuploader_retryableerror",
+      "label": "RetryableError",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L26"
+    },
+    {
+      "id": "serialbatcheventuploader_retryableerror_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L27"
+    },
+    {
+      "id": "serialbatcheventuploader_serialbatcheventuploader",
+      "label": "SerialBatchEventUploader",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L64"
+    },
+    {
+      "id": "serialbatcheventuploader_serialbatcheventuploader_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L75"
+    },
+    {
+      "id": "serialbatcheventuploader_serialbatcheventuploader_droppedbatchcount",
+      "label": ".droppedBatchCount()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L84"
+    },
+    {
+      "id": "serialbatcheventuploader_serialbatcheventuploader_pendingcount",
+      "label": ".pendingCount()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L92"
+    },
+    {
+      "id": "serialbatcheventuploader_serialbatcheventuploader_enqueue",
+      "label": ".enqueue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L101"
+    },
+    {
+      "id": "serialbatcheventuploader_serialbatcheventuploader_flush",
+      "label": ".flush()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L125"
+    },
+    {
+      "id": "serialbatcheventuploader_serialbatcheventuploader_close",
+      "label": ".close()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L139"
+    },
+    {
+      "id": "serialbatcheventuploader_serialbatcheventuploader_drain",
+      "label": ".drain()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L156"
+    },
+    {
+      "id": "serialbatcheventuploader_serialbatcheventuploader_takebatch",
+      "label": ".takeBatch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L213"
+    },
+    {
+      "id": "serialbatcheventuploader_serialbatcheventuploader_retrydelay",
+      "label": ".retryDelay()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L235"
+    },
+    {
+      "id": "serialbatcheventuploader_serialbatcheventuploader_releasebackpressure",
+      "label": ".releaseBackpressure()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L255"
+    },
+    {
+      "id": "serialbatcheventuploader_serialbatcheventuploader_sleep",
+      "label": ".sleep()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L261"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_transports_serialbatcheventuploader_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_transports_serialbatcheventuploader_ts",
+      "target": "serialbatcheventuploader_retryableerror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_retryableerror",
+      "target": "serialbatcheventuploader_retryableerror_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_transports_serialbatcheventuploader_ts",
+      "target": "serialbatcheventuploader_serialbatcheventuploader",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_droppedbatchcount",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_pendingcount",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L92",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_enqueue",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_flush",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_close",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_drain",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L156",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_takebatch",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L213",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_retrydelay",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L235",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_releasebackpressure",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L255",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_sleep",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L261",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader_enqueue",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_drain",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader_flush",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_drain",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader_drain",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_takebatch",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader_drain",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_releasebackpressure",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader_drain",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_sleep",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "serialbatcheventuploader_serialbatcheventuploader_drain",
+      "target": "serialbatcheventuploader_serialbatcheventuploader_retrydelay",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L187",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "serialbatcheventuploader_retryableerror_constructor",
+      "callee": "super",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L31"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_enqueue",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L103"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_enqueue",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_flush",
+      "callee": "resolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_close",
+      "callee": "sleepResolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_close",
+      "callee": "resolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_close",
+      "callee": "resolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_drain",
+      "callee": "send",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L167"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_drain",
+      "callee": "onBatchDropped",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L176"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_drain",
+      "callee": "concat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L184"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_drain",
+      "callee": "resolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L198"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_takebatch",
+      "callee": "splice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L216"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_takebatch",
+      "callee": "byteLength",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L223"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_takebatch",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L223"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_takebatch",
+      "callee": "splice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L225"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_takebatch",
+      "callee": "splice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L232"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_retrydelay",
+      "callee": "random",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L236"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_retrydelay",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L242"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_retrydelay",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L244"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_retrydelay",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L248"
+    },
+    {
+      "caller_nid": "serialbatcheventuploader_serialbatcheventuploader_releasebackpressure",
+      "callee": "resolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\SerialBatchEventUploader.ts",
+      "source_location": "L258"
+    }
+  ]
+}

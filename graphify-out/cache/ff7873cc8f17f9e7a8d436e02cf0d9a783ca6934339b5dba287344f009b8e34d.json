@@ -1,1 +1,114 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_ink_clearterminal_ts", "label": "clearTerminal.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts", "source_location": "L1"}, {"id": "clearterminal_iswindowsterminal", "label": "isWindowsTerminal()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts", "source_location": "L16"}, {"id": "clearterminal_ismintty", "label": "isMintty()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts", "source_location": "L20"}, {"id": "clearterminal_ismodernwindowsterminal", "label": "isModernWindowsTerminal()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts", "source_location": "L32"}, {"id": "clearterminal_getclearterminalsequence", "label": "getClearTerminalSequence()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts", "source_location": "L59"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_ink_clearterminal_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_termio_csi_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_clearterminal_ts", "target": "clearterminal_iswindowsterminal", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_clearterminal_ts", "target": "clearterminal_ismintty", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_clearterminal_ts", "target": "clearterminal_ismodernwindowsterminal", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_clearterminal_ts", "target": "clearterminal_getclearterminalsequence", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts", "source_location": "L59", "weight": 1.0}, {"source": "clearterminal_ismodernwindowsterminal", "target": "clearterminal_iswindowsterminal", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts", "source_location": "L34", "weight": 1.0}, {"source": "clearterminal_ismodernwindowsterminal", "target": "clearterminal_ismintty", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts", "source_location": "L48", "weight": 1.0}, {"source": "clearterminal_getclearterminalsequence", "target": "clearterminal_ismodernwindowsterminal", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts", "source_location": "L61", "weight": 1.0}], "raw_calls": []}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_ink_clearterminal_ts",
+      "label": "clearTerminal.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "clearterminal_iswindowsterminal",
+      "label": "isWindowsTerminal()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "clearterminal_ismintty",
+      "label": "isMintty()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts",
+      "source_location": "L20"
+    },
+    {
+      "id": "clearterminal_ismodernwindowsterminal",
+      "label": "isModernWindowsTerminal()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "clearterminal_getclearterminalsequence",
+      "label": "getClearTerminalSequence()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts",
+      "source_location": "L59"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_clearterminal_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_termio_csi_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_clearterminal_ts",
+      "target": "clearterminal_iswindowsterminal",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_clearterminal_ts",
+      "target": "clearterminal_ismintty",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_clearterminal_ts",
+      "target": "clearterminal_ismodernwindowsterminal",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_clearterminal_ts",
+      "target": "clearterminal_getclearterminalsequence",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "clearterminal_ismodernwindowsterminal",
+      "target": "clearterminal_iswindowsterminal",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "clearterminal_ismodernwindowsterminal",
+      "target": "clearterminal_ismintty",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "clearterminal_getclearterminalsequence",
+      "target": "clearterminal_ismodernwindowsterminal",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\clearTerminal.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": []
+}

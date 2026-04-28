@@ -1,1 +1,249 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts", "label": "spawnUtils.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L1"}, {"id": "spawnutils_getteammatecommand", "label": "getTeammateCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L23"}, {"id": "spawnutils_buildinheritedcliflags", "label": "buildInheritedCliFlags()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L38"}, {"id": "spawnutils_buildinheritedenvvars", "label": "buildInheritedEnvVars()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L135"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bundledmode_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionmode_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_swarm_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts", "target": "spawnutils_getteammatecommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts", "target": "spawnutils_buildinheritedcliflags", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L38", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts", "target": "spawnutils_buildinheritedenvvars", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L135", "weight": 1.0}], "raw_calls": [{"caller_nid": "spawnutils_getteammatecommand", "callee": "isInBundledMode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L27"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "getSessionBypassPermissionsMode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L51"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L53"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L55"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "getMainLoopModelOverride", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L59"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L61"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "quote", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L61"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "getFlagSettingsPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L65"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L67"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "quote", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L67"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "getInlinePlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L71"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L73"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "quote", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L73"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "getTeammateModeFromSnapshot", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L77"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L78"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "getChromeFlagOverride", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L81"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L83"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L85"}, {"caller_nid": "spawnutils_buildinheritedcliflags", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L88"}, {"caller_nid": "spawnutils_buildinheritedenvvars", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L141"}, {"caller_nid": "spawnutils_buildinheritedenvvars", "callee": "quote", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L141"}, {"caller_nid": "spawnutils_buildinheritedenvvars", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts", "source_location": "L145"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts",
+      "label": "spawnUtils.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "spawnutils_getteammatecommand",
+      "label": "getTeammateCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L23"
+    },
+    {
+      "id": "spawnutils_buildinheritedcliflags",
+      "label": "buildInheritedCliFlags()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L38"
+    },
+    {
+      "id": "spawnutils_buildinheritedenvvars",
+      "label": "buildInheritedEnvVars()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L135"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bundledmode_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionmode_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_swarm_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts",
+      "target": "spawnutils_getteammatecommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts",
+      "target": "spawnutils_buildinheritedcliflags",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_spawnutils_ts",
+      "target": "spawnutils_buildinheritedenvvars",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L135",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "spawnutils_getteammatecommand",
+      "callee": "isInBundledMode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "getSessionBypassPermissionsMode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "getMainLoopModelOverride",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "quote",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "getFlagSettingsPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "quote",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "getInlinePlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "quote",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "getTeammateModeFromSnapshot",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "getChromeFlagOverride",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedcliflags",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedenvvars",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedenvvars",
+      "callee": "quote",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "spawnutils_buildinheritedenvvars",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\spawnUtils.ts",
+      "source_location": "L145"
+    }
+  ]
+}

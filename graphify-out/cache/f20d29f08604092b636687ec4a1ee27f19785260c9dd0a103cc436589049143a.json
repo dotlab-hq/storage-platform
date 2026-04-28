@@ -1,1 +1,86 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_components_effortindicator_ts", "label": "EffortIndicator.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts", "source_location": "L1"}, {"id": "effortindicator_geteffortnotificationtext", "label": "getEffortNotificationText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts", "source_location": "L18"}, {"id": "effortindicator_effortleveltosymbol", "label": "effortLevelToSymbol()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts", "source_location": "L27"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_components_effortindicator_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_figures_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_effortindicator_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_effortindicator_ts", "target": "effortindicator_geteffortnotificationtext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_effortindicator_ts", "target": "effortindicator_effortleveltosymbol", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts", "source_location": "L27", "weight": 1.0}, {"source": "effortindicator_geteffortnotificationtext", "target": "effortindicator_effortleveltosymbol", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts", "source_location": "L24", "weight": 1.0}], "raw_calls": [{"caller_nid": "effortindicator_geteffortnotificationtext", "callee": "modelSupportsEffort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts", "source_location": "L22"}, {"caller_nid": "effortindicator_geteffortnotificationtext", "callee": "getDisplayedEffortLevel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts", "source_location": "L23"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_components_effortindicator_ts",
+      "label": "EffortIndicator.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "effortindicator_geteffortnotificationtext",
+      "label": "getEffortNotificationText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts",
+      "source_location": "L18"
+    },
+    {
+      "id": "effortindicator_effortleveltosymbol",
+      "label": "effortLevelToSymbol()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts",
+      "source_location": "L27"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_effortindicator_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_figures_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_effortindicator_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_effortindicator_ts",
+      "target": "effortindicator_geteffortnotificationtext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_effortindicator_ts",
+      "target": "effortindicator_effortleveltosymbol",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "effortindicator_geteffortnotificationtext",
+      "target": "effortindicator_effortleveltosymbol",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "effortindicator_geteffortnotificationtext",
+      "callee": "modelSupportsEffort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "effortindicator_geteffortnotificationtext",
+      "callee": "getDisplayedEffortLevel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\EffortIndicator.ts",
+      "source_location": "L23"
+    }
+  ]
+}

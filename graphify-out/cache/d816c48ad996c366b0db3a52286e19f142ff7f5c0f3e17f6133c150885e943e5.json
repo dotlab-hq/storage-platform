@@ -1,1 +1,371 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts", "label": "virtual-buckets.shared.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L1"}, {"id": "virtual_buckets_shared_tobucketitem", "label": "toBucketItem()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L11"}, {"id": "virtual_buckets_shared_getactivebucketrow", "label": "getActiveBucketRow()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L28"}, {"id": "virtual_buckets_shared_assertmutablebucket", "label": "assertMutableBucket()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L54"}, {"id": "virtual_buckets_shared_resolvecredentialsecret", "label": "resolveCredentialSecret()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L62"}, {"id": "virtual_buckets_shared_normalizeendpoint", "label": "normalizeEndpoint()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L71"}, {"id": "virtual_buckets_shared_resolvecompatendpoint", "label": "resolveCompatEndpoint()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L90"}, {"id": "virtual_buckets_shared_resolvecompatregion", "label": "resolveCompatRegion()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L98"}, {"id": "virtual_buckets_shared_createbucketcredentials", "label": "createBucketCredentials()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L103"}], "edges": [{"source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts", "target": "node_crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts", "target": "s3_gateway", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts", "target": "s3_buckets", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts", "target": "assets_bucket", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts", "target": "virtual_buckets_shared_tobucketitem", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts", "target": "virtual_buckets_shared_getactivebucketrow", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts", "target": "virtual_buckets_shared_assertmutablebucket", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L54", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts", "target": "virtual_buckets_shared_resolvecredentialsecret", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L62", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts", "target": "virtual_buckets_shared_normalizeendpoint", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L71", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts", "target": "virtual_buckets_shared_resolvecompatendpoint", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L90", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts", "target": "virtual_buckets_shared_resolvecompatregion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L98", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts", "target": "virtual_buckets_shared_createbucketcredentials", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L103", "weight": 1.0}, {"source": "virtual_buckets_shared_resolvecompatendpoint", "target": "virtual_buckets_shared_normalizeendpoint", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L95", "weight": 1.0}, {"source": "virtual_buckets_shared_createbucketcredentials", "target": "virtual_buckets_shared_resolvecredentialsecret", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L110", "weight": 1.0}, {"source": "virtual_buckets_shared_createbucketcredentials", "target": "virtual_buckets_shared_resolvecompatregion", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L117", "weight": 1.0}, {"source": "virtual_buckets_shared_createbucketcredentials", "target": "virtual_buckets_shared_resolvecompatendpoint", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L123", "weight": 1.0}], "raw_calls": [{"caller_nid": "virtual_buckets_shared_tobucketitem", "callee": "isDefaultAssetsBucketName", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L23"}, {"caller_nid": "virtual_buckets_shared_tobucketitem", "callee": "toISOString", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L24"}, {"caller_nid": "virtual_buckets_shared_getactivebucketrow", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L29"}, {"caller_nid": "virtual_buckets_shared_getactivebucketrow", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L29"}, {"caller_nid": "virtual_buckets_shared_getactivebucketrow", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L29"}, {"caller_nid": "virtual_buckets_shared_getactivebucketrow", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L29"}, {"caller_nid": "virtual_buckets_shared_getactivebucketrow", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L43"}, {"caller_nid": "virtual_buckets_shared_getactivebucketrow", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L44"}, {"caller_nid": "virtual_buckets_shared_getactivebucketrow", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L45"}, {"caller_nid": "virtual_buckets_shared_getactivebucketrow", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L46"}, {"caller_nid": "virtual_buckets_shared_assertmutablebucket", "callee": "isDefaultAssetsBucketName", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L55"}, {"caller_nid": "virtual_buckets_shared_normalizeendpoint", "callee": "trim", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L72"}, {"caller_nid": "virtual_buckets_shared_normalizeendpoint", "callee": "endsWith", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L77"}, {"caller_nid": "virtual_buckets_shared_normalizeendpoint", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L78"}, {"caller_nid": "virtual_buckets_shared_normalizeendpoint", "callee": "endsWith", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L81"}, {"caller_nid": "virtual_buckets_shared_createbucketcredentials", "callee": "digest", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L110"}, {"caller_nid": "virtual_buckets_shared_createbucketcredentials", "callee": "update", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L110"}, {"caller_nid": "virtual_buckets_shared_createbucketcredentials", "callee": "createHmac", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L110"}, {"caller_nid": "virtual_buckets_shared_createbucketcredentials", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L113"}, {"caller_nid": "virtual_buckets_shared_createbucketcredentials", "callee": "replaceAll", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L113"}, {"caller_nid": "virtual_buckets_shared_createbucketcredentials", "callee": "trim", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L117"}, {"caller_nid": "virtual_buckets_shared_createbucketcredentials", "callee": "trim", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L117"}, {"caller_nid": "virtual_buckets_shared_createbucketcredentials", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts", "source_location": "L121"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts",
+      "label": "virtual-buckets.shared.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "virtual_buckets_shared_tobucketitem",
+      "label": "toBucketItem()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L11"
+    },
+    {
+      "id": "virtual_buckets_shared_getactivebucketrow",
+      "label": "getActiveBucketRow()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L28"
+    },
+    {
+      "id": "virtual_buckets_shared_assertmutablebucket",
+      "label": "assertMutableBucket()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L54"
+    },
+    {
+      "id": "virtual_buckets_shared_resolvecredentialsecret",
+      "label": "resolveCredentialSecret()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L62"
+    },
+    {
+      "id": "virtual_buckets_shared_normalizeendpoint",
+      "label": "normalizeEndpoint()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L71"
+    },
+    {
+      "id": "virtual_buckets_shared_resolvecompatendpoint",
+      "label": "resolveCompatEndpoint()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L90"
+    },
+    {
+      "id": "virtual_buckets_shared_resolvecompatregion",
+      "label": "resolveCompatRegion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L98"
+    },
+    {
+      "id": "virtual_buckets_shared_createbucketcredentials",
+      "label": "createBucketCredentials()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L103"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts",
+      "target": "node_crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts",
+      "target": "s3_gateway",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts",
+      "target": "s3_buckets",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts",
+      "target": "assets_bucket",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts",
+      "target": "virtual_buckets_shared_tobucketitem",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts",
+      "target": "virtual_buckets_shared_getactivebucketrow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts",
+      "target": "virtual_buckets_shared_assertmutablebucket",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts",
+      "target": "virtual_buckets_shared_resolvecredentialsecret",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts",
+      "target": "virtual_buckets_shared_normalizeendpoint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts",
+      "target": "virtual_buckets_shared_resolvecompatendpoint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts",
+      "target": "virtual_buckets_shared_resolvecompatregion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_buckets_shared_ts",
+      "target": "virtual_buckets_shared_createbucketcredentials",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "virtual_buckets_shared_resolvecompatendpoint",
+      "target": "virtual_buckets_shared_normalizeendpoint",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "virtual_buckets_shared_createbucketcredentials",
+      "target": "virtual_buckets_shared_resolvecredentialsecret",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "virtual_buckets_shared_createbucketcredentials",
+      "target": "virtual_buckets_shared_resolvecompatregion",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "virtual_buckets_shared_createbucketcredentials",
+      "target": "virtual_buckets_shared_resolvecompatendpoint",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L123",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "virtual_buckets_shared_tobucketitem",
+      "callee": "isDefaultAssetsBucketName",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_tobucketitem",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L24"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_getactivebucketrow",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_getactivebucketrow",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_getactivebucketrow",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_getactivebucketrow",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_getactivebucketrow",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_getactivebucketrow",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_getactivebucketrow",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_getactivebucketrow",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_assertmutablebucket",
+      "callee": "isDefaultAssetsBucketName",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_normalizeendpoint",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_normalizeendpoint",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_normalizeendpoint",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_normalizeendpoint",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_createbucketcredentials",
+      "callee": "digest",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_createbucketcredentials",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_createbucketcredentials",
+      "callee": "createHmac",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_createbucketcredentials",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_createbucketcredentials",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_createbucketcredentials",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_createbucketcredentials",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "virtual_buckets_shared_createbucketcredentials",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-buckets.shared.ts",
+      "source_location": "L121"
+    }
+  ]
+}

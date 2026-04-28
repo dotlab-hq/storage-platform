@@ -1,1 +1,167 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts", "label": "DreamTask.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L1"}, {"id": "dreamtask_isdreamtask", "label": "isDreamTask()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L43"}, {"id": "dreamtask_registerdreamtask", "label": "registerDreamTask()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L52"}, {"id": "dreamtask_adddreamturn", "label": "addDreamTurn()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L76"}, {"id": "dreamtask_completedreamtask", "label": "completeDreamTask()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L106"}, {"id": "dreamtask_faildreamtask", "label": "failDreamTask()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L122"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts", "target": "f_storage_platform_claude_code_source_main_src_services_autodream_consolidationlock_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts", "target": "f_storage_platform_claude_code_source_main_src_task_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts", "target": "f_storage_platform_claude_code_source_main_src_task_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts", "target": "dreamtask_isdreamtask", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts", "target": "dreamtask_registerdreamtask", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L52", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts", "target": "dreamtask_adddreamturn", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L76", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts", "target": "dreamtask_completedreamtask", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L106", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts", "target": "dreamtask_faildreamtask", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L122", "weight": 1.0}], "raw_calls": [{"caller_nid": "dreamtask_registerdreamtask", "callee": "generateTaskId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L60"}, {"caller_nid": "dreamtask_registerdreamtask", "callee": "createTaskStateBase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L62"}, {"caller_nid": "dreamtask_registerdreamtask", "callee": "registerTask", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L72"}, {"caller_nid": "dreamtask_adddreamturn", "callee": "updateTaskState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L82"}, {"caller_nid": "dreamtask_completedreamtask", "callee": "updateTaskState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L113"}, {"caller_nid": "dreamtask_faildreamtask", "callee": "updateTaskState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts", "source_location": "L123"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts",
+      "label": "DreamTask.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "dreamtask_isdreamtask",
+      "label": "isDreamTask()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "dreamtask_registerdreamtask",
+      "label": "registerDreamTask()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L52"
+    },
+    {
+      "id": "dreamtask_adddreamturn",
+      "label": "addDreamTurn()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L76"
+    },
+    {
+      "id": "dreamtask_completedreamtask",
+      "label": "completeDreamTask()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L106"
+    },
+    {
+      "id": "dreamtask_faildreamtask",
+      "label": "failDreamTask()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L122"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_autodream_consolidationlock_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_task_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_task_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts",
+      "target": "dreamtask_isdreamtask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts",
+      "target": "dreamtask_registerdreamtask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts",
+      "target": "dreamtask_adddreamturn",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts",
+      "target": "dreamtask_completedreamtask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_dreamtask_dreamtask_ts",
+      "target": "dreamtask_faildreamtask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L122",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "dreamtask_registerdreamtask",
+      "callee": "generateTaskId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "dreamtask_registerdreamtask",
+      "callee": "createTaskStateBase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "dreamtask_registerdreamtask",
+      "callee": "registerTask",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "dreamtask_adddreamturn",
+      "callee": "updateTaskState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "dreamtask_completedreamtask",
+      "callee": "updateTaskState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "dreamtask_faildreamtask",
+      "callee": "updateTaskState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\DreamTask\\DreamTask.ts",
+      "source_location": "L123"
+    }
+  ]
+}

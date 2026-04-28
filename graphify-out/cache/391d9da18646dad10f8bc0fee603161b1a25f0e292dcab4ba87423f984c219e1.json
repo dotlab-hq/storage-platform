@@ -1,1 +1,556 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "label": "agentMemorySnapshot.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L1"}, {"id": "agentmemorysnapshot_getsnapshotdirforagent", "label": "getSnapshotDirForAgent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L31"}, {"id": "agentmemorysnapshot_getsnapshotjsonpath", "label": "getSnapshotJsonPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L35"}, {"id": "agentmemorysnapshot_getsyncedjsonpath", "label": "getSyncedJsonPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L39"}, {"id": "agentmemorysnapshot_readjsonfile", "label": "readJsonFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L43"}, {"id": "agentmemorysnapshot_copysnapshottolocal", "label": "copySnapshotToLocal()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L56"}, {"id": "agentmemorysnapshot_savesyncedmeta", "label": "saveSyncedMeta()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L79"}, {"id": "agentmemorysnapshot_checkagentmemorysnapshot", "label": "checkAgentMemorySnapshot()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L98"}, {"id": "agentmemorysnapshot_initializefromsnapshot", "label": "initializeFromSnapshot()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L149"}, {"id": "agentmemorysnapshot_replacefromsnapshot", "label": "replaceFromSnapshot()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L164"}, {"id": "agentmemorysnapshot_marksnapshotsynced", "label": "markSnapshotSynced()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L191"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "v4", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemory_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "agentmemorysnapshot_getsnapshotdirforagent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "agentmemorysnapshot_getsnapshotjsonpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "agentmemorysnapshot_getsyncedjsonpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "agentmemorysnapshot_readjsonfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "agentmemorysnapshot_copysnapshottolocal", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L56", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "agentmemorysnapshot_savesyncedmeta", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L79", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "agentmemorysnapshot_checkagentmemorysnapshot", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L98", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "agentmemorysnapshot_initializefromsnapshot", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L149", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "agentmemorysnapshot_replacefromsnapshot", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L164", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts", "target": "agentmemorysnapshot_marksnapshotsynced", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L191", "weight": 1.0}, {"source": "agentmemorysnapshot_getsnapshotjsonpath", "target": "agentmemorysnapshot_getsnapshotdirforagent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L36", "weight": 1.0}, {"source": "agentmemorysnapshot_copysnapshottolocal", "target": "agentmemorysnapshot_getsnapshotdirforagent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L60", "weight": 1.0}, {"source": "agentmemorysnapshot_savesyncedmeta", "target": "agentmemorysnapshot_getsyncedjsonpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L84", "weight": 1.0}, {"source": "agentmemorysnapshot_checkagentmemorysnapshot", "target": "agentmemorysnapshot_readjsonfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L105", "weight": 1.0}, {"source": "agentmemorysnapshot_checkagentmemorysnapshot", "target": "agentmemorysnapshot_getsnapshotjsonpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L106", "weight": 1.0}, {"source": "agentmemorysnapshot_checkagentmemorysnapshot", "target": "agentmemorysnapshot_getsyncedjsonpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L129", "weight": 1.0}, {"source": "agentmemorysnapshot_initializefromsnapshot", "target": "agentmemorysnapshot_copysnapshottolocal", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L157", "weight": 1.0}, {"source": "agentmemorysnapshot_initializefromsnapshot", "target": "agentmemorysnapshot_savesyncedmeta", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L158", "weight": 1.0}, {"source": "agentmemorysnapshot_replacefromsnapshot", "target": "agentmemorysnapshot_copysnapshottolocal", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L184", "weight": 1.0}, {"source": "agentmemorysnapshot_replacefromsnapshot", "target": "agentmemorysnapshot_savesyncedmeta", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L185", "weight": 1.0}, {"source": "agentmemorysnapshot_marksnapshotsynced", "target": "agentmemorysnapshot_savesyncedmeta", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L196", "weight": 1.0}], "raw_calls": [{"caller_nid": "agentmemorysnapshot_getsnapshotdirforagent", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L32"}, {"caller_nid": "agentmemorysnapshot_getsnapshotdirforagent", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L32"}, {"caller_nid": "agentmemorysnapshot_getsnapshotjsonpath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L36"}, {"caller_nid": "agentmemorysnapshot_getsyncedjsonpath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L40"}, {"caller_nid": "agentmemorysnapshot_getsyncedjsonpath", "callee": "getAgentMemoryDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L40"}, {"caller_nid": "agentmemorysnapshot_readjsonfile", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L48"}, {"caller_nid": "agentmemorysnapshot_readjsonfile", "callee": "safeParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L49"}, {"caller_nid": "agentmemorysnapshot_readjsonfile", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L49"}, {"caller_nid": "agentmemorysnapshot_copysnapshottolocal", "callee": "getAgentMemoryDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L61"}, {"caller_nid": "agentmemorysnapshot_copysnapshottolocal", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L63"}, {"caller_nid": "agentmemorysnapshot_copysnapshottolocal", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L66"}, {"caller_nid": "agentmemorysnapshot_copysnapshottolocal", "callee": "isFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L68"}, {"caller_nid": "agentmemorysnapshot_copysnapshottolocal", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L69"}, {"caller_nid": "agentmemorysnapshot_copysnapshottolocal", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L69"}, {"caller_nid": "agentmemorysnapshot_copysnapshottolocal", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L72"}, {"caller_nid": "agentmemorysnapshot_copysnapshottolocal", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L72"}, {"caller_nid": "agentmemorysnapshot_copysnapshottolocal", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L75"}, {"caller_nid": "agentmemorysnapshot_savesyncedmeta", "callee": "getAgentMemoryDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L85"}, {"caller_nid": "agentmemorysnapshot_savesyncedmeta", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L86"}, {"caller_nid": "agentmemorysnapshot_savesyncedmeta", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L89"}, {"caller_nid": "agentmemorysnapshot_savesyncedmeta", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L89"}, {"caller_nid": "agentmemorysnapshot_savesyncedmeta", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L91"}, {"caller_nid": "agentmemorysnapshot_checkagentmemorysnapshot", "callee": "snapshotMetaSchema", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L107"}, {"caller_nid": "agentmemorysnapshot_checkagentmemorysnapshot", "callee": "getAgentMemoryDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L114"}, {"caller_nid": "agentmemorysnapshot_checkagentmemorysnapshot", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L118"}, {"caller_nid": "agentmemorysnapshot_checkagentmemorysnapshot", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L119"}, {"caller_nid": "agentmemorysnapshot_checkagentmemorysnapshot", "callee": "syncedMetaSchema", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L130"}, {"caller_nid": "agentmemorysnapshot_initializefromsnapshot", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L154"}, {"caller_nid": "agentmemorysnapshot_replacefromsnapshot", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L169"}, {"caller_nid": "agentmemorysnapshot_replacefromsnapshot", "callee": "getAgentMemoryDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L173"}, {"caller_nid": "agentmemorysnapshot_replacefromsnapshot", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L175"}, {"caller_nid": "agentmemorysnapshot_replacefromsnapshot", "callee": "isFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L177"}, {"caller_nid": "agentmemorysnapshot_replacefromsnapshot", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L177"}, {"caller_nid": "agentmemorysnapshot_replacefromsnapshot", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L178"}, {"caller_nid": "agentmemorysnapshot_replacefromsnapshot", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts", "source_location": "L178"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "label": "agentMemorySnapshot.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "agentmemorysnapshot_getsnapshotdirforagent",
+      "label": "getSnapshotDirForAgent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L31"
+    },
+    {
+      "id": "agentmemorysnapshot_getsnapshotjsonpath",
+      "label": "getSnapshotJsonPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L35"
+    },
+    {
+      "id": "agentmemorysnapshot_getsyncedjsonpath",
+      "label": "getSyncedJsonPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L39"
+    },
+    {
+      "id": "agentmemorysnapshot_readjsonfile",
+      "label": "readJsonFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "agentmemorysnapshot_copysnapshottolocal",
+      "label": "copySnapshotToLocal()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L56"
+    },
+    {
+      "id": "agentmemorysnapshot_savesyncedmeta",
+      "label": "saveSyncedMeta()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L79"
+    },
+    {
+      "id": "agentmemorysnapshot_checkagentmemorysnapshot",
+      "label": "checkAgentMemorySnapshot()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L98"
+    },
+    {
+      "id": "agentmemorysnapshot_initializefromsnapshot",
+      "label": "initializeFromSnapshot()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L149"
+    },
+    {
+      "id": "agentmemorysnapshot_replacefromsnapshot",
+      "label": "replaceFromSnapshot()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L164"
+    },
+    {
+      "id": "agentmemorysnapshot_marksnapshotsynced",
+      "label": "markSnapshotSynced()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L191"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "v4",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemory_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "agentmemorysnapshot_getsnapshotdirforagent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "agentmemorysnapshot_getsnapshotjsonpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "agentmemorysnapshot_getsyncedjsonpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "agentmemorysnapshot_readjsonfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "agentmemorysnapshot_copysnapshottolocal",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "agentmemorysnapshot_savesyncedmeta",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "agentmemorysnapshot_checkagentmemorysnapshot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "agentmemorysnapshot_initializefromsnapshot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "agentmemorysnapshot_replacefromsnapshot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemorysnapshot_ts",
+      "target": "agentmemorysnapshot_marksnapshotsynced",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L191",
+      "weight": 1.0
+    },
+    {
+      "source": "agentmemorysnapshot_getsnapshotjsonpath",
+      "target": "agentmemorysnapshot_getsnapshotdirforagent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "agentmemorysnapshot_copysnapshottolocal",
+      "target": "agentmemorysnapshot_getsnapshotdirforagent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "agentmemorysnapshot_savesyncedmeta",
+      "target": "agentmemorysnapshot_getsyncedjsonpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "agentmemorysnapshot_checkagentmemorysnapshot",
+      "target": "agentmemorysnapshot_readjsonfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "agentmemorysnapshot_checkagentmemorysnapshot",
+      "target": "agentmemorysnapshot_getsnapshotjsonpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "agentmemorysnapshot_checkagentmemorysnapshot",
+      "target": "agentmemorysnapshot_getsyncedjsonpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "agentmemorysnapshot_initializefromsnapshot",
+      "target": "agentmemorysnapshot_copysnapshottolocal",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L157",
+      "weight": 1.0
+    },
+    {
+      "source": "agentmemorysnapshot_initializefromsnapshot",
+      "target": "agentmemorysnapshot_savesyncedmeta",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L158",
+      "weight": 1.0
+    },
+    {
+      "source": "agentmemorysnapshot_replacefromsnapshot",
+      "target": "agentmemorysnapshot_copysnapshottolocal",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L184",
+      "weight": 1.0
+    },
+    {
+      "source": "agentmemorysnapshot_replacefromsnapshot",
+      "target": "agentmemorysnapshot_savesyncedmeta",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L185",
+      "weight": 1.0
+    },
+    {
+      "source": "agentmemorysnapshot_marksnapshotsynced",
+      "target": "agentmemorysnapshot_savesyncedmeta",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L196",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "agentmemorysnapshot_getsnapshotdirforagent",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_getsnapshotdirforagent",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_getsnapshotjsonpath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_getsyncedjsonpath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_getsyncedjsonpath",
+      "callee": "getAgentMemoryDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_readjsonfile",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_readjsonfile",
+      "callee": "safeParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_readjsonfile",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_copysnapshottolocal",
+      "callee": "getAgentMemoryDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_copysnapshottolocal",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_copysnapshottolocal",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_copysnapshottolocal",
+      "callee": "isFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_copysnapshottolocal",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_copysnapshottolocal",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_copysnapshottolocal",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_copysnapshottolocal",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_copysnapshottolocal",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_savesyncedmeta",
+      "callee": "getAgentMemoryDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_savesyncedmeta",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_savesyncedmeta",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_savesyncedmeta",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_savesyncedmeta",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L91"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_checkagentmemorysnapshot",
+      "callee": "snapshotMetaSchema",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_checkagentmemorysnapshot",
+      "callee": "getAgentMemoryDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_checkagentmemorysnapshot",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_checkagentmemorysnapshot",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_checkagentmemorysnapshot",
+      "callee": "syncedMetaSchema",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_initializefromsnapshot",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_replacefromsnapshot",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L169"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_replacefromsnapshot",
+      "callee": "getAgentMemoryDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_replacefromsnapshot",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_replacefromsnapshot",
+      "callee": "isFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L177"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_replacefromsnapshot",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L177"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_replacefromsnapshot",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "agentmemorysnapshot_replacefromsnapshot",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\AgentTool\\agentMemorySnapshot.ts",
+      "source_location": "L178"
+    }
+  ]
+}

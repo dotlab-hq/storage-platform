@@ -1,1 +1,324 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_download_proxy_server_ts", "label": "download-proxy-server.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L1"}, {"id": "download_proxy_server_webstreamfrombody", "label": "webStreamFromBody()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L6"}, {"id": "download_proxy_server_handleproxydownloadrequest", "label": "handleProxyDownloadRequest()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L21"}, {"id": "download_proxy_server_handleproxydownloadrange", "label": "handleProxyDownloadRange()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L78"}], "edges": [{"source": "f_storage_platform_src_lib_download_proxy_server_ts", "target": "client_s3", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_download_proxy_server_ts", "target": "upload_proxy_provider", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_download_proxy_server_ts", "target": "upload_proxy_utils", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_download_proxy_server_ts", "target": "f_storage_platform_src_lib_s3_provider_timeout", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_lib_download_proxy_server_ts", "target": "download_proxy_server_webstreamfrombody", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_lib_download_proxy_server_ts", "target": "download_proxy_server_handleproxydownloadrequest", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_src_lib_download_proxy_server_ts", "target": "download_proxy_server_handleproxydownloadrange", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L78", "weight": 1.0}, {"source": "download_proxy_server_handleproxydownloadrequest", "target": "download_proxy_server_webstreamfrombody", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L70", "weight": 1.0}, {"source": "download_proxy_server_handleproxydownloadrange", "target": "download_proxy_server_handleproxydownloadrequest", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L106", "weight": 1.0}, {"source": "download_proxy_server_handleproxydownloadrange", "target": "download_proxy_server_webstreamfrombody", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L149", "weight": 1.0}], "raw_calls": [{"caller_nid": "download_proxy_server_webstreamfrombody", "callee": "transformToWebStream", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L15"}, {"caller_nid": "download_proxy_server_handleproxydownloadrequest", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L27"}, {"caller_nid": "download_proxy_server_handleproxydownloadrequest", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L28"}, {"caller_nid": "download_proxy_server_handleproxydownloadrequest", "callee": "parseProviderId", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L29"}, {"caller_nid": "download_proxy_server_handleproxydownloadrequest", "callee": "json", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L32"}, {"caller_nid": "download_proxy_server_handleproxydownloadrequest", "callee": "requireProxyProvider", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L35"}, {"caller_nid": "download_proxy_server_handleproxydownloadrequest", "callee": "sendWithProviderTimeout", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L43"}, {"caller_nid": "download_proxy_server_handleproxydownloadrequest", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L50"}, {"caller_nid": "download_proxy_server_handleproxydownloadrequest", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L53"}, {"caller_nid": "download_proxy_server_handleproxydownloadrequest", "callee": "String", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L53"}, {"caller_nid": "download_proxy_server_handleproxydownloadrequest", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L56"}, {"caller_nid": "download_proxy_server_handleproxydownloadrequest", "callee": "toUTCString", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L56"}, {"caller_nid": "download_proxy_server_handleproxydownloadrequest", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L59"}, {"caller_nid": "download_proxy_server_handleproxydownloadrequest", "callee": "entries", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L62"}, {"caller_nid": "download_proxy_server_handleproxydownloadrequest", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L64"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L83"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L84"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "parseProviderId", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L85"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "json", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L88"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "requireProxyProvider", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L92"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "sendWithProviderTimeout", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L97"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L102"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "match", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L110"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "json", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L112"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "parseInt", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L115"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "parseInt", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L116"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "json", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L119"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "sendWithProviderTimeout", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L132"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L138"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L141"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L143"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "String", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L143"}, {"caller_nid": "download_proxy_server_handleproxydownloadrange", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts", "source_location": "L145"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_download_proxy_server_ts",
+      "label": "download-proxy-server.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "download_proxy_server_webstreamfrombody",
+      "label": "webStreamFromBody()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L6"
+    },
+    {
+      "id": "download_proxy_server_handleproxydownloadrequest",
+      "label": "handleProxyDownloadRequest()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L21"
+    },
+    {
+      "id": "download_proxy_server_handleproxydownloadrange",
+      "label": "handleProxyDownloadRange()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L78"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_download_proxy_server_ts",
+      "target": "client_s3",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_download_proxy_server_ts",
+      "target": "upload_proxy_provider",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_download_proxy_server_ts",
+      "target": "upload_proxy_utils",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_download_proxy_server_ts",
+      "target": "f_storage_platform_src_lib_s3_provider_timeout",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_download_proxy_server_ts",
+      "target": "download_proxy_server_webstreamfrombody",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_download_proxy_server_ts",
+      "target": "download_proxy_server_handleproxydownloadrequest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_download_proxy_server_ts",
+      "target": "download_proxy_server_handleproxydownloadrange",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "download_proxy_server_handleproxydownloadrequest",
+      "target": "download_proxy_server_webstreamfrombody",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "download_proxy_server_handleproxydownloadrange",
+      "target": "download_proxy_server_handleproxydownloadrequest",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "download_proxy_server_handleproxydownloadrange",
+      "target": "download_proxy_server_webstreamfrombody",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L149",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "download_proxy_server_webstreamfrombody",
+      "callee": "transformToWebStream",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L15"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrequest",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrequest",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrequest",
+      "callee": "parseProviderId",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrequest",
+      "callee": "json",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrequest",
+      "callee": "requireProxyProvider",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrequest",
+      "callee": "sendWithProviderTimeout",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrequest",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrequest",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrequest",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrequest",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrequest",
+      "callee": "toUTCString",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrequest",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrequest",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrequest",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "parseProviderId",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "json",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "requireProxyProvider",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "sendWithProviderTimeout",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "json",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "json",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "sendWithProviderTimeout",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "download_proxy_server_handleproxydownloadrange",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\download-proxy-server.ts",
+      "source_location": "L145"
+    }
+  ]
+}

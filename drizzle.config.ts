@@ -1,7 +1,7 @@
 import 'dotenv/config'
 import { defineConfig } from 'drizzle-kit'
 
-export default defineConfig( {
+export default defineConfig({
   out: './drizzle',
   schema: './src/db/schema/index.ts',
   dialect: 'sqlite',
@@ -12,4 +12,4 @@ export default defineConfig( {
     databaseId: process.env.CLOUDFLARE_DATABASE_ID,
     token: process.env.CLOUDFLARE_D1_TOKEN,
   },
-} )
+})

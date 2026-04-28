@@ -1,1 +1,170 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts", "label": "killShellTasks.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L1"}, {"id": "killshelltasks_killtask", "label": "killTask()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L16"}, {"id": "killshelltasks_killshelltasksforagent", "label": "killShellTasksForAgent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L53"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts", "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts", "target": "f_storage_platform_claude_code_source_main_src_types_ids_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_task_diskoutput_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts", "target": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_guards_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts", "target": "killshelltasks_killtask", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts", "target": "killshelltasks_killshelltasksforagent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L53", "weight": 1.0}, {"source": "killshelltasks_killshelltasksforagent", "target": "killshelltasks_killtask", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L68", "weight": 1.0}], "raw_calls": [{"caller_nid": "killshelltasks_killtask", "callee": "updateTaskState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L17"}, {"caller_nid": "killshelltasks_killtask", "callee": "evictTaskOutput", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L45"}, {"caller_nid": "killshelltasks_killshelltasksforagent", "callee": "getAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L58"}, {"caller_nid": "killshelltasks_killshelltasksforagent", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L59"}, {"caller_nid": "killshelltasks_killshelltasksforagent", "callee": "isLocalShellTask", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L61"}, {"caller_nid": "killshelltasks_killshelltasksforagent", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L65"}, {"caller_nid": "killshelltasks_killshelltasksforagent", "callee": "dequeueAllMatching", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts", "source_location": "L75"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts",
+      "label": "killShellTasks.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "killshelltasks_killtask",
+      "label": "killTask()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "killshelltasks_killshelltasksforagent",
+      "label": "killShellTasksForAgent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L53"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_ids_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_task_diskoutput_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_guards_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts",
+      "target": "killshelltasks_killtask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_killshelltasks_ts",
+      "target": "killshelltasks_killshelltasksforagent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "killshelltasks_killshelltasksforagent",
+      "target": "killshelltasks_killtask",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L68",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "killshelltasks_killtask",
+      "callee": "updateTaskState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "killshelltasks_killtask",
+      "callee": "evictTaskOutput",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "killshelltasks_killshelltasksforagent",
+      "callee": "getAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "killshelltasks_killshelltasksforagent",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "killshelltasks_killshelltasksforagent",
+      "callee": "isLocalShellTask",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "killshelltasks_killshelltasksforagent",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "killshelltasks_killshelltasksforagent",
+      "callee": "dequeueAllMatching",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\LocalShellTask\\killShellTasks.ts",
+      "source_location": "L75"
+    }
+  ]
+}

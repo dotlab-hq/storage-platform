@@ -1,1 +1,58 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_tasklisttool_prompt_ts", "label": "prompt.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\TaskListTool\\prompt.ts", "source_location": "L1"}, {"id": "prompt_getprompt", "label": "getPrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\TaskListTool\\prompt.ts", "source_location": "L5"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_tasklisttool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_agentswarmsenabled_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\TaskListTool\\prompt.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_tasklisttool_prompt_ts", "target": "prompt_getprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\TaskListTool\\prompt.ts", "source_location": "L5", "weight": 1.0}], "raw_calls": [{"caller_nid": "prompt_getprompt", "callee": "isAgentSwarmsEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\TaskListTool\\prompt.ts", "source_location": "L6"}, {"caller_nid": "prompt_getprompt", "callee": "isAgentSwarmsEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\TaskListTool\\prompt.ts", "source_location": "L11"}, {"caller_nid": "prompt_getprompt", "callee": "isAgentSwarmsEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\TaskListTool\\prompt.ts", "source_location": "L15"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_tasklisttool_prompt_ts",
+      "label": "prompt.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\TaskListTool\\prompt.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "prompt_getprompt",
+      "label": "getPrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\TaskListTool\\prompt.ts",
+      "source_location": "L5"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_tasklisttool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_agentswarmsenabled_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\TaskListTool\\prompt.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_tasklisttool_prompt_ts",
+      "target": "prompt_getprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\TaskListTool\\prompt.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "prompt_getprompt",
+      "callee": "isAgentSwarmsEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\TaskListTool\\prompt.ts",
+      "source_location": "L6"
+    },
+    {
+      "caller_nid": "prompt_getprompt",
+      "callee": "isAgentSwarmsEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\TaskListTool\\prompt.ts",
+      "source_location": "L11"
+    },
+    {
+      "caller_nid": "prompt_getprompt",
+      "callee": "isAgentSwarmsEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\TaskListTool\\prompt.ts",
+      "source_location": "L15"
+    }
+  ]
+}

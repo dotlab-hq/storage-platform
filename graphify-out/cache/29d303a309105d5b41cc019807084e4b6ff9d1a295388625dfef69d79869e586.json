@@ -1,1 +1,336 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts", "label": "pasteStore.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L1"}, {"id": "pastestore_getpastestoredir", "label": "getPasteStoreDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L13"}, {"id": "pastestore_hashpastedtext", "label": "hashPastedText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L21"}, {"id": "pastestore_getpastepath", "label": "getPastePath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L28"}, {"id": "pastestore_storepastedtext", "label": "storePastedText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L37"}, {"id": "pastestore_retrievepastedtext", "label": "retrievePastedText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L59"}, {"id": "pastestore_cleanupoldpastes", "label": "cleanupOldPastes()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L76"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts", "target": "pastestore_getpastestoredir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts", "target": "pastestore_hashpastedtext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts", "target": "pastestore_getpastepath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts", "target": "pastestore_storepastedtext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts", "target": "pastestore_retrievepastedtext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L59", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts", "target": "pastestore_cleanupoldpastes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L76", "weight": 1.0}, {"source": "pastestore_getpastepath", "target": "pastestore_getpastestoredir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L29", "weight": 1.0}, {"source": "pastestore_storepastedtext", "target": "pastestore_getpastestoredir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L42", "weight": 1.0}, {"source": "pastestore_storepastedtext", "target": "pastestore_getpastepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L45", "weight": 1.0}, {"source": "pastestore_retrievepastedtext", "target": "pastestore_getpastepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L61", "weight": 1.0}, {"source": "pastestore_cleanupoldpastes", "target": "pastestore_getpastestoredir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L77", "weight": 1.0}], "raw_calls": [{"caller_nid": "pastestore_getpastestoredir", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L14"}, {"caller_nid": "pastestore_getpastestoredir", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L14"}, {"caller_nid": "pastestore_hashpastedtext", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L22"}, {"caller_nid": "pastestore_hashpastedtext", "callee": "digest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L22"}, {"caller_nid": "pastestore_hashpastedtext", "callee": "update", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L22"}, {"caller_nid": "pastestore_hashpastedtext", "callee": "createHash", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L22"}, {"caller_nid": "pastestore_getpastepath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L29"}, {"caller_nid": "pastestore_storepastedtext", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L43"}, {"caller_nid": "pastestore_storepastedtext", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L48"}, {"caller_nid": "pastestore_storepastedtext", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L49"}, {"caller_nid": "pastestore_storepastedtext", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L51"}, {"caller_nid": "pastestore_retrievepastedtext", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L62"}, {"caller_nid": "pastestore_retrievepastedtext", "callee": "isENOENT", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L65"}, {"caller_nid": "pastestore_retrievepastedtext", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L66"}, {"caller_nid": "pastestore_cleanupoldpastes", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L81"}, {"caller_nid": "pastestore_cleanupoldpastes", "callee": "getTime", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L87"}, {"caller_nid": "pastestore_cleanupoldpastes", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L89"}, {"caller_nid": "pastestore_cleanupoldpastes", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L93"}, {"caller_nid": "pastestore_cleanupoldpastes", "callee": "stat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L95"}, {"caller_nid": "pastestore_cleanupoldpastes", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L97"}, {"caller_nid": "pastestore_cleanupoldpastes", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts", "source_location": "L98"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts",
+      "label": "pasteStore.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "pastestore_getpastestoredir",
+      "label": "getPasteStoreDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L13"
+    },
+    {
+      "id": "pastestore_hashpastedtext",
+      "label": "hashPastedText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L21"
+    },
+    {
+      "id": "pastestore_getpastepath",
+      "label": "getPastePath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L28"
+    },
+    {
+      "id": "pastestore_storepastedtext",
+      "label": "storePastedText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L37"
+    },
+    {
+      "id": "pastestore_retrievepastedtext",
+      "label": "retrievePastedText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L59"
+    },
+    {
+      "id": "pastestore_cleanupoldpastes",
+      "label": "cleanupOldPastes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L76"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts",
+      "target": "pastestore_getpastestoredir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts",
+      "target": "pastestore_hashpastedtext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts",
+      "target": "pastestore_getpastepath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts",
+      "target": "pastestore_storepastedtext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts",
+      "target": "pastestore_retrievepastedtext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_pastestore_ts",
+      "target": "pastestore_cleanupoldpastes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "pastestore_getpastepath",
+      "target": "pastestore_getpastestoredir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "pastestore_storepastedtext",
+      "target": "pastestore_getpastestoredir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "pastestore_storepastedtext",
+      "target": "pastestore_getpastepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "pastestore_retrievepastedtext",
+      "target": "pastestore_getpastepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "pastestore_cleanupoldpastes",
+      "target": "pastestore_getpastestoredir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L77",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "pastestore_getpastestoredir",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L14"
+    },
+    {
+      "caller_nid": "pastestore_getpastestoredir",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L14"
+    },
+    {
+      "caller_nid": "pastestore_hashpastedtext",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "pastestore_hashpastedtext",
+      "callee": "digest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "pastestore_hashpastedtext",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "pastestore_hashpastedtext",
+      "callee": "createHash",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "pastestore_getpastepath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "pastestore_storepastedtext",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "pastestore_storepastedtext",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "pastestore_storepastedtext",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "pastestore_storepastedtext",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "pastestore_retrievepastedtext",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "pastestore_retrievepastedtext",
+      "callee": "isENOENT",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "pastestore_retrievepastedtext",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "pastestore_cleanupoldpastes",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "pastestore_cleanupoldpastes",
+      "callee": "getTime",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "pastestore_cleanupoldpastes",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "pastestore_cleanupoldpastes",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "pastestore_cleanupoldpastes",
+      "callee": "stat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "pastestore_cleanupoldpastes",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "pastestore_cleanupoldpastes",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\pasteStore.ts",
+      "source_location": "L98"
+    }
+  ]
+}

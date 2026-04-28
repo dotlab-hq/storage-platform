@@ -1,1 +1,553 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts", "label": "queryProfiler.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L1"}, {"id": "queryprofiler_startqueryprofile", "label": "startQueryProfile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L50"}, {"id": "queryprofiler_querycheckpoint", "label": "queryCheckpoint()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L69"}, {"id": "queryprofiler_endqueryprofile", "label": "endQueryProfile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L89"}, {"id": "queryprofiler_getslowwarning", "label": "getSlowWarning()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L98"}, {"id": "queryprofiler_getqueryprofilereport", "label": "getQueryProfileReport()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L129"}, {"id": "queryprofiler_getphasesummary", "label": "getPhaseSummary()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L216"}, {"id": "queryprofiler_logqueryprofilereport", "label": "logQueryProfileReport()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L298"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_profilerbase_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts", "target": "queryprofiler_startqueryprofile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L50", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts", "target": "queryprofiler_querycheckpoint", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L69", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts", "target": "queryprofiler_endqueryprofile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L89", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts", "target": "queryprofiler_getslowwarning", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L98", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts", "target": "queryprofiler_getqueryprofilereport", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L129", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts", "target": "queryprofiler_getphasesummary", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L216", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts", "target": "queryprofiler_logqueryprofilereport", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L298", "weight": 1.0}, {"source": "queryprofiler_startqueryprofile", "target": "queryprofiler_querycheckpoint", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L63", "weight": 1.0}, {"source": "queryprofiler_endqueryprofile", "target": "queryprofiler_querycheckpoint", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L92", "weight": 1.0}, {"source": "queryprofiler_getqueryprofilereport", "target": "queryprofiler_getslowwarning", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L163", "weight": 1.0}, {"source": "queryprofiler_getqueryprofilereport", "target": "queryprofiler_getphasesummary", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L206", "weight": 1.0}, {"source": "queryprofiler_logqueryprofilereport", "target": "queryprofiler_getqueryprofilereport", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L300", "weight": 1.0}], "raw_calls": [{"caller_nid": "queryprofiler_startqueryprofile", "callee": "getPerformance", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L53"}, {"caller_nid": "queryprofiler_startqueryprofile", "callee": "clearMarks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L56"}, {"caller_nid": "queryprofiler_startqueryprofile", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L57"}, {"caller_nid": "queryprofiler_querycheckpoint", "callee": "getPerformance", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L72"}, {"caller_nid": "queryprofiler_querycheckpoint", "callee": "mark", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L73"}, {"caller_nid": "queryprofiler_querycheckpoint", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L74"}, {"caller_nid": "queryprofiler_querycheckpoint", "callee": "memoryUsage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L74"}, {"caller_nid": "queryprofiler_querycheckpoint", "callee": "getEntriesByType", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L78"}, {"caller_nid": "queryprofiler_getslowwarning", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L113"}, {"caller_nid": "queryprofiler_getslowwarning", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L116"}, {"caller_nid": "queryprofiler_getslowwarning", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L119"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "getPerformance", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L134"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "getEntriesByType", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L135"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L141"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "repeat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L141"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L142"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L143"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "repeat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L143"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L144"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L155"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "formatTimelineLine", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L156"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L160"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L182"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L183"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "repeat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L183"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "toFixed", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L188"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "toFixed", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L192"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L194"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "formatMs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L194"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L195"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "formatMs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L196"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L198"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "formatMs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L199"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L202"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "formatMs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L202"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L206"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L208"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "repeat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L208"}, {"caller_nid": "queryprofiler_getqueryprofilereport", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L210"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L264"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L267"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L268"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L271"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L272"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "repeat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L276"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L276"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "ceil", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L276"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L277"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "padEnd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L278"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "padStart", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L278"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "formatMs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L278"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L284"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L286"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L287"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "padEnd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L288"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "padStart", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L288"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "formatMs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L288"}, {"caller_nid": "queryprofiler_getphasesummary", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L292"}, {"caller_nid": "queryprofiler_logqueryprofilereport", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts", "source_location": "L300"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts",
+      "label": "queryProfiler.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "queryprofiler_startqueryprofile",
+      "label": "startQueryProfile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L50"
+    },
+    {
+      "id": "queryprofiler_querycheckpoint",
+      "label": "queryCheckpoint()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L69"
+    },
+    {
+      "id": "queryprofiler_endqueryprofile",
+      "label": "endQueryProfile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L89"
+    },
+    {
+      "id": "queryprofiler_getslowwarning",
+      "label": "getSlowWarning()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L98"
+    },
+    {
+      "id": "queryprofiler_getqueryprofilereport",
+      "label": "getQueryProfileReport()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L129"
+    },
+    {
+      "id": "queryprofiler_getphasesummary",
+      "label": "getPhaseSummary()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L216"
+    },
+    {
+      "id": "queryprofiler_logqueryprofilereport",
+      "label": "logQueryProfileReport()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L298"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_profilerbase_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts",
+      "target": "queryprofiler_startqueryprofile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts",
+      "target": "queryprofiler_querycheckpoint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts",
+      "target": "queryprofiler_endqueryprofile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts",
+      "target": "queryprofiler_getslowwarning",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts",
+      "target": "queryprofiler_getqueryprofilereport",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts",
+      "target": "queryprofiler_getphasesummary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L216",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_queryprofiler_ts",
+      "target": "queryprofiler_logqueryprofilereport",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L298",
+      "weight": 1.0
+    },
+    {
+      "source": "queryprofiler_startqueryprofile",
+      "target": "queryprofiler_querycheckpoint",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "queryprofiler_endqueryprofile",
+      "target": "queryprofiler_querycheckpoint",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L92",
+      "weight": 1.0
+    },
+    {
+      "source": "queryprofiler_getqueryprofilereport",
+      "target": "queryprofiler_getslowwarning",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "queryprofiler_getqueryprofilereport",
+      "target": "queryprofiler_getphasesummary",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L206",
+      "weight": 1.0
+    },
+    {
+      "source": "queryprofiler_logqueryprofilereport",
+      "target": "queryprofiler_getqueryprofilereport",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L300",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "queryprofiler_startqueryprofile",
+      "callee": "getPerformance",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "queryprofiler_startqueryprofile",
+      "callee": "clearMarks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "queryprofiler_startqueryprofile",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "queryprofiler_querycheckpoint",
+      "callee": "getPerformance",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "queryprofiler_querycheckpoint",
+      "callee": "mark",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "queryprofiler_querycheckpoint",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "queryprofiler_querycheckpoint",
+      "callee": "memoryUsage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "queryprofiler_querycheckpoint",
+      "callee": "getEntriesByType",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "queryprofiler_getslowwarning",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "queryprofiler_getslowwarning",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "queryprofiler_getslowwarning",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "getPerformance",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "getEntriesByType",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "repeat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "repeat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L155"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "formatTimelineLine",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L160"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L182"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L183"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "repeat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L183"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "toFixed",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L188"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "toFixed",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L194"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "formatMs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L194"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L195"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "formatMs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L196"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L198"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "formatMs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L199"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "formatMs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L206"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L208"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "repeat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L208"
+    },
+    {
+      "caller_nid": "queryprofiler_getqueryprofilereport",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L210"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L264"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L267"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L268"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L271"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L272"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "repeat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L276"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L276"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "ceil",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L276"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L277"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "padEnd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L278"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "padStart",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L278"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "formatMs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L278"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L284"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L286"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L287"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "padEnd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "padStart",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "formatMs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "queryprofiler_getphasesummary",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L292"
+    },
+    {
+      "caller_nid": "queryprofiler_logqueryprofilereport",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\queryProfiler.ts",
+      "source_location": "L300"
+    }
+  ]
+}

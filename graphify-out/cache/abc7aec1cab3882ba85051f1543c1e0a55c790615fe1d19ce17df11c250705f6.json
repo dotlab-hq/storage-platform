@@ -1,1 +1,669 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "label": "betas.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L1"}, {"id": "betas_partitionbetasbyallowlist", "label": "partitionBetasByAllowlist()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L43"}, {"id": "betas_filterallowedsdkbetas", "label": "filterAllowedSdkBetas()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L64"}, {"id": "betas_modelsupportsisp", "label": "modelSupportsISP()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L92"}, {"id": "betas_vertexmodelsupportswebsearch", "label": "vertexModelSupportsWebSearch()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L114"}, {"id": "betas_modelsupportscontextmanagement", "label": "modelSupportsContextManagement()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L125"}, {"id": "betas_modelsupportsstructuredoutputs", "label": "modelSupportsStructuredOutputs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L142"}, {"id": "betas_modelsupportsautomode", "label": "modelSupportsAutoMode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L160"}, {"id": "betas_gettoolsearchbetaheader", "label": "getToolSearchBetaHeader()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L202"}, {"id": "betas_shouldincludefirstpartyonlybetas", "label": "shouldIncludeFirstPartyOnlyBetas()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L215"}, {"id": "betas_shoulduseglobalcachescope", "label": "shouldUseGlobalCacheScope()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L227"}, {"id": "betas_getmergedbetas", "label": "getMergedBetas()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L397"}, {"id": "betas_clearbetascaches", "label": "clearBetasCaches()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L430"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "memoize_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "growthbook_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_betas_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_context_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_modelsupportoverrides_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_providers_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "betas_partitionbetasbyallowlist", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "betas_filterallowedsdkbetas", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L64", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "betas_modelsupportsisp", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L92", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "betas_vertexmodelsupportswebsearch", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L114", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "betas_modelsupportscontextmanagement", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L125", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "betas_modelsupportsstructuredoutputs", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L142", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "betas_modelsupportsautomode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L160", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "betas_gettoolsearchbetaheader", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L202", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "betas_shouldincludefirstpartyonlybetas", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L215", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "betas_shoulduseglobalcachescope", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L227", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "betas_getmergedbetas", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L397", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "target": "betas_clearbetascaches", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L430", "weight": 1.0}, {"source": "betas_filterallowedsdkbetas", "target": "betas_partitionbetasbyallowlist", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L79", "weight": 1.0}], "raw_calls": [{"caller_nid": "betas_partitionbetasbyallowlist", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L50"}, {"caller_nid": "betas_partitionbetasbyallowlist", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L51"}, {"caller_nid": "betas_partitionbetasbyallowlist", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L53"}, {"caller_nid": "betas_filterallowedsdkbetas", "callee": "isClaudeAISubscriber", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L71"}, {"caller_nid": "betas_filterallowedsdkbetas", "callee": "warn", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L73"}, {"caller_nid": "betas_filterallowedsdkbetas", "callee": "warn", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L82"}, {"caller_nid": "betas_filterallowedsdkbetas", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L83"}, {"caller_nid": "betas_modelsupportsisp", "callee": "get3PModelCapabilityOverride", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L93"}, {"caller_nid": "betas_modelsupportsisp", "callee": "getCanonicalName", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L100"}, {"caller_nid": "betas_modelsupportsisp", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L101"}, {"caller_nid": "betas_modelsupportsisp", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L107"}, {"caller_nid": "betas_modelsupportsisp", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L110"}, {"caller_nid": "betas_modelsupportsisp", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L110"}, {"caller_nid": "betas_vertexmodelsupportswebsearch", "callee": "getCanonicalName", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L115"}, {"caller_nid": "betas_vertexmodelsupportswebsearch", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L118"}, {"caller_nid": "betas_vertexmodelsupportswebsearch", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L119"}, {"caller_nid": "betas_vertexmodelsupportswebsearch", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L120"}, {"caller_nid": "betas_modelsupportscontextmanagement", "callee": "getCanonicalName", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L126"}, {"caller_nid": "betas_modelsupportscontextmanagement", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L127"}, {"caller_nid": "betas_modelsupportscontextmanagement", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L132"}, {"caller_nid": "betas_modelsupportscontextmanagement", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L135"}, {"caller_nid": "betas_modelsupportscontextmanagement", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L136"}, {"caller_nid": "betas_modelsupportscontextmanagement", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L137"}, {"caller_nid": "betas_modelsupportsstructuredoutputs", "callee": "getCanonicalName", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L143"}, {"caller_nid": "betas_modelsupportsstructuredoutputs", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L144"}, {"caller_nid": "betas_modelsupportsstructuredoutputs", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L150"}, {"caller_nid": "betas_modelsupportsstructuredoutputs", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L151"}, {"caller_nid": "betas_modelsupportsstructuredoutputs", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L152"}, {"caller_nid": "betas_modelsupportsstructuredoutputs", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L153"}, {"caller_nid": "betas_modelsupportsstructuredoutputs", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L154"}, {"caller_nid": "betas_modelsupportsstructuredoutputs", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L155"}, {"caller_nid": "betas_modelsupportsautomode", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L161"}, {"caller_nid": "betas_modelsupportsautomode", "callee": "getCanonicalName", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L162"}, {"caller_nid": "betas_modelsupportsautomode", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L166"}, {"caller_nid": "betas_modelsupportsautomode", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L173"}, {"caller_nid": "betas_modelsupportsautomode", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L176"}, {"caller_nid": "betas_modelsupportsautomode", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L178"}, {"caller_nid": "betas_modelsupportsautomode", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L186"}, {"caller_nid": "betas_modelsupportsautomode", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L188"}, {"caller_nid": "betas_modelsupportsautomode", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L192"}, {"caller_nid": "betas_gettoolsearchbetaheader", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L203"}, {"caller_nid": "betas_shouldincludefirstpartyonlybetas", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L217"}, {"caller_nid": "betas_shouldincludefirstpartyonlybetas", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L217"}, {"caller_nid": "betas_shouldincludefirstpartyonlybetas", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L218"}, {"caller_nid": "betas_shoulduseglobalcachescope", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L229"}, {"caller_nid": "betas_shoulduseglobalcachescope", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L230"}, {"caller_nid": "betas_getmergedbetas", "callee": "getModelBetas", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L401"}, {"caller_nid": "betas_getmergedbetas", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L407"}, {"caller_nid": "betas_getmergedbetas", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L408"}, {"caller_nid": "betas_getmergedbetas", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L414"}, {"caller_nid": "betas_getmergedbetas", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L416"}, {"caller_nid": "betas_getmergedbetas", "callee": "getSdkBetas", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L420"}, {"caller_nid": "betas_getmergedbetas", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L427"}, {"caller_nid": "betas_clearbetascaches", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L431"}, {"caller_nid": "betas_clearbetascaches", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L432"}, {"caller_nid": "betas_clearbetascaches", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts", "source_location": "L433"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "label": "betas.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "betas_partitionbetasbyallowlist",
+      "label": "partitionBetasByAllowlist()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "betas_filterallowedsdkbetas",
+      "label": "filterAllowedSdkBetas()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L64"
+    },
+    {
+      "id": "betas_modelsupportsisp",
+      "label": "modelSupportsISP()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L92"
+    },
+    {
+      "id": "betas_vertexmodelsupportswebsearch",
+      "label": "vertexModelSupportsWebSearch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L114"
+    },
+    {
+      "id": "betas_modelsupportscontextmanagement",
+      "label": "modelSupportsContextManagement()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L125"
+    },
+    {
+      "id": "betas_modelsupportsstructuredoutputs",
+      "label": "modelSupportsStructuredOutputs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L142"
+    },
+    {
+      "id": "betas_modelsupportsautomode",
+      "label": "modelSupportsAutoMode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L160"
+    },
+    {
+      "id": "betas_gettoolsearchbetaheader",
+      "label": "getToolSearchBetaHeader()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L202"
+    },
+    {
+      "id": "betas_shouldincludefirstpartyonlybetas",
+      "label": "shouldIncludeFirstPartyOnlyBetas()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L215"
+    },
+    {
+      "id": "betas_shoulduseglobalcachescope",
+      "label": "shouldUseGlobalCacheScope()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L227"
+    },
+    {
+      "id": "betas_getmergedbetas",
+      "label": "getMergedBetas()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L397"
+    },
+    {
+      "id": "betas_clearbetascaches",
+      "label": "clearBetasCaches()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L430"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "memoize_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "growthbook_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_betas_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_context_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_modelsupportoverrides_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_providers_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "betas_partitionbetasbyallowlist",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "betas_filterallowedsdkbetas",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "betas_modelsupportsisp",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L92",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "betas_vertexmodelsupportswebsearch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "betas_modelsupportscontextmanagement",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "betas_modelsupportsstructuredoutputs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L142",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "betas_modelsupportsautomode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "betas_gettoolsearchbetaheader",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L202",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "betas_shouldincludefirstpartyonlybetas",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L215",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "betas_shoulduseglobalcachescope",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L227",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "betas_getmergedbetas",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L397",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "target": "betas_clearbetascaches",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L430",
+      "weight": 1.0
+    },
+    {
+      "source": "betas_filterallowedsdkbetas",
+      "target": "betas_partitionbetasbyallowlist",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L79",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "betas_partitionbetasbyallowlist",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "betas_partitionbetasbyallowlist",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "betas_partitionbetasbyallowlist",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "betas_filterallowedsdkbetas",
+      "callee": "isClaudeAISubscriber",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "betas_filterallowedsdkbetas",
+      "callee": "warn",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "betas_filterallowedsdkbetas",
+      "callee": "warn",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "betas_filterallowedsdkbetas",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "betas_modelsupportsisp",
+      "callee": "get3PModelCapabilityOverride",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "betas_modelsupportsisp",
+      "callee": "getCanonicalName",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "betas_modelsupportsisp",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "betas_modelsupportsisp",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "betas_modelsupportsisp",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "betas_modelsupportsisp",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "betas_vertexmodelsupportswebsearch",
+      "callee": "getCanonicalName",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "betas_vertexmodelsupportswebsearch",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "betas_vertexmodelsupportswebsearch",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "betas_vertexmodelsupportswebsearch",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "betas_modelsupportscontextmanagement",
+      "callee": "getCanonicalName",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "betas_modelsupportscontextmanagement",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "betas_modelsupportscontextmanagement",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "betas_modelsupportscontextmanagement",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "betas_modelsupportscontextmanagement",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L136"
+    },
+    {
+      "caller_nid": "betas_modelsupportscontextmanagement",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "betas_modelsupportsstructuredoutputs",
+      "callee": "getCanonicalName",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "betas_modelsupportsstructuredoutputs",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "betas_modelsupportsstructuredoutputs",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "betas_modelsupportsstructuredoutputs",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "betas_modelsupportsstructuredoutputs",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "betas_modelsupportsstructuredoutputs",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L153"
+    },
+    {
+      "caller_nid": "betas_modelsupportsstructuredoutputs",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "betas_modelsupportsstructuredoutputs",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L155"
+    },
+    {
+      "caller_nid": "betas_modelsupportsautomode",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "betas_modelsupportsautomode",
+      "callee": "getCanonicalName",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "betas_modelsupportsautomode",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L166"
+    },
+    {
+      "caller_nid": "betas_modelsupportsautomode",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "betas_modelsupportsautomode",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L176"
+    },
+    {
+      "caller_nid": "betas_modelsupportsautomode",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "betas_modelsupportsautomode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L186"
+    },
+    {
+      "caller_nid": "betas_modelsupportsautomode",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L188"
+    },
+    {
+      "caller_nid": "betas_modelsupportsautomode",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "betas_gettoolsearchbetaheader",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "betas_shouldincludefirstpartyonlybetas",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L217"
+    },
+    {
+      "caller_nid": "betas_shouldincludefirstpartyonlybetas",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L217"
+    },
+    {
+      "caller_nid": "betas_shouldincludefirstpartyonlybetas",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "betas_shoulduseglobalcachescope",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L229"
+    },
+    {
+      "caller_nid": "betas_shoulduseglobalcachescope",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L230"
+    },
+    {
+      "caller_nid": "betas_getmergedbetas",
+      "callee": "getModelBetas",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L401"
+    },
+    {
+      "caller_nid": "betas_getmergedbetas",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L407"
+    },
+    {
+      "caller_nid": "betas_getmergedbetas",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L408"
+    },
+    {
+      "caller_nid": "betas_getmergedbetas",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L414"
+    },
+    {
+      "caller_nid": "betas_getmergedbetas",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L416"
+    },
+    {
+      "caller_nid": "betas_getmergedbetas",
+      "callee": "getSdkBetas",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L420"
+    },
+    {
+      "caller_nid": "betas_getmergedbetas",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L427"
+    },
+    {
+      "caller_nid": "betas_clearbetascaches",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L431"
+    },
+    {
+      "caller_nid": "betas_clearbetascaches",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L432"
+    },
+    {
+      "caller_nid": "betas_clearbetascaches",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\betas.ts",
+      "source_location": "L433"
+    }
+  ]
+}

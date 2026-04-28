@@ -1,1 +1,319 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_transcriptsearch_ts", "label": "transcriptSearch.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L1"}, {"id": "transcriptsearch_renderablesearchtext", "label": "renderableSearchText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L24"}, {"id": "transcriptsearch_computesearchtext", "label": "computeSearchText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L32"}, {"id": "transcriptsearch_toolusesearchtext", "label": "toolUseSearchText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L134"}, {"id": "transcriptsearch_toolresultsearchtext", "label": "toolResultSearchText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L171"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_transcriptsearch_ts", "target": "f_storage_platform_claude_code_source_main_src_types_message_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_transcriptsearch_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_transcriptsearch_ts", "target": "transcriptsearch_renderablesearchtext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_transcriptsearch_ts", "target": "transcriptsearch_computesearchtext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_transcriptsearch_ts", "target": "transcriptsearch_toolusesearchtext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L134", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_transcriptsearch_ts", "target": "transcriptsearch_toolresultsearchtext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L171", "weight": 1.0}, {"source": "transcriptsearch_renderablesearchtext", "target": "transcriptsearch_computesearchtext", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L27", "weight": 1.0}, {"source": "transcriptsearch_computesearchtext", "target": "transcriptsearch_toolresultsearchtext", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L59", "weight": 1.0}], "raw_calls": [{"caller_nid": "transcriptsearch_renderablesearchtext", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L25"}, {"caller_nid": "transcriptsearch_renderablesearchtext", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L27"}, {"caller_nid": "transcriptsearch_renderablesearchtext", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L28"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L38"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L43"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L43"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L59"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L62"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L68"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L72"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "flatMap", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L72"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L87"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L87"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L100"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "flatMap", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L100"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L109"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L109"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L120"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L122"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L124"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L124"}, {"caller_nid": "transcriptsearch_computesearchtext", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L125"}, {"caller_nid": "transcriptsearch_toolusesearchtext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L153"}, {"caller_nid": "transcriptsearch_toolusesearchtext", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L159"}, {"caller_nid": "transcriptsearch_toolusesearchtext", "callee": "every", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L159"}, {"caller_nid": "transcriptsearch_toolusesearchtext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L160"}, {"caller_nid": "transcriptsearch_toolusesearchtext", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L160"}, {"caller_nid": "transcriptsearch_toolusesearchtext", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L163"}, {"caller_nid": "transcriptsearch_toolresultsearchtext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L193"}, {"caller_nid": "transcriptsearch_toolresultsearchtext", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L197"}, {"caller_nid": "transcriptsearch_toolresultsearchtext", "callee": "every", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L197"}, {"caller_nid": "transcriptsearch_toolresultsearchtext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L198"}, {"caller_nid": "transcriptsearch_toolresultsearchtext", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L198"}, {"caller_nid": "transcriptsearch_toolresultsearchtext", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts", "source_location": "L201"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_transcriptsearch_ts",
+      "label": "transcriptSearch.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "transcriptsearch_renderablesearchtext",
+      "label": "renderableSearchText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L24"
+    },
+    {
+      "id": "transcriptsearch_computesearchtext",
+      "label": "computeSearchText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "transcriptsearch_toolusesearchtext",
+      "label": "toolUseSearchText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L134"
+    },
+    {
+      "id": "transcriptsearch_toolresultsearchtext",
+      "label": "toolResultSearchText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L171"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_transcriptsearch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_transcriptsearch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_transcriptsearch_ts",
+      "target": "transcriptsearch_renderablesearchtext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_transcriptsearch_ts",
+      "target": "transcriptsearch_computesearchtext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_transcriptsearch_ts",
+      "target": "transcriptsearch_toolusesearchtext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_transcriptsearch_ts",
+      "target": "transcriptsearch_toolresultsearchtext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "transcriptsearch_renderablesearchtext",
+      "target": "transcriptsearch_computesearchtext",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "transcriptsearch_computesearchtext",
+      "target": "transcriptsearch_toolresultsearchtext",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "transcriptsearch_renderablesearchtext",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "transcriptsearch_renderablesearchtext",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "transcriptsearch_renderablesearchtext",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "flatMap",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "flatMap",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "transcriptsearch_computesearchtext",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "transcriptsearch_toolusesearchtext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L153"
+    },
+    {
+      "caller_nid": "transcriptsearch_toolusesearchtext",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "transcriptsearch_toolusesearchtext",
+      "callee": "every",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "transcriptsearch_toolusesearchtext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L160"
+    },
+    {
+      "caller_nid": "transcriptsearch_toolusesearchtext",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L160"
+    },
+    {
+      "caller_nid": "transcriptsearch_toolusesearchtext",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L163"
+    },
+    {
+      "caller_nid": "transcriptsearch_toolresultsearchtext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L193"
+    },
+    {
+      "caller_nid": "transcriptsearch_toolresultsearchtext",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "transcriptsearch_toolresultsearchtext",
+      "callee": "every",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "transcriptsearch_toolresultsearchtext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L198"
+    },
+    {
+      "caller_nid": "transcriptsearch_toolresultsearchtext",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L198"
+    },
+    {
+      "caller_nid": "transcriptsearch_toolresultsearchtext",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\transcriptSearch.ts",
+      "source_location": "L201"
+    }
+  ]
+}

@@ -1,1 +1,981 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "label": "messageQueueManager.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L1"}, {"id": "messagequeuemanager_logoperation", "label": "logOperation()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L28"}, {"id": "messagequeuemanager_notifysubscribers", "label": "notifySubscribers()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L58"}, {"id": "messagequeuemanager_getcommandqueuesnapshot", "label": "getCommandQueueSnapshot()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L78"}, {"id": "messagequeuemanager_getcommandqueue", "label": "getCommandQueue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L90"}, {"id": "messagequeuemanager_getcommandqueuelength", "label": "getCommandQueueLength()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L97"}, {"id": "messagequeuemanager_hascommandsinqueue", "label": "hasCommandsInQueue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L104"}, {"id": "messagequeuemanager_recheckcommandqueue", "label": "recheckCommandQueue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L113"}, {"id": "messagequeuemanager_enqueue", "label": "enqueue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L128"}, {"id": "messagequeuemanager_enqueuependingnotification", "label": "enqueuePendingNotification()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L142"}, {"id": "messagequeuemanager_dequeue", "label": "dequeue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L167"}, {"id": "messagequeuemanager_dequeueall", "label": "dequeueAll()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L199"}, {"id": "messagequeuemanager_peek", "label": "peek()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L219"}, {"id": "messagequeuemanager_dequeueallmatching", "label": "dequeueAllMatching()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L244"}, {"id": "messagequeuemanager_remove", "label": "remove()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L273"}, {"id": "messagequeuemanager_removebyfilter", "label": "removeByFilter()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L298"}, {"id": "messagequeuemanager_clearcommandqueue", "label": "clearCommandQueue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L322"}, {"id": "messagequeuemanager_resetcommandqueue", "label": "resetCommandQueue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L334"}, {"id": "messagequeuemanager_ispromptinputmodeeditable", "label": "isPromptInputModeEditable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L347"}, {"id": "messagequeuemanager_isqueuedcommandeditable", "label": "isQueuedCommandEditable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L359"}, {"id": "messagequeuemanager_isqueuedcommandvisible", "label": "isQueuedCommandVisible()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L368"}, {"id": "messagequeuemanager_extracttextfromvalue", "label": "extractTextFromValue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L382"}, {"id": "messagequeuemanager_extractimagesfromvalue", "label": "extractImagesFromValue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L390"}, {"id": "messagequeuemanager_popalleditable", "label": "popAllEditable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L428"}, {"id": "messagequeuemanager_getpendingnotificationssnapshot", "label": "getPendingNotificationsSnapshot()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L494"}, {"id": "messagequeuemanager_dequeuependingnotification", "label": "dequeuePendingNotification()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L508"}, {"id": "messagequeuemanager_getcommandsbymaxpriority", "label": "getCommandsByMaxPriority()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L525"}, {"id": "messagequeuemanager_isslashcommand", "label": "isSlashCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L541"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messages_mjs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "utils_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "f_storage_platform_claude_code_source_main_src_types_messagequeuetypes_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "f_storage_platform_claude_code_source_main_src_types_textinputtypes_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_objectgroupby_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstorage_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_signal_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_logoperation", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_notifysubscribers", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L58", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_getcommandqueuesnapshot", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L78", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_getcommandqueue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L90", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_getcommandqueuelength", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L97", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_hascommandsinqueue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L104", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_recheckcommandqueue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L113", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_enqueue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L128", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_enqueuependingnotification", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L142", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_dequeue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L167", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_dequeueall", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L199", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_peek", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L219", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_dequeueallmatching", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L244", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_remove", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L273", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_removebyfilter", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L298", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_clearcommandqueue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L322", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_resetcommandqueue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L334", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_ispromptinputmodeeditable", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L347", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_isqueuedcommandeditable", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L359", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_isqueuedcommandvisible", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L368", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_extracttextfromvalue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L382", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_extractimagesfromvalue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L390", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_popalleditable", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L428", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_getpendingnotificationssnapshot", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L494", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_dequeuependingnotification", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L508", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_getcommandsbymaxpriority", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L525", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "target": "messagequeuemanager_isslashcommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L541", "weight": 1.0}, {"source": "messagequeuemanager_recheckcommandqueue", "target": "messagequeuemanager_notifysubscribers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L115", "weight": 1.0}, {"source": "messagequeuemanager_enqueue", "target": "messagequeuemanager_notifysubscribers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L130", "weight": 1.0}, {"source": "messagequeuemanager_enqueue", "target": "messagequeuemanager_logoperation", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L131", "weight": 1.0}, {"source": "messagequeuemanager_enqueuependingnotification", "target": "messagequeuemanager_notifysubscribers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L144", "weight": 1.0}, {"source": "messagequeuemanager_enqueuependingnotification", "target": "messagequeuemanager_logoperation", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L145", "weight": 1.0}, {"source": "messagequeuemanager_dequeue", "target": "messagequeuemanager_notifysubscribers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L190", "weight": 1.0}, {"source": "messagequeuemanager_dequeue", "target": "messagequeuemanager_logoperation", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L191", "weight": 1.0}, {"source": "messagequeuemanager_dequeueall", "target": "messagequeuemanager_notifysubscribers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L206", "weight": 1.0}, {"source": "messagequeuemanager_dequeueall", "target": "messagequeuemanager_logoperation", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L209", "weight": 1.0}, {"source": "messagequeuemanager_dequeueallmatching", "target": "messagequeuemanager_notifysubscribers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L261", "weight": 1.0}, {"source": "messagequeuemanager_dequeueallmatching", "target": "messagequeuemanager_logoperation", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L263", "weight": 1.0}, {"source": "messagequeuemanager_remove", "target": "messagequeuemanager_notifysubscribers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L286", "weight": 1.0}, {"source": "messagequeuemanager_remove", "target": "messagequeuemanager_logoperation", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L290", "weight": 1.0}, {"source": "messagequeuemanager_removebyfilter", "target": "messagequeuemanager_notifysubscribers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L309", "weight": 1.0}, {"source": "messagequeuemanager_removebyfilter", "target": "messagequeuemanager_logoperation", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L311", "weight": 1.0}, {"source": "messagequeuemanager_clearcommandqueue", "target": "messagequeuemanager_notifysubscribers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L327", "weight": 1.0}, {"source": "messagequeuemanager_isqueuedcommandeditable", "target": "messagequeuemanager_ispromptinputmodeeditable", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L360", "weight": 1.0}, {"source": "messagequeuemanager_isqueuedcommandvisible", "target": "messagequeuemanager_isqueuedcommandeditable", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L374", "weight": 1.0}, {"source": "messagequeuemanager_popalleditable", "target": "messagequeuemanager_extractimagesfromvalue", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L466", "weight": 1.0}, {"source": "messagequeuemanager_popalleditable", "target": "messagequeuemanager_logoperation", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L472", "weight": 1.0}, {"source": "messagequeuemanager_popalleditable", "target": "messagequeuemanager_notifysubscribers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L481", "weight": 1.0}, {"source": "messagequeuemanager_dequeuependingnotification", "target": "messagequeuemanager_dequeue", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L509", "weight": 1.0}], "raw_calls": [{"caller_nid": "messagequeuemanager_logoperation", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L29"}, {"caller_nid": "messagequeuemanager_logoperation", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L33"}, {"caller_nid": "messagequeuemanager_logoperation", "callee": "recordQueueOperation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L37"}, {"caller_nid": "messagequeuemanager_notifysubscribers", "callee": "freeze", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L59"}, {"caller_nid": "messagequeuemanager_notifysubscribers", "callee": "emit", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L60"}, {"caller_nid": "messagequeuemanager_enqueue", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L129"}, {"caller_nid": "messagequeuemanager_enqueuependingnotification", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L143"}, {"caller_nid": "messagequeuemanager_dequeue", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L179"}, {"caller_nid": "messagequeuemanager_dequeue", "callee": "splice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L189"}, {"caller_nid": "messagequeuemanager_peek", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L229"}, {"caller_nid": "messagequeuemanager_dequeueallmatching", "callee": "predicate", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L250"}, {"caller_nid": "messagequeuemanager_dequeueallmatching", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L251"}, {"caller_nid": "messagequeuemanager_dequeueallmatching", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L253"}, {"caller_nid": "messagequeuemanager_dequeueallmatching", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L260"}, {"caller_nid": "messagequeuemanager_remove", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L280"}, {"caller_nid": "messagequeuemanager_remove", "callee": "splice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L281"}, {"caller_nid": "messagequeuemanager_removebyfilter", "callee": "predicate", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L303"}, {"caller_nid": "messagequeuemanager_removebyfilter", "callee": "unshift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L304"}, {"caller_nid": "messagequeuemanager_removebyfilter", "callee": "splice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L304"}, {"caller_nid": "messagequeuemanager_resetcommandqueue", "callee": "freeze", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L336"}, {"caller_nid": "messagequeuemanager_ispromptinputmodeeditable", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L350"}, {"caller_nid": "messagequeuemanager_isqueuedcommandvisible", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L370"}, {"caller_nid": "messagequeuemanager_isqueuedcommandvisible", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L370"}, {"caller_nid": "messagequeuemanager_extracttextfromvalue", "callee": "extractTextContent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L383"}, {"caller_nid": "messagequeuemanager_extractimagesfromvalue", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L402"}, {"caller_nid": "messagequeuemanager_popalleditable", "callee": "objectGroupBy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L436"}, {"caller_nid": "messagequeuemanager_popalleditable", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L446"}, {"caller_nid": "messagequeuemanager_popalleditable", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L447"}, {"caller_nid": "messagequeuemanager_popalleditable", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L447"}, {"caller_nid": "messagequeuemanager_popalleditable", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L450"}, {"caller_nid": "messagequeuemanager_popalleditable", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L454"}, {"caller_nid": "messagequeuemanager_popalleditable", "callee": "values", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L459"}, {"caller_nid": "messagequeuemanager_popalleditable", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L461"}, {"caller_nid": "messagequeuemanager_popalleditable", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L467"}, {"caller_nid": "messagequeuemanager_popalleditable", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L480"}, {"caller_nid": "messagequeuemanager_getcommandsbymaxpriority", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L529"}, {"caller_nid": "messagequeuemanager_isslashcommand", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L544"}, {"caller_nid": "messagequeuemanager_isslashcommand", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts", "source_location": "L544"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "label": "messageQueueManager.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "messagequeuemanager_logoperation",
+      "label": "logOperation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L28"
+    },
+    {
+      "id": "messagequeuemanager_notifysubscribers",
+      "label": "notifySubscribers()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L58"
+    },
+    {
+      "id": "messagequeuemanager_getcommandqueuesnapshot",
+      "label": "getCommandQueueSnapshot()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L78"
+    },
+    {
+      "id": "messagequeuemanager_getcommandqueue",
+      "label": "getCommandQueue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L90"
+    },
+    {
+      "id": "messagequeuemanager_getcommandqueuelength",
+      "label": "getCommandQueueLength()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L97"
+    },
+    {
+      "id": "messagequeuemanager_hascommandsinqueue",
+      "label": "hasCommandsInQueue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L104"
+    },
+    {
+      "id": "messagequeuemanager_recheckcommandqueue",
+      "label": "recheckCommandQueue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L113"
+    },
+    {
+      "id": "messagequeuemanager_enqueue",
+      "label": "enqueue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L128"
+    },
+    {
+      "id": "messagequeuemanager_enqueuependingnotification",
+      "label": "enqueuePendingNotification()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L142"
+    },
+    {
+      "id": "messagequeuemanager_dequeue",
+      "label": "dequeue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L167"
+    },
+    {
+      "id": "messagequeuemanager_dequeueall",
+      "label": "dequeueAll()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L199"
+    },
+    {
+      "id": "messagequeuemanager_peek",
+      "label": "peek()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L219"
+    },
+    {
+      "id": "messagequeuemanager_dequeueallmatching",
+      "label": "dequeueAllMatching()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L244"
+    },
+    {
+      "id": "messagequeuemanager_remove",
+      "label": "remove()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L273"
+    },
+    {
+      "id": "messagequeuemanager_removebyfilter",
+      "label": "removeByFilter()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L298"
+    },
+    {
+      "id": "messagequeuemanager_clearcommandqueue",
+      "label": "clearCommandQueue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L322"
+    },
+    {
+      "id": "messagequeuemanager_resetcommandqueue",
+      "label": "resetCommandQueue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L334"
+    },
+    {
+      "id": "messagequeuemanager_ispromptinputmodeeditable",
+      "label": "isPromptInputModeEditable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L347"
+    },
+    {
+      "id": "messagequeuemanager_isqueuedcommandeditable",
+      "label": "isQueuedCommandEditable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L359"
+    },
+    {
+      "id": "messagequeuemanager_isqueuedcommandvisible",
+      "label": "isQueuedCommandVisible()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L368"
+    },
+    {
+      "id": "messagequeuemanager_extracttextfromvalue",
+      "label": "extractTextFromValue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L382"
+    },
+    {
+      "id": "messagequeuemanager_extractimagesfromvalue",
+      "label": "extractImagesFromValue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L390"
+    },
+    {
+      "id": "messagequeuemanager_popalleditable",
+      "label": "popAllEditable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L428"
+    },
+    {
+      "id": "messagequeuemanager_getpendingnotificationssnapshot",
+      "label": "getPendingNotificationsSnapshot()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L494"
+    },
+    {
+      "id": "messagequeuemanager_dequeuependingnotification",
+      "label": "dequeuePendingNotification()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L508"
+    },
+    {
+      "id": "messagequeuemanager_getcommandsbymaxpriority",
+      "label": "getCommandsByMaxPriority()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L525"
+    },
+    {
+      "id": "messagequeuemanager_isslashcommand",
+      "label": "isSlashCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L541"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messages_mjs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "utils_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_messagequeuetypes_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_textinputtypes_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_objectgroupby_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstorage_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_signal_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_logoperation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_notifysubscribers",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_getcommandqueuesnapshot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_getcommandqueue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_getcommandqueuelength",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_hascommandsinqueue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L104",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_recheckcommandqueue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_enqueue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L128",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_enqueuependingnotification",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L142",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_dequeue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L167",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_dequeueall",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L199",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_peek",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L219",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_dequeueallmatching",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L244",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_remove",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L273",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_removebyfilter",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L298",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_clearcommandqueue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L322",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_resetcommandqueue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L334",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_ispromptinputmodeeditable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L347",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_isqueuedcommandeditable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L359",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_isqueuedcommandvisible",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L368",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_extracttextfromvalue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L382",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_extractimagesfromvalue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L390",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_popalleditable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L428",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_getpendingnotificationssnapshot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L494",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_dequeuependingnotification",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L508",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_getcommandsbymaxpriority",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L525",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "target": "messagequeuemanager_isslashcommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L541",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_recheckcommandqueue",
+      "target": "messagequeuemanager_notifysubscribers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_enqueue",
+      "target": "messagequeuemanager_notifysubscribers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_enqueue",
+      "target": "messagequeuemanager_logoperation",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L131",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_enqueuependingnotification",
+      "target": "messagequeuemanager_notifysubscribers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_enqueuependingnotification",
+      "target": "messagequeuemanager_logoperation",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L145",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_dequeue",
+      "target": "messagequeuemanager_notifysubscribers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L190",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_dequeue",
+      "target": "messagequeuemanager_logoperation",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L191",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_dequeueall",
+      "target": "messagequeuemanager_notifysubscribers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L206",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_dequeueall",
+      "target": "messagequeuemanager_logoperation",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L209",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_dequeueallmatching",
+      "target": "messagequeuemanager_notifysubscribers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L261",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_dequeueallmatching",
+      "target": "messagequeuemanager_logoperation",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L263",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_remove",
+      "target": "messagequeuemanager_notifysubscribers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L286",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_remove",
+      "target": "messagequeuemanager_logoperation",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L290",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_removebyfilter",
+      "target": "messagequeuemanager_notifysubscribers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L309",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_removebyfilter",
+      "target": "messagequeuemanager_logoperation",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L311",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_clearcommandqueue",
+      "target": "messagequeuemanager_notifysubscribers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L327",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_isqueuedcommandeditable",
+      "target": "messagequeuemanager_ispromptinputmodeeditable",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L360",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_isqueuedcommandvisible",
+      "target": "messagequeuemanager_isqueuedcommandeditable",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L374",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_popalleditable",
+      "target": "messagequeuemanager_extractimagesfromvalue",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L466",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_popalleditable",
+      "target": "messagequeuemanager_logoperation",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L472",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_popalleditable",
+      "target": "messagequeuemanager_notifysubscribers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L481",
+      "weight": 1.0
+    },
+    {
+      "source": "messagequeuemanager_dequeuependingnotification",
+      "target": "messagequeuemanager_dequeue",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L509",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "messagequeuemanager_logoperation",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "messagequeuemanager_logoperation",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "messagequeuemanager_logoperation",
+      "callee": "recordQueueOperation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "messagequeuemanager_notifysubscribers",
+      "callee": "freeze",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "messagequeuemanager_notifysubscribers",
+      "callee": "emit",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "messagequeuemanager_enqueue",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "messagequeuemanager_enqueuependingnotification",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "messagequeuemanager_dequeue",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "messagequeuemanager_dequeue",
+      "callee": "splice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L189"
+    },
+    {
+      "caller_nid": "messagequeuemanager_peek",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L229"
+    },
+    {
+      "caller_nid": "messagequeuemanager_dequeueallmatching",
+      "callee": "predicate",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L250"
+    },
+    {
+      "caller_nid": "messagequeuemanager_dequeueallmatching",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L251"
+    },
+    {
+      "caller_nid": "messagequeuemanager_dequeueallmatching",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L253"
+    },
+    {
+      "caller_nid": "messagequeuemanager_dequeueallmatching",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L260"
+    },
+    {
+      "caller_nid": "messagequeuemanager_remove",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L280"
+    },
+    {
+      "caller_nid": "messagequeuemanager_remove",
+      "callee": "splice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L281"
+    },
+    {
+      "caller_nid": "messagequeuemanager_removebyfilter",
+      "callee": "predicate",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L303"
+    },
+    {
+      "caller_nid": "messagequeuemanager_removebyfilter",
+      "callee": "unshift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L304"
+    },
+    {
+      "caller_nid": "messagequeuemanager_removebyfilter",
+      "callee": "splice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L304"
+    },
+    {
+      "caller_nid": "messagequeuemanager_resetcommandqueue",
+      "callee": "freeze",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L336"
+    },
+    {
+      "caller_nid": "messagequeuemanager_ispromptinputmodeeditable",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L350"
+    },
+    {
+      "caller_nid": "messagequeuemanager_isqueuedcommandvisible",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L370"
+    },
+    {
+      "caller_nid": "messagequeuemanager_isqueuedcommandvisible",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L370"
+    },
+    {
+      "caller_nid": "messagequeuemanager_extracttextfromvalue",
+      "callee": "extractTextContent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L383"
+    },
+    {
+      "caller_nid": "messagequeuemanager_extractimagesfromvalue",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L402"
+    },
+    {
+      "caller_nid": "messagequeuemanager_popalleditable",
+      "callee": "objectGroupBy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L436"
+    },
+    {
+      "caller_nid": "messagequeuemanager_popalleditable",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L446"
+    },
+    {
+      "caller_nid": "messagequeuemanager_popalleditable",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L447"
+    },
+    {
+      "caller_nid": "messagequeuemanager_popalleditable",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L447"
+    },
+    {
+      "caller_nid": "messagequeuemanager_popalleditable",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L450"
+    },
+    {
+      "caller_nid": "messagequeuemanager_popalleditable",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L454"
+    },
+    {
+      "caller_nid": "messagequeuemanager_popalleditable",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L459"
+    },
+    {
+      "caller_nid": "messagequeuemanager_popalleditable",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L461"
+    },
+    {
+      "caller_nid": "messagequeuemanager_popalleditable",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L467"
+    },
+    {
+      "caller_nid": "messagequeuemanager_popalleditable",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L480"
+    },
+    {
+      "caller_nid": "messagequeuemanager_getcommandsbymaxpriority",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L529"
+    },
+    {
+      "caller_nid": "messagequeuemanager_isslashcommand",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L544"
+    },
+    {
+      "caller_nid": "messagequeuemanager_isslashcommand",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\messageQueueManager.ts",
+      "source_location": "L544"
+    }
+  ]
+}

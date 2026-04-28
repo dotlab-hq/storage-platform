@@ -1,1 +1,161 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccache_ts", "label": "syncCache.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L1"}, {"id": "synccache_resetsynccache", "label": "resetSyncCache()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L27"}, {"id": "synccache_isremotemanagedsettingseligible", "label": "isRemoteManagedSettingsEligible()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L49"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccache_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccache_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccache_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_providers_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccache_ts", "target": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccachestate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccache_ts", "target": "synccache_resetsynccache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccache_ts", "target": "synccache_isremotemanagedsettingseligible", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L49", "weight": 1.0}], "raw_calls": [{"caller_nid": "synccache_resetsynccache", "callee": "resetLeafCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L29"}, {"caller_nid": "synccache_isremotemanagedsettingseligible", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L53"}, {"caller_nid": "synccache_isremotemanagedsettingseligible", "callee": "setEligibility", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L54"}, {"caller_nid": "synccache_isremotemanagedsettingseligible", "callee": "isFirstPartyAnthropicBaseUrl", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L58"}, {"caller_nid": "synccache_isremotemanagedsettingseligible", "callee": "setEligibility", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L59"}, {"caller_nid": "synccache_isremotemanagedsettingseligible", "callee": "setEligibility", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L67"}, {"caller_nid": "synccache_isremotemanagedsettingseligible", "callee": "getClaudeAIOAuthTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L74"}, {"caller_nid": "synccache_isremotemanagedsettingseligible", "callee": "setEligibility", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L84"}, {"caller_nid": "synccache_isremotemanagedsettingseligible", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L89"}, {"caller_nid": "synccache_isremotemanagedsettingseligible", "callee": "setEligibility", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L93"}, {"caller_nid": "synccache_isremotemanagedsettingseligible", "callee": "getAnthropicApiKeyWithSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L101"}, {"caller_nid": "synccache_isremotemanagedsettingseligible", "callee": "setEligibility", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L105"}, {"caller_nid": "synccache_isremotemanagedsettingseligible", "callee": "setEligibility", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts", "source_location": "L111"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccache_ts",
+      "label": "syncCache.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "synccache_resetsynccache",
+      "label": "resetSyncCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L27"
+    },
+    {
+      "id": "synccache_isremotemanagedsettingseligible",
+      "label": "isRemoteManagedSettingsEligible()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L49"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccache_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccache_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccache_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_providers_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccache_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccachestate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccache_ts",
+      "target": "synccache_resetsynccache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_remotemanagedsettings_synccache_ts",
+      "target": "synccache_isremotemanagedsettingseligible",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "synccache_resetsynccache",
+      "callee": "resetLeafCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "synccache_isremotemanagedsettingseligible",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "synccache_isremotemanagedsettingseligible",
+      "callee": "setEligibility",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L54"
+    },
+    {
+      "caller_nid": "synccache_isremotemanagedsettingseligible",
+      "callee": "isFirstPartyAnthropicBaseUrl",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "synccache_isremotemanagedsettingseligible",
+      "callee": "setEligibility",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "synccache_isremotemanagedsettingseligible",
+      "callee": "setEligibility",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "synccache_isremotemanagedsettingseligible",
+      "callee": "getClaudeAIOAuthTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "synccache_isremotemanagedsettingseligible",
+      "callee": "setEligibility",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "synccache_isremotemanagedsettingseligible",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "synccache_isremotemanagedsettingseligible",
+      "callee": "setEligibility",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "synccache_isremotemanagedsettingseligible",
+      "callee": "getAnthropicApiKeyWithSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "synccache_isremotemanagedsettingseligible",
+      "callee": "setEligibility",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "synccache_isremotemanagedsettingseligible",
+      "callee": "setEligibility",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\remoteManagedSettings\\syncCache.ts",
+      "source_location": "L111"
+    }
+  ]
+}

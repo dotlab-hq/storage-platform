@@ -1,1 +1,234 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "label": "-streaming-handler.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L1"}, {"id": "streaming_handler_generateinvocationid", "label": "generateInvocationId()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L21"}, {"id": "streaming_handler_parsetoolarguments", "label": "parseToolArguments()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L37"}, {"id": "streaming_handler_handlestreamingresponse", "label": "handleStreamingResponse()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L49"}], "edges": [{"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "chat", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "messages", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "messages", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "tool_registry", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "openai_helpers", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "token_counter", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "token_counter", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "chat_server_db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "chat_llm_streamer", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "schemas", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "nanoid", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "streaming_handler_generateinvocationid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "streaming_handler_parsetoolarguments", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts", "target": "streaming_handler_handlestreamingresponse", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L49", "weight": 1.0}], "raw_calls": [{"caller_nid": "streaming_handler_generateinvocationid", "callee": "nanoid", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L22"}, {"caller_nid": "streaming_handler_parsetoolarguments", "callee": "parse", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L39"}, {"caller_nid": "streaming_handler_handlestreamingresponse", "callee": "import", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L54"}, {"caller_nid": "streaming_handler_handlestreamingresponse", "callee": "createDefaultOrchestrator", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L55"}, {"caller_nid": "streaming_handler_handlestreamingresponse", "callee": "getAllTools", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L58"}, {"caller_nid": "streaming_handler_handlestreamingresponse", "callee": "import", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L63"}, {"caller_nid": "streaming_handler_handlestreamingresponse", "callee": "enhanceToolWithHeuristics", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L64"}, {"caller_nid": "streaming_handler_handlestreamingresponse", "callee": "register", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L65"}, {"caller_nid": "streaming_handler_handlestreamingresponse", "callee": "register", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts", "source_location": "L68"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "label": "-streaming-handler.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "streaming_handler_generateinvocationid",
+      "label": "generateInvocationId()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L21"
+    },
+    {
+      "id": "streaming_handler_parsetoolarguments",
+      "label": "parseToolArguments()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L37"
+    },
+    {
+      "id": "streaming_handler_handlestreamingresponse",
+      "label": "handleStreamingResponse()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L49"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "chat",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "messages",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "messages",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "tool_registry",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "openai_helpers",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "token_counter",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "token_counter",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "chat_server_db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "chat_llm_streamer",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "schemas",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "nanoid",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "streaming_handler_generateinvocationid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "streaming_handler_parsetoolarguments",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_streaming_handler_ts",
+      "target": "streaming_handler_handlestreamingresponse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "streaming_handler_generateinvocationid",
+      "callee": "nanoid",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "streaming_handler_parsetoolarguments",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "streaming_handler_handlestreamingresponse",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L54"
+    },
+    {
+      "caller_nid": "streaming_handler_handlestreamingresponse",
+      "callee": "createDefaultOrchestrator",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "streaming_handler_handlestreamingresponse",
+      "callee": "getAllTools",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "streaming_handler_handlestreamingresponse",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "streaming_handler_handlestreamingresponse",
+      "callee": "enhanceToolWithHeuristics",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "streaming_handler_handlestreamingresponse",
+      "callee": "register",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "streaming_handler_handlestreamingresponse",
+      "callee": "register",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\-streaming-handler.ts",
+      "source_location": "L68"
+    }
+  ]
+}

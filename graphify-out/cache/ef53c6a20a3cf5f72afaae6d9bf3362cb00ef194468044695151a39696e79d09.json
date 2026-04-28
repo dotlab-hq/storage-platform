@@ -1,1 +1,212 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts", "label": "packageManagers.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L1"}, {"id": "packagemanagers_isdistrofamily", "label": "isDistroFamily()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L45"}, {"id": "packagemanagers_detectmise", "label": "detectMise()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L62"}, {"id": "packagemanagers_detectasdf", "label": "detectAsdf()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L81"}, {"id": "packagemanagers_detecthomebrew", "label": "detectHomebrew()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L103"}, {"id": "packagemanagers_detectwinget", "label": "detectWinget()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L133"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts", "target": "memoize_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts", "target": "packagemanagers_isdistrofamily", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L45", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts", "target": "packagemanagers_detectmise", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L62", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts", "target": "packagemanagers_detectasdf", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L81", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts", "target": "packagemanagers_detecthomebrew", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L103", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts", "target": "packagemanagers_detectwinget", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L133", "weight": 1.0}], "raw_calls": [{"caller_nid": "packagemanagers_isdistrofamily", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L50"}, {"caller_nid": "packagemanagers_isdistrofamily", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L51"}, {"caller_nid": "packagemanagers_detectmise", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L66"}, {"caller_nid": "packagemanagers_detectmise", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L67"}, {"caller_nid": "packagemanagers_detectasdf", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L85"}, {"caller_nid": "packagemanagers_detectasdf", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L86"}, {"caller_nid": "packagemanagers_detecthomebrew", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L104"}, {"caller_nid": "packagemanagers_detecthomebrew", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L116"}, {"caller_nid": "packagemanagers_detecthomebrew", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L117"}, {"caller_nid": "packagemanagers_detectwinget", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L134"}, {"caller_nid": "packagemanagers_detectwinget", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L150"}, {"caller_nid": "packagemanagers_detectwinget", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts", "source_location": "L151"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts",
+      "label": "packageManagers.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "packagemanagers_isdistrofamily",
+      "label": "isDistroFamily()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L45"
+    },
+    {
+      "id": "packagemanagers_detectmise",
+      "label": "detectMise()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L62"
+    },
+    {
+      "id": "packagemanagers_detectasdf",
+      "label": "detectAsdf()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L81"
+    },
+    {
+      "id": "packagemanagers_detecthomebrew",
+      "label": "detectHomebrew()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L103"
+    },
+    {
+      "id": "packagemanagers_detectwinget",
+      "label": "detectWinget()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L133"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts",
+      "target": "memoize_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts",
+      "target": "packagemanagers_isdistrofamily",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts",
+      "target": "packagemanagers_detectmise",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts",
+      "target": "packagemanagers_detectasdf",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts",
+      "target": "packagemanagers_detecthomebrew",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_nativeinstaller_packagemanagers_ts",
+      "target": "packagemanagers_detectwinget",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L133",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "packagemanagers_isdistrofamily",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "packagemanagers_isdistrofamily",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "packagemanagers_detectmise",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "packagemanagers_detectmise",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "packagemanagers_detectasdf",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "packagemanagers_detectasdf",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "packagemanagers_detecthomebrew",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "packagemanagers_detecthomebrew",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "packagemanagers_detecthomebrew",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "packagemanagers_detectwinget",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "packagemanagers_detectwinget",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "packagemanagers_detectwinget",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\nativeInstaller\\packageManagers.ts",
+      "source_location": "L151"
+    }
+  ]
+}

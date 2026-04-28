@@ -1,1 +1,289 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts", "label": "headlessPluginInstall.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L1"}, {"id": "headlessplugininstall_installpluginsforheadless", "label": "installPluginsForHeadless()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L43"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacemanager_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginblocklist_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginloader_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_reconciler_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcacheadapters_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L33", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts", "target": "headlessplugininstall_installpluginsforheadless", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L43", "weight": 1.0}], "raw_calls": [{"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "isPluginZipCacheEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L44"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L45"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "registerSeedMarketplaces", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L58"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "clearMarketplacesCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L60"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "clearPluginCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L61"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L66"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L66"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "getZipCacheMarketplacesDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L66"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L67"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L67"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "getZipCachePluginsDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L67"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L75"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "getDeclaredMarketplaces", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L75"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L90"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "withDiagnosticsTiming", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L94"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L123"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L124"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "clearMarketplacesCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L136"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "clearPluginCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L137"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "syncMarketplacesToZipCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L148"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "detectAndUninstallDelistedPlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L152"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "clearPluginCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L159"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "registerCleanup", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L164"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L169"}, {"caller_nid": "headlessplugininstall_installpluginsforheadless", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts", "source_location": "L172"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts",
+      "label": "headlessPluginInstall.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "headlessplugininstall_installpluginsforheadless",
+      "label": "installPluginsForHeadless()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L43"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacemanager_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginblocklist_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginloader_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_reconciler_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcacheadapters_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_headlessplugininstall_ts",
+      "target": "headlessplugininstall_installpluginsforheadless",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "isPluginZipCacheEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "registerSeedMarketplaces",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "clearMarketplacesCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "clearPluginCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "getZipCacheMarketplacesDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "getZipCachePluginsDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "getDeclaredMarketplaces",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "withDiagnosticsTiming",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L94"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L123"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "clearMarketplacesCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L136"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "clearPluginCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "syncMarketplacesToZipCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "detectAndUninstallDelistedPlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "clearPluginCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "registerCleanup",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L169"
+    },
+    {
+      "caller_nid": "headlessplugininstall_installpluginsforheadless",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\headlessPluginInstall.ts",
+      "source_location": "L172"
+    }
+  ]
+}

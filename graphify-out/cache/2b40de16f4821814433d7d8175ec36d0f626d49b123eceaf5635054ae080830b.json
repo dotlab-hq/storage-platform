@@ -1,1 +1,86 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_clmtypes_ts", "label": "clmTypes.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts", "source_location": "L1"}, {"id": "clmtypes_normalizetypename", "label": "normalizeTypeName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts", "source_location": "L194"}, {"id": "clmtypes_isclmallowedtype", "label": "isClmAllowedType()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts", "source_location": "L209"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_clmtypes_ts", "target": "clmtypes_normalizetypename", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts", "source_location": "L194", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_clmtypes_ts", "target": "clmtypes_isclmallowedtype", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts", "source_location": "L209", "weight": 1.0}, {"source": "clmtypes_isclmallowedtype", "target": "clmtypes_normalizetypename", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts", "source_location": "L210", "weight": 1.0}], "raw_calls": [{"caller_nid": "clmtypes_normalizetypename", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts", "source_location": "L198"}, {"caller_nid": "clmtypes_normalizetypename", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts", "source_location": "L198"}, {"caller_nid": "clmtypes_normalizetypename", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts", "source_location": "L198"}, {"caller_nid": "clmtypes_normalizetypename", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts", "source_location": "L198"}, {"caller_nid": "clmtypes_isclmallowedtype", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts", "source_location": "L210"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_clmtypes_ts",
+      "label": "clmTypes.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "clmtypes_normalizetypename",
+      "label": "normalizeTypeName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts",
+      "source_location": "L194"
+    },
+    {
+      "id": "clmtypes_isclmallowedtype",
+      "label": "isClmAllowedType()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts",
+      "source_location": "L209"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_clmtypes_ts",
+      "target": "clmtypes_normalizetypename",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_clmtypes_ts",
+      "target": "clmtypes_isclmallowedtype",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts",
+      "source_location": "L209",
+      "weight": 1.0
+    },
+    {
+      "source": "clmtypes_isclmallowedtype",
+      "target": "clmtypes_normalizetypename",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts",
+      "source_location": "L210",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "clmtypes_normalizetypename",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts",
+      "source_location": "L198"
+    },
+    {
+      "caller_nid": "clmtypes_normalizetypename",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts",
+      "source_location": "L198"
+    },
+    {
+      "caller_nid": "clmtypes_normalizetypename",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts",
+      "source_location": "L198"
+    },
+    {
+      "caller_nid": "clmtypes_normalizetypename",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts",
+      "source_location": "L198"
+    },
+    {
+      "caller_nid": "clmtypes_isclmallowedtype",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\clmTypes.ts",
+      "source_location": "L210"
+    }
+  ]
+}

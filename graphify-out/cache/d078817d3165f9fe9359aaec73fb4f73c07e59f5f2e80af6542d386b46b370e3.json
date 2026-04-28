@@ -1,1 +1,709 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "label": "readOnlyValidation.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1"}, {"id": "readonlyvalidation_getcommandallowlist", "label": "getCommandAllowlist()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1201"}, {"id": "readonlyvalidation_iscommandsafeviaflagparsing", "label": "isCommandSafeViaFlagParsing()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1246"}, {"id": "readonlyvalidation_makeregexforsafecommand", "label": "makeRegexForSafeCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1422"}, {"id": "readonlyvalidation_containsunquotedexpansion", "label": "containsUnquotedExpansion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1600"}, {"id": "readonlyvalidation_iscommandreadonly", "label": "isCommandReadOnly()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1678"}, {"id": "readonlyvalidation_commandhasanygit", "label": "commandHasAnyGit()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1760"}, {"id": "readonlyvalidation_isgitinternalpath", "label": "isGitInternalPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1781"}, {"id": "readonlyvalidation_extractwritepathsfromsubcommand", "label": "extractWritePathsFromSubcommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1795"}, {"id": "readonlyvalidation_commandwritestogitinternalpaths", "label": "commandWritesToGitInternalPaths()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1840"}, {"id": "readonlyvalidation_checkreadonlyconstraints", "label": "checkReadOnlyConstraints()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1876"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "v4", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_commands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionresult_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sandbox_sandbox_adapter_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_bashtool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_bashpermissions_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_bashsecurity_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_sedvalidation_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "readonlyvalidation_getcommandallowlist", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1201", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "readonlyvalidation_iscommandsafeviaflagparsing", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1246", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "readonlyvalidation_makeregexforsafecommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1422", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "readonlyvalidation_containsunquotedexpansion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1600", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "readonlyvalidation_iscommandreadonly", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1678", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "readonlyvalidation_commandhasanygit", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1760", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "readonlyvalidation_isgitinternalpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1781", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "readonlyvalidation_extractwritepathsfromsubcommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1795", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "readonlyvalidation_commandwritestogitinternalpaths", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1840", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts", "target": "readonlyvalidation_checkreadonlyconstraints", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1876", "weight": 1.0}, {"source": "readonlyvalidation_iscommandsafeviaflagparsing", "target": "readonlyvalidation_getcommandallowlist", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1283", "weight": 1.0}, {"source": "readonlyvalidation_iscommandreadonly", "target": "readonlyvalidation_containsunquotedexpansion", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1706", "weight": 1.0}, {"source": "readonlyvalidation_iscommandreadonly", "target": "readonlyvalidation_iscommandsafeviaflagparsing", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1715", "weight": 1.0}, {"source": "readonlyvalidation_commandwritestogitinternalpaths", "target": "readonlyvalidation_extractwritepathsfromsubcommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1847", "weight": 1.0}, {"source": "readonlyvalidation_commandwritestogitinternalpaths", "target": "readonlyvalidation_isgitinternalpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1849", "weight": 1.0}, {"source": "readonlyvalidation_checkreadonlyconstraints", "target": "readonlyvalidation_commandhasanygit", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1912", "weight": 1.0}, {"source": "readonlyvalidation_checkreadonlyconstraints", "target": "readonlyvalidation_commandwritestogitinternalpaths", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1943", "weight": 1.0}], "raw_calls": [{"caller_nid": "readonlyvalidation_getcommandallowlist", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1207"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "tryParseShellCommand", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1250"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1253"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1266"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1284"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1285"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1311"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1313"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1317"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1317"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1321"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1355"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1366"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1366"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1366"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "validateFlags", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1373"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1383"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1386"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1393"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "additionalCommandIsDangerousCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1399"}, {"caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1401"}, {"caller_nid": "readonlyvalidation_containsunquotedexpansion", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1651"}, {"caller_nid": "readonlyvalidation_containsunquotedexpansion", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1663"}, {"caller_nid": "readonlyvalidation_iscommandreadonly", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1682"}, {"caller_nid": "readonlyvalidation_iscommandreadonly", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1683"}, {"caller_nid": "readonlyvalidation_iscommandreadonly", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1685"}, {"caller_nid": "readonlyvalidation_iscommandreadonly", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1685"}, {"caller_nid": "readonlyvalidation_iscommandreadonly", "callee": "containsVulnerableUncPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1690"}, {"caller_nid": "readonlyvalidation_iscommandreadonly", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1720"}, {"caller_nid": "readonlyvalidation_iscommandreadonly", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1726"}, {"caller_nid": "readonlyvalidation_iscommandreadonly", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1726"}, {"caller_nid": "readonlyvalidation_iscommandreadonly", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1733"}, {"caller_nid": "readonlyvalidation_iscommandreadonly", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1734"}, {"caller_nid": "readonlyvalidation_iscommandreadonly", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1743"}, {"caller_nid": "readonlyvalidation_iscommandreadonly", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1744"}, {"caller_nid": "readonlyvalidation_commandhasanygit", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1761"}, {"caller_nid": "readonlyvalidation_commandhasanygit", "callee": "splitCommand_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1761"}, {"caller_nid": "readonlyvalidation_isgitinternalpath", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1783"}, {"caller_nid": "readonlyvalidation_isgitinternalpath", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1784"}, {"caller_nid": "readonlyvalidation_extractwritepathsfromsubcommand", "callee": "tryParseShellCommand", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1796"}, {"caller_nid": "readonlyvalidation_extractwritepathsfromsubcommand", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1799"}, {"caller_nid": "readonlyvalidation_extractwritepathsfromsubcommand", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1814"}, {"caller_nid": "readonlyvalidation_extractwritepathsfromsubcommand", "callee": "extractor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1822"}, {"caller_nid": "readonlyvalidation_extractwritepathsfromsubcommand", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1822"}, {"caller_nid": "readonlyvalidation_commandwritestogitinternalpaths", "callee": "splitCommand_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1841"}, {"caller_nid": "readonlyvalidation_commandwritestogitinternalpaths", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1844"}, {"caller_nid": "readonlyvalidation_commandwritestogitinternalpaths", "callee": "extractOutputRedirections", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1855"}, {"caller_nid": "readonlyvalidation_checkreadonlyconstraints", "callee": "tryParseShellCommand", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1883"}, {"caller_nid": "readonlyvalidation_checkreadonlyconstraints", "callee": "bashCommandIsSafe_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1894"}, {"caller_nid": "readonlyvalidation_checkreadonlyconstraints", "callee": "containsVulnerableUncPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1903"}, {"caller_nid": "readonlyvalidation_checkreadonlyconstraints", "callee": "isCurrentDirectoryBareGitRepo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1930"}, {"caller_nid": "readonlyvalidation_checkreadonlyconstraints", "callee": "isSandboxingEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1958"}, {"caller_nid": "readonlyvalidation_checkreadonlyconstraints", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1959"}, {"caller_nid": "readonlyvalidation_checkreadonlyconstraints", "callee": "getOriginalCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1959"}, {"caller_nid": "readonlyvalidation_checkreadonlyconstraints", "callee": "every", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1969"}, {"caller_nid": "readonlyvalidation_checkreadonlyconstraints", "callee": "splitCommand_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts", "source_location": "L1969"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "label": "readOnlyValidation.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "readonlyvalidation_getcommandallowlist",
+      "label": "getCommandAllowlist()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1201"
+    },
+    {
+      "id": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "label": "isCommandSafeViaFlagParsing()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1246"
+    },
+    {
+      "id": "readonlyvalidation_makeregexforsafecommand",
+      "label": "makeRegexForSafeCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1422"
+    },
+    {
+      "id": "readonlyvalidation_containsunquotedexpansion",
+      "label": "containsUnquotedExpansion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1600"
+    },
+    {
+      "id": "readonlyvalidation_iscommandreadonly",
+      "label": "isCommandReadOnly()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1678"
+    },
+    {
+      "id": "readonlyvalidation_commandhasanygit",
+      "label": "commandHasAnyGit()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1760"
+    },
+    {
+      "id": "readonlyvalidation_isgitinternalpath",
+      "label": "isGitInternalPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1781"
+    },
+    {
+      "id": "readonlyvalidation_extractwritepathsfromsubcommand",
+      "label": "extractWritePathsFromSubcommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1795"
+    },
+    {
+      "id": "readonlyvalidation_commandwritestogitinternalpaths",
+      "label": "commandWritesToGitInternalPaths()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1840"
+    },
+    {
+      "id": "readonlyvalidation_checkreadonlyconstraints",
+      "label": "checkReadOnlyConstraints()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1876"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "v4",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_commands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionresult_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sandbox_sandbox_adapter_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_bashtool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_bashpermissions_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_bashsecurity_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_sedvalidation_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_getcommandallowlist",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1201",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1246",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_makeregexforsafecommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1422",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_containsunquotedexpansion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1600",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_iscommandreadonly",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1678",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_commandhasanygit",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1760",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_isgitinternalpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1781",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_extractwritepathsfromsubcommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1795",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_commandwritestogitinternalpaths",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1840",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_checkreadonlyconstraints",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1876",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "target": "readonlyvalidation_getcommandallowlist",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1283",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_iscommandreadonly",
+      "target": "readonlyvalidation_containsunquotedexpansion",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1706",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_iscommandreadonly",
+      "target": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1715",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_commandwritestogitinternalpaths",
+      "target": "readonlyvalidation_extractwritepathsfromsubcommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1847",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_commandwritestogitinternalpaths",
+      "target": "readonlyvalidation_isgitinternalpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1849",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_checkreadonlyconstraints",
+      "target": "readonlyvalidation_commandhasanygit",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1912",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_checkreadonlyconstraints",
+      "target": "readonlyvalidation_commandwritestogitinternalpaths",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1943",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "readonlyvalidation_getcommandallowlist",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1207"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "tryParseShellCommand",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1250"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1253"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1266"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1284"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1285"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1311"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1313"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1317"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1317"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1321"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1355"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1366"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1366"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1366"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "validateFlags",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1373"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1383"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1386"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1393"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "additionalCommandIsDangerousCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1399"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandsafeviaflagparsing",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1401"
+    },
+    {
+      "caller_nid": "readonlyvalidation_containsunquotedexpansion",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1651"
+    },
+    {
+      "caller_nid": "readonlyvalidation_containsunquotedexpansion",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1663"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandreadonly",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1682"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandreadonly",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1683"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandreadonly",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1685"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandreadonly",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1685"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandreadonly",
+      "callee": "containsVulnerableUncPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1690"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandreadonly",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1720"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandreadonly",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1726"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandreadonly",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1726"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandreadonly",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1733"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandreadonly",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1734"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandreadonly",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1743"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscommandreadonly",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1744"
+    },
+    {
+      "caller_nid": "readonlyvalidation_commandhasanygit",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1761"
+    },
+    {
+      "caller_nid": "readonlyvalidation_commandhasanygit",
+      "callee": "splitCommand_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1761"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitinternalpath",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1783"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitinternalpath",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1784"
+    },
+    {
+      "caller_nid": "readonlyvalidation_extractwritepathsfromsubcommand",
+      "callee": "tryParseShellCommand",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1796"
+    },
+    {
+      "caller_nid": "readonlyvalidation_extractwritepathsfromsubcommand",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1799"
+    },
+    {
+      "caller_nid": "readonlyvalidation_extractwritepathsfromsubcommand",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1814"
+    },
+    {
+      "caller_nid": "readonlyvalidation_extractwritepathsfromsubcommand",
+      "callee": "extractor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1822"
+    },
+    {
+      "caller_nid": "readonlyvalidation_extractwritepathsfromsubcommand",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1822"
+    },
+    {
+      "caller_nid": "readonlyvalidation_commandwritestogitinternalpaths",
+      "callee": "splitCommand_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1841"
+    },
+    {
+      "caller_nid": "readonlyvalidation_commandwritestogitinternalpaths",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1844"
+    },
+    {
+      "caller_nid": "readonlyvalidation_commandwritestogitinternalpaths",
+      "callee": "extractOutputRedirections",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1855"
+    },
+    {
+      "caller_nid": "readonlyvalidation_checkreadonlyconstraints",
+      "callee": "tryParseShellCommand",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1883"
+    },
+    {
+      "caller_nid": "readonlyvalidation_checkreadonlyconstraints",
+      "callee": "bashCommandIsSafe_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1894"
+    },
+    {
+      "caller_nid": "readonlyvalidation_checkreadonlyconstraints",
+      "callee": "containsVulnerableUncPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1903"
+    },
+    {
+      "caller_nid": "readonlyvalidation_checkreadonlyconstraints",
+      "callee": "isCurrentDirectoryBareGitRepo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1930"
+    },
+    {
+      "caller_nid": "readonlyvalidation_checkreadonlyconstraints",
+      "callee": "isSandboxingEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1958"
+    },
+    {
+      "caller_nid": "readonlyvalidation_checkreadonlyconstraints",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1959"
+    },
+    {
+      "caller_nid": "readonlyvalidation_checkreadonlyconstraints",
+      "callee": "getOriginalCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1959"
+    },
+    {
+      "caller_nid": "readonlyvalidation_checkreadonlyconstraints",
+      "callee": "every",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1969"
+    },
+    {
+      "caller_nid": "readonlyvalidation_checkreadonlyconstraints",
+      "callee": "splitCommand_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\readOnlyValidation.ts",
+      "source_location": "L1969"
+    }
+  ]
+}

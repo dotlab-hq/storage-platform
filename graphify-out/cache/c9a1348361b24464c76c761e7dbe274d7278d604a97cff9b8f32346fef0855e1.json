@@ -1,1 +1,197 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts", "label": "tool-registry-scoped.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L1"}, {"id": "tool_registry_scoped_getfilteredtools", "label": "getFilteredTools()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L48"}, {"id": "tool_registry_scoped_getallavailabletools", "label": "getAllAvailableTools()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L58"}, {"id": "tool_registry_scoped_gettoolsbycategory", "label": "getToolsByCategory()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L65"}, {"id": "tool_registry_scoped_hastoolaccess", "label": "hasToolAccess()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L79"}, {"id": "tool_registry_scoped_gettoolsforpermissions", "label": "getToolsForPermissions()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L92"}], "edges": [{"source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts", "target": "tools", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts", "target": "f_storage_platform_src_routes_app_chat_tools_math_tools", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts", "target": "f_storage_platform_src_routes_app_chat_tools_tavily_search", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts", "target": "f_storage_platform_src_routes_app_chat_tools_enhanced_storage_tools", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts", "target": "scopes", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts", "target": "scopes", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts", "target": "tool_registry_scoped_getfilteredtools", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L48", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts", "target": "tool_registry_scoped_getallavailabletools", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L58", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts", "target": "tool_registry_scoped_gettoolsbycategory", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L65", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts", "target": "tool_registry_scoped_hastoolaccess", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L79", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts", "target": "tool_registry_scoped_gettoolsforpermissions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L92", "weight": 1.0}], "raw_calls": [{"caller_nid": "tool_registry_scoped_getfilteredtools", "callee": "map", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L49"}, {"caller_nid": "tool_registry_scoped_getfilteredtools", "callee": "filter", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L49"}, {"caller_nid": "tool_registry_scoped_getallavailabletools", "callee": "map", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L59"}, {"caller_nid": "tool_registry_scoped_gettoolsbycategory", "callee": "reduce", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L66"}, {"caller_nid": "tool_registry_scoped_hastoolaccess", "callee": "find", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L83"}, {"caller_nid": "tool_registry_scoped_hastoolaccess", "callee": "hasAllScopes", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L86"}, {"caller_nid": "tool_registry_scoped_gettoolsforpermissions", "callee": "map", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L93"}, {"caller_nid": "tool_registry_scoped_gettoolsforpermissions", "callee": "filter", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts", "source_location": "L93"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts",
+      "label": "tool-registry-scoped.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "tool_registry_scoped_getfilteredtools",
+      "label": "getFilteredTools()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L48"
+    },
+    {
+      "id": "tool_registry_scoped_getallavailabletools",
+      "label": "getAllAvailableTools()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L58"
+    },
+    {
+      "id": "tool_registry_scoped_gettoolsbycategory",
+      "label": "getToolsByCategory()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L65"
+    },
+    {
+      "id": "tool_registry_scoped_hastoolaccess",
+      "label": "hasToolAccess()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L79"
+    },
+    {
+      "id": "tool_registry_scoped_gettoolsforpermissions",
+      "label": "getToolsForPermissions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L92"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts",
+      "target": "tools",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts",
+      "target": "f_storage_platform_src_routes_app_chat_tools_math_tools",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts",
+      "target": "f_storage_platform_src_routes_app_chat_tools_tavily_search",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts",
+      "target": "f_storage_platform_src_routes_app_chat_tools_enhanced_storage_tools",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts",
+      "target": "scopes",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts",
+      "target": "scopes",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts",
+      "target": "tool_registry_scoped_getfilteredtools",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts",
+      "target": "tool_registry_scoped_getallavailabletools",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts",
+      "target": "tool_registry_scoped_gettoolsbycategory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts",
+      "target": "tool_registry_scoped_hastoolaccess",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_registry_scoped_ts",
+      "target": "tool_registry_scoped_gettoolsforpermissions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L92",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "tool_registry_scoped_getfilteredtools",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "tool_registry_scoped_getfilteredtools",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "tool_registry_scoped_getallavailabletools",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "tool_registry_scoped_gettoolsbycategory",
+      "callee": "reduce",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "tool_registry_scoped_hastoolaccess",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "tool_registry_scoped_hastoolaccess",
+      "callee": "hasAllScopes",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "tool_registry_scoped_gettoolsforpermissions",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "tool_registry_scoped_gettoolsforpermissions",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-registry-scoped.ts",
+      "source_location": "L93"
+    }
+  ]
+}

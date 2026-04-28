@@ -1,1 +1,1544 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "label": "git.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L1"}, {"id": "git_createfindgitroot", "label": "createFindGitRoot()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L99"}, {"id": "git_createfindcanonicalgitroot", "label": "createFindCanonicalGitRoot()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L197"}, {"id": "git_getgitdir", "label": "getGitDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L231"}, {"id": "git_isatgitroot", "label": "isAtGitRoot()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L235"}, {"id": "git_dirisingitrepo", "label": "dirIsInGitRepo()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L253"}, {"id": "git_gethead", "label": "getHead()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L257"}, {"id": "git_getbranch", "label": "getBranch()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L261"}, {"id": "git_getdefaultbranch", "label": "getDefaultBranch()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L265"}, {"id": "git_getremoteurl", "label": "getRemoteUrl()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L269"}, {"id": "git_normalizegitremoteurl", "label": "normalizeGitRemoteUrl()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L283"}, {"id": "git_getreporemotehash", "label": "getRepoRemoteHash()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L329"}, {"id": "git_getisheadonremote", "label": "getIsHeadOnRemote()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L340"}, {"id": "git_hasunpushedcommits", "label": "hasUnpushedCommits()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L347"}, {"id": "git_getisclean", "label": "getIsClean()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L356"}, {"id": "git_getchangedfiles", "label": "getChangedFiles()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L369"}, {"id": "git_getfilestatus", "label": "getFileStatus()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L389"}, {"id": "git_getworktreecount", "label": "getWorktreeCount()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L419"}, {"id": "git_stashtocleanstate", "label": "stashToCleanState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L429"}, {"id": "git_getgitstate", "label": "getGitState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L472"}, {"id": "git_getgithubrepo", "label": "getGithubRepo()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L504"}, {"id": "git_findremotebase", "label": "findRemoteBase()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L562"}, {"id": "git_isshallowclone", "label": "isShallowClone()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L608"}, {"id": "git_captureuntrackedfiles", "label": "captureUntrackedFiles()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L616"}, {"id": "git_preservegitstateforissue", "label": "preserveGitStateForIssue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L724"}, {"id": "git_islocalhost", "label": "isLocalHost()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L847"}, {"id": "git_iscurrentdirectorybaregitrepo", "label": "isCurrentDirectoryBareGitRepo()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L876"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "fs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "memoize_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_files_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_git_gitfilesystem_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_memoize_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_which_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_createfindgitroot", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L99", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_createfindcanonicalgitroot", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L197", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_getgitdir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L231", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_isatgitroot", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L235", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_dirisingitrepo", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L253", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_gethead", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L257", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_getbranch", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L261", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_getdefaultbranch", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L265", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_getremoteurl", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L269", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_normalizegitremoteurl", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L283", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_getreporemotehash", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L329", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_getisheadonremote", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L340", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_hasunpushedcommits", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L347", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_getisclean", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L356", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_getchangedfiles", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L369", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_getfilestatus", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L389", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_getworktreecount", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L419", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_stashtocleanstate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L429", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_getgitstate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L472", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_getgithubrepo", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L504", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_findremotebase", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L562", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_isshallowclone", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L608", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_captureuntrackedfiles", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L616", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_preservegitstateforissue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L724", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_islocalhost", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L847", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "target": "git_iscurrentdirectorybaregitrepo", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L876", "weight": 1.0}, {"source": "git_normalizegitremoteurl", "target": "git_islocalhost", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L306", "weight": 1.0}, {"source": "git_getreporemotehash", "target": "git_getremoteurl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L330", "weight": 1.0}, {"source": "git_getreporemotehash", "target": "git_normalizegitremoteurl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L333", "weight": 1.0}, {"source": "git_stashtocleanstate", "target": "git_getfilestatus", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L435", "weight": 1.0}, {"source": "git_getgitstate", "target": "git_gethead", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L482", "weight": 1.0}, {"source": "git_getgitstate", "target": "git_getbranch", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L483", "weight": 1.0}, {"source": "git_getgitstate", "target": "git_getremoteurl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L484", "weight": 1.0}, {"source": "git_getgitstate", "target": "git_getisheadonremote", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L485", "weight": 1.0}, {"source": "git_getgitstate", "target": "git_getisclean", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L486", "weight": 1.0}, {"source": "git_getgitstate", "target": "git_getworktreecount", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L487", "weight": 1.0}, {"source": "git_getgithubrepo", "target": "git_getremoteurl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L506", "weight": 1.0}, {"source": "git_preservegitstateforissue", "target": "git_isshallowclone", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L732", "weight": 1.0}, {"source": "git_preservegitstateforissue", "target": "git_captureuntrackedfiles", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L736", "weight": 1.0}, {"source": "git_preservegitstateforissue", "target": "git_findremotebase", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L750", "weight": 1.0}], "raw_calls": [{"caller_nid": "git_getgitdir", "callee": "resolveGitDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L232"}, {"caller_nid": "git_isatgitroot", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L236"}, {"caller_nid": "git_isatgitroot", "callee": "findGitRoot", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L237"}, {"caller_nid": "git_isatgitroot", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L243"}, {"caller_nid": "git_isatgitroot", "callee": "realpath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L244"}, {"caller_nid": "git_isatgitroot", "callee": "realpath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L245"}, {"caller_nid": "git_dirisingitrepo", "callee": "findGitRoot", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L254"}, {"caller_nid": "git_gethead", "callee": "getCachedHead", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L258"}, {"caller_nid": "git_getbranch", "callee": "getCachedBranch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L262"}, {"caller_nid": "git_getdefaultbranch", "callee": "getCachedDefaultBranch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L266"}, {"caller_nid": "git_getremoteurl", "callee": "getCachedRemoteUrl", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L270"}, {"caller_nid": "git_normalizegitremoteurl", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L284"}, {"caller_nid": "git_normalizegitremoteurl", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L288"}, {"caller_nid": "git_normalizegitremoteurl", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L290"}, {"caller_nid": "git_normalizegitremoteurl", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L294"}, {"caller_nid": "git_normalizegitremoteurl", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L306"}, {"caller_nid": "git_normalizegitremoteurl", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L307"}, {"caller_nid": "git_normalizegitremoteurl", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L308"}, {"caller_nid": "git_normalizegitremoteurl", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L310"}, {"caller_nid": "git_normalizegitremoteurl", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L311"}, {"caller_nid": "git_normalizegitremoteurl", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L314"}, {"caller_nid": "git_normalizegitremoteurl", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L317"}, {"caller_nid": "git_getreporemotehash", "callee": "digest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L336"}, {"caller_nid": "git_getreporemotehash", "callee": "update", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L336"}, {"caller_nid": "git_getreporemotehash", "callee": "createHash", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L336"}, {"caller_nid": "git_getreporemotehash", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L337"}, {"caller_nid": "git_getisheadonremote", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L341"}, {"caller_nid": "git_getisheadonremote", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L341"}, {"caller_nid": "git_hasunpushedcommits", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L348"}, {"caller_nid": "git_hasunpushedcommits", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L349"}, {"caller_nid": "git_hasunpushedcommits", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L353"}, {"caller_nid": "git_hasunpushedcommits", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L353"}, {"caller_nid": "git_getisclean", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L361"}, {"caller_nid": "git_getisclean", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L363"}, {"caller_nid": "git_getisclean", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L363"}, {"caller_nid": "git_getisclean", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L366"}, {"caller_nid": "git_getchangedfiles", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L370"}, {"caller_nid": "git_getchangedfiles", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L371"}, {"caller_nid": "git_getchangedfiles", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L377"}, {"caller_nid": "git_getchangedfiles", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L377"}, {"caller_nid": "git_getchangedfiles", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L377"}, {"caller_nid": "git_getchangedfiles", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L377"}, {"caller_nid": "git_getfilestatus", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L390"}, {"caller_nid": "git_getfilestatus", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L391"}, {"caller_nid": "git_getfilestatus", "callee": "forEach", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L401"}, {"caller_nid": "git_getfilestatus", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L401"}, {"caller_nid": "git_getfilestatus", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L401"}, {"caller_nid": "git_getfilestatus", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L401"}, {"caller_nid": "git_getworktreecount", "callee": "getWorktreeCountFromFs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L420"}, {"caller_nid": "git_stashtocleanstate", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L432"}, {"caller_nid": "git_stashtocleanstate", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L440"}, {"caller_nid": "git_stashtocleanstate", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L441"}, {"caller_nid": "git_stashtocleanstate", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L452"}, {"caller_nid": "git_stashtocleanstate", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L453"}, {"caller_nid": "git_getgitstate", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L481"}, {"caller_nid": "git_getgithubrepo", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L505"}, {"caller_nid": "git_getgithubrepo", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L508"}, {"caller_nid": "git_getgithubrepo", "callee": "parseGitRemote", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L513"}, {"caller_nid": "git_getgithubrepo", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L516"}, {"caller_nid": "git_getgithubrepo", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L519"}, {"caller_nid": "git_findremotebase", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L564"}, {"caller_nid": "git_findremotebase", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L565"}, {"caller_nid": "git_findremotebase", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L570"}, {"caller_nid": "git_findremotebase", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L571"}, {"caller_nid": "git_findremotebase", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L575"}, {"caller_nid": "git_findremotebase", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L576"}, {"caller_nid": "git_findremotebase", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L583"}, {"caller_nid": "git_findremotebase", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L592"}, {"caller_nid": "git_findremotebase", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L593"}, {"caller_nid": "git_isshallowclone", "callee": "isShallowCloneFs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L609"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L619"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L620"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L625"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L630"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L630"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L637"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "hasBinaryExtension", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L644"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "stat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L649"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L654"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L662"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L670"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L679"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "open", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L680"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "alloc", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L682"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "read", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L683"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "subarray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L684"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "isBinaryContent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L686"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L693"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L698"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L701"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "close", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L704"}, {"caller_nid": "git_captureuntrackedfiles", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L708"}, {"caller_nid": "git_preservegitstateforissue", "callee": "getIsGit", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L726"}, {"caller_nid": "git_preservegitstateforissue", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L733"}, {"caller_nid": "git_preservegitstateforissue", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L734"}, {"caller_nid": "git_preservegitstateforissue", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L735"}, {"caller_nid": "git_preservegitstateforissue", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L735"}, {"caller_nid": "git_preservegitstateforissue", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L754"}, {"caller_nid": "git_preservegitstateforissue", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L755"}, {"caller_nid": "git_preservegitstateforissue", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L756"}, {"caller_nid": "git_preservegitstateforissue", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L756"}, {"caller_nid": "git_preservegitstateforissue", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L771"}, {"caller_nid": "git_preservegitstateforissue", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L772"}, {"caller_nid": "git_preservegitstateforissue", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L777"}, {"caller_nid": "git_preservegitstateforissue", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L779"}, {"caller_nid": "git_preservegitstateforissue", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L780"}, {"caller_nid": "git_preservegitstateforissue", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L781"}, {"caller_nid": "git_preservegitstateforissue", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L781"}, {"caller_nid": "git_preservegitstateforissue", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L795"}, {"caller_nid": "git_preservegitstateforissue", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L805"}, {"caller_nid": "git_preservegitstateforissue", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L807"}, {"caller_nid": "git_preservegitstateforissue", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L807"}, {"caller_nid": "git_preservegitstateforissue", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L814"}, {"caller_nid": "git_preservegitstateforissue", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L814"}, {"caller_nid": "git_preservegitstateforissue", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L820"}, {"caller_nid": "git_preservegitstateforissue", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L820"}, {"caller_nid": "git_preservegitstateforissue", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L822"}, {"caller_nid": "git_preservegitstateforissue", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L822"}, {"caller_nid": "git_preservegitstateforissue", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L826"}, {"caller_nid": "git_preservegitstateforissue", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L830"}, {"caller_nid": "git_preservegitstateforissue", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L837"}, {"caller_nid": "git_preservegitstateforissue", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L842"}, {"caller_nid": "git_islocalhost", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L848"}, {"caller_nid": "git_islocalhost", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L851"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L877"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L878"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L880"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "statSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L882"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "isFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L883"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "isDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L887"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L888"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "isFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L893"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "statSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L893"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "isFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L910"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "statSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L910"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L910"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "isDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L915"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "statSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L915"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L915"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "isDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L920"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "statSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L920"}, {"caller_nid": "git_iscurrentdirectorybaregitrepo", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts", "source_location": "L920"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "label": "git.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "git_createfindgitroot",
+      "label": "createFindGitRoot()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L99"
+    },
+    {
+      "id": "git_createfindcanonicalgitroot",
+      "label": "createFindCanonicalGitRoot()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L197"
+    },
+    {
+      "id": "git_getgitdir",
+      "label": "getGitDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L231"
+    },
+    {
+      "id": "git_isatgitroot",
+      "label": "isAtGitRoot()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L235"
+    },
+    {
+      "id": "git_dirisingitrepo",
+      "label": "dirIsInGitRepo()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L253"
+    },
+    {
+      "id": "git_gethead",
+      "label": "getHead()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L257"
+    },
+    {
+      "id": "git_getbranch",
+      "label": "getBranch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L261"
+    },
+    {
+      "id": "git_getdefaultbranch",
+      "label": "getDefaultBranch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L265"
+    },
+    {
+      "id": "git_getremoteurl",
+      "label": "getRemoteUrl()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L269"
+    },
+    {
+      "id": "git_normalizegitremoteurl",
+      "label": "normalizeGitRemoteUrl()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L283"
+    },
+    {
+      "id": "git_getreporemotehash",
+      "label": "getRepoRemoteHash()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L329"
+    },
+    {
+      "id": "git_getisheadonremote",
+      "label": "getIsHeadOnRemote()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L340"
+    },
+    {
+      "id": "git_hasunpushedcommits",
+      "label": "hasUnpushedCommits()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L347"
+    },
+    {
+      "id": "git_getisclean",
+      "label": "getIsClean()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L356"
+    },
+    {
+      "id": "git_getchangedfiles",
+      "label": "getChangedFiles()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L369"
+    },
+    {
+      "id": "git_getfilestatus",
+      "label": "getFileStatus()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L389"
+    },
+    {
+      "id": "git_getworktreecount",
+      "label": "getWorktreeCount()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L419"
+    },
+    {
+      "id": "git_stashtocleanstate",
+      "label": "stashToCleanState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L429"
+    },
+    {
+      "id": "git_getgitstate",
+      "label": "getGitState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L472"
+    },
+    {
+      "id": "git_getgithubrepo",
+      "label": "getGithubRepo()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L504"
+    },
+    {
+      "id": "git_findremotebase",
+      "label": "findRemoteBase()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L562"
+    },
+    {
+      "id": "git_isshallowclone",
+      "label": "isShallowClone()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L608"
+    },
+    {
+      "id": "git_captureuntrackedfiles",
+      "label": "captureUntrackedFiles()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L616"
+    },
+    {
+      "id": "git_preservegitstateforissue",
+      "label": "preserveGitStateForIssue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L724"
+    },
+    {
+      "id": "git_islocalhost",
+      "label": "isLocalHost()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L847"
+    },
+    {
+      "id": "git_iscurrentdirectorybaregitrepo",
+      "label": "isCurrentDirectoryBareGitRepo()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L876"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "fs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "memoize_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_files_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_git_gitfilesystem_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_memoize_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_which_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_createfindgitroot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_createfindcanonicalgitroot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L197",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_getgitdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L231",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_isatgitroot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L235",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_dirisingitrepo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L253",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_gethead",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L257",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_getbranch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L261",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_getdefaultbranch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L265",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_getremoteurl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L269",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_normalizegitremoteurl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L283",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_getreporemotehash",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L329",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_getisheadonremote",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L340",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_hasunpushedcommits",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L347",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_getisclean",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L356",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_getchangedfiles",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L369",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_getfilestatus",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L389",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_getworktreecount",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_stashtocleanstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L429",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_getgitstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L472",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_getgithubrepo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L504",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_findremotebase",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L562",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_isshallowclone",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L608",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_captureuntrackedfiles",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L616",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_preservegitstateforissue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L724",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_islocalhost",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L847",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "target": "git_iscurrentdirectorybaregitrepo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L876",
+      "weight": 1.0
+    },
+    {
+      "source": "git_normalizegitremoteurl",
+      "target": "git_islocalhost",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L306",
+      "weight": 1.0
+    },
+    {
+      "source": "git_getreporemotehash",
+      "target": "git_getremoteurl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L330",
+      "weight": 1.0
+    },
+    {
+      "source": "git_getreporemotehash",
+      "target": "git_normalizegitremoteurl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L333",
+      "weight": 1.0
+    },
+    {
+      "source": "git_stashtocleanstate",
+      "target": "git_getfilestatus",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L435",
+      "weight": 1.0
+    },
+    {
+      "source": "git_getgitstate",
+      "target": "git_gethead",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L482",
+      "weight": 1.0
+    },
+    {
+      "source": "git_getgitstate",
+      "target": "git_getbranch",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L483",
+      "weight": 1.0
+    },
+    {
+      "source": "git_getgitstate",
+      "target": "git_getremoteurl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L484",
+      "weight": 1.0
+    },
+    {
+      "source": "git_getgitstate",
+      "target": "git_getisheadonremote",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L485",
+      "weight": 1.0
+    },
+    {
+      "source": "git_getgitstate",
+      "target": "git_getisclean",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L486",
+      "weight": 1.0
+    },
+    {
+      "source": "git_getgitstate",
+      "target": "git_getworktreecount",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L487",
+      "weight": 1.0
+    },
+    {
+      "source": "git_getgithubrepo",
+      "target": "git_getremoteurl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L506",
+      "weight": 1.0
+    },
+    {
+      "source": "git_preservegitstateforissue",
+      "target": "git_isshallowclone",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L732",
+      "weight": 1.0
+    },
+    {
+      "source": "git_preservegitstateforissue",
+      "target": "git_captureuntrackedfiles",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L736",
+      "weight": 1.0
+    },
+    {
+      "source": "git_preservegitstateforissue",
+      "target": "git_findremotebase",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L750",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "git_getgitdir",
+      "callee": "resolveGitDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L232"
+    },
+    {
+      "caller_nid": "git_isatgitroot",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L236"
+    },
+    {
+      "caller_nid": "git_isatgitroot",
+      "callee": "findGitRoot",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L237"
+    },
+    {
+      "caller_nid": "git_isatgitroot",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L243"
+    },
+    {
+      "caller_nid": "git_isatgitroot",
+      "callee": "realpath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L244"
+    },
+    {
+      "caller_nid": "git_isatgitroot",
+      "callee": "realpath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L245"
+    },
+    {
+      "caller_nid": "git_dirisingitrepo",
+      "callee": "findGitRoot",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L254"
+    },
+    {
+      "caller_nid": "git_gethead",
+      "callee": "getCachedHead",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L258"
+    },
+    {
+      "caller_nid": "git_getbranch",
+      "callee": "getCachedBranch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L262"
+    },
+    {
+      "caller_nid": "git_getdefaultbranch",
+      "callee": "getCachedDefaultBranch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L266"
+    },
+    {
+      "caller_nid": "git_getremoteurl",
+      "callee": "getCachedRemoteUrl",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L270"
+    },
+    {
+      "caller_nid": "git_normalizegitremoteurl",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L284"
+    },
+    {
+      "caller_nid": "git_normalizegitremoteurl",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "git_normalizegitremoteurl",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L290"
+    },
+    {
+      "caller_nid": "git_normalizegitremoteurl",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L294"
+    },
+    {
+      "caller_nid": "git_normalizegitremoteurl",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L306"
+    },
+    {
+      "caller_nid": "git_normalizegitremoteurl",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L307"
+    },
+    {
+      "caller_nid": "git_normalizegitremoteurl",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L308"
+    },
+    {
+      "caller_nid": "git_normalizegitremoteurl",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L310"
+    },
+    {
+      "caller_nid": "git_normalizegitremoteurl",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L311"
+    },
+    {
+      "caller_nid": "git_normalizegitremoteurl",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L314"
+    },
+    {
+      "caller_nid": "git_normalizegitremoteurl",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L317"
+    },
+    {
+      "caller_nid": "git_getreporemotehash",
+      "callee": "digest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L336"
+    },
+    {
+      "caller_nid": "git_getreporemotehash",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L336"
+    },
+    {
+      "caller_nid": "git_getreporemotehash",
+      "callee": "createHash",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L336"
+    },
+    {
+      "caller_nid": "git_getreporemotehash",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L337"
+    },
+    {
+      "caller_nid": "git_getisheadonremote",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L341"
+    },
+    {
+      "caller_nid": "git_getisheadonremote",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L341"
+    },
+    {
+      "caller_nid": "git_hasunpushedcommits",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L348"
+    },
+    {
+      "caller_nid": "git_hasunpushedcommits",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L349"
+    },
+    {
+      "caller_nid": "git_hasunpushedcommits",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L353"
+    },
+    {
+      "caller_nid": "git_hasunpushedcommits",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L353"
+    },
+    {
+      "caller_nid": "git_getisclean",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L361"
+    },
+    {
+      "caller_nid": "git_getisclean",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L363"
+    },
+    {
+      "caller_nid": "git_getisclean",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L363"
+    },
+    {
+      "caller_nid": "git_getisclean",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L366"
+    },
+    {
+      "caller_nid": "git_getchangedfiles",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L370"
+    },
+    {
+      "caller_nid": "git_getchangedfiles",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L371"
+    },
+    {
+      "caller_nid": "git_getchangedfiles",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L377"
+    },
+    {
+      "caller_nid": "git_getchangedfiles",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L377"
+    },
+    {
+      "caller_nid": "git_getchangedfiles",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L377"
+    },
+    {
+      "caller_nid": "git_getchangedfiles",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L377"
+    },
+    {
+      "caller_nid": "git_getfilestatus",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L390"
+    },
+    {
+      "caller_nid": "git_getfilestatus",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L391"
+    },
+    {
+      "caller_nid": "git_getfilestatus",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L401"
+    },
+    {
+      "caller_nid": "git_getfilestatus",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L401"
+    },
+    {
+      "caller_nid": "git_getfilestatus",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L401"
+    },
+    {
+      "caller_nid": "git_getfilestatus",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L401"
+    },
+    {
+      "caller_nid": "git_getworktreecount",
+      "callee": "getWorktreeCountFromFs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L420"
+    },
+    {
+      "caller_nid": "git_stashtocleanstate",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L432"
+    },
+    {
+      "caller_nid": "git_stashtocleanstate",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L440"
+    },
+    {
+      "caller_nid": "git_stashtocleanstate",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L441"
+    },
+    {
+      "caller_nid": "git_stashtocleanstate",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L452"
+    },
+    {
+      "caller_nid": "git_stashtocleanstate",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L453"
+    },
+    {
+      "caller_nid": "git_getgitstate",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L481"
+    },
+    {
+      "caller_nid": "git_getgithubrepo",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L505"
+    },
+    {
+      "caller_nid": "git_getgithubrepo",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L508"
+    },
+    {
+      "caller_nid": "git_getgithubrepo",
+      "callee": "parseGitRemote",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L513"
+    },
+    {
+      "caller_nid": "git_getgithubrepo",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L516"
+    },
+    {
+      "caller_nid": "git_getgithubrepo",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L519"
+    },
+    {
+      "caller_nid": "git_findremotebase",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L564"
+    },
+    {
+      "caller_nid": "git_findremotebase",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L565"
+    },
+    {
+      "caller_nid": "git_findremotebase",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L570"
+    },
+    {
+      "caller_nid": "git_findremotebase",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L571"
+    },
+    {
+      "caller_nid": "git_findremotebase",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L575"
+    },
+    {
+      "caller_nid": "git_findremotebase",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L576"
+    },
+    {
+      "caller_nid": "git_findremotebase",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L583"
+    },
+    {
+      "caller_nid": "git_findremotebase",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L592"
+    },
+    {
+      "caller_nid": "git_findremotebase",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L593"
+    },
+    {
+      "caller_nid": "git_isshallowclone",
+      "callee": "isShallowCloneFs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L609"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L619"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L620"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L625"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L630"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L630"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L637"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "hasBinaryExtension",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L644"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "stat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L649"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L654"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L662"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L670"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L679"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "open",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L680"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "alloc",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L682"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "read",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L683"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "subarray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L684"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "isBinaryContent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L686"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L693"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L698"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L701"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L704"
+    },
+    {
+      "caller_nid": "git_captureuntrackedfiles",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L708"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "getIsGit",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L726"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L733"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L734"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L735"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L735"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L754"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L755"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L756"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L756"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L771"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L772"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L777"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L779"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L780"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L781"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L781"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L795"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L805"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L807"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L807"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L814"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L814"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L820"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L820"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L822"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L822"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L826"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L830"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L837"
+    },
+    {
+      "caller_nid": "git_preservegitstateforissue",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L842"
+    },
+    {
+      "caller_nid": "git_islocalhost",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L848"
+    },
+    {
+      "caller_nid": "git_islocalhost",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L851"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L877"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L878"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L880"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "statSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L882"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "isFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L883"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "isDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L887"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L888"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "isFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L893"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "statSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L893"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "isFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L910"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "statSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L910"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L910"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "isDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L915"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "statSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L915"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L915"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "isDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L920"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "statSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L920"
+    },
+    {
+      "caller_nid": "git_iscurrentdirectorybaregitrepo",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\git.ts",
+      "source_location": "L920"
+    }
+  ]
+}

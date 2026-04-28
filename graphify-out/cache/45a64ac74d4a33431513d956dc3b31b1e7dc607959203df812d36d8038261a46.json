@@ -1,1 +1,318 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts", "label": "render-border.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L1"}, {"id": "render_border_embedtextinborder", "label": "embedTextInBorder()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L35"}, {"id": "render_border_styleborderline", "label": "styleBorderLine()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L70"}, {"id": "render_border_renderborder", "label": "renderBorder()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L82"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts", "target": "chalk", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts", "target": "cli_boxes", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_colorize_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_output_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_stringwidth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_styles_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts", "target": "render_border_embedtextinborder", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts", "target": "render_border_styleborderline", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L70", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts", "target": "render_border_renderborder", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L82", "weight": 1.0}, {"source": "render_border_renderborder", "target": "render_border_embedtextinborder", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L136", "weight": 1.0}, {"source": "render_border_renderborder", "target": "render_border_styleborderline", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L144", "weight": 1.0}], "raw_calls": [{"caller_nid": "render_border_embedtextinborder", "callee": "stringWidth", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L42"}, {"caller_nid": "render_border_embedtextinborder", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L46"}, {"caller_nid": "render_border_embedtextinborder", "callee": "floor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L51"}, {"caller_nid": "render_border_embedtextinborder", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L60"}, {"caller_nid": "render_border_embedtextinborder", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L60"}, {"caller_nid": "render_border_embedtextinborder", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L62"}, {"caller_nid": "render_border_embedtextinborder", "callee": "repeat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L62"}, {"caller_nid": "render_border_embedtextinborder", "callee": "repeat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L64"}, {"caller_nid": "render_border_embedtextinborder", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L65"}, {"caller_nid": "render_border_styleborderline", "callee": "applyColor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L75"}, {"caller_nid": "render_border_styleborderline", "callee": "dim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L77"}, {"caller_nid": "render_border_renderborder", "callee": "floor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L89"}, {"caller_nid": "render_border_renderborder", "callee": "getComputedWidth", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L89"}, {"caller_nid": "render_border_renderborder", "callee": "floor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L90"}, {"caller_nid": "render_border_renderborder", "callee": "getComputedHeight", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L90"}, {"caller_nid": "render_border_renderborder", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L122"}, {"caller_nid": "render_border_renderborder", "callee": "repeat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L129"}, {"caller_nid": "render_border_renderborder", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L165"}, {"caller_nid": "render_border_renderborder", "callee": "repeat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L167"}, {"caller_nid": "render_border_renderborder", "callee": "applyColor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L167"}, {"caller_nid": "render_border_renderborder", "callee": "dim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L172"}, {"caller_nid": "render_border_renderborder", "callee": "repeat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L175"}, {"caller_nid": "render_border_renderborder", "callee": "applyColor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L175"}, {"caller_nid": "render_border_renderborder", "callee": "dim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L180"}, {"caller_nid": "render_border_renderborder", "callee": "repeat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L185"}, {"caller_nid": "render_border_renderborder", "callee": "write", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L214"}, {"caller_nid": "render_border_renderborder", "callee": "write", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L218"}, {"caller_nid": "render_border_renderborder", "callee": "write", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L222"}, {"caller_nid": "render_border_renderborder", "callee": "write", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts", "source_location": "L226"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts",
+      "label": "render-border.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "render_border_embedtextinborder",
+      "label": "embedTextInBorder()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L35"
+    },
+    {
+      "id": "render_border_styleborderline",
+      "label": "styleBorderLine()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L70"
+    },
+    {
+      "id": "render_border_renderborder",
+      "label": "renderBorder()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L82"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts",
+      "target": "chalk",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts",
+      "target": "cli_boxes",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_colorize_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_output_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_stringwidth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_styles_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts",
+      "target": "render_border_embedtextinborder",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts",
+      "target": "render_border_styleborderline",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_render_border_ts",
+      "target": "render_border_renderborder",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "render_border_renderborder",
+      "target": "render_border_embedtextinborder",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "render_border_renderborder",
+      "target": "render_border_styleborderline",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L144",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "render_border_embedtextinborder",
+      "callee": "stringWidth",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "render_border_embedtextinborder",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "render_border_embedtextinborder",
+      "callee": "floor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "render_border_embedtextinborder",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "render_border_embedtextinborder",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "render_border_embedtextinborder",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "render_border_embedtextinborder",
+      "callee": "repeat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "render_border_embedtextinborder",
+      "callee": "repeat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "render_border_embedtextinborder",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "render_border_styleborderline",
+      "callee": "applyColor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "render_border_styleborderline",
+      "callee": "dim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "floor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "getComputedWidth",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "floor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "getComputedHeight",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "repeat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "repeat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L167"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "applyColor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L167"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "dim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "repeat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "applyColor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "dim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L180"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "repeat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L214"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L222"
+    },
+    {
+      "caller_nid": "render_border_renderborder",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\render-border.ts",
+      "source_location": "L226"
+    }
+  ]
+}

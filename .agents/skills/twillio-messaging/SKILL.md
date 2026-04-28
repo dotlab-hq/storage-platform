@@ -4,13 +4,13 @@ In this guide, we'll show you how to use [Programmable Messaging](https://www.tw
 
 > \[!NOTE]
 >
-> Twilio can send your web application an HTTP request when certain events happen, such as an incoming text message to one of your Twilio phone numbers. These requests are called *webhooks*, or *status callbacks*. For more, check out our guide to [Getting Started with Twilio Webhooks](/docs/usage/webhooks/getting-started-twilio-webhooks). Find other webhook pages, such as a [security guide](/docs/usage/webhooks/webhooks-security) and an [FAQ](/docs/usage/webhooks/webhooks-faq) in the [Webhooks](/docs/usage/webhooks) section of the docs.
+> Twilio can send your web application an HTTP request when certain events happen, such as an incoming text message to one of your Twilio phone numbers. These requests are called _webhooks_, or _status callbacks_. For more, check out our guide to [Getting Started with Twilio Webhooks](/docs/usage/webhooks/getting-started-twilio-webhooks). Find other webhook pages, such as a [security guide](/docs/usage/webhooks/webhooks-security) and an [FAQ](/docs/usage/webhooks/webhooks-faq) in the [Webhooks](/docs/usage/webhooks) section of the docs.
 
 The code snippets in this guide are written using modern JavaScript language features in Node.js version 14 or higher, and make use of the following modules:
 
-* [Express](https://expressjs.com/)
-* [body-parser](https://github.com/expressjs/body-parser)
-* [Twilio Node.js SDK](https://github.com/twilio/twilio-node)
+- [Express](https://expressjs.com/)
+- [body-parser](https://github.com/expressjs/body-parser)
+- [Twilio Node.js SDK](https://github.com/twilio/twilio-node)
 
 Let's get started!
 
@@ -53,22 +53,22 @@ When someone sends a text message to your Twilio number, you can send a TwiML re
 Respond to an incoming text message
 
 ```js
-const express = require('express');
-const { MessagingResponse } = require('twilio').twiml;
+const express = require('express')
+const { MessagingResponse } = require('twilio').twiml
 
-const app = express();
+const app = express()
 
 app.post('/sms', (req, res) => {
-  const twiml = new MessagingResponse();
+  const twiml = new MessagingResponse()
 
-  twiml.message('The Robots are coming! Head for the hills!');
+  twiml.message('The Robots are coming! Head for the hills!')
 
-  res.type('text/xml').send(twiml.toString());
-});
+  res.type('text/xml').send(twiml.toString())
+})
 
 app.listen(3000, () => {
-  console.log('Express server listening on port 3000');
-});
+  console.log('Express server listening on port 3000')
+})
 ```
 
 When you use the SDK, you don't have to worry about generating the raw XML yourself. Of course, if you prefer to do that, then we won't stop you.
@@ -109,26 +109,26 @@ To send a message containing media (e.g. an image), add an image URL to the text
 Generate a TwiML Message with Image
 
 ```js
-const express = require('express');
-const { MessagingResponse } = require('twilio').twiml;
+const express = require('express')
+const { MessagingResponse } = require('twilio').twiml
 
-const app = express();
+const app = express()
 
 app.post('/sms', (req, res) => {
-  const twiml = new MessagingResponse();
+  const twiml = new MessagingResponse()
 
-  const message = twiml.message();
-  message.body('The Robots are coming! Head for the hills!');
+  const message = twiml.message()
+  message.body('The Robots are coming! Head for the hills!')
   message.media(
-    'https://farm8.staticflickr.com/7090/6941316406_80b4d6d50e_z_d.jpg'
-  );
+    'https://farm8.staticflickr.com/7090/6941316406_80b4d6d50e_z_d.jpg',
+  )
 
-  res.type('text/xml').send(twiml.toString());
-});
+  res.type('text/xml').send(twiml.toString())
+})
 
 app.listen(3000, () => {
-  console.log('Express server listening on port 3000');
-});
+  console.log('Express server listening on port 3000')
+})
 ```
 
 ## Custom responses to incoming media messages
@@ -138,37 +138,37 @@ Let's take a look at how we might respond to an incoming media message with a di
 Generate a dynamic TwiML Message
 
 ```js
-const express = require('express');
-const bodyParser = require('body-parser');
-const { MessagingResponse } = require('twilio').twiml;
+const express = require('express')
+const bodyParser = require('body-parser')
+const { MessagingResponse } = require('twilio').twiml
 
-const app = express();
+const app = express()
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.post('/', (req, res) => {
-  const twiml = new MessagingResponse();
+  const twiml = new MessagingResponse()
 
   if (req.body.Body == 'hello') {
-    twiml.message('Hi!');
+    twiml.message('Hi!')
   } else if (req.body.Body == 'bye') {
-    twiml.message('Goodbye');
+    twiml.message('Goodbye')
   } else {
     twiml.message(
-      'No Body param match, Twilio sends this in the request to your server.'
-    );
+      'No Body param match, Twilio sends this in the request to your server.',
+    )
   }
 
-  res.type('text/xml').send(twiml.toString());
-});
+  res.type('text/xml').send(twiml.toString())
+})
 
 app.listen(3000, () => {
-  console.log('Express server listening on port 3000');
-});
+  console.log('Express server listening on port 3000')
+})
 ```
 
-* When you text `hello` to your Twilio number, the app replies with `Hi!`.
-* When you text `bye` to your Twilio number, the app replies with `Goodbye`.
+- When you text `hello` to your Twilio number, the app replies with `Hi!`.
+- When you text `bye` to your Twilio number, the app replies with `Goodbye`.
 
 ## Receive incoming messages without sending a reply
 
@@ -177,27 +177,27 @@ If you would like to receive incoming messages but not send an outgoing reply me
 Receive an incoming message without sending a response
 
 ```js
-const express = require('express');
-const { MessagingResponse } = require('twilio').twiml;
+const express = require('express')
+const { MessagingResponse } = require('twilio').twiml
 
-const app = express();
+const app = express()
 
 app.post('/sms', (req, res) => {
-  const twiml = new MessagingResponse();
+  const twiml = new MessagingResponse()
 
-  res.type('text/xml').send(twiml.toString());
-});
+  res.type('text/xml').send(twiml.toString())
+})
 
 app.listen(3000, () => {
-  console.log('Express server listening on port 3000');
-});
+  console.log('Express server listening on port 3000')
+})
 ```
 
 ## Enhance messages with Twilio Marketplace Add-ons
 
 Need more information about the phone number that sent the message? Need to analyze the message itself for sentiment or other data? Add-ons are available in the [Twilio Marketplace](https://twilio.com/console/add-ons) to accomplish these tasks and more.
 
-To learn how to enable [Add-ons for your incoming SMS messages](https://console.twilio.com/us1/develop/add-ons/catalog?products=programmable_messaging), refer to our [Add-ons tutorial](/docs/marketplace/listings/tutorial).	To learn how to enable [Add-ons for your incoming SMS messages](https://console.twilio.com/us1/develop/add-ons/catalog?products=programmable_messaging), see the [How to Use Twilio Marketplace Add-on Listings guide](/docs/marketplace/listings/usage#add-on-listings).
+To learn how to enable [Add-ons for your incoming SMS messages](https://console.twilio.com/us1/develop/add-ons/catalog?products=programmable_messaging), refer to our [Add-ons tutorial](/docs/marketplace/listings/tutorial). To learn how to enable [Add-ons for your incoming SMS messages](https://console.twilio.com/us1/develop/add-ons/catalog?products=programmable_messaging), see the [How to Use Twilio Marketplace Add-on Listings guide](/docs/marketplace/listings/usage#add-on-listings).
 
 ![Flowchart of SMS to app communication via Twilio with third-party services.](https://docs-resources.prod.twilio.com/2e7432cda6965a10a0fa9c7c5eecddb3b67dc073dde8b9ad03e92d1ac3c8b9fe.png)
 

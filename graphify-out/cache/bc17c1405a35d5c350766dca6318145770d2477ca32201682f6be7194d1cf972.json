@@ -1,1 +1,207 @@
-{"nodes": [{"id": "f_storage_platform_src_components_ai_elements_terminal_tsx", "label": "terminal.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L1"}, {"id": "terminal_terminalheader", "label": "TerminalHeader()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L33"}, {"id": "terminal_terminaltitle", "label": "TerminalTitle()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L51"}, {"id": "terminal_terminalstatus", "label": "TerminalStatus()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L67"}, {"id": "terminal_terminalactions", "label": "TerminalActions()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L90"}, {"id": "terminal_terminalcopybutton", "label": "TerminalCopyButton()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L106"}, {"id": "terminal_terminalclearbutton", "label": "TerminalClearButton()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L161"}], "edges": [{"source": "f_storage_platform_src_components_ai_elements_terminal_tsx", "target": "button", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_terminal_tsx", "target": "utils", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_terminal_tsx", "target": "ansi_to_react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_terminal_tsx", "target": "lucide_react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_terminal_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_terminal_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_terminal_tsx", "target": "terminal_terminalheader", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L33", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_terminal_tsx", "target": "terminal_terminaltitle", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L51", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_terminal_tsx", "target": "terminal_terminalstatus", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L67", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_terminal_tsx", "target": "terminal_terminalactions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L90", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_terminal_tsx", "target": "terminal_terminalcopybutton", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L106", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_terminal_tsx", "target": "terminal_terminalclearbutton", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L161", "weight": 1.0}], "raw_calls": [{"caller_nid": "terminal_terminalstatus", "callee": "useContext", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L72"}, {"caller_nid": "terminal_terminalcopybutton", "callee": "useState", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L114"}, {"caller_nid": "terminal_terminalcopybutton", "callee": "useRef", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L115"}, {"caller_nid": "terminal_terminalcopybutton", "callee": "useContext", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L116"}, {"caller_nid": "terminal_terminalcopybutton", "callee": "useCallback", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L118"}, {"caller_nid": "terminal_terminalcopybutton", "callee": "useEffect", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L134"}, {"caller_nid": "terminal_terminalclearbutton", "callee": "useContext", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx", "source_location": "L166"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_components_ai_elements_terminal_tsx",
+      "label": "terminal.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "terminal_terminalheader",
+      "label": "TerminalHeader()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L33"
+    },
+    {
+      "id": "terminal_terminaltitle",
+      "label": "TerminalTitle()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L51"
+    },
+    {
+      "id": "terminal_terminalstatus",
+      "label": "TerminalStatus()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L67"
+    },
+    {
+      "id": "terminal_terminalactions",
+      "label": "TerminalActions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L90"
+    },
+    {
+      "id": "terminal_terminalcopybutton",
+      "label": "TerminalCopyButton()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L106"
+    },
+    {
+      "id": "terminal_terminalclearbutton",
+      "label": "TerminalClearButton()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L161"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_components_ai_elements_terminal_tsx",
+      "target": "button",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_terminal_tsx",
+      "target": "utils",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_terminal_tsx",
+      "target": "ansi_to_react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_terminal_tsx",
+      "target": "lucide_react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_terminal_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_terminal_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_terminal_tsx",
+      "target": "terminal_terminalheader",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_terminal_tsx",
+      "target": "terminal_terminaltitle",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_terminal_tsx",
+      "target": "terminal_terminalstatus",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_terminal_tsx",
+      "target": "terminal_terminalactions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_terminal_tsx",
+      "target": "terminal_terminalcopybutton",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_terminal_tsx",
+      "target": "terminal_terminalclearbutton",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L161",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "terminal_terminalstatus",
+      "callee": "useContext",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "terminal_terminalcopybutton",
+      "callee": "useState",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "terminal_terminalcopybutton",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "terminal_terminalcopybutton",
+      "callee": "useContext",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "terminal_terminalcopybutton",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "terminal_terminalcopybutton",
+      "callee": "useEffect",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "terminal_terminalclearbutton",
+      "callee": "useContext",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\terminal.tsx",
+      "source_location": "L166"
+    }
+  ]
+}

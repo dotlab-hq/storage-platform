@@ -1,1 +1,717 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "label": "parse-keypress.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L1"}, {"id": "parse_keypress_createpastekey", "label": "createPasteKey()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L67"}, {"id": "parse_keypress_parseterminalresponse", "label": "parseTerminalResponse()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L122"}, {"id": "parse_keypress_splitnumericparams", "label": "splitNumericParams()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L177"}, {"id": "parse_keypress_inputtostring", "label": "inputToString()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L196"}, {"id": "parse_keypress_parsemultiplekeypresses", "label": "parseMultipleKeypresses()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L213"}, {"id": "parse_keypress_isshiftkey", "label": "isShiftKey()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L423"}, {"id": "parse_keypress_isctrlkey", "label": "isCtrlKey()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L440"}, {"id": "parse_keypress_decodemodifier", "label": "decodeModifier()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L465"}, {"id": "parse_keypress_keycodetoname", "label": "keycodeToName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L487"}, {"id": "parse_keypress_parsemouseevent", "label": "parseMouseEvent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L594"}, {"id": "parse_keypress_parsekeypress", "label": "parseKeypress()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L611"}, {"id": "parse_keypress_createnavkey", "label": "createNavKey()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L787"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "target": "buffer", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_termio_csi_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_termio_tokenize_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "target": "parse_keypress_createpastekey", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L67", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "target": "parse_keypress_parseterminalresponse", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L122", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "target": "parse_keypress_splitnumericparams", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L177", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "target": "parse_keypress_inputtostring", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L196", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "target": "parse_keypress_parsemultiplekeypresses", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L213", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "target": "parse_keypress_isshiftkey", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L423", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "target": "parse_keypress_isctrlkey", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L440", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "target": "parse_keypress_decodemodifier", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L465", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "target": "parse_keypress_keycodetoname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L487", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "target": "parse_keypress_parsemouseevent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L594", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "target": "parse_keypress_parsekeypress", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L611", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts", "target": "parse_keypress_createnavkey", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L787", "weight": 1.0}, {"source": "parse_keypress_parseterminalresponse", "target": "parse_keypress_splitnumericparams", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L136", "weight": 1.0}, {"source": "parse_keypress_parsemultiplekeypresses", "target": "parse_keypress_inputtostring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L218", "weight": 1.0}, {"source": "parse_keypress_parsemultiplekeypresses", "target": "parse_keypress_createpastekey", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L240", "weight": 1.0}, {"source": "parse_keypress_parsemultiplekeypresses", "target": "parse_keypress_parseterminalresponse", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L247", "weight": 1.0}, {"source": "parse_keypress_parsemultiplekeypresses", "target": "parse_keypress_parsemouseevent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L251", "weight": 1.0}, {"source": "parse_keypress_parsemultiplekeypresses", "target": "parse_keypress_parsekeypress", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L255", "weight": 1.0}, {"source": "parse_keypress_parsekeypress", "target": "parse_keypress_decodemodifier", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L637", "weight": 1.0}, {"source": "parse_keypress_parsekeypress", "target": "parse_keypress_keycodetoname", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L638", "weight": 1.0}, {"source": "parse_keypress_parsekeypress", "target": "parse_keypress_createnavkey", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L683", "weight": 1.0}, {"source": "parse_keypress_parsekeypress", "target": "parse_keypress_isshiftkey", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L756", "weight": 1.0}, {"source": "parse_keypress_parsekeypress", "target": "parse_keypress_isctrlkey", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L757", "weight": 1.0}], "raw_calls": [{"caller_nid": "parse_keypress_parseterminalresponse", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L124"}, {"caller_nid": "parse_keypress_parseterminalresponse", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L127"}, {"caller_nid": "parse_keypress_parseterminalresponse", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L130"}, {"caller_nid": "parse_keypress_parseterminalresponse", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L131"}, {"caller_nid": "parse_keypress_parseterminalresponse", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L135"}, {"caller_nid": "parse_keypress_parseterminalresponse", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L139"}, {"caller_nid": "parse_keypress_parseterminalresponse", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L143"}, {"caller_nid": "parse_keypress_parseterminalresponse", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L144"}, {"caller_nid": "parse_keypress_parseterminalresponse", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L147"}, {"caller_nid": "parse_keypress_parseterminalresponse", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L150"}, {"caller_nid": "parse_keypress_parseterminalresponse", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L151"}, {"caller_nid": "parse_keypress_parseterminalresponse", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L159"}, {"caller_nid": "parse_keypress_parseterminalresponse", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L160"}, {"caller_nid": "parse_keypress_parseterminalresponse", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L162"}, {"caller_nid": "parse_keypress_parseterminalresponse", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L167"}, {"caller_nid": "parse_keypress_parseterminalresponse", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L168"}, {"caller_nid": "parse_keypress_splitnumericparams", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L179"}, {"caller_nid": "parse_keypress_splitnumericparams", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L179"}, {"caller_nid": "parse_keypress_inputtostring", "callee": "isBuffer", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L197"}, {"caller_nid": "parse_keypress_inputtostring", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L200"}, {"caller_nid": "parse_keypress_inputtostring", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L202"}, {"caller_nid": "parse_keypress_inputtostring", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L205"}, {"caller_nid": "parse_keypress_parsemultiplekeypresses", "callee": "createTokenizer", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L221"}, {"caller_nid": "parse_keypress_parsemultiplekeypresses", "callee": "flush", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L224"}, {"caller_nid": "parse_keypress_parsemultiplekeypresses", "callee": "feed", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L224"}, {"caller_nid": "parse_keypress_parsemultiplekeypresses", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L240"}, {"caller_nid": "parse_keypress_parsemultiplekeypresses", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L249"}, {"caller_nid": "parse_keypress_parsemultiplekeypresses", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L253"}, {"caller_nid": "parse_keypress_parsemultiplekeypresses", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L255"}, {"caller_nid": "parse_keypress_parsemultiplekeypresses", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L263"}, {"caller_nid": "parse_keypress_parsemultiplekeypresses", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L264"}, {"caller_nid": "parse_keypress_parsemultiplekeypresses", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L279"}, {"caller_nid": "parse_keypress_parsemultiplekeypresses", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L281"}, {"caller_nid": "parse_keypress_parsemultiplekeypresses", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L288"}, {"caller_nid": "parse_keypress_parsemultiplekeypresses", "callee": "buffer", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L296"}, {"caller_nid": "parse_keypress_isshiftkey", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L424"}, {"caller_nid": "parse_keypress_isctrlkey", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L441"}, {"caller_nid": "parse_keypress_keycodetoname", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L537"}, {"caller_nid": "parse_keypress_keycodetoname", "callee": "fromCharCode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L537"}, {"caller_nid": "parse_keypress_parsemouseevent", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L595"}, {"caller_nid": "parse_keypress_parsemouseevent", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L597"}, {"caller_nid": "parse_keypress_parsemouseevent", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L605"}, {"caller_nid": "parse_keypress_parsemouseevent", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L606"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L633"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L634"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L636"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L657"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L658"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L659"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L681"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L682"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L694"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "charCodeAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L695"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "charAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L710"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "charAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L713"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "fromCharCode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L724"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "charCodeAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L724"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "charCodeAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L724"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L731"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L733"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L735"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L736"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L743"}, {"caller_nid": "parse_keypress_parsekeypress", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts", "source_location": "L743"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "label": "parse-keypress.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "parse_keypress_createpastekey",
+      "label": "createPasteKey()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L67"
+    },
+    {
+      "id": "parse_keypress_parseterminalresponse",
+      "label": "parseTerminalResponse()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L122"
+    },
+    {
+      "id": "parse_keypress_splitnumericparams",
+      "label": "splitNumericParams()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L177"
+    },
+    {
+      "id": "parse_keypress_inputtostring",
+      "label": "inputToString()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L196"
+    },
+    {
+      "id": "parse_keypress_parsemultiplekeypresses",
+      "label": "parseMultipleKeypresses()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L213"
+    },
+    {
+      "id": "parse_keypress_isshiftkey",
+      "label": "isShiftKey()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L423"
+    },
+    {
+      "id": "parse_keypress_isctrlkey",
+      "label": "isCtrlKey()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L440"
+    },
+    {
+      "id": "parse_keypress_decodemodifier",
+      "label": "decodeModifier()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L465"
+    },
+    {
+      "id": "parse_keypress_keycodetoname",
+      "label": "keycodeToName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L487"
+    },
+    {
+      "id": "parse_keypress_parsemouseevent",
+      "label": "parseMouseEvent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L594"
+    },
+    {
+      "id": "parse_keypress_parsekeypress",
+      "label": "parseKeypress()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L611"
+    },
+    {
+      "id": "parse_keypress_createnavkey",
+      "label": "createNavKey()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L787"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "target": "buffer",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_termio_csi_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_termio_tokenize_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "target": "parse_keypress_createpastekey",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "target": "parse_keypress_parseterminalresponse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "target": "parse_keypress_splitnumericparams",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L177",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "target": "parse_keypress_inputtostring",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L196",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "target": "parse_keypress_parsemultiplekeypresses",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L213",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "target": "parse_keypress_isshiftkey",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L423",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "target": "parse_keypress_isctrlkey",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L440",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "target": "parse_keypress_decodemodifier",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L465",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "target": "parse_keypress_keycodetoname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L487",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "target": "parse_keypress_parsemouseevent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L594",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "target": "parse_keypress_parsekeypress",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L611",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_parse_keypress_ts",
+      "target": "parse_keypress_createnavkey",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L787",
+      "weight": 1.0
+    },
+    {
+      "source": "parse_keypress_parseterminalresponse",
+      "target": "parse_keypress_splitnumericparams",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "parse_keypress_parsemultiplekeypresses",
+      "target": "parse_keypress_inputtostring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "parse_keypress_parsemultiplekeypresses",
+      "target": "parse_keypress_createpastekey",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L240",
+      "weight": 1.0
+    },
+    {
+      "source": "parse_keypress_parsemultiplekeypresses",
+      "target": "parse_keypress_parseterminalresponse",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L247",
+      "weight": 1.0
+    },
+    {
+      "source": "parse_keypress_parsemultiplekeypresses",
+      "target": "parse_keypress_parsemouseevent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L251",
+      "weight": 1.0
+    },
+    {
+      "source": "parse_keypress_parsemultiplekeypresses",
+      "target": "parse_keypress_parsekeypress",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L255",
+      "weight": 1.0
+    },
+    {
+      "source": "parse_keypress_parsekeypress",
+      "target": "parse_keypress_decodemodifier",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L637",
+      "weight": 1.0
+    },
+    {
+      "source": "parse_keypress_parsekeypress",
+      "target": "parse_keypress_keycodetoname",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L638",
+      "weight": 1.0
+    },
+    {
+      "source": "parse_keypress_parsekeypress",
+      "target": "parse_keypress_createnavkey",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L683",
+      "weight": 1.0
+    },
+    {
+      "source": "parse_keypress_parsekeypress",
+      "target": "parse_keypress_isshiftkey",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L756",
+      "weight": 1.0
+    },
+    {
+      "source": "parse_keypress_parsekeypress",
+      "target": "parse_keypress_isctrlkey",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L757",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L160"
+    },
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L167"
+    },
+    {
+      "caller_nid": "parse_keypress_parseterminalresponse",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "parse_keypress_splitnumericparams",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "parse_keypress_splitnumericparams",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "parse_keypress_inputtostring",
+      "callee": "isBuffer",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "parse_keypress_inputtostring",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "parse_keypress_inputtostring",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "parse_keypress_inputtostring",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L205"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemultiplekeypresses",
+      "callee": "createTokenizer",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L221"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemultiplekeypresses",
+      "callee": "flush",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L224"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemultiplekeypresses",
+      "callee": "feed",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L224"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemultiplekeypresses",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L240"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemultiplekeypresses",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L249"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemultiplekeypresses",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L253"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemultiplekeypresses",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L255"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemultiplekeypresses",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L263"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemultiplekeypresses",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L264"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemultiplekeypresses",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L279"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemultiplekeypresses",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L281"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemultiplekeypresses",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemultiplekeypresses",
+      "callee": "buffer",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L296"
+    },
+    {
+      "caller_nid": "parse_keypress_isshiftkey",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L424"
+    },
+    {
+      "caller_nid": "parse_keypress_isctrlkey",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L441"
+    },
+    {
+      "caller_nid": "parse_keypress_keycodetoname",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L537"
+    },
+    {
+      "caller_nid": "parse_keypress_keycodetoname",
+      "callee": "fromCharCode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L537"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemouseevent",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L595"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemouseevent",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L597"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemouseevent",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L605"
+    },
+    {
+      "caller_nid": "parse_keypress_parsemouseevent",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L606"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L633"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L634"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L636"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L657"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L658"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L659"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L681"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L682"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L694"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "charCodeAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L695"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "charAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L710"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "charAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L713"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "fromCharCode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L724"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "charCodeAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L724"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "charCodeAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L724"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L731"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L733"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L735"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L736"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L743"
+    },
+    {
+      "caller_nid": "parse_keypress_parsekeypress",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\parse-keypress.ts",
+      "source_location": "L743"
+    }
+  ]
+}

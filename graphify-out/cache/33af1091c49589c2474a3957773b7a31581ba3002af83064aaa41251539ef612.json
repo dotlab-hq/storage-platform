@@ -1,1 +1,111 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_fpstracker_ts", "label": "fpsTracker.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts", "source_location": "L1"}, {"id": "fpstracker_fpstracker", "label": "FpsTracker", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts", "source_location": "L6"}, {"id": "fpstracker_fpstracker_record", "label": ".record()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts", "source_location": "L11"}, {"id": "fpstracker_fpstracker_getmetrics", "label": ".getMetrics()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts", "source_location": "L20"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_fpstracker_ts", "target": "fpstracker_fpstracker", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts", "source_location": "L6", "weight": 1.0}, {"source": "fpstracker_fpstracker", "target": "fpstracker_fpstracker_record", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts", "source_location": "L11", "weight": 1.0}, {"source": "fpstracker_fpstracker", "target": "fpstracker_fpstracker_getmetrics", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts", "source_location": "L20", "weight": 1.0}], "raw_calls": [{"caller_nid": "fpstracker_fpstracker_record", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts", "source_location": "L12"}, {"caller_nid": "fpstracker_fpstracker_record", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts", "source_location": "L17"}, {"caller_nid": "fpstracker_fpstracker_getmetrics", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts", "source_location": "L37"}, {"caller_nid": "fpstracker_fpstracker_getmetrics", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts", "source_location": "L37"}, {"caller_nid": "fpstracker_fpstracker_getmetrics", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts", "source_location": "L38"}, {"caller_nid": "fpstracker_fpstracker_getmetrics", "callee": "ceil", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts", "source_location": "L38"}, {"caller_nid": "fpstracker_fpstracker_getmetrics", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts", "source_location": "L43"}, {"caller_nid": "fpstracker_fpstracker_getmetrics", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts", "source_location": "L44"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_fpstracker_ts",
+      "label": "fpsTracker.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "fpstracker_fpstracker",
+      "label": "FpsTracker",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts",
+      "source_location": "L6"
+    },
+    {
+      "id": "fpstracker_fpstracker_record",
+      "label": ".record()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts",
+      "source_location": "L11"
+    },
+    {
+      "id": "fpstracker_fpstracker_getmetrics",
+      "label": ".getMetrics()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts",
+      "source_location": "L20"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_fpstracker_ts",
+      "target": "fpstracker_fpstracker",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "fpstracker_fpstracker",
+      "target": "fpstracker_fpstracker_record",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "fpstracker_fpstracker",
+      "target": "fpstracker_fpstracker_getmetrics",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "fpstracker_fpstracker_record",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts",
+      "source_location": "L12"
+    },
+    {
+      "caller_nid": "fpstracker_fpstracker_record",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "fpstracker_fpstracker_getmetrics",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "fpstracker_fpstracker_getmetrics",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "fpstracker_fpstracker_getmetrics",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "fpstracker_fpstracker_getmetrics",
+      "callee": "ceil",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "fpstracker_fpstracker_getmetrics",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "fpstracker_fpstracker_getmetrics",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fpsTracker.ts",
+      "source_location": "L44"
+    }
+  ]
+}

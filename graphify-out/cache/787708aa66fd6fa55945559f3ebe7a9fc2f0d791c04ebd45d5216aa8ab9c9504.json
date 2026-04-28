@@ -1,1 +1,89 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_ink_frame_ts", "label": "frame.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts", "source_location": "L1"}, {"id": "frame_emptyframe", "label": "emptyFrame()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts", "source_location": "L22"}, {"id": "frame_shouldclearscreen", "label": "shouldClearScreen()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts", "source_location": "L105"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_ink_frame_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_cursor_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_frame_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_layout_geometry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_frame_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_render_node_to_output_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_frame_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_screen_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_frame_ts", "target": "frame_emptyframe", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_frame_ts", "target": "frame_shouldclearscreen", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts", "source_location": "L105", "weight": 1.0}], "raw_calls": [{"caller_nid": "frame_emptyframe", "callee": "createScreen", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts", "source_location": "L30"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_ink_frame_ts",
+      "label": "frame.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "frame_emptyframe",
+      "label": "emptyFrame()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "frame_shouldclearscreen",
+      "label": "shouldClearScreen()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts",
+      "source_location": "L105"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_frame_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_cursor_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_frame_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_layout_geometry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_frame_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_render_node_to_output_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_frame_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_screen_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_frame_ts",
+      "target": "frame_emptyframe",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_frame_ts",
+      "target": "frame_shouldclearscreen",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts",
+      "source_location": "L105",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "frame_emptyframe",
+      "callee": "createScreen",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\frame.ts",
+      "source_location": "L30"
+    }
+  ]
+}

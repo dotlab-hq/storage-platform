@@ -1,1 +1,472 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "label": "referral.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L1"}, {"id": "referral_fetchreferraleligibility", "label": "fetchReferralEligibility()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L26"}, {"id": "referral_fetchreferralredemptions", "label": "fetchReferralRedemptions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L47"}, {"id": "referral_shouldcheckforpasses", "label": "shouldCheckForPasses()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L71"}, {"id": "referral_checkcachedpasseseligibility", "label": "checkCachedPassesEligibility()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L83"}, {"id": "referral_formatcreditamount", "label": "formatCreditAmount()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L139"}, {"id": "referral_getcachedreferrerreward", "label": "getCachedReferrerReward()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L150"}, {"id": "referral_getcachedremainingpasses", "label": "getCachedRemainingPasses()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L162"}, {"id": "referral_fetchandstorepasseseligibility", "label": "fetchAndStorePassesEligibility()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L174"}, {"id": "referral_getcachedorfetchpasseseligibility", "label": "getCachedOrFetchPassesEligibility()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L231"}, {"id": "referral_prefetchpasseseligibility", "label": "prefetchPassesEligibility()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L274"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "axios", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_api_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "f_storage_platform_claude_code_source_main_src_services_oauth_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "referral_fetchreferraleligibility", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "referral_fetchreferralredemptions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L47", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "referral_shouldcheckforpasses", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L71", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "referral_checkcachedpasseseligibility", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L83", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "referral_formatcreditamount", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L139", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "referral_getcachedreferrerreward", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L150", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "referral_getcachedremainingpasses", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L162", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "referral_fetchandstorepasseseligibility", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L174", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "referral_getcachedorfetchpasseseligibility", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L231", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "target": "referral_prefetchpasseseligibility", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L274", "weight": 1.0}, {"source": "referral_checkcachedpasseseligibility", "target": "referral_shouldcheckforpasses", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L88", "weight": 1.0}, {"source": "referral_getcachedorfetchpasseseligibility", "target": "referral_shouldcheckforpasses", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L232", "weight": 1.0}, {"source": "referral_getcachedorfetchpasseseligibility", "target": "referral_fetchandstorepasseseligibility", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L251", "weight": 1.0}, {"source": "referral_prefetchpasseseligibility", "target": "referral_getcachedorfetchpasseseligibility", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L280", "weight": 1.0}], "raw_calls": [{"caller_nid": "referral_fetchreferraleligibility", "callee": "prepareApiRequest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L29"}, {"caller_nid": "referral_fetchreferraleligibility", "callee": "getOAuthHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L32"}, {"caller_nid": "referral_fetchreferraleligibility", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L36"}, {"caller_nid": "referral_fetchreferraleligibility", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L38"}, {"caller_nid": "referral_fetchreferralredemptions", "callee": "prepareApiRequest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L50"}, {"caller_nid": "referral_fetchreferralredemptions", "callee": "getOAuthHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L53"}, {"caller_nid": "referral_fetchreferralredemptions", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L57"}, {"caller_nid": "referral_fetchreferralredemptions", "callee": "await axios.get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L59"}, {"caller_nid": "referral_shouldcheckforpasses", "callee": "getOauthAccountInfo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L73"}, {"caller_nid": "referral_shouldcheckforpasses", "callee": "isClaudeAISubscriber", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L74"}, {"caller_nid": "referral_shouldcheckforpasses", "callee": "getSubscriptionType", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L75"}, {"caller_nid": "referral_checkcachedpasseseligibility", "callee": "getOauthAccountInfo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L96"}, {"caller_nid": "referral_checkcachedpasseseligibility", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L105"}, {"caller_nid": "referral_checkcachedpasseseligibility", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L118"}, {"caller_nid": "referral_formatcreditamount", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L142"}, {"caller_nid": "referral_formatcreditamount", "callee": "toFixed", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L142"}, {"caller_nid": "referral_getcachedreferrerreward", "callee": "getOauthAccountInfo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L151"}, {"caller_nid": "referral_getcachedreferrerreward", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L153"}, {"caller_nid": "referral_getcachedremainingpasses", "callee": "getOauthAccountInfo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L163"}, {"caller_nid": "referral_getcachedremainingpasses", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L165"}, {"caller_nid": "referral_fetchandstorepasseseligibility", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L177"}, {"caller_nid": "referral_fetchandstorepasseseligibility", "callee": "getOauthAccountInfo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L181"}, {"caller_nid": "referral_fetchandstorepasseseligibility", "callee": "(async () => {\n    try {\n      const response = await fetchReferralEligibility()\n\n      const cacheEntry = {\n        ...response,\n        timestamp: Date.now(),\n      }\n\n      saveGlobalConfig(current => ({\n        ...current,\n        passesEligibilityCache: {\n          ...current.passesEligibilityCache,\n          [orgId]: cacheEntry,\n        },\n      }))\n\n      logForDebugging(\n        `Passes eligibility cached for org ${orgId}: ${response.eligible}`,\n      )\n\n      return response\n    } catch (error) {\n      logForDebugging('Failed to fetch and cache passes eligibility')\n      logError(error as Error)\n      return null\n    } finally {\n      // Clear the promise when done\n      fetchInProgress = null\n    }\n  })", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L188"}, {"caller_nid": "referral_getcachedorfetchpasseseligibility", "callee": "getOauthAccountInfo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L236"}, {"caller_nid": "referral_getcachedorfetchpasseseligibility", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L241"}, {"caller_nid": "referral_getcachedorfetchpasseseligibility", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L243"}, {"caller_nid": "referral_getcachedorfetchpasseseligibility", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L248"}, {"caller_nid": "referral_getcachedorfetchpasseseligibility", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L257"}, {"caller_nid": "referral_getcachedorfetchpasseseligibility", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L266"}, {"caller_nid": "referral_prefetchpasseseligibility", "callee": "isEssentialTrafficOnly", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts", "source_location": "L276"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "label": "referral.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "referral_fetchreferraleligibility",
+      "label": "fetchReferralEligibility()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L26"
+    },
+    {
+      "id": "referral_fetchreferralredemptions",
+      "label": "fetchReferralRedemptions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L47"
+    },
+    {
+      "id": "referral_shouldcheckforpasses",
+      "label": "shouldCheckForPasses()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L71"
+    },
+    {
+      "id": "referral_checkcachedpasseseligibility",
+      "label": "checkCachedPassesEligibility()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L83"
+    },
+    {
+      "id": "referral_formatcreditamount",
+      "label": "formatCreditAmount()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L139"
+    },
+    {
+      "id": "referral_getcachedreferrerreward",
+      "label": "getCachedReferrerReward()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L150"
+    },
+    {
+      "id": "referral_getcachedremainingpasses",
+      "label": "getCachedRemainingPasses()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L162"
+    },
+    {
+      "id": "referral_fetchandstorepasseseligibility",
+      "label": "fetchAndStorePassesEligibility()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L174"
+    },
+    {
+      "id": "referral_getcachedorfetchpasseseligibility",
+      "label": "getCachedOrFetchPassesEligibility()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L231"
+    },
+    {
+      "id": "referral_prefetchpasseseligibility",
+      "label": "prefetchPassesEligibility()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L274"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_api_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_oauth_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "referral_fetchreferraleligibility",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "referral_fetchreferralredemptions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "referral_shouldcheckforpasses",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "referral_checkcachedpasseseligibility",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "referral_formatcreditamount",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "referral_getcachedreferrerreward",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L150",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "referral_getcachedremainingpasses",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L162",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "referral_fetchandstorepasseseligibility",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L174",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "referral_getcachedorfetchpasseseligibility",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L231",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "target": "referral_prefetchpasseseligibility",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L274",
+      "weight": 1.0
+    },
+    {
+      "source": "referral_checkcachedpasseseligibility",
+      "target": "referral_shouldcheckforpasses",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "referral_getcachedorfetchpasseseligibility",
+      "target": "referral_shouldcheckforpasses",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L232",
+      "weight": 1.0
+    },
+    {
+      "source": "referral_getcachedorfetchpasseseligibility",
+      "target": "referral_fetchandstorepasseseligibility",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L251",
+      "weight": 1.0
+    },
+    {
+      "source": "referral_prefetchpasseseligibility",
+      "target": "referral_getcachedorfetchpasseseligibility",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L280",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "referral_fetchreferraleligibility",
+      "callee": "prepareApiRequest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "referral_fetchreferraleligibility",
+      "callee": "getOAuthHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "referral_fetchreferraleligibility",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "referral_fetchreferraleligibility",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "referral_fetchreferralredemptions",
+      "callee": "prepareApiRequest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "referral_fetchreferralredemptions",
+      "callee": "getOAuthHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "referral_fetchreferralredemptions",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "referral_fetchreferralredemptions",
+      "callee": "await axios.get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "referral_shouldcheckforpasses",
+      "callee": "getOauthAccountInfo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "referral_shouldcheckforpasses",
+      "callee": "isClaudeAISubscriber",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "referral_shouldcheckforpasses",
+      "callee": "getSubscriptionType",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "referral_checkcachedpasseseligibility",
+      "callee": "getOauthAccountInfo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "referral_checkcachedpasseseligibility",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "referral_checkcachedpasseseligibility",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "referral_formatcreditamount",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "referral_formatcreditamount",
+      "callee": "toFixed",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "referral_getcachedreferrerreward",
+      "callee": "getOauthAccountInfo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "referral_getcachedreferrerreward",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L153"
+    },
+    {
+      "caller_nid": "referral_getcachedremainingpasses",
+      "callee": "getOauthAccountInfo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L163"
+    },
+    {
+      "caller_nid": "referral_getcachedremainingpasses",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "referral_fetchandstorepasseseligibility",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L177"
+    },
+    {
+      "caller_nid": "referral_fetchandstorepasseseligibility",
+      "callee": "getOauthAccountInfo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L181"
+    },
+    {
+      "caller_nid": "referral_fetchandstorepasseseligibility",
+      "callee": "(async () => {\n    try {\n      const response = await fetchReferralEligibility()\n\n      const cacheEntry = {\n        ...response,\n        timestamp: Date.now(),\n      }\n\n      saveGlobalConfig(current => ({\n        ...current,\n        passesEligibilityCache: {\n          ...current.passesEligibilityCache,\n          [orgId]: cacheEntry,\n        },\n      }))\n\n      logForDebugging(\n        `Passes eligibility cached for org ${orgId}: ${response.eligible}`,\n      )\n\n      return response\n    } catch (error) {\n      logForDebugging('Failed to fetch and cache passes eligibility')\n      logError(error as Error)\n      return null\n    } finally {\n      // Clear the promise when done\n      fetchInProgress = null\n    }\n  })",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L188"
+    },
+    {
+      "caller_nid": "referral_getcachedorfetchpasseseligibility",
+      "callee": "getOauthAccountInfo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L236"
+    },
+    {
+      "caller_nid": "referral_getcachedorfetchpasseseligibility",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L241"
+    },
+    {
+      "caller_nid": "referral_getcachedorfetchpasseseligibility",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L243"
+    },
+    {
+      "caller_nid": "referral_getcachedorfetchpasseseligibility",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L248"
+    },
+    {
+      "caller_nid": "referral_getcachedorfetchpasseseligibility",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L257"
+    },
+    {
+      "caller_nid": "referral_getcachedorfetchpasseseligibility",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L266"
+    },
+    {
+      "caller_nid": "referral_prefetchpasseseligibility",
+      "callee": "isEssentialTrafficOnly",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\referral.ts",
+      "source_location": "L276"
+    }
+  ]
+}

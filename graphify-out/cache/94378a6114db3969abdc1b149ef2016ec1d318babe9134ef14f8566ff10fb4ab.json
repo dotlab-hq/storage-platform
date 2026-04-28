@@ -1,1 +1,155 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_bridge_flushgate_ts", "label": "flushGate.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L1"}, {"id": "flushgate_flushgate", "label": "FlushGate", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L16"}, {"id": "flushgate_flushgate_active", "label": ".active()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L20"}, {"id": "flushgate_flushgate_pendingcount", "label": ".pendingCount()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L24"}, {"id": "flushgate_flushgate_start", "label": ".start()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L29"}, {"id": "flushgate_flushgate_end", "label": ".end()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L37"}, {"id": "flushgate_flushgate_enqueue", "label": ".enqueue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L46"}, {"id": "flushgate_flushgate_drop", "label": ".drop()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L56"}, {"id": "flushgate_flushgate_deactivate", "label": ".deactivate()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L68"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_bridge_flushgate_ts", "target": "flushgate_flushgate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L16", "weight": 1.0}, {"source": "flushgate_flushgate", "target": "flushgate_flushgate_active", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L20", "weight": 1.0}, {"source": "flushgate_flushgate", "target": "flushgate_flushgate_pendingcount", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L24", "weight": 1.0}, {"source": "flushgate_flushgate", "target": "flushgate_flushgate_start", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L29", "weight": 1.0}, {"source": "flushgate_flushgate", "target": "flushgate_flushgate_end", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L37", "weight": 1.0}, {"source": "flushgate_flushgate", "target": "flushgate_flushgate_enqueue", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L46", "weight": 1.0}, {"source": "flushgate_flushgate", "target": "flushgate_flushgate_drop", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L56", "weight": 1.0}, {"source": "flushgate_flushgate", "target": "flushgate_flushgate_deactivate", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L68", "weight": 1.0}], "raw_calls": [{"caller_nid": "flushgate_flushgate_end", "callee": "splice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L39"}, {"caller_nid": "flushgate_flushgate_enqueue", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts", "source_location": "L48"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_bridge_flushgate_ts",
+      "label": "flushGate.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "flushgate_flushgate",
+      "label": "FlushGate",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "flushgate_flushgate_active",
+      "label": ".active()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L20"
+    },
+    {
+      "id": "flushgate_flushgate_pendingcount",
+      "label": ".pendingCount()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L24"
+    },
+    {
+      "id": "flushgate_flushgate_start",
+      "label": ".start()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L29"
+    },
+    {
+      "id": "flushgate_flushgate_end",
+      "label": ".end()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L37"
+    },
+    {
+      "id": "flushgate_flushgate_enqueue",
+      "label": ".enqueue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L46"
+    },
+    {
+      "id": "flushgate_flushgate_drop",
+      "label": ".drop()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L56"
+    },
+    {
+      "id": "flushgate_flushgate_deactivate",
+      "label": ".deactivate()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L68"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_flushgate_ts",
+      "target": "flushgate_flushgate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "flushgate_flushgate",
+      "target": "flushgate_flushgate_active",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "flushgate_flushgate",
+      "target": "flushgate_flushgate_pendingcount",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "flushgate_flushgate",
+      "target": "flushgate_flushgate_start",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "flushgate_flushgate",
+      "target": "flushgate_flushgate_end",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "flushgate_flushgate",
+      "target": "flushgate_flushgate_enqueue",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "flushgate_flushgate",
+      "target": "flushgate_flushgate_drop",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "flushgate_flushgate",
+      "target": "flushgate_flushgate_deactivate",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L68",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "flushgate_flushgate_end",
+      "callee": "splice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "flushgate_flushgate_enqueue",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\flushGate.ts",
+      "source_location": "L48"
+    }
+  ]
+}

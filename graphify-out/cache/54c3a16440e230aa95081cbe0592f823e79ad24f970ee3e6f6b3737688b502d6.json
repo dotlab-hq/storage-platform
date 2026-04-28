@@ -1,1 +1,232 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_folder_upload_entry_ts", "label": "folder-upload-entry.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L1"}, {"id": "folder_upload_entry_uploadfolder", "label": "uploadFolder()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L15"}], "edges": [{"source": "f_storage_platform_src_lib_folder_upload_entry_ts", "target": "f_storage_platform_src_lib_folder_upload_core", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_upload_entry_ts", "target": "folder_upload_server", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_upload_entry_ts", "target": "f_storage_platform_src_lib_folder_upload_core", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_upload_entry_ts", "target": "f_storage_platform_src_lib_folder_upload_core", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_upload_entry_ts", "target": "f_storage_platform_src_lib_folder_upload_core", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_upload_entry_ts", "target": "folder_upload_entry_uploadfolder", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L15", "weight": 1.0}], "raw_calls": [{"caller_nid": "folder_upload_entry_uploadfolder", "callee": "randomUUID", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L21"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "getFolderNameFromEntry", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L22"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "createReader", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L24"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "readEntries", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L35"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "push", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L36"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "computeFolderHashes", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L39"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "flattenFileMap", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L40"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "reduce", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L47"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L59"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "setUploads", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L67"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "initFolderUpload", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L77"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L81"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "filter", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L90"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L90"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "uploadSingleFileWithProgress", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L101"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L114"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "setUploads", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L116"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "round", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L123"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "setUploads", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L124"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "completeFolderUpload", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L137"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L142"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "setUploads", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L157"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "setUploads", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L165"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "abortFolderUpload", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L185"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "setUploads", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L197"}, {"caller_nid": "folder_upload_entry_uploadfolder", "callee": "setUploads", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts", "source_location": "L206"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_folder_upload_entry_ts",
+      "label": "folder-upload-entry.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "folder_upload_entry_uploadfolder",
+      "label": "uploadFolder()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L15"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_entry_ts",
+      "target": "f_storage_platform_src_lib_folder_upload_core",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_entry_ts",
+      "target": "folder_upload_server",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_entry_ts",
+      "target": "f_storage_platform_src_lib_folder_upload_core",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_entry_ts",
+      "target": "f_storage_platform_src_lib_folder_upload_core",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_entry_ts",
+      "target": "f_storage_platform_src_lib_folder_upload_core",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_entry_ts",
+      "target": "folder_upload_entry_uploadfolder",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "randomUUID",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "getFolderNameFromEntry",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "createReader",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L24"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "readEntries",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "computeFolderHashes",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "flattenFileMap",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "reduce",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "setUploads",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "initFolderUpload",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "uploadSingleFileWithProgress",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "setUploads",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L123"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "setUploads",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "completeFolderUpload",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "setUploads",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L157"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "setUploads",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "abortFolderUpload",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "setUploads",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "folder_upload_entry_uploadfolder",
+      "callee": "setUploads",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-entry.ts",
+      "source_location": "L206"
+    }
+  ]
+}

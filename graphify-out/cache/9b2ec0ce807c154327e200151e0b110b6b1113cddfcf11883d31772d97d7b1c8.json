@@ -1,1 +1,456 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "label": "pluginFlagging.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L1"}, {"id": "pluginflagging_getflaggedpluginspath", "label": "getFlaggedPluginsPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L36"}, {"id": "pluginflagging_parsepluginsdata", "label": "parsePluginsData()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L40"}, {"id": "pluginflagging_readfromdisk", "label": "readFromDisk()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L75"}, {"id": "pluginflagging_writetodisk", "label": "writeToDisk()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L86"}, {"id": "pluginflagging_loadflaggedplugins", "label": "loadFlaggedPlugins()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L117"}, {"id": "pluginflagging_getflaggedplugins", "label": "getFlaggedPlugins()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L142"}, {"id": "pluginflagging_addflaggedplugin", "label": "addFlaggedPlugin()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L151"}, {"id": "pluginflagging_markflaggedpluginsseen", "label": "markFlaggedPluginsSeen()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L172"}, {"id": "pluginflagging_removeflaggedplugin", "label": "removeFlaggedPlugin()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L199"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_plugindirectories_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "pluginflagging_getflaggedpluginspath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L36", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "pluginflagging_parsepluginsdata", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L40", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "pluginflagging_readfromdisk", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L75", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "pluginflagging_writetodisk", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L86", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "pluginflagging_loadflaggedplugins", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L117", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "pluginflagging_getflaggedplugins", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L142", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "pluginflagging_addflaggedplugin", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L151", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "pluginflagging_markflaggedpluginsseen", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L172", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts", "target": "pluginflagging_removeflaggedplugin", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L199", "weight": 1.0}, {"source": "pluginflagging_readfromdisk", "target": "pluginflagging_getflaggedpluginspath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L77", "weight": 1.0}, {"source": "pluginflagging_readfromdisk", "target": "pluginflagging_parsepluginsdata", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L80", "weight": 1.0}, {"source": "pluginflagging_writetodisk", "target": "pluginflagging_getflaggedpluginspath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L89", "weight": 1.0}, {"source": "pluginflagging_loadflaggedplugins", "target": "pluginflagging_readfromdisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L118", "weight": 1.0}, {"source": "pluginflagging_loadflaggedplugins", "target": "pluginflagging_writetodisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L134", "weight": 1.0}, {"source": "pluginflagging_addflaggedplugin", "target": "pluginflagging_readfromdisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L153", "weight": 1.0}, {"source": "pluginflagging_addflaggedplugin", "target": "pluginflagging_writetodisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L163", "weight": 1.0}, {"source": "pluginflagging_markflaggedpluginsseen", "target": "pluginflagging_readfromdisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L176", "weight": 1.0}, {"source": "pluginflagging_markflaggedpluginsseen", "target": "pluginflagging_writetodisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L191", "weight": 1.0}, {"source": "pluginflagging_removeflaggedplugin", "target": "pluginflagging_readfromdisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L201", "weight": 1.0}, {"source": "pluginflagging_removeflaggedplugin", "target": "pluginflagging_writetodisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L207", "weight": 1.0}], "raw_calls": [{"caller_nid": "pluginflagging_getflaggedpluginspath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L37"}, {"caller_nid": "pluginflagging_getflaggedpluginspath", "callee": "getPluginsDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L37"}, {"caller_nid": "pluginflagging_parsepluginsdata", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L41"}, {"caller_nid": "pluginflagging_parsepluginsdata", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L53"}, {"caller_nid": "pluginflagging_readfromdisk", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L77"}, {"caller_nid": "pluginflagging_writetodisk", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L90"}, {"caller_nid": "pluginflagging_writetodisk", "callee": "randomBytes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L90"}, {"caller_nid": "pluginflagging_writetodisk", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L93"}, {"caller_nid": "pluginflagging_writetodisk", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L93"}, {"caller_nid": "pluginflagging_writetodisk", "callee": "getPluginsDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L93"}, {"caller_nid": "pluginflagging_writetodisk", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L95"}, {"caller_nid": "pluginflagging_writetodisk", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L96"}, {"caller_nid": "pluginflagging_writetodisk", "callee": "rename", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L100"}, {"caller_nid": "pluginflagging_writetodisk", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L103"}, {"caller_nid": "pluginflagging_writetodisk", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L105"}, {"caller_nid": "pluginflagging_loadflaggedplugins", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L119"}, {"caller_nid": "pluginflagging_loadflaggedplugins", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L122"}, {"caller_nid": "pluginflagging_loadflaggedplugins", "callee": "getTime", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L125"}, {"caller_nid": "pluginflagging_addflaggedplugin", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L159"}, {"caller_nid": "pluginflagging_addflaggedplugin", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L164"}, {"caller_nid": "pluginflagging_markflaggedpluginsseen", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts", "source_location": "L178"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "label": "pluginFlagging.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "pluginflagging_getflaggedpluginspath",
+      "label": "getFlaggedPluginsPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L36"
+    },
+    {
+      "id": "pluginflagging_parsepluginsdata",
+      "label": "parsePluginsData()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L40"
+    },
+    {
+      "id": "pluginflagging_readfromdisk",
+      "label": "readFromDisk()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L75"
+    },
+    {
+      "id": "pluginflagging_writetodisk",
+      "label": "writeToDisk()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L86"
+    },
+    {
+      "id": "pluginflagging_loadflaggedplugins",
+      "label": "loadFlaggedPlugins()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L117"
+    },
+    {
+      "id": "pluginflagging_getflaggedplugins",
+      "label": "getFlaggedPlugins()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L142"
+    },
+    {
+      "id": "pluginflagging_addflaggedplugin",
+      "label": "addFlaggedPlugin()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L151"
+    },
+    {
+      "id": "pluginflagging_markflaggedpluginsseen",
+      "label": "markFlaggedPluginsSeen()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L172"
+    },
+    {
+      "id": "pluginflagging_removeflaggedplugin",
+      "label": "removeFlaggedPlugin()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L199"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_plugindirectories_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "pluginflagging_getflaggedpluginspath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "pluginflagging_parsepluginsdata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "pluginflagging_readfromdisk",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "pluginflagging_writetodisk",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "pluginflagging_loadflaggedplugins",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "pluginflagging_getflaggedplugins",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L142",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "pluginflagging_addflaggedplugin",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "pluginflagging_markflaggedpluginsseen",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L172",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginflagging_ts",
+      "target": "pluginflagging_removeflaggedplugin",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L199",
+      "weight": 1.0
+    },
+    {
+      "source": "pluginflagging_readfromdisk",
+      "target": "pluginflagging_getflaggedpluginspath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "pluginflagging_readfromdisk",
+      "target": "pluginflagging_parsepluginsdata",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "pluginflagging_writetodisk",
+      "target": "pluginflagging_getflaggedpluginspath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "pluginflagging_loadflaggedplugins",
+      "target": "pluginflagging_readfromdisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "pluginflagging_loadflaggedplugins",
+      "target": "pluginflagging_writetodisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "pluginflagging_addflaggedplugin",
+      "target": "pluginflagging_readfromdisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "pluginflagging_addflaggedplugin",
+      "target": "pluginflagging_writetodisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "pluginflagging_markflaggedpluginsseen",
+      "target": "pluginflagging_readfromdisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L176",
+      "weight": 1.0
+    },
+    {
+      "source": "pluginflagging_markflaggedpluginsseen",
+      "target": "pluginflagging_writetodisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L191",
+      "weight": 1.0
+    },
+    {
+      "source": "pluginflagging_removeflaggedplugin",
+      "target": "pluginflagging_readfromdisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L201",
+      "weight": 1.0
+    },
+    {
+      "source": "pluginflagging_removeflaggedplugin",
+      "target": "pluginflagging_writetodisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L207",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "pluginflagging_getflaggedpluginspath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "pluginflagging_getflaggedpluginspath",
+      "callee": "getPluginsDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "pluginflagging_parsepluginsdata",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "pluginflagging_parsepluginsdata",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "pluginflagging_readfromdisk",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "pluginflagging_writetodisk",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "pluginflagging_writetodisk",
+      "callee": "randomBytes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "pluginflagging_writetodisk",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "pluginflagging_writetodisk",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "pluginflagging_writetodisk",
+      "callee": "getPluginsDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "pluginflagging_writetodisk",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "pluginflagging_writetodisk",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "pluginflagging_writetodisk",
+      "callee": "rename",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "pluginflagging_writetodisk",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L103"
+    },
+    {
+      "caller_nid": "pluginflagging_writetodisk",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "pluginflagging_loadflaggedplugins",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "pluginflagging_loadflaggedplugins",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "pluginflagging_loadflaggedplugins",
+      "callee": "getTime",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "pluginflagging_addflaggedplugin",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "pluginflagging_addflaggedplugin",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "pluginflagging_markflaggedpluginsseen",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\pluginFlagging.ts",
+      "source_location": "L178"
+    }
+  ]
+}

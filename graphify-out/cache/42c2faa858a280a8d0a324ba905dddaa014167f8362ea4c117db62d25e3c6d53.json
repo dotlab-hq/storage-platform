@@ -1,1 +1,61 @@
-{"nodes": [{"id": "f_storage_platform_src_hooks_webrtc_connection_polling_ts", "label": "connection-polling.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-polling.ts", "source_location": "L1"}, {"id": "connection_polling_startsignalpolling", "label": "startSignalPolling()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-polling.ts", "source_location": "L6"}], "edges": [{"source": "f_storage_platform_src_hooks_webrtc_connection_polling_ts", "target": "f_storage_platform_src_hooks_webrtc_connection_signals", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-polling.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_connection_polling_ts", "target": "f_storage_platform_src_hooks_webrtc_connection_types", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-polling.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_connection_polling_ts", "target": "connection_polling_startsignalpolling", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-polling.ts", "source_location": "L6", "weight": 1.0}], "raw_calls": [{"caller_nid": "connection_polling_startsignalpolling", "callee": "poll", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-polling.ts", "source_location": "L36"}, {"caller_nid": "connection_polling_startsignalpolling", "callee": "setInterval", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-polling.ts", "source_location": "L37"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_hooks_webrtc_connection_polling_ts",
+      "label": "connection-polling.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-polling.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "connection_polling_startsignalpolling",
+      "label": "startSignalPolling()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-polling.ts",
+      "source_location": "L6"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_connection_polling_ts",
+      "target": "f_storage_platform_src_hooks_webrtc_connection_signals",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-polling.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_connection_polling_ts",
+      "target": "f_storage_platform_src_hooks_webrtc_connection_types",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-polling.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_connection_polling_ts",
+      "target": "connection_polling_startsignalpolling",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-polling.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "connection_polling_startsignalpolling",
+      "callee": "poll",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-polling.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "connection_polling_startsignalpolling",
+      "callee": "setInterval",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-polling.ts",
+      "source_location": "L37"
+    }
+  ]
+}

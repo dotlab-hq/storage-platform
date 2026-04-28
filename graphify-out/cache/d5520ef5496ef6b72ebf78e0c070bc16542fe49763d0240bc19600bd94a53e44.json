@@ -1,1 +1,343 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts", "label": "readOnlyCommandValidation.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1"}, {"id": "readonlycommandvalidation_ghisdangerouscallback", "label": "ghIsDangerousCallback()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L944"}, {"id": "readonlycommandvalidation_containsvulnerableuncpath", "label": "containsVulnerableUncPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1562"}, {"id": "readonlycommandvalidation_validateflagargument", "label": "validateFlagArgument()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1650"}, {"id": "readonlycommandvalidation_validateflags", "label": "validateFlags()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1684"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts", "target": "readonlycommandvalidation_ghisdangerouscallback", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L944", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts", "target": "readonlycommandvalidation_containsvulnerableuncpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1562", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts", "target": "readonlycommandvalidation_validateflagargument", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1650", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts", "target": "readonlycommandvalidation_validateflags", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1684", "weight": 1.0}, {"source": "readonlycommandvalidation_validateflags", "target": "readonlycommandvalidation_validateflagargument", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1786", "weight": 1.0}], "raw_calls": [{"caller_nid": "readonlycommandvalidation_ghisdangerouscallback", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L952"}, {"caller_nid": "readonlycommandvalidation_ghisdangerouscallback", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L953"}, {"caller_nid": "readonlycommandvalidation_ghisdangerouscallback", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L955"}, {"caller_nid": "readonlycommandvalidation_ghisdangerouscallback", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L960"}, {"caller_nid": "readonlycommandvalidation_ghisdangerouscallback", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L961"}, {"caller_nid": "readonlycommandvalidation_ghisdangerouscallback", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L962"}, {"caller_nid": "readonlycommandvalidation_ghisdangerouscallback", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L967"}, {"caller_nid": "readonlycommandvalidation_ghisdangerouscallback", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L971"}, {"caller_nid": "readonlycommandvalidation_ghisdangerouscallback", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L976"}, {"caller_nid": "readonlycommandvalidation_containsvulnerableuncpath", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1564"}, {"caller_nid": "readonlycommandvalidation_containsvulnerableuncpath", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1573"}, {"caller_nid": "readonlycommandvalidation_containsvulnerableuncpath", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1585"}, {"caller_nid": "readonlycommandvalidation_containsvulnerableuncpath", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1595"}, {"caller_nid": "readonlycommandvalidation_containsvulnerableuncpath", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1603"}, {"caller_nid": "readonlycommandvalidation_containsvulnerableuncpath", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1609"}, {"caller_nid": "readonlycommandvalidation_containsvulnerableuncpath", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1609"}, {"caller_nid": "readonlycommandvalidation_containsvulnerableuncpath", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1615"}, {"caller_nid": "readonlycommandvalidation_containsvulnerableuncpath", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1622"}, {"caller_nid": "readonlycommandvalidation_containsvulnerableuncpath", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1623"}, {"caller_nid": "readonlycommandvalidation_containsvulnerableuncpath", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1631"}, {"caller_nid": "readonlycommandvalidation_containsvulnerableuncpath", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1632"}, {"caller_nid": "readonlycommandvalidation_validateflagargument", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1658"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1707"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1713"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1733"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1733"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1752"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1753"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1754"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1764"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1774"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1775"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1778"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1779"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1781"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1812"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1812"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1852"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1855"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1867"}, {"caller_nid": "readonlycommandvalidation_validateflags", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts", "source_location": "L1872"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts",
+      "label": "readOnlyCommandValidation.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "readonlycommandvalidation_ghisdangerouscallback",
+      "label": "ghIsDangerousCallback()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L944"
+    },
+    {
+      "id": "readonlycommandvalidation_containsvulnerableuncpath",
+      "label": "containsVulnerableUncPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1562"
+    },
+    {
+      "id": "readonlycommandvalidation_validateflagargument",
+      "label": "validateFlagArgument()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1650"
+    },
+    {
+      "id": "readonlycommandvalidation_validateflags",
+      "label": "validateFlags()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1684"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts",
+      "target": "readonlycommandvalidation_ghisdangerouscallback",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L944",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts",
+      "target": "readonlycommandvalidation_containsvulnerableuncpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1562",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts",
+      "target": "readonlycommandvalidation_validateflagargument",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1650",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts",
+      "target": "readonlycommandvalidation_validateflags",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1684",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlycommandvalidation_validateflags",
+      "target": "readonlycommandvalidation_validateflagargument",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1786",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "readonlycommandvalidation_ghisdangerouscallback",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L952"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_ghisdangerouscallback",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L953"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_ghisdangerouscallback",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L955"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_ghisdangerouscallback",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L960"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_ghisdangerouscallback",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L961"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_ghisdangerouscallback",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L962"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_ghisdangerouscallback",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L967"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_ghisdangerouscallback",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L971"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_ghisdangerouscallback",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L976"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_containsvulnerableuncpath",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1564"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_containsvulnerableuncpath",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1573"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_containsvulnerableuncpath",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1585"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_containsvulnerableuncpath",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1595"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_containsvulnerableuncpath",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1603"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_containsvulnerableuncpath",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1609"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_containsvulnerableuncpath",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1609"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_containsvulnerableuncpath",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1615"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_containsvulnerableuncpath",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1622"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_containsvulnerableuncpath",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1623"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_containsvulnerableuncpath",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1631"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_containsvulnerableuncpath",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1632"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflagargument",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1658"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1707"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1713"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1733"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1733"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1752"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1753"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1754"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1764"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1774"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1775"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1778"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1779"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1781"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1812"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1812"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1852"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1855"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1867"
+    },
+    {
+      "caller_nid": "readonlycommandvalidation_validateflags",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\shell\\readOnlyCommandValidation.ts",
+      "source_location": "L1872"
+    }
+  ]
+}

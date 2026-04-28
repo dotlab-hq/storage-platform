@@ -1,1 +1,184 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts", "label": "sessionHistory.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L1"}, {"id": "sessionhistory_createhistoryauthctx", "label": "createHistoryAuthCtx()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L31"}, {"id": "sessionhistory_fetchpage", "label": "fetchPage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L45"}, {"id": "sessionhistory_fetchlatestevents", "label": "fetchLatestEvents()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L73"}, {"id": "sessionhistory_fetcholderevents", "label": "fetchOlderEvents()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L81"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts", "target": "axios", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts", "target": "f_storage_platform_claude_code_source_main_src_entrypoints_agentsdktypes_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_api_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts", "target": "sessionhistory_createhistoryauthctx", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts", "target": "sessionhistory_fetchpage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L45", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts", "target": "sessionhistory_fetchlatestevents", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L73", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts", "target": "sessionhistory_fetcholderevents", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L81", "weight": 1.0}, {"source": "sessionhistory_fetchlatestevents", "target": "sessionhistory_fetchpage", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L77", "weight": 1.0}, {"source": "sessionhistory_fetcholderevents", "target": "sessionhistory_fetchpage", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L86", "weight": 1.0}], "raw_calls": [{"caller_nid": "sessionhistory_createhistoryauthctx", "callee": "prepareApiRequest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L34"}, {"caller_nid": "sessionhistory_createhistoryauthctx", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L36"}, {"caller_nid": "sessionhistory_createhistoryauthctx", "callee": "getOAuthHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L38"}, {"caller_nid": "sessionhistory_fetchpage", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L50"}, {"caller_nid": "sessionhistory_fetchpage", "callee": "await axios\n    .get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L50"}, {"caller_nid": "sessionhistory_fetchpage", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L59"}, {"caller_nid": "sessionhistory_fetchpage", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts", "source_location": "L63"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts",
+      "label": "sessionHistory.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "sessionhistory_createhistoryauthctx",
+      "label": "createHistoryAuthCtx()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L31"
+    },
+    {
+      "id": "sessionhistory_fetchpage",
+      "label": "fetchPage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L45"
+    },
+    {
+      "id": "sessionhistory_fetchlatestevents",
+      "label": "fetchLatestEvents()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L73"
+    },
+    {
+      "id": "sessionhistory_fetcholderevents",
+      "label": "fetchOlderEvents()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L81"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_entrypoints_agentsdktypes_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_api_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts",
+      "target": "sessionhistory_createhistoryauthctx",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts",
+      "target": "sessionhistory_fetchpage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts",
+      "target": "sessionhistory_fetchlatestevents",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_assistant_sessionhistory_ts",
+      "target": "sessionhistory_fetcholderevents",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionhistory_fetchlatestevents",
+      "target": "sessionhistory_fetchpage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionhistory_fetcholderevents",
+      "target": "sessionhistory_fetchpage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L86",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "sessionhistory_createhistoryauthctx",
+      "callee": "prepareApiRequest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "sessionhistory_createhistoryauthctx",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "sessionhistory_createhistoryauthctx",
+      "callee": "getOAuthHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "sessionhistory_fetchpage",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "sessionhistory_fetchpage",
+      "callee": "await axios\n    .get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "sessionhistory_fetchpage",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "sessionhistory_fetchpage",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\assistant\\sessionHistory.ts",
+      "source_location": "L63"
+    }
+  ]
+}

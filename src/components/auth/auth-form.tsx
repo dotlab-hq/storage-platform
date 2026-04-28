@@ -9,66 +9,66 @@ import { Field, FieldDescription, FieldGroup } from '@/components/ui/field'
 import { KeyboardShortcut } from '@/components/ui/keyboard-shortcut'
 import { authClient } from '@/lib/auth-client'
 
-export function AuthForm( { className, ...props }: React.ComponentProps<'div'> ) {
-  const containerRef = React.useRef<HTMLDivElement>( null )
+export function AuthForm({ className, ...props }: React.ComponentProps<'div'>) {
+  const containerRef = React.useRef<HTMLDivElement>(null)
   const [optimisticStatus, setOptimisticStatus] = React.useOptimistic<
     'idle' | 'submitting'
-  >( 'idle' )
+  >('idle')
 
-  const callGithubOauth = createClientOnlyFn( async () => {
-    const data = await authClient.signIn.social( {
+  const callGithubOauth = createClientOnlyFn(async () => {
+    const data = await authClient.signIn.social({
       provider: 'github',
-    } )
+    })
 
-    if ( data.error ) {
-      throw new Error( data.error.message )
+    if (data.error) {
+      throw new Error(data.error.message)
     }
 
-    if ( !data.data?.url ) {
-      throw new Error( 'GitHub OAuth URL was not returned' )
+    if (!data.data?.url) {
+      throw new Error('GitHub OAuth URL was not returned')
     }
 
     window.location.href = data.data.url
-  } )
+  })
 
-  const githubMutation = useMutation( {
+  const githubMutation = useMutation({
     mutationFn: async () => {
-      setOptimisticStatus( 'submitting' )
+      setOptimisticStatus('submitting')
       await callGithubOauth()
     },
-  } )
+  })
 
-  const submitGithub = React.useEffectEvent( () => {
+  const submitGithub = React.useEffectEvent(() => {
     void githubMutation.mutateAsync()
-  } )
+  })
 
-  React.useEffect( () => {
-    const onKeyDown = ( event: KeyboardEvent ) => {
-      if ( event.key !== 'Enter' ) {
+  React.useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Enter') {
         return
       }
 
-      if ( !event.ctrlKey && !event.metaKey ) {
+      if (!event.ctrlKey && !event.metaKey) {
         return
       }
 
       event.preventDefault()
 
-      if ( !githubMutation.isPending ) {
+      if (!githubMutation.isPending) {
         submitGithub()
       }
     }
 
-    window.addEventListener( 'keydown', onKeyDown )
+    window.addEventListener('keydown', onKeyDown)
     return () => {
-      window.removeEventListener( 'keydown', onKeyDown )
+      window.removeEventListener('keydown', onKeyDown)
     }
-  }, [githubMutation.isPending, submitGithub] )
+  }, [githubMutation.isPending, submitGithub])
 
   return (
     <div
       ref={containerRef}
-      className={cn( 'flex flex-col gap-6', className )}
+      className={cn('flex flex-col gap-6', className)}
       tabIndex={-1}
       {...props}
     >

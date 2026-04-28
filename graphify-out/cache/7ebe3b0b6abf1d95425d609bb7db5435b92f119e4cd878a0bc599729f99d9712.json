@@ -1,1 +1,64 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_skills_bundled_verify_ts", "label": "verify.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\verify.ts", "source_location": "L1"}, {"id": "verify_registerverifyskill", "label": "registerVerifySkill()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\verify.ts", "source_location": "L12"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_verify_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_frontmatterparser_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\verify.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_verify_ts", "target": "f_storage_platform_claude_code_source_main_src_skills_bundledskills_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\verify.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_verify_ts", "target": "f_storage_platform_claude_code_source_main_src_skills_bundled_verifycontent_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\verify.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_verify_ts", "target": "verify_registerverifyskill", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\verify.ts", "source_location": "L12", "weight": 1.0}], "raw_calls": [{"caller_nid": "verify_registerverifyskill", "callee": "registerBundledSkill", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\verify.ts", "source_location": "L17"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_skills_bundled_verify_ts",
+      "label": "verify.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\verify.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "verify_registerverifyskill",
+      "label": "registerVerifySkill()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\verify.ts",
+      "source_location": "L12"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_verify_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_frontmatterparser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\verify.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_verify_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_skills_bundledskills_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\verify.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_verify_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_skills_bundled_verifycontent_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\verify.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_verify_ts",
+      "target": "verify_registerverifyskill",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\verify.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "verify_registerverifyskill",
+      "callee": "registerBundledSkill",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\verify.ts",
+      "source_location": "L17"
+    }
+  ]
+}

@@ -1,1 +1,178 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts", "label": "macOsKeychainHelpers.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L1"}, {"id": "macoskeychainhelpers_getmacoskeychainstorageservicename", "label": "getMacOsKeychainStorageServiceName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L29"}, {"id": "macoskeychainhelpers_getusername", "label": "getUsername()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L43"}, {"id": "macoskeychainhelpers_clearkeychaincache", "label": "clearKeychainCache()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L87"}, {"id": "macoskeychainhelpers_primekeychaincachefromprefetch", "label": "primeKeychainCacheFromPrefetch()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L98"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts", "target": "os", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts", "target": "oauth_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_securestorage_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts", "target": "macoskeychainhelpers_getmacoskeychainstorageservicename", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts", "target": "macoskeychainhelpers_getusername", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts", "target": "macoskeychainhelpers_clearkeychaincache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L87", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts", "target": "macoskeychainhelpers_primekeychaincachefromprefetch", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L98", "weight": 1.0}], "raw_calls": [{"caller_nid": "macoskeychainhelpers_getmacoskeychainstorageservicename", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L32"}, {"caller_nid": "macoskeychainhelpers_getmacoskeychainstorageservicename", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L39"}, {"caller_nid": "macoskeychainhelpers_getmacoskeychainstorageservicename", "callee": "digest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L39"}, {"caller_nid": "macoskeychainhelpers_getmacoskeychainstorageservicename", "callee": "update", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L39"}, {"caller_nid": "macoskeychainhelpers_getmacoskeychainstorageservicename", "callee": "createHash", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L39"}, {"caller_nid": "macoskeychainhelpers_getmacoskeychainstorageservicename", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L40"}, {"caller_nid": "macoskeychainhelpers_getusername", "callee": "userInfo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L45"}, {"caller_nid": "macoskeychainhelpers_primekeychaincachefromprefetch", "callee": "parse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L104"}, {"caller_nid": "macoskeychainhelpers_primekeychaincachefromprefetch", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts", "source_location": "L110"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts",
+      "label": "macOsKeychainHelpers.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "macoskeychainhelpers_getmacoskeychainstorageservicename",
+      "label": "getMacOsKeychainStorageServiceName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L29"
+    },
+    {
+      "id": "macoskeychainhelpers_getusername",
+      "label": "getUsername()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "macoskeychainhelpers_clearkeychaincache",
+      "label": "clearKeychainCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L87"
+    },
+    {
+      "id": "macoskeychainhelpers_primekeychaincachefromprefetch",
+      "label": "primeKeychainCacheFromPrefetch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L98"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts",
+      "target": "os",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts",
+      "target": "oauth_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_securestorage_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts",
+      "target": "macoskeychainhelpers_getmacoskeychainstorageservicename",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts",
+      "target": "macoskeychainhelpers_getusername",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts",
+      "target": "macoskeychainhelpers_clearkeychaincache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_securestorage_macoskeychainhelpers_ts",
+      "target": "macoskeychainhelpers_primekeychaincachefromprefetch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L98",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "macoskeychainhelpers_getmacoskeychainstorageservicename",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "macoskeychainhelpers_getmacoskeychainstorageservicename",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "macoskeychainhelpers_getmacoskeychainstorageservicename",
+      "callee": "digest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "macoskeychainhelpers_getmacoskeychainstorageservicename",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "macoskeychainhelpers_getmacoskeychainstorageservicename",
+      "callee": "createHash",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "macoskeychainhelpers_getmacoskeychainstorageservicename",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "macoskeychainhelpers_getusername",
+      "callee": "userInfo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "macoskeychainhelpers_primekeychaincachefromprefetch",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "macoskeychainhelpers_primekeychaincachefromprefetch",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\secureStorage\\macOsKeychainHelpers.ts",
+      "source_location": "L110"
+    }
+  ]
+}

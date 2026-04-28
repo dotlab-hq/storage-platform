@@ -1,1 +1,67 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_gitsettings_ts", "label": "gitSettings.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts", "source_location": "L1"}, {"id": "gitsettings_shouldincludegitinstructions", "label": "shouldIncludeGitInstructions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts", "source_location": "L13"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_gitsettings_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_gitsettings_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_gitsettings_ts", "target": "gitsettings_shouldincludegitinstructions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts", "source_location": "L13", "weight": 1.0}], "raw_calls": [{"caller_nid": "gitsettings_shouldincludegitinstructions", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts", "source_location": "L15"}, {"caller_nid": "gitsettings_shouldincludegitinstructions", "callee": "isEnvDefinedFalsy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts", "source_location": "L16"}, {"caller_nid": "gitsettings_shouldincludegitinstructions", "callee": "getInitialSettings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts", "source_location": "L17"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_gitsettings_ts",
+      "label": "gitSettings.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "gitsettings_shouldincludegitinstructions",
+      "label": "shouldIncludeGitInstructions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts",
+      "source_location": "L13"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_gitsettings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_gitsettings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_gitsettings_ts",
+      "target": "gitsettings_shouldincludegitinstructions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "gitsettings_shouldincludegitinstructions",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts",
+      "source_location": "L15"
+    },
+    {
+      "caller_nid": "gitsettings_shouldincludegitinstructions",
+      "callee": "isEnvDefinedFalsy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts",
+      "source_location": "L16"
+    },
+    {
+      "caller_nid": "gitsettings_shouldincludegitinstructions",
+      "callee": "getInitialSettings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\gitSettings.ts",
+      "source_location": "L17"
+    }
+  ]
+}

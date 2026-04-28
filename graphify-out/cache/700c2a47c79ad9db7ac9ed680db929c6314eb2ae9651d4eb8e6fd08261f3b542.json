@@ -1,1 +1,112 @@
-{"nodes": [{"id": "f_storage_platform_src_utils_modalities_image_ts", "label": "image.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts", "source_location": "L1"}, {"id": "image_describeimage", "label": "describeImage()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts", "source_location": "L7"}], "edges": [{"source": "f_storage_platform_src_utils_modalities_image_ts", "target": "messages", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_utils_modalities_image_ts", "target": "gemini_llm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_utils_modalities_image_ts", "target": "trimreasoning", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_utils_modalities_image_ts", "target": "image_describeimage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts", "source_location": "L7", "weight": 1.0}], "raw_calls": [{"caller_nid": "image_describeimage", "callee": "startsWith", "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts", "source_location": "L17"}, {"caller_nid": "image_describeimage", "callee": "match", "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts", "source_location": "L18"}, {"caller_nid": "image_describeimage", "callee": "fetch", "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts", "source_location": "L23"}, {"caller_nid": "image_describeimage", "callee": "arrayBuffer", "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts", "source_location": "L25"}, {"caller_nid": "image_describeimage", "callee": "toString", "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts", "source_location": "L27"}, {"caller_nid": "image_describeimage", "callee": "from", "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts", "source_location": "L27"}, {"caller_nid": "image_describeimage", "callee": "get", "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts", "source_location": "L28"}, {"caller_nid": "image_describeimage", "callee": "invoke", "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts", "source_location": "L50"}, {"caller_nid": "image_describeimage", "callee": "trimReasoning", "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts", "source_location": "L52"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_utils_modalities_image_ts",
+      "label": "image.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "image_describeimage",
+      "label": "describeImage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts",
+      "source_location": "L7"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_utils_modalities_image_ts",
+      "target": "messages",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_utils_modalities_image_ts",
+      "target": "gemini_llm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_utils_modalities_image_ts",
+      "target": "trimreasoning",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_utils_modalities_image_ts",
+      "target": "image_describeimage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "image_describeimage",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "image_describeimage",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "image_describeimage",
+      "callee": "fetch",
+      "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "image_describeimage",
+      "callee": "arrayBuffer",
+      "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "image_describeimage",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "image_describeimage",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "image_describeimage",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "image_describeimage",
+      "callee": "invoke",
+      "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "image_describeimage",
+      "callee": "trimReasoning",
+      "source_file": "F:\\storage-platform\\src\\utils\\modalities\\image.ts",
+      "source_location": "L52"
+    }
+  ]
+}

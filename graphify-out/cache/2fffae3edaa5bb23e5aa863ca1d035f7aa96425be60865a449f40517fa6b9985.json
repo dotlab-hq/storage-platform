@@ -1,1 +1,103 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_components_ui_orderedlist_tsx", "label": "OrderedList.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx", "source_location": "L1"}, {"id": "orderedlist_orderedlistcomponent", "label": "OrderedListComponent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx", "source_location": "L11"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_components_ui_orderedlist_tsx", "target": "compiler_runtime", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_ui_orderedlist_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_ui_orderedlist_tsx", "target": "f_storage_platform_claude_code_source_main_src_ink_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_ui_orderedlist_tsx", "target": "f_storage_platform_claude_code_source_main_src_components_ui_orderedlistitem_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_ui_orderedlist_tsx", "target": "orderedlist_orderedlistcomponent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx", "source_location": "L11", "weight": 1.0}], "raw_calls": [{"caller_nid": "orderedlist_orderedlistcomponent", "callee": "_c", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx", "source_location": "L12"}, {"caller_nid": "orderedlist_orderedlistcomponent", "callee": "useContext", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx", "source_location": "L18"}, {"caller_nid": "orderedlist_orderedlistcomponent", "callee": "toArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx", "source_location": "L20"}, {"caller_nid": "orderedlist_orderedlistcomponent", "callee": "isValidElement", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx", "source_location": "L21"}, {"caller_nid": "orderedlist_orderedlistcomponent", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx", "source_location": "L26"}, {"caller_nid": "orderedlist_orderedlistcomponent", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx", "source_location": "L49"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_components_ui_orderedlist_tsx",
+      "label": "OrderedList.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "orderedlist_orderedlistcomponent",
+      "label": "OrderedListComponent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx",
+      "source_location": "L11"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_ui_orderedlist_tsx",
+      "target": "compiler_runtime",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_ui_orderedlist_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_ui_orderedlist_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_ui_orderedlist_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_components_ui_orderedlistitem_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_ui_orderedlist_tsx",
+      "target": "orderedlist_orderedlistcomponent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx",
+      "source_location": "L11",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "orderedlist_orderedlistcomponent",
+      "callee": "_c",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx",
+      "source_location": "L12"
+    },
+    {
+      "caller_nid": "orderedlist_orderedlistcomponent",
+      "callee": "useContext",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "orderedlist_orderedlistcomponent",
+      "callee": "toArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx",
+      "source_location": "L20"
+    },
+    {
+      "caller_nid": "orderedlist_orderedlistcomponent",
+      "callee": "isValidElement",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "orderedlist_orderedlistcomponent",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "orderedlist_orderedlistcomponent",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\ui\\OrderedList.tsx",
+      "source_location": "L49"
+    }
+  ]
+}

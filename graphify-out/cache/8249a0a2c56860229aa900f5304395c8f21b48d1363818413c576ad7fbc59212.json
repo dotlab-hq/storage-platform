@@ -1,1 +1,308 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts", "label": "autoMode.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L1"}, {"id": "automode_writerules", "label": "writeRules()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L20"}, {"id": "automode_automodedefaultshandler", "label": "autoModeDefaultsHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L24"}, {"id": "automode_automodeconfighandler", "label": "autoModeConfigHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L35"}, {"id": "automode_automodecritiquehandler", "label": "autoModeCritiqueHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L73"}, {"id": "automode_formatrulesforcritique", "label": "formatRulesForCritique()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L151"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_yoloclassifier_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sidequery_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts", "target": "automode_writerules", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts", "target": "automode_automodedefaultshandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts", "target": "automode_automodeconfighandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts", "target": "automode_automodecritiquehandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L73", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts", "target": "automode_formatrulesforcritique", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L151", "weight": 1.0}, {"source": "automode_automodedefaultshandler", "target": "automode_writerules", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L25", "weight": 1.0}, {"source": "automode_automodeconfighandler", "target": "automode_writerules", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L38", "weight": 1.0}, {"source": "automode_automodecritiquehandler", "target": "automode_formatrulesforcritique", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L99", "weight": 1.0}], "raw_calls": [{"caller_nid": "automode_writerules", "callee": "write", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L21"}, {"caller_nid": "automode_writerules", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L21"}, {"caller_nid": "automode_automodedefaultshandler", "callee": "getDefaultExternalAutoModeRules", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L25"}, {"caller_nid": "automode_automodeconfighandler", "callee": "getAutoModeConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L36"}, {"caller_nid": "automode_automodeconfighandler", "callee": "getDefaultExternalAutoModeRules", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L37"}, {"caller_nid": "automode_automodecritiquehandler", "callee": "getAutoModeConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L76"}, {"caller_nid": "automode_automodecritiquehandler", "callee": "write", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L83"}, {"caller_nid": "automode_automodecritiquehandler", "callee": "parseUserSpecifiedModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L92"}, {"caller_nid": "automode_automodecritiquehandler", "callee": "getMainLoopModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L93"}, {"caller_nid": "automode_automodecritiquehandler", "callee": "getDefaultExternalAutoModeRules", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L95"}, {"caller_nid": "automode_automodecritiquehandler", "callee": "buildDefaultExternalSystemPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L96"}, {"caller_nid": "automode_automodecritiquehandler", "callee": "write", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L111"}, {"caller_nid": "automode_automodecritiquehandler", "callee": "sideQuery", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L115"}, {"caller_nid": "automode_automodecritiquehandler", "callee": "write", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L136"}, {"caller_nid": "automode_automodecritiquehandler", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L137"}, {"caller_nid": "automode_automodecritiquehandler", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L143"}, {"caller_nid": "automode_automodecritiquehandler", "callee": "write", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L145"}, {"caller_nid": "automode_automodecritiquehandler", "callee": "write", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L147"}, {"caller_nid": "automode_formatrulesforcritique", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L157"}, {"caller_nid": "automode_formatrulesforcritique", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L157"}, {"caller_nid": "automode_formatrulesforcritique", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L158"}, {"caller_nid": "automode_formatrulesforcritique", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts", "source_location": "L158"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts",
+      "label": "autoMode.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "automode_writerules",
+      "label": "writeRules()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L20"
+    },
+    {
+      "id": "automode_automodedefaultshandler",
+      "label": "autoModeDefaultsHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L24"
+    },
+    {
+      "id": "automode_automodeconfighandler",
+      "label": "autoModeConfigHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L35"
+    },
+    {
+      "id": "automode_automodecritiquehandler",
+      "label": "autoModeCritiqueHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L73"
+    },
+    {
+      "id": "automode_formatrulesforcritique",
+      "label": "formatRulesForCritique()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L151"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_yoloclassifier_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sidequery_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts",
+      "target": "automode_writerules",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts",
+      "target": "automode_automodedefaultshandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts",
+      "target": "automode_automodeconfighandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts",
+      "target": "automode_automodecritiquehandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_automode_ts",
+      "target": "automode_formatrulesforcritique",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "automode_automodedefaultshandler",
+      "target": "automode_writerules",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "automode_automodeconfighandler",
+      "target": "automode_writerules",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "automode_automodecritiquehandler",
+      "target": "automode_formatrulesforcritique",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L99",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "automode_writerules",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "automode_writerules",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "automode_automodedefaultshandler",
+      "callee": "getDefaultExternalAutoModeRules",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "automode_automodeconfighandler",
+      "callee": "getAutoModeConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "automode_automodeconfighandler",
+      "callee": "getDefaultExternalAutoModeRules",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "automode_automodecritiquehandler",
+      "callee": "getAutoModeConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "automode_automodecritiquehandler",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "automode_automodecritiquehandler",
+      "callee": "parseUserSpecifiedModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "automode_automodecritiquehandler",
+      "callee": "getMainLoopModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "automode_automodecritiquehandler",
+      "callee": "getDefaultExternalAutoModeRules",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "automode_automodecritiquehandler",
+      "callee": "buildDefaultExternalSystemPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "automode_automodecritiquehandler",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "automode_automodecritiquehandler",
+      "callee": "sideQuery",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "automode_automodecritiquehandler",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L136"
+    },
+    {
+      "caller_nid": "automode_automodecritiquehandler",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "automode_automodecritiquehandler",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "automode_automodecritiquehandler",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "automode_automodecritiquehandler",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "automode_formatrulesforcritique",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L157"
+    },
+    {
+      "caller_nid": "automode_formatrulesforcritique",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L157"
+    },
+    {
+      "caller_nid": "automode_formatrulesforcritique",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "automode_formatrulesforcritique",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\autoMode.ts",
+      "source_location": "L158"
+    }
+  ]
+}

@@ -1,1 +1,571 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_tiny_session_ts", "label": "tiny-session.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L1"}, {"id": "tiny_session_readcookievalue", "label": "readCookieValue()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L34"}, {"id": "tiny_session_createtinysessioncookie", "label": "createTinySessionCookie()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L46"}, {"id": "tiny_session_cleartinysessioncookie", "label": "clearTinySessionCookie()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L52"}, {"id": "tiny_session_createqroffercode", "label": "createQrOfferCode()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L57"}, {"id": "tiny_session_createpollkey", "label": "createPollKey()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L66"}, {"id": "tiny_session_createtinysessiontoken", "label": "createTinySessionToken()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L75"}, {"id": "tiny_session_buildqrloginpayload", "label": "buildQrLoginPayload()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L83"}, {"id": "tiny_session_parseqrloginpayload", "label": "parseQrLoginPayload()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L87"}, {"id": "tiny_session_resolvetinysessionfromheaders", "label": "resolveTinySessionFromHeaders()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L110"}, {"id": "tiny_session_createwebrtcoffercode", "label": "createWebrtcOfferCode()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L161"}, {"id": "tiny_session_createwebrtcpollkey", "label": "createWebrtcPollKey()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L170"}, {"id": "tiny_session_buildwebrtcofferpayload", "label": "buildWebrtcOfferPayload()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L179"}, {"id": "tiny_session_parsewebrtcofferpayload", "label": "parseWebrtcOfferPayload()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L183"}], "edges": [{"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "auth_schema", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "authz", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "cache", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "tiny_session_readcookievalue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L34", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "tiny_session_createtinysessioncookie", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L46", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "tiny_session_cleartinysessioncookie", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L52", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "tiny_session_createqroffercode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L57", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "tiny_session_createpollkey", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L66", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "tiny_session_createtinysessiontoken", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L75", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "tiny_session_buildqrloginpayload", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L83", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "tiny_session_parseqrloginpayload", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L87", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "tiny_session_resolvetinysessionfromheaders", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L110", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "tiny_session_createwebrtcoffercode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L161", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "tiny_session_createwebrtcpollkey", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L170", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "tiny_session_buildwebrtcofferpayload", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L179", "weight": 1.0}, {"source": "f_storage_platform_src_lib_tiny_session_ts", "target": "tiny_session_parsewebrtcofferpayload", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L183", "weight": 1.0}, {"source": "tiny_session_resolvetinysessionfromheaders", "target": "tiny_session_readcookievalue", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L113", "weight": 1.0}], "raw_calls": [{"caller_nid": "tiny_session_readcookievalue", "callee": "split", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L36"}, {"caller_nid": "tiny_session_readcookievalue", "callee": "split", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L38"}, {"caller_nid": "tiny_session_readcookievalue", "callee": "trim", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L38"}, {"caller_nid": "tiny_session_readcookievalue", "callee": "decodeURIComponent", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L40"}, {"caller_nid": "tiny_session_readcookievalue", "callee": "join", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L40"}, {"caller_nid": "tiny_session_createtinysessioncookie", "callee": "floor", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L48"}, {"caller_nid": "tiny_session_createtinysessioncookie", "callee": "encodeURIComponent", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L49"}, {"caller_nid": "tiny_session_createqroffercode", "callee": "getRandomValues", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L59"}, {"caller_nid": "tiny_session_createqroffercode", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L60"}, {"caller_nid": "tiny_session_createqroffercode", "callee": "join", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L60"}, {"caller_nid": "tiny_session_createqroffercode", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L60"}, {"caller_nid": "tiny_session_createqroffercode", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L60"}, {"caller_nid": "tiny_session_createpollkey", "callee": "getRandomValues", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L68"}, {"caller_nid": "tiny_session_createpollkey", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L69"}, {"caller_nid": "tiny_session_createpollkey", "callee": "join", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L69"}, {"caller_nid": "tiny_session_createpollkey", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L69"}, {"caller_nid": "tiny_session_createpollkey", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L69"}, {"caller_nid": "tiny_session_createtinysessiontoken", "callee": "getRandomValues", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L77"}, {"caller_nid": "tiny_session_createtinysessiontoken", "callee": "join", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L78"}, {"caller_nid": "tiny_session_createtinysessiontoken", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L78"}, {"caller_nid": "tiny_session_createtinysessiontoken", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L78"}, {"caller_nid": "tiny_session_parseqrloginpayload", "callee": "trim", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L88"}, {"caller_nid": "tiny_session_parseqrloginpayload", "callee": "startsWith", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L89"}, {"caller_nid": "tiny_session_parseqrloginpayload", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L92"}, {"caller_nid": "tiny_session_resolvetinysessionfromheaders", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L113"}, {"caller_nid": "tiny_session_resolvetinysessionfromheaders", "callee": "await Cache.get", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L116"}, {"caller_nid": "tiny_session_resolvetinysessionfromheaders", "callee": "getTime", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L120"}, {"caller_nid": "tiny_session_resolvetinysessionfromheaders", "callee": "now", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L120"}, {"caller_nid": "tiny_session_resolvetinysessionfromheaders", "callee": "delete", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L121"}, {"caller_nid": "tiny_session_resolvetinysessionfromheaders", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L125"}, {"caller_nid": "tiny_session_resolvetinysessionfromheaders", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L125"}, {"caller_nid": "tiny_session_resolvetinysessionfromheaders", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L125"}, {"caller_nid": "tiny_session_resolvetinysessionfromheaders", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L125"}, {"caller_nid": "tiny_session_resolvetinysessionfromheaders", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L133"}, {"caller_nid": "tiny_session_resolvetinysessionfromheaders", "callee": "normalizeUserRole", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L141"}, {"caller_nid": "tiny_session_resolvetinysessionfromheaders", "callee": "isAdminRole", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L152"}, {"caller_nid": "tiny_session_createwebrtcoffercode", "callee": "getRandomValues", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L163"}, {"caller_nid": "tiny_session_createwebrtcoffercode", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L164"}, {"caller_nid": "tiny_session_createwebrtcoffercode", "callee": "join", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L164"}, {"caller_nid": "tiny_session_createwebrtcoffercode", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L164"}, {"caller_nid": "tiny_session_createwebrtcoffercode", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L164"}, {"caller_nid": "tiny_session_createwebrtcpollkey", "callee": "getRandomValues", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L172"}, {"caller_nid": "tiny_session_createwebrtcpollkey", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L173"}, {"caller_nid": "tiny_session_createwebrtcpollkey", "callee": "join", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L173"}, {"caller_nid": "tiny_session_createwebrtcpollkey", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L173"}, {"caller_nid": "tiny_session_createwebrtcpollkey", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L173"}, {"caller_nid": "tiny_session_parsewebrtcofferpayload", "callee": "trim", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L184"}, {"caller_nid": "tiny_session_parsewebrtcofferpayload", "callee": "startsWith", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L185"}, {"caller_nid": "tiny_session_parsewebrtcofferpayload", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts", "source_location": "L188"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_tiny_session_ts",
+      "label": "tiny-session.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "tiny_session_readcookievalue",
+      "label": "readCookieValue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L34"
+    },
+    {
+      "id": "tiny_session_createtinysessioncookie",
+      "label": "createTinySessionCookie()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L46"
+    },
+    {
+      "id": "tiny_session_cleartinysessioncookie",
+      "label": "clearTinySessionCookie()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L52"
+    },
+    {
+      "id": "tiny_session_createqroffercode",
+      "label": "createQrOfferCode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L57"
+    },
+    {
+      "id": "tiny_session_createpollkey",
+      "label": "createPollKey()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L66"
+    },
+    {
+      "id": "tiny_session_createtinysessiontoken",
+      "label": "createTinySessionToken()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L75"
+    },
+    {
+      "id": "tiny_session_buildqrloginpayload",
+      "label": "buildQrLoginPayload()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L83"
+    },
+    {
+      "id": "tiny_session_parseqrloginpayload",
+      "label": "parseQrLoginPayload()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L87"
+    },
+    {
+      "id": "tiny_session_resolvetinysessionfromheaders",
+      "label": "resolveTinySessionFromHeaders()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L110"
+    },
+    {
+      "id": "tiny_session_createwebrtcoffercode",
+      "label": "createWebrtcOfferCode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L161"
+    },
+    {
+      "id": "tiny_session_createwebrtcpollkey",
+      "label": "createWebrtcPollKey()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L170"
+    },
+    {
+      "id": "tiny_session_buildwebrtcofferpayload",
+      "label": "buildWebrtcOfferPayload()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L179"
+    },
+    {
+      "id": "tiny_session_parsewebrtcofferpayload",
+      "label": "parseWebrtcOfferPayload()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L183"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "auth_schema",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "authz",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "cache",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "tiny_session_readcookievalue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "tiny_session_createtinysessioncookie",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "tiny_session_cleartinysessioncookie",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "tiny_session_createqroffercode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "tiny_session_createpollkey",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "tiny_session_createtinysessiontoken",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "tiny_session_buildqrloginpayload",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "tiny_session_parseqrloginpayload",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "tiny_session_resolvetinysessionfromheaders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "tiny_session_createwebrtcoffercode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L161",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "tiny_session_createwebrtcpollkey",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "tiny_session_buildwebrtcofferpayload",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_tiny_session_ts",
+      "target": "tiny_session_parsewebrtcofferpayload",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L183",
+      "weight": 1.0
+    },
+    {
+      "source": "tiny_session_resolvetinysessionfromheaders",
+      "target": "tiny_session_readcookievalue",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L113",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "tiny_session_readcookievalue",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "tiny_session_readcookievalue",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "tiny_session_readcookievalue",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "tiny_session_readcookievalue",
+      "callee": "decodeURIComponent",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "tiny_session_readcookievalue",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "tiny_session_createtinysessioncookie",
+      "callee": "floor",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "tiny_session_createtinysessioncookie",
+      "callee": "encodeURIComponent",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "tiny_session_createqroffercode",
+      "callee": "getRandomValues",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "tiny_session_createqroffercode",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "tiny_session_createqroffercode",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "tiny_session_createqroffercode",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "tiny_session_createqroffercode",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "tiny_session_createpollkey",
+      "callee": "getRandomValues",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "tiny_session_createpollkey",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "tiny_session_createpollkey",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "tiny_session_createpollkey",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "tiny_session_createpollkey",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "tiny_session_createtinysessiontoken",
+      "callee": "getRandomValues",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "tiny_session_createtinysessiontoken",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "tiny_session_createtinysessiontoken",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "tiny_session_createtinysessiontoken",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "tiny_session_parseqrloginpayload",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "tiny_session_parseqrloginpayload",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "tiny_session_parseqrloginpayload",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "tiny_session_resolvetinysessionfromheaders",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "tiny_session_resolvetinysessionfromheaders",
+      "callee": "await Cache.get",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "tiny_session_resolvetinysessionfromheaders",
+      "callee": "getTime",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "tiny_session_resolvetinysessionfromheaders",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "tiny_session_resolvetinysessionfromheaders",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L121"
+    },
+    {
+      "caller_nid": "tiny_session_resolvetinysessionfromheaders",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "tiny_session_resolvetinysessionfromheaders",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "tiny_session_resolvetinysessionfromheaders",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "tiny_session_resolvetinysessionfromheaders",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "tiny_session_resolvetinysessionfromheaders",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "tiny_session_resolvetinysessionfromheaders",
+      "callee": "normalizeUserRole",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "tiny_session_resolvetinysessionfromheaders",
+      "callee": "isAdminRole",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "tiny_session_createwebrtcoffercode",
+      "callee": "getRandomValues",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L163"
+    },
+    {
+      "caller_nid": "tiny_session_createwebrtcoffercode",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "tiny_session_createwebrtcoffercode",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "tiny_session_createwebrtcoffercode",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "tiny_session_createwebrtcoffercode",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "tiny_session_createwebrtcpollkey",
+      "callee": "getRandomValues",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "tiny_session_createwebrtcpollkey",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "tiny_session_createwebrtcpollkey",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "tiny_session_createwebrtcpollkey",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "tiny_session_createwebrtcpollkey",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "tiny_session_parsewebrtcofferpayload",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L184"
+    },
+    {
+      "caller_nid": "tiny_session_parsewebrtcofferpayload",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "tiny_session_parsewebrtcofferpayload",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\tiny-session.ts",
+      "source_location": "L188"
+    }
+  ]
+}

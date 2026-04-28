@@ -1,1 +1,163 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_s3_gateway_virtual_bucket_items_ts", "label": "virtual-bucket-items.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L1"}, {"id": "virtual_bucket_items_listvirtualbucketitems", "label": "listVirtualBucketItems()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L6"}], "edges": [{"source": "f_storage_platform_src_lib_s3_gateway_virtual_bucket_items_ts", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_bucket_items_ts", "target": "s3_gateway", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_bucket_items_ts", "target": "storage", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_bucket_items_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_virtual_bucket_items_ts", "target": "virtual_bucket_items_listvirtualbucketitems", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L6", "weight": 1.0}], "raw_calls": [{"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L10"}, {"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L10"}, {"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L10"}, {"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L10"}, {"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L17"}, {"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L18"}, {"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L19"}, {"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L20"}, {"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "orderBy", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L34"}, {"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L34"}, {"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L34"}, {"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L34"}, {"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L45"}, {"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L46"}, {"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L47"}, {"caller_nid": "virtual_bucket_items_listvirtualbucketitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts", "source_location": "L48"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_s3_gateway_virtual_bucket_items_ts",
+      "label": "virtual-bucket-items.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "virtual_bucket_items_listvirtualbucketitems",
+      "label": "listVirtualBucketItems()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L6"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_bucket_items_ts",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_bucket_items_ts",
+      "target": "s3_gateway",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_bucket_items_ts",
+      "target": "storage",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_bucket_items_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_virtual_bucket_items_ts",
+      "target": "virtual_bucket_items_listvirtualbucketitems",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L10"
+    },
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L10"
+    },
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L10"
+    },
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L10"
+    },
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L20"
+    },
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "orderBy",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "virtual_bucket_items_listvirtualbucketitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\virtual-bucket-items.ts",
+      "source_location": "L48"
+    }
+  ]
+}

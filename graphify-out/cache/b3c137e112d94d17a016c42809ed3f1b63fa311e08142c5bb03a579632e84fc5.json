@@ -1,1 +1,661 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "label": "lspPluginIntegration.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L1"}, {"id": "lsppluginintegration_validatepathwithinplugin", "label": "validatePathWithinPlugin()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L28"}, {"id": "lsppluginintegration_loadpluginlspservers", "label": "loadPluginLspServers()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L57"}, {"id": "lsppluginintegration_loadlspserversfrommanifest", "label": "loadLspServersFromManifest()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L127"}, {"id": "lsppluginintegration_resolvepluginlspenvironment", "label": "resolvePluginLspEnvironment()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L229"}, {"id": "lsppluginintegration_addpluginscopetolspservers", "label": "addPluginScopeToLspServers()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L298"}, {"id": "lsppluginintegration_getpluginlspservers", "label": "getPluginLspServers()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L322"}, {"id": "lsppluginintegration_extractlspserversfromplugins", "label": "extractLspServersFromPlugins()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L363"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "v4", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "f_storage_platform_claude_code_source_main_src_services_lsp_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_envexpansion_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "f_storage_platform_claude_code_source_main_src_types_plugin_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_plugindirectories_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginoptionsstorage_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_schemas_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "lsppluginintegration_validatepathwithinplugin", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "lsppluginintegration_loadpluginlspservers", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L57", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "lsppluginintegration_loadlspserversfrommanifest", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L127", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "lsppluginintegration_resolvepluginlspenvironment", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L229", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "lsppluginintegration_addpluginscopetolspservers", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L298", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "lsppluginintegration_getpluginlspservers", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L322", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts", "target": "lsppluginintegration_extractlspserversfromplugins", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L363", "weight": 1.0}, {"source": "lsppluginintegration_loadpluginlspservers", "target": "lsppluginintegration_loadlspserversfrommanifest", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L110", "weight": 1.0}, {"source": "lsppluginintegration_loadlspserversfrommanifest", "target": "lsppluginintegration_validatepathwithinplugin", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L144", "weight": 1.0}, {"source": "lsppluginintegration_getpluginlspservers", "target": "lsppluginintegration_loadpluginlspservers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L332", "weight": 1.0}, {"source": "lsppluginintegration_getpluginlspservers", "target": "lsppluginintegration_resolvepluginlspenvironment", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L348", "weight": 1.0}, {"source": "lsppluginintegration_getpluginlspservers", "target": "lsppluginintegration_addpluginscopetolspservers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L357", "weight": 1.0}, {"source": "lsppluginintegration_extractlspserversfromplugins", "target": "lsppluginintegration_loadpluginlspservers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L372", "weight": 1.0}, {"source": "lsppluginintegration_extractlspserversfromplugins", "target": "lsppluginintegration_addpluginscopetolspservers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L374", "weight": 1.0}], "raw_calls": [{"caller_nid": "lsppluginintegration_validatepathwithinplugin", "callee": "resolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L33"}, {"caller_nid": "lsppluginintegration_validatepathwithinplugin", "callee": "resolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L34"}, {"caller_nid": "lsppluginintegration_validatepathwithinplugin", "callee": "relative", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L37"}, {"caller_nid": "lsppluginintegration_validatepathwithinplugin", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L40"}, {"caller_nid": "lsppluginintegration_validatepathwithinplugin", "callee": "resolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L40"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L64"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L66"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L67"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "safeParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L68"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "record", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L68"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "string", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L69"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "LspServerConfigSchema", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L69"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "assign", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L73"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L76"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L77"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "isENOENT", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L87"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L93"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L93"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L95"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "assign", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L117"}, {"caller_nid": "lsppluginintegration_loadpluginlspservers", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L121"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L139"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L147"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L148"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L149"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L162"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L163"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "safeParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L164"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "record", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L164"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "string", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L165"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "LspServerConfigSchema", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L165"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "assign", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L169"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L172"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L173"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L187"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L187"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L189"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L202"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "safeParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L203"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "LspServerConfigSchema", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L203"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L208"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L209"}, {"caller_nid": "lsppluginintegration_loadlspserversfrommanifest", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L221"}, {"caller_nid": "lsppluginintegration_resolvepluginlspenvironment", "callee": "resolveValue", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L257"}, {"caller_nid": "lsppluginintegration_resolvepluginlspenvironment", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L262"}, {"caller_nid": "lsppluginintegration_resolvepluginlspenvironment", "callee": "getPluginDataDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L268"}, {"caller_nid": "lsppluginintegration_resolvepluginlspenvironment", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L271"}, {"caller_nid": "lsppluginintegration_resolvepluginlspenvironment", "callee": "resolveValue", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L273"}, {"caller_nid": "lsppluginintegration_resolvepluginlspenvironment", "callee": "resolveValue", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L280"}, {"caller_nid": "lsppluginintegration_resolvepluginlspenvironment", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L286"}, {"caller_nid": "lsppluginintegration_resolvepluginlspenvironment", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L287"}, {"caller_nid": "lsppluginintegration_resolvepluginlspenvironment", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L288"}, {"caller_nid": "lsppluginintegration_addpluginscopetolspservers", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L304"}, {"caller_nid": "lsppluginintegration_getpluginlspservers", "callee": "loadPluginOptions", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L344"}, {"caller_nid": "lsppluginintegration_getpluginlspservers", "callee": "getPluginStorageId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L344"}, {"caller_nid": "lsppluginintegration_getpluginlspservers", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L347"}, {"caller_nid": "lsppluginintegration_extractlspserversfromplugins", "callee": "assign", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L375"}, {"caller_nid": "lsppluginintegration_extractlspserversfromplugins", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L380"}, {"caller_nid": "lsppluginintegration_extractlspserversfromplugins", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts", "source_location": "L381"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "label": "lspPluginIntegration.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lsppluginintegration_validatepathwithinplugin",
+      "label": "validatePathWithinPlugin()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L28"
+    },
+    {
+      "id": "lsppluginintegration_loadpluginlspservers",
+      "label": "loadPluginLspServers()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L57"
+    },
+    {
+      "id": "lsppluginintegration_loadlspserversfrommanifest",
+      "label": "loadLspServersFromManifest()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L127"
+    },
+    {
+      "id": "lsppluginintegration_resolvepluginlspenvironment",
+      "label": "resolvePluginLspEnvironment()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L229"
+    },
+    {
+      "id": "lsppluginintegration_addpluginscopetolspservers",
+      "label": "addPluginScopeToLspServers()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L298"
+    },
+    {
+      "id": "lsppluginintegration_getpluginlspservers",
+      "label": "getPluginLspServers()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L322"
+    },
+    {
+      "id": "lsppluginintegration_extractlspserversfromplugins",
+      "label": "extractLspServersFromPlugins()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L363"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "v4",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_lsp_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_envexpansion_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_plugin_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_plugindirectories_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginoptionsstorage_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_schemas_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "lsppluginintegration_validatepathwithinplugin",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "lsppluginintegration_loadpluginlspservers",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "lsppluginintegration_loadlspserversfrommanifest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "lsppluginintegration_resolvepluginlspenvironment",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L229",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "lsppluginintegration_addpluginscopetolspservers",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L298",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "lsppluginintegration_getpluginlspservers",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L322",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_lsppluginintegration_ts",
+      "target": "lsppluginintegration_extractlspserversfromplugins",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L363",
+      "weight": 1.0
+    },
+    {
+      "source": "lsppluginintegration_loadpluginlspservers",
+      "target": "lsppluginintegration_loadlspserversfrommanifest",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "lsppluginintegration_loadlspserversfrommanifest",
+      "target": "lsppluginintegration_validatepathwithinplugin",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "lsppluginintegration_getpluginlspservers",
+      "target": "lsppluginintegration_loadpluginlspservers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L332",
+      "weight": 1.0
+    },
+    {
+      "source": "lsppluginintegration_getpluginlspservers",
+      "target": "lsppluginintegration_resolvepluginlspenvironment",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L348",
+      "weight": 1.0
+    },
+    {
+      "source": "lsppluginintegration_getpluginlspservers",
+      "target": "lsppluginintegration_addpluginscopetolspservers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L357",
+      "weight": 1.0
+    },
+    {
+      "source": "lsppluginintegration_extractlspserversfromplugins",
+      "target": "lsppluginintegration_loadpluginlspservers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L372",
+      "weight": 1.0
+    },
+    {
+      "source": "lsppluginintegration_extractlspserversfromplugins",
+      "target": "lsppluginintegration_addpluginscopetolspservers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L374",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "lsppluginintegration_validatepathwithinplugin",
+      "callee": "resolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "lsppluginintegration_validatepathwithinplugin",
+      "callee": "resolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "lsppluginintegration_validatepathwithinplugin",
+      "callee": "relative",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "lsppluginintegration_validatepathwithinplugin",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "lsppluginintegration_validatepathwithinplugin",
+      "callee": "resolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "safeParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "record",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "string",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "LspServerConfigSchema",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "assign",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "isENOENT",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "assign",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadpluginlspservers",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L121"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L163"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "safeParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "record",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "string",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "LspServerConfigSchema",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "assign",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L169"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L187"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L187"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L189"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "safeParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "LspServerConfigSchema",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L208"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L209"
+    },
+    {
+      "caller_nid": "lsppluginintegration_loadlspserversfrommanifest",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L221"
+    },
+    {
+      "caller_nid": "lsppluginintegration_resolvepluginlspenvironment",
+      "callee": "resolveValue",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L257"
+    },
+    {
+      "caller_nid": "lsppluginintegration_resolvepluginlspenvironment",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L262"
+    },
+    {
+      "caller_nid": "lsppluginintegration_resolvepluginlspenvironment",
+      "callee": "getPluginDataDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L268"
+    },
+    {
+      "caller_nid": "lsppluginintegration_resolvepluginlspenvironment",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L271"
+    },
+    {
+      "caller_nid": "lsppluginintegration_resolvepluginlspenvironment",
+      "callee": "resolveValue",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L273"
+    },
+    {
+      "caller_nid": "lsppluginintegration_resolvepluginlspenvironment",
+      "callee": "resolveValue",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L280"
+    },
+    {
+      "caller_nid": "lsppluginintegration_resolvepluginlspenvironment",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L286"
+    },
+    {
+      "caller_nid": "lsppluginintegration_resolvepluginlspenvironment",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L287"
+    },
+    {
+      "caller_nid": "lsppluginintegration_resolvepluginlspenvironment",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "lsppluginintegration_addpluginscopetolspservers",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L304"
+    },
+    {
+      "caller_nid": "lsppluginintegration_getpluginlspservers",
+      "callee": "loadPluginOptions",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L344"
+    },
+    {
+      "caller_nid": "lsppluginintegration_getpluginlspservers",
+      "callee": "getPluginStorageId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L344"
+    },
+    {
+      "caller_nid": "lsppluginintegration_getpluginlspservers",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L347"
+    },
+    {
+      "caller_nid": "lsppluginintegration_extractlspserversfromplugins",
+      "callee": "assign",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L375"
+    },
+    {
+      "caller_nid": "lsppluginintegration_extractlspserversfromplugins",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L380"
+    },
+    {
+      "caller_nid": "lsppluginintegration_extractlspserversfromplugins",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\lspPluginIntegration.ts",
+      "source_location": "L381"
+    }
+  ]
+}

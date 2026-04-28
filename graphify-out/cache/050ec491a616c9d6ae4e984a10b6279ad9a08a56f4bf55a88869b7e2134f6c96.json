@@ -1,1 +1,122 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_s3_gateway_s3_file_schema_compat_ts", "label": "s3-file-schema-compat.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L1"}, {"id": "s3_file_schema_compat_applymissingfilecolumns", "label": "applyMissingFileColumns()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L68"}, {"id": "s3_file_schema_compat_ensures3fileschemacompatibility", "label": "ensureS3FileSchemaCompatibility()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L86"}], "edges": [{"source": "f_storage_platform_src_lib_s3_gateway_s3_file_schema_compat_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_file_schema_compat_ts", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_file_schema_compat_ts", "target": "s3_file_schema_compat_applymissingfilecolumns", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L68", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_file_schema_compat_ts", "target": "s3_file_schema_compat_ensures3fileschemacompatibility", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L86", "weight": 1.0}, {"source": "s3_file_schema_compat_ensures3fileschemacompatibility", "target": "s3_file_schema_compat_applymissingfilecolumns", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L91", "weight": 1.0}], "raw_calls": [{"caller_nid": "s3_file_schema_compat_applymissingfilecolumns", "callee": "await db.all", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L69"}, {"caller_nid": "s3_file_schema_compat_applymissingfilecolumns", "callee": "sql", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L70"}, {"caller_nid": "s3_file_schema_compat_applymissingfilecolumns", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L72"}, {"caller_nid": "s3_file_schema_compat_applymissingfilecolumns", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L75"}, {"caller_nid": "s3_file_schema_compat_applymissingfilecolumns", "callee": "run", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L78"}, {"caller_nid": "s3_file_schema_compat_applymissingfilecolumns", "callee": "add", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L79"}, {"caller_nid": "s3_file_schema_compat_applymissingfilecolumns", "callee": "warn", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L80"}, {"caller_nid": "s3_file_schema_compat_ensures3fileschemacompatibility", "callee": "catch", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts", "source_location": "L91"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_s3_gateway_s3_file_schema_compat_ts",
+      "label": "s3-file-schema-compat.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "s3_file_schema_compat_applymissingfilecolumns",
+      "label": "applyMissingFileColumns()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L68"
+    },
+    {
+      "id": "s3_file_schema_compat_ensures3fileschemacompatibility",
+      "label": "ensureS3FileSchemaCompatibility()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L86"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_file_schema_compat_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_file_schema_compat_ts",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_file_schema_compat_ts",
+      "target": "s3_file_schema_compat_applymissingfilecolumns",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_file_schema_compat_ts",
+      "target": "s3_file_schema_compat_ensures3fileschemacompatibility",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "s3_file_schema_compat_ensures3fileschemacompatibility",
+      "target": "s3_file_schema_compat_applymissingfilecolumns",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L91",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "s3_file_schema_compat_applymissingfilecolumns",
+      "callee": "await db.all",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "s3_file_schema_compat_applymissingfilecolumns",
+      "callee": "sql",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "s3_file_schema_compat_applymissingfilecolumns",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "s3_file_schema_compat_applymissingfilecolumns",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "s3_file_schema_compat_applymissingfilecolumns",
+      "callee": "run",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "s3_file_schema_compat_applymissingfilecolumns",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "s3_file_schema_compat_applymissingfilecolumns",
+      "callee": "warn",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L80"
+    },
+    {
+      "caller_nid": "s3_file_schema_compat_ensures3fileschemacompatibility",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-file-schema-compat.ts",
+      "source_location": "L91"
+    }
+  ]
+}

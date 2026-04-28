@@ -4,13 +4,13 @@ description: Vectorize is Cloudflare's vector database. Vector databases allow y
 image: https://developers.cloudflare.com/dev-products-preview.png
 ---
 
-[Skip to content](#%5Ftop) 
+[Skip to content](#%5Ftop)
 
 Was this helpful?
 
 YesNo
 
-[ Edit page ](https://github.com/cloudflare/cloudflare-docs/edit/production/src/content/docs/vectorize/get-started/intro.mdx) [ Report issue ](https://github.com/cloudflare/cloudflare-docs/issues/new/choose) 
+[ Edit page ](https://github.com/cloudflare/cloudflare-docs/edit/production/src/content/docs/vectorize/get-started/intro.mdx) [ Report issue ](https://github.com/cloudflare/cloudflare-docs/issues/new/choose)
 
 Copy page
 
@@ -24,9 +24,9 @@ Vectorize is Cloudflare's vector database. Vector databases allow you to use mac
 
 This guide will instruct you through:
 
-* Creating your first Vectorize index.
-* Connecting a [Cloudflare Worker](https://developers.cloudflare.com/workers/) to your index.
-* Inserting and performing a similarity search by querying your index.
+- Creating your first Vectorize index.
+- Connecting a [Cloudflare Worker](https://developers.cloudflare.com/workers/) to your index.
+- Inserting and performing a similarity search by querying your index.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ You will create a new project that will contain a Worker, which will act as the 
 
 Create a new project named `vectorize-tutorial` by running:
 
- npm  yarn  pnpm 
+npm yarn pnpm
 
 ```
 npm create cloudflare@latest -- vectorize-tutorial
@@ -66,16 +66,16 @@ pnpm create cloudflare@latest vectorize-tutorial
 
 For setup, select the following options:
 
-* For _What would you like to start with?_, choose `Hello World example`.
-* For _Which template would you like to use?_, choose `Worker only`.
-* For _Which language do you want to use?_, choose `TypeScript`.
-* For _Do you want to use git for version control?_, choose `Yes`.
-* For _Do you want to deploy your application?_, choose `No` (we will be making some changes before deploying).
+- For _What would you like to start with?_, choose `Hello World example`.
+- For _Which template would you like to use?_, choose `Worker only`.
+- For _Which language do you want to use?_, choose `TypeScript`.
+- For _Do you want to use git for version control?_, choose `Yes`.
+- For _Do you want to deploy your application?_, choose `No` (we will be making some changes before deploying).
 
 This will create a new `vectorize-tutorial` directory. Your new `vectorize-tutorial` directory will include:
 
-* A `"Hello World"` [Worker](https://developers.cloudflare.com/workers/get-started/guide/#3-write-code) at `src/index.ts`.
-* A [wrangler.jsonc](https://developers.cloudflare.com/workers/wrangler/configuration/) configuration file. `wrangler.jsonc` is how your `vectorize-tutorial` Worker will access your index.
+- A `"Hello World"` [Worker](https://developers.cloudflare.com/workers/get-started/guide/#3-write-code) at `src/index.ts`.
+- A [wrangler.jsonc](https://developers.cloudflare.com/workers/wrangler/configuration/) configuration file. `wrangler.jsonc` is how your `vectorize-tutorial` Worker will access your index.
 
 Note
 
@@ -108,9 +108,9 @@ Refer to the [legacy transition](https://developers.cloudflare.com/vectorize/ref
 
 To create an index, you will need to use the `wrangler vectorize create` command and provide a name for the index. A good index name is:
 
-* A combination of lowercase and/or numeric ASCII characters, shorter than 32 characters, starts with a letter, and uses dashes (-) instead of spaces.
-* Descriptive of the use-case and environment. For example, "production-doc-search" or "dev-recommendation-engine".
-* Only used for describing the index, and is not directly referenced in code.
+- A combination of lowercase and/or numeric ASCII characters, shorter than 32 characters, starts with a letter, and uses dashes (-) instead of spaces.
+- Descriptive of the use-case and environment. For example, "production-doc-search" or "dev-recommendation-engine".
+- Only used for describing the index, and is not directly referenced in code.
 
 In addition, you will need to define both the `dimensions` of the vectors you will store in the index, as well as the distance `metric` used to determine similar vectors when creating the index. A `metric` can be euclidean, cosine, or dot product. **This configuration cannot be changed later**, as a vector database is configured for a fixed vector configuration.
 
@@ -155,8 +155,8 @@ You must create a binding for your Worker to connect to your Vectorize index. [B
 
 To bind your index to your Worker, add the following to the end of your Wrangler file:
 
-* [  wrangler.jsonc ](#tab-panel-6905)
-* [  wrangler.toml ](#tab-panel-6906)
+- [ wrangler.jsonc ](#tab-panel-6905)
+- [ wrangler.toml ](#tab-panel-6906)
 
 JSONC
 
@@ -196,9 +196,9 @@ index_name = "tutorial-index"
 
 Specifically:
 
-* The value (string) you set for `<BINDING_NAME>` will be used to reference this database in your Worker. In this tutorial, name your binding `VECTORIZE`.
-* The binding must be [a valid JavaScript variable name ↗](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar%5Fand%5Ftypes#variables). For example, `binding = "MY_INDEX"` or `binding = "PROD_SEARCH_INDEX"` would both be valid names for the binding.
-* Your binding is available in your Worker at `env.<BINDING_NAME>` and the Vectorize [client API](https://developers.cloudflare.com/vectorize/reference/client-api/) is exposed on this binding for use within your Workers application.
+- The value (string) you set for `<BINDING_NAME>` will be used to reference this database in your Worker. In this tutorial, name your binding `VECTORIZE`.
+- The binding must be [a valid JavaScript variable name ↗](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar%5Fand%5Ftypes#variables). For example, `binding = "MY_INDEX"` or `binding = "PROD_SEARCH_INDEX"` would both be valid names for the binding.
+- Your binding is available in your Worker at `env.<BINDING_NAME>` and the Vectorize [client API](https://developers.cloudflare.com/vectorize/reference/client-api/) is exposed on this binding for use within your Workers application.
 
 ## 4\. \[Optional\] Create metadata indexes
 
@@ -861,12 +861,40 @@ By finishing this tutorial, you have successfully created and queried your first
 
 ## Related resources
 
-* [Build an end-to-end vector search application](https://developers.cloudflare.com/vectorize/get-started/embeddings/) using Workers AI and Vectorize.
-* Learn more about [how vector databases work](https://developers.cloudflare.com/vectorize/reference/what-is-a-vector-database/).
-* Read [examples](https://developers.cloudflare.com/vectorize/reference/client-api/) on how to use the Vectorize API from Cloudflare Workers.
-* [Euclidean Distance vs Cosine Similarity ↗](https://www.baeldung.com/cs/euclidean-distance-vs-cosine-similarity).
-* [Dot product ↗](https://en.wikipedia.org/wiki/Dot%5Fproduct).
+- [Build an end-to-end vector search application](https://developers.cloudflare.com/vectorize/get-started/embeddings/) using Workers AI and Vectorize.
+- Learn more about [how vector databases work](https://developers.cloudflare.com/vectorize/reference/what-is-a-vector-database/).
+- Read [examples](https://developers.cloudflare.com/vectorize/reference/client-api/) on how to use the Vectorize API from Cloudflare Workers.
+- [Euclidean Distance vs Cosine Similarity ↗](https://www.baeldung.com/cs/euclidean-distance-vs-cosine-similarity).
+- [Dot product ↗](https://en.wikipedia.org/wiki/Dot%5Fproduct).
 
 ```json
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/vectorize/","name":"Vectorize"}},{"@type":"ListItem","position":3,"item":{"@id":"/vectorize/get-started/","name":"Get started"}},{"@type":"ListItem","position":4,"item":{"@id":"/vectorize/get-started/intro/","name":"Introduction to Vectorize"}}]}
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": { "@id": "/directory/", "name": "Directory" }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": { "@id": "/vectorize/", "name": "Vectorize" }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": { "@id": "/vectorize/get-started/", "name": "Get started" }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@id": "/vectorize/get-started/intro/",
+        "name": "Introduction to Vectorize"
+      }
+    }
+  ]
+}
 ```

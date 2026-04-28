@@ -1,1 +1,900 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "label": "microCompact.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L1"}, {"id": "microcompact_getcachedmcmodule", "label": "getCachedMCModule()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L62"}, {"id": "microcompact_ensurecachedmcstate", "label": "ensureCachedMCState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L71"}, {"id": "microcompact_consumependingcacheedits", "label": "consumePendingCacheEdits()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L88"}, {"id": "microcompact_getpinnedcacheedits", "label": "getPinnedCacheEdits()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L100"}, {"id": "microcompact_pincacheedits", "label": "pinCacheEdits()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L111"}, {"id": "microcompact_marktoolssenttoapistate", "label": "markToolsSentToAPIState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L124"}, {"id": "microcompact_resetmicrocompactstate", "label": "resetMicrocompactState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L130"}, {"id": "microcompact_calculatetoolresulttokens", "label": "calculateToolResultTokens()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L138"}, {"id": "microcompact_estimatemessagetokens", "label": "estimateMessageTokens()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L164"}, {"id": "microcompact_collectcompactabletoolids", "label": "collectCompactableToolIds()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L226"}, {"id": "microcompact_ismainthreadsource", "label": "isMainThreadSource()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L249"}, {"id": "microcompact_microcompactmessages", "label": "microcompactMessages()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L253"}, {"id": "microcompact_cachedmicrocompactpath", "label": "cachedMicrocompactPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L305"}, {"id": "microcompact_evaluatetimebasedtrigger", "label": "evaluateTimeBasedTrigger()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L422"}, {"id": "microcompact_maybetimebasedmicrocompact", "label": "maybeTimeBasedMicrocompact()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L446"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "index_mjs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_querysource_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_fileedittool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_filewritetool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_globtool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_greptool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_webfetchtool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_websearchtool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_types_message_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_shell_shelltoolutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_promptcachebreakdetection_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_services_tokenestimation_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_services_compact_compactwarningstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "f_storage_platform_claude_code_source_main_src_services_compact_timebasedmcconfig_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "microcompact_getcachedmcmodule", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L62", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "microcompact_ensurecachedmcstate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L71", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "microcompact_consumependingcacheedits", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L88", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "microcompact_getpinnedcacheedits", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L100", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "microcompact_pincacheedits", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L111", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "microcompact_marktoolssenttoapistate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L124", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "microcompact_resetmicrocompactstate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L130", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "microcompact_calculatetoolresulttokens", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L138", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "microcompact_estimatemessagetokens", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L164", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "microcompact_collectcompactabletoolids", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L226", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "microcompact_ismainthreadsource", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L249", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "microcompact_microcompactmessages", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L253", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "microcompact_cachedmicrocompactpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L305", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "microcompact_evaluatetimebasedtrigger", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L422", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "target": "microcompact_maybetimebasedmicrocompact", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L446", "weight": 1.0}, {"source": "microcompact_estimatemessagetokens", "target": "microcompact_calculatetoolresulttokens", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L180", "weight": 1.0}, {"source": "microcompact_microcompactmessages", "target": "microcompact_maybetimebasedmicrocompact", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L267", "weight": 1.0}, {"source": "microcompact_microcompactmessages", "target": "microcompact_getcachedmcmodule", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L277", "weight": 1.0}, {"source": "microcompact_microcompactmessages", "target": "microcompact_ismainthreadsource", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L282", "weight": 1.0}, {"source": "microcompact_microcompactmessages", "target": "microcompact_cachedmicrocompactpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L284", "weight": 1.0}, {"source": "microcompact_cachedmicrocompactpath", "target": "microcompact_getcachedmcmodule", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L309", "weight": 1.0}, {"source": "microcompact_cachedmicrocompactpath", "target": "microcompact_ensurecachedmcstate", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L310", "weight": 1.0}, {"source": "microcompact_cachedmicrocompactpath", "target": "microcompact_collectcompactabletoolids", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L313", "weight": 1.0}, {"source": "microcompact_evaluatetimebasedtrigger", "target": "microcompact_ismainthreadsource", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L431", "weight": 1.0}, {"source": "microcompact_maybetimebasedmicrocompact", "target": "microcompact_evaluatetimebasedtrigger", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L450", "weight": 1.0}, {"source": "microcompact_maybetimebasedmicrocompact", "target": "microcompact_collectcompactabletoolids", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L456", "weight": 1.0}, {"source": "microcompact_maybetimebasedmicrocompact", "target": "microcompact_resetmicrocompactstate", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L517", "weight": 1.0}], "raw_calls": [{"caller_nid": "microcompact_getcachedmcmodule", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L66"}, {"caller_nid": "microcompact_ensurecachedmcstate", "callee": "createCachedMCState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L73"}, {"caller_nid": "microcompact_pincacheedits", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L116"}, {"caller_nid": "microcompact_marktoolssenttoapistate", "callee": "markToolsSentToAPI", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L126"}, {"caller_nid": "microcompact_resetmicrocompactstate", "callee": "resetCachedMCState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L132"}, {"caller_nid": "microcompact_calculatetoolresulttokens", "callee": "roughTokenCountEstimation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L144"}, {"caller_nid": "microcompact_calculatetoolresulttokens", "callee": "reduce", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L148"}, {"caller_nid": "microcompact_estimatemessagetokens", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L172"}, {"caller_nid": "microcompact_estimatemessagetokens", "callee": "roughTokenCountEstimation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L178"}, {"caller_nid": "microcompact_estimatemessagetokens", "callee": "roughTokenCountEstimation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L187"}, {"caller_nid": "microcompact_estimatemessagetokens", "callee": "roughTokenCountEstimation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L189"}, {"caller_nid": "microcompact_estimatemessagetokens", "callee": "roughTokenCountEstimation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L193"}, {"caller_nid": "microcompact_estimatemessagetokens", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L194"}, {"caller_nid": "microcompact_estimatemessagetokens", "callee": "roughTokenCountEstimation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L198"}, {"caller_nid": "microcompact_estimatemessagetokens", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L198"}, {"caller_nid": "microcompact_estimatemessagetokens", "callee": "ceil", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L204"}, {"caller_nid": "microcompact_collectcompactabletoolids", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L231"}, {"caller_nid": "microcompact_collectcompactabletoolids", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L234"}, {"caller_nid": "microcompact_collectcompactabletoolids", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L235"}, {"caller_nid": "microcompact_ismainthreadsource", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L250"}, {"caller_nid": "microcompact_microcompactmessages", "callee": "clearCompactWarningSuppression", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L259"}, {"caller_nid": "microcompact_microcompactmessages", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L276"}, {"caller_nid": "microcompact_microcompactmessages", "callee": "getMainLoopModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L278"}, {"caller_nid": "microcompact_microcompactmessages", "callee": "isCachedMicrocompactEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L280"}, {"caller_nid": "microcompact_microcompactmessages", "callee": "isModelSupportedForCacheEditing", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L281"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "getCachedMCConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L311"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L316"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L321"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L322"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "registerToolResult", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L324"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L325"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "registerToolMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L328"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "getToolResultsToDelete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L332"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "createCacheEditsBlock", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L336"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L341"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L342"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L346"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L348"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "suppressCompactWarning", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L359"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L362"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "notifyCacheDeletion", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L366"}, {"caller_nid": "microcompact_cachedmicrocompactpath", "callee": "findLast", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L374"}, {"caller_nid": "microcompact_evaluatetimebasedtrigger", "callee": "getTimeBasedMCConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L426"}, {"caller_nid": "microcompact_evaluatetimebasedtrigger", "callee": "findLast", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L434"}, {"caller_nid": "microcompact_evaluatetimebasedtrigger", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L439"}, {"caller_nid": "microcompact_evaluatetimebasedtrigger", "callee": "getTime", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L439"}, {"caller_nid": "microcompact_evaluatetimebasedtrigger", "callee": "isFinite", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L440"}, {"caller_nid": "microcompact_maybetimebasedmicrocompact", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L461"}, {"caller_nid": "microcompact_maybetimebasedmicrocompact", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L462"}, {"caller_nid": "microcompact_maybetimebasedmicrocompact", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L463"}, {"caller_nid": "microcompact_maybetimebasedmicrocompact", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L470"}, {"caller_nid": "microcompact_maybetimebasedmicrocompact", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L498"}, {"caller_nid": "microcompact_maybetimebasedmicrocompact", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L499"}, {"caller_nid": "microcompact_maybetimebasedmicrocompact", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L507"}, {"caller_nid": "microcompact_maybetimebasedmicrocompact", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L508"}, {"caller_nid": "microcompact_maybetimebasedmicrocompact", "callee": "suppressCompactWarning", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L511"}, {"caller_nid": "microcompact_maybetimebasedmicrocompact", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L525"}, {"caller_nid": "microcompact_maybetimebasedmicrocompact", "callee": "notifyCacheDeletion", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts", "source_location": "L526"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "label": "microCompact.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "microcompact_getcachedmcmodule",
+      "label": "getCachedMCModule()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L62"
+    },
+    {
+      "id": "microcompact_ensurecachedmcstate",
+      "label": "ensureCachedMCState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L71"
+    },
+    {
+      "id": "microcompact_consumependingcacheedits",
+      "label": "consumePendingCacheEdits()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L88"
+    },
+    {
+      "id": "microcompact_getpinnedcacheedits",
+      "label": "getPinnedCacheEdits()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L100"
+    },
+    {
+      "id": "microcompact_pincacheedits",
+      "label": "pinCacheEdits()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L111"
+    },
+    {
+      "id": "microcompact_marktoolssenttoapistate",
+      "label": "markToolsSentToAPIState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L124"
+    },
+    {
+      "id": "microcompact_resetmicrocompactstate",
+      "label": "resetMicrocompactState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L130"
+    },
+    {
+      "id": "microcompact_calculatetoolresulttokens",
+      "label": "calculateToolResultTokens()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L138"
+    },
+    {
+      "id": "microcompact_estimatemessagetokens",
+      "label": "estimateMessageTokens()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L164"
+    },
+    {
+      "id": "microcompact_collectcompactabletoolids",
+      "label": "collectCompactableToolIds()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L226"
+    },
+    {
+      "id": "microcompact_ismainthreadsource",
+      "label": "isMainThreadSource()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L249"
+    },
+    {
+      "id": "microcompact_microcompactmessages",
+      "label": "microcompactMessages()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L253"
+    },
+    {
+      "id": "microcompact_cachedmicrocompactpath",
+      "label": "cachedMicrocompactPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L305"
+    },
+    {
+      "id": "microcompact_evaluatetimebasedtrigger",
+      "label": "evaluateTimeBasedTrigger()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L422"
+    },
+    {
+      "id": "microcompact_maybetimebasedmicrocompact",
+      "label": "maybeTimeBasedMicrocompact()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L446"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "index_mjs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_querysource_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_fileedittool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_filewritetool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_globtool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_greptool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_webfetchtool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_websearchtool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_shell_shelltoolutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_promptcachebreakdetection_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_tokenestimation_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_compact_compactwarningstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_compact_timebasedmcconfig_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "microcompact_getcachedmcmodule",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "microcompact_ensurecachedmcstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "microcompact_consumependingcacheedits",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "microcompact_getpinnedcacheedits",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "microcompact_pincacheedits",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "microcompact_marktoolssenttoapistate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "microcompact_resetmicrocompactstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "microcompact_calculatetoolresulttokens",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L138",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "microcompact_estimatemessagetokens",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "microcompact_collectcompactabletoolids",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L226",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "microcompact_ismainthreadsource",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L249",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "microcompact_microcompactmessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L253",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "microcompact_cachedmicrocompactpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L305",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "microcompact_evaluatetimebasedtrigger",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L422",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "target": "microcompact_maybetimebasedmicrocompact",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L446",
+      "weight": 1.0
+    },
+    {
+      "source": "microcompact_estimatemessagetokens",
+      "target": "microcompact_calculatetoolresulttokens",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L180",
+      "weight": 1.0
+    },
+    {
+      "source": "microcompact_microcompactmessages",
+      "target": "microcompact_maybetimebasedmicrocompact",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L267",
+      "weight": 1.0
+    },
+    {
+      "source": "microcompact_microcompactmessages",
+      "target": "microcompact_getcachedmcmodule",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L277",
+      "weight": 1.0
+    },
+    {
+      "source": "microcompact_microcompactmessages",
+      "target": "microcompact_ismainthreadsource",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L282",
+      "weight": 1.0
+    },
+    {
+      "source": "microcompact_microcompactmessages",
+      "target": "microcompact_cachedmicrocompactpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L284",
+      "weight": 1.0
+    },
+    {
+      "source": "microcompact_cachedmicrocompactpath",
+      "target": "microcompact_getcachedmcmodule",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L309",
+      "weight": 1.0
+    },
+    {
+      "source": "microcompact_cachedmicrocompactpath",
+      "target": "microcompact_ensurecachedmcstate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L310",
+      "weight": 1.0
+    },
+    {
+      "source": "microcompact_cachedmicrocompactpath",
+      "target": "microcompact_collectcompactabletoolids",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L313",
+      "weight": 1.0
+    },
+    {
+      "source": "microcompact_evaluatetimebasedtrigger",
+      "target": "microcompact_ismainthreadsource",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L431",
+      "weight": 1.0
+    },
+    {
+      "source": "microcompact_maybetimebasedmicrocompact",
+      "target": "microcompact_evaluatetimebasedtrigger",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L450",
+      "weight": 1.0
+    },
+    {
+      "source": "microcompact_maybetimebasedmicrocompact",
+      "target": "microcompact_collectcompactabletoolids",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L456",
+      "weight": 1.0
+    },
+    {
+      "source": "microcompact_maybetimebasedmicrocompact",
+      "target": "microcompact_resetmicrocompactstate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L517",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "microcompact_getcachedmcmodule",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "microcompact_ensurecachedmcstate",
+      "callee": "createCachedMCState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "microcompact_pincacheedits",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "microcompact_marktoolssenttoapistate",
+      "callee": "markToolsSentToAPI",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "microcompact_resetmicrocompactstate",
+      "callee": "resetCachedMCState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "microcompact_calculatetoolresulttokens",
+      "callee": "roughTokenCountEstimation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "microcompact_calculatetoolresulttokens",
+      "callee": "reduce",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "microcompact_estimatemessagetokens",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "microcompact_estimatemessagetokens",
+      "callee": "roughTokenCountEstimation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "microcompact_estimatemessagetokens",
+      "callee": "roughTokenCountEstimation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L187"
+    },
+    {
+      "caller_nid": "microcompact_estimatemessagetokens",
+      "callee": "roughTokenCountEstimation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L189"
+    },
+    {
+      "caller_nid": "microcompact_estimatemessagetokens",
+      "callee": "roughTokenCountEstimation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L193"
+    },
+    {
+      "caller_nid": "microcompact_estimatemessagetokens",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L194"
+    },
+    {
+      "caller_nid": "microcompact_estimatemessagetokens",
+      "callee": "roughTokenCountEstimation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L198"
+    },
+    {
+      "caller_nid": "microcompact_estimatemessagetokens",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L198"
+    },
+    {
+      "caller_nid": "microcompact_estimatemessagetokens",
+      "callee": "ceil",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L204"
+    },
+    {
+      "caller_nid": "microcompact_collectcompactabletoolids",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L231"
+    },
+    {
+      "caller_nid": "microcompact_collectcompactabletoolids",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L234"
+    },
+    {
+      "caller_nid": "microcompact_collectcompactabletoolids",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L235"
+    },
+    {
+      "caller_nid": "microcompact_ismainthreadsource",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L250"
+    },
+    {
+      "caller_nid": "microcompact_microcompactmessages",
+      "callee": "clearCompactWarningSuppression",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L259"
+    },
+    {
+      "caller_nid": "microcompact_microcompactmessages",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L276"
+    },
+    {
+      "caller_nid": "microcompact_microcompactmessages",
+      "callee": "getMainLoopModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L278"
+    },
+    {
+      "caller_nid": "microcompact_microcompactmessages",
+      "callee": "isCachedMicrocompactEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L280"
+    },
+    {
+      "caller_nid": "microcompact_microcompactmessages",
+      "callee": "isModelSupportedForCacheEditing",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L281"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "getCachedMCConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L311"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L316"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L321"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L322"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "registerToolResult",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L324"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L325"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "registerToolMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L328"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "getToolResultsToDelete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L332"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "createCacheEditsBlock",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L336"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L341"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L342"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L346"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L348"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "suppressCompactWarning",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L359"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L362"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "notifyCacheDeletion",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L366"
+    },
+    {
+      "caller_nid": "microcompact_cachedmicrocompactpath",
+      "callee": "findLast",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L374"
+    },
+    {
+      "caller_nid": "microcompact_evaluatetimebasedtrigger",
+      "callee": "getTimeBasedMCConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L426"
+    },
+    {
+      "caller_nid": "microcompact_evaluatetimebasedtrigger",
+      "callee": "findLast",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L434"
+    },
+    {
+      "caller_nid": "microcompact_evaluatetimebasedtrigger",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L439"
+    },
+    {
+      "caller_nid": "microcompact_evaluatetimebasedtrigger",
+      "callee": "getTime",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L439"
+    },
+    {
+      "caller_nid": "microcompact_evaluatetimebasedtrigger",
+      "callee": "isFinite",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L440"
+    },
+    {
+      "caller_nid": "microcompact_maybetimebasedmicrocompact",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L461"
+    },
+    {
+      "caller_nid": "microcompact_maybetimebasedmicrocompact",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L462"
+    },
+    {
+      "caller_nid": "microcompact_maybetimebasedmicrocompact",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L463"
+    },
+    {
+      "caller_nid": "microcompact_maybetimebasedmicrocompact",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L470"
+    },
+    {
+      "caller_nid": "microcompact_maybetimebasedmicrocompact",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L498"
+    },
+    {
+      "caller_nid": "microcompact_maybetimebasedmicrocompact",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L499"
+    },
+    {
+      "caller_nid": "microcompact_maybetimebasedmicrocompact",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L507"
+    },
+    {
+      "caller_nid": "microcompact_maybetimebasedmicrocompact",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L508"
+    },
+    {
+      "caller_nid": "microcompact_maybetimebasedmicrocompact",
+      "callee": "suppressCompactWarning",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L511"
+    },
+    {
+      "caller_nid": "microcompact_maybetimebasedmicrocompact",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L525"
+    },
+    {
+      "caller_nid": "microcompact_maybetimebasedmicrocompact",
+      "callee": "notifyCacheDeletion",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\microCompact.ts",
+      "source_location": "L526"
+    }
+  ]
+}

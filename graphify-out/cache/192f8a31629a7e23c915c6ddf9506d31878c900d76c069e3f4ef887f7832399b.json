@@ -1,1 +1,889 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_trash_mutations_ts", "label": "trash-mutations.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L1"}, {"id": "trash_mutations_restoreitems", "label": "restoreItems()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L10"}, {"id": "trash_mutations_permanentdeleteitems", "label": "permanentDeleteItems()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L140"}, {"id": "trash_mutations_restorealltrash", "label": "restoreAllTrash()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L231"}, {"id": "trash_mutations_emptyalltrash", "label": "emptyAllTrash()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L238"}], "edges": [{"source": "f_storage_platform_src_lib_trash_mutations_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_trash_mutations_ts", "target": "s3_provider_client", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_trash_mutations_ts", "target": "index", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_trash_mutations_ts", "target": "seed", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_lib_trash_mutations_ts", "target": "f_storage_platform_src_lib_trash_queries", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_src_lib_trash_mutations_ts", "target": "trash_mutations_restoreitems", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_src_lib_trash_mutations_ts", "target": "trash_mutations_permanentdeleteitems", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L140", "weight": 1.0}, {"source": "f_storage_platform_src_lib_trash_mutations_ts", "target": "trash_mutations_restorealltrash", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L231", "weight": 1.0}, {"source": "f_storage_platform_src_lib_trash_mutations_ts", "target": "trash_mutations_emptyalltrash", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L238", "weight": 1.0}, {"source": "trash_mutations_restorealltrash", "target": "trash_mutations_restoreitems", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L235", "weight": 1.0}], "raw_calls": [{"caller_nid": "trash_mutations_restoreitems", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L15"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L16"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L17"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "push", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L23"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "push", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L24"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L35"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L35"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L35"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L39"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L40"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L41"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "inArray", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L42"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "filter", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L45"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L45"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "forEach", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L59"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L69"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L70"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L81"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L96"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L96"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "update", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L96"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L105"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "inArray", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L106"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L106"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L107"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L112"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L112"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "seedNodeById", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L114"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "markFolderSubtreeDeleted", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L115"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L119"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L119"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L119"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L123"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "inArray", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L124"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L124"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L125"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L128"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L128"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L131"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "invalidateQuotaCache", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L132"}, {"caller_nid": "trash_mutations_restoreitems", "callee": "invalidateFolderCache", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L135"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L146"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L146"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L146"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L148"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "push", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L153"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "push", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L154"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L161"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L161"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L161"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L161"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L168"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L168"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L168"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "getProviderClientById", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L176"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "send", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L177"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "error", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L184"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L187"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "delete", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L187"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L189"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L189"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L189"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "deleteNodeByEntity", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L190"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L195"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "delete", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L195"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L197"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L197"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L197"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "deleteNodeByEntity", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L198"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L203"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L203"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L203"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L203"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L206"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "max", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L211"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L212"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L212"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "update", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L212"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L215"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L220"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "invalidateQuotaCache", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L221"}, {"caller_nid": "trash_mutations_permanentdeleteitems", "callee": "invalidateFolderCache", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L222"}, {"caller_nid": "trash_mutations_restorealltrash", "callee": "listTrashItems", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L232"}, {"caller_nid": "trash_mutations_restorealltrash", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L233"}, {"caller_nid": "trash_mutations_restorealltrash", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L234"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "listTrashItems", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L239"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L240"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L241"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L246"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L247"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L248"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "push", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L257"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "push", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L258"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L263"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L263"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "update", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L263"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L267"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "inArray", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L268"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L269"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L270"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L285"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L285"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L285"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L289"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L290"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "inArray", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L291"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "filter", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L294"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L294"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "push", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L308"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L318"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L318"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "update", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L318"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L322"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "inArray", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L323"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L324"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L325"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L330"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L330"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "update", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L330"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L334"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "inArray", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L335"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L336"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L337"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L343"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "invalidateQuotaCache", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L344"}, {"caller_nid": "trash_mutations_emptyalltrash", "callee": "invalidateFolderCache", "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts", "source_location": "L345"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_trash_mutations_ts",
+      "label": "trash-mutations.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "trash_mutations_restoreitems",
+      "label": "restoreItems()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "trash_mutations_permanentdeleteitems",
+      "label": "permanentDeleteItems()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L140"
+    },
+    {
+      "id": "trash_mutations_restorealltrash",
+      "label": "restoreAllTrash()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L231"
+    },
+    {
+      "id": "trash_mutations_emptyalltrash",
+      "label": "emptyAllTrash()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L238"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_trash_mutations_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_trash_mutations_ts",
+      "target": "s3_provider_client",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_trash_mutations_ts",
+      "target": "index",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_trash_mutations_ts",
+      "target": "seed",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_trash_mutations_ts",
+      "target": "f_storage_platform_src_lib_trash_queries",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_trash_mutations_ts",
+      "target": "trash_mutations_restoreitems",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_trash_mutations_ts",
+      "target": "trash_mutations_permanentdeleteitems",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L140",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_trash_mutations_ts",
+      "target": "trash_mutations_restorealltrash",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L231",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_trash_mutations_ts",
+      "target": "trash_mutations_emptyalltrash",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L238",
+      "weight": 1.0
+    },
+    {
+      "source": "trash_mutations_restorealltrash",
+      "target": "trash_mutations_restoreitems",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L235",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L15"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L16"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L24"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "inArray",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "inArray",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L106"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L106"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "seedNodeById",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "markFolderSubtreeDeleted",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L123"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "inArray",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "invalidateQuotaCache",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "trash_mutations_restoreitems",
+      "callee": "invalidateFolderCache",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L153"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "getProviderClientById",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L176"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "send",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L177"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L184"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L187"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L187"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L189"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L189"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L189"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "deleteNodeByEntity",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L190"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L195"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L195"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "deleteNodeByEntity",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L198"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L206"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L211"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L212"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L212"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L212"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L215"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L220"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "invalidateQuotaCache",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L221"
+    },
+    {
+      "caller_nid": "trash_mutations_permanentdeleteitems",
+      "callee": "invalidateFolderCache",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L222"
+    },
+    {
+      "caller_nid": "trash_mutations_restorealltrash",
+      "callee": "listTrashItems",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L232"
+    },
+    {
+      "caller_nid": "trash_mutations_restorealltrash",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L233"
+    },
+    {
+      "caller_nid": "trash_mutations_restorealltrash",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L234"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "listTrashItems",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L239"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L240"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L241"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L246"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L247"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L248"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L257"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L258"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L263"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L263"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L263"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L267"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "inArray",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L268"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L269"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L270"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L285"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L285"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L285"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L289"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L290"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "inArray",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L291"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L294"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L294"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L308"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L318"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L318"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L318"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L322"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "inArray",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L323"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L324"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L325"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L330"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L330"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L330"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L334"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "inArray",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L335"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L336"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L337"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L343"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "invalidateQuotaCache",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L344"
+    },
+    {
+      "caller_nid": "trash_mutations_emptyalltrash",
+      "callee": "invalidateFolderCache",
+      "source_file": "F:\\storage-platform\\src\\lib\\trash-mutations.ts",
+      "source_location": "L345"
+    }
+  ]
+}

@@ -1,1 +1,142 @@
-{"nodes": [{"id": "f_storage_platform_src_components_ai_elements_file_tree_tsx", "label": "file-tree.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L1"}, {"id": "file_tree_noop", "label": "noop()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L34"}, {"id": "file_tree_filetree", "label": "FileTree()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L50"}, {"id": "file_tree_filetreeicon", "label": "FileTreeIcon()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L102"}, {"id": "file_tree_filetreename", "label": "FileTreeName()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L114"}], "edges": [{"source": "f_storage_platform_src_components_ai_elements_file_tree_tsx", "target": "collapsible", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_file_tree_tsx", "target": "utils", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_file_tree_tsx", "target": "lucide_react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_file_tree_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_file_tree_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_file_tree_tsx", "target": "file_tree_noop", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L34", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_file_tree_tsx", "target": "file_tree_filetree", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L50", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_file_tree_tsx", "target": "file_tree_filetreeicon", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L102", "weight": 1.0}, {"source": "f_storage_platform_src_components_ai_elements_file_tree_tsx", "target": "file_tree_filetreename", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L114", "weight": 1.0}], "raw_calls": [{"caller_nid": "file_tree_filetree", "callee": "useState", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L60"}, {"caller_nid": "file_tree_filetree", "callee": "useCallback", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L63"}, {"caller_nid": "file_tree_filetree", "callee": "useMemo", "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx", "source_location": "L77"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_components_ai_elements_file_tree_tsx",
+      "label": "file-tree.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "file_tree_noop",
+      "label": "noop()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L34"
+    },
+    {
+      "id": "file_tree_filetree",
+      "label": "FileTree()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L50"
+    },
+    {
+      "id": "file_tree_filetreeicon",
+      "label": "FileTreeIcon()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L102"
+    },
+    {
+      "id": "file_tree_filetreename",
+      "label": "FileTreeName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L114"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_components_ai_elements_file_tree_tsx",
+      "target": "collapsible",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_file_tree_tsx",
+      "target": "utils",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_file_tree_tsx",
+      "target": "lucide_react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_file_tree_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_file_tree_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_file_tree_tsx",
+      "target": "file_tree_noop",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_file_tree_tsx",
+      "target": "file_tree_filetree",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_file_tree_tsx",
+      "target": "file_tree_filetreeicon",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_ai_elements_file_tree_tsx",
+      "target": "file_tree_filetreename",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L114",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "file_tree_filetree",
+      "callee": "useState",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "file_tree_filetree",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "file_tree_filetree",
+      "callee": "useMemo",
+      "source_file": "F:\\storage-platform\\src\\components\\ai-elements\\file-tree.tsx",
+      "source_location": "L77"
+    }
+  ]
+}

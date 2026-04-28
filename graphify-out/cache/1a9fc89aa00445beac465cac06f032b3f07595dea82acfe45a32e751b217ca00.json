@@ -1,1 +1,933 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "label": "readOnlyValidation.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1"}, {"id": "readonlyvalidation_argleaksvalue", "label": "argLeaksValue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L76"}, {"id": "readonlyvalidation_resolvetocanonical", "label": "resolveToCanonical()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L984"}, {"id": "readonlyvalidation_iscwdchangingcmdlet", "label": "isCwdChangingCmdlet()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1017"}, {"id": "readonlyvalidation_issafeoutputcommand", "label": "isSafeOutputCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1038"}, {"id": "readonlyvalidation_isallowlistedpipelinetail", "label": "isAllowlistedPipelineTail()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1052"}, {"id": "readonlyvalidation_isprovablysafestatement", "label": "isProvablySafeStatement()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1072"}, {"id": "readonlyvalidation_lookupallowlist", "label": "lookupAllowlist()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1088"}, {"id": "readonlyvalidation_hassyncsecurityconcerns", "label": "hasSyncSecurityConcerns()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1112"}, {"id": "readonlyvalidation_isreadonlycommand", "label": "isReadOnlyCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1168"}, {"id": "readonlyvalidation_isallowlistedcommand", "label": "isAllowlistedCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1310"}, {"id": "readonlyvalidation_isexternalcommandsafe", "label": "isExternalCommandSafe()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1522"}, {"id": "readonlyvalidation_isgitsafe", "label": "isGitSafe()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1584"}, {"id": "readonlyvalidation_isghsafe", "label": "isGhSafe()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1703"}, {"id": "readonlyvalidation_isdockersafe", "label": "isDockerSafe()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1759"}, {"id": "readonlyvalidation_isdotnetsafe", "label": "isDotnetSafe()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1809"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_commonparameters_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "readonlyvalidation_argleaksvalue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L76", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "readonlyvalidation_resolvetocanonical", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L984", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "readonlyvalidation_iscwdchangingcmdlet", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1017", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "readonlyvalidation_issafeoutputcommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1038", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "readonlyvalidation_isallowlistedpipelinetail", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1052", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "readonlyvalidation_isprovablysafestatement", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1072", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "readonlyvalidation_lookupallowlist", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1088", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "readonlyvalidation_hassyncsecurityconcerns", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1112", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "readonlyvalidation_isreadonlycommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1168", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "readonlyvalidation_isallowlistedcommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1310", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "readonlyvalidation_isexternalcommandsafe", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1522", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "readonlyvalidation_isgitsafe", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1584", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "readonlyvalidation_isghsafe", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1703", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "readonlyvalidation_isdockersafe", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1759", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts", "target": "readonlyvalidation_isdotnetsafe", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1809", "weight": 1.0}, {"source": "readonlyvalidation_iscwdchangingcmdlet", "target": "readonlyvalidation_resolvetocanonical", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1018", "weight": 1.0}, {"source": "readonlyvalidation_issafeoutputcommand", "target": "readonlyvalidation_resolvetocanonical", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1039", "weight": 1.0}, {"source": "readonlyvalidation_isallowlistedpipelinetail", "target": "readonlyvalidation_resolvetocanonical", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1056", "weight": 1.0}, {"source": "readonlyvalidation_isallowlistedpipelinetail", "target": "readonlyvalidation_isallowlistedcommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1060", "weight": 1.0}, {"source": "readonlyvalidation_lookupallowlist", "target": "readonlyvalidation_resolvetocanonical", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1096", "weight": 1.0}, {"source": "readonlyvalidation_isreadonlycommand", "target": "readonlyvalidation_isallowlistedcommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1259", "weight": 1.0}, {"source": "readonlyvalidation_isreadonlycommand", "target": "readonlyvalidation_issafeoutputcommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1285", "weight": 1.0}, {"source": "readonlyvalidation_isallowlistedcommand", "target": "readonlyvalidation_lookupallowlist", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1335", "weight": 1.0}, {"source": "readonlyvalidation_isallowlistedcommand", "target": "readonlyvalidation_resolvetocanonical", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1429", "weight": 1.0}, {"source": "readonlyvalidation_isallowlistedcommand", "target": "readonlyvalidation_isexternalcommandsafe", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1438", "weight": 1.0}, {"source": "readonlyvalidation_isexternalcommandsafe", "target": "readonlyvalidation_isgitsafe", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1525", "weight": 1.0}, {"source": "readonlyvalidation_isexternalcommandsafe", "target": "readonlyvalidation_isghsafe", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1527", "weight": 1.0}, {"source": "readonlyvalidation_isexternalcommandsafe", "target": "readonlyvalidation_isdockersafe", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1529", "weight": 1.0}, {"source": "readonlyvalidation_isexternalcommandsafe", "target": "readonlyvalidation_isdotnetsafe", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1531", "weight": 1.0}], "raw_calls": [{"caller_nid": "readonlyvalidation_argleaksvalue", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L80"}, {"caller_nid": "readonlyvalidation_argleaksvalue", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L91"}, {"caller_nid": "readonlyvalidation_argleaksvalue", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L99"}, {"caller_nid": "readonlyvalidation_argleaksvalue", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L107"}, {"caller_nid": "readonlyvalidation_argleaksvalue", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L108"}, {"caller_nid": "readonlyvalidation_argleaksvalue", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L108"}, {"caller_nid": "readonlyvalidation_resolvetocanonical", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L985"}, {"caller_nid": "readonlyvalidation_resolvetocanonical", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L988"}, {"caller_nid": "readonlyvalidation_resolvetocanonical", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L988"}, {"caller_nid": "readonlyvalidation_resolvetocanonical", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L989"}, {"caller_nid": "readonlyvalidation_resolvetocanonical", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L993"}, {"caller_nid": "readonlyvalidation_iscwdchangingcmdlet", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1030"}, {"caller_nid": "readonlyvalidation_issafeoutputcommand", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1040"}, {"caller_nid": "readonlyvalidation_isallowlistedpipelinetail", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1057"}, {"caller_nid": "readonlyvalidation_lookupallowlist", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1089"}, {"caller_nid": "readonlyvalidation_hassyncsecurityconcerns", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1113"}, {"caller_nid": "readonlyvalidation_hassyncsecurityconcerns", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1119"}, {"caller_nid": "readonlyvalidation_hassyncsecurityconcerns", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1127"}, {"caller_nid": "readonlyvalidation_hassyncsecurityconcerns", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1132"}, {"caller_nid": "readonlyvalidation_hassyncsecurityconcerns", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1137"}, {"caller_nid": "readonlyvalidation_hassyncsecurityconcerns", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1142"}, {"caller_nid": "readonlyvalidation_hassyncsecurityconcerns", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1149"}, {"caller_nid": "readonlyvalidation_hassyncsecurityconcerns", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1149"}, {"caller_nid": "readonlyvalidation_hassyncsecurityconcerns", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1154"}, {"caller_nid": "readonlyvalidation_isreadonlycommand", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1172"}, {"caller_nid": "readonlyvalidation_isreadonlycommand", "callee": "deriveSecurityFlags", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1187"}, {"caller_nid": "readonlyvalidation_isreadonlycommand", "callee": "getPipelineSegments", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1203"}, {"caller_nid": "readonlyvalidation_isreadonlycommand", "callee": "reduce", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1223"}, {"caller_nid": "readonlyvalidation_isreadonlycommand", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1228"}, {"caller_nid": "readonlyvalidation_isreadonlycommand", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1245"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1327"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1327"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1328"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1341"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "additionalCommandIsDangerousCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1346"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1391"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1412"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1420"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1421"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1421"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1445"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1457"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "isPowerShellParameter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1482"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1483"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1484"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1489"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1490"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1492"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1502"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1503"}, {"caller_nid": "readonlyvalidation_isallowlistedcommand", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1506"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1600"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1611"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1625"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1631"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1632"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1633"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1637"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1649"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1650"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1669"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1681"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1683"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1684"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1685"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1686"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "additionalCommandIsDangerousCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1696"}, {"caller_nid": "readonlyvalidation_isgitsafe", "callee": "validateFlags", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1700"}, {"caller_nid": "readonlyvalidation_isghsafe", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1718"}, {"caller_nid": "readonlyvalidation_isghsafe", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1718"}, {"caller_nid": "readonlyvalidation_isghsafe", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1725"}, {"caller_nid": "readonlyvalidation_isghsafe", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1734"}, {"caller_nid": "readonlyvalidation_isghsafe", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1746"}, {"caller_nid": "readonlyvalidation_isghsafe", "callee": "additionalCommandIsDangerousCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1752"}, {"caller_nid": "readonlyvalidation_isghsafe", "callee": "validateFlags", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1756"}, {"caller_nid": "readonlyvalidation_isdockersafe", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1777"}, {"caller_nid": "readonlyvalidation_isdockersafe", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1782"}, {"caller_nid": "readonlyvalidation_isdockersafe", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1786"}, {"caller_nid": "readonlyvalidation_isdockersafe", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1798"}, {"caller_nid": "readonlyvalidation_isdockersafe", "callee": "additionalCommandIsDangerousCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1802"}, {"caller_nid": "readonlyvalidation_isdockersafe", "callee": "validateFlags", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1806"}, {"caller_nid": "readonlyvalidation_isdotnetsafe", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1817"}, {"caller_nid": "readonlyvalidation_isdotnetsafe", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts", "source_location": "L1817"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "label": "readOnlyValidation.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "readonlyvalidation_argleaksvalue",
+      "label": "argLeaksValue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L76"
+    },
+    {
+      "id": "readonlyvalidation_resolvetocanonical",
+      "label": "resolveToCanonical()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L984"
+    },
+    {
+      "id": "readonlyvalidation_iscwdchangingcmdlet",
+      "label": "isCwdChangingCmdlet()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1017"
+    },
+    {
+      "id": "readonlyvalidation_issafeoutputcommand",
+      "label": "isSafeOutputCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1038"
+    },
+    {
+      "id": "readonlyvalidation_isallowlistedpipelinetail",
+      "label": "isAllowlistedPipelineTail()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1052"
+    },
+    {
+      "id": "readonlyvalidation_isprovablysafestatement",
+      "label": "isProvablySafeStatement()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1072"
+    },
+    {
+      "id": "readonlyvalidation_lookupallowlist",
+      "label": "lookupAllowlist()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1088"
+    },
+    {
+      "id": "readonlyvalidation_hassyncsecurityconcerns",
+      "label": "hasSyncSecurityConcerns()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1112"
+    },
+    {
+      "id": "readonlyvalidation_isreadonlycommand",
+      "label": "isReadOnlyCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1168"
+    },
+    {
+      "id": "readonlyvalidation_isallowlistedcommand",
+      "label": "isAllowlistedCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1310"
+    },
+    {
+      "id": "readonlyvalidation_isexternalcommandsafe",
+      "label": "isExternalCommandSafe()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1522"
+    },
+    {
+      "id": "readonlyvalidation_isgitsafe",
+      "label": "isGitSafe()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1584"
+    },
+    {
+      "id": "readonlyvalidation_isghsafe",
+      "label": "isGhSafe()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1703"
+    },
+    {
+      "id": "readonlyvalidation_isdockersafe",
+      "label": "isDockerSafe()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1759"
+    },
+    {
+      "id": "readonlyvalidation_isdotnetsafe",
+      "label": "isDotnetSafe()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1809"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_shell_readonlycommandvalidation_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_commonparameters_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_argleaksvalue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_resolvetocanonical",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L984",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_iscwdchangingcmdlet",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1017",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_issafeoutputcommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1038",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_isallowlistedpipelinetail",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1052",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_isprovablysafestatement",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1072",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_lookupallowlist",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1088",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_hassyncsecurityconcerns",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1112",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_isreadonlycommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1168",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_isallowlistedcommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1310",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_isexternalcommandsafe",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1522",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_isgitsafe",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1584",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_isghsafe",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1703",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_isdockersafe",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1759",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_readonlyvalidation_ts",
+      "target": "readonlyvalidation_isdotnetsafe",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1809",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_iscwdchangingcmdlet",
+      "target": "readonlyvalidation_resolvetocanonical",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1018",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_issafeoutputcommand",
+      "target": "readonlyvalidation_resolvetocanonical",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1039",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_isallowlistedpipelinetail",
+      "target": "readonlyvalidation_resolvetocanonical",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1056",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_isallowlistedpipelinetail",
+      "target": "readonlyvalidation_isallowlistedcommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1060",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_lookupallowlist",
+      "target": "readonlyvalidation_resolvetocanonical",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1096",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_isreadonlycommand",
+      "target": "readonlyvalidation_isallowlistedcommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1259",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_isreadonlycommand",
+      "target": "readonlyvalidation_issafeoutputcommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1285",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_isallowlistedcommand",
+      "target": "readonlyvalidation_lookupallowlist",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1335",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_isallowlistedcommand",
+      "target": "readonlyvalidation_resolvetocanonical",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1429",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_isallowlistedcommand",
+      "target": "readonlyvalidation_isexternalcommandsafe",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1438",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_isexternalcommandsafe",
+      "target": "readonlyvalidation_isgitsafe",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1525",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_isexternalcommandsafe",
+      "target": "readonlyvalidation_isghsafe",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1527",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_isexternalcommandsafe",
+      "target": "readonlyvalidation_isdockersafe",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1529",
+      "weight": 1.0
+    },
+    {
+      "source": "readonlyvalidation_isexternalcommandsafe",
+      "target": "readonlyvalidation_isdotnetsafe",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1531",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "readonlyvalidation_argleaksvalue",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L80"
+    },
+    {
+      "caller_nid": "readonlyvalidation_argleaksvalue",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L91"
+    },
+    {
+      "caller_nid": "readonlyvalidation_argleaksvalue",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "readonlyvalidation_argleaksvalue",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "readonlyvalidation_argleaksvalue",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L108"
+    },
+    {
+      "caller_nid": "readonlyvalidation_argleaksvalue",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L108"
+    },
+    {
+      "caller_nid": "readonlyvalidation_resolvetocanonical",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L985"
+    },
+    {
+      "caller_nid": "readonlyvalidation_resolvetocanonical",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L988"
+    },
+    {
+      "caller_nid": "readonlyvalidation_resolvetocanonical",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L988"
+    },
+    {
+      "caller_nid": "readonlyvalidation_resolvetocanonical",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L989"
+    },
+    {
+      "caller_nid": "readonlyvalidation_resolvetocanonical",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L993"
+    },
+    {
+      "caller_nid": "readonlyvalidation_iscwdchangingcmdlet",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1030"
+    },
+    {
+      "caller_nid": "readonlyvalidation_issafeoutputcommand",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1040"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedpipelinetail",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1057"
+    },
+    {
+      "caller_nid": "readonlyvalidation_lookupallowlist",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1089"
+    },
+    {
+      "caller_nid": "readonlyvalidation_hassyncsecurityconcerns",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1113"
+    },
+    {
+      "caller_nid": "readonlyvalidation_hassyncsecurityconcerns",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1119"
+    },
+    {
+      "caller_nid": "readonlyvalidation_hassyncsecurityconcerns",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1127"
+    },
+    {
+      "caller_nid": "readonlyvalidation_hassyncsecurityconcerns",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1132"
+    },
+    {
+      "caller_nid": "readonlyvalidation_hassyncsecurityconcerns",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1137"
+    },
+    {
+      "caller_nid": "readonlyvalidation_hassyncsecurityconcerns",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1142"
+    },
+    {
+      "caller_nid": "readonlyvalidation_hassyncsecurityconcerns",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1149"
+    },
+    {
+      "caller_nid": "readonlyvalidation_hassyncsecurityconcerns",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1149"
+    },
+    {
+      "caller_nid": "readonlyvalidation_hassyncsecurityconcerns",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1154"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isreadonlycommand",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1172"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isreadonlycommand",
+      "callee": "deriveSecurityFlags",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1187"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isreadonlycommand",
+      "callee": "getPipelineSegments",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1203"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isreadonlycommand",
+      "callee": "reduce",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1223"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isreadonlycommand",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1228"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isreadonlycommand",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1245"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1327"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1327"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1328"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1341"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "additionalCommandIsDangerousCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1346"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1391"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1412"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1420"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1421"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1421"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1445"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1457"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "isPowerShellParameter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1482"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1483"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1484"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1489"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1490"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1492"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1502"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1503"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isallowlistedcommand",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1506"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1600"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1611"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1625"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1631"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1632"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1633"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1637"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1649"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1650"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1669"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1681"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1683"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1684"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1685"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1686"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "additionalCommandIsDangerousCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1696"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isgitsafe",
+      "callee": "validateFlags",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1700"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isghsafe",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1718"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isghsafe",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1718"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isghsafe",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1725"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isghsafe",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1734"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isghsafe",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1746"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isghsafe",
+      "callee": "additionalCommandIsDangerousCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1752"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isghsafe",
+      "callee": "validateFlags",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1756"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isdockersafe",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1777"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isdockersafe",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1782"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isdockersafe",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1786"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isdockersafe",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1798"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isdockersafe",
+      "callee": "additionalCommandIsDangerousCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1802"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isdockersafe",
+      "callee": "validateFlags",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1806"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isdotnetsafe",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1817"
+    },
+    {
+      "caller_nid": "readonlyvalidation_isdotnetsafe",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\PowerShellTool\\readOnlyValidation.ts",
+      "source_location": "L1817"
+    }
+  ]
+}

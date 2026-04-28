@@ -1,1 +1,407 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts", "label": "officialMarketplaceGcs.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L1"}, {"id": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "label": "fetchOfficialMarketplaceFromGcs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L47"}, {"id": "officialmarketplacegcs_classifygcserror", "label": "classifyGcsError()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L196"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts", "target": "axios", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts", "target": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L47", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts", "target": "officialmarketplacegcs_classifygcserror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L196", "weight": 1.0}, {"source": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "target": "officialmarketplacegcs_classifygcserror", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L149", "weight": 1.0}], "raw_calls": [{"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "resolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L57"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "resolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L58"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L59"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L60"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "waitForScrollIdle", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L70"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L72"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L81"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L85"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L85"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L94"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "then", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L95"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L95"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L107"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L111"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "unzipFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L113"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "parseZipModes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L118"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "rm", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L121"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L122"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L123"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L124"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L125"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L126"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L127"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L128"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "dirname", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L128"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L129"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L135"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "chmod", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L135"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L138"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L138"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "rm", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L143"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "rename", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L144"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L150"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L151"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L159"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L164"}, {"caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L164"}, {"caller_nid": "officialmarketplacegcs_classifygcserror", "callee": "isAxiosError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L197"}, {"caller_nid": "officialmarketplacegcs_classifygcserror", "callee": "getErrnoCode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L202"}, {"caller_nid": "officialmarketplacegcs_classifygcserror", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L205"}, {"caller_nid": "officialmarketplacegcs_classifygcserror", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L205"}, {"caller_nid": "officialmarketplacegcs_classifygcserror", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L206"}, {"caller_nid": "officialmarketplacegcs_classifygcserror", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L212"}, {"caller_nid": "officialmarketplacegcs_classifygcserror", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L213"}, {"caller_nid": "officialmarketplacegcs_classifygcserror", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts", "source_location": "L214"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts",
+      "label": "officialMarketplaceGcs.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "label": "fetchOfficialMarketplaceFromGcs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L47"
+    },
+    {
+      "id": "officialmarketplacegcs_classifygcserror",
+      "label": "classifyGcsError()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L196"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts",
+      "target": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_officialmarketplacegcs_ts",
+      "target": "officialmarketplacegcs_classifygcserror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L196",
+      "weight": 1.0
+    },
+    {
+      "source": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "target": "officialmarketplacegcs_classifygcserror",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L149",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "resolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "resolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "waitForScrollIdle",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L94"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "then",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "unzipFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "parseZipModes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "rm",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L121"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L123"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "dirname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "chmod",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "rm",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "rename",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_fetchofficialmarketplacefromgcs",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_classifygcserror",
+      "callee": "isAxiosError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_classifygcserror",
+      "callee": "getErrnoCode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_classifygcserror",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L205"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_classifygcserror",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L205"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_classifygcserror",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L206"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_classifygcserror",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L212"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_classifygcserror",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L213"
+    },
+    {
+      "caller_nid": "officialmarketplacegcs_classifygcserror",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\officialMarketplaceGcs.ts",
+      "source_location": "L214"
+    }
+  ]
+}

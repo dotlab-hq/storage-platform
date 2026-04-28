@@ -1,1 +1,368 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts", "label": "s3-dispatch-mutations.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L1"}, {"id": "s3_dispatch_mutations_handledelete", "label": "handleDelete()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L37"}, {"id": "s3_dispatch_mutations_handlepost", "label": "handlePost()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L106"}], "edges": [{"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts", "target": "s3_multipart", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts", "target": "s3_object_store", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts", "target": "s3_multipart_complete_parser", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts", "target": "s3_versioning", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts", "target": "virtual_buckets_server", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts", "target": "s3_bucket_controls", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts", "target": "s3_object_tagging", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts", "target": "s3_get_object_cache", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts", "target": "s3_request", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts", "target": "s3_xml", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts", "target": "s3_dispatch_context", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts", "target": "s3_dispatch_mutations_handledelete", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts", "target": "s3_dispatch_mutations_handlepost", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L106", "weight": 1.0}], "raw_calls": [{"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "resolveAuthorizedBucket", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L42"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L47"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "deleteBucketPolicy", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L48"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L51"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "replaceBucketCors", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L52"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "deleteVirtualBucket", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L55"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "multipartUploadId", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L59"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "abortMultipartUpload", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L61"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L65"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "deleteObjectTags", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L66"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L70"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "deleteObjectVersion", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L72"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "String", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L81"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "getBucketVersioningState", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L86"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "createDeleteMarkerVersion", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L87"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "getS3ObjectCacheKey", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L91"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "deleteCachedS3Object", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L92"}, {"caller_nid": "s3_dispatch_mutations_handledelete", "callee": "deleteObject", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L102"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L111"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "resolveAuthorizedBucket", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L117"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L119"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "hasMultipartCreateFlag", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L126"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "createMultipartUpload", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L127"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L130"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "xmlResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L132"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "createMultipartUploadXml", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L133"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "multipartUploadId", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L137"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "completeMultipartUpload", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L139"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "parseCompleteMultipartUploadParts", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L142"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "text", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L142"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "getBucketVersioningState", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L144"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "createObjectVersionFromCurrent", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L147"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "createObjectVersionFromCurrent", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L153"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "getResponseVersionIdForCurrentObject", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L160"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "xmlResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L165"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "completeMultipartUploadXml", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L166"}, {"caller_nid": "s3_dispatch_mutations_handlepost", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts", "source_location": "L177"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts",
+      "label": "s3-dispatch-mutations.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "s3_dispatch_mutations_handledelete",
+      "label": "handleDelete()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L37"
+    },
+    {
+      "id": "s3_dispatch_mutations_handlepost",
+      "label": "handlePost()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L106"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts",
+      "target": "s3_multipart",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts",
+      "target": "s3_object_store",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts",
+      "target": "s3_multipart_complete_parser",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts",
+      "target": "s3_versioning",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts",
+      "target": "virtual_buckets_server",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts",
+      "target": "s3_bucket_controls",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts",
+      "target": "s3_object_tagging",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts",
+      "target": "s3_get_object_cache",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts",
+      "target": "s3_request",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts",
+      "target": "s3_xml",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts",
+      "target": "s3_dispatch_context",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts",
+      "target": "s3_dispatch_mutations_handledelete",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_mutations_ts",
+      "target": "s3_dispatch_mutations_handlepost",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L106",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "resolveAuthorizedBucket",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "deleteBucketPolicy",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "replaceBucketCors",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "deleteVirtualBucket",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "multipartUploadId",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "abortMultipartUpload",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "deleteObjectTags",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "deleteObjectVersion",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "getBucketVersioningState",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "createDeleteMarkerVersion",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "getS3ObjectCacheKey",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L91"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "deleteCachedS3Object",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handledelete",
+      "callee": "deleteObject",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "resolveAuthorizedBucket",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "hasMultipartCreateFlag",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "createMultipartUpload",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "xmlResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "createMultipartUploadXml",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "multipartUploadId",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "completeMultipartUpload",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "parseCompleteMultipartUploadParts",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "text",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "getBucketVersioningState",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "createObjectVersionFromCurrent",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "createObjectVersionFromCurrent",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L153"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "getResponseVersionIdForCurrentObject",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L160"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "xmlResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "completeMultipartUploadXml",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L166"
+    },
+    {
+      "caller_nid": "s3_dispatch_mutations_handlepost",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-mutations.ts",
+      "source_location": "L177"
+    }
+  ]
+}

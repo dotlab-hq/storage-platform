@@ -1,1 +1,504 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "label": "utils.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L1"}, {"id": "utils_stripemptylines", "label": "stripEmptyLines()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L22"}, {"id": "utils_isimageoutput", "label": "isImageOutput()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L49"}, {"id": "utils_parsedatauri", "label": "parseDataUri()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L59"}, {"id": "utils_buildimagetoolresult", "label": "buildImageToolResult()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L71"}, {"id": "utils_resizeshellimageoutput", "label": "resizeShellImageOutput()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L110"}, {"id": "utils_formatoutput", "label": "formatOutput()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L133"}, {"id": "utils_stderrappendshellresetmessage", "label": "stdErrAppendShellResetMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L167"}, {"id": "utils_resetcwdifoutsideproject", "label": "resetCwdIfOutsideProject()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L170"}, {"id": "utils_createcontentsummary", "label": "createContentSummary()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L198"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "index_mjs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "state_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "index_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "tool_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "cwd_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "filesystem_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "shell_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_imageresizer_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_shell_outputlimits_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "utils_stripemptylines", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "utils_isimageoutput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L49", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "utils_parsedatauri", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L59", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "utils_buildimagetoolresult", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L71", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "utils_resizeshellimageoutput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L110", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "utils_formatoutput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L133", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "utils_stderrappendshellresetmessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L167", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "utils_resetcwdifoutsideproject", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L170", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts", "target": "utils_createcontentsummary", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L198", "weight": 1.0}, {"source": "utils_buildimagetoolresult", "target": "utils_parsedatauri", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L75", "weight": 1.0}, {"source": "utils_resizeshellimageoutput", "target": "utils_parsedatauri", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L121", "weight": 1.0}, {"source": "utils_formatoutput", "target": "utils_isimageoutput", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L138", "weight": 1.0}], "raw_calls": [{"caller_nid": "utils_stripemptylines", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L23"}, {"caller_nid": "utils_stripemptylines", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L27"}, {"caller_nid": "utils_stripemptylines", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L33"}, {"caller_nid": "utils_stripemptylines", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L43"}, {"caller_nid": "utils_stripemptylines", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L43"}, {"caller_nid": "utils_isimageoutput", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L50"}, {"caller_nid": "utils_parsedatauri", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L62"}, {"caller_nid": "utils_parsedatauri", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L62"}, {"caller_nid": "utils_resizeshellimageoutput", "callee": "stat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L117"}, {"caller_nid": "utils_resizeshellimageoutput", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L119"}, {"caller_nid": "utils_resizeshellimageoutput", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L123"}, {"caller_nid": "utils_resizeshellimageoutput", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L124"}, {"caller_nid": "utils_resizeshellimageoutput", "callee": "maybeResizeAndDownsampleImageBuffer", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L125"}, {"caller_nid": "utils_resizeshellimageoutput", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L130"}, {"caller_nid": "utils_formatoutput", "callee": "getMaxOutputLength", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L147"}, {"caller_nid": "utils_formatoutput", "callee": "countCharInString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L150"}, {"caller_nid": "utils_formatoutput", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L156"}, {"caller_nid": "utils_formatoutput", "callee": "countCharInString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L157"}, {"caller_nid": "utils_formatoutput", "callee": "countCharInString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L161"}, {"caller_nid": "utils_stderrappendshellresetmessage", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L168"}, {"caller_nid": "utils_stderrappendshellresetmessage", "callee": "getOriginalCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L168"}, {"caller_nid": "utils_resetcwdifoutsideproject", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L173"}, {"caller_nid": "utils_resetcwdifoutsideproject", "callee": "getOriginalCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L174"}, {"caller_nid": "utils_resetcwdifoutsideproject", "callee": "shouldMaintainProjectWorkingDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L175"}, {"caller_nid": "utils_resetcwdifoutsideproject", "callee": "pathInAllowedWorkingPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L182"}, {"caller_nid": "utils_resetcwdifoutsideproject", "callee": "setCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L185"}, {"caller_nid": "utils_resetcwdifoutsideproject", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L187"}, {"caller_nid": "utils_createcontentsummary", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L209"}, {"caller_nid": "utils_createcontentsummary", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L210"}, {"caller_nid": "utils_createcontentsummary", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L216"}, {"caller_nid": "utils_createcontentsummary", "callee": "plural", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L216"}, {"caller_nid": "utils_createcontentsummary", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L219"}, {"caller_nid": "utils_createcontentsummary", "callee": "plural", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L219"}, {"caller_nid": "utils_createcontentsummary", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L222"}, {"caller_nid": "utils_createcontentsummary", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts", "source_location": "L222"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "label": "utils.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "utils_stripemptylines",
+      "label": "stripEmptyLines()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "utils_isimageoutput",
+      "label": "isImageOutput()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L49"
+    },
+    {
+      "id": "utils_parsedatauri",
+      "label": "parseDataUri()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L59"
+    },
+    {
+      "id": "utils_buildimagetoolresult",
+      "label": "buildImageToolResult()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L71"
+    },
+    {
+      "id": "utils_resizeshellimageoutput",
+      "label": "resizeShellImageOutput()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L110"
+    },
+    {
+      "id": "utils_formatoutput",
+      "label": "formatOutput()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L133"
+    },
+    {
+      "id": "utils_stderrappendshellresetmessage",
+      "label": "stdErrAppendShellResetMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L167"
+    },
+    {
+      "id": "utils_resetcwdifoutsideproject",
+      "label": "resetCwdIfOutsideProject()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L170"
+    },
+    {
+      "id": "utils_createcontentsummary",
+      "label": "createContentSummary()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L198"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "index_mjs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "state_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "index_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "tool_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "cwd_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "filesystem_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "shell_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_imageresizer_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_shell_outputlimits_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "utils_stripemptylines",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "utils_isimageoutput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "utils_parsedatauri",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "utils_buildimagetoolresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "utils_resizeshellimageoutput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "utils_formatoutput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "utils_stderrappendshellresetmessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L167",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "utils_resetcwdifoutsideproject",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_utils_ts",
+      "target": "utils_createcontentsummary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L198",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_buildimagetoolresult",
+      "target": "utils_parsedatauri",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_resizeshellimageoutput",
+      "target": "utils_parsedatauri",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L121",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_formatoutput",
+      "target": "utils_isimageoutput",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L138",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "utils_stripemptylines",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "utils_stripemptylines",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "utils_stripemptylines",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "utils_stripemptylines",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "utils_stripemptylines",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "utils_isimageoutput",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "utils_parsedatauri",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "utils_parsedatauri",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "utils_resizeshellimageoutput",
+      "callee": "stat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "utils_resizeshellimageoutput",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "utils_resizeshellimageoutput",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L123"
+    },
+    {
+      "caller_nid": "utils_resizeshellimageoutput",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "utils_resizeshellimageoutput",
+      "callee": "maybeResizeAndDownsampleImageBuffer",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "utils_resizeshellimageoutput",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "utils_formatoutput",
+      "callee": "getMaxOutputLength",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "utils_formatoutput",
+      "callee": "countCharInString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "utils_formatoutput",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "utils_formatoutput",
+      "callee": "countCharInString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L157"
+    },
+    {
+      "caller_nid": "utils_formatoutput",
+      "callee": "countCharInString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "utils_stderrappendshellresetmessage",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "utils_stderrappendshellresetmessage",
+      "callee": "getOriginalCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "utils_resetcwdifoutsideproject",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "utils_resetcwdifoutsideproject",
+      "callee": "getOriginalCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L174"
+    },
+    {
+      "caller_nid": "utils_resetcwdifoutsideproject",
+      "callee": "shouldMaintainProjectWorkingDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "utils_resetcwdifoutsideproject",
+      "callee": "pathInAllowedWorkingPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L182"
+    },
+    {
+      "caller_nid": "utils_resetcwdifoutsideproject",
+      "callee": "setCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "utils_resetcwdifoutsideproject",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L187"
+    },
+    {
+      "caller_nid": "utils_createcontentsummary",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L209"
+    },
+    {
+      "caller_nid": "utils_createcontentsummary",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L210"
+    },
+    {
+      "caller_nid": "utils_createcontentsummary",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L216"
+    },
+    {
+      "caller_nid": "utils_createcontentsummary",
+      "callee": "plural",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L216"
+    },
+    {
+      "caller_nid": "utils_createcontentsummary",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L219"
+    },
+    {
+      "caller_nid": "utils_createcontentsummary",
+      "callee": "plural",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L219"
+    },
+    {
+      "caller_nid": "utils_createcontentsummary",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L222"
+    },
+    {
+      "caller_nid": "utils_createcontentsummary",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\utils.ts",
+      "source_location": "L222"
+    }
+  ]
+}

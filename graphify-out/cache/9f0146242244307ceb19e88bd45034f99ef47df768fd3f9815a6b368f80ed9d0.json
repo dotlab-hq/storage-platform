@@ -1,1 +1,156 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts", "label": "getNextPermissionMode.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L1"}, {"id": "getnextpermissionmode_cancycletoauto", "label": "canCycleToAuto()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L17"}, {"id": "getnextpermissionmode_getnextpermissionmode", "label": "getNextPermissionMode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L34"}, {"id": "getnextpermissionmode_cyclepermissionmode", "label": "cyclePermissionMode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L88"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionmode_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionsetup_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts", "target": "getnextpermissionmode_cancycletoauto", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts", "target": "getnextpermissionmode_getnextpermissionmode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L34", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts", "target": "getnextpermissionmode_cyclepermissionmode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L88", "weight": 1.0}, {"source": "getnextpermissionmode_getnextpermissionmode", "target": "getnextpermissionmode_cancycletoauto", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L45", "weight": 1.0}, {"source": "getnextpermissionmode_cyclepermissionmode", "target": "getnextpermissionmode_getnextpermissionmode", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L92", "weight": 1.0}], "raw_calls": [{"caller_nid": "getnextpermissionmode_cancycletoauto", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L18"}, {"caller_nid": "getnextpermissionmode_cancycletoauto", "callee": "isAutoModeGateEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L19"}, {"caller_nid": "getnextpermissionmode_cancycletoauto", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L22"}, {"caller_nid": "getnextpermissionmode_cancycletoauto", "callee": "getAutoModeUnavailableReason", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L23"}, {"caller_nid": "getnextpermissionmode_cyclepermissionmode", "callee": "transitionPermissionMode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts", "source_location": "L95"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts",
+      "label": "getNextPermissionMode.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "getnextpermissionmode_cancycletoauto",
+      "label": "canCycleToAuto()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L17"
+    },
+    {
+      "id": "getnextpermissionmode_getnextpermissionmode",
+      "label": "getNextPermissionMode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L34"
+    },
+    {
+      "id": "getnextpermissionmode_cyclepermissionmode",
+      "label": "cyclePermissionMode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L88"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionmode_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionsetup_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts",
+      "target": "getnextpermissionmode_cancycletoauto",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts",
+      "target": "getnextpermissionmode_getnextpermissionmode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_getnextpermissionmode_ts",
+      "target": "getnextpermissionmode_cyclepermissionmode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "getnextpermissionmode_getnextpermissionmode",
+      "target": "getnextpermissionmode_cancycletoauto",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "getnextpermissionmode_cyclepermissionmode",
+      "target": "getnextpermissionmode_getnextpermissionmode",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L92",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "getnextpermissionmode_cancycletoauto",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "getnextpermissionmode_cancycletoauto",
+      "callee": "isAutoModeGateEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "getnextpermissionmode_cancycletoauto",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "getnextpermissionmode_cancycletoauto",
+      "callee": "getAutoModeUnavailableReason",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "getnextpermissionmode_cyclepermissionmode",
+      "callee": "transitionPermissionMode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\getNextPermissionMode.ts",
+      "source_location": "L95"
+    }
+  ]
+}

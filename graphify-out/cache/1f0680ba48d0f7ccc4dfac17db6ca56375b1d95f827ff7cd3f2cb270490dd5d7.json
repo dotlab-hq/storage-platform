@@ -1,1 +1,52 @@
-{"nodes": [{"id": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts", "label": "use-keyboard-shortcuts.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L1"}, {"id": "use_keyboard_shortcuts_usekeyboardshortcuts", "label": "useKeyboardShortcuts()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L5"}], "edges": [{"source": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts", "target": "use_keyboard_shortcuts_usekeyboardshortcuts", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L5", "weight": 1.0}], "raw_calls": [{"caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts", "callee": "useCallback", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L6"}, {"caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts", "callee": "useEffect", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L33"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts",
+      "label": "use-keyboard-shortcuts.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "label": "useKeyboardShortcuts()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L5"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts",
+      "target": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L6"
+    },
+    {
+      "caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "callee": "useEffect",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L33"
+    }
+  ]
+}

@@ -1,1 +1,79 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_title_ts", "label": "use-terminal-title.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts", "source_location": "L1"}, {"id": "use_terminal_title_useterminaltitle", "label": "useTerminalTitle()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts", "source_location": "L17"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_title_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_title_ts", "target": "strip_ansi", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_title_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_termio_osc_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_title_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_useterminalnotification_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_title_ts", "target": "use_terminal_title_useterminaltitle", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts", "source_location": "L17", "weight": 1.0}], "raw_calls": [{"caller_nid": "use_terminal_title_useterminaltitle", "callee": "useContext", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts", "source_location": "L18"}, {"caller_nid": "use_terminal_title_useterminaltitle", "callee": "useEffect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts", "source_location": "L20"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_title_ts",
+      "label": "use-terminal-title.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "use_terminal_title_useterminaltitle",
+      "label": "useTerminalTitle()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts",
+      "source_location": "L17"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_title_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_title_ts",
+      "target": "strip_ansi",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_title_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_termio_osc_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_title_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_useterminalnotification_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_title_ts",
+      "target": "use_terminal_title_useterminaltitle",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "use_terminal_title_useterminaltitle",
+      "callee": "useContext",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "use_terminal_title_useterminaltitle",
+      "callee": "useEffect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-title.ts",
+      "source_location": "L20"
+    }
+  ]
+}

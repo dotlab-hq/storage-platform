@@ -1,1 +1,85 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_commands_cost_cost_ts", "label": "cost.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts", "source_location": "L1"}, {"id": "cost_call", "label": "call()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts", "source_location": "L6"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_commands_cost_cost_ts", "target": "f_storage_platform_claude_code_source_main_src_cost_tracker_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_cost_cost_ts", "target": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_cost_cost_ts", "target": "f_storage_platform_claude_code_source_main_src_types_command_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_cost_cost_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_cost_cost_ts", "target": "cost_call", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts", "source_location": "L6", "weight": 1.0}], "raw_calls": [{"caller_nid": "cost_call", "callee": "isClaudeAISubscriber", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts", "source_location": "L7"}, {"caller_nid": "cost_call", "callee": "formatTotalCost", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts", "source_location": "L19"}, {"caller_nid": "cost_call", "callee": "formatTotalCost", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts", "source_location": "L23"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_commands_cost_cost_ts",
+      "label": "cost.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "cost_call",
+      "label": "call()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts",
+      "source_location": "L6"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_cost_cost_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_cost_tracker_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_cost_cost_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_cost_cost_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_command_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_cost_cost_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_cost_cost_ts",
+      "target": "cost_call",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "cost_call",
+      "callee": "isClaudeAISubscriber",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts",
+      "source_location": "L7"
+    },
+    {
+      "caller_nid": "cost_call",
+      "callee": "formatTotalCost",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "cost_call",
+      "callee": "formatTotalCost",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\cost\\cost.ts",
+      "source_location": "L23"
+    }
+  ]
+}

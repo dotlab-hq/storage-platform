@@ -1,1 +1,163 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts", "label": "useNotifyAfterTimeout.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L1"}, {"id": "usenotifyaftertimeout_gettimesincelastinteraction", "label": "getTimeSinceLastInteraction()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L11"}, {"id": "usenotifyaftertimeout_hasrecentinteraction", "label": "hasRecentInteraction()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L15"}, {"id": "usenotifyaftertimeout_shouldnotify", "label": "shouldNotify()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L19"}, {"id": "usenotifyaftertimeout_usenotifyaftertimeout", "label": "useNotifyAfterTimeout()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L38"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_useterminalnotification_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts", "target": "f_storage_platform_claude_code_source_main_src_services_notifier_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts", "target": "usenotifyaftertimeout_gettimesincelastinteraction", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts", "target": "usenotifyaftertimeout_hasrecentinteraction", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts", "target": "usenotifyaftertimeout_shouldnotify", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts", "target": "usenotifyaftertimeout_usenotifyaftertimeout", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L38", "weight": 1.0}, {"source": "usenotifyaftertimeout_hasrecentinteraction", "target": "usenotifyaftertimeout_gettimesincelastinteraction", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L16", "weight": 1.0}, {"source": "usenotifyaftertimeout_shouldnotify", "target": "usenotifyaftertimeout_hasrecentinteraction", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L20", "weight": 1.0}], "raw_calls": [{"caller_nid": "usenotifyaftertimeout_gettimesincelastinteraction", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L12"}, {"caller_nid": "usenotifyaftertimeout_gettimesincelastinteraction", "callee": "getLastInteractionTime", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L12"}, {"caller_nid": "usenotifyaftertimeout_usenotifyaftertimeout", "callee": "useTerminalNotification", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L42"}, {"caller_nid": "usenotifyaftertimeout_usenotifyaftertimeout", "callee": "useEffect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L49"}, {"caller_nid": "usenotifyaftertimeout_usenotifyaftertimeout", "callee": "useEffect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts", "source_location": "L53"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts",
+      "label": "useNotifyAfterTimeout.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "usenotifyaftertimeout_gettimesincelastinteraction",
+      "label": "getTimeSinceLastInteraction()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L11"
+    },
+    {
+      "id": "usenotifyaftertimeout_hasrecentinteraction",
+      "label": "hasRecentInteraction()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L15"
+    },
+    {
+      "id": "usenotifyaftertimeout_shouldnotify",
+      "label": "shouldNotify()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L19"
+    },
+    {
+      "id": "usenotifyaftertimeout_usenotifyaftertimeout",
+      "label": "useNotifyAfterTimeout()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L38"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_useterminalnotification_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_notifier_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts",
+      "target": "usenotifyaftertimeout_gettimesincelastinteraction",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts",
+      "target": "usenotifyaftertimeout_hasrecentinteraction",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts",
+      "target": "usenotifyaftertimeout_shouldnotify",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usenotifyaftertimeout_ts",
+      "target": "usenotifyaftertimeout_usenotifyaftertimeout",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "usenotifyaftertimeout_hasrecentinteraction",
+      "target": "usenotifyaftertimeout_gettimesincelastinteraction",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "usenotifyaftertimeout_shouldnotify",
+      "target": "usenotifyaftertimeout_hasrecentinteraction",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "usenotifyaftertimeout_gettimesincelastinteraction",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L12"
+    },
+    {
+      "caller_nid": "usenotifyaftertimeout_gettimesincelastinteraction",
+      "callee": "getLastInteractionTime",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L12"
+    },
+    {
+      "caller_nid": "usenotifyaftertimeout_usenotifyaftertimeout",
+      "callee": "useTerminalNotification",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "usenotifyaftertimeout_usenotifyaftertimeout",
+      "callee": "useEffect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "usenotifyaftertimeout_usenotifyaftertimeout",
+      "callee": "useEffect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useNotifyAfterTimeout.ts",
+      "source_location": "L53"
+    }
+  ]
+}

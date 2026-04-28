@@ -1,1 +1,217 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx", "label": "mcp.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L1"}, {"id": "mcp_mcptoggle", "label": "MCPToggle()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L12"}, {"id": "mcp_temp2", "label": "_temp2()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L57"}, {"id": "mcp_temp", "label": "_temp()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L60"}, {"id": "mcp_call", "label": "call()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L63"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx", "target": "compiler_runtime", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx", "target": "f_storage_platform_claude_code_source_main_src_components_mcp_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx", "target": "f_storage_platform_claude_code_source_main_src_components_mcp_mcpreconnect_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_mcpconnectionmanager_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx", "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx", "target": "f_storage_platform_claude_code_source_main_src_types_command_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx", "target": "f_storage_platform_claude_code_source_main_src_commands_plugin_pluginsettings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx", "target": "mcp_mcptoggle", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx", "target": "mcp_temp2", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L57", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx", "target": "mcp_temp", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L60", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx", "target": "mcp_call", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L63", "weight": 1.0}], "raw_calls": [{"caller_nid": "mcp_mcptoggle", "callee": "_c", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L13"}, {"caller_nid": "mcp_mcptoggle", "callee": "useAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L19"}, {"caller_nid": "mcp_mcptoggle", "callee": "useMcpToggleEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L20"}, {"caller_nid": "mcp_mcptoggle", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L21"}, {"caller_nid": "mcp_mcptoggle", "callee": "useEffect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L54"}, {"caller_nid": "mcp_call", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L65"}, {"caller_nid": "mcp_call", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L65"}, {"caller_nid": "mcp_call", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L72"}, {"caller_nid": "mcp_call", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L72"}, {"caller_nid": "mcp_call", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L75"}, {"caller_nid": "mcp_call", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx", "source_location": "L75"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx",
+      "label": "mcp.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "mcp_mcptoggle",
+      "label": "MCPToggle()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L12"
+    },
+    {
+      "id": "mcp_temp2",
+      "label": "_temp2()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L57"
+    },
+    {
+      "id": "mcp_temp",
+      "label": "_temp()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L60"
+    },
+    {
+      "id": "mcp_call",
+      "label": "call()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L63"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx",
+      "target": "compiler_runtime",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_components_mcp_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_components_mcp_mcpreconnect_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_mcpconnectionmanager_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_types_command_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_commands_plugin_pluginsettings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx",
+      "target": "mcp_mcptoggle",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx",
+      "target": "mcp_temp2",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx",
+      "target": "mcp_temp",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_mcp_mcp_tsx",
+      "target": "mcp_call",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L63",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "mcp_mcptoggle",
+      "callee": "_c",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L13"
+    },
+    {
+      "caller_nid": "mcp_mcptoggle",
+      "callee": "useAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "mcp_mcptoggle",
+      "callee": "useMcpToggleEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L20"
+    },
+    {
+      "caller_nid": "mcp_mcptoggle",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "mcp_mcptoggle",
+      "callee": "useEffect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L54"
+    },
+    {
+      "caller_nid": "mcp_call",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "mcp_call",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "mcp_call",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "mcp_call",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "mcp_call",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "mcp_call",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\mcp\\mcp.tsx",
+      "source_location": "L75"
+    }
+  ]
+}

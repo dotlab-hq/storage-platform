@@ -1,1 +1,464 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_ink_focus_ts", "label": "focus.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L1"}, {"id": "focus_focusmanager", "label": "FocusManager", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L15"}, {"id": "focus_focusmanager_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L21"}, {"id": "focus_focusmanager_focus", "label": ".focus()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L27"}, {"id": "focus_focusmanager_blur", "label": ".blur()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L44"}, {"id": "focus_focusmanager_handlenoderemoved", "label": ".handleNodeRemoved()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L57"}, {"id": "focus_focusmanager_handleautofocus", "label": ".handleAutoFocus()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L84"}, {"id": "focus_focusmanager_handleclickfocus", "label": ".handleClickFocus()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L88"}, {"id": "focus_focusmanager_enable", "label": ".enable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L94"}, {"id": "focus_focusmanager_disable", "label": ".disable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L98"}, {"id": "focus_focusmanager_focusnext", "label": ".focusNext()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L102"}, {"id": "focus_focusmanager_focusprevious", "label": ".focusPrevious()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L106"}, {"id": "focus_focusmanager_movefocus", "label": ".moveFocus()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L110"}, {"id": "focus_collecttabbable", "label": "collectTabbable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L134"}, {"id": "focus_walktree", "label": "walkTree()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L140"}, {"id": "focus_isintree", "label": "isInTree()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L153"}, {"id": "focus_getrootnode", "label": "getRootNode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L166"}, {"id": "focus_getfocusmanager", "label": "getFocusManager()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L179"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_events_focus_event_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts", "target": "focus_focusmanager", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L15", "weight": 1.0}, {"source": "focus_focusmanager", "target": "focus_focusmanager_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L21", "weight": 1.0}, {"source": "focus_focusmanager", "target": "focus_focusmanager_focus", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L27", "weight": 1.0}, {"source": "focus_focusmanager", "target": "focus_focusmanager_blur", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L44", "weight": 1.0}, {"source": "focus_focusmanager", "target": "focus_focusmanager_handlenoderemoved", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L57", "weight": 1.0}, {"source": "focus_focusmanager", "target": "focus_focusmanager_handleautofocus", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L84", "weight": 1.0}, {"source": "focus_focusmanager", "target": "focus_focusmanager_handleclickfocus", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L88", "weight": 1.0}, {"source": "focus_focusmanager", "target": "focus_focusmanager_enable", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L94", "weight": 1.0}, {"source": "focus_focusmanager", "target": "focus_focusmanager_disable", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L98", "weight": 1.0}, {"source": "focus_focusmanager", "target": "focus_focusmanager_focusnext", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L102", "weight": 1.0}, {"source": "focus_focusmanager", "target": "focus_focusmanager_focusprevious", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L106", "weight": 1.0}, {"source": "focus_focusmanager", "target": "focus_focusmanager_movefocus", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L110", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts", "target": "focus_collecttabbable", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L134", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts", "target": "focus_walktree", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L140", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts", "target": "focus_isintree", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L153", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts", "target": "focus_getrootnode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L166", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts", "target": "focus_getfocusmanager", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L179", "weight": 1.0}, {"source": "focus_focusmanager_handlenoderemoved", "target": "focus_isintree", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L65", "weight": 1.0}, {"source": "focus_focusmanager_handleautofocus", "target": "focus_focusmanager_focus", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L85", "weight": 1.0}, {"source": "focus_focusmanager_handleclickfocus", "target": "focus_focusmanager_focus", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L91", "weight": 1.0}, {"source": "focus_focusmanager_focusnext", "target": "focus_focusmanager_movefocus", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L103", "weight": 1.0}, {"source": "focus_focusmanager_focusprevious", "target": "focus_focusmanager_movefocus", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L107", "weight": 1.0}, {"source": "focus_focusmanager_movefocus", "target": "focus_collecttabbable", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L113", "weight": 1.0}, {"source": "focus_focusmanager_movefocus", "target": "focus_focusmanager_focus", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L129", "weight": 1.0}, {"source": "focus_collecttabbable", "target": "focus_walktree", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L136", "weight": 1.0}, {"source": "focus_getfocusmanager", "target": "focus_getrootnode", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L180", "weight": 1.0}], "raw_calls": [{"caller_nid": "focus_focusmanager_focus", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L34"}, {"caller_nid": "focus_focusmanager_focus", "callee": "splice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L35"}, {"caller_nid": "focus_focusmanager_focus", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L36"}, {"caller_nid": "focus_focusmanager_focus", "callee": "shift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L37"}, {"caller_nid": "focus_focusmanager_focus", "callee": "dispatchFocusEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L38"}, {"caller_nid": "focus_focusmanager_focus", "callee": "dispatchFocusEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L41"}, {"caller_nid": "focus_focusmanager_blur", "callee": "dispatchFocusEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L49"}, {"caller_nid": "focus_focusmanager_handlenoderemoved", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L59"}, {"caller_nid": "focus_focusmanager_handlenoderemoved", "callee": "dispatchFocusEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L71"}, {"caller_nid": "focus_focusmanager_handlenoderemoved", "callee": "pop", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L75"}, {"caller_nid": "focus_focusmanager_handlenoderemoved", "callee": "dispatchFocusEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L78"}, {"caller_nid": "focus_focusmanager_movefocus", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L117"}, {"caller_nid": "focus_walktree", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts", "source_location": "L143"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_ink_focus_ts",
+      "label": "focus.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "focus_focusmanager",
+      "label": "FocusManager",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L15"
+    },
+    {
+      "id": "focus_focusmanager_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L21"
+    },
+    {
+      "id": "focus_focusmanager_focus",
+      "label": ".focus()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L27"
+    },
+    {
+      "id": "focus_focusmanager_blur",
+      "label": ".blur()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L44"
+    },
+    {
+      "id": "focus_focusmanager_handlenoderemoved",
+      "label": ".handleNodeRemoved()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L57"
+    },
+    {
+      "id": "focus_focusmanager_handleautofocus",
+      "label": ".handleAutoFocus()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L84"
+    },
+    {
+      "id": "focus_focusmanager_handleclickfocus",
+      "label": ".handleClickFocus()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L88"
+    },
+    {
+      "id": "focus_focusmanager_enable",
+      "label": ".enable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L94"
+    },
+    {
+      "id": "focus_focusmanager_disable",
+      "label": ".disable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L98"
+    },
+    {
+      "id": "focus_focusmanager_focusnext",
+      "label": ".focusNext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L102"
+    },
+    {
+      "id": "focus_focusmanager_focusprevious",
+      "label": ".focusPrevious()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L106"
+    },
+    {
+      "id": "focus_focusmanager_movefocus",
+      "label": ".moveFocus()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L110"
+    },
+    {
+      "id": "focus_collecttabbable",
+      "label": "collectTabbable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L134"
+    },
+    {
+      "id": "focus_walktree",
+      "label": "walkTree()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L140"
+    },
+    {
+      "id": "focus_isintree",
+      "label": "isInTree()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L153"
+    },
+    {
+      "id": "focus_getrootnode",
+      "label": "getRootNode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L166"
+    },
+    {
+      "id": "focus_getfocusmanager",
+      "label": "getFocusManager()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L179"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_events_focus_event_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts",
+      "target": "focus_focusmanager",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager",
+      "target": "focus_focusmanager_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager",
+      "target": "focus_focusmanager_focus",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager",
+      "target": "focus_focusmanager_blur",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager",
+      "target": "focus_focusmanager_handlenoderemoved",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager",
+      "target": "focus_focusmanager_handleautofocus",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager",
+      "target": "focus_focusmanager_handleclickfocus",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager",
+      "target": "focus_focusmanager_enable",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager",
+      "target": "focus_focusmanager_disable",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager",
+      "target": "focus_focusmanager_focusnext",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager",
+      "target": "focus_focusmanager_focusprevious",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager",
+      "target": "focus_focusmanager_movefocus",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts",
+      "target": "focus_collecttabbable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts",
+      "target": "focus_walktree",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L140",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts",
+      "target": "focus_isintree",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts",
+      "target": "focus_getrootnode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_focus_ts",
+      "target": "focus_getfocusmanager",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager_handlenoderemoved",
+      "target": "focus_isintree",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager_handleautofocus",
+      "target": "focus_focusmanager_focus",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager_handleclickfocus",
+      "target": "focus_focusmanager_focus",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager_focusnext",
+      "target": "focus_focusmanager_movefocus",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager_focusprevious",
+      "target": "focus_focusmanager_movefocus",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager_movefocus",
+      "target": "focus_collecttabbable",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_focusmanager_movefocus",
+      "target": "focus_focusmanager_focus",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_collecttabbable",
+      "target": "focus_walktree",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "focus_getfocusmanager",
+      "target": "focus_getrootnode",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L180",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "focus_focusmanager_focus",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "focus_focusmanager_focus",
+      "callee": "splice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "focus_focusmanager_focus",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "focus_focusmanager_focus",
+      "callee": "shift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "focus_focusmanager_focus",
+      "callee": "dispatchFocusEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "focus_focusmanager_focus",
+      "callee": "dispatchFocusEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "focus_focusmanager_blur",
+      "callee": "dispatchFocusEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "focus_focusmanager_handlenoderemoved",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "focus_focusmanager_handlenoderemoved",
+      "callee": "dispatchFocusEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "focus_focusmanager_handlenoderemoved",
+      "callee": "pop",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "focus_focusmanager_handlenoderemoved",
+      "callee": "dispatchFocusEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "focus_focusmanager_movefocus",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "focus_walktree",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\focus.ts",
+      "source_location": "L143"
+    }
+  ]
+}

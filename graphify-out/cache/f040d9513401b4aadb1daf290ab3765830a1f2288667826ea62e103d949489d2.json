@@ -1,1 +1,55 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_compact_compactwarninghook_ts", "label": "compactWarningHook.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compactWarningHook.ts", "source_location": "L1"}, {"id": "compactwarninghook_usecompactwarningsuppression", "label": "useCompactWarningSuppression()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compactWarningHook.ts", "source_location": "L11"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_compact_compactwarninghook_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compactWarningHook.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compactwarninghook_ts", "target": "f_storage_platform_claude_code_source_main_src_services_compact_compactwarningstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compactWarningHook.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compactwarninghook_ts", "target": "compactwarninghook_usecompactwarningsuppression", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compactWarningHook.ts", "source_location": "L11", "weight": 1.0}], "raw_calls": [{"caller_nid": "compactwarninghook_usecompactwarningsuppression", "callee": "useSyncExternalStore", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compactWarningHook.ts", "source_location": "L12"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_compact_compactwarninghook_ts",
+      "label": "compactWarningHook.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compactWarningHook.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "compactwarninghook_usecompactwarningsuppression",
+      "label": "useCompactWarningSuppression()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compactWarningHook.ts",
+      "source_location": "L11"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compactwarninghook_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compactWarningHook.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compactwarninghook_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_compact_compactwarningstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compactWarningHook.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compactwarninghook_ts",
+      "target": "compactwarninghook_usecompactwarningsuppression",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compactWarningHook.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "compactwarninghook_usecompactwarningsuppression",
+      "callee": "useSyncExternalStore",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compactWarningHook.ts",
+      "source_location": "L12"
+    }
+  ]
+}

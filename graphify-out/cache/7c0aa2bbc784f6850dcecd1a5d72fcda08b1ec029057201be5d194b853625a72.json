@@ -1,1 +1,98 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_skills_bundled_loremipsum_ts", "label": "loremIpsum.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts", "source_location": "L1"}, {"id": "loremipsum_generateloremipsum", "label": "generateLoremIpsum()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts", "source_location": "L202"}, {"id": "loremipsum_registerloremipsumskill", "label": "registerLoremIpsumSkill()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts", "source_location": "L234"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_loremipsum_ts", "target": "f_storage_platform_claude_code_source_main_src_skills_bundledskills_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_loremipsum_ts", "target": "loremipsum_generateloremipsum", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts", "source_location": "L202", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_loremipsum_ts", "target": "loremipsum_registerloremipsumskill", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts", "source_location": "L234", "weight": 1.0}], "raw_calls": [{"caller_nid": "loremipsum_generateloremipsum", "callee": "floor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts", "source_location": "L208"}, {"caller_nid": "loremipsum_generateloremipsum", "callee": "random", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts", "source_location": "L208"}, {"caller_nid": "loremipsum_generateloremipsum", "callee": "floor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts", "source_location": "L213"}, {"caller_nid": "loremipsum_generateloremipsum", "callee": "random", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts", "source_location": "L213"}, {"caller_nid": "loremipsum_generateloremipsum", "callee": "random", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts", "source_location": "L226"}, {"caller_nid": "loremipsum_generateloremipsum", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts", "source_location": "L231"}, {"caller_nid": "loremipsum_registerloremipsumskill", "callee": "registerBundledSkill", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts", "source_location": "L239"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_skills_bundled_loremipsum_ts",
+      "label": "loremIpsum.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "loremipsum_generateloremipsum",
+      "label": "generateLoremIpsum()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts",
+      "source_location": "L202"
+    },
+    {
+      "id": "loremipsum_registerloremipsumskill",
+      "label": "registerLoremIpsumSkill()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts",
+      "source_location": "L234"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_loremipsum_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_skills_bundledskills_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_loremipsum_ts",
+      "target": "loremipsum_generateloremipsum",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts",
+      "source_location": "L202",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_loremipsum_ts",
+      "target": "loremipsum_registerloremipsumskill",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts",
+      "source_location": "L234",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "loremipsum_generateloremipsum",
+      "callee": "floor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts",
+      "source_location": "L208"
+    },
+    {
+      "caller_nid": "loremipsum_generateloremipsum",
+      "callee": "random",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts",
+      "source_location": "L208"
+    },
+    {
+      "caller_nid": "loremipsum_generateloremipsum",
+      "callee": "floor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts",
+      "source_location": "L213"
+    },
+    {
+      "caller_nid": "loremipsum_generateloremipsum",
+      "callee": "random",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts",
+      "source_location": "L213"
+    },
+    {
+      "caller_nid": "loremipsum_generateloremipsum",
+      "callee": "random",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts",
+      "source_location": "L226"
+    },
+    {
+      "caller_nid": "loremipsum_generateloremipsum",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts",
+      "source_location": "L231"
+    },
+    {
+      "caller_nid": "loremipsum_registerloremipsumskill",
+      "callee": "registerBundledSkill",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\loremIpsum.ts",
+      "source_location": "L239"
+    }
+  ]
+}

@@ -1,1 +1,653 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "label": "dom.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L1"}, {"id": "dom_createnode", "label": "createNode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L110"}, {"id": "dom_appendchildnode", "label": "appendChildNode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L134"}, {"id": "dom_insertbeforenode", "label": "insertBeforeNode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L155"}, {"id": "dom_removechildnode", "label": "removeChildNode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L204"}, {"id": "dom_collectremovedrects", "label": "collectRemovedRects()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L225"}, {"id": "dom_setattribute", "label": "setAttribute()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L247"}, {"id": "dom_setstyle", "label": "setStyle()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L266"}, {"id": "dom_settextstyles", "label": "setTextStyles()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L276"}, {"id": "dom_stylesequal", "label": "stylesEqual()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L291"}, {"id": "dom_shallowequal", "label": "shallowEqual()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L295"}, {"id": "dom_createtextnode", "label": "createTextNode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L318"}, {"id": "dom_markdirty", "label": "markDirty()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L393"}, {"id": "dom_schedulerenderfrom", "label": "scheduleRenderFrom()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L419"}, {"id": "dom_settextnodevalue", "label": "setTextNodeValue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L425"}, {"id": "dom_isdomelement", "label": "isDOMElement()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L439"}, {"id": "dom_clearyoganodereferences", "label": "clearYogaNodeReferences()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L446"}, {"id": "dom_findownerchainatrow", "label": "findOwnerChainAtRow()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L465"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_focus_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_layout_engine_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_layout_node_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_layout_node_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_measure_text_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_node_cache_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_squash_text_nodes_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_styles_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_tabstops_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_wrap_text_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_createnode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L110", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_appendchildnode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L134", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_insertbeforenode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L155", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_removechildnode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L204", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_collectremovedrects", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L225", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_setattribute", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L247", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_setstyle", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L266", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_settextstyles", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L276", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_stylesequal", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L291", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_shallowequal", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L295", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_createtextnode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L318", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_markdirty", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L393", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_schedulerenderfrom", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L419", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_settextnodevalue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L425", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_isdomelement", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L439", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_clearyoganodereferences", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L446", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "target": "dom_findownerchainatrow", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L465", "weight": 1.0}, {"source": "dom_appendchildnode", "target": "dom_removechildnode", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L139", "weight": 1.0}, {"source": "dom_appendchildnode", "target": "dom_markdirty", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L152", "weight": 1.0}, {"source": "dom_insertbeforenode", "target": "dom_removechildnode", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L161", "weight": 1.0}, {"source": "dom_insertbeforenode", "target": "dom_markdirty", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L188", "weight": 1.0}, {"source": "dom_removechildnode", "target": "dom_collectremovedrects", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L213", "weight": 1.0}, {"source": "dom_removechildnode", "target": "dom_markdirty", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L222", "weight": 1.0}, {"source": "dom_setattribute", "target": "dom_markdirty", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L263", "weight": 1.0}, {"source": "dom_setstyle", "target": "dom_stylesequal", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L269", "weight": 1.0}, {"source": "dom_setstyle", "target": "dom_markdirty", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L273", "weight": 1.0}, {"source": "dom_settextstyles", "target": "dom_shallowequal", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L284", "weight": 1.0}, {"source": "dom_settextstyles", "target": "dom_markdirty", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L288", "weight": 1.0}, {"source": "dom_stylesequal", "target": "dom_shallowequal", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L292", "weight": 1.0}, {"source": "dom_createtextnode", "target": "dom_settextnodevalue", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L327", "weight": 1.0}, {"source": "dom_settextnodevalue", "target": "dom_markdirty", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L436", "weight": 1.0}], "raw_calls": [{"caller_nid": "dom_createnode", "callee": "createLayoutNode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L121"}, {"caller_nid": "dom_createnode", "callee": "setMeasureFunc", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L126"}, {"caller_nid": "dom_createnode", "callee": "bind", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L126"}, {"caller_nid": "dom_createnode", "callee": "setMeasureFunc", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L128"}, {"caller_nid": "dom_createnode", "callee": "bind", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L128"}, {"caller_nid": "dom_appendchildnode", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L143"}, {"caller_nid": "dom_appendchildnode", "callee": "insertChild", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L146"}, {"caller_nid": "dom_appendchildnode", "callee": "getChildCount", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L148"}, {"caller_nid": "dom_insertbeforenode", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L166"}, {"caller_nid": "dom_insertbeforenode", "callee": "splice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L182"}, {"caller_nid": "dom_insertbeforenode", "callee": "insertChild", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L185"}, {"caller_nid": "dom_insertbeforenode", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L192"}, {"caller_nid": "dom_insertbeforenode", "callee": "insertChild", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L195"}, {"caller_nid": "dom_insertbeforenode", "callee": "getChildCount", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L197"}, {"caller_nid": "dom_removechildnode", "callee": "removeChild", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L209"}, {"caller_nid": "dom_removechildnode", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L217"}, {"caller_nid": "dom_removechildnode", "callee": "splice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L219"}, {"caller_nid": "dom_collectremovedrects", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L237"}, {"caller_nid": "dom_collectremovedrects", "callee": "addPendingClear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L239"}, {"caller_nid": "dom_collectremovedrects", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L240"}, {"caller_nid": "dom_shallowequal", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L304"}, {"caller_nid": "dom_shallowequal", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L305"}, {"caller_nid": "dom_schedulerenderfrom", "callee": "onRender", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L422"}, {"caller_nid": "dom_settextnodevalue", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L427"}, {"caller_nid": "dom_findownerchainatrow", "callee": "walk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts", "source_location": "L467"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "label": "dom.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "dom_createnode",
+      "label": "createNode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L110"
+    },
+    {
+      "id": "dom_appendchildnode",
+      "label": "appendChildNode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L134"
+    },
+    {
+      "id": "dom_insertbeforenode",
+      "label": "insertBeforeNode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L155"
+    },
+    {
+      "id": "dom_removechildnode",
+      "label": "removeChildNode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L204"
+    },
+    {
+      "id": "dom_collectremovedrects",
+      "label": "collectRemovedRects()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L225"
+    },
+    {
+      "id": "dom_setattribute",
+      "label": "setAttribute()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L247"
+    },
+    {
+      "id": "dom_setstyle",
+      "label": "setStyle()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L266"
+    },
+    {
+      "id": "dom_settextstyles",
+      "label": "setTextStyles()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L276"
+    },
+    {
+      "id": "dom_stylesequal",
+      "label": "stylesEqual()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L291"
+    },
+    {
+      "id": "dom_shallowequal",
+      "label": "shallowEqual()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L295"
+    },
+    {
+      "id": "dom_createtextnode",
+      "label": "createTextNode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L318"
+    },
+    {
+      "id": "dom_markdirty",
+      "label": "markDirty()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L393"
+    },
+    {
+      "id": "dom_schedulerenderfrom",
+      "label": "scheduleRenderFrom()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L419"
+    },
+    {
+      "id": "dom_settextnodevalue",
+      "label": "setTextNodeValue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L425"
+    },
+    {
+      "id": "dom_isdomelement",
+      "label": "isDOMElement()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L439"
+    },
+    {
+      "id": "dom_clearyoganodereferences",
+      "label": "clearYogaNodeReferences()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L446"
+    },
+    {
+      "id": "dom_findownerchainatrow",
+      "label": "findOwnerChainAtRow()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L465"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_focus_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_layout_engine_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_layout_node_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_layout_node_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_measure_text_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_node_cache_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_squash_text_nodes_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_styles_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_tabstops_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_wrap_text_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_createnode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_appendchildnode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_insertbeforenode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L155",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_removechildnode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L204",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_collectremovedrects",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L225",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_setattribute",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L247",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_setstyle",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L266",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_settextstyles",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L276",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_stylesequal",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L291",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_shallowequal",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L295",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_createtextnode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L318",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_markdirty",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L393",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_schedulerenderfrom",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_settextnodevalue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L425",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_isdomelement",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L439",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_clearyoganodereferences",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L446",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "target": "dom_findownerchainatrow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L465",
+      "weight": 1.0
+    },
+    {
+      "source": "dom_appendchildnode",
+      "target": "dom_removechildnode",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "dom_appendchildnode",
+      "target": "dom_markdirty",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L152",
+      "weight": 1.0
+    },
+    {
+      "source": "dom_insertbeforenode",
+      "target": "dom_removechildnode",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L161",
+      "weight": 1.0
+    },
+    {
+      "source": "dom_insertbeforenode",
+      "target": "dom_markdirty",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L188",
+      "weight": 1.0
+    },
+    {
+      "source": "dom_removechildnode",
+      "target": "dom_collectremovedrects",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L213",
+      "weight": 1.0
+    },
+    {
+      "source": "dom_removechildnode",
+      "target": "dom_markdirty",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L222",
+      "weight": 1.0
+    },
+    {
+      "source": "dom_setattribute",
+      "target": "dom_markdirty",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L263",
+      "weight": 1.0
+    },
+    {
+      "source": "dom_setstyle",
+      "target": "dom_stylesequal",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L269",
+      "weight": 1.0
+    },
+    {
+      "source": "dom_setstyle",
+      "target": "dom_markdirty",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L273",
+      "weight": 1.0
+    },
+    {
+      "source": "dom_settextstyles",
+      "target": "dom_shallowequal",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L284",
+      "weight": 1.0
+    },
+    {
+      "source": "dom_settextstyles",
+      "target": "dom_markdirty",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L288",
+      "weight": 1.0
+    },
+    {
+      "source": "dom_stylesequal",
+      "target": "dom_shallowequal",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L292",
+      "weight": 1.0
+    },
+    {
+      "source": "dom_createtextnode",
+      "target": "dom_settextnodevalue",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L327",
+      "weight": 1.0
+    },
+    {
+      "source": "dom_settextnodevalue",
+      "target": "dom_markdirty",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L436",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "dom_createnode",
+      "callee": "createLayoutNode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L121"
+    },
+    {
+      "caller_nid": "dom_createnode",
+      "callee": "setMeasureFunc",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "dom_createnode",
+      "callee": "bind",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "dom_createnode",
+      "callee": "setMeasureFunc",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "dom_createnode",
+      "callee": "bind",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "dom_appendchildnode",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "dom_appendchildnode",
+      "callee": "insertChild",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "dom_appendchildnode",
+      "callee": "getChildCount",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "dom_insertbeforenode",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L166"
+    },
+    {
+      "caller_nid": "dom_insertbeforenode",
+      "callee": "splice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L182"
+    },
+    {
+      "caller_nid": "dom_insertbeforenode",
+      "callee": "insertChild",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "dom_insertbeforenode",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "dom_insertbeforenode",
+      "callee": "insertChild",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L195"
+    },
+    {
+      "caller_nid": "dom_insertbeforenode",
+      "callee": "getChildCount",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "dom_removechildnode",
+      "callee": "removeChild",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L209"
+    },
+    {
+      "caller_nid": "dom_removechildnode",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L217"
+    },
+    {
+      "caller_nid": "dom_removechildnode",
+      "callee": "splice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L219"
+    },
+    {
+      "caller_nid": "dom_collectremovedrects",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L237"
+    },
+    {
+      "caller_nid": "dom_collectremovedrects",
+      "callee": "addPendingClear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L239"
+    },
+    {
+      "caller_nid": "dom_collectremovedrects",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L240"
+    },
+    {
+      "caller_nid": "dom_shallowequal",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L304"
+    },
+    {
+      "caller_nid": "dom_shallowequal",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L305"
+    },
+    {
+      "caller_nid": "dom_schedulerenderfrom",
+      "callee": "onRender",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L422"
+    },
+    {
+      "caller_nid": "dom_settextnodevalue",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L427"
+    },
+    {
+      "caller_nid": "dom_findownerchainatrow",
+      "callee": "walk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\dom.ts",
+      "source_location": "L467"
+    }
+  ]
+}

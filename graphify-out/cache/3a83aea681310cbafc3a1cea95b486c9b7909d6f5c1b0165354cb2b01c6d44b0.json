@@ -1,1 +1,145 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx", "label": "StatusNotices.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L1"}, {"id": "statusnotices_statusnotices", "label": "StatusNotices()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L18"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx", "target": "compiler_runtime", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx", "target": "f_storage_platform_claude_code_source_main_src_ink_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx", "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_loadagentsdir_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_claudemd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_statusnoticedefinitions_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx", "target": "statusnotices_statusnotices", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L18", "weight": 1.0}], "raw_calls": [{"caller_nid": "statusnotices_statusnotices", "callee": "_c", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L19"}, {"caller_nid": "statusnotices_statusnotices", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L23"}, {"caller_nid": "statusnotices_statusnotices", "callee": "for", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L25"}, {"caller_nid": "statusnotices_statusnotices", "callee": "getMemoryFiles", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L26"}, {"caller_nid": "statusnotices_statusnotices", "callee": "use", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L34"}, {"caller_nid": "statusnotices_statusnotices", "callee": "getActiveNotices", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L36"}, {"caller_nid": "statusnotices_statusnotices", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx", "source_location": "L43"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx",
+      "label": "StatusNotices.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "statusnotices_statusnotices",
+      "label": "StatusNotices()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L18"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx",
+      "target": "compiler_runtime",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_loadagentsdir_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_claudemd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_statusnoticedefinitions_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_statusnotices_tsx",
+      "target": "statusnotices_statusnotices",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L18",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "statusnotices_statusnotices",
+      "callee": "_c",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "statusnotices_statusnotices",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "statusnotices_statusnotices",
+      "callee": "for",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "statusnotices_statusnotices",
+      "callee": "getMemoryFiles",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "statusnotices_statusnotices",
+      "callee": "use",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "statusnotices_statusnotices",
+      "callee": "getActiveNotices",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "statusnotices_statusnotices",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StatusNotices.tsx",
+      "source_location": "L43"
+    }
+  ]
+}

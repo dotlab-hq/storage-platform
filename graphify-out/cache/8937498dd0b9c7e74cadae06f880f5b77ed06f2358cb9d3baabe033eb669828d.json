@@ -1,1 +1,156 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_fileoperationanalytics_ts", "label": "fileOperationAnalytics.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L1"}, {"id": "fileoperationanalytics_hashfilepath", "label": "hashFilePath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L9"}, {"id": "fileoperationanalytics_hashfilecontent", "label": "hashFileContent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L22"}, {"id": "fileoperationanalytics_logfileoperation", "label": "logFileOperation()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L37"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_fileoperationanalytics_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_fileoperationanalytics_ts", "target": "index_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_fileoperationanalytics_ts", "target": "index_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_fileoperationanalytics_ts", "target": "fileoperationanalytics_hashfilepath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_fileoperationanalytics_ts", "target": "fileoperationanalytics_hashfilecontent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_fileoperationanalytics_ts", "target": "fileoperationanalytics_logfileoperation", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L37", "weight": 1.0}, {"source": "fileoperationanalytics_logfileoperation", "target": "fileoperationanalytics_hashfilepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L53", "weight": 1.0}, {"source": "fileoperationanalytics_logfileoperation", "target": "fileoperationanalytics_hashfilecontent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L62", "weight": 1.0}], "raw_calls": [{"caller_nid": "fileoperationanalytics_hashfilepath", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L12"}, {"caller_nid": "fileoperationanalytics_hashfilepath", "callee": "digest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L12"}, {"caller_nid": "fileoperationanalytics_hashfilepath", "callee": "update", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L12"}, {"caller_nid": "fileoperationanalytics_hashfilepath", "callee": "createHash", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L12"}, {"caller_nid": "fileoperationanalytics_hashfilecontent", "callee": "digest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L25"}, {"caller_nid": "fileoperationanalytics_hashfilecontent", "callee": "update", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L25"}, {"caller_nid": "fileoperationanalytics_hashfilecontent", "callee": "createHash", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L25"}, {"caller_nid": "fileoperationanalytics_logfileoperation", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts", "source_location": "L70"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_fileoperationanalytics_ts",
+      "label": "fileOperationAnalytics.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "fileoperationanalytics_hashfilepath",
+      "label": "hashFilePath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L9"
+    },
+    {
+      "id": "fileoperationanalytics_hashfilecontent",
+      "label": "hashFileContent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "fileoperationanalytics_logfileoperation",
+      "label": "logFileOperation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L37"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_fileoperationanalytics_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_fileoperationanalytics_ts",
+      "target": "index_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_fileoperationanalytics_ts",
+      "target": "index_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_fileoperationanalytics_ts",
+      "target": "fileoperationanalytics_hashfilepath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_fileoperationanalytics_ts",
+      "target": "fileoperationanalytics_hashfilecontent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_fileoperationanalytics_ts",
+      "target": "fileoperationanalytics_logfileoperation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "fileoperationanalytics_logfileoperation",
+      "target": "fileoperationanalytics_hashfilepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "fileoperationanalytics_logfileoperation",
+      "target": "fileoperationanalytics_hashfilecontent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "fileoperationanalytics_hashfilepath",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L12"
+    },
+    {
+      "caller_nid": "fileoperationanalytics_hashfilepath",
+      "callee": "digest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L12"
+    },
+    {
+      "caller_nid": "fileoperationanalytics_hashfilepath",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L12"
+    },
+    {
+      "caller_nid": "fileoperationanalytics_hashfilepath",
+      "callee": "createHash",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L12"
+    },
+    {
+      "caller_nid": "fileoperationanalytics_hashfilecontent",
+      "callee": "digest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "fileoperationanalytics_hashfilecontent",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "fileoperationanalytics_hashfilecontent",
+      "callee": "createHash",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "fileoperationanalytics_logfileoperation",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileOperationAnalytics.ts",
+      "source_location": "L70"
+    }
+  ]
+}

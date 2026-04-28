@@ -1,1 +1,114 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_mcp_oauthport_ts", "label": "oauthPort.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts", "source_location": "L1"}, {"id": "oauthport_buildredirecturi", "label": "buildRedirectUri()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts", "source_location": "L21"}, {"id": "oauthport_getmcpoauthcallbackport", "label": "getMcpOAuthCallbackPort()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts", "source_location": "L27"}, {"id": "oauthport_findavailableport", "label": "findAvailablePort()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts", "source_location": "L36"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_mcp_oauthport_ts", "target": "http", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_oauthport_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_oauthport_ts", "target": "oauthport_buildredirecturi", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_oauthport_ts", "target": "oauthport_getmcpoauthcallbackport", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_oauthport_ts", "target": "oauthport_findavailableport", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts", "source_location": "L36", "weight": 1.0}, {"source": "oauthport_findavailableport", "target": "oauthport_getmcpoauthcallbackport", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts", "source_location": "L38", "weight": 1.0}], "raw_calls": [{"caller_nid": "oauthport_getmcpoauthcallbackport", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts", "source_location": "L28"}, {"caller_nid": "oauthport_findavailableport", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts", "source_location": "L45"}, {"caller_nid": "oauthport_findavailableport", "callee": "floor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts", "source_location": "L48"}, {"caller_nid": "oauthport_findavailableport", "callee": "random", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts", "source_location": "L48"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_mcp_oauthport_ts",
+      "label": "oauthPort.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "oauthport_buildredirecturi",
+      "label": "buildRedirectUri()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts",
+      "source_location": "L21"
+    },
+    {
+      "id": "oauthport_getmcpoauthcallbackport",
+      "label": "getMcpOAuthCallbackPort()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts",
+      "source_location": "L27"
+    },
+    {
+      "id": "oauthport_findavailableport",
+      "label": "findAvailablePort()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts",
+      "source_location": "L36"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_oauthport_ts",
+      "target": "http",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_oauthport_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_oauthport_ts",
+      "target": "oauthport_buildredirecturi",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_oauthport_ts",
+      "target": "oauthport_getmcpoauthcallbackport",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_oauthport_ts",
+      "target": "oauthport_findavailableport",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "oauthport_findavailableport",
+      "target": "oauthport_getmcpoauthcallbackport",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "oauthport_getmcpoauthcallbackport",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "oauthport_findavailableport",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "oauthport_findavailableport",
+      "callee": "floor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "oauthport_findavailableport",
+      "callee": "random",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\oauthPort.ts",
+      "source_location": "L48"
+    }
+  ]
+}

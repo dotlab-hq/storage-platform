@@ -1,1 +1,180 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts", "label": "SyntheticOutputTool.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L1"}, {"id": "syntheticoutputtool_issyntheticoutputtoolenabled", "label": "isSyntheticOutputToolEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L22"}, {"id": "syntheticoutputtool_createsyntheticoutputtool", "label": "createSyntheticOutputTool()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L116"}, {"id": "syntheticoutputtool_buildsyntheticoutputtool", "label": "buildSyntheticOutputTool()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L127"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts", "target": "ajv", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts", "target": "v4", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionresult_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts", "target": "syntheticoutputtool_issyntheticoutputtoolenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts", "target": "syntheticoutputtool_createsyntheticoutputtool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L116", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts", "target": "syntheticoutputtool_buildsyntheticoutputtool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L127", "weight": 1.0}, {"source": "syntheticoutputtool_createsyntheticoutputtool", "target": "syntheticoutputtool_buildsyntheticoutputtool", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L122", "weight": 1.0}], "raw_calls": [{"caller_nid": "syntheticoutputtool_createsyntheticoutputtool", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L119"}, {"caller_nid": "syntheticoutputtool_createsyntheticoutputtool", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L123"}, {"caller_nid": "syntheticoutputtool_buildsyntheticoutputtool", "callee": "validateSchema", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L132"}, {"caller_nid": "syntheticoutputtool_buildsyntheticoutputtool", "callee": "errorsText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L134"}, {"caller_nid": "syntheticoutputtool_buildsyntheticoutputtool", "callee": "compile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L136"}, {"caller_nid": "syntheticoutputtool_buildsyntheticoutputtool", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts", "source_location": "L161"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts",
+      "label": "SyntheticOutputTool.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "syntheticoutputtool_issyntheticoutputtoolenabled",
+      "label": "isSyntheticOutputToolEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "syntheticoutputtool_createsyntheticoutputtool",
+      "label": "createSyntheticOutputTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L116"
+    },
+    {
+      "id": "syntheticoutputtool_buildsyntheticoutputtool",
+      "label": "buildSyntheticOutputTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L127"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts",
+      "target": "ajv",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts",
+      "target": "v4",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionresult_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts",
+      "target": "syntheticoutputtool_issyntheticoutputtoolenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts",
+      "target": "syntheticoutputtool_createsyntheticoutputtool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts",
+      "target": "syntheticoutputtool_buildsyntheticoutputtool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "syntheticoutputtool_createsyntheticoutputtool",
+      "target": "syntheticoutputtool_buildsyntheticoutputtool",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L122",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "syntheticoutputtool_createsyntheticoutputtool",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "syntheticoutputtool_createsyntheticoutputtool",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L123"
+    },
+    {
+      "caller_nid": "syntheticoutputtool_buildsyntheticoutputtool",
+      "callee": "validateSchema",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "syntheticoutputtool_buildsyntheticoutputtool",
+      "callee": "errorsText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "syntheticoutputtool_buildsyntheticoutputtool",
+      "callee": "compile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L136"
+    },
+    {
+      "caller_nid": "syntheticoutputtool_buildsyntheticoutputtool",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SyntheticOutputTool\\SyntheticOutputTool.ts",
+      "source_location": "L161"
+    }
+  ]
+}

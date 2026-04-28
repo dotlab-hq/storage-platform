@@ -1,1 +1,120 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usemodelmigrationnotifications_tsx", "label": "useModelMigrationNotifications.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx", "source_location": "L1"}, {"id": "usemodelmigrationnotifications_usemodelmigrationnotifications", "label": "useModelMigrationNotifications()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx", "source_location": "L35"}, {"id": "usemodelmigrationnotifications_temp", "label": "_temp()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx", "source_location": "L38"}, {"id": "usemodelmigrationnotifications_recent", "label": "recent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx", "source_location": "L49"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usemodelmigrationnotifications_tsx", "target": "notifications_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usemodelmigrationnotifications_tsx", "target": "config_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usemodelmigrationnotifications_tsx", "target": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usemodelmigrationnotifications_tsx", "target": "usemodelmigrationnotifications_usemodelmigrationnotifications", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usemodelmigrationnotifications_tsx", "target": "usemodelmigrationnotifications_temp", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx", "source_location": "L38", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usemodelmigrationnotifications_tsx", "target": "usemodelmigrationnotifications_recent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx", "source_location": "L49", "weight": 1.0}], "raw_calls": [{"caller_nid": "usemodelmigrationnotifications_usemodelmigrationnotifications", "callee": "useStartupNotification", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx", "source_location": "L36"}, {"caller_nid": "usemodelmigrationnotifications_temp", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx", "source_location": "L39"}, {"caller_nid": "usemodelmigrationnotifications_temp", "callee": "migration", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx", "source_location": "L42"}, {"caller_nid": "usemodelmigrationnotifications_temp", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx", "source_location": "L44"}, {"caller_nid": "usemodelmigrationnotifications_recent", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx", "source_location": "L50"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usemodelmigrationnotifications_tsx",
+      "label": "useModelMigrationNotifications.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "usemodelmigrationnotifications_usemodelmigrationnotifications",
+      "label": "useModelMigrationNotifications()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx",
+      "source_location": "L35"
+    },
+    {
+      "id": "usemodelmigrationnotifications_temp",
+      "label": "_temp()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx",
+      "source_location": "L38"
+    },
+    {
+      "id": "usemodelmigrationnotifications_recent",
+      "label": "recent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx",
+      "source_location": "L49"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usemodelmigrationnotifications_tsx",
+      "target": "notifications_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usemodelmigrationnotifications_tsx",
+      "target": "config_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usemodelmigrationnotifications_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usemodelmigrationnotifications_tsx",
+      "target": "usemodelmigrationnotifications_usemodelmigrationnotifications",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usemodelmigrationnotifications_tsx",
+      "target": "usemodelmigrationnotifications_temp",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usemodelmigrationnotifications_tsx",
+      "target": "usemodelmigrationnotifications_recent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx",
+      "source_location": "L49",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "usemodelmigrationnotifications_usemodelmigrationnotifications",
+      "callee": "useStartupNotification",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "usemodelmigrationnotifications_temp",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "usemodelmigrationnotifications_temp",
+      "callee": "migration",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "usemodelmigrationnotifications_temp",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "usemodelmigrationnotifications_recent",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useModelMigrationNotifications.tsx",
+      "source_location": "L50"
+    }
+  ]
+}

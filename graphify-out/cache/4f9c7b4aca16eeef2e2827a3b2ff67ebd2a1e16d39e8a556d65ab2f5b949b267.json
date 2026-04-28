@@ -1,1 +1,339 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts", "label": "truncate.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L1"}, {"id": "truncate_truncatepathmiddle", "label": "truncatePathMiddle()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L16"}, {"id": "truncate_truncatetowidth", "label": "truncateToWidth()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L63"}, {"id": "truncate_truncatestarttowidth", "label": "truncateStartToWidth()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L82"}, {"id": "truncate_truncatetowidthnoellipsis", "label": "truncateToWidthNoEllipsis()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L108"}, {"id": "truncate_truncate", "label": "truncate()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L134"}, {"id": "truncate_wraptext", "label": "wrapText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L160"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_stringwidth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_intl_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts", "target": "truncate_truncatepathmiddle", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts", "target": "truncate_truncatetowidth", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L63", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts", "target": "truncate_truncatestarttowidth", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L82", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts", "target": "truncate_truncatetowidthnoellipsis", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L108", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts", "target": "truncate_truncate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L134", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts", "target": "truncate_wraptext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L160", "weight": 1.0}, {"source": "truncate_truncatepathmiddle", "target": "truncate_truncatetowidth", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L29", "weight": 1.0}, {"source": "truncate_truncatepathmiddle", "target": "truncate_truncatestarttowidth", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L41", "weight": 1.0}, {"source": "truncate_truncatepathmiddle", "target": "truncate_truncatetowidthnoellipsis", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L54", "weight": 1.0}, {"source": "truncate_truncate", "target": "truncate_truncatetowidth", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L148", "weight": 1.0}], "raw_calls": [{"caller_nid": "truncate_truncatepathmiddle", "callee": "stringWidth", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L18"}, {"caller_nid": "truncate_truncatepathmiddle", "callee": "lastIndexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L33"}, {"caller_nid": "truncate_truncatepathmiddle", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L35"}, {"caller_nid": "truncate_truncatepathmiddle", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L36"}, {"caller_nid": "truncate_truncatepathmiddle", "callee": "stringWidth", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L37"}, {"caller_nid": "truncate_truncatetowidth", "callee": "stringWidth", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L64"}, {"caller_nid": "truncate_truncatetowidth", "callee": "segment", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L68"}, {"caller_nid": "truncate_truncatetowidth", "callee": "getGraphemeSegmenter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L68"}, {"caller_nid": "truncate_truncatetowidth", "callee": "stringWidth", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L69"}, {"caller_nid": "truncate_truncatestarttowidth", "callee": "stringWidth", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L83"}, {"caller_nid": "truncate_truncatestarttowidth", "callee": "segment", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L85"}, {"caller_nid": "truncate_truncatestarttowidth", "callee": "getGraphemeSegmenter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L85"}, {"caller_nid": "truncate_truncatestarttowidth", "callee": "stringWidth", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L89"}, {"caller_nid": "truncate_truncatestarttowidth", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L96"}, {"caller_nid": "truncate_truncatestarttowidth", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L96"}, {"caller_nid": "truncate_truncatestarttowidth", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L96"}, {"caller_nid": "truncate_truncatetowidthnoellipsis", "callee": "stringWidth", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L112"}, {"caller_nid": "truncate_truncatetowidthnoellipsis", "callee": "segment", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L116"}, {"caller_nid": "truncate_truncatetowidthnoellipsis", "callee": "getGraphemeSegmenter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L116"}, {"caller_nid": "truncate_truncatetowidthnoellipsis", "callee": "stringWidth", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L117"}, {"caller_nid": "truncate_truncate", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L143"}, {"caller_nid": "truncate_truncate", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L145"}, {"caller_nid": "truncate_truncate", "callee": "stringWidth", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L147"}, {"caller_nid": "truncate_truncate", "callee": "stringWidth", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L154"}, {"caller_nid": "truncate_wraptext", "callee": "segment", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L165"}, {"caller_nid": "truncate_wraptext", "callee": "getGraphemeSegmenter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L165"}, {"caller_nid": "truncate_wraptext", "callee": "stringWidth", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L166"}, {"caller_nid": "truncate_wraptext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L171"}, {"caller_nid": "truncate_wraptext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts", "source_location": "L177"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts",
+      "label": "truncate.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "truncate_truncatepathmiddle",
+      "label": "truncatePathMiddle()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "truncate_truncatetowidth",
+      "label": "truncateToWidth()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L63"
+    },
+    {
+      "id": "truncate_truncatestarttowidth",
+      "label": "truncateStartToWidth()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L82"
+    },
+    {
+      "id": "truncate_truncatetowidthnoellipsis",
+      "label": "truncateToWidthNoEllipsis()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L108"
+    },
+    {
+      "id": "truncate_truncate",
+      "label": "truncate()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L134"
+    },
+    {
+      "id": "truncate_wraptext",
+      "label": "wrapText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L160"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_stringwidth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_intl_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts",
+      "target": "truncate_truncatepathmiddle",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts",
+      "target": "truncate_truncatetowidth",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts",
+      "target": "truncate_truncatestarttowidth",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts",
+      "target": "truncate_truncatetowidthnoellipsis",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts",
+      "target": "truncate_truncate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_truncate_ts",
+      "target": "truncate_wraptext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "truncate_truncatepathmiddle",
+      "target": "truncate_truncatetowidth",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "truncate_truncatepathmiddle",
+      "target": "truncate_truncatestarttowidth",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "truncate_truncatepathmiddle",
+      "target": "truncate_truncatetowidthnoellipsis",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "truncate_truncate",
+      "target": "truncate_truncatetowidth",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L148",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "truncate_truncatepathmiddle",
+      "callee": "stringWidth",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "truncate_truncatepathmiddle",
+      "callee": "lastIndexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "truncate_truncatepathmiddle",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "truncate_truncatepathmiddle",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "truncate_truncatepathmiddle",
+      "callee": "stringWidth",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "truncate_truncatetowidth",
+      "callee": "stringWidth",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "truncate_truncatetowidth",
+      "callee": "segment",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "truncate_truncatetowidth",
+      "callee": "getGraphemeSegmenter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "truncate_truncatetowidth",
+      "callee": "stringWidth",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "truncate_truncatestarttowidth",
+      "callee": "stringWidth",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "truncate_truncatestarttowidth",
+      "callee": "segment",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "truncate_truncatestarttowidth",
+      "callee": "getGraphemeSegmenter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "truncate_truncatestarttowidth",
+      "callee": "stringWidth",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "truncate_truncatestarttowidth",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "truncate_truncatestarttowidth",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "truncate_truncatestarttowidth",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "truncate_truncatetowidthnoellipsis",
+      "callee": "stringWidth",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "truncate_truncatetowidthnoellipsis",
+      "callee": "segment",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "truncate_truncatetowidthnoellipsis",
+      "callee": "getGraphemeSegmenter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "truncate_truncatetowidthnoellipsis",
+      "callee": "stringWidth",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "truncate_truncate",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "truncate_truncate",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "truncate_truncate",
+      "callee": "stringWidth",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "truncate_truncate",
+      "callee": "stringWidth",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "truncate_wraptext",
+      "callee": "segment",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "truncate_wraptext",
+      "callee": "getGraphemeSegmenter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "truncate_wraptext",
+      "callee": "stringWidth",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L166"
+    },
+    {
+      "caller_nid": "truncate_wraptext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L171"
+    },
+    {
+      "caller_nid": "truncate_wraptext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\truncate.ts",
+      "source_location": "L177"
+    }
+  ]
+}

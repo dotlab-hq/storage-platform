@@ -1,1 +1,73 @@
-{"nodes": [{"id": "f_storage_platform_src_components_header_tsx", "label": "Header.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\Header.tsx", "source_location": "L1"}, {"id": "header_header", "label": "Header()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\Header.tsx", "source_location": "L8"}], "edges": [{"source": "f_storage_platform_src_components_header_tsx", "target": "react_router", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\Header.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_components_header_tsx", "target": "f_storage_platform_src_integrations_better_auth_header_user_tsx", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\Header.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_components_header_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\Header.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_components_header_tsx", "target": "lucide_react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\Header.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_components_header_tsx", "target": "header_header", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\Header.tsx", "source_location": "L8", "weight": 1.0}], "raw_calls": [{"caller_nid": "header_header", "callee": "useState", "source_file": "F:\\storage-platform\\src\\components\\Header.tsx", "source_location": "L9"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_components_header_tsx",
+      "label": "Header.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\Header.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "header_header",
+      "label": "Header()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\Header.tsx",
+      "source_location": "L8"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_components_header_tsx",
+      "target": "react_router",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\Header.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_header_tsx",
+      "target": "f_storage_platform_src_integrations_better_auth_header_user_tsx",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\Header.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_header_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\Header.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_header_tsx",
+      "target": "lucide_react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\Header.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_header_tsx",
+      "target": "header_header",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\Header.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "header_header",
+      "callee": "useState",
+      "source_file": "F:\\storage-platform\\src\\components\\Header.tsx",
+      "source_location": "L9"
+    }
+  ]
+}

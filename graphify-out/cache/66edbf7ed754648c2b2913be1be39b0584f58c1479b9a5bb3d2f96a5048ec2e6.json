@@ -1,1 +1,149 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts", "label": "getOauthProfile.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L1"}, {"id": "getoauthprofile_getoauthprofilefromapikey", "label": "getOauthProfileFromApiKey()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L7"}, {"id": "getoauthprofile_getoauthprofilefromoauthtoken", "label": "getOauthProfileFromOauthToken()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L37"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts", "target": "axios", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts", "target": "oauth_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts", "target": "types_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts", "target": "auth_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts", "target": "config_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts", "target": "log_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts", "target": "getoauthprofile_getoauthprofilefromapikey", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts", "target": "getoauthprofile_getoauthprofilefromoauthtoken", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L37", "weight": 1.0}], "raw_calls": [{"caller_nid": "getoauthprofile_getoauthprofilefromapikey", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L11"}, {"caller_nid": "getoauthprofile_getoauthprofilefromapikey", "callee": "getAnthropicApiKey", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L13"}, {"caller_nid": "getoauthprofile_getoauthprofilefromapikey", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L19"}, {"caller_nid": "getoauthprofile_getoauthprofilefromapikey", "callee": "await axios.get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L21"}, {"caller_nid": "getoauthprofile_getoauthprofilefromapikey", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L33"}, {"caller_nid": "getoauthprofile_getoauthprofilefromoauthtoken", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L40"}, {"caller_nid": "getoauthprofile_getoauthprofilefromoauthtoken", "callee": "await axios.get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L42"}, {"caller_nid": "getoauthprofile_getoauthprofilefromoauthtoken", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts", "source_location": "L51"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts",
+      "label": "getOauthProfile.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "getoauthprofile_getoauthprofilefromapikey",
+      "label": "getOauthProfileFromApiKey()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "getoauthprofile_getoauthprofilefromoauthtoken",
+      "label": "getOauthProfileFromOauthToken()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L37"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts",
+      "target": "oauth_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts",
+      "target": "types_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts",
+      "target": "auth_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts",
+      "target": "config_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts",
+      "target": "log_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts",
+      "target": "getoauthprofile_getoauthprofilefromapikey",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_oauth_getoauthprofile_ts",
+      "target": "getoauthprofile_getoauthprofilefromoauthtoken",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "getoauthprofile_getoauthprofilefromapikey",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L11"
+    },
+    {
+      "caller_nid": "getoauthprofile_getoauthprofilefromapikey",
+      "callee": "getAnthropicApiKey",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L13"
+    },
+    {
+      "caller_nid": "getoauthprofile_getoauthprofilefromapikey",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "getoauthprofile_getoauthprofilefromapikey",
+      "callee": "await axios.get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "getoauthprofile_getoauthprofilefromapikey",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "getoauthprofile_getoauthprofilefromoauthtoken",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "getoauthprofile_getoauthprofilefromoauthtoken",
+      "callee": "await axios.get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "getoauthprofile_getoauthprofilefromoauthtoken",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\getOauthProfile.ts",
+      "source_location": "L51"
+    }
+  ]
+}

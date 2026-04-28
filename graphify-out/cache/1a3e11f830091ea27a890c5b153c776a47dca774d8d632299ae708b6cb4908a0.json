@@ -1,1 +1,436 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_file_summary_jobs_ts", "label": "jobs.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L1"}, {"id": "jobs_getactivesummaryjob", "label": "getActiveSummaryJob()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L32"}, {"id": "jobs_createsummaryjob", "label": "createSummaryJob()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L52"}, {"id": "jobs_appendsummaryevent", "label": "appendSummaryEvent()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L95"}, {"id": "jobs_marksummaryjobprocessing", "label": "markSummaryJobProcessing()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L111"}, {"id": "jobs_marksummaryjobattempt", "label": "markSummaryJobAttempt()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L123"}, {"id": "jobs_marksummaryjobcompleted", "label": "markSummaryJobCompleted()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L137"}, {"id": "jobs_marksummaryjobfailed", "label": "markSummaryJobFailed()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L168"}], "edges": [{"source": "f_storage_platform_src_lib_file_summary_jobs_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_jobs_ts", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_jobs_ts", "target": "file_summary", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_jobs_ts", "target": "f_storage_platform_src_lib_file_summary_serialization", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_jobs_ts", "target": "f_storage_platform_src_lib_file_summary_types", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_jobs_ts", "target": "jobs_getactivesummaryjob", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_jobs_ts", "target": "jobs_createsummaryjob", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L52", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_jobs_ts", "target": "jobs_appendsummaryevent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L95", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_jobs_ts", "target": "jobs_marksummaryjobprocessing", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L111", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_jobs_ts", "target": "jobs_marksummaryjobattempt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L123", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_jobs_ts", "target": "jobs_marksummaryjobcompleted", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L137", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_jobs_ts", "target": "jobs_marksummaryjobfailed", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L168", "weight": 1.0}, {"source": "jobs_createsummaryjob", "target": "jobs_appendsummaryevent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L87", "weight": 1.0}, {"source": "jobs_marksummaryjobattempt", "target": "jobs_appendsummaryevent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L132", "weight": 1.0}, {"source": "jobs_marksummaryjobcompleted", "target": "jobs_appendsummaryevent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L157", "weight": 1.0}, {"source": "jobs_marksummaryjobfailed", "target": "jobs_appendsummaryevent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L184", "weight": 1.0}], "raw_calls": [{"caller_nid": "jobs_getactivesummaryjob", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L36"}, {"caller_nid": "jobs_getactivesummaryjob", "callee": "orderBy", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L36"}, {"caller_nid": "jobs_getactivesummaryjob", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L36"}, {"caller_nid": "jobs_getactivesummaryjob", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L36"}, {"caller_nid": "jobs_getactivesummaryjob", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L36"}, {"caller_nid": "jobs_getactivesummaryjob", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L40"}, {"caller_nid": "jobs_getactivesummaryjob", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L41"}, {"caller_nid": "jobs_getactivesummaryjob", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L42"}, {"caller_nid": "jobs_getactivesummaryjob", "callee": "inArray", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L43"}, {"caller_nid": "jobs_getactivesummaryjob", "callee": "desc", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L46"}, {"caller_nid": "jobs_getactivesummaryjob", "callee": "toSummaryJobSnapshot", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L49"}, {"caller_nid": "jobs_createsummaryjob", "callee": "randomUUID", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L60"}, {"caller_nid": "jobs_createsummaryjob", "callee": "returning", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L62"}, {"caller_nid": "jobs_createsummaryjob", "callee": "values", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L62"}, {"caller_nid": "jobs_createsummaryjob", "callee": "insert", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L62"}, {"caller_nid": "jobs_createsummaryjob", "callee": "stringifySummaryMetadata", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L73"}, {"caller_nid": "jobs_createsummaryjob", "callee": "toSummaryJobSnapshot", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L92"}, {"caller_nid": "jobs_appendsummaryevent", "callee": "values", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L101"}, {"caller_nid": "jobs_appendsummaryevent", "callee": "insert", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L101"}, {"caller_nid": "jobs_appendsummaryevent", "callee": "randomUUID", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L102"}, {"caller_nid": "jobs_appendsummaryevent", "callee": "stringify", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L106"}, {"caller_nid": "jobs_marksummaryjobprocessing", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L112"}, {"caller_nid": "jobs_marksummaryjobprocessing", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L112"}, {"caller_nid": "jobs_marksummaryjobprocessing", "callee": "update", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L112"}, {"caller_nid": "jobs_marksummaryjobprocessing", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L120"}, {"caller_nid": "jobs_marksummaryjobattempt", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L127"}, {"caller_nid": "jobs_marksummaryjobattempt", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L127"}, {"caller_nid": "jobs_marksummaryjobattempt", "callee": "update", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L127"}, {"caller_nid": "jobs_marksummaryjobattempt", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L130"}, {"caller_nid": "jobs_marksummaryjobcompleted", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L142"}, {"caller_nid": "jobs_marksummaryjobcompleted", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L142"}, {"caller_nid": "jobs_marksummaryjobcompleted", "callee": "update", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L142"}, {"caller_nid": "jobs_marksummaryjobcompleted", "callee": "stringifySummaryMetadata", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L150"}, {"caller_nid": "jobs_marksummaryjobcompleted", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L155"}, {"caller_nid": "jobs_marksummaryjobfailed", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L173"}, {"caller_nid": "jobs_marksummaryjobfailed", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L173"}, {"caller_nid": "jobs_marksummaryjobfailed", "callee": "update", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L173"}, {"caller_nid": "jobs_marksummaryjobfailed", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts", "source_location": "L182"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_file_summary_jobs_ts",
+      "label": "jobs.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "jobs_getactivesummaryjob",
+      "label": "getActiveSummaryJob()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "jobs_createsummaryjob",
+      "label": "createSummaryJob()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L52"
+    },
+    {
+      "id": "jobs_appendsummaryevent",
+      "label": "appendSummaryEvent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L95"
+    },
+    {
+      "id": "jobs_marksummaryjobprocessing",
+      "label": "markSummaryJobProcessing()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L111"
+    },
+    {
+      "id": "jobs_marksummaryjobattempt",
+      "label": "markSummaryJobAttempt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L123"
+    },
+    {
+      "id": "jobs_marksummaryjobcompleted",
+      "label": "markSummaryJobCompleted()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L137"
+    },
+    {
+      "id": "jobs_marksummaryjobfailed",
+      "label": "markSummaryJobFailed()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L168"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_file_summary_jobs_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_jobs_ts",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_jobs_ts",
+      "target": "file_summary",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_jobs_ts",
+      "target": "f_storage_platform_src_lib_file_summary_serialization",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_jobs_ts",
+      "target": "f_storage_platform_src_lib_file_summary_types",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_jobs_ts",
+      "target": "jobs_getactivesummaryjob",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_jobs_ts",
+      "target": "jobs_createsummaryjob",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_jobs_ts",
+      "target": "jobs_appendsummaryevent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_jobs_ts",
+      "target": "jobs_marksummaryjobprocessing",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_jobs_ts",
+      "target": "jobs_marksummaryjobattempt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_jobs_ts",
+      "target": "jobs_marksummaryjobcompleted",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_jobs_ts",
+      "target": "jobs_marksummaryjobfailed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "jobs_createsummaryjob",
+      "target": "jobs_appendsummaryevent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "jobs_marksummaryjobattempt",
+      "target": "jobs_appendsummaryevent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "jobs_marksummaryjobcompleted",
+      "target": "jobs_appendsummaryevent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L157",
+      "weight": 1.0
+    },
+    {
+      "source": "jobs_marksummaryjobfailed",
+      "target": "jobs_appendsummaryevent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L184",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "jobs_getactivesummaryjob",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "jobs_getactivesummaryjob",
+      "callee": "orderBy",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "jobs_getactivesummaryjob",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "jobs_getactivesummaryjob",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "jobs_getactivesummaryjob",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "jobs_getactivesummaryjob",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "jobs_getactivesummaryjob",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "jobs_getactivesummaryjob",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "jobs_getactivesummaryjob",
+      "callee": "inArray",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "jobs_getactivesummaryjob",
+      "callee": "desc",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "jobs_getactivesummaryjob",
+      "callee": "toSummaryJobSnapshot",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "jobs_createsummaryjob",
+      "callee": "randomUUID",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "jobs_createsummaryjob",
+      "callee": "returning",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "jobs_createsummaryjob",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "jobs_createsummaryjob",
+      "callee": "insert",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "jobs_createsummaryjob",
+      "callee": "stringifySummaryMetadata",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "jobs_createsummaryjob",
+      "callee": "toSummaryJobSnapshot",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "jobs_appendsummaryevent",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "jobs_appendsummaryevent",
+      "callee": "insert",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "jobs_appendsummaryevent",
+      "callee": "randomUUID",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "jobs_appendsummaryevent",
+      "callee": "stringify",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L106"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobprocessing",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobprocessing",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobprocessing",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobprocessing",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobattempt",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobattempt",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobattempt",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobattempt",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobcompleted",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobcompleted",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobcompleted",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobcompleted",
+      "callee": "stringifySummaryMetadata",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobcompleted",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L155"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobfailed",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobfailed",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobfailed",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "jobs_marksummaryjobfailed",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\jobs.ts",
+      "source_location": "L182"
+    }
+  ]
+}

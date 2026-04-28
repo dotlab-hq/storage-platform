@@ -1,1 +1,1400 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "label": "operators.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L1"}, {"id": "operators_executeoperatormotion", "label": "executeOperatorMotion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L42"}, {"id": "operators_executeoperatorfind", "label": "executeOperatorFind()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L59"}, {"id": "operators_executeoperatortextobj", "label": "executeOperatorTextObj()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L80"}, {"id": "operators_executelineop", "label": "executeLineOp()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L102"}, {"id": "operators_executex", "label": "executeX()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L171"}, {"id": "operators_executereplace", "label": "executeReplace()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L199"}, {"id": "operators_executetogglecase", "label": "executeToggleCase()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L222"}, {"id": "operators_executejoin", "label": "executeJoin()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L258"}, {"id": "operators_executepaste", "label": "executePaste()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L294"}, {"id": "operators_executeindent", "label": "executeIndent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L348"}, {"id": "operators_executeopenline", "label": "executeOpenLine()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L397"}, {"id": "operators_getlinestartoffset", "label": "getLineStartOffset()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L425"}, {"id": "operators_getoperatorrange", "label": "getOperatorRange()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L429"}, {"id": "operators_getoperatorrangeforfind", "label": "getOperatorRangeForFind()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L482"}, {"id": "operators_applyoperator", "label": "applyOperator()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L493"}, {"id": "operators_executeoperatorg", "label": "executeOperatorG()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L524"}, {"id": "operators_executeoperatorgg", "label": "executeOperatorGg()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L541"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cursor_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_intl_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "f_storage_platform_claude_code_source_main_src_vim_motions_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "f_storage_platform_claude_code_source_main_src_vim_textobjects_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "f_storage_platform_claude_code_source_main_src_vim_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_executeoperatormotion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_executeoperatorfind", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L59", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_executeoperatortextobj", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L80", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_executelineop", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L102", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_executex", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L171", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_executereplace", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L199", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_executetogglecase", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L222", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_executejoin", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L258", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_executepaste", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L294", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_executeindent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L348", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_executeopenline", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L397", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_getlinestartoffset", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L425", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_getoperatorrange", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L429", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_getoperatorrangeforfind", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L482", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_applyoperator", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L493", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_executeoperatorg", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L524", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts", "target": "operators_executeoperatorgg", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L541", "weight": 1.0}, {"source": "operators_executeoperatormotion", "target": "operators_getoperatorrange", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L51", "weight": 1.0}, {"source": "operators_executeoperatormotion", "target": "operators_applyoperator", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L52", "weight": 1.0}, {"source": "operators_executeoperatorfind", "target": "operators_getoperatorrangeforfind", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L70", "weight": 1.0}, {"source": "operators_executeoperatorfind", "target": "operators_applyoperator", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L72", "weight": 1.0}, {"source": "operators_executeoperatortextobj", "target": "operators_applyoperator", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L95", "weight": 1.0}, {"source": "operators_executejoin", "target": "operators_getlinestartoffset", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L287", "weight": 1.0}, {"source": "operators_executepaste", "target": "operators_getlinestartoffset", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L325", "weight": 1.0}, {"source": "operators_executeindent", "target": "operators_getlinestartoffset", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L390", "weight": 1.0}, {"source": "operators_executeopenline", "target": "operators_getlinestartoffset", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L414", "weight": 1.0}, {"source": "operators_executeoperatorg", "target": "operators_getoperatorrange", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L536", "weight": 1.0}, {"source": "operators_executeoperatorg", "target": "operators_applyoperator", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L537", "weight": 1.0}, {"source": "operators_executeoperatorgg", "target": "operators_getoperatorrange", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L553", "weight": 1.0}, {"source": "operators_executeoperatorgg", "target": "operators_applyoperator", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L554", "weight": 1.0}], "raw_calls": [{"caller_nid": "operators_executeoperatormotion", "callee": "resolveMotion", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L48"}, {"caller_nid": "operators_executeoperatormotion", "callee": "equals", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L49"}, {"caller_nid": "operators_executeoperatormotion", "callee": "recordChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L53"}, {"caller_nid": "operators_executeoperatorfind", "callee": "findCharacter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L66"}, {"caller_nid": "operators_executeoperatorfind", "callee": "setLastFind", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L73"}, {"caller_nid": "operators_executeoperatorfind", "callee": "recordChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L74"}, {"caller_nid": "operators_executeoperatortextobj", "callee": "findTextObject", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L87"}, {"caller_nid": "operators_executeoperatortextobj", "callee": "recordChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L96"}, {"caller_nid": "operators_executelineop", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L108"}, {"caller_nid": "operators_executelineop", "callee": "countCharInString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L111"}, {"caller_nid": "operators_executelineop", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L111"}, {"caller_nid": "operators_executelineop", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L112"}, {"caller_nid": "operators_executelineop", "callee": "startOfLogicalLine", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L113"}, {"caller_nid": "operators_executelineop", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L116"}, {"caller_nid": "operators_executelineop", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L120"}, {"caller_nid": "operators_executelineop", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L122"}, {"caller_nid": "operators_executelineop", "callee": "setRegister", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L125"}, {"caller_nid": "operators_executelineop", "callee": "setOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L128"}, {"caller_nid": "operators_executelineop", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L143"}, {"caller_nid": "operators_executelineop", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L143"}, {"caller_nid": "operators_executelineop", "callee": "setText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L144"}, {"caller_nid": "operators_executelineop", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L145"}, {"caller_nid": "operators_executelineop", "callee": "lastGrapheme", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L147"}, {"caller_nid": "operators_executelineop", "callee": "setOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L149"}, {"caller_nid": "operators_executelineop", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L149"}, {"caller_nid": "operators_executelineop", "callee": "setText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L153"}, {"caller_nid": "operators_executelineop", "callee": "enterInsert", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L154"}, {"caller_nid": "operators_executelineop", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L157"}, {"caller_nid": "operators_executelineop", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L158"}, {"caller_nid": "operators_executelineop", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L159"}, {"caller_nid": "operators_executelineop", "callee": "setText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L160"}, {"caller_nid": "operators_executelineop", "callee": "enterInsert", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L161"}, {"caller_nid": "operators_executelineop", "callee": "recordChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L165"}, {"caller_nid": "operators_executex", "callee": "isAtEnd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L178"}, {"caller_nid": "operators_executex", "callee": "right", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L179"}, {"caller_nid": "operators_executex", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L183"}, {"caller_nid": "operators_executex", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L184"}, {"caller_nid": "operators_executex", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L184"}, {"caller_nid": "operators_executex", "callee": "setRegister", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L186"}, {"caller_nid": "operators_executex", "callee": "setText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L187"}, {"caller_nid": "operators_executex", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L188"}, {"caller_nid": "operators_executex", "callee": "lastGrapheme", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L190"}, {"caller_nid": "operators_executex", "callee": "setOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L192"}, {"caller_nid": "operators_executex", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L192"}, {"caller_nid": "operators_executex", "callee": "recordChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L193"}, {"caller_nid": "operators_executereplace", "callee": "firstGrapheme", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L208"}, {"caller_nid": "operators_executereplace", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L208"}, {"caller_nid": "operators_executereplace", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L210"}, {"caller_nid": "operators_executereplace", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L210"}, {"caller_nid": "operators_executereplace", "callee": "setText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L214"}, {"caller_nid": "operators_executereplace", "callee": "setOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L215"}, {"caller_nid": "operators_executereplace", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L215"}, {"caller_nid": "operators_executereplace", "callee": "recordChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L216"}, {"caller_nid": "operators_executetogglecase", "callee": "firstGrapheme", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L232"}, {"caller_nid": "operators_executetogglecase", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L232"}, {"caller_nid": "operators_executetogglecase", "callee": "toUpperCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L236"}, {"caller_nid": "operators_executetogglecase", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L237"}, {"caller_nid": "operators_executetogglecase", "callee": "toUpperCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L238"}, {"caller_nid": "operators_executetogglecase", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L241"}, {"caller_nid": "operators_executetogglecase", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L243"}, {"caller_nid": "operators_executetogglecase", "callee": "setText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L248"}, {"caller_nid": "operators_executetogglecase", "callee": "setOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L251"}, {"caller_nid": "operators_executetogglecase", "callee": "recordChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L252"}, {"caller_nid": "operators_executejoin", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L260"}, {"caller_nid": "operators_executejoin", "callee": "getPosition", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L261"}, {"caller_nid": "operators_executejoin", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L265"}, {"caller_nid": "operators_executejoin", "callee": "trimStart", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L270"}, {"caller_nid": "operators_executejoin", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L272"}, {"caller_nid": "operators_executejoin", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L280"}, {"caller_nid": "operators_executejoin", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L282"}, {"caller_nid": "operators_executejoin", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L285"}, {"caller_nid": "operators_executejoin", "callee": "setText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L286"}, {"caller_nid": "operators_executejoin", "callee": "setOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L287"}, {"caller_nid": "operators_executejoin", "callee": "recordChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L288"}, {"caller_nid": "operators_executepaste", "callee": "getRegister", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L299"}, {"caller_nid": "operators_executepaste", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L302"}, {"caller_nid": "operators_executepaste", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L303"}, {"caller_nid": "operators_executepaste", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L307"}, {"caller_nid": "operators_executepaste", "callee": "getPosition", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L308"}, {"caller_nid": "operators_executepaste", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L311"}, {"caller_nid": "operators_executepaste", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L314"}, {"caller_nid": "operators_executepaste", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L318"}, {"caller_nid": "operators_executepaste", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L320"}, {"caller_nid": "operators_executepaste", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L323"}, {"caller_nid": "operators_executepaste", "callee": "setText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L324"}, {"caller_nid": "operators_executepaste", "callee": "setOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L325"}, {"caller_nid": "operators_executepaste", "callee": "repeat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L327"}, {"caller_nid": "operators_executepaste", "callee": "nextOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L330"}, {"caller_nid": "operators_executepaste", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L334"}, {"caller_nid": "operators_executepaste", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L336"}, {"caller_nid": "operators_executepaste", "callee": "lastGrapheme", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L337"}, {"caller_nid": "operators_executepaste", "callee": "setText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L340"}, {"caller_nid": "operators_executepaste", "callee": "setOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L341"}, {"caller_nid": "operators_executepaste", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L341"}, {"caller_nid": "operators_executeindent", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L354"}, {"caller_nid": "operators_executeindent", "callee": "getPosition", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L355"}, {"caller_nid": "operators_executeindent", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L356"}, {"caller_nid": "operators_executeindent", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L365"}, {"caller_nid": "operators_executeindent", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L366"}, {"caller_nid": "operators_executeindent", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L367"}, {"caller_nid": "operators_executeindent", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L368"}, {"caller_nid": "operators_executeindent", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L376"}, {"caller_nid": "operators_executeindent", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L381"}, {"caller_nid": "operators_executeindent", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L385"}, {"caller_nid": "operators_executeindent", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L387"}, {"caller_nid": "operators_executeindent", "callee": "setText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L389"}, {"caller_nid": "operators_executeindent", "callee": "setOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L390"}, {"caller_nid": "operators_executeindent", "callee": "recordChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L391"}, {"caller_nid": "operators_executeopenline", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L402"}, {"caller_nid": "operators_executeopenline", "callee": "getPosition", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L403"}, {"caller_nid": "operators_executeopenline", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L407"}, {"caller_nid": "operators_executeopenline", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L409"}, {"caller_nid": "operators_executeopenline", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L412"}, {"caller_nid": "operators_executeopenline", "callee": "setText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L413"}, {"caller_nid": "operators_executeopenline", "callee": "enterInsert", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L414"}, {"caller_nid": "operators_executeopenline", "callee": "recordChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L415"}, {"caller_nid": "operators_getlinestartoffset", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L426"}, {"caller_nid": "operators_getlinestartoffset", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L426"}, {"caller_nid": "operators_getoperatorrange", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L436"}, {"caller_nid": "operators_getoperatorrange", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L437"}, {"caller_nid": "operators_getoperatorrange", "callee": "nextVimWord", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L446"}, {"caller_nid": "operators_getoperatorrange", "callee": "nextWORD", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L446"}, {"caller_nid": "operators_getoperatorrange", "callee": "endOfVimWord", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L449"}, {"caller_nid": "operators_getoperatorrange", "callee": "endOfWORD", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L449"}, {"caller_nid": "operators_getoperatorrange", "callee": "nextOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L450"}, {"caller_nid": "operators_getoperatorrange", "callee": "isLinewiseMotion", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L451"}, {"caller_nid": "operators_getoperatorrange", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L455"}, {"caller_nid": "operators_getoperatorrange", "callee": "isInclusiveMotion", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L465"}, {"caller_nid": "operators_getoperatorrange", "callee": "nextOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L466"}, {"caller_nid": "operators_getoperatorrange", "callee": "snapOutOfImageRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L471"}, {"caller_nid": "operators_getoperatorrange", "callee": "snapOutOfImageRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L472"}, {"caller_nid": "operators_getoperatorrangeforfind", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L487"}, {"caller_nid": "operators_getoperatorrangeforfind", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L488"}, {"caller_nid": "operators_getoperatorrangeforfind", "callee": "nextOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L489"}, {"caller_nid": "operators_applyoperator", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L500"}, {"caller_nid": "operators_applyoperator", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L502"}, {"caller_nid": "operators_applyoperator", "callee": "setRegister", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L505"}, {"caller_nid": "operators_applyoperator", "callee": "setOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L508"}, {"caller_nid": "operators_applyoperator", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L510"}, {"caller_nid": "operators_applyoperator", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L510"}, {"caller_nid": "operators_applyoperator", "callee": "setText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L511"}, {"caller_nid": "operators_applyoperator", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L512"}, {"caller_nid": "operators_applyoperator", "callee": "lastGrapheme", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L514"}, {"caller_nid": "operators_applyoperator", "callee": "setOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L516"}, {"caller_nid": "operators_applyoperator", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L516"}, {"caller_nid": "operators_applyoperator", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L518"}, {"caller_nid": "operators_applyoperator", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L518"}, {"caller_nid": "operators_applyoperator", "callee": "setText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L519"}, {"caller_nid": "operators_applyoperator", "callee": "enterInsert", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L520"}, {"caller_nid": "operators_executeoperatorg", "callee": "startOfLastLine", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L532"}, {"caller_nid": "operators_executeoperatorg", "callee": "goToLine", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L532"}, {"caller_nid": "operators_executeoperatorg", "callee": "equals", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L534"}, {"caller_nid": "operators_executeoperatorg", "callee": "recordChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L538"}, {"caller_nid": "operators_executeoperatorgg", "callee": "startOfFirstLine", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L549"}, {"caller_nid": "operators_executeoperatorgg", "callee": "goToLine", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L549"}, {"caller_nid": "operators_executeoperatorgg", "callee": "equals", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L551"}, {"caller_nid": "operators_executeoperatorgg", "callee": "recordChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts", "source_location": "L555"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "label": "operators.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "operators_executeoperatormotion",
+      "label": "executeOperatorMotion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L42"
+    },
+    {
+      "id": "operators_executeoperatorfind",
+      "label": "executeOperatorFind()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L59"
+    },
+    {
+      "id": "operators_executeoperatortextobj",
+      "label": "executeOperatorTextObj()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L80"
+    },
+    {
+      "id": "operators_executelineop",
+      "label": "executeLineOp()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L102"
+    },
+    {
+      "id": "operators_executex",
+      "label": "executeX()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L171"
+    },
+    {
+      "id": "operators_executereplace",
+      "label": "executeReplace()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L199"
+    },
+    {
+      "id": "operators_executetogglecase",
+      "label": "executeToggleCase()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L222"
+    },
+    {
+      "id": "operators_executejoin",
+      "label": "executeJoin()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L258"
+    },
+    {
+      "id": "operators_executepaste",
+      "label": "executePaste()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L294"
+    },
+    {
+      "id": "operators_executeindent",
+      "label": "executeIndent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L348"
+    },
+    {
+      "id": "operators_executeopenline",
+      "label": "executeOpenLine()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L397"
+    },
+    {
+      "id": "operators_getlinestartoffset",
+      "label": "getLineStartOffset()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L425"
+    },
+    {
+      "id": "operators_getoperatorrange",
+      "label": "getOperatorRange()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L429"
+    },
+    {
+      "id": "operators_getoperatorrangeforfind",
+      "label": "getOperatorRangeForFind()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L482"
+    },
+    {
+      "id": "operators_applyoperator",
+      "label": "applyOperator()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L493"
+    },
+    {
+      "id": "operators_executeoperatorg",
+      "label": "executeOperatorG()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L524"
+    },
+    {
+      "id": "operators_executeoperatorgg",
+      "label": "executeOperatorGg()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L541"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cursor_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_intl_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_vim_motions_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_vim_textobjects_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_vim_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_executeoperatormotion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_executeoperatorfind",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_executeoperatortextobj",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_executelineop",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_executex",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_executereplace",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L199",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_executetogglecase",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L222",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_executejoin",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L258",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_executepaste",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L294",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_executeindent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L348",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_executeopenline",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L397",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_getlinestartoffset",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L425",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_getoperatorrange",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L429",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_getoperatorrangeforfind",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L482",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_applyoperator",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L493",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_executeoperatorg",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L524",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_operators_ts",
+      "target": "operators_executeoperatorgg",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L541",
+      "weight": 1.0
+    },
+    {
+      "source": "operators_executeoperatormotion",
+      "target": "operators_getoperatorrange",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "operators_executeoperatormotion",
+      "target": "operators_applyoperator",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "operators_executeoperatorfind",
+      "target": "operators_getoperatorrangeforfind",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "operators_executeoperatorfind",
+      "target": "operators_applyoperator",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "operators_executeoperatortextobj",
+      "target": "operators_applyoperator",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "operators_executejoin",
+      "target": "operators_getlinestartoffset",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L287",
+      "weight": 1.0
+    },
+    {
+      "source": "operators_executepaste",
+      "target": "operators_getlinestartoffset",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L325",
+      "weight": 1.0
+    },
+    {
+      "source": "operators_executeindent",
+      "target": "operators_getlinestartoffset",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L390",
+      "weight": 1.0
+    },
+    {
+      "source": "operators_executeopenline",
+      "target": "operators_getlinestartoffset",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L414",
+      "weight": 1.0
+    },
+    {
+      "source": "operators_executeoperatorg",
+      "target": "operators_getoperatorrange",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L536",
+      "weight": 1.0
+    },
+    {
+      "source": "operators_executeoperatorg",
+      "target": "operators_applyoperator",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L537",
+      "weight": 1.0
+    },
+    {
+      "source": "operators_executeoperatorgg",
+      "target": "operators_getoperatorrange",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L553",
+      "weight": 1.0
+    },
+    {
+      "source": "operators_executeoperatorgg",
+      "target": "operators_applyoperator",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L554",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "operators_executeoperatormotion",
+      "callee": "resolveMotion",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "operators_executeoperatormotion",
+      "callee": "equals",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "operators_executeoperatormotion",
+      "callee": "recordChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "operators_executeoperatorfind",
+      "callee": "findCharacter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "operators_executeoperatorfind",
+      "callee": "setLastFind",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "operators_executeoperatorfind",
+      "callee": "recordChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "operators_executeoperatortextobj",
+      "callee": "findTextObject",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "operators_executeoperatortextobj",
+      "callee": "recordChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L108"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "countCharInString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "startOfLogicalLine",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "setRegister",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "setOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "setText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "lastGrapheme",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "setOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "setText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L153"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "enterInsert",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L157"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "setText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L160"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "enterInsert",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "operators_executelineop",
+      "callee": "recordChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "operators_executex",
+      "callee": "isAtEnd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "operators_executex",
+      "callee": "right",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "operators_executex",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L183"
+    },
+    {
+      "caller_nid": "operators_executex",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L184"
+    },
+    {
+      "caller_nid": "operators_executex",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L184"
+    },
+    {
+      "caller_nid": "operators_executex",
+      "callee": "setRegister",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L186"
+    },
+    {
+      "caller_nid": "operators_executex",
+      "callee": "setText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L187"
+    },
+    {
+      "caller_nid": "operators_executex",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L188"
+    },
+    {
+      "caller_nid": "operators_executex",
+      "callee": "lastGrapheme",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L190"
+    },
+    {
+      "caller_nid": "operators_executex",
+      "callee": "setOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "operators_executex",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "operators_executex",
+      "callee": "recordChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L193"
+    },
+    {
+      "caller_nid": "operators_executereplace",
+      "callee": "firstGrapheme",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L208"
+    },
+    {
+      "caller_nid": "operators_executereplace",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L208"
+    },
+    {
+      "caller_nid": "operators_executereplace",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L210"
+    },
+    {
+      "caller_nid": "operators_executereplace",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L210"
+    },
+    {
+      "caller_nid": "operators_executereplace",
+      "callee": "setText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L214"
+    },
+    {
+      "caller_nid": "operators_executereplace",
+      "callee": "setOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L215"
+    },
+    {
+      "caller_nid": "operators_executereplace",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L215"
+    },
+    {
+      "caller_nid": "operators_executereplace",
+      "callee": "recordChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L216"
+    },
+    {
+      "caller_nid": "operators_executetogglecase",
+      "callee": "firstGrapheme",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L232"
+    },
+    {
+      "caller_nid": "operators_executetogglecase",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L232"
+    },
+    {
+      "caller_nid": "operators_executetogglecase",
+      "callee": "toUpperCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L236"
+    },
+    {
+      "caller_nid": "operators_executetogglecase",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L237"
+    },
+    {
+      "caller_nid": "operators_executetogglecase",
+      "callee": "toUpperCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L238"
+    },
+    {
+      "caller_nid": "operators_executetogglecase",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L241"
+    },
+    {
+      "caller_nid": "operators_executetogglecase",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L243"
+    },
+    {
+      "caller_nid": "operators_executetogglecase",
+      "callee": "setText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L248"
+    },
+    {
+      "caller_nid": "operators_executetogglecase",
+      "callee": "setOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L251"
+    },
+    {
+      "caller_nid": "operators_executetogglecase",
+      "callee": "recordChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L252"
+    },
+    {
+      "caller_nid": "operators_executejoin",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L260"
+    },
+    {
+      "caller_nid": "operators_executejoin",
+      "callee": "getPosition",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L261"
+    },
+    {
+      "caller_nid": "operators_executejoin",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L265"
+    },
+    {
+      "caller_nid": "operators_executejoin",
+      "callee": "trimStart",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L270"
+    },
+    {
+      "caller_nid": "operators_executejoin",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L272"
+    },
+    {
+      "caller_nid": "operators_executejoin",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L280"
+    },
+    {
+      "caller_nid": "operators_executejoin",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L282"
+    },
+    {
+      "caller_nid": "operators_executejoin",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L285"
+    },
+    {
+      "caller_nid": "operators_executejoin",
+      "callee": "setText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L286"
+    },
+    {
+      "caller_nid": "operators_executejoin",
+      "callee": "setOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L287"
+    },
+    {
+      "caller_nid": "operators_executejoin",
+      "callee": "recordChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "getRegister",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L299"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L302"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L303"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L307"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "getPosition",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L308"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L311"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L314"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L318"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L320"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L323"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "setText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L324"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "setOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L325"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "repeat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L327"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "nextOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L330"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L334"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L336"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "lastGrapheme",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L337"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "setText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L340"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "setOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L341"
+    },
+    {
+      "caller_nid": "operators_executepaste",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L341"
+    },
+    {
+      "caller_nid": "operators_executeindent",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L354"
+    },
+    {
+      "caller_nid": "operators_executeindent",
+      "callee": "getPosition",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L355"
+    },
+    {
+      "caller_nid": "operators_executeindent",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L356"
+    },
+    {
+      "caller_nid": "operators_executeindent",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L365"
+    },
+    {
+      "caller_nid": "operators_executeindent",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L366"
+    },
+    {
+      "caller_nid": "operators_executeindent",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L367"
+    },
+    {
+      "caller_nid": "operators_executeindent",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L368"
+    },
+    {
+      "caller_nid": "operators_executeindent",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L376"
+    },
+    {
+      "caller_nid": "operators_executeindent",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L381"
+    },
+    {
+      "caller_nid": "operators_executeindent",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L385"
+    },
+    {
+      "caller_nid": "operators_executeindent",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L387"
+    },
+    {
+      "caller_nid": "operators_executeindent",
+      "callee": "setText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L389"
+    },
+    {
+      "caller_nid": "operators_executeindent",
+      "callee": "setOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L390"
+    },
+    {
+      "caller_nid": "operators_executeindent",
+      "callee": "recordChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L391"
+    },
+    {
+      "caller_nid": "operators_executeopenline",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L402"
+    },
+    {
+      "caller_nid": "operators_executeopenline",
+      "callee": "getPosition",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L403"
+    },
+    {
+      "caller_nid": "operators_executeopenline",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L407"
+    },
+    {
+      "caller_nid": "operators_executeopenline",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L409"
+    },
+    {
+      "caller_nid": "operators_executeopenline",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L412"
+    },
+    {
+      "caller_nid": "operators_executeopenline",
+      "callee": "setText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L413"
+    },
+    {
+      "caller_nid": "operators_executeopenline",
+      "callee": "enterInsert",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L414"
+    },
+    {
+      "caller_nid": "operators_executeopenline",
+      "callee": "recordChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L415"
+    },
+    {
+      "caller_nid": "operators_getlinestartoffset",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L426"
+    },
+    {
+      "caller_nid": "operators_getlinestartoffset",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L426"
+    },
+    {
+      "caller_nid": "operators_getoperatorrange",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L436"
+    },
+    {
+      "caller_nid": "operators_getoperatorrange",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L437"
+    },
+    {
+      "caller_nid": "operators_getoperatorrange",
+      "callee": "nextVimWord",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L446"
+    },
+    {
+      "caller_nid": "operators_getoperatorrange",
+      "callee": "nextWORD",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L446"
+    },
+    {
+      "caller_nid": "operators_getoperatorrange",
+      "callee": "endOfVimWord",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L449"
+    },
+    {
+      "caller_nid": "operators_getoperatorrange",
+      "callee": "endOfWORD",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L449"
+    },
+    {
+      "caller_nid": "operators_getoperatorrange",
+      "callee": "nextOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L450"
+    },
+    {
+      "caller_nid": "operators_getoperatorrange",
+      "callee": "isLinewiseMotion",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L451"
+    },
+    {
+      "caller_nid": "operators_getoperatorrange",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L455"
+    },
+    {
+      "caller_nid": "operators_getoperatorrange",
+      "callee": "isInclusiveMotion",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L465"
+    },
+    {
+      "caller_nid": "operators_getoperatorrange",
+      "callee": "nextOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L466"
+    },
+    {
+      "caller_nid": "operators_getoperatorrange",
+      "callee": "snapOutOfImageRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L471"
+    },
+    {
+      "caller_nid": "operators_getoperatorrange",
+      "callee": "snapOutOfImageRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L472"
+    },
+    {
+      "caller_nid": "operators_getoperatorrangeforfind",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L487"
+    },
+    {
+      "caller_nid": "operators_getoperatorrangeforfind",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L488"
+    },
+    {
+      "caller_nid": "operators_getoperatorrangeforfind",
+      "callee": "nextOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L489"
+    },
+    {
+      "caller_nid": "operators_applyoperator",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L500"
+    },
+    {
+      "caller_nid": "operators_applyoperator",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L502"
+    },
+    {
+      "caller_nid": "operators_applyoperator",
+      "callee": "setRegister",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L505"
+    },
+    {
+      "caller_nid": "operators_applyoperator",
+      "callee": "setOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L508"
+    },
+    {
+      "caller_nid": "operators_applyoperator",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L510"
+    },
+    {
+      "caller_nid": "operators_applyoperator",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L510"
+    },
+    {
+      "caller_nid": "operators_applyoperator",
+      "callee": "setText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L511"
+    },
+    {
+      "caller_nid": "operators_applyoperator",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L512"
+    },
+    {
+      "caller_nid": "operators_applyoperator",
+      "callee": "lastGrapheme",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L514"
+    },
+    {
+      "caller_nid": "operators_applyoperator",
+      "callee": "setOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L516"
+    },
+    {
+      "caller_nid": "operators_applyoperator",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L516"
+    },
+    {
+      "caller_nid": "operators_applyoperator",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L518"
+    },
+    {
+      "caller_nid": "operators_applyoperator",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L518"
+    },
+    {
+      "caller_nid": "operators_applyoperator",
+      "callee": "setText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L519"
+    },
+    {
+      "caller_nid": "operators_applyoperator",
+      "callee": "enterInsert",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L520"
+    },
+    {
+      "caller_nid": "operators_executeoperatorg",
+      "callee": "startOfLastLine",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L532"
+    },
+    {
+      "caller_nid": "operators_executeoperatorg",
+      "callee": "goToLine",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L532"
+    },
+    {
+      "caller_nid": "operators_executeoperatorg",
+      "callee": "equals",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L534"
+    },
+    {
+      "caller_nid": "operators_executeoperatorg",
+      "callee": "recordChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L538"
+    },
+    {
+      "caller_nid": "operators_executeoperatorgg",
+      "callee": "startOfFirstLine",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L549"
+    },
+    {
+      "caller_nid": "operators_executeoperatorgg",
+      "callee": "goToLine",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L549"
+    },
+    {
+      "caller_nid": "operators_executeoperatorgg",
+      "callee": "equals",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L551"
+    },
+    {
+      "caller_nid": "operators_executeoperatorgg",
+      "callee": "recordChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\operators.ts",
+      "source_location": "L555"
+    }
+  ]
+}

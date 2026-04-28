@@ -1,1 +1,107 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usenpmdeprecationnotification_tsx", "label": "useNpmDeprecationNotification.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx", "source_location": "L1"}, {"id": "usenpmdeprecationnotification_usenpmdeprecationnotification", "label": "useNpmDeprecationNotification()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx", "source_location": "L6"}, {"id": "usenpmdeprecationnotification_temp", "label": "_temp()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx", "source_location": "L9"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usenpmdeprecationnotification_tsx", "target": "bundledmode_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usenpmdeprecationnotification_tsx", "target": "doctordiagnostic_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usenpmdeprecationnotification_tsx", "target": "envutils_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usenpmdeprecationnotification_tsx", "target": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usenpmdeprecationnotification_tsx", "target": "usenpmdeprecationnotification_usenpmdeprecationnotification", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usenpmdeprecationnotification_tsx", "target": "usenpmdeprecationnotification_temp", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx", "source_location": "L9", "weight": 1.0}], "raw_calls": [{"caller_nid": "usenpmdeprecationnotification_usenpmdeprecationnotification", "callee": "useStartupNotification", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx", "source_location": "L7"}, {"caller_nid": "usenpmdeprecationnotification_temp", "callee": "isInBundledMode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx", "source_location": "L10"}, {"caller_nid": "usenpmdeprecationnotification_temp", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx", "source_location": "L10"}, {"caller_nid": "usenpmdeprecationnotification_temp", "callee": "getCurrentInstallationType", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx", "source_location": "L13"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usenpmdeprecationnotification_tsx",
+      "label": "useNpmDeprecationNotification.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "usenpmdeprecationnotification_usenpmdeprecationnotification",
+      "label": "useNpmDeprecationNotification()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx",
+      "source_location": "L6"
+    },
+    {
+      "id": "usenpmdeprecationnotification_temp",
+      "label": "_temp()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx",
+      "source_location": "L9"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usenpmdeprecationnotification_tsx",
+      "target": "bundledmode_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usenpmdeprecationnotification_tsx",
+      "target": "doctordiagnostic_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usenpmdeprecationnotification_tsx",
+      "target": "envutils_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usenpmdeprecationnotification_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usenpmdeprecationnotification_tsx",
+      "target": "usenpmdeprecationnotification_usenpmdeprecationnotification",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usenpmdeprecationnotification_tsx",
+      "target": "usenpmdeprecationnotification_temp",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "usenpmdeprecationnotification_usenpmdeprecationnotification",
+      "callee": "useStartupNotification",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx",
+      "source_location": "L7"
+    },
+    {
+      "caller_nid": "usenpmdeprecationnotification_temp",
+      "callee": "isInBundledMode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx",
+      "source_location": "L10"
+    },
+    {
+      "caller_nid": "usenpmdeprecationnotification_temp",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx",
+      "source_location": "L10"
+    },
+    {
+      "caller_nid": "usenpmdeprecationnotification_temp",
+      "callee": "getCurrentInstallationType",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\notifs\\useNpmDeprecationNotification.tsx",
+      "source_location": "L13"
+    }
+  ]
+}

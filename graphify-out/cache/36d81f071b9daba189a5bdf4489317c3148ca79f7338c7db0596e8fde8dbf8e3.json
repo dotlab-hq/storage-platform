@@ -1,1 +1,116 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts", "label": "batch.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts", "source_location": "L1"}, {"id": "batch_buildprompt", "label": "buildPrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts", "source_location": "L19"}, {"id": "batch_registerbatchskill", "label": "registerBatchSkill()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts", "source_location": "L100"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_askuserquestiontool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_enterplanmodetool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_exitplanmodetool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_skilltool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts", "target": "f_storage_platform_claude_code_source_main_src_skills_bundledskills_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts", "target": "batch_buildprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts", "target": "batch_registerbatchskill", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts", "source_location": "L100", "weight": 1.0}], "raw_calls": [{"caller_nid": "batch_registerbatchskill", "callee": "registerBundledSkill", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts", "source_location": "L101"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts",
+      "label": "batch.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "batch_buildprompt",
+      "label": "buildPrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts",
+      "source_location": "L19"
+    },
+    {
+      "id": "batch_registerbatchskill",
+      "label": "registerBatchSkill()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts",
+      "source_location": "L100"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_askuserquestiontool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_enterplanmodetool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_exitplanmodetool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_skilltool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_skills_bundledskills_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts",
+      "target": "batch_buildprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_batch_ts",
+      "target": "batch_registerbatchskill",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts",
+      "source_location": "L100",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "batch_registerbatchskill",
+      "callee": "registerBundledSkill",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\batch.ts",
+      "source_location": "L101"
+    }
+  ]
+}

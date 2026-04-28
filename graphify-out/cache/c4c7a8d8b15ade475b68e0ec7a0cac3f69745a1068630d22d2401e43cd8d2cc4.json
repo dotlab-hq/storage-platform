@@ -1,1 +1,176 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts", "label": "reload-plugins.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L1"}, {"id": "reload_plugins_call", "label": "call()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L10"}, {"id": "reload_plugins_n", "label": "n()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L59"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_services_settingssync_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_types_command_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_refresh_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_changedetector_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts", "target": "reload_plugins_call", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts", "target": "reload_plugins_n", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L59", "weight": 1.0}, {"source": "reload_plugins_call", "target": "reload_plugins_n", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L40", "weight": 1.0}], "raw_calls": [{"caller_nid": "reload_plugins_call", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L25"}, {"caller_nid": "reload_plugins_call", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L26"}, {"caller_nid": "reload_plugins_call", "callee": "getIsRemoteMode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L26"}, {"caller_nid": "reload_plugins_call", "callee": "redownloadUserSettings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L28"}, {"caller_nid": "reload_plugins_call", "callee": "notifyChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L33"}, {"caller_nid": "reload_plugins_call", "callee": "refreshActivePlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L37"}, {"caller_nid": "reload_plugins_call", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L50"}, {"caller_nid": "reload_plugins_n", "callee": "plural", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts", "source_location": "L60"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts",
+      "label": "reload-plugins.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "reload_plugins_call",
+      "label": "call()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "reload_plugins_n",
+      "label": "n()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L59"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_settingssync_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_command_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_refresh_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_changedetector_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts",
+      "target": "reload_plugins_call",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_reload_plugins_reload_plugins_ts",
+      "target": "reload_plugins_n",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "reload_plugins_call",
+      "target": "reload_plugins_n",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "reload_plugins_call",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "reload_plugins_call",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "reload_plugins_call",
+      "callee": "getIsRemoteMode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "reload_plugins_call",
+      "callee": "redownloadUserSettings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "reload_plugins_call",
+      "callee": "notifyChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "reload_plugins_call",
+      "callee": "refreshActivePlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "reload_plugins_call",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "reload_plugins_n",
+      "callee": "plural",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\reload-plugins\\reload-plugins.ts",
+      "source_location": "L60"
+    }
+  ]
+}

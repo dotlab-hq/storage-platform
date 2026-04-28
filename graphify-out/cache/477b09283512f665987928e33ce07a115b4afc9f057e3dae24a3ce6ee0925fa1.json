@@ -1,1 +1,94 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrowportable_ts", "label": "execFileNoThrowPortable.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts", "source_location": "L1"}, {"id": "execfilenothrowportable_execsyncwithdefaults_deprecated", "label": "execSyncWithDefaults_DEPRECATED()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts", "source_location": "L41"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrowportable_ts", "target": "execa", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrowportable_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrowportable_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrowportable_ts", "target": "execfilenothrowportable_execsyncwithdefaults_deprecated", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts", "source_location": "L41", "weight": 1.0}], "raw_calls": [{"caller_nid": "execfilenothrowportable_execsyncwithdefaults_deprecated", "callee": "throwIfAborted", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts", "source_location": "L69"}, {"caller_nid": "execfilenothrowportable_execsyncwithdefaults_deprecated", "callee": "slowLogging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts", "source_location": "L70"}, {"caller_nid": "execfilenothrowportable_execsyncwithdefaults_deprecated", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts", "source_location": "L70"}, {"caller_nid": "execfilenothrowportable_execsyncwithdefaults_deprecated", "callee": "execaSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts", "source_location": "L72"}, {"caller_nid": "execfilenothrowportable_execsyncwithdefaults_deprecated", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts", "source_location": "L76"}, {"caller_nid": "execfilenothrowportable_execsyncwithdefaults_deprecated", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts", "source_location": "L85"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrowportable_ts",
+      "label": "execFileNoThrowPortable.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "execfilenothrowportable_execsyncwithdefaults_deprecated",
+      "label": "execSyncWithDefaults_DEPRECATED()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts",
+      "source_location": "L41"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrowportable_ts",
+      "target": "execa",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrowportable_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrowportable_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrowportable_ts",
+      "target": "execfilenothrowportable_execsyncwithdefaults_deprecated",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts",
+      "source_location": "L41",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "execfilenothrowportable_execsyncwithdefaults_deprecated",
+      "callee": "throwIfAborted",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "execfilenothrowportable_execsyncwithdefaults_deprecated",
+      "callee": "slowLogging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "execfilenothrowportable_execsyncwithdefaults_deprecated",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "execfilenothrowportable_execsyncwithdefaults_deprecated",
+      "callee": "execaSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "execfilenothrowportable_execsyncwithdefaults_deprecated",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "execfilenothrowportable_execsyncwithdefaults_deprecated",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\execFileNoThrowPortable.ts",
+      "source_location": "L85"
+    }
+  ]
+}

@@ -2,7 +2,13 @@
 
 import { SidebarTrigger } from '@/components/ui/sidebar'
 import { Separator } from '@/components/ui/separator'
-import { Trash2, RotateCcw, AlertTriangle, ArrowUpNarrowWide, ArrowUp } from 'lucide-react'
+import {
+  Trash2,
+  RotateCcw,
+  AlertTriangle,
+  ArrowUpNarrowWide,
+  ArrowUp,
+} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 type TrashHeaderProps = {

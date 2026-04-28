@@ -1,1 +1,705 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts", "label": "TaskOutput.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L1"}, {"id": "taskoutput_taskoutput", "label": "TaskOutput", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L32"}, {"id": "taskoutput_taskoutput_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L58"}, {"id": "taskoutput_taskoutput_startpolling", "label": ".startPolling()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L81"}, {"id": "taskoutput_taskoutput_stoppolling", "label": ".stopPolling()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L97"}, {"id": "taskoutput_taskoutput_tick", "label": ".#tick()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L109"}, {"id": "taskoutput_taskoutput_writestdout", "label": ".writeStdout()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L167"}, {"id": "taskoutput_taskoutput_writestderr", "label": ".writeStderr()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L172"}, {"id": "taskoutput_taskoutput_writebuffered", "label": ".#writeBuffered()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L176"}, {"id": "taskoutput_taskoutput_updateprogress", "label": ".#updateProgress()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L207"}, {"id": "taskoutput_taskoutput_spilltodisk", "label": ".#spillToDisk()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L256"}, {"id": "taskoutput_taskoutput_getstdout", "label": ".getStdout()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L282"}, {"id": "taskoutput_taskoutput_readstdoutfromfile", "label": ".#readStdoutFromFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L297"}, {"id": "taskoutput_taskoutput_getstderr", "label": ".getStderr()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L329"}, {"id": "taskoutput_taskoutput_isoverflowed", "label": ".isOverflowed()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L336"}, {"id": "taskoutput_taskoutput_totallines", "label": ".totalLines()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L340"}, {"id": "taskoutput_taskoutput_totalbytes", "label": ".totalBytes()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L344"}, {"id": "taskoutput_taskoutput_outputfileredundant", "label": ".outputFileRedundant()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L352"}, {"id": "taskoutput_taskoutput_outputfilesize", "label": ".outputFileSize()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L357"}, {"id": "taskoutput_taskoutput_flush", "label": ".flush()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L368"}, {"id": "taskoutput_taskoutput_deleteoutputfile", "label": ".deleteOutputFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L373"}, {"id": "taskoutput_taskoutput_clear", "label": ".clear()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L381"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_circularbuffer_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_shell_outputlimits_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_task_diskoutput_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts", "target": "taskoutput_taskoutput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L32", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L58", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_startpolling", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L81", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_stoppolling", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L97", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_tick", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L109", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_writestdout", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L167", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_writestderr", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L172", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_writebuffered", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L176", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_updateprogress", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L207", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_spilltodisk", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L256", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_getstdout", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L282", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_readstdoutfromfile", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L297", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_getstderr", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L329", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_isoverflowed", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L336", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_totallines", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L340", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_totalbytes", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L344", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_outputfileredundant", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L352", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_outputfilesize", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L357", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_spilltodisk", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L362", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_flush", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L368", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_deleteoutputfile", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L373", "weight": 1.0}, {"source": "taskoutput_taskoutput", "target": "taskoutput_taskoutput_clear", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L381", "weight": 1.0}, {"source": "taskoutput_taskoutput_writestdout", "target": "taskoutput_taskoutput_writebuffered", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L168", "weight": 1.0}, {"source": "taskoutput_taskoutput_writestderr", "target": "taskoutput_taskoutput_writebuffered", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L173", "weight": 1.0}, {"source": "taskoutput_taskoutput_writebuffered", "target": "taskoutput_taskoutput_updateprogress", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L179", "weight": 1.0}, {"source": "taskoutput_taskoutput_writebuffered", "target": "taskoutput_taskoutput_spilltodisk", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L191", "weight": 1.0}, {"source": "taskoutput_taskoutput_getstdout", "target": "taskoutput_taskoutput_readstdoutfromfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L284", "weight": 1.0}, {"source": "taskoutput_taskoutput_clear", "target": "taskoutput_taskoutput_stoppolling", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L387", "weight": 1.0}], "raw_calls": [{"caller_nid": "taskoutput_taskoutput_constructor", "callee": "getTaskOutputPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L65"}, {"caller_nid": "taskoutput_taskoutput_constructor", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L73"}, {"caller_nid": "taskoutput_taskoutput_startpolling", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L82"}, {"caller_nid": "taskoutput_taskoutput_startpolling", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L86"}, {"caller_nid": "taskoutput_taskoutput_startpolling", "callee": "setInterval", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L88"}, {"caller_nid": "taskoutput_taskoutput_startpolling", "callee": "unref", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L89"}, {"caller_nid": "taskoutput_taskoutput_stoppolling", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L98"}, {"caller_nid": "taskoutput_taskoutput_stoppolling", "callee": "clearInterval", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L100"}, {"caller_nid": "taskoutput_taskoutput_tick", "callee": "then", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L114"}, {"caller_nid": "taskoutput_taskoutput_tick", "callee": "tailFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L114"}, {"caller_nid": "taskoutput_taskoutput_writebuffered", "callee": "append", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L183"}, {"caller_nid": "taskoutput_taskoutput_updateprogress", "callee": "lastIndexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L217"}, {"caller_nid": "taskoutput_taskoutput_updateprogress", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L228"}, {"caller_nid": "taskoutput_taskoutput_updateprogress", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L229"}, {"caller_nid": "taskoutput_taskoutput_updateprogress", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L230"}, {"caller_nid": "taskoutput_taskoutput_updateprogress", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L230"}, {"caller_nid": "taskoutput_taskoutput_updateprogress", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L230"}, {"caller_nid": "taskoutput_taskoutput_updateprogress", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L241"}, {"caller_nid": "taskoutput_taskoutput_updateprogress", "callee": "getRecent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L245"}, {"caller_nid": "taskoutput_taskoutput_updateprogress", "callee": "#onProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L246"}, {"caller_nid": "taskoutput_taskoutput_updateprogress", "callee": "safeJoinLines", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L247"}, {"caller_nid": "taskoutput_taskoutput_updateprogress", "callee": "safeJoinLines", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L248"}, {"caller_nid": "taskoutput_taskoutput_updateprogress", "callee": "getRecent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L248"}, {"caller_nid": "taskoutput_taskoutput_spilltodisk", "callee": "append", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L261"}, {"caller_nid": "taskoutput_taskoutput_spilltodisk", "callee": "append", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L265"}, {"caller_nid": "taskoutput_taskoutput_spilltodisk", "callee": "append", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L271"}, {"caller_nid": "taskoutput_taskoutput_spilltodisk", "callee": "append", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L274"}, {"caller_nid": "taskoutput_taskoutput_getstdout", "callee": "getRecent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L288"}, {"caller_nid": "taskoutput_taskoutput_getstdout", "callee": "safeJoinLines", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L289"}, {"caller_nid": "taskoutput_taskoutput_getstdout", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L290"}, {"caller_nid": "taskoutput_taskoutput_getstdout", "callee": "trimStart", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L292"}, {"caller_nid": "taskoutput_taskoutput_readstdoutfromfile", "callee": "getMaxOutputLength", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L298"}, {"caller_nid": "taskoutput_taskoutput_readstdoutfromfile", "callee": "readFileRange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L300"}, {"caller_nid": "taskoutput_taskoutput_readstdoutfromfile", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L320"}, {"caller_nid": "taskoutput_taskoutput_readstdoutfromfile", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L321"}, {"caller_nid": "taskoutput_taskoutput_deleteoutputfile", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L375"}, {"caller_nid": "taskoutput_taskoutput_clear", "callee": "cancel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L386"}, {"caller_nid": "taskoutput_taskoutput_clear", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts", "source_location": "L388"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts",
+      "label": "TaskOutput.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "taskoutput_taskoutput",
+      "label": "TaskOutput",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "taskoutput_taskoutput_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L58"
+    },
+    {
+      "id": "taskoutput_taskoutput_startpolling",
+      "label": ".startPolling()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L81"
+    },
+    {
+      "id": "taskoutput_taskoutput_stoppolling",
+      "label": ".stopPolling()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L97"
+    },
+    {
+      "id": "taskoutput_taskoutput_tick",
+      "label": ".#tick()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L109"
+    },
+    {
+      "id": "taskoutput_taskoutput_writestdout",
+      "label": ".writeStdout()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L167"
+    },
+    {
+      "id": "taskoutput_taskoutput_writestderr",
+      "label": ".writeStderr()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L172"
+    },
+    {
+      "id": "taskoutput_taskoutput_writebuffered",
+      "label": ".#writeBuffered()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L176"
+    },
+    {
+      "id": "taskoutput_taskoutput_updateprogress",
+      "label": ".#updateProgress()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L207"
+    },
+    {
+      "id": "taskoutput_taskoutput_spilltodisk",
+      "label": ".#spillToDisk()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L256"
+    },
+    {
+      "id": "taskoutput_taskoutput_getstdout",
+      "label": ".getStdout()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L282"
+    },
+    {
+      "id": "taskoutput_taskoutput_readstdoutfromfile",
+      "label": ".#readStdoutFromFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L297"
+    },
+    {
+      "id": "taskoutput_taskoutput_getstderr",
+      "label": ".getStderr()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L329"
+    },
+    {
+      "id": "taskoutput_taskoutput_isoverflowed",
+      "label": ".isOverflowed()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L336"
+    },
+    {
+      "id": "taskoutput_taskoutput_totallines",
+      "label": ".totalLines()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L340"
+    },
+    {
+      "id": "taskoutput_taskoutput_totalbytes",
+      "label": ".totalBytes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L344"
+    },
+    {
+      "id": "taskoutput_taskoutput_outputfileredundant",
+      "label": ".outputFileRedundant()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L352"
+    },
+    {
+      "id": "taskoutput_taskoutput_outputfilesize",
+      "label": ".outputFileSize()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L357"
+    },
+    {
+      "id": "taskoutput_taskoutput_flush",
+      "label": ".flush()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L368"
+    },
+    {
+      "id": "taskoutput_taskoutput_deleteoutputfile",
+      "label": ".deleteOutputFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L373"
+    },
+    {
+      "id": "taskoutput_taskoutput_clear",
+      "label": ".clear()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L381"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_circularbuffer_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_shell_outputlimits_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_task_diskoutput_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts",
+      "target": "taskoutput_taskoutput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_startpolling",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_stoppolling",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_tick",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_writestdout",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L167",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_writestderr",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L172",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_writebuffered",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L176",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_updateprogress",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L207",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_spilltodisk",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L256",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_getstdout",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L282",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_readstdoutfromfile",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L297",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_getstderr",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L329",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_isoverflowed",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L336",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_totallines",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L340",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_totalbytes",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L344",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_outputfileredundant",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L352",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_outputfilesize",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L357",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_spilltodisk",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L362",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_flush",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L368",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_deleteoutputfile",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L373",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput",
+      "target": "taskoutput_taskoutput_clear",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L381",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput_writestdout",
+      "target": "taskoutput_taskoutput_writebuffered",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput_writestderr",
+      "target": "taskoutput_taskoutput_writebuffered",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L173",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput_writebuffered",
+      "target": "taskoutput_taskoutput_updateprogress",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput_writebuffered",
+      "target": "taskoutput_taskoutput_spilltodisk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L191",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput_getstdout",
+      "target": "taskoutput_taskoutput_readstdoutfromfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L284",
+      "weight": 1.0
+    },
+    {
+      "source": "taskoutput_taskoutput_clear",
+      "target": "taskoutput_taskoutput_stoppolling",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L387",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "taskoutput_taskoutput_constructor",
+      "callee": "getTaskOutputPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_constructor",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_startpolling",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_startpolling",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_startpolling",
+      "callee": "setInterval",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_startpolling",
+      "callee": "unref",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_stoppolling",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L98"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_stoppolling",
+      "callee": "clearInterval",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_tick",
+      "callee": "then",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_tick",
+      "callee": "tailFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_writebuffered",
+      "callee": "append",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L183"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_updateprogress",
+      "callee": "lastIndexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L217"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_updateprogress",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L228"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_updateprogress",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L229"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_updateprogress",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L230"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_updateprogress",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L230"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_updateprogress",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L230"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_updateprogress",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L241"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_updateprogress",
+      "callee": "getRecent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L245"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_updateprogress",
+      "callee": "#onProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L246"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_updateprogress",
+      "callee": "safeJoinLines",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L247"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_updateprogress",
+      "callee": "safeJoinLines",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L248"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_updateprogress",
+      "callee": "getRecent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L248"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_spilltodisk",
+      "callee": "append",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L261"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_spilltodisk",
+      "callee": "append",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L265"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_spilltodisk",
+      "callee": "append",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L271"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_spilltodisk",
+      "callee": "append",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L274"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_getstdout",
+      "callee": "getRecent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_getstdout",
+      "callee": "safeJoinLines",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L289"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_getstdout",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L290"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_getstdout",
+      "callee": "trimStart",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L292"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_readstdoutfromfile",
+      "callee": "getMaxOutputLength",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L298"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_readstdoutfromfile",
+      "callee": "readFileRange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L300"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_readstdoutfromfile",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L320"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_readstdoutfromfile",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L321"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_deleteoutputfile",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L375"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_clear",
+      "callee": "cancel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L386"
+    },
+    {
+      "caller_nid": "taskoutput_taskoutput_clear",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\TaskOutput.ts",
+      "source_location": "L388"
+    }
+  ]
+}

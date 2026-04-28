@@ -1,1 +1,73 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_activity_logging_ts", "label": "activity-logging.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts", "source_location": "L1"}, {"id": "activity_logging_withactivitylogging", "label": "withActivityLogging()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts", "source_location": "L11"}], "edges": [{"source": "f_storage_platform_src_lib_activity_logging_ts", "target": "f_storage_platform_src_lib_activity", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_activity_logging_ts", "target": "f_storage_platform_src_lib_activity", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_activity_logging_ts", "target": "activity_logging_withactivitylogging", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts", "source_location": "L11", "weight": 1.0}], "raw_calls": [{"caller_nid": "activity_logging_withactivitylogging", "callee": "fn", "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts", "source_location": "L19"}, {"caller_nid": "activity_logging_withactivitylogging", "callee": "logActivity", "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts", "source_location": "L20"}, {"caller_nid": "activity_logging_withactivitylogging", "callee": "logActivity", "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts", "source_location": "L30"}, {"caller_nid": "activity_logging_withactivitylogging", "callee": "String", "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts", "source_location": "L39"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_activity_logging_ts",
+      "label": "activity-logging.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "activity_logging_withactivitylogging",
+      "label": "withActivityLogging()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts",
+      "source_location": "L11"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_activity_logging_ts",
+      "target": "f_storage_platform_src_lib_activity",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_activity_logging_ts",
+      "target": "f_storage_platform_src_lib_activity",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_activity_logging_ts",
+      "target": "activity_logging_withactivitylogging",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "activity_logging_withactivitylogging",
+      "callee": "fn",
+      "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "activity_logging_withactivitylogging",
+      "callee": "logActivity",
+      "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts",
+      "source_location": "L20"
+    },
+    {
+      "caller_nid": "activity_logging_withactivitylogging",
+      "callee": "logActivity",
+      "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts",
+      "source_location": "L30"
+    },
+    {
+      "caller_nid": "activity_logging_withactivitylogging",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\src\\lib\\activity-logging.ts",
+      "source_location": "L39"
+    }
+  ]
+}

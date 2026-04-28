@@ -1,1 +1,97 @@
-{"nodes": [{"id": "f_storage_platform_src_middlewares_isadmin_ts", "label": "isAdmin.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts", "source_location": "L1"}, {"id": "isadmin_resolveadminsession", "label": "resolveAdminSession()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts", "source_location": "L24"}], "edges": [{"source": "f_storage_platform_src_middlewares_isadmin_ts", "target": "authz", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_middlewares_isadmin_ts", "target": "auth_loader", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_middlewares_isadmin_ts", "target": "tiny_session", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_middlewares_isadmin_ts", "target": "react_start", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_middlewares_isadmin_ts", "target": "isadmin_resolveadminsession", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts", "source_location": "L24", "weight": 1.0}], "raw_calls": [{"caller_nid": "isadmin_resolveadminsession", "callee": "loadAuth", "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts", "source_location": "L27"}, {"caller_nid": "isadmin_resolveadminsession", "callee": "getSession", "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts", "source_location": "L28"}, {"caller_nid": "isadmin_resolveadminsession", "callee": "normalizeUserRole", "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts", "source_location": "L30"}, {"caller_nid": "isadmin_resolveadminsession", "callee": "isAdminRole", "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts", "source_location": "L41"}, {"caller_nid": "isadmin_resolveadminsession", "callee": "resolveTinySessionFromHeaders", "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts", "source_location": "L46"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_middlewares_isadmin_ts",
+      "label": "isAdmin.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "isadmin_resolveadminsession",
+      "label": "resolveAdminSession()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts",
+      "source_location": "L24"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_middlewares_isadmin_ts",
+      "target": "authz",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_middlewares_isadmin_ts",
+      "target": "auth_loader",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_middlewares_isadmin_ts",
+      "target": "tiny_session",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_middlewares_isadmin_ts",
+      "target": "react_start",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_middlewares_isadmin_ts",
+      "target": "isadmin_resolveadminsession",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "isadmin_resolveadminsession",
+      "callee": "loadAuth",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "isadmin_resolveadminsession",
+      "callee": "getSession",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "isadmin_resolveadminsession",
+      "callee": "normalizeUserRole",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts",
+      "source_location": "L30"
+    },
+    {
+      "caller_nid": "isadmin_resolveadminsession",
+      "callee": "isAdminRole",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "isadmin_resolveadminsession",
+      "callee": "resolveTinySessionFromHeaders",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAdmin.ts",
+      "source_location": "L46"
+    }
+  ]
+}

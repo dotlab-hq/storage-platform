@@ -1,1 +1,106 @@
-{"nodes": [{"id": "f_storage_platform_src_middlewares_isauthenticated_ts", "label": "isAuthenticated.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts", "source_location": "L1"}, {"id": "isauthenticated_resolveauthenticatedsession", "label": "resolveAuthenticatedSession()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts", "source_location": "L27"}], "edges": [{"source": "f_storage_platform_src_middlewares_isauthenticated_ts", "target": "authz", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_middlewares_isauthenticated_ts", "target": "auth_loader", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_middlewares_isauthenticated_ts", "target": "tiny_session", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_middlewares_isauthenticated_ts", "target": "react_start", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_middlewares_isauthenticated_ts", "target": "react_router", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_middlewares_isauthenticated_ts", "target": "isauthenticated_resolveauthenticatedsession", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts", "source_location": "L27", "weight": 1.0}], "raw_calls": [{"caller_nid": "isauthenticated_resolveauthenticatedsession", "callee": "loadAuth", "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts", "source_location": "L30"}, {"caller_nid": "isauthenticated_resolveauthenticatedsession", "callee": "getSession", "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts", "source_location": "L31"}, {"caller_nid": "isauthenticated_resolveauthenticatedsession", "callee": "normalizeUserRole", "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts", "source_location": "L33"}, {"caller_nid": "isauthenticated_resolveauthenticatedsession", "callee": "isAdminRole", "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts", "source_location": "L44"}, {"caller_nid": "isauthenticated_resolveauthenticatedsession", "callee": "resolveTinySessionFromHeaders", "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts", "source_location": "L49"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_middlewares_isauthenticated_ts",
+      "label": "isAuthenticated.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "isauthenticated_resolveauthenticatedsession",
+      "label": "resolveAuthenticatedSession()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts",
+      "source_location": "L27"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_middlewares_isauthenticated_ts",
+      "target": "authz",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_middlewares_isauthenticated_ts",
+      "target": "auth_loader",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_middlewares_isauthenticated_ts",
+      "target": "tiny_session",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_middlewares_isauthenticated_ts",
+      "target": "react_start",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_middlewares_isauthenticated_ts",
+      "target": "react_router",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_middlewares_isauthenticated_ts",
+      "target": "isauthenticated_resolveauthenticatedsession",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "isauthenticated_resolveauthenticatedsession",
+      "callee": "loadAuth",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts",
+      "source_location": "L30"
+    },
+    {
+      "caller_nid": "isauthenticated_resolveauthenticatedsession",
+      "callee": "getSession",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts",
+      "source_location": "L31"
+    },
+    {
+      "caller_nid": "isauthenticated_resolveauthenticatedsession",
+      "callee": "normalizeUserRole",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "isauthenticated_resolveauthenticatedsession",
+      "callee": "isAdminRole",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "isauthenticated_resolveauthenticatedsession",
+      "callee": "resolveTinySessionFromHeaders",
+      "source_file": "F:\\storage-platform\\src\\middlewares\\isAuthenticated.ts",
+      "source_location": "L49"
+    }
+  ]
+}

@@ -1,1 +1,214 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts", "label": "rename.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L1"}, {"id": "rename_call", "label": "call()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L21"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts", "target": "f_storage_platform_claude_code_source_main_src_bridge_bridgeconfig_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts", "target": "f_storage_platform_claude_code_source_main_src_types_command_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstorage_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_teammate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts", "target": "f_storage_platform_claude_code_source_main_src_commands_rename_generatesessionname_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts", "target": "rename_call", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L21", "weight": 1.0}], "raw_calls": [{"caller_nid": "rename_call", "callee": "isTeammate", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L27"}, {"caller_nid": "rename_call", "callee": "onDone", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L28"}, {"caller_nid": "rename_call", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L36"}, {"caller_nid": "rename_call", "callee": "generateSessionName", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L37"}, {"caller_nid": "rename_call", "callee": "getMessagesAfterCompactBoundary", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L38"}, {"caller_nid": "rename_call", "callee": "onDone", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L42"}, {"caller_nid": "rename_call", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L50"}, {"caller_nid": "rename_call", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L53"}, {"caller_nid": "rename_call", "callee": "getTranscriptPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L54"}, {"caller_nid": "rename_call", "callee": "saveCustomTitle", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L57"}, {"caller_nid": "rename_call", "callee": "getAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L62"}, {"caller_nid": "rename_call", "callee": "getBridgeTokenOverride", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L65"}, {"caller_nid": "rename_call", "callee": "then", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L66"}, {"caller_nid": "rename_call", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L66"}, {"caller_nid": "rename_call", "callee": "saveAgentName", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L76"}, {"caller_nid": "rename_call", "callee": "setAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L77"}, {"caller_nid": "rename_call", "callee": "onDone", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts", "source_location": "L85"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts",
+      "label": "rename.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "rename_call",
+      "label": "call()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L21"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bridge_bridgeconfig_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_command_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstorage_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teammate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_commands_rename_generatesessionname_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_rename_rename_ts",
+      "target": "rename_call",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "rename_call",
+      "callee": "isTeammate",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "onDone",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "generateSessionName",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "getMessagesAfterCompactBoundary",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "onDone",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "getTranscriptPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L54"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "saveCustomTitle",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "getAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "getBridgeTokenOverride",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "then",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "saveAgentName",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "setAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "rename_call",
+      "callee": "onDone",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\rename\\rename.ts",
+      "source_location": "L85"
+    }
+  ]
+}

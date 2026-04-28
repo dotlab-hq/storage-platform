@@ -1,1 +1,180 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts", "label": "-openai-chat-compat.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L1"}, {"id": "openai_chat_compat_normalizecontent", "label": "normalizeContent()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L56"}, {"id": "openai_chat_compat_extractlatestusercontent", "label": "extractLatestUserContent()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L67"}, {"id": "openai_chat_compat_normalizechatstreamrequest", "label": "normalizeChatStreamRequest()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L83"}, {"id": "openai_chat_compat_toopenaichunk", "label": "toOpenAiChunk()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L111"}, {"id": "openai_chat_compat_toopenaicompletion", "label": "toOpenAiCompletion()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L139"}, {"id": "openai_chat_compat_tosseevent", "label": "toSseEvent()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L168"}], "edges": [{"source": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts", "target": "zod", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts", "target": "openai_chat_compat_normalizecontent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L56", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts", "target": "openai_chat_compat_extractlatestusercontent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L67", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts", "target": "openai_chat_compat_normalizechatstreamrequest", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L83", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts", "target": "openai_chat_compat_toopenaichunk", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L111", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts", "target": "openai_chat_compat_toopenaicompletion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L139", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts", "target": "openai_chat_compat_tosseevent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L168", "weight": 1.0}, {"source": "openai_chat_compat_extractlatestusercontent", "target": "openai_chat_compat_normalizecontent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L74", "weight": 1.0}, {"source": "openai_chat_compat_normalizechatstreamrequest", "target": "openai_chat_compat_extractlatestusercontent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L100", "weight": 1.0}], "raw_calls": [{"caller_nid": "openai_chat_compat_normalizecontent", "callee": "trim", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L58"}, {"caller_nid": "openai_chat_compat_normalizecontent", "callee": "trim", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L61"}, {"caller_nid": "openai_chat_compat_normalizecontent", "callee": "join", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L61"}, {"caller_nid": "openai_chat_compat_normalizecontent", "callee": "map", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L61"}, {"caller_nid": "openai_chat_compat_normalizechatstreamrequest", "callee": "safeParse", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L86"}, {"caller_nid": "openai_chat_compat_normalizechatstreamrequest", "callee": "parse", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L96"}, {"caller_nid": "openai_chat_compat_tosseevent", "callee": "stringify", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts", "source_location": "L173"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts",
+      "label": "-openai-chat-compat.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "openai_chat_compat_normalizecontent",
+      "label": "normalizeContent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L56"
+    },
+    {
+      "id": "openai_chat_compat_extractlatestusercontent",
+      "label": "extractLatestUserContent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L67"
+    },
+    {
+      "id": "openai_chat_compat_normalizechatstreamrequest",
+      "label": "normalizeChatStreamRequest()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L83"
+    },
+    {
+      "id": "openai_chat_compat_toopenaichunk",
+      "label": "toOpenAiChunk()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L111"
+    },
+    {
+      "id": "openai_chat_compat_toopenaicompletion",
+      "label": "toOpenAiCompletion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L139"
+    },
+    {
+      "id": "openai_chat_compat_tosseevent",
+      "label": "toSseEvent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L168"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts",
+      "target": "zod",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts",
+      "target": "openai_chat_compat_normalizecontent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts",
+      "target": "openai_chat_compat_extractlatestusercontent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts",
+      "target": "openai_chat_compat_normalizechatstreamrequest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts",
+      "target": "openai_chat_compat_toopenaichunk",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts",
+      "target": "openai_chat_compat_toopenaicompletion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_chat_openai_chat_compat_ts",
+      "target": "openai_chat_compat_tosseevent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "openai_chat_compat_extractlatestusercontent",
+      "target": "openai_chat_compat_normalizecontent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "openai_chat_compat_normalizechatstreamrequest",
+      "target": "openai_chat_compat_extractlatestusercontent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L100",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "openai_chat_compat_normalizecontent",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "openai_chat_compat_normalizecontent",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "openai_chat_compat_normalizecontent",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "openai_chat_compat_normalizecontent",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "openai_chat_compat_normalizechatstreamrequest",
+      "callee": "safeParse",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "openai_chat_compat_normalizechatstreamrequest",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "openai_chat_compat_tosseevent",
+      "callee": "stringify",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\-openai-chat-compat.ts",
+      "source_location": "L173"
+    }
+  ]
+}

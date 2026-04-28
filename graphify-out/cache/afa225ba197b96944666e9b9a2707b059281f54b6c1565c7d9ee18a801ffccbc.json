@@ -1,1 +1,139 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts", "label": "setup.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L1"}, {"id": "setup_setupcomputerusemcp", "label": "setupComputerUseMCP()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L23"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts", "target": "computer_use_mcp", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts", "target": "url", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_mcpstringutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bundledmode_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_computeruse_common_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_computeruse_gates_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts", "target": "setup_setupcomputerusemcp", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L23", "weight": 1.0}], "raw_calls": [{"caller_nid": "setup_setupcomputerusemcp", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L27"}, {"caller_nid": "setup_setupcomputerusemcp", "callee": "buildComputerUseTools", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L27"}, {"caller_nid": "setup_setupcomputerusemcp", "callee": "getChicagoCoordinateMode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L29"}, {"caller_nid": "setup_setupcomputerusemcp", "callee": "isInBundledMode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L35"}, {"caller_nid": "setup_setupcomputerusemcp", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L38"}, {"caller_nid": "setup_setupcomputerusemcp", "callee": "fileURLToPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts", "source_location": "L38"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts",
+      "label": "setup.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "setup_setupcomputerusemcp",
+      "label": "setupComputerUseMCP()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L23"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts",
+      "target": "computer_use_mcp",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts",
+      "target": "url",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_mcpstringutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bundledmode_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_computeruse_common_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_computeruse_gates_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_setup_ts",
+      "target": "setup_setupcomputerusemcp",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "setup_setupcomputerusemcp",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "setup_setupcomputerusemcp",
+      "callee": "buildComputerUseTools",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "setup_setupcomputerusemcp",
+      "callee": "getChicagoCoordinateMode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "setup_setupcomputerusemcp",
+      "callee": "isInBundledMode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "setup_setupcomputerusemcp",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "setup_setupcomputerusemcp",
+      "callee": "fileURLToPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\setup.ts",
+      "source_location": "L38"
+    }
+  ]
+}

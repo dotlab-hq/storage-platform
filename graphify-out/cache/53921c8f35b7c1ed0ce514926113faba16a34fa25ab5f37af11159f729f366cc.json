@@ -1,1 +1,86 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_context_fpsmetrics_tsx", "label": "fpsMetrics.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx", "source_location": "L1"}, {"id": "fpsmetrics_fpsmetricsprovider", "label": "FpsMetricsProvider()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx", "source_location": "L10"}, {"id": "fpsmetrics_usefpsmetrics", "label": "useFpsMetrics()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx", "source_location": "L27"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_context_fpsmetrics_tsx", "target": "compiler_runtime", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_context_fpsmetrics_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_context_fpsmetrics_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_fpstracker_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_context_fpsmetrics_tsx", "target": "fpsmetrics_fpsmetricsprovider", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_context_fpsmetrics_tsx", "target": "fpsmetrics_usefpsmetrics", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx", "source_location": "L27", "weight": 1.0}], "raw_calls": [{"caller_nid": "fpsmetrics_fpsmetricsprovider", "callee": "_c", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx", "source_location": "L11"}, {"caller_nid": "fpsmetrics_usefpsmetrics", "callee": "useContext", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx", "source_location": "L28"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_context_fpsmetrics_tsx",
+      "label": "fpsMetrics.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "fpsmetrics_fpsmetricsprovider",
+      "label": "FpsMetricsProvider()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx",
+      "source_location": "L10"
+    },
+    {
+      "id": "fpsmetrics_usefpsmetrics",
+      "label": "useFpsMetrics()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx",
+      "source_location": "L27"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_context_fpsmetrics_tsx",
+      "target": "compiler_runtime",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_context_fpsmetrics_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_context_fpsmetrics_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fpstracker_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_context_fpsmetrics_tsx",
+      "target": "fpsmetrics_fpsmetricsprovider",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_context_fpsmetrics_tsx",
+      "target": "fpsmetrics_usefpsmetrics",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx",
+      "source_location": "L27",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "fpsmetrics_fpsmetricsprovider",
+      "callee": "_c",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx",
+      "source_location": "L11"
+    },
+    {
+      "caller_nid": "fpsmetrics_usefpsmetrics",
+      "callee": "useContext",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\context\\fpsMetrics.tsx",
+      "source_location": "L28"
+    }
+  ]
+}

@@ -1,1 +1,230 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_http_ts", "label": "http.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L1"}, {"id": "http_getuseragent", "label": "getUserAgent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L18"}, {"id": "http_getmcpuseragent", "label": "getMCPUserAgent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L37"}, {"id": "http_getwebfetchuseragent", "label": "getWebFetchUserAgent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L56"}, {"id": "http_getauthheaders", "label": "getAuthHeaders()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L69"}, {"id": "http_withoauth401retry", "label": "withOAuth401Retry()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L115"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_http_ts", "target": "axios", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_http_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_http_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_http_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_useragent_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_http_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_workloadcontext_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_http_ts", "target": "http_getuseragent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_http_ts", "target": "http_getmcpuseragent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_http_ts", "target": "http_getwebfetchuseragent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L56", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_http_ts", "target": "http_getauthheaders", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L69", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_http_ts", "target": "http_withoauth401retry", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L115", "weight": 1.0}], "raw_calls": [{"caller_nid": "http_getuseragent", "callee": "getWorkload", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L32"}, {"caller_nid": "http_getmcpuseragent", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L40"}, {"caller_nid": "http_getmcpuseragent", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L43"}, {"caller_nid": "http_getmcpuseragent", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L46"}, {"caller_nid": "http_getmcpuseragent", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L48"}, {"caller_nid": "http_getwebfetchuseragent", "callee": "getClaudeCodeUserAgent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L57"}, {"caller_nid": "http_getauthheaders", "callee": "isClaudeAISubscriber", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L70"}, {"caller_nid": "http_getauthheaders", "callee": "getClaudeAIOAuthTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L71"}, {"caller_nid": "http_getauthheaders", "callee": "getAnthropicApiKey", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L87"}, {"caller_nid": "http_withoauth401retry", "callee": "request", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L120"}, {"caller_nid": "http_withoauth401retry", "callee": "isAxiosError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L122"}, {"caller_nid": "http_withoauth401retry", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L129"}, {"caller_nid": "http_withoauth401retry", "callee": "getClaudeAIOAuthTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L131"}, {"caller_nid": "http_withoauth401retry", "callee": "handleOAuth401Error", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L133"}, {"caller_nid": "http_withoauth401retry", "callee": "request", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts", "source_location": "L134"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_http_ts",
+      "label": "http.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "http_getuseragent",
+      "label": "getUserAgent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L18"
+    },
+    {
+      "id": "http_getmcpuseragent",
+      "label": "getMCPUserAgent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L37"
+    },
+    {
+      "id": "http_getwebfetchuseragent",
+      "label": "getWebFetchUserAgent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L56"
+    },
+    {
+      "id": "http_getauthheaders",
+      "label": "getAuthHeaders()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L69"
+    },
+    {
+      "id": "http_withoauth401retry",
+      "label": "withOAuth401Retry()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L115"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_http_ts",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_http_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_http_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_http_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_useragent_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_http_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_workloadcontext_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_http_ts",
+      "target": "http_getuseragent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_http_ts",
+      "target": "http_getmcpuseragent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_http_ts",
+      "target": "http_getwebfetchuseragent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_http_ts",
+      "target": "http_getauthheaders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_http_ts",
+      "target": "http_withoauth401retry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L115",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "http_getuseragent",
+      "callee": "getWorkload",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "http_getmcpuseragent",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "http_getmcpuseragent",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "http_getmcpuseragent",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "http_getmcpuseragent",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "http_getwebfetchuseragent",
+      "callee": "getClaudeCodeUserAgent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "http_getauthheaders",
+      "callee": "isClaudeAISubscriber",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "http_getauthheaders",
+      "callee": "getClaudeAIOAuthTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "http_getauthheaders",
+      "callee": "getAnthropicApiKey",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "http_withoauth401retry",
+      "callee": "request",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "http_withoauth401retry",
+      "callee": "isAxiosError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "http_withoauth401retry",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "http_withoauth401retry",
+      "callee": "getClaudeAIOAuthTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "http_withoauth401retry",
+      "callee": "handleOAuth401Error",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "http_withoauth401retry",
+      "callee": "request",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\http.ts",
+      "source_location": "L134"
+    }
+  ]
+}

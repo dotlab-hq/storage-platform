@@ -1,1 +1,85 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_commands_commit_ts", "label": "commit.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts", "source_location": "L1"}, {"id": "commit_getpromptcontent", "label": "getPromptContent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts", "source_location": "L12"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_commands_commit_ts", "target": "f_storage_platform_claude_code_source_main_src_commands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_commit_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_attribution_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_commit_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_promptshellexecution_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_commit_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_undercover_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_commit_ts", "target": "commit_getpromptcontent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts", "source_location": "L12", "weight": 1.0}], "raw_calls": [{"caller_nid": "commit_getpromptcontent", "callee": "getAttributionTexts", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts", "source_location": "L13"}, {"caller_nid": "commit_getpromptcontent", "callee": "isUndercover", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts", "source_location": "L16"}, {"caller_nid": "commit_getpromptcontent", "callee": "getUndercoverInstructions", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts", "source_location": "L17"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_commands_commit_ts",
+      "label": "commit.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "commit_getpromptcontent",
+      "label": "getPromptContent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts",
+      "source_location": "L12"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_commit_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_commands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_commit_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_attribution_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_commit_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_promptshellexecution_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_commit_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_undercover_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_commit_ts",
+      "target": "commit_getpromptcontent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "commit_getpromptcontent",
+      "callee": "getAttributionTexts",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts",
+      "source_location": "L13"
+    },
+    {
+      "caller_nid": "commit_getpromptcontent",
+      "callee": "isUndercover",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts",
+      "source_location": "L16"
+    },
+    {
+      "caller_nid": "commit_getpromptcontent",
+      "callee": "getUndercoverInstructions",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\commit.ts",
+      "source_location": "L17"
+    }
+  ]
+}

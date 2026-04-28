@@ -1,1 +1,2175 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "label": "claude.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1"}, {"id": "claude_getextrabodyparams", "label": "getExtraBodyParams()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L272"}, {"id": "claude_getpromptcachingenabled", "label": "getPromptCachingEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L333"}, {"id": "claude_getcachecontrol", "label": "getCacheControl()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L358"}, {"id": "claude_should1hcachettl", "label": "should1hCacheTTL()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L393"}, {"id": "claude_configureeffortparams", "label": "configureEffortParams()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L440"}, {"id": "claude_configuretaskbudgetparams", "label": "configureTaskBudgetParams()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L479"}, {"id": "claude_getapimetadata", "label": "getAPIMetadata()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L503"}, {"id": "claude_verifyapikey", "label": "verifyApiKey()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L530"}, {"id": "claude_usermessagetomessageparam", "label": "userMessageToMessageParam()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L588"}, {"id": "claude_assistantmessagetomessageparam", "label": "assistantMessageToMessageParam()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L633"}, {"id": "claude_querymodelwithoutstreaming", "label": "queryModelWithoutStreaming()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L709"}, {"id": "claude_shoulddeferlsptool", "label": "shouldDeferLspTool()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L786"}, {"id": "claude_getnonstreamingfallbacktimeoutms", "label": "getNonstreamingFallbackTimeoutMs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L807"}, {"id": "claude_getpreviousrequestidfrommessages", "label": "getPreviousRequestIdFromMessages()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L928"}, {"id": "claude_ismedia", "label": "isMedia()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L940"}, {"id": "claude_istoolresult", "label": "isToolResult()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L946"}, {"id": "claude_stripexcessmediaitems", "label": "stripExcessMediaItems()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L956"}, {"id": "claude_willdefer", "label": "willDefer()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1208"}, {"id": "claude_releasestreamresources", "label": "releaseStreamResources()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1519"}, {"id": "claude_paramsfromcontext", "label": "paramsFromContext()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1538"}, {"id": "claude_clearstreamidletimers", "label": "clearStreamIdleTimers()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1885"}, {"id": "claude_resetstreamidletimer", "label": "resetStreamIdleTimer()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1895"}, {"id": "claude_cleanupstream", "label": "cleanupStream()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L2898"}, {"id": "claude_updateusage", "label": "updateUsage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L2924"}, {"id": "claude_accumulateusage", "label": "accumulateUsage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L2993"}, {"id": "claude_istoolresultblock", "label": "isToolResultBlock()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3040"}, {"id": "claude_addcachebreakpoints", "label": "addCacheBreakpoints()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3063"}, {"id": "claude_buildsystempromptblocks", "label": "buildSystemPromptBlocks()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3213"}, {"id": "claude_queryhaiku", "label": "queryHaiku()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3241"}, {"id": "claude_querywithmodel", "label": "queryWithModel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3300"}, {"id": "claude_adjustparamsfornonstreaming", "label": "adjustParamsForNonStreaming()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3364"}, {"id": "claude_ismaxtokenscapenabled", "label": "isMaxTokensCapEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3394"}, {"id": "claude_getmaxoutputtokensformodel", "label": "getMaxOutputTokensForModel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3399"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "messages_mjs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "index_mjs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "streaming_mjs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "providers_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_system_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_loadagentsdir_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_types_connectortext_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L40", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_types_message_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L45", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_api_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L52", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L58", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L59", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L64", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_context_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L65", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L70", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L71", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L72", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fingerprint_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L73", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L74", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L75", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L85", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_systemprompttype_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L91", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_tokens_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L95", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L96", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L97", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_services_compact_apimicrocompact_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L102", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L109", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "sdk", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L110", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "error", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L111", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "state_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L116", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "betas_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L133", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "querysource_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L144", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "notifications_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L145", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "cost_tracker_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L146", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "growthbook_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L147", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "ids_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L148", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "advisor_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L149", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "agentcontext_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L156", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "auth_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L157", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "betas_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L158", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "common_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L164", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "prompt_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L165", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "context_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L166", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "debug_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L167", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "diaglogs_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L168", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "effort_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L169", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "fastmode_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L170", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "generators_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L176", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "headlessprofiler_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L177", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "mcpinstructionsdelta_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L178", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "modelcost_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L179", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "queryprofiler_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L180", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "thinking_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L181", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "toolsearch_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L186", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_apilimits_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L191", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_betas_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L192", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_toolsearchtool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L193", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_array_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L198", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_contentarray_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L199", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envvalidation_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L200", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_json_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L201", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_bedrock_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L202", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L203", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sessionactivity_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L207", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L211", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_telemetry_sessiontracing_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L212", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L218", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L222", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_services_lsp_manager_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L228", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L229", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_services_vcr_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L230", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_client_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L231", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L232", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_logging_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L238", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_promptcachebreakdetection_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L246", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_withretry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L251", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_getextrabodyparams", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L272", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_getpromptcachingenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L333", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_getcachecontrol", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L358", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_should1hcachettl", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L393", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_configureeffortparams", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L440", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_configuretaskbudgetparams", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L479", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_getapimetadata", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L503", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_verifyapikey", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L530", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_usermessagetomessageparam", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L588", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_assistantmessagetomessageparam", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L633", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_querymodelwithoutstreaming", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L709", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_shoulddeferlsptool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L786", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_getnonstreamingfallbacktimeoutms", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L807", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_getpreviousrequestidfrommessages", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L928", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_ismedia", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L940", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_istoolresult", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L946", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_stripexcessmediaitems", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L956", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_willdefer", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1208", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_releasestreamresources", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1519", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_paramsfromcontext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1538", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_clearstreamidletimers", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1885", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_resetstreamidletimer", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1895", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_cleanupstream", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L2898", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_updateusage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L2924", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_accumulateusage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L2993", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_istoolresultblock", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3040", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_addcachebreakpoints", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3063", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_buildsystempromptblocks", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3213", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_queryhaiku", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3241", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_querywithmodel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3300", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_adjustparamsfornonstreaming", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3364", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_ismaxtokenscapenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3394", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "target": "claude_getmaxoutputtokensformodel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3399", "weight": 1.0}, {"source": "claude_getcachecontrol", "target": "claude_should1hcachettl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L371", "weight": 1.0}, {"source": "claude_usermessagetomessageparam", "target": "claude_getcachecontrol", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L603", "weight": 1.0}, {"source": "claude_assistantmessagetomessageparam", "target": "claude_getcachecontrol", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L648", "weight": 1.0}, {"source": "claude_stripexcessmediaitems", "target": "claude_ismedia", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L964", "weight": 1.0}, {"source": "claude_stripexcessmediaitems", "target": "claude_istoolresult", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L965", "weight": 1.0}, {"source": "claude_willdefer", "target": "claude_shoulddeferlsptool", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1209", "weight": 1.0}, {"source": "claude_releasestreamresources", "target": "claude_cleanupstream", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1520", "weight": 1.0}, {"source": "claude_paramsfromcontext", "target": "claude_getextrabodyparams", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1557", "weight": 1.0}, {"source": "claude_paramsfromcontext", "target": "claude_configureeffortparams", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1563", "weight": 1.0}, {"source": "claude_paramsfromcontext", "target": "claude_configuretaskbudgetparams", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1571", "weight": 1.0}, {"source": "claude_paramsfromcontext", "target": "claude_getmaxoutputtokensformodel", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1594", "weight": 1.0}, {"source": "claude_paramsfromcontext", "target": "claude_getpromptcachingenabled", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1640", "weight": 1.0}, {"source": "claude_paramsfromcontext", "target": "claude_addcachebreakpoints", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1701", "weight": 1.0}, {"source": "claude_paramsfromcontext", "target": "claude_getapimetadata", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1714", "weight": 1.0}, {"source": "claude_resetstreamidletimer", "target": "claude_clearstreamidletimers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1896", "weight": 1.0}, {"source": "claude_addcachebreakpoints", "target": "claude_istoolresultblock", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3196", "weight": 1.0}, {"source": "claude_getmaxoutputtokensformodel", "target": "claude_ismaxtokenscapenabled", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3408", "weight": 1.0}], "raw_calls": [{"caller_nid": "claude_getextrabodyparams", "callee": "safeParseJSON", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L280"}, {"caller_nid": "claude_getextrabodyparams", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L282"}, {"caller_nid": "claude_getextrabodyparams", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L288"}, {"caller_nid": "claude_getextrabodyparams", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L294"}, {"caller_nid": "claude_getextrabodyparams", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L295"}, {"caller_nid": "claude_getextrabodyparams", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L303"}, {"caller_nid": "claude_getextrabodyparams", "callee": "shouldIncludeFirstPartyOnlyBetas", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L305"}, {"caller_nid": "claude_getextrabodyparams", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L306"}, {"caller_nid": "claude_getextrabodyparams", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L317"}, {"caller_nid": "claude_getextrabodyparams", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L320"}, {"caller_nid": "claude_getpromptcachingenabled", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L335"}, {"caller_nid": "claude_getpromptcachingenabled", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L338"}, {"caller_nid": "claude_getpromptcachingenabled", "callee": "getSmallFastModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L339"}, {"caller_nid": "claude_getpromptcachingenabled", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L344"}, {"caller_nid": "claude_getpromptcachingenabled", "callee": "getDefaultSonnetModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L345"}, {"caller_nid": "claude_getpromptcachingenabled", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L350"}, {"caller_nid": "claude_getpromptcachingenabled", "callee": "getDefaultOpusModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L351"}, {"caller_nid": "claude_should1hcachettl", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L397"}, {"caller_nid": "claude_should1hcachettl", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L398"}, {"caller_nid": "claude_should1hcachettl", "callee": "getPromptCache1hEligible", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L406"}, {"caller_nid": "claude_should1hcachettl", "callee": "isClaudeAISubscriber", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L410"}, {"caller_nid": "claude_should1hcachettl", "callee": "setPromptCache1hEligible", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L411"}, {"caller_nid": "claude_should1hcachettl", "callee": "getPromptCache1hAllowlist", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L417"}, {"caller_nid": "claude_should1hcachettl", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L419"}, {"caller_nid": "claude_should1hcachettl", "callee": "setPromptCache1hAllowlist", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L423"}, {"caller_nid": "claude_should1hcachettl", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L428"}, {"caller_nid": "claude_configureeffortparams", "callee": "modelSupportsEffort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L447"}, {"caller_nid": "claude_configureeffortparams", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L452"}, {"caller_nid": "claude_configureeffortparams", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L456"}, {"caller_nid": "claude_configuretaskbudgetparams", "callee": "shouldIncludeFirstPartyOnlyBetas", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L487"}, {"caller_nid": "claude_configuretaskbudgetparams", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L498"}, {"caller_nid": "claude_configuretaskbudgetparams", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L499"}, {"caller_nid": "claude_getapimetadata", "callee": "safeParseJSON", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L508"}, {"caller_nid": "claude_getapimetadata", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L509"}, {"caller_nid": "claude_getapimetadata", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L512"}, {"caller_nid": "claude_getapimetadata", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L520"}, {"caller_nid": "claude_getapimetadata", "callee": "getOrCreateUserID", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L522"}, {"caller_nid": "claude_getapimetadata", "callee": "getOauthAccountInfo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L524"}, {"caller_nid": "claude_getapimetadata", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L525"}, {"caller_nid": "claude_verifyapikey", "callee": "getSmallFastModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L541"}, {"caller_nid": "claude_verifyapikey", "callee": "getModelBetas", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L542"}, {"caller_nid": "claude_verifyapikey", "callee": "returnValue", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L543"}, {"caller_nid": "claude_verifyapikey", "callee": "withRetry", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L544"}, {"caller_nid": "claude_verifyapikey", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L574"}, {"caller_nid": "claude_verifyapikey", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L578"}, {"caller_nid": "claude_usermessagetomessageparam", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L611"}, {"caller_nid": "claude_usermessagetomessageparam", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L627"}, {"caller_nid": "claude_assistantmessagetomessageparam", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L656"}, {"caller_nid": "claude_querymodelwithoutstreaming", "callee": "withStreamingVCR", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L727"}, {"caller_nid": "claude_querymodelwithoutstreaming", "callee": "queryModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L728"}, {"caller_nid": "claude_shoulddeferlsptool", "callee": "getInitializationStatus", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L790"}, {"caller_nid": "claude_getnonstreamingfallbacktimeoutms", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L808"}, {"caller_nid": "claude_getnonstreamingfallbacktimeoutms", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L810"}, {"caller_nid": "claude_stripexcessmediaitems", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L962"}, {"caller_nid": "claude_stripexcessmediaitems", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L965"}, {"caller_nid": "claude_stripexcessmediaitems", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L975"}, {"caller_nid": "claude_willdefer", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1209"}, {"caller_nid": "claude_releasestreamresources", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1523"}, {"caller_nid": "claude_releasestreamresources", "callee": "cancel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1523"}, {"caller_nid": "claude_paramsfromcontext", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1543"}, {"caller_nid": "claude_paramsfromcontext", "callee": "getSonnet1mExpTreatmentEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1544"}, {"caller_nid": "claude_paramsfromcontext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1546"}, {"caller_nid": "claude_paramsfromcontext", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1551"}, {"caller_nid": "claude_paramsfromcontext", "callee": "getBedrockExtraBodyParamsBetas", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1553"}, {"caller_nid": "claude_paramsfromcontext", "callee": "modelSupportsStructuredOutputs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1583"}, {"caller_nid": "claude_paramsfromcontext", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1584"}, {"caller_nid": "claude_paramsfromcontext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1586"}, {"caller_nid": "claude_paramsfromcontext", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1598"}, {"caller_nid": "claude_paramsfromcontext", "callee": "modelSupportsThinking", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1604"}, {"caller_nid": "claude_paramsfromcontext", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1606"}, {"caller_nid": "claude_paramsfromcontext", "callee": "modelSupportsAdaptiveThinking", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1607"}, {"caller_nid": "claude_paramsfromcontext", "callee": "getMaxThinkingTokensForModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1617"}, {"caller_nid": "claude_paramsfromcontext", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1624"}, {"caller_nid": "claude_paramsfromcontext", "callee": "getAPIContextManagement", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1633"}, {"caller_nid": "claude_paramsfromcontext", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1635"}, {"caller_nid": "claude_paramsfromcontext", "callee": "isFastModeEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1647"}, {"caller_nid": "claude_paramsfromcontext", "callee": "isFastModeAvailable", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1648"}, {"caller_nid": "claude_paramsfromcontext", "callee": "isFastModeCooldown", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1649"}, {"caller_nid": "claude_paramsfromcontext", "callee": "isFastModeSupportedByModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1650"}, {"caller_nid": "claude_paramsfromcontext", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1655"}, {"caller_nid": "claude_paramsfromcontext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1656"}, {"caller_nid": "claude_paramsfromcontext", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1661"}, {"caller_nid": "claude_paramsfromcontext", "callee": "shouldIncludeFirstPartyOnlyBetas", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1664"}, {"caller_nid": "claude_paramsfromcontext", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1666"}, {"caller_nid": "claude_paramsfromcontext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1668"}, {"caller_nid": "claude_paramsfromcontext", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1677"}, {"caller_nid": "claude_paramsfromcontext", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1681"}, {"caller_nid": "claude_paramsfromcontext", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1683"}, {"caller_nid": "claude_paramsfromcontext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1685"}, {"caller_nid": "claude_paramsfromcontext", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1686"}, {"caller_nid": "claude_paramsfromcontext", "callee": "normalizeModelStringForAPI", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1700"}, {"caller_nid": "claude_paramsfromcontext", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1720"}, {"caller_nid": "claude_paramsfromcontext", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1724"}, {"caller_nid": "claude_clearstreamidletimers", "callee": "clearTimeout", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1887"}, {"caller_nid": "claude_clearstreamidletimers", "callee": "clearTimeout", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1891"}, {"caller_nid": "claude_resetstreamidletimer", "callee": "setTimeout", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1900"}, {"caller_nid": "claude_resetstreamidletimer", "callee": "setTimeout", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L1911"}, {"caller_nid": "claude_cleanupstream", "callee": "abort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L2907"}, {"caller_nid": "claude_updateusage", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L2970"}, {"caller_nid": "claude_accumulateusage", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3024"}, {"caller_nid": "claude_addcachebreakpoints", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3072"}, {"caller_nid": "claude_addcachebreakpoints", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3090"}, {"caller_nid": "claude_addcachebreakpoints", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3131"}, {"caller_nid": "claude_addcachebreakpoints", "callee": "deduplicateEdits", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3134"}, {"caller_nid": "claude_addcachebreakpoints", "callee": "insertBlockAfterToolResults", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3136"}, {"caller_nid": "claude_addcachebreakpoints", "callee": "deduplicateEdits", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3143"}, {"caller_nid": "claude_addcachebreakpoints", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3148"}, {"caller_nid": "claude_addcachebreakpoints", "callee": "insertBlockAfterToolResults", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3151"}, {"caller_nid": "claude_addcachebreakpoints", "callee": "pinCacheEdits", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3153"}, {"caller_nid": "claude_addcachebreakpoints", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3155"}, {"caller_nid": "claude_addcachebreakpoints", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3156"}, {"caller_nid": "claude_addcachebreakpoints", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3156"}, {"caller_nid": "claude_addcachebreakpoints", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3171"}, {"caller_nid": "claude_addcachebreakpoints", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3190"}, {"caller_nid": "claude_addcachebreakpoints", "callee": "assign", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3201"}, {"caller_nid": "claude_buildsystempromptblocks", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3222"}, {"caller_nid": "claude_buildsystempromptblocks", "callee": "splitSysPromptPrefix", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3222"}, {"caller_nid": "claude_queryhaiku", "callee": "withVCR", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3254"}, {"caller_nid": "claude_queryhaiku", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3256"}, {"caller_nid": "claude_queryhaiku", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3257"}, {"caller_nid": "claude_queryhaiku", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3259"}, {"caller_nid": "claude_querywithmodel", "callee": "withVCR", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3313"}, {"caller_nid": "claude_querywithmodel", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3315"}, {"caller_nid": "claude_querywithmodel", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3316"}, {"caller_nid": "claude_querywithmodel", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3318"}, {"caller_nid": "claude_adjustparamsfornonstreaming", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3370"}, {"caller_nid": "claude_adjustparamsfornonstreaming", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3381"}, {"caller_nid": "claude_ismaxtokenscapenabled", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3396"}, {"caller_nid": "claude_getmaxoutputtokensformodel", "callee": "getModelMaxOutputTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3400"}, {"caller_nid": "claude_getmaxoutputtokensformodel", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3409"}, {"caller_nid": "claude_getmaxoutputtokensformodel", "callee": "validateBoundedIntEnvVar", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts", "source_location": "L3412"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "label": "claude.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "claude_getextrabodyparams",
+      "label": "getExtraBodyParams()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L272"
+    },
+    {
+      "id": "claude_getpromptcachingenabled",
+      "label": "getPromptCachingEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L333"
+    },
+    {
+      "id": "claude_getcachecontrol",
+      "label": "getCacheControl()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L358"
+    },
+    {
+      "id": "claude_should1hcachettl",
+      "label": "should1hCacheTTL()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L393"
+    },
+    {
+      "id": "claude_configureeffortparams",
+      "label": "configureEffortParams()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L440"
+    },
+    {
+      "id": "claude_configuretaskbudgetparams",
+      "label": "configureTaskBudgetParams()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L479"
+    },
+    {
+      "id": "claude_getapimetadata",
+      "label": "getAPIMetadata()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L503"
+    },
+    {
+      "id": "claude_verifyapikey",
+      "label": "verifyApiKey()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L530"
+    },
+    {
+      "id": "claude_usermessagetomessageparam",
+      "label": "userMessageToMessageParam()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L588"
+    },
+    {
+      "id": "claude_assistantmessagetomessageparam",
+      "label": "assistantMessageToMessageParam()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L633"
+    },
+    {
+      "id": "claude_querymodelwithoutstreaming",
+      "label": "queryModelWithoutStreaming()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L709"
+    },
+    {
+      "id": "claude_shoulddeferlsptool",
+      "label": "shouldDeferLspTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L786"
+    },
+    {
+      "id": "claude_getnonstreamingfallbacktimeoutms",
+      "label": "getNonstreamingFallbackTimeoutMs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L807"
+    },
+    {
+      "id": "claude_getpreviousrequestidfrommessages",
+      "label": "getPreviousRequestIdFromMessages()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L928"
+    },
+    {
+      "id": "claude_ismedia",
+      "label": "isMedia()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L940"
+    },
+    {
+      "id": "claude_istoolresult",
+      "label": "isToolResult()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L946"
+    },
+    {
+      "id": "claude_stripexcessmediaitems",
+      "label": "stripExcessMediaItems()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L956"
+    },
+    {
+      "id": "claude_willdefer",
+      "label": "willDefer()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1208"
+    },
+    {
+      "id": "claude_releasestreamresources",
+      "label": "releaseStreamResources()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1519"
+    },
+    {
+      "id": "claude_paramsfromcontext",
+      "label": "paramsFromContext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1538"
+    },
+    {
+      "id": "claude_clearstreamidletimers",
+      "label": "clearStreamIdleTimers()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1885"
+    },
+    {
+      "id": "claude_resetstreamidletimer",
+      "label": "resetStreamIdleTimer()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1895"
+    },
+    {
+      "id": "claude_cleanupstream",
+      "label": "cleanupStream()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L2898"
+    },
+    {
+      "id": "claude_updateusage",
+      "label": "updateUsage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L2924"
+    },
+    {
+      "id": "claude_accumulateusage",
+      "label": "accumulateUsage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L2993"
+    },
+    {
+      "id": "claude_istoolresultblock",
+      "label": "isToolResultBlock()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3040"
+    },
+    {
+      "id": "claude_addcachebreakpoints",
+      "label": "addCacheBreakpoints()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3063"
+    },
+    {
+      "id": "claude_buildsystempromptblocks",
+      "label": "buildSystemPromptBlocks()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3213"
+    },
+    {
+      "id": "claude_queryhaiku",
+      "label": "queryHaiku()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3241"
+    },
+    {
+      "id": "claude_querywithmodel",
+      "label": "queryWithModel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3300"
+    },
+    {
+      "id": "claude_adjustparamsfornonstreaming",
+      "label": "adjustParamsForNonStreaming()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3364"
+    },
+    {
+      "id": "claude_ismaxtokenscapenabled",
+      "label": "isMaxTokensCapEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3394"
+    },
+    {
+      "id": "claude_getmaxoutputtokensformodel",
+      "label": "getMaxOutputTokensForModel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3399"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "messages_mjs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "index_mjs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "streaming_mjs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "providers_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_system_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_loadagentsdir_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_connectortext_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_api_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_context_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fingerprint_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_systemprompttype_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_tokens_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_compact_apimicrocompact_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "sdk",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "error",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "state_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "betas_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "querysource_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "notifications_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L145",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "cost_tracker_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L146",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "growthbook_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L147",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "ids_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "advisor_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "agentcontext_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L156",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "auth_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L157",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "betas_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L158",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "common_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "prompt_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L165",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "context_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "debug_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L167",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "diaglogs_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "effort_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L169",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "fastmode_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "generators_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L176",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "headlessprofiler_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L177",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "mcpinstructionsdelta_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "modelcost_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "queryprofiler_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L180",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "thinking_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L181",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "toolsearch_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L186",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_apilimits_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L191",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_betas_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L192",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_toolsearchtool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L193",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_array_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L198",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_contentarray_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L199",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envvalidation_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L200",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_json_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L201",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_bedrock_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L202",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L203",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sessionactivity_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L207",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L211",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_telemetry_sessiontracing_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L212",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_compact_microcompact_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L222",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_lsp_manager_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L228",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L229",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_vcr_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L230",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L231",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L232",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_logging_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L238",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_promptcachebreakdetection_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L246",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_withretry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L251",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_getextrabodyparams",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L272",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_getpromptcachingenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L333",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_getcachecontrol",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L358",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_should1hcachettl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L393",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_configureeffortparams",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L440",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_configuretaskbudgetparams",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L479",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_getapimetadata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L503",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_verifyapikey",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L530",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_usermessagetomessageparam",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L588",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_assistantmessagetomessageparam",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L633",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_querymodelwithoutstreaming",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L709",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_shoulddeferlsptool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L786",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_getnonstreamingfallbacktimeoutms",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L807",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_getpreviousrequestidfrommessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L928",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_ismedia",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L940",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_istoolresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L946",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_stripexcessmediaitems",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L956",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_willdefer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1208",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_releasestreamresources",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1519",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_paramsfromcontext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1538",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_clearstreamidletimers",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1885",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_resetstreamidletimer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1895",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_cleanupstream",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L2898",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_updateusage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L2924",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_accumulateusage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L2993",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_istoolresultblock",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3040",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_addcachebreakpoints",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3063",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_buildsystempromptblocks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3213",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_queryhaiku",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3241",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_querywithmodel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3300",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_adjustparamsfornonstreaming",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3364",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_ismaxtokenscapenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3394",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "target": "claude_getmaxoutputtokensformodel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3399",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_getcachecontrol",
+      "target": "claude_should1hcachettl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L371",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_usermessagetomessageparam",
+      "target": "claude_getcachecontrol",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L603",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_assistantmessagetomessageparam",
+      "target": "claude_getcachecontrol",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L648",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_stripexcessmediaitems",
+      "target": "claude_ismedia",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L964",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_stripexcessmediaitems",
+      "target": "claude_istoolresult",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L965",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_willdefer",
+      "target": "claude_shoulddeferlsptool",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1209",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_releasestreamresources",
+      "target": "claude_cleanupstream",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1520",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_paramsfromcontext",
+      "target": "claude_getextrabodyparams",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1557",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_paramsfromcontext",
+      "target": "claude_configureeffortparams",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1563",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_paramsfromcontext",
+      "target": "claude_configuretaskbudgetparams",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1571",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_paramsfromcontext",
+      "target": "claude_getmaxoutputtokensformodel",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1594",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_paramsfromcontext",
+      "target": "claude_getpromptcachingenabled",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1640",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_paramsfromcontext",
+      "target": "claude_addcachebreakpoints",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1701",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_paramsfromcontext",
+      "target": "claude_getapimetadata",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1714",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_resetstreamidletimer",
+      "target": "claude_clearstreamidletimers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1896",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_addcachebreakpoints",
+      "target": "claude_istoolresultblock",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3196",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_getmaxoutputtokensformodel",
+      "target": "claude_ismaxtokenscapenabled",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3408",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "claude_getextrabodyparams",
+      "callee": "safeParseJSON",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L280"
+    },
+    {
+      "caller_nid": "claude_getextrabodyparams",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L282"
+    },
+    {
+      "caller_nid": "claude_getextrabodyparams",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "claude_getextrabodyparams",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L294"
+    },
+    {
+      "caller_nid": "claude_getextrabodyparams",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L295"
+    },
+    {
+      "caller_nid": "claude_getextrabodyparams",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L303"
+    },
+    {
+      "caller_nid": "claude_getextrabodyparams",
+      "callee": "shouldIncludeFirstPartyOnlyBetas",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L305"
+    },
+    {
+      "caller_nid": "claude_getextrabodyparams",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L306"
+    },
+    {
+      "caller_nid": "claude_getextrabodyparams",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L317"
+    },
+    {
+      "caller_nid": "claude_getextrabodyparams",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L320"
+    },
+    {
+      "caller_nid": "claude_getpromptcachingenabled",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L335"
+    },
+    {
+      "caller_nid": "claude_getpromptcachingenabled",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L338"
+    },
+    {
+      "caller_nid": "claude_getpromptcachingenabled",
+      "callee": "getSmallFastModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L339"
+    },
+    {
+      "caller_nid": "claude_getpromptcachingenabled",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L344"
+    },
+    {
+      "caller_nid": "claude_getpromptcachingenabled",
+      "callee": "getDefaultSonnetModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L345"
+    },
+    {
+      "caller_nid": "claude_getpromptcachingenabled",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L350"
+    },
+    {
+      "caller_nid": "claude_getpromptcachingenabled",
+      "callee": "getDefaultOpusModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L351"
+    },
+    {
+      "caller_nid": "claude_should1hcachettl",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L397"
+    },
+    {
+      "caller_nid": "claude_should1hcachettl",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L398"
+    },
+    {
+      "caller_nid": "claude_should1hcachettl",
+      "callee": "getPromptCache1hEligible",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L406"
+    },
+    {
+      "caller_nid": "claude_should1hcachettl",
+      "callee": "isClaudeAISubscriber",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L410"
+    },
+    {
+      "caller_nid": "claude_should1hcachettl",
+      "callee": "setPromptCache1hEligible",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L411"
+    },
+    {
+      "caller_nid": "claude_should1hcachettl",
+      "callee": "getPromptCache1hAllowlist",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L417"
+    },
+    {
+      "caller_nid": "claude_should1hcachettl",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L419"
+    },
+    {
+      "caller_nid": "claude_should1hcachettl",
+      "callee": "setPromptCache1hAllowlist",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L423"
+    },
+    {
+      "caller_nid": "claude_should1hcachettl",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L428"
+    },
+    {
+      "caller_nid": "claude_configureeffortparams",
+      "callee": "modelSupportsEffort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L447"
+    },
+    {
+      "caller_nid": "claude_configureeffortparams",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L452"
+    },
+    {
+      "caller_nid": "claude_configureeffortparams",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L456"
+    },
+    {
+      "caller_nid": "claude_configuretaskbudgetparams",
+      "callee": "shouldIncludeFirstPartyOnlyBetas",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L487"
+    },
+    {
+      "caller_nid": "claude_configuretaskbudgetparams",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L498"
+    },
+    {
+      "caller_nid": "claude_configuretaskbudgetparams",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L499"
+    },
+    {
+      "caller_nid": "claude_getapimetadata",
+      "callee": "safeParseJSON",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L508"
+    },
+    {
+      "caller_nid": "claude_getapimetadata",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L509"
+    },
+    {
+      "caller_nid": "claude_getapimetadata",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L512"
+    },
+    {
+      "caller_nid": "claude_getapimetadata",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L520"
+    },
+    {
+      "caller_nid": "claude_getapimetadata",
+      "callee": "getOrCreateUserID",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L522"
+    },
+    {
+      "caller_nid": "claude_getapimetadata",
+      "callee": "getOauthAccountInfo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L524"
+    },
+    {
+      "caller_nid": "claude_getapimetadata",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L525"
+    },
+    {
+      "caller_nid": "claude_verifyapikey",
+      "callee": "getSmallFastModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L541"
+    },
+    {
+      "caller_nid": "claude_verifyapikey",
+      "callee": "getModelBetas",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L542"
+    },
+    {
+      "caller_nid": "claude_verifyapikey",
+      "callee": "returnValue",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L543"
+    },
+    {
+      "caller_nid": "claude_verifyapikey",
+      "callee": "withRetry",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L544"
+    },
+    {
+      "caller_nid": "claude_verifyapikey",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L574"
+    },
+    {
+      "caller_nid": "claude_verifyapikey",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L578"
+    },
+    {
+      "caller_nid": "claude_usermessagetomessageparam",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L611"
+    },
+    {
+      "caller_nid": "claude_usermessagetomessageparam",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L627"
+    },
+    {
+      "caller_nid": "claude_assistantmessagetomessageparam",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L656"
+    },
+    {
+      "caller_nid": "claude_querymodelwithoutstreaming",
+      "callee": "withStreamingVCR",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L727"
+    },
+    {
+      "caller_nid": "claude_querymodelwithoutstreaming",
+      "callee": "queryModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L728"
+    },
+    {
+      "caller_nid": "claude_shoulddeferlsptool",
+      "callee": "getInitializationStatus",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L790"
+    },
+    {
+      "caller_nid": "claude_getnonstreamingfallbacktimeoutms",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L808"
+    },
+    {
+      "caller_nid": "claude_getnonstreamingfallbacktimeoutms",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L810"
+    },
+    {
+      "caller_nid": "claude_stripexcessmediaitems",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L962"
+    },
+    {
+      "caller_nid": "claude_stripexcessmediaitems",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L965"
+    },
+    {
+      "caller_nid": "claude_stripexcessmediaitems",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L975"
+    },
+    {
+      "caller_nid": "claude_willdefer",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1209"
+    },
+    {
+      "caller_nid": "claude_releasestreamresources",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1523"
+    },
+    {
+      "caller_nid": "claude_releasestreamresources",
+      "callee": "cancel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1523"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1543"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "getSonnet1mExpTreatmentEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1544"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1546"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1551"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "getBedrockExtraBodyParamsBetas",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1553"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "modelSupportsStructuredOutputs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1583"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1584"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1586"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1598"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "modelSupportsThinking",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1604"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1606"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "modelSupportsAdaptiveThinking",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1607"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "getMaxThinkingTokensForModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1617"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1624"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "getAPIContextManagement",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1633"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1635"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "isFastModeEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1647"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "isFastModeAvailable",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1648"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "isFastModeCooldown",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1649"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "isFastModeSupportedByModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1650"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1655"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1656"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1661"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "shouldIncludeFirstPartyOnlyBetas",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1664"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1666"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1668"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1677"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1681"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1683"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1685"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1686"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "normalizeModelStringForAPI",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1700"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1720"
+    },
+    {
+      "caller_nid": "claude_paramsfromcontext",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1724"
+    },
+    {
+      "caller_nid": "claude_clearstreamidletimers",
+      "callee": "clearTimeout",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1887"
+    },
+    {
+      "caller_nid": "claude_clearstreamidletimers",
+      "callee": "clearTimeout",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1891"
+    },
+    {
+      "caller_nid": "claude_resetstreamidletimer",
+      "callee": "setTimeout",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1900"
+    },
+    {
+      "caller_nid": "claude_resetstreamidletimer",
+      "callee": "setTimeout",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L1911"
+    },
+    {
+      "caller_nid": "claude_cleanupstream",
+      "callee": "abort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L2907"
+    },
+    {
+      "caller_nid": "claude_updateusage",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L2970"
+    },
+    {
+      "caller_nid": "claude_accumulateusage",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3024"
+    },
+    {
+      "caller_nid": "claude_addcachebreakpoints",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3072"
+    },
+    {
+      "caller_nid": "claude_addcachebreakpoints",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3090"
+    },
+    {
+      "caller_nid": "claude_addcachebreakpoints",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3131"
+    },
+    {
+      "caller_nid": "claude_addcachebreakpoints",
+      "callee": "deduplicateEdits",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3134"
+    },
+    {
+      "caller_nid": "claude_addcachebreakpoints",
+      "callee": "insertBlockAfterToolResults",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3136"
+    },
+    {
+      "caller_nid": "claude_addcachebreakpoints",
+      "callee": "deduplicateEdits",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3143"
+    },
+    {
+      "caller_nid": "claude_addcachebreakpoints",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3148"
+    },
+    {
+      "caller_nid": "claude_addcachebreakpoints",
+      "callee": "insertBlockAfterToolResults",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3151"
+    },
+    {
+      "caller_nid": "claude_addcachebreakpoints",
+      "callee": "pinCacheEdits",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3153"
+    },
+    {
+      "caller_nid": "claude_addcachebreakpoints",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3155"
+    },
+    {
+      "caller_nid": "claude_addcachebreakpoints",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3156"
+    },
+    {
+      "caller_nid": "claude_addcachebreakpoints",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3156"
+    },
+    {
+      "caller_nid": "claude_addcachebreakpoints",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3171"
+    },
+    {
+      "caller_nid": "claude_addcachebreakpoints",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3190"
+    },
+    {
+      "caller_nid": "claude_addcachebreakpoints",
+      "callee": "assign",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3201"
+    },
+    {
+      "caller_nid": "claude_buildsystempromptblocks",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3222"
+    },
+    {
+      "caller_nid": "claude_buildsystempromptblocks",
+      "callee": "splitSysPromptPrefix",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3222"
+    },
+    {
+      "caller_nid": "claude_queryhaiku",
+      "callee": "withVCR",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3254"
+    },
+    {
+      "caller_nid": "claude_queryhaiku",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3256"
+    },
+    {
+      "caller_nid": "claude_queryhaiku",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3257"
+    },
+    {
+      "caller_nid": "claude_queryhaiku",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3259"
+    },
+    {
+      "caller_nid": "claude_querywithmodel",
+      "callee": "withVCR",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3313"
+    },
+    {
+      "caller_nid": "claude_querywithmodel",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3315"
+    },
+    {
+      "caller_nid": "claude_querywithmodel",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3316"
+    },
+    {
+      "caller_nid": "claude_querywithmodel",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3318"
+    },
+    {
+      "caller_nid": "claude_adjustparamsfornonstreaming",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3370"
+    },
+    {
+      "caller_nid": "claude_adjustparamsfornonstreaming",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3381"
+    },
+    {
+      "caller_nid": "claude_ismaxtokenscapenabled",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3396"
+    },
+    {
+      "caller_nid": "claude_getmaxoutputtokensformodel",
+      "callee": "getModelMaxOutputTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3400"
+    },
+    {
+      "caller_nid": "claude_getmaxoutputtokensformodel",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3409"
+    },
+    {
+      "caller_nid": "claude_getmaxoutputtokensformodel",
+      "callee": "validateBoundedIntEnvVar",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\claude.ts",
+      "source_location": "L3412"
+    }
+  ]
+}

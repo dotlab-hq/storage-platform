@@ -1,1 +1,313 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts", "label": "index.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L1"}, {"id": "index_oauthservice", "label": "OAuthService", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L21"}, {"id": "index_oauthservice_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L28"}, {"id": "index_oauthservice_startoauthflow", "label": ".startOAuthFlow()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L32"}, {"id": "index_oauthservice_waitforauthorizationcode", "label": ".waitForAuthorizationCode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L134"}, {"id": "index_oauthservice_handlemanualauthcodeinput", "label": ".handleManualAuthCodeInput()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L157"}, {"id": "index_oauthservice_formattokens", "label": ".formatTokens()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L169"}, {"id": "index_oauthservice_cleanup", "label": ".cleanup()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L194"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts", "target": "index_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_browser_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts", "target": "f_storage_platform_claude_code_source_main_src_services_oauth_auth_code_listener_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts", "target": "f_storage_platform_claude_code_source_main_src_services_oauth_client_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts", "target": "f_storage_platform_claude_code_source_main_src_services_oauth_crypto_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts", "target": "f_storage_platform_claude_code_source_main_src_services_oauth_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts", "target": "index_oauthservice", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L21", "weight": 1.0}, {"source": "index_oauthservice", "target": "index_oauthservice_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L28", "weight": 1.0}, {"source": "index_oauthservice", "target": "index_oauthservice_startoauthflow", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L32", "weight": 1.0}, {"source": "index_oauthservice", "target": "index_oauthservice_waitforauthorizationcode", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L134", "weight": 1.0}, {"source": "index_oauthservice", "target": "index_oauthservice_handlemanualauthcodeinput", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L157", "weight": 1.0}, {"source": "index_oauthservice", "target": "index_oauthservice_formattokens", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L169", "weight": 1.0}, {"source": "index_oauthservice", "target": "index_oauthservice_cleanup", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L194", "weight": 1.0}, {"source": "index_oauthservice_startoauthflow", "target": "index_oauthservice_waitforauthorizationcode", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L73", "weight": 1.0}, {"source": "index_oauthservice_startoauthflow", "target": "index_oauthservice_formattokens", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L116", "weight": 1.0}], "raw_calls": [{"caller_nid": "index_oauthservice_constructor", "callee": "generateCodeVerifier", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L29"}, {"caller_nid": "index_oauthservice_startoauthflow", "callee": "start", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L52"}, {"caller_nid": "index_oauthservice_startoauthflow", "callee": "generateCodeChallenge", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L55"}, {"caller_nid": "index_oauthservice_startoauthflow", "callee": "generateState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L56"}, {"caller_nid": "index_oauthservice_startoauthflow", "callee": "buildAuthUrl", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L69"}, {"caller_nid": "index_oauthservice_startoauthflow", "callee": "buildAuthUrl", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L70"}, {"caller_nid": "index_oauthservice_startoauthflow", "callee": "hasPendingResponse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L89"}, {"caller_nid": "index_oauthservice_startoauthflow", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L90"}, {"caller_nid": "index_oauthservice_startoauthflow", "callee": "exchangeCodeForTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L94"}, {"caller_nid": "index_oauthservice_startoauthflow", "callee": "fetchProfileInfo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L106"}, {"caller_nid": "index_oauthservice_startoauthflow", "callee": "parseScopes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L112"}, {"caller_nid": "index_oauthservice_startoauthflow", "callee": "handleSuccessRedirect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L113"}, {"caller_nid": "index_oauthservice_startoauthflow", "callee": "handleErrorRedirect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L125"}, {"caller_nid": "index_oauthservice_startoauthflow", "callee": "close", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L130"}, {"caller_nid": "index_oauthservice_handlemanualauthcodeinput", "callee": "manualAuthCodeResolver", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L162"}, {"caller_nid": "index_oauthservice_handlemanualauthcodeinput", "callee": "close", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L165"}, {"caller_nid": "index_oauthservice_formattokens", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L178"}, {"caller_nid": "index_oauthservice_formattokens", "callee": "parseScopes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L179"}, {"caller_nid": "index_oauthservice_cleanup", "callee": "close", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts", "source_location": "L195"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts",
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "index_oauthservice",
+      "label": "OAuthService",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L21"
+    },
+    {
+      "id": "index_oauthservice_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L28"
+    },
+    {
+      "id": "index_oauthservice_startoauthflow",
+      "label": ".startOAuthFlow()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "index_oauthservice_waitforauthorizationcode",
+      "label": ".waitForAuthorizationCode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L134"
+    },
+    {
+      "id": "index_oauthservice_handlemanualauthcodeinput",
+      "label": ".handleManualAuthCodeInput()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L157"
+    },
+    {
+      "id": "index_oauthservice_formattokens",
+      "label": ".formatTokens()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L169"
+    },
+    {
+      "id": "index_oauthservice_cleanup",
+      "label": ".cleanup()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L194"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts",
+      "target": "index_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_browser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_oauth_auth_code_listener_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_oauth_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_oauth_crypto_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_oauth_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_oauth_index_ts",
+      "target": "index_oauthservice",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "index_oauthservice",
+      "target": "index_oauthservice_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "index_oauthservice",
+      "target": "index_oauthservice_startoauthflow",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "index_oauthservice",
+      "target": "index_oauthservice_waitforauthorizationcode",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "index_oauthservice",
+      "target": "index_oauthservice_handlemanualauthcodeinput",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L157",
+      "weight": 1.0
+    },
+    {
+      "source": "index_oauthservice",
+      "target": "index_oauthservice_formattokens",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L169",
+      "weight": 1.0
+    },
+    {
+      "source": "index_oauthservice",
+      "target": "index_oauthservice_cleanup",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "index_oauthservice_startoauthflow",
+      "target": "index_oauthservice_waitforauthorizationcode",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "index_oauthservice_startoauthflow",
+      "target": "index_oauthservice_formattokens",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L116",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "index_oauthservice_constructor",
+      "callee": "generateCodeVerifier",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "index_oauthservice_startoauthflow",
+      "callee": "start",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "index_oauthservice_startoauthflow",
+      "callee": "generateCodeChallenge",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "index_oauthservice_startoauthflow",
+      "callee": "generateState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "index_oauthservice_startoauthflow",
+      "callee": "buildAuthUrl",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "index_oauthservice_startoauthflow",
+      "callee": "buildAuthUrl",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "index_oauthservice_startoauthflow",
+      "callee": "hasPendingResponse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "index_oauthservice_startoauthflow",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "index_oauthservice_startoauthflow",
+      "callee": "exchangeCodeForTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L94"
+    },
+    {
+      "caller_nid": "index_oauthservice_startoauthflow",
+      "callee": "fetchProfileInfo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L106"
+    },
+    {
+      "caller_nid": "index_oauthservice_startoauthflow",
+      "callee": "parseScopes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "index_oauthservice_startoauthflow",
+      "callee": "handleSuccessRedirect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "index_oauthservice_startoauthflow",
+      "callee": "handleErrorRedirect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "index_oauthservice_startoauthflow",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "index_oauthservice_handlemanualauthcodeinput",
+      "callee": "manualAuthCodeResolver",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "index_oauthservice_handlemanualauthcodeinput",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "index_oauthservice_formattokens",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "index_oauthservice_formattokens",
+      "callee": "parseScopes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "index_oauthservice_cleanup",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\oauth\\index.ts",
+      "source_location": "L195"
+    }
+  ]
+}

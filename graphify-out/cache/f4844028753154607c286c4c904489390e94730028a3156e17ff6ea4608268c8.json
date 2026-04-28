@@ -1,1 +1,86 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_mcptool_classifyforcollapse_ts", "label": "classifyForCollapse.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts", "source_location": "L1"}, {"id": "classifyforcollapse_normalize", "label": "normalize()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts", "source_location": "L588"}, {"id": "classifyforcollapse_classifymcptoolforcollapse", "label": "classifyMcpToolForCollapse()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts", "source_location": "L595"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_mcptool_classifyforcollapse_ts", "target": "classifyforcollapse_normalize", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts", "source_location": "L588", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_mcptool_classifyforcollapse_ts", "target": "classifyforcollapse_classifymcptoolforcollapse", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts", "source_location": "L595", "weight": 1.0}, {"source": "classifyforcollapse_classifymcptoolforcollapse", "target": "classifyforcollapse_normalize", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts", "source_location": "L599", "weight": 1.0}], "raw_calls": [{"caller_nid": "classifyforcollapse_normalize", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts", "source_location": "L589"}, {"caller_nid": "classifyforcollapse_normalize", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts", "source_location": "L589"}, {"caller_nid": "classifyforcollapse_normalize", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts", "source_location": "L589"}, {"caller_nid": "classifyforcollapse_classifymcptoolforcollapse", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts", "source_location": "L601"}, {"caller_nid": "classifyforcollapse_classifymcptoolforcollapse", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts", "source_location": "L602"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_mcptool_classifyforcollapse_ts",
+      "label": "classifyForCollapse.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "classifyforcollapse_normalize",
+      "label": "normalize()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts",
+      "source_location": "L588"
+    },
+    {
+      "id": "classifyforcollapse_classifymcptoolforcollapse",
+      "label": "classifyMcpToolForCollapse()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts",
+      "source_location": "L595"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_mcptool_classifyforcollapse_ts",
+      "target": "classifyforcollapse_normalize",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts",
+      "source_location": "L588",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_mcptool_classifyforcollapse_ts",
+      "target": "classifyforcollapse_classifymcptoolforcollapse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts",
+      "source_location": "L595",
+      "weight": 1.0
+    },
+    {
+      "source": "classifyforcollapse_classifymcptoolforcollapse",
+      "target": "classifyforcollapse_normalize",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts",
+      "source_location": "L599",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "classifyforcollapse_normalize",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts",
+      "source_location": "L589"
+    },
+    {
+      "caller_nid": "classifyforcollapse_normalize",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts",
+      "source_location": "L589"
+    },
+    {
+      "caller_nid": "classifyforcollapse_normalize",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts",
+      "source_location": "L589"
+    },
+    {
+      "caller_nid": "classifyforcollapse_classifymcptoolforcollapse",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts",
+      "source_location": "L601"
+    },
+    {
+      "caller_nid": "classifyforcollapse_classifymcptoolforcollapse",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\MCPTool\\classifyForCollapse.ts",
+      "source_location": "L602"
+    }
+  ]
+}

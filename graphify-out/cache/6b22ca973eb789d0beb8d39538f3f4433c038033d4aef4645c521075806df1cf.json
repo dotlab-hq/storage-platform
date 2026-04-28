@@ -1,1 +1,122 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_cachepaths_ts", "label": "cachePaths.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts", "source_location": "L1"}, {"id": "cachepaths_sanitizepath", "label": "sanitizePath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts", "source_location": "L13"}, {"id": "cachepaths_getprojectdir", "label": "getProjectDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts", "source_location": "L21"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_cachepaths_ts", "target": "env_paths", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_cachepaths_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_cachepaths_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_cachepaths_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_hash_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_cachepaths_ts", "target": "cachepaths_sanitizepath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_cachepaths_ts", "target": "cachepaths_getprojectdir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts", "source_location": "L21", "weight": 1.0}, {"source": "cachepaths_getprojectdir", "target": "cachepaths_sanitizepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts", "source_location": "L22", "weight": 1.0}], "raw_calls": [{"caller_nid": "cachepaths_sanitizepath", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts", "source_location": "L14"}, {"caller_nid": "cachepaths_sanitizepath", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts", "source_location": "L18"}, {"caller_nid": "cachepaths_sanitizepath", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts", "source_location": "L18"}, {"caller_nid": "cachepaths_sanitizepath", "callee": "abs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts", "source_location": "L18"}, {"caller_nid": "cachepaths_sanitizepath", "callee": "djb2Hash", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts", "source_location": "L18"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_cachepaths_ts",
+      "label": "cachePaths.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "cachepaths_sanitizepath",
+      "label": "sanitizePath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts",
+      "source_location": "L13"
+    },
+    {
+      "id": "cachepaths_getprojectdir",
+      "label": "getProjectDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts",
+      "source_location": "L21"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_cachepaths_ts",
+      "target": "env_paths",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_cachepaths_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_cachepaths_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_cachepaths_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_hash_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_cachepaths_ts",
+      "target": "cachepaths_sanitizepath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_cachepaths_ts",
+      "target": "cachepaths_getprojectdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "cachepaths_getprojectdir",
+      "target": "cachepaths_sanitizepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "cachepaths_sanitizepath",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts",
+      "source_location": "L14"
+    },
+    {
+      "caller_nid": "cachepaths_sanitizepath",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "cachepaths_sanitizepath",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "cachepaths_sanitizepath",
+      "callee": "abs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "cachepaths_sanitizepath",
+      "callee": "djb2Hash",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\cachePaths.ts",
+      "source_location": "L18"
+    }
+  ]
+}

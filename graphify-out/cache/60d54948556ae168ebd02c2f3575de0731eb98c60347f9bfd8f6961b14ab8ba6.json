@@ -1,1 +1,2821 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "label": "insights.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1"}, {"id": "insights_getanalysismodel", "label": "getAnalysisModel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L41"}, {"id": "insights_getinsightsmodel", "label": "getInsightsModel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L46"}, {"id": "insights_getdatadir", "label": "getDataDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L420"}, {"id": "insights_getfacetsdir", "label": "getFacetsDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L423"}, {"id": "insights_getsessionmetadir", "label": "getSessionMetaDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L426"}, {"id": "insights_getlanguagefrompath", "label": "getLanguageFromPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L462"}, {"id": "insights_extracttoolstats", "label": "extractToolStats()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L467"}, {"id": "insights_hasvaliddates", "label": "hasValidDates()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L730"}, {"id": "insights_logtosessionmeta", "label": "logToSessionMeta()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L737"}, {"id": "insights_deduplicatesessionbranches", "label": "deduplicateSessionBranches()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L812"}, {"id": "insights_formattranscriptforfacets", "label": "formatTranscriptForFacets()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L831"}, {"id": "insights_summarizetranscriptchunk", "label": "summarizeTranscriptChunk()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L881"}, {"id": "insights_formattranscriptwithsummarization", "label": "formatTranscriptWithSummarization()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L906"}, {"id": "insights_loadcachedfacets", "label": "loadCachedFacets()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L941"}, {"id": "insights_savefacets", "label": "saveFacets()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L963"}, {"id": "insights_loadcachedsessionmeta", "label": "loadCachedSessionMeta()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L976"}, {"id": "insights_savesessionmeta", "label": "saveSessionMeta()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L988"}, {"id": "insights_extractfacetsfromapi", "label": "extractFacetsFromAPI()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1001"}, {"id": "insights_detectmulticlauding", "label": "detectMultiClauding()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1062"}, {"id": "insights_aggregatedata", "label": "aggregateData()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1145"}, {"id": "insights_generatesectioninsight", "label": "generateSectionInsight()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1572"}, {"id": "insights_generateparallelinsights", "label": "generateParallelInsights()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1612"}, {"id": "insights_escapehtmlwithbold", "label": "escapeHtmlWithBold()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1801"}, {"id": "insights_generatebarchart", "label": "generateBarChart()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1824"}, {"id": "insights_generateresponsetimehistogram", "label": "generateResponseTimeHistogram()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1863"}, {"id": "insights_generatetimeofdaychart", "label": "generateTimeOfDayChart()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1902"}, {"id": "insights_gethourcountsjson", "label": "getHourCountsJson()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1939"}, {"id": "insights_generatehtmlreport", "label": "generateHtmlReport()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1947"}, {"id": "insights_buildexportdata", "label": "buildExportData()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2679"}, {"id": "insights_scanallsessions", "label": "scanAllSessions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2755"}, {"id": "insights_generateusagereport", "label": "generateUsageReport()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2796"}, {"id": "insights_safeentries", "label": "safeEntries()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L3025"}, {"id": "insights_safekeys", "label": "safeKeys()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L3031"}, {"id": "insights_isvalidsessionfacets", "label": "isValidSessionFacets()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L3184"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "child_process", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "diff", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "fs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "os", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "f_storage_platform_claude_code_source_main_src_commands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "f_storage_platform_claude_code_source_main_src_types_logs_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstorage_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L36", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_systemprompttype_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_xml_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L38", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_getanalysismodel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L41", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_getinsightsmodel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L46", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_getdatadir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L420", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_getfacetsdir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L423", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_getsessionmetadir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L426", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_getlanguagefrompath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L462", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_extracttoolstats", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L467", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_hasvaliddates", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L730", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_logtosessionmeta", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L737", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_deduplicatesessionbranches", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L812", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_formattranscriptforfacets", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L831", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_summarizetranscriptchunk", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L881", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_formattranscriptwithsummarization", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L906", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_loadcachedfacets", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L941", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_savefacets", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L963", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_loadcachedsessionmeta", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L976", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_savesessionmeta", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L988", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_extractfacetsfromapi", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1001", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_detectmulticlauding", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1062", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_aggregatedata", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1145", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_generatesectioninsight", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1572", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_generateparallelinsights", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1612", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_escapehtmlwithbold", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1801", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_generatebarchart", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1824", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_generateresponsetimehistogram", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1863", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_generatetimeofdaychart", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1902", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_gethourcountsjson", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1939", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_generatehtmlreport", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1947", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_buildexportdata", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2679", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_scanallsessions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2755", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_generateusagereport", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2796", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_safeentries", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L3025", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_safekeys", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L3031", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts", "target": "insights_isvalidsessionfacets", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L3184", "weight": 1.0}, {"source": "insights_getfacetsdir", "target": "insights_getdatadir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L424", "weight": 1.0}, {"source": "insights_getsessionmetadir", "target": "insights_getdatadir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L427", "weight": 1.0}, {"source": "insights_extracttoolstats", "target": "insights_getlanguagefrompath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L557", "weight": 1.0}, {"source": "insights_logtosessionmeta", "target": "insights_extracttoolstats", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L738", "weight": 1.0}, {"source": "insights_formattranscriptforfacets", "target": "insights_logtosessionmeta", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L833", "weight": 1.0}, {"source": "insights_summarizetranscriptchunk", "target": "insights_getanalysismodel", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L888", "weight": 1.0}, {"source": "insights_formattranscriptwithsummarization", "target": "insights_formattranscriptforfacets", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L909", "weight": 1.0}, {"source": "insights_formattranscriptwithsummarization", "target": "insights_logtosessionmeta", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L928", "weight": 1.0}, {"source": "insights_loadcachedfacets", "target": "insights_getfacetsdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L944", "weight": 1.0}, {"source": "insights_loadcachedfacets", "target": "insights_isvalidsessionfacets", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L948", "weight": 1.0}, {"source": "insights_savefacets", "target": "insights_getfacetsdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L965", "weight": 1.0}, {"source": "insights_loadcachedsessionmeta", "target": "insights_getsessionmetadir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L979", "weight": 1.0}, {"source": "insights_savesessionmeta", "target": "insights_getsessionmetadir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L990", "weight": 1.0}, {"source": "insights_extractfacetsfromapi", "target": "insights_formattranscriptwithsummarization", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1007", "weight": 1.0}, {"source": "insights_extractfacetsfromapi", "target": "insights_getanalysismodel", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1031", "weight": 1.0}, {"source": "insights_extractfacetsfromapi", "target": "insights_isvalidsessionfacets", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1048", "weight": 1.0}, {"source": "insights_aggregatedata", "target": "insights_safeentries", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1244", "weight": 1.0}, {"source": "insights_aggregatedata", "target": "insights_detectmulticlauding", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1320", "weight": 1.0}, {"source": "insights_generatesectioninsight", "target": "insights_getinsightsmodel", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1582", "weight": 1.0}, {"source": "insights_generateparallelinsights", "target": "insights_generatesectioninsight", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1787", "weight": 1.0}, {"source": "insights_generatehtmlreport", "target": "insights_escapehtmlwithbold", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1972", "weight": 1.0}, {"source": "insights_generatehtmlreport", "target": "insights_gethourcountsjson", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2384", "weight": 1.0}, {"source": "insights_generatehtmlreport", "target": "insights_generatebarchart", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2523", "weight": 1.0}, {"source": "insights_generatehtmlreport", "target": "insights_generateresponsetimehistogram", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2547", "weight": 1.0}, {"source": "insights_generatehtmlreport", "target": "insights_generatetimeofdaychart", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2601", "weight": 1.0}, {"source": "insights_buildexportdata", "target": "insights_safeentries", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2699", "weight": 1.0}, {"source": "insights_generateusagereport", "target": "insights_scanallsessions", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2815", "weight": 1.0}, {"source": "insights_generateusagereport", "target": "insights_hasvaliddates", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2880", "weight": 1.0}, {"source": "insights_generateusagereport", "target": "insights_logtosessionmeta", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2881", "weight": 1.0}, {"source": "insights_generateusagereport", "target": "insights_aggregatedata", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2994", "weight": 1.0}, {"source": "insights_generateusagereport", "target": "insights_generateparallelinsights", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2998", "weight": 1.0}, {"source": "insights_generateusagereport", "target": "insights_generatehtmlreport", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L3001", "weight": 1.0}, {"source": "insights_generateusagereport", "target": "insights_getdatadir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L3005", "weight": 1.0}], "raw_calls": [{"caller_nid": "insights_getanalysismodel", "callee": "getDefaultOpusModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L42"}, {"caller_nid": "insights_getinsightsmodel", "callee": "getDefaultOpusModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L47"}, {"caller_nid": "insights_getdatadir", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L421"}, {"caller_nid": "insights_getdatadir", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L421"}, {"caller_nid": "insights_getfacetsdir", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L424"}, {"caller_nid": "insights_getsessionmetadir", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L427"}, {"caller_nid": "insights_getlanguagefrompath", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L463"}, {"caller_nid": "insights_getlanguagefrompath", "callee": "extname", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L463"}, {"caller_nid": "insights_extracttoolstats", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L536"}, {"caller_nid": "insights_extracttoolstats", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L548"}, {"caller_nid": "insights_extracttoolstats", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L563"}, {"caller_nid": "insights_extracttoolstats", "callee": "diffLines", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L570"}, {"caller_nid": "insights_extracttoolstats", "callee": "countCharInString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L580"}, {"caller_nid": "insights_extracttoolstats", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L585"}, {"caller_nid": "insights_extracttoolstats", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L586"}, {"caller_nid": "insights_extracttoolstats", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L600"}, {"caller_nid": "insights_extracttoolstats", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L602"}, {"caller_nid": "insights_extracttoolstats", "callee": "getHours", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L617"}, {"caller_nid": "insights_extracttoolstats", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L618"}, {"caller_nid": "insights_extracttoolstats", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L620"}, {"caller_nid": "insights_extracttoolstats", "callee": "getTime", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L629"}, {"caller_nid": "insights_extracttoolstats", "callee": "getTime", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L630"}, {"caller_nid": "insights_extracttoolstats", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L634"}, {"caller_nid": "insights_extracttoolstats", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L640"}, {"caller_nid": "insights_extracttoolstats", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L651"}, {"caller_nid": "insights_extracttoolstats", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L652"}, {"caller_nid": "insights_extracttoolstats", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L655"}, {"caller_nid": "insights_extracttoolstats", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L656"}, {"caller_nid": "insights_extracttoolstats", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L660"}, {"caller_nid": "insights_extracttoolstats", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L661"}, {"caller_nid": "insights_extracttoolstats", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L664"}, {"caller_nid": "insights_extracttoolstats", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L667"}, {"caller_nid": "insights_extracttoolstats", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L668"}, {"caller_nid": "insights_extracttoolstats", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L672"}, {"caller_nid": "insights_extracttoolstats", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L673"}, {"caller_nid": "insights_extracttoolstats", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L687"}, {"caller_nid": "insights_extracttoolstats", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L690"}, {"caller_nid": "insights_extracttoolstats", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L695"}, {"caller_nid": "insights_hasvaliddates", "callee": "isNaN", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L732"}, {"caller_nid": "insights_hasvaliddates", "callee": "getTime", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L732"}, {"caller_nid": "insights_hasvaliddates", "callee": "isNaN", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L733"}, {"caller_nid": "insights_hasvaliddates", "callee": "getTime", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L733"}, {"caller_nid": "insights_logtosessionmeta", "callee": "getSessionIdFromLog", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L739"}, {"caller_nid": "insights_logtosessionmeta", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L740"}, {"caller_nid": "insights_logtosessionmeta", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L741"}, {"caller_nid": "insights_logtosessionmeta", "callee": "getTime", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L742"}, {"caller_nid": "insights_logtosessionmeta", "callee": "getTime", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L742"}, {"caller_nid": "insights_logtosessionmeta", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L754"}, {"caller_nid": "insights_logtosessionmeta", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L756"}, {"caller_nid": "insights_deduplicatesessionbranches", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L818"}, {"caller_nid": "insights_deduplicatesessionbranches", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L825"}, {"caller_nid": "insights_deduplicatesessionbranches", "callee": "values", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L828"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L835"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L835"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L836"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L837"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L838"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L839"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L845"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L845"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L846"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L849"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L849"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L855"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L858"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L858"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L860"}, {"caller_nid": "insights_formattranscriptforfacets", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L867"}, {"caller_nid": "insights_summarizetranscriptchunk", "callee": "queryWithModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L883"}, {"caller_nid": "insights_summarizetranscriptchunk", "callee": "asSystemPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L884"}, {"caller_nid": "insights_summarizetranscriptchunk", "callee": "extractTextContent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L898"}, {"caller_nid": "insights_summarizetranscriptchunk", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L899"}, {"caller_nid": "insights_summarizetranscriptchunk", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L902"}, {"caller_nid": "insights_formattranscriptwithsummarization", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L921"}, {"caller_nid": "insights_formattranscriptwithsummarization", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L921"}, {"caller_nid": "insights_formattranscriptwithsummarization", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L925"}, {"caller_nid": "insights_formattranscriptwithsummarization", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L925"}, {"caller_nid": "insights_formattranscriptwithsummarization", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L929"}, {"caller_nid": "insights_formattranscriptwithsummarization", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L930"}, {"caller_nid": "insights_formattranscriptwithsummarization", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L938"}, {"caller_nid": "insights_loadcachedfacets", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L944"}, {"caller_nid": "insights_loadcachedfacets", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L946"}, {"caller_nid": "insights_loadcachedfacets", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L947"}, {"caller_nid": "insights_loadcachedfacets", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L951"}, {"caller_nid": "insights_savefacets", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L965"}, {"caller_nid": "insights_savefacets", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L969"}, {"caller_nid": "insights_savefacets", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L970"}, {"caller_nid": "insights_savefacets", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L970"}, {"caller_nid": "insights_loadcachedsessionmeta", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L979"}, {"caller_nid": "insights_loadcachedsessionmeta", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L981"}, {"caller_nid": "insights_loadcachedsessionmeta", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L982"}, {"caller_nid": "insights_savesessionmeta", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L990"}, {"caller_nid": "insights_savesessionmeta", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L994"}, {"caller_nid": "insights_savesessionmeta", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L995"}, {"caller_nid": "insights_savesessionmeta", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L995"}, {"caller_nid": "insights_extractfacetsfromapi", "callee": "queryWithModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1026"}, {"caller_nid": "insights_extractfacetsfromapi", "callee": "asSystemPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1027"}, {"caller_nid": "insights_extractfacetsfromapi", "callee": "extractTextContent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1041"}, {"caller_nid": "insights_extractfacetsfromapi", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1044"}, {"caller_nid": "insights_extractfacetsfromapi", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1047"}, {"caller_nid": "insights_extractfacetsfromapi", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1052"}, {"caller_nid": "insights_extractfacetsfromapi", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1052"}, {"caller_nid": "insights_detectmulticlauding", "callee": "getTime", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1078"}, {"caller_nid": "insights_detectmulticlauding", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1079"}, {"caller_nid": "insights_detectmulticlauding", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1086"}, {"caller_nid": "insights_detectmulticlauding", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1104"}, {"caller_nid": "insights_detectmulticlauding", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1105"}, {"caller_nid": "insights_detectmulticlauding", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1111"}, {"caller_nid": "insights_detectmulticlauding", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1116"}, {"caller_nid": "insights_detectmulticlauding", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1116"}, {"caller_nid": "insights_detectmulticlauding", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1117"}, {"caller_nid": "insights_detectmulticlauding", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1118"}, {"caller_nid": "insights_detectmulticlauding", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1121"}, {"caller_nid": "insights_detectmulticlauding", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1122"}, {"caller_nid": "insights_detectmulticlauding", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1128"}, {"caller_nid": "insights_detectmulticlauding", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1133"}, {"caller_nid": "insights_detectmulticlauding", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1134"}, {"caller_nid": "insights_detectmulticlauding", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1135"}, {"caller_nid": "insights_aggregatedata", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1201"}, {"caller_nid": "insights_aggregatedata", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1212"}, {"caller_nid": "insights_aggregatedata", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1216"}, {"caller_nid": "insights_aggregatedata", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1226"}, {"caller_nid": "insights_aggregatedata", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1228"}, {"caller_nid": "insights_aggregatedata", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1232"}, {"caller_nid": "insights_aggregatedata", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1241"}, {"caller_nid": "insights_aggregatedata", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1287"}, {"caller_nid": "insights_aggregatedata", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1288"}, {"caller_nid": "insights_aggregatedata", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1289"}, {"caller_nid": "insights_aggregatedata", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1290"}, {"caller_nid": "insights_aggregatedata", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1296"}, {"caller_nid": "insights_aggregatedata", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1297"}, {"caller_nid": "insights_aggregatedata", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1298"}, {"caller_nid": "insights_aggregatedata", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1303"}, {"caller_nid": "insights_aggregatedata", "callee": "floor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1304"}, {"caller_nid": "insights_aggregatedata", "callee": "reduce", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1306"}, {"caller_nid": "insights_aggregatedata", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1310"}, {"caller_nid": "insights_aggregatedata", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1314"}, {"caller_nid": "insights_generatesectioninsight", "callee": "queryWithModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1577"}, {"caller_nid": "insights_generatesectioninsight", "callee": "asSystemPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1578"}, {"caller_nid": "insights_generatesectioninsight", "callee": "extractTextContent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1592"}, {"caller_nid": "insights_generatesectioninsight", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1596"}, {"caller_nid": "insights_generatesectioninsight", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1599"}, {"caller_nid": "insights_generatesectioninsight", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1607"}, {"caller_nid": "insights_generatesectioninsight", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1607"}, {"caller_nid": "insights_generateparallelinsights", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1617"}, {"caller_nid": "insights_generateparallelinsights", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1617"}, {"caller_nid": "insights_generateparallelinsights", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1617"}, {"caller_nid": "insights_generateparallelinsights", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1617"}, {"caller_nid": "insights_generateparallelinsights", "callee": "values", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1617"}, {"caller_nid": "insights_generateparallelinsights", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1622"}, {"caller_nid": "insights_generateparallelinsights", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1622"}, {"caller_nid": "insights_generateparallelinsights", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1622"}, {"caller_nid": "insights_generateparallelinsights", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1622"}, {"caller_nid": "insights_generateparallelinsights", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1622"}, {"caller_nid": "insights_generateparallelinsights", "callee": "values", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1622"}, {"caller_nid": "insights_generateparallelinsights", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1628"}, {"caller_nid": "insights_generateparallelinsights", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1628"}, {"caller_nid": "insights_generateparallelinsights", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1628"}, {"caller_nid": "insights_generateparallelinsights", "callee": "flatMap", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1628"}, {"caller_nid": "insights_generateparallelinsights", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1628"}, {"caller_nid": "insights_generateparallelinsights", "callee": "values", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1628"}, {"caller_nid": "insights_generateparallelinsights", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1634"}, {"caller_nid": "insights_generateparallelinsights", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1640"}, {"caller_nid": "insights_generateparallelinsights", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1642"}, {"caller_nid": "insights_generateparallelinsights", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1642"}, {"caller_nid": "insights_generateparallelinsights", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1642"}, {"caller_nid": "insights_generateparallelinsights", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1645"}, {"caller_nid": "insights_generateparallelinsights", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1645"}, {"caller_nid": "insights_generateparallelinsights", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1645"}, {"caller_nid": "insights_generateparallelinsights", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1668"}, {"caller_nid": "insights_generateparallelinsights", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1669"}, {"caller_nid": "insights_generateparallelinsights", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1684"}, {"caller_nid": "insights_generateparallelinsights", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1684"}, {"caller_nid": "insights_generateparallelinsights", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1693"}, {"caller_nid": "insights_generateparallelinsights", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1693"}, {"caller_nid": "insights_generateparallelinsights", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1702"}, {"caller_nid": "insights_generateparallelinsights", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1702"}, {"caller_nid": "insights_generateparallelinsights", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1711"}, {"caller_nid": "insights_generateparallelinsights", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1711"}, {"caller_nid": "insights_generateparallelinsights", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1720"}, {"caller_nid": "insights_generateparallelinsights", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1720"}, {"caller_nid": "insights_generateparallelinsights", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1729"}, {"caller_nid": "insights_generateparallelinsights", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1729"}, {"caller_nid": "insights_escapehtmlwithbold", "callee": "escapeHtml", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1802"}, {"caller_nid": "insights_escapehtmlwithbold", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1803"}, {"caller_nid": "insights_generatebarchart", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1834"}, {"caller_nid": "insights_generatebarchart", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1834"}, {"caller_nid": "insights_generatebarchart", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1839"}, {"caller_nid": "insights_generatebarchart", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1839"}, {"caller_nid": "insights_generatebarchart", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1839"}, {"caller_nid": "insights_generatebarchart", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1846"}, {"caller_nid": "insights_generatebarchart", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1846"}, {"caller_nid": "insights_generatebarchart", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1847"}, {"caller_nid": "insights_generatebarchart", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1847"}, {"caller_nid": "insights_generateresponsetimehistogram", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1887"}, {"caller_nid": "insights_generateresponsetimehistogram", "callee": "values", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1887"}, {"caller_nid": "insights_generateresponsetimehistogram", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1890"}, {"caller_nid": "insights_generateresponsetimehistogram", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1890"}, {"caller_nid": "insights_generateresponsetimehistogram", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1890"}, {"caller_nid": "insights_generatetimeofdaychart", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1918"}, {"caller_nid": "insights_generatetimeofdaychart", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1923"}, {"caller_nid": "insights_generatetimeofdaychart", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1923"}, {"caller_nid": "insights_generatetimeofdaychart", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1925"}, {"caller_nid": "insights_generatetimeofdaychart", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1925"}, {"caller_nid": "insights_gethourcountsjson", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1944"}, {"caller_nid": "insights_generatehtmlreport", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1988"}, {"caller_nid": "insights_generatehtmlreport", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L1988"}, {"caller_nid": "insights_generatehtmlreport", "callee": "markdownToHtml", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2011"}, {"caller_nid": "insights_generatehtmlreport", "callee": "escapeHtml", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2012"}, {"caller_nid": "insights_generatehtmlreport", "callee": "escapeHtml", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2023"}, {"caller_nid": "insights_generatehtmlreport", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2025"}, {"caller_nid": "insights_generatehtmlreport", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2025"}, {"caller_nid": "insights_generatehtmlreport", "callee": "escapeHtml", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2045"}, {"caller_nid": "insights_generatehtmlreport", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2047"}, {"caller_nid": "insights_generatehtmlreport", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2047"}, {"caller_nid": "insights_generatehtmlreport", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2077"}, {"caller_nid": "insights_generatehtmlreport", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2077"}, {"caller_nid": "insights_generatehtmlreport", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2100"}, {"caller_nid": "insights_generatehtmlreport", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2100"}, {"caller_nid": "insights_generatehtmlreport", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2135"}, {"caller_nid": "insights_generatehtmlreport", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2135"}, {"caller_nid": "insights_generatehtmlreport", "callee": "escapeHtml", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2172"}, {"caller_nid": "insights_generatehtmlreport", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2174"}, {"caller_nid": "insights_generatehtmlreport", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2174"}, {"caller_nid": "insights_generatehtmlreport", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2214"}, {"caller_nid": "insights_generatehtmlreport", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2214"}, {"caller_nid": "insights_generatehtmlreport", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2241"}, {"caller_nid": "insights_generatehtmlreport", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2241"}, {"caller_nid": "insights_generatehtmlreport", "callee": "escapeHtml", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2266"}, {"caller_nid": "insights_generatehtmlreport", "callee": "escapeHtml", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2267"}, {"caller_nid": "insights_generatehtmlreport", "callee": "toLocaleString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2495"}, {"caller_nid": "insights_generatehtmlreport", "callee": "toLocaleString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2495"}, {"caller_nid": "insights_generatehtmlreport", "callee": "toLocaleString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2511"}, {"caller_nid": "insights_generatehtmlreport", "callee": "toLocaleString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2512"}, {"caller_nid": "insights_generatehtmlreport", "callee": "toLocaleString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2512"}, {"caller_nid": "insights_generatehtmlreport", "callee": "toFixed", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2549"}, {"caller_nid": "insights_generatehtmlreport", "callee": "toFixed", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2549"}, {"caller_nid": "insights_generatehtmlreport", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2574"}, {"caller_nid": "insights_generatehtmlreport", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2605"}, {"caller_nid": "insights_buildexportdata", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2687"}, {"caller_nid": "insights_buildexportdata", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2687"}, {"caller_nid": "insights_buildexportdata", "callee": "values", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2698"}, {"caller_nid": "insights_buildexportdata", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2724"}, {"caller_nid": "insights_scanallsessions", "callee": "getProjectsDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2756"}, {"caller_nid": "insights_scanallsessions", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2760"}, {"caller_nid": "insights_scanallsessions", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2765"}, {"caller_nid": "insights_scanallsessions", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2765"}, {"caller_nid": "insights_scanallsessions", "callee": "getSessionFilesWithMtime", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2772"}, {"caller_nid": "insights_scanallsessions", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2774"}, {"caller_nid": "insights_scanallsessions", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2788"}, {"caller_nid": "insights_generateusagereport", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2809"}, {"caller_nid": "insights_generateusagereport", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2809"}, {"caller_nid": "insights_generateusagereport", "callee": "collectAllRemoteHostData", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2810"}, {"caller_nid": "insights_generateusagereport", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2826"}, {"caller_nid": "insights_generateusagereport", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2827"}, {"caller_nid": "insights_generateusagereport", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2828"}, {"caller_nid": "insights_generateusagereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2835"}, {"caller_nid": "insights_generateusagereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2837"}, {"caller_nid": "insights_generateusagereport", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2866"}, {"caller_nid": "insights_generateusagereport", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2867"}, {"caller_nid": "insights_generateusagereport", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2868"}, {"caller_nid": "insights_generateusagereport", "callee": "isMetaSession", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2880"}, {"caller_nid": "insights_generateusagereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2882"}, {"caller_nid": "insights_generateusagereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2883"}, {"caller_nid": "insights_generateusagereport", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2885"}, {"caller_nid": "insights_generateusagereport", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2888"}, {"caller_nid": "insights_generateusagereport", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2888"}, {"caller_nid": "insights_generateusagereport", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2895"}, {"caller_nid": "insights_generateusagereport", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2902"}, {"caller_nid": "insights_generateusagereport", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2906"}, {"caller_nid": "insights_generateusagereport", "callee": "values", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2907"}, {"caller_nid": "insights_generateusagereport", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2908"}, {"caller_nid": "insights_generateusagereport", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2909"}, {"caller_nid": "insights_generateusagereport", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2910"}, {"caller_nid": "insights_generateusagereport", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2915"}, {"caller_nid": "insights_generateusagereport", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2927"}, {"caller_nid": "insights_generateusagereport", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2935"}, {"caller_nid": "insights_generateusagereport", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2936"}, {"caller_nid": "insights_generateusagereport", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2943"}, {"caller_nid": "insights_generateusagereport", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2945"}, {"caller_nid": "insights_generateusagereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2947"}, {"caller_nid": "insights_generateusagereport", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2955"}, {"caller_nid": "insights_generateusagereport", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2956"}, {"caller_nid": "insights_generateusagereport", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2957"}, {"caller_nid": "insights_generateusagereport", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2966"}, {"caller_nid": "insights_generateusagereport", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2967"}, {"caller_nid": "insights_generateusagereport", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2970"}, {"caller_nid": "insights_generateusagereport", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2970"}, {"caller_nid": "insights_generateusagereport", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2983"}, {"caller_nid": "insights_generateusagereport", "callee": "isMinimalSession", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2989"}, {"caller_nid": "insights_generateusagereport", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L2990"}, {"caller_nid": "insights_generateusagereport", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L3005"}, {"caller_nid": "insights_generateusagereport", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L3010"}, {"caller_nid": "insights_generateusagereport", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L3011"}, {"caller_nid": "insights_safeentries", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L3028"}, {"caller_nid": "insights_safekeys", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts", "source_location": "L3032"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "label": "insights.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "insights_getanalysismodel",
+      "label": "getAnalysisModel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L41"
+    },
+    {
+      "id": "insights_getinsightsmodel",
+      "label": "getInsightsModel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L46"
+    },
+    {
+      "id": "insights_getdatadir",
+      "label": "getDataDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L420"
+    },
+    {
+      "id": "insights_getfacetsdir",
+      "label": "getFacetsDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L423"
+    },
+    {
+      "id": "insights_getsessionmetadir",
+      "label": "getSessionMetaDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L426"
+    },
+    {
+      "id": "insights_getlanguagefrompath",
+      "label": "getLanguageFromPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L462"
+    },
+    {
+      "id": "insights_extracttoolstats",
+      "label": "extractToolStats()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L467"
+    },
+    {
+      "id": "insights_hasvaliddates",
+      "label": "hasValidDates()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L730"
+    },
+    {
+      "id": "insights_logtosessionmeta",
+      "label": "logToSessionMeta()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L737"
+    },
+    {
+      "id": "insights_deduplicatesessionbranches",
+      "label": "deduplicateSessionBranches()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L812"
+    },
+    {
+      "id": "insights_formattranscriptforfacets",
+      "label": "formatTranscriptForFacets()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L831"
+    },
+    {
+      "id": "insights_summarizetranscriptchunk",
+      "label": "summarizeTranscriptChunk()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L881"
+    },
+    {
+      "id": "insights_formattranscriptwithsummarization",
+      "label": "formatTranscriptWithSummarization()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L906"
+    },
+    {
+      "id": "insights_loadcachedfacets",
+      "label": "loadCachedFacets()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L941"
+    },
+    {
+      "id": "insights_savefacets",
+      "label": "saveFacets()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L963"
+    },
+    {
+      "id": "insights_loadcachedsessionmeta",
+      "label": "loadCachedSessionMeta()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L976"
+    },
+    {
+      "id": "insights_savesessionmeta",
+      "label": "saveSessionMeta()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L988"
+    },
+    {
+      "id": "insights_extractfacetsfromapi",
+      "label": "extractFacetsFromAPI()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1001"
+    },
+    {
+      "id": "insights_detectmulticlauding",
+      "label": "detectMultiClauding()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1062"
+    },
+    {
+      "id": "insights_aggregatedata",
+      "label": "aggregateData()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1145"
+    },
+    {
+      "id": "insights_generatesectioninsight",
+      "label": "generateSectionInsight()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1572"
+    },
+    {
+      "id": "insights_generateparallelinsights",
+      "label": "generateParallelInsights()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1612"
+    },
+    {
+      "id": "insights_escapehtmlwithbold",
+      "label": "escapeHtmlWithBold()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1801"
+    },
+    {
+      "id": "insights_generatebarchart",
+      "label": "generateBarChart()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1824"
+    },
+    {
+      "id": "insights_generateresponsetimehistogram",
+      "label": "generateResponseTimeHistogram()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1863"
+    },
+    {
+      "id": "insights_generatetimeofdaychart",
+      "label": "generateTimeOfDayChart()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1902"
+    },
+    {
+      "id": "insights_gethourcountsjson",
+      "label": "getHourCountsJson()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1939"
+    },
+    {
+      "id": "insights_generatehtmlreport",
+      "label": "generateHtmlReport()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1947"
+    },
+    {
+      "id": "insights_buildexportdata",
+      "label": "buildExportData()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2679"
+    },
+    {
+      "id": "insights_scanallsessions",
+      "label": "scanAllSessions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2755"
+    },
+    {
+      "id": "insights_generateusagereport",
+      "label": "generateUsageReport()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2796"
+    },
+    {
+      "id": "insights_safeentries",
+      "label": "safeEntries()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L3025"
+    },
+    {
+      "id": "insights_safekeys",
+      "label": "safeKeys()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L3031"
+    },
+    {
+      "id": "insights_isvalidsessionfacets",
+      "label": "isValidSessionFacets()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L3184"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "child_process",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "diff",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "fs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "os",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_commands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_logs_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstorage_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_systemprompttype_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_xml_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_getanalysismodel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_getinsightsmodel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_getdatadir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L420",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_getfacetsdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L423",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_getsessionmetadir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L426",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_getlanguagefrompath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L462",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_extracttoolstats",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L467",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_hasvaliddates",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L730",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_logtosessionmeta",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L737",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_deduplicatesessionbranches",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L812",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_formattranscriptforfacets",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L831",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_summarizetranscriptchunk",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L881",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_formattranscriptwithsummarization",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L906",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_loadcachedfacets",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L941",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_savefacets",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L963",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_loadcachedsessionmeta",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L976",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_savesessionmeta",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L988",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_extractfacetsfromapi",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1001",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_detectmulticlauding",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1062",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_aggregatedata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1145",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_generatesectioninsight",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1572",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_generateparallelinsights",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1612",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_escapehtmlwithbold",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1801",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_generatebarchart",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1824",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_generateresponsetimehistogram",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1863",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_generatetimeofdaychart",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1902",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_gethourcountsjson",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1939",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_generatehtmlreport",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1947",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_buildexportdata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2679",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_scanallsessions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2755",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_generateusagereport",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2796",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_safeentries",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L3025",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_safekeys",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L3031",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_insights_ts",
+      "target": "insights_isvalidsessionfacets",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L3184",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_getfacetsdir",
+      "target": "insights_getdatadir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L424",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_getsessionmetadir",
+      "target": "insights_getdatadir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L427",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_extracttoolstats",
+      "target": "insights_getlanguagefrompath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L557",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_logtosessionmeta",
+      "target": "insights_extracttoolstats",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L738",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_formattranscriptforfacets",
+      "target": "insights_logtosessionmeta",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L833",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_summarizetranscriptchunk",
+      "target": "insights_getanalysismodel",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L888",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_formattranscriptwithsummarization",
+      "target": "insights_formattranscriptforfacets",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L909",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_formattranscriptwithsummarization",
+      "target": "insights_logtosessionmeta",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L928",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_loadcachedfacets",
+      "target": "insights_getfacetsdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L944",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_loadcachedfacets",
+      "target": "insights_isvalidsessionfacets",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L948",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_savefacets",
+      "target": "insights_getfacetsdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L965",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_loadcachedsessionmeta",
+      "target": "insights_getsessionmetadir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L979",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_savesessionmeta",
+      "target": "insights_getsessionmetadir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L990",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_extractfacetsfromapi",
+      "target": "insights_formattranscriptwithsummarization",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1007",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_extractfacetsfromapi",
+      "target": "insights_getanalysismodel",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1031",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_extractfacetsfromapi",
+      "target": "insights_isvalidsessionfacets",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1048",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_aggregatedata",
+      "target": "insights_safeentries",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1244",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_aggregatedata",
+      "target": "insights_detectmulticlauding",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1320",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_generatesectioninsight",
+      "target": "insights_getinsightsmodel",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1582",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_generateparallelinsights",
+      "target": "insights_generatesectioninsight",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1787",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_generatehtmlreport",
+      "target": "insights_escapehtmlwithbold",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1972",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_generatehtmlreport",
+      "target": "insights_gethourcountsjson",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2384",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_generatehtmlreport",
+      "target": "insights_generatebarchart",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2523",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_generatehtmlreport",
+      "target": "insights_generateresponsetimehistogram",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2547",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_generatehtmlreport",
+      "target": "insights_generatetimeofdaychart",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2601",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_buildexportdata",
+      "target": "insights_safeentries",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2699",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_generateusagereport",
+      "target": "insights_scanallsessions",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2815",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_generateusagereport",
+      "target": "insights_hasvaliddates",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2880",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_generateusagereport",
+      "target": "insights_logtosessionmeta",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2881",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_generateusagereport",
+      "target": "insights_aggregatedata",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2994",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_generateusagereport",
+      "target": "insights_generateparallelinsights",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2998",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_generateusagereport",
+      "target": "insights_generatehtmlreport",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L3001",
+      "weight": 1.0
+    },
+    {
+      "source": "insights_generateusagereport",
+      "target": "insights_getdatadir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L3005",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "insights_getanalysismodel",
+      "callee": "getDefaultOpusModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "insights_getinsightsmodel",
+      "callee": "getDefaultOpusModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "insights_getdatadir",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L421"
+    },
+    {
+      "caller_nid": "insights_getdatadir",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L421"
+    },
+    {
+      "caller_nid": "insights_getfacetsdir",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L424"
+    },
+    {
+      "caller_nid": "insights_getsessionmetadir",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L427"
+    },
+    {
+      "caller_nid": "insights_getlanguagefrompath",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L463"
+    },
+    {
+      "caller_nid": "insights_getlanguagefrompath",
+      "callee": "extname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L463"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L536"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L548"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L563"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "diffLines",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L570"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "countCharInString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L580"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L585"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L586"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L600"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L602"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "getHours",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L617"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L618"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L620"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "getTime",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L629"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "getTime",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L630"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L634"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L640"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L651"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L652"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L655"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L656"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L660"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L661"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L664"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L667"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L668"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L672"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L673"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L687"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L690"
+    },
+    {
+      "caller_nid": "insights_extracttoolstats",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L695"
+    },
+    {
+      "caller_nid": "insights_hasvaliddates",
+      "callee": "isNaN",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L732"
+    },
+    {
+      "caller_nid": "insights_hasvaliddates",
+      "callee": "getTime",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L732"
+    },
+    {
+      "caller_nid": "insights_hasvaliddates",
+      "callee": "isNaN",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L733"
+    },
+    {
+      "caller_nid": "insights_hasvaliddates",
+      "callee": "getTime",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L733"
+    },
+    {
+      "caller_nid": "insights_logtosessionmeta",
+      "callee": "getSessionIdFromLog",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L739"
+    },
+    {
+      "caller_nid": "insights_logtosessionmeta",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L740"
+    },
+    {
+      "caller_nid": "insights_logtosessionmeta",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L741"
+    },
+    {
+      "caller_nid": "insights_logtosessionmeta",
+      "callee": "getTime",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L742"
+    },
+    {
+      "caller_nid": "insights_logtosessionmeta",
+      "callee": "getTime",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L742"
+    },
+    {
+      "caller_nid": "insights_logtosessionmeta",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L754"
+    },
+    {
+      "caller_nid": "insights_logtosessionmeta",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L756"
+    },
+    {
+      "caller_nid": "insights_deduplicatesessionbranches",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L818"
+    },
+    {
+      "caller_nid": "insights_deduplicatesessionbranches",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L825"
+    },
+    {
+      "caller_nid": "insights_deduplicatesessionbranches",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L828"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L835"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L835"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L836"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L837"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L838"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L839"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L845"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L845"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L846"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L849"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L849"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L855"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L858"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L858"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L860"
+    },
+    {
+      "caller_nid": "insights_formattranscriptforfacets",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L867"
+    },
+    {
+      "caller_nid": "insights_summarizetranscriptchunk",
+      "callee": "queryWithModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L883"
+    },
+    {
+      "caller_nid": "insights_summarizetranscriptchunk",
+      "callee": "asSystemPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L884"
+    },
+    {
+      "caller_nid": "insights_summarizetranscriptchunk",
+      "callee": "extractTextContent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L898"
+    },
+    {
+      "caller_nid": "insights_summarizetranscriptchunk",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L899"
+    },
+    {
+      "caller_nid": "insights_summarizetranscriptchunk",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L902"
+    },
+    {
+      "caller_nid": "insights_formattranscriptwithsummarization",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L921"
+    },
+    {
+      "caller_nid": "insights_formattranscriptwithsummarization",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L921"
+    },
+    {
+      "caller_nid": "insights_formattranscriptwithsummarization",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L925"
+    },
+    {
+      "caller_nid": "insights_formattranscriptwithsummarization",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L925"
+    },
+    {
+      "caller_nid": "insights_formattranscriptwithsummarization",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L929"
+    },
+    {
+      "caller_nid": "insights_formattranscriptwithsummarization",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L930"
+    },
+    {
+      "caller_nid": "insights_formattranscriptwithsummarization",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L938"
+    },
+    {
+      "caller_nid": "insights_loadcachedfacets",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L944"
+    },
+    {
+      "caller_nid": "insights_loadcachedfacets",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L946"
+    },
+    {
+      "caller_nid": "insights_loadcachedfacets",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L947"
+    },
+    {
+      "caller_nid": "insights_loadcachedfacets",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L951"
+    },
+    {
+      "caller_nid": "insights_savefacets",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L965"
+    },
+    {
+      "caller_nid": "insights_savefacets",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L969"
+    },
+    {
+      "caller_nid": "insights_savefacets",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L970"
+    },
+    {
+      "caller_nid": "insights_savefacets",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L970"
+    },
+    {
+      "caller_nid": "insights_loadcachedsessionmeta",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L979"
+    },
+    {
+      "caller_nid": "insights_loadcachedsessionmeta",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L981"
+    },
+    {
+      "caller_nid": "insights_loadcachedsessionmeta",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L982"
+    },
+    {
+      "caller_nid": "insights_savesessionmeta",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L990"
+    },
+    {
+      "caller_nid": "insights_savesessionmeta",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L994"
+    },
+    {
+      "caller_nid": "insights_savesessionmeta",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L995"
+    },
+    {
+      "caller_nid": "insights_savesessionmeta",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L995"
+    },
+    {
+      "caller_nid": "insights_extractfacetsfromapi",
+      "callee": "queryWithModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1026"
+    },
+    {
+      "caller_nid": "insights_extractfacetsfromapi",
+      "callee": "asSystemPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1027"
+    },
+    {
+      "caller_nid": "insights_extractfacetsfromapi",
+      "callee": "extractTextContent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1041"
+    },
+    {
+      "caller_nid": "insights_extractfacetsfromapi",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1044"
+    },
+    {
+      "caller_nid": "insights_extractfacetsfromapi",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1047"
+    },
+    {
+      "caller_nid": "insights_extractfacetsfromapi",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1052"
+    },
+    {
+      "caller_nid": "insights_extractfacetsfromapi",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1052"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "getTime",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1078"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1079"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1086"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1104"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1105"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1111"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1116"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1116"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1117"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1118"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1121"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1122"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1128"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1133"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1134"
+    },
+    {
+      "caller_nid": "insights_detectmulticlauding",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1135"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1201"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1212"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1216"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1226"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1228"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1232"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1241"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1287"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1288"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1289"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1290"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1296"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1297"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1298"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1303"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "floor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1304"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "reduce",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1306"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1310"
+    },
+    {
+      "caller_nid": "insights_aggregatedata",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1314"
+    },
+    {
+      "caller_nid": "insights_generatesectioninsight",
+      "callee": "queryWithModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1577"
+    },
+    {
+      "caller_nid": "insights_generatesectioninsight",
+      "callee": "asSystemPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1578"
+    },
+    {
+      "caller_nid": "insights_generatesectioninsight",
+      "callee": "extractTextContent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1592"
+    },
+    {
+      "caller_nid": "insights_generatesectioninsight",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1596"
+    },
+    {
+      "caller_nid": "insights_generatesectioninsight",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1599"
+    },
+    {
+      "caller_nid": "insights_generatesectioninsight",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1607"
+    },
+    {
+      "caller_nid": "insights_generatesectioninsight",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1607"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1617"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1617"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1617"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1617"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1617"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1622"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1622"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1622"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1622"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1622"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1622"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1628"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1628"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1628"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "flatMap",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1628"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1628"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1628"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1634"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1640"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1642"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1642"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1642"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1645"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1645"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1645"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1668"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1669"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1684"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1684"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1693"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1693"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1702"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1702"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1711"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1711"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1720"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1720"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1729"
+    },
+    {
+      "caller_nid": "insights_generateparallelinsights",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1729"
+    },
+    {
+      "caller_nid": "insights_escapehtmlwithbold",
+      "callee": "escapeHtml",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1802"
+    },
+    {
+      "caller_nid": "insights_escapehtmlwithbold",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1803"
+    },
+    {
+      "caller_nid": "insights_generatebarchart",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1834"
+    },
+    {
+      "caller_nid": "insights_generatebarchart",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1834"
+    },
+    {
+      "caller_nid": "insights_generatebarchart",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1839"
+    },
+    {
+      "caller_nid": "insights_generatebarchart",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1839"
+    },
+    {
+      "caller_nid": "insights_generatebarchart",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1839"
+    },
+    {
+      "caller_nid": "insights_generatebarchart",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1846"
+    },
+    {
+      "caller_nid": "insights_generatebarchart",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1846"
+    },
+    {
+      "caller_nid": "insights_generatebarchart",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1847"
+    },
+    {
+      "caller_nid": "insights_generatebarchart",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1847"
+    },
+    {
+      "caller_nid": "insights_generateresponsetimehistogram",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1887"
+    },
+    {
+      "caller_nid": "insights_generateresponsetimehistogram",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1887"
+    },
+    {
+      "caller_nid": "insights_generateresponsetimehistogram",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1890"
+    },
+    {
+      "caller_nid": "insights_generateresponsetimehistogram",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1890"
+    },
+    {
+      "caller_nid": "insights_generateresponsetimehistogram",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1890"
+    },
+    {
+      "caller_nid": "insights_generatetimeofdaychart",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1918"
+    },
+    {
+      "caller_nid": "insights_generatetimeofdaychart",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1923"
+    },
+    {
+      "caller_nid": "insights_generatetimeofdaychart",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1923"
+    },
+    {
+      "caller_nid": "insights_generatetimeofdaychart",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1925"
+    },
+    {
+      "caller_nid": "insights_generatetimeofdaychart",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1925"
+    },
+    {
+      "caller_nid": "insights_gethourcountsjson",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1944"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1988"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L1988"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "markdownToHtml",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2011"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "escapeHtml",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2012"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "escapeHtml",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2023"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2025"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2025"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "escapeHtml",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2045"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2047"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2047"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2077"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2077"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2100"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2100"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2135"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2135"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "escapeHtml",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2172"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2174"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2174"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2214"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2214"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2241"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2241"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "escapeHtml",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2266"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "escapeHtml",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2267"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "toLocaleString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2495"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "toLocaleString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2495"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "toLocaleString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2511"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "toLocaleString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2512"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "toLocaleString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2512"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "toFixed",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2549"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "toFixed",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2549"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2574"
+    },
+    {
+      "caller_nid": "insights_generatehtmlreport",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2605"
+    },
+    {
+      "caller_nid": "insights_buildexportdata",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2687"
+    },
+    {
+      "caller_nid": "insights_buildexportdata",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2687"
+    },
+    {
+      "caller_nid": "insights_buildexportdata",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2698"
+    },
+    {
+      "caller_nid": "insights_buildexportdata",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2724"
+    },
+    {
+      "caller_nid": "insights_scanallsessions",
+      "callee": "getProjectsDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2756"
+    },
+    {
+      "caller_nid": "insights_scanallsessions",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2760"
+    },
+    {
+      "caller_nid": "insights_scanallsessions",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2765"
+    },
+    {
+      "caller_nid": "insights_scanallsessions",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2765"
+    },
+    {
+      "caller_nid": "insights_scanallsessions",
+      "callee": "getSessionFilesWithMtime",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2772"
+    },
+    {
+      "caller_nid": "insights_scanallsessions",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2774"
+    },
+    {
+      "caller_nid": "insights_scanallsessions",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2788"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2809"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2809"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "collectAllRemoteHostData",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2810"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2826"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2827"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2828"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2835"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2837"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2866"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2867"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2868"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "isMetaSession",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2880"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2882"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2883"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2885"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2888"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2888"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2895"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2902"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2906"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2907"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2908"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2909"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2910"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2915"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2927"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2935"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2936"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2943"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2945"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2947"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2955"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2956"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2957"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2966"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2967"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2970"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2970"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2983"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "isMinimalSession",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2989"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L2990"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L3005"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L3010"
+    },
+    {
+      "caller_nid": "insights_generateusagereport",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L3011"
+    },
+    {
+      "caller_nid": "insights_safeentries",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L3028"
+    },
+    {
+      "caller_nid": "insights_safekeys",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\insights.ts",
+      "source_location": "L3032"
+    }
+  ]
+}

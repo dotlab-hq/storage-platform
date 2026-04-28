@@ -1,1 +1,985 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "label": "useTypeahead.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L1"}, {"id": "usetypeahead_ispathmetadata", "label": "isPathMetadata()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L45"}, {"id": "usetypeahead_getpreservedselection", "label": "getPreservedSelection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L52"}, {"id": "usetypeahead_buildresumeinputfromsuggestion", "label": "buildResumeInputFromSuggestion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L75"}, {"id": "usetypeahead_extractsearchtoken", "label": "extractSearchToken()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L123"}, {"id": "usetypeahead_formatreplacementvalue", "label": "formatReplacementValue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L148"}, {"id": "usetypeahead_applyshellsuggestion", "label": "applyShellSuggestion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L178"}, {"id": "usetypeahead_applytriggersuggestion", "label": "applyTriggerSuggestion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L197"}, {"id": "usetypeahead_generatebashsuggestions", "label": "generateBashSuggestions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L211"}, {"id": "usetypeahead_applydirectorysuggestion", "label": "applyDirectorySuggestion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L237"}, {"id": "usetypeahead_extractcompletiontoken", "label": "extractCompletionToken()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L261"}, {"id": "usetypeahead_extractcommandnameandargs", "label": "extractCommandNameAndArgs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L326"}, {"id": "usetypeahead_hascommandwitharguments", "label": "hasCommandWithArguments()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L343"}, {"id": "usetypeahead_usetypeahead", "label": "useTypeahead()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L353"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "notifications_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "ink_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "index_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "usehooks_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_commands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_components_promptinput_inputmodes_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_components_promptinput_promptinputfootersuggestions_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_context_overlaycontext_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_ink_events_keyboard_event_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_ink_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_keybindings_usekeybinding_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_keybindings_useshortcutdisplay_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_loadagentsdir_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_types_textinputtypes_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_agentswarmsenabled_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_argumentsubstitution_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_shellcompletion_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_format_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstorage_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_suggestions_commandsuggestions_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_suggestions_directorycompletion_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_suggestions_shellhistorycompletion_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_suggestions_slackchannelsuggestions_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_swarm_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_hooks_filesuggestions_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "f_storage_platform_claude_code_source_main_src_hooks_unifiedsuggestions_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "usetypeahead_ispathmetadata", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L45", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "usetypeahead_getpreservedselection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L52", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "usetypeahead_buildresumeinputfromsuggestion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L75", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "usetypeahead_extractsearchtoken", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L123", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "usetypeahead_formatreplacementvalue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L148", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "usetypeahead_applyshellsuggestion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L178", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "usetypeahead_applytriggersuggestion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L197", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "usetypeahead_generatebashsuggestions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L211", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "usetypeahead_applydirectorysuggestion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L237", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "usetypeahead_extractcompletiontoken", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L261", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "usetypeahead_extractcommandnameandargs", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L326", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "usetypeahead_hascommandwitharguments", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L343", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx", "target": "usetypeahead_usetypeahead", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L353", "weight": 1.0}], "raw_calls": [{"caller_nid": "usetypeahead_getpreservedselection", "callee": "findIndex", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L70"}, {"caller_nid": "usetypeahead_extractsearchtoken", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L129"}, {"caller_nid": "usetypeahead_extractsearchtoken", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L129"}, {"caller_nid": "usetypeahead_extractsearchtoken", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L130"}, {"caller_nid": "usetypeahead_extractsearchtoken", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L131"}, {"caller_nid": "usetypeahead_applyshellsuggestion", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L179"}, {"caller_nid": "usetypeahead_applyshellsuggestion", "callee": "lastIndexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L180"}, {"caller_nid": "usetypeahead_applyshellsuggestion", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L192"}, {"caller_nid": "usetypeahead_applyshellsuggestion", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L192"}, {"caller_nid": "usetypeahead_applyshellsuggestion", "callee": "onInputChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L193"}, {"caller_nid": "usetypeahead_applyshellsuggestion", "callee": "setCursorOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L194"}, {"caller_nid": "usetypeahead_applytriggersuggestion", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L198"}, {"caller_nid": "usetypeahead_applytriggersuggestion", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L198"}, {"caller_nid": "usetypeahead_applytriggersuggestion", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L201"}, {"caller_nid": "usetypeahead_applytriggersuggestion", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L202"}, {"caller_nid": "usetypeahead_applytriggersuggestion", "callee": "onInputChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L203"}, {"caller_nid": "usetypeahead_applytriggersuggestion", "callee": "setCursorOffset", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L204"}, {"caller_nid": "usetypeahead_generatebashsuggestions", "callee": "abort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L214"}, {"caller_nid": "usetypeahead_generatebashsuggestions", "callee": "getShellCompletions", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L217"}, {"caller_nid": "usetypeahead_generatebashsuggestions", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L221"}, {"caller_nid": "usetypeahead_applydirectorysuggestion", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L242"}, {"caller_nid": "usetypeahead_applydirectorysuggestion", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L243"}, {"caller_nid": "usetypeahead_extractcompletiontoken", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L270"}, {"caller_nid": "usetypeahead_extractcompletiontoken", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L275"}, {"caller_nid": "usetypeahead_extractcompletiontoken", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L278"}, {"caller_nid": "usetypeahead_extractcompletiontoken", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L279"}, {"caller_nid": "usetypeahead_extractcompletiontoken", "callee": "lastIndexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L291"}, {"caller_nid": "usetypeahead_extractcompletiontoken", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L292"}, {"caller_nid": "usetypeahead_extractcompletiontoken", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L293"}, {"caller_nid": "usetypeahead_extractcompletiontoken", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L294"}, {"caller_nid": "usetypeahead_extractcompletiontoken", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L296"}, {"caller_nid": "usetypeahead_extractcompletiontoken", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L297"}, {"caller_nid": "usetypeahead_extractcompletiontoken", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L310"}, {"caller_nid": "usetypeahead_extractcompletiontoken", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L317"}, {"caller_nid": "usetypeahead_extractcompletiontoken", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L318"}, {"caller_nid": "usetypeahead_extractcommandnameandargs", "callee": "isCommandInput", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L330"}, {"caller_nid": "usetypeahead_extractcommandnameandargs", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L331"}, {"caller_nid": "usetypeahead_extractcommandnameandargs", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L333"}, {"caller_nid": "usetypeahead_extractcommandnameandargs", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L337"}, {"caller_nid": "usetypeahead_extractcommandnameandargs", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L338"}, {"caller_nid": "usetypeahead_hascommandwitharguments", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L347"}, {"caller_nid": "usetypeahead_hascommandwitharguments", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L347"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useNotifications", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L374"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useShortcutDisplay", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L375"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L376"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useMemo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L380"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L386"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L387"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useAppStateStore", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L388"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L389"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L392"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useOptionalKeybindingContext", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L395"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L398"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useMemo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L403"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L421"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L425"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L427"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L429"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L431"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L433"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L435"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L438"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L441"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L453"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useEffect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L494"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useDebounceCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L511"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L512"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useDebounceCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L529"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L533"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useEffect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L893"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L911"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L1137"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L1228"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L1233"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L1242"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L1250"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useMemo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L1258"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useIsModalOverlayActive", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L1268"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useRegisterOverlay", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L1269"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useRegisterKeybindingContext", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L1272"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useKeybindings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L1276"}, {"caller_nid": "usetypeahead_usetypeahead", "callee": "useInput", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx", "source_location": "L1368"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "label": "useTypeahead.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "usetypeahead_ispathmetadata",
+      "label": "isPathMetadata()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L45"
+    },
+    {
+      "id": "usetypeahead_getpreservedselection",
+      "label": "getPreservedSelection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L52"
+    },
+    {
+      "id": "usetypeahead_buildresumeinputfromsuggestion",
+      "label": "buildResumeInputFromSuggestion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L75"
+    },
+    {
+      "id": "usetypeahead_extractsearchtoken",
+      "label": "extractSearchToken()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L123"
+    },
+    {
+      "id": "usetypeahead_formatreplacementvalue",
+      "label": "formatReplacementValue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L148"
+    },
+    {
+      "id": "usetypeahead_applyshellsuggestion",
+      "label": "applyShellSuggestion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L178"
+    },
+    {
+      "id": "usetypeahead_applytriggersuggestion",
+      "label": "applyTriggerSuggestion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L197"
+    },
+    {
+      "id": "usetypeahead_generatebashsuggestions",
+      "label": "generateBashSuggestions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L211"
+    },
+    {
+      "id": "usetypeahead_applydirectorysuggestion",
+      "label": "applyDirectorySuggestion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L237"
+    },
+    {
+      "id": "usetypeahead_extractcompletiontoken",
+      "label": "extractCompletionToken()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L261"
+    },
+    {
+      "id": "usetypeahead_extractcommandnameandargs",
+      "label": "extractCommandNameAndArgs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L326"
+    },
+    {
+      "id": "usetypeahead_hascommandwitharguments",
+      "label": "hasCommandWithArguments()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L343"
+    },
+    {
+      "id": "usetypeahead_usetypeahead",
+      "label": "useTypeahead()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L353"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "notifications_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "ink_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "index_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "usehooks_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_commands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_components_promptinput_inputmodes_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_components_promptinput_promptinputfootersuggestions_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_context_overlaycontext_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_events_keyboard_event_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_usekeybinding_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_useshortcutdisplay_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_loadagentsdir_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_types_textinputtypes_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_agentswarmsenabled_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_argumentsubstitution_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_shellcompletion_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_format_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstorage_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_suggestions_commandsuggestions_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_suggestions_directorycompletion_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_suggestions_shellhistorycompletion_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_suggestions_slackchannelsuggestions_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_swarm_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_hooks_filesuggestions_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_hooks_unifiedsuggestions_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "usetypeahead_ispathmetadata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "usetypeahead_getpreservedselection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "usetypeahead_buildresumeinputfromsuggestion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "usetypeahead_extractsearchtoken",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "usetypeahead_formatreplacementvalue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "usetypeahead_applyshellsuggestion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "usetypeahead_applytriggersuggestion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L197",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "usetypeahead_generatebashsuggestions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L211",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "usetypeahead_applydirectorysuggestion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L237",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "usetypeahead_extractcompletiontoken",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L261",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "usetypeahead_extractcommandnameandargs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L326",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "usetypeahead_hascommandwitharguments",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L343",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetypeahead_tsx",
+      "target": "usetypeahead_usetypeahead",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L353",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "usetypeahead_getpreservedselection",
+      "callee": "findIndex",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "usetypeahead_extractsearchtoken",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "usetypeahead_extractsearchtoken",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "usetypeahead_extractsearchtoken",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "usetypeahead_extractsearchtoken",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "usetypeahead_applyshellsuggestion",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "usetypeahead_applyshellsuggestion",
+      "callee": "lastIndexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L180"
+    },
+    {
+      "caller_nid": "usetypeahead_applyshellsuggestion",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "usetypeahead_applyshellsuggestion",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "usetypeahead_applyshellsuggestion",
+      "callee": "onInputChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L193"
+    },
+    {
+      "caller_nid": "usetypeahead_applyshellsuggestion",
+      "callee": "setCursorOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L194"
+    },
+    {
+      "caller_nid": "usetypeahead_applytriggersuggestion",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L198"
+    },
+    {
+      "caller_nid": "usetypeahead_applytriggersuggestion",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L198"
+    },
+    {
+      "caller_nid": "usetypeahead_applytriggersuggestion",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L201"
+    },
+    {
+      "caller_nid": "usetypeahead_applytriggersuggestion",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "usetypeahead_applytriggersuggestion",
+      "callee": "onInputChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "usetypeahead_applytriggersuggestion",
+      "callee": "setCursorOffset",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L204"
+    },
+    {
+      "caller_nid": "usetypeahead_generatebashsuggestions",
+      "callee": "abort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L214"
+    },
+    {
+      "caller_nid": "usetypeahead_generatebashsuggestions",
+      "callee": "getShellCompletions",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L217"
+    },
+    {
+      "caller_nid": "usetypeahead_generatebashsuggestions",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L221"
+    },
+    {
+      "caller_nid": "usetypeahead_applydirectorysuggestion",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L242"
+    },
+    {
+      "caller_nid": "usetypeahead_applydirectorysuggestion",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L243"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcompletiontoken",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L270"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcompletiontoken",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L275"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcompletiontoken",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L278"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcompletiontoken",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L279"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcompletiontoken",
+      "callee": "lastIndexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L291"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcompletiontoken",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L292"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcompletiontoken",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L293"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcompletiontoken",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L294"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcompletiontoken",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L296"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcompletiontoken",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L297"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcompletiontoken",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L310"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcompletiontoken",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L317"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcompletiontoken",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L318"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcommandnameandargs",
+      "callee": "isCommandInput",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L330"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcommandnameandargs",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L331"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcommandnameandargs",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L333"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcommandnameandargs",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L337"
+    },
+    {
+      "caller_nid": "usetypeahead_extractcommandnameandargs",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L338"
+    },
+    {
+      "caller_nid": "usetypeahead_hascommandwitharguments",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L347"
+    },
+    {
+      "caller_nid": "usetypeahead_hascommandwitharguments",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L347"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useNotifications",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L374"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useShortcutDisplay",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L375"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L376"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useMemo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L380"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L386"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L387"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useAppStateStore",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L388"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L389"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L392"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useOptionalKeybindingContext",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L395"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L398"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useMemo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L403"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L421"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L425"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L427"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L429"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L431"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L433"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L435"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L438"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L441"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L453"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useEffect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L494"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useDebounceCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L511"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L512"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useDebounceCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L529"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L533"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useEffect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L893"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L911"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L1137"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L1228"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L1233"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L1242"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L1250"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useMemo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L1258"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useIsModalOverlayActive",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L1268"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useRegisterOverlay",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L1269"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useRegisterKeybindingContext",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L1272"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useKeybindings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L1276"
+    },
+    {
+      "caller_nid": "usetypeahead_usetypeahead",
+      "callee": "useInput",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTypeahead.tsx",
+      "source_location": "L1368"
+    }
+  ]
+}

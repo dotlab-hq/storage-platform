@@ -1,1 +1,906 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "label": "pathValidation.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1"}, {"id": "pathvalidation_checkdangerousremovalpaths", "label": "checkDangerousRemovalPaths()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L70"}, {"id": "pathvalidation_filteroutflags", "label": "filterOutFlags()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L126"}, {"id": "pathvalidation_parsepatterncommand", "label": "parsePatternCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L142"}, {"id": "pathvalidation_validatecommandpaths", "label": "validateCommandPaths()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L603"}, {"id": "pathvalidation_createpathchecker", "label": "createPathChecker()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L703"}, {"id": "pathvalidation_parsecommandarguments", "label": "parseCommandArguments()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L791"}, {"id": "pathvalidation_validatesinglepathcommand", "label": "validateSinglePathCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L834"}, {"id": "pathvalidation_validatesinglepathcommandargv", "label": "validateSinglePathCommandArgv()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L888"}, {"id": "pathvalidation_validateoutputredirections", "label": "validateOutputRedirections()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L924"}, {"id": "pathvalidation_checkpathconstraints", "label": "checkPathConstraints()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1013"}, {"id": "pathvalidation_astredirectstooutputredirections", "label": "astRedirectsToOutputRedirections()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1116"}, {"id": "pathvalidation_skiptimeoutflags", "label": "skipTimeoutFlags()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1183"}, {"id": "pathvalidation_skipstdbufflags", "label": "skipStdbufFlags()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1225"}, {"id": "pathvalidation_skipenvflags", "label": "skipEnvFlags()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1244"}, {"id": "pathvalidation_stripwrappersfromargv", "label": "stripWrappersFromArgv()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1263"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "os", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "v4", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_commands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_path_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_filesystem_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionresult_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionupdate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionupdateschema_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_pathvalidation_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_bashtool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_bashpermissions_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_sedvalidation_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "pathvalidation_checkdangerousremovalpaths", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L70", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "pathvalidation_filteroutflags", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L126", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "pathvalidation_parsepatterncommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L142", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "pathvalidation_validatecommandpaths", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L603", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "pathvalidation_createpathchecker", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L703", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "pathvalidation_parsecommandarguments", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L791", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "pathvalidation_validatesinglepathcommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L834", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "pathvalidation_validatesinglepathcommandargv", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L888", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "pathvalidation_validateoutputredirections", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L924", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "pathvalidation_checkpathconstraints", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1013", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "pathvalidation_astredirectstooutputredirections", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1116", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "pathvalidation_skiptimeoutflags", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1183", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "pathvalidation_skipstdbufflags", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1225", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "pathvalidation_skipenvflags", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1244", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts", "target": "pathvalidation_stripwrappersfromargv", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1263", "weight": 1.0}, {"source": "pathvalidation_validatesinglepathcommand", "target": "pathvalidation_parsecommandarguments", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L848", "weight": 1.0}, {"source": "pathvalidation_validatesinglepathcommand", "target": "pathvalidation_createpathchecker", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L875", "weight": 1.0}, {"source": "pathvalidation_validatesinglepathcommandargv", "target": "pathvalidation_stripwrappersfromargv", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L894", "weight": 1.0}, {"source": "pathvalidation_validatesinglepathcommandargv", "target": "pathvalidation_createpathchecker", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L917", "weight": 1.0}, {"source": "pathvalidation_checkpathconstraints", "target": "pathvalidation_astredirectstooutputredirections", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1047", "weight": 1.0}, {"source": "pathvalidation_checkpathconstraints", "target": "pathvalidation_validateoutputredirections", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1062", "weight": 1.0}, {"source": "pathvalidation_checkpathconstraints", "target": "pathvalidation_validatesinglepathcommandargv", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1079", "weight": 1.0}, {"source": "pathvalidation_checkpathconstraints", "target": "pathvalidation_validatesinglepathcommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1092", "weight": 1.0}, {"source": "pathvalidation_stripwrappersfromargv", "target": "pathvalidation_skiptimeoutflags", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1269", "weight": 1.0}, {"source": "pathvalidation_stripwrappersfromargv", "target": "pathvalidation_skipstdbufflags", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1291", "weight": 1.0}, {"source": "pathvalidation_stripwrappersfromargv", "target": "pathvalidation_skipenvflags", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1296", "weight": 1.0}], "raw_calls": [{"caller_nid": "pathvalidation_checkdangerousremovalpaths", "callee": "extractor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L77"}, {"caller_nid": "pathvalidation_checkdangerousremovalpaths", "callee": "expandTilde", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L83"}, {"caller_nid": "pathvalidation_checkdangerousremovalpaths", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L83"}, {"caller_nid": "pathvalidation_checkdangerousremovalpaths", "callee": "isAbsolute", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L84"}, {"caller_nid": "pathvalidation_checkdangerousremovalpaths", "callee": "resolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L86"}, {"caller_nid": "pathvalidation_checkdangerousremovalpaths", "callee": "isDangerousRemovalPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L89"}, {"caller_nid": "pathvalidation_filteroutflags", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L131"}, {"caller_nid": "pathvalidation_filteroutflags", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L134"}, {"caller_nid": "pathvalidation_filteroutflags", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L135"}, {"caller_nid": "pathvalidation_parsepatterncommand", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L162"}, {"caller_nid": "pathvalidation_parsepatterncommand", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L163"}, {"caller_nid": "pathvalidation_parsepatterncommand", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L165"}, {"caller_nid": "pathvalidation_parsepatterncommand", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L169"}, {"caller_nid": "pathvalidation_parsepatterncommand", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L169"}, {"caller_nid": "pathvalidation_parsepatterncommand", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L180"}, {"caller_nid": "pathvalidation_validatecommandpaths", "callee": "extractor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L612"}, {"caller_nid": "pathvalidation_validatecommandpaths", "callee": "validator", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L619"}, {"caller_nid": "pathvalidation_validatecommandpaths", "callee": "validatePath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L658"}, {"caller_nid": "pathvalidation_validatecommandpaths", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L666"}, {"caller_nid": "pathvalidation_validatecommandpaths", "callee": "allWorkingDirectories", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L667"}, {"caller_nid": "pathvalidation_validatecommandpaths", "callee": "formatDirectoryList", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L669"}, {"caller_nid": "pathvalidation_parsecommandarguments", "callee": "tryParseShellCommand", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L792"}, {"caller_nid": "pathvalidation_parsecommandarguments", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L803"}, {"caller_nid": "pathvalidation_parsecommandarguments", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L812"}, {"caller_nid": "pathvalidation_parsecommandarguments", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L812"}, {"caller_nid": "pathvalidation_validatesinglepathcommand", "callee": "stripSafeWrappers", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L845"}, {"caller_nid": "pathvalidation_validatesinglepathcommand", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L858"}, {"caller_nid": "pathvalidation_validatesinglepathcommand", "callee": "sedCommandIsAllowedByAllowlist", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L870"}, {"caller_nid": "pathvalidation_validatesinglepathcommand", "callee": "pathChecker", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L879"}, {"caller_nid": "pathvalidation_validatesinglepathcommandargv", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L902"}, {"caller_nid": "pathvalidation_validatesinglepathcommandargv", "callee": "sedCommandIsAllowedByAllowlist", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L914"}, {"caller_nid": "pathvalidation_validatesinglepathcommandargv", "callee": "stripSafeWrappers", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L914"}, {"caller_nid": "pathvalidation_validatesinglepathcommandargv", "callee": "pathChecker", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L921"}, {"caller_nid": "pathvalidation_validateoutputredirections", "callee": "validatePath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L951"}, {"caller_nid": "pathvalidation_validateoutputredirections", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L959"}, {"caller_nid": "pathvalidation_validateoutputredirections", "callee": "allWorkingDirectories", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L960"}, {"caller_nid": "pathvalidation_validateoutputredirections", "callee": "formatDirectoryList", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L962"}, {"caller_nid": "pathvalidation_validateoutputredirections", "callee": "getDirectoryForPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L991"}, {"caller_nid": "pathvalidation_checkpathconstraints", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1028"}, {"caller_nid": "pathvalidation_checkpathconstraints", "callee": "extractOutputRedirections", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1048"}, {"caller_nid": "pathvalidation_checkpathconstraints", "callee": "splitCommand_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1090"}, {"caller_nid": "pathvalidation_astredirectstooutputredirections", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1126"}, {"caller_nid": "pathvalidation_astredirectstooutputredirections", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1130"}, {"caller_nid": "pathvalidation_astredirectstooutputredirections", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1135"}, {"caller_nid": "pathvalidation_astredirectstooutputredirections", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1136"}, {"caller_nid": "pathvalidation_skiptimeoutflags", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1194"}, {"caller_nid": "pathvalidation_skiptimeoutflags", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1198"}, {"caller_nid": "pathvalidation_skiptimeoutflags", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1205"}, {"caller_nid": "pathvalidation_skiptimeoutflags", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1210"}, {"caller_nid": "pathvalidation_skiptimeoutflags", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1213"}, {"caller_nid": "pathvalidation_skiptimeoutflags", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1214"}, {"caller_nid": "pathvalidation_skipstdbufflags", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1229"}, {"caller_nid": "pathvalidation_skipstdbufflags", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1230"}, {"caller_nid": "pathvalidation_skipstdbufflags", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1231"}, {"caller_nid": "pathvalidation_skipstdbufflags", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1232"}, {"caller_nid": "pathvalidation_skipenvflags", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1248"}, {"caller_nid": "pathvalidation_skipenvflags", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1248"}, {"caller_nid": "pathvalidation_skipenvflags", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1251"}, {"caller_nid": "pathvalidation_stripwrappersfromargv", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1267"}, {"caller_nid": "pathvalidation_stripwrappersfromargv", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1274"}, {"caller_nid": "pathvalidation_stripwrappersfromargv", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1275"}, {"caller_nid": "pathvalidation_stripwrappersfromargv", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1281"}, {"caller_nid": "pathvalidation_stripwrappersfromargv", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1282"}, {"caller_nid": "pathvalidation_stripwrappersfromargv", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1283"}, {"caller_nid": "pathvalidation_stripwrappersfromargv", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1283"}, {"caller_nid": "pathvalidation_stripwrappersfromargv", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1284"}, {"caller_nid": "pathvalidation_stripwrappersfromargv", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1293"}, {"caller_nid": "pathvalidation_stripwrappersfromargv", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts", "source_location": "L1298"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "label": "pathValidation.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "pathvalidation_checkdangerousremovalpaths",
+      "label": "checkDangerousRemovalPaths()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L70"
+    },
+    {
+      "id": "pathvalidation_filteroutflags",
+      "label": "filterOutFlags()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L126"
+    },
+    {
+      "id": "pathvalidation_parsepatterncommand",
+      "label": "parsePatternCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L142"
+    },
+    {
+      "id": "pathvalidation_validatecommandpaths",
+      "label": "validateCommandPaths()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L603"
+    },
+    {
+      "id": "pathvalidation_createpathchecker",
+      "label": "createPathChecker()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L703"
+    },
+    {
+      "id": "pathvalidation_parsecommandarguments",
+      "label": "parseCommandArguments()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L791"
+    },
+    {
+      "id": "pathvalidation_validatesinglepathcommand",
+      "label": "validateSinglePathCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L834"
+    },
+    {
+      "id": "pathvalidation_validatesinglepathcommandargv",
+      "label": "validateSinglePathCommandArgv()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L888"
+    },
+    {
+      "id": "pathvalidation_validateoutputredirections",
+      "label": "validateOutputRedirections()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L924"
+    },
+    {
+      "id": "pathvalidation_checkpathconstraints",
+      "label": "checkPathConstraints()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1013"
+    },
+    {
+      "id": "pathvalidation_astredirectstooutputredirections",
+      "label": "astRedirectsToOutputRedirections()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1116"
+    },
+    {
+      "id": "pathvalidation_skiptimeoutflags",
+      "label": "skipTimeoutFlags()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1183"
+    },
+    {
+      "id": "pathvalidation_skipstdbufflags",
+      "label": "skipStdbufFlags()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1225"
+    },
+    {
+      "id": "pathvalidation_skipenvflags",
+      "label": "skipEnvFlags()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1244"
+    },
+    {
+      "id": "pathvalidation_stripwrappersfromargv",
+      "label": "stripWrappersFromArgv()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1263"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "os",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "v4",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_commands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_path_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_filesystem_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionresult_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionupdate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionupdateschema_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_pathvalidation_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_bashtool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_bashpermissions_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_sedvalidation_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "pathvalidation_checkdangerousremovalpaths",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "pathvalidation_filteroutflags",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "pathvalidation_parsepatterncommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L142",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "pathvalidation_validatecommandpaths",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L603",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "pathvalidation_createpathchecker",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L703",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "pathvalidation_parsecommandarguments",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L791",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "pathvalidation_validatesinglepathcommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L834",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "pathvalidation_validatesinglepathcommandargv",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L888",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "pathvalidation_validateoutputredirections",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L924",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "pathvalidation_checkpathconstraints",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1013",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "pathvalidation_astredirectstooutputredirections",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1116",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "pathvalidation_skiptimeoutflags",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1183",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "pathvalidation_skipstdbufflags",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1225",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "pathvalidation_skipenvflags",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1244",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_pathvalidation_ts",
+      "target": "pathvalidation_stripwrappersfromargv",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1263",
+      "weight": 1.0
+    },
+    {
+      "source": "pathvalidation_validatesinglepathcommand",
+      "target": "pathvalidation_parsecommandarguments",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L848",
+      "weight": 1.0
+    },
+    {
+      "source": "pathvalidation_validatesinglepathcommand",
+      "target": "pathvalidation_createpathchecker",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L875",
+      "weight": 1.0
+    },
+    {
+      "source": "pathvalidation_validatesinglepathcommandargv",
+      "target": "pathvalidation_stripwrappersfromargv",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L894",
+      "weight": 1.0
+    },
+    {
+      "source": "pathvalidation_validatesinglepathcommandargv",
+      "target": "pathvalidation_createpathchecker",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L917",
+      "weight": 1.0
+    },
+    {
+      "source": "pathvalidation_checkpathconstraints",
+      "target": "pathvalidation_astredirectstooutputredirections",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1047",
+      "weight": 1.0
+    },
+    {
+      "source": "pathvalidation_checkpathconstraints",
+      "target": "pathvalidation_validateoutputredirections",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1062",
+      "weight": 1.0
+    },
+    {
+      "source": "pathvalidation_checkpathconstraints",
+      "target": "pathvalidation_validatesinglepathcommandargv",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1079",
+      "weight": 1.0
+    },
+    {
+      "source": "pathvalidation_checkpathconstraints",
+      "target": "pathvalidation_validatesinglepathcommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1092",
+      "weight": 1.0
+    },
+    {
+      "source": "pathvalidation_stripwrappersfromargv",
+      "target": "pathvalidation_skiptimeoutflags",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1269",
+      "weight": 1.0
+    },
+    {
+      "source": "pathvalidation_stripwrappersfromargv",
+      "target": "pathvalidation_skipstdbufflags",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1291",
+      "weight": 1.0
+    },
+    {
+      "source": "pathvalidation_stripwrappersfromargv",
+      "target": "pathvalidation_skipenvflags",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1296",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "pathvalidation_checkdangerousremovalpaths",
+      "callee": "extractor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "pathvalidation_checkdangerousremovalpaths",
+      "callee": "expandTilde",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "pathvalidation_checkdangerousremovalpaths",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "pathvalidation_checkdangerousremovalpaths",
+      "callee": "isAbsolute",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "pathvalidation_checkdangerousremovalpaths",
+      "callee": "resolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "pathvalidation_checkdangerousremovalpaths",
+      "callee": "isDangerousRemovalPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "pathvalidation_filteroutflags",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "pathvalidation_filteroutflags",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "pathvalidation_filteroutflags",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "pathvalidation_parsepatterncommand",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "pathvalidation_parsepatterncommand",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L163"
+    },
+    {
+      "caller_nid": "pathvalidation_parsepatterncommand",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "pathvalidation_parsepatterncommand",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L169"
+    },
+    {
+      "caller_nid": "pathvalidation_parsepatterncommand",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L169"
+    },
+    {
+      "caller_nid": "pathvalidation_parsepatterncommand",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L180"
+    },
+    {
+      "caller_nid": "pathvalidation_validatecommandpaths",
+      "callee": "extractor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L612"
+    },
+    {
+      "caller_nid": "pathvalidation_validatecommandpaths",
+      "callee": "validator",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L619"
+    },
+    {
+      "caller_nid": "pathvalidation_validatecommandpaths",
+      "callee": "validatePath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L658"
+    },
+    {
+      "caller_nid": "pathvalidation_validatecommandpaths",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L666"
+    },
+    {
+      "caller_nid": "pathvalidation_validatecommandpaths",
+      "callee": "allWorkingDirectories",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L667"
+    },
+    {
+      "caller_nid": "pathvalidation_validatecommandpaths",
+      "callee": "formatDirectoryList",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L669"
+    },
+    {
+      "caller_nid": "pathvalidation_parsecommandarguments",
+      "callee": "tryParseShellCommand",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L792"
+    },
+    {
+      "caller_nid": "pathvalidation_parsecommandarguments",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L803"
+    },
+    {
+      "caller_nid": "pathvalidation_parsecommandarguments",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L812"
+    },
+    {
+      "caller_nid": "pathvalidation_parsecommandarguments",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L812"
+    },
+    {
+      "caller_nid": "pathvalidation_validatesinglepathcommand",
+      "callee": "stripSafeWrappers",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L845"
+    },
+    {
+      "caller_nid": "pathvalidation_validatesinglepathcommand",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L858"
+    },
+    {
+      "caller_nid": "pathvalidation_validatesinglepathcommand",
+      "callee": "sedCommandIsAllowedByAllowlist",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L870"
+    },
+    {
+      "caller_nid": "pathvalidation_validatesinglepathcommand",
+      "callee": "pathChecker",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L879"
+    },
+    {
+      "caller_nid": "pathvalidation_validatesinglepathcommandargv",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L902"
+    },
+    {
+      "caller_nid": "pathvalidation_validatesinglepathcommandargv",
+      "callee": "sedCommandIsAllowedByAllowlist",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L914"
+    },
+    {
+      "caller_nid": "pathvalidation_validatesinglepathcommandargv",
+      "callee": "stripSafeWrappers",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L914"
+    },
+    {
+      "caller_nid": "pathvalidation_validatesinglepathcommandargv",
+      "callee": "pathChecker",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L921"
+    },
+    {
+      "caller_nid": "pathvalidation_validateoutputredirections",
+      "callee": "validatePath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L951"
+    },
+    {
+      "caller_nid": "pathvalidation_validateoutputredirections",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L959"
+    },
+    {
+      "caller_nid": "pathvalidation_validateoutputredirections",
+      "callee": "allWorkingDirectories",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L960"
+    },
+    {
+      "caller_nid": "pathvalidation_validateoutputredirections",
+      "callee": "formatDirectoryList",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L962"
+    },
+    {
+      "caller_nid": "pathvalidation_validateoutputredirections",
+      "callee": "getDirectoryForPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L991"
+    },
+    {
+      "caller_nid": "pathvalidation_checkpathconstraints",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1028"
+    },
+    {
+      "caller_nid": "pathvalidation_checkpathconstraints",
+      "callee": "extractOutputRedirections",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1048"
+    },
+    {
+      "caller_nid": "pathvalidation_checkpathconstraints",
+      "callee": "splitCommand_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1090"
+    },
+    {
+      "caller_nid": "pathvalidation_astredirectstooutputredirections",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1126"
+    },
+    {
+      "caller_nid": "pathvalidation_astredirectstooutputredirections",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1130"
+    },
+    {
+      "caller_nid": "pathvalidation_astredirectstooutputredirections",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1135"
+    },
+    {
+      "caller_nid": "pathvalidation_astredirectstooutputredirections",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1136"
+    },
+    {
+      "caller_nid": "pathvalidation_skiptimeoutflags",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1194"
+    },
+    {
+      "caller_nid": "pathvalidation_skiptimeoutflags",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1198"
+    },
+    {
+      "caller_nid": "pathvalidation_skiptimeoutflags",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1205"
+    },
+    {
+      "caller_nid": "pathvalidation_skiptimeoutflags",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1210"
+    },
+    {
+      "caller_nid": "pathvalidation_skiptimeoutflags",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1213"
+    },
+    {
+      "caller_nid": "pathvalidation_skiptimeoutflags",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1214"
+    },
+    {
+      "caller_nid": "pathvalidation_skipstdbufflags",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1229"
+    },
+    {
+      "caller_nid": "pathvalidation_skipstdbufflags",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1230"
+    },
+    {
+      "caller_nid": "pathvalidation_skipstdbufflags",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1231"
+    },
+    {
+      "caller_nid": "pathvalidation_skipstdbufflags",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1232"
+    },
+    {
+      "caller_nid": "pathvalidation_skipenvflags",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1248"
+    },
+    {
+      "caller_nid": "pathvalidation_skipenvflags",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1248"
+    },
+    {
+      "caller_nid": "pathvalidation_skipenvflags",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1251"
+    },
+    {
+      "caller_nid": "pathvalidation_stripwrappersfromargv",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1267"
+    },
+    {
+      "caller_nid": "pathvalidation_stripwrappersfromargv",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1274"
+    },
+    {
+      "caller_nid": "pathvalidation_stripwrappersfromargv",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1275"
+    },
+    {
+      "caller_nid": "pathvalidation_stripwrappersfromargv",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1281"
+    },
+    {
+      "caller_nid": "pathvalidation_stripwrappersfromargv",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1282"
+    },
+    {
+      "caller_nid": "pathvalidation_stripwrappersfromargv",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1283"
+    },
+    {
+      "caller_nid": "pathvalidation_stripwrappersfromargv",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1283"
+    },
+    {
+      "caller_nid": "pathvalidation_stripwrappersfromargv",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1284"
+    },
+    {
+      "caller_nid": "pathvalidation_stripwrappersfromargv",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1293"
+    },
+    {
+      "caller_nid": "pathvalidation_stripwrappersfromargv",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\pathValidation.ts",
+      "source_location": "L1298"
+    }
+  ]
+}

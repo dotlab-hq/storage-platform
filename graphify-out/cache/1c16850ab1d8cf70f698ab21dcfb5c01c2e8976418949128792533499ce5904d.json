@@ -1,1 +1,131 @@
-{"nodes": [{"id": "f_storage_platform_tests_s3_helpers_s3_test_utils_ts", "label": "s3-test-utils.ts", "file_type": "code", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L1"}, {"id": "s3_test_utils_readrequiredenv", "label": "readRequiredEnv()", "file_type": "code", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L7"}, {"id": "s3_test_utils_creates3client", "label": "createS3Client()", "file_type": "code", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L15"}, {"id": "s3_test_utils_readbucketversioning", "label": "readBucketVersioning()", "file_type": "code", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L35"}, {"id": "s3_test_utils_readbucketcors", "label": "readBucketCors()", "file_type": "code", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L45"}, {"id": "s3_test_utils_testbucketname", "label": "testBucketName()", "file_type": "code", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L55"}], "edges": [{"source": "f_storage_platform_tests_s3_helpers_s3_test_utils_ts", "target": "client_s3", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_tests_s3_helpers_s3_test_utils_ts", "target": "s3_test_utils_readrequiredenv", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_tests_s3_helpers_s3_test_utils_ts", "target": "s3_test_utils_creates3client", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_tests_s3_helpers_s3_test_utils_ts", "target": "s3_test_utils_readbucketversioning", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_tests_s3_helpers_s3_test_utils_ts", "target": "s3_test_utils_readbucketcors", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L45", "weight": 1.0}, {"source": "f_storage_platform_tests_s3_helpers_s3_test_utils_ts", "target": "s3_test_utils_testbucketname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L55", "weight": 1.0}, {"source": "s3_test_utils_creates3client", "target": "s3_test_utils_readrequiredenv", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L28", "weight": 1.0}], "raw_calls": [{"caller_nid": "s3_test_utils_readrequiredenv", "callee": "trim", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L9"}, {"caller_nid": "s3_test_utils_readbucketversioning", "callee": "send", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L39"}, {"caller_nid": "s3_test_utils_readbucketcors", "callee": "send", "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts", "source_location": "L49"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_tests_s3_helpers_s3_test_utils_ts",
+      "label": "s3-test-utils.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "s3_test_utils_readrequiredenv",
+      "label": "readRequiredEnv()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "s3_test_utils_creates3client",
+      "label": "createS3Client()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L15"
+    },
+    {
+      "id": "s3_test_utils_readbucketversioning",
+      "label": "readBucketVersioning()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L35"
+    },
+    {
+      "id": "s3_test_utils_readbucketcors",
+      "label": "readBucketCors()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L45"
+    },
+    {
+      "id": "s3_test_utils_testbucketname",
+      "label": "testBucketName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L55"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_tests_s3_helpers_s3_test_utils_ts",
+      "target": "client_s3",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_tests_s3_helpers_s3_test_utils_ts",
+      "target": "s3_test_utils_readrequiredenv",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_tests_s3_helpers_s3_test_utils_ts",
+      "target": "s3_test_utils_creates3client",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_tests_s3_helpers_s3_test_utils_ts",
+      "target": "s3_test_utils_readbucketversioning",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_tests_s3_helpers_s3_test_utils_ts",
+      "target": "s3_test_utils_readbucketcors",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_tests_s3_helpers_s3_test_utils_ts",
+      "target": "s3_test_utils_testbucketname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "s3_test_utils_creates3client",
+      "target": "s3_test_utils_readrequiredenv",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "s3_test_utils_readrequiredenv",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L9"
+    },
+    {
+      "caller_nid": "s3_test_utils_readbucketversioning",
+      "callee": "send",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "s3_test_utils_readbucketcors",
+      "callee": "send",
+      "source_file": "F:\\storage-platform\\tests\\s3\\helpers\\s3-test-utils.ts",
+      "source_location": "L49"
+    }
+  ]
+}

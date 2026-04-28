@@ -1,1 +1,955 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "label": "selection.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L1"}, {"id": "selection_createselectionstate", "label": "createSelectionState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L65"}, {"id": "selection_startselection", "label": "startSelection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L79"}, {"id": "selection_updateselection", "label": "updateSelection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L100"}, {"id": "selection_finishselection", "label": "finishSelection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L116"}, {"id": "selection_clearselection", "label": "clearSelection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L122"}, {"id": "selection_charclass", "label": "charClass()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L151"}, {"id": "selection_wordboundsat", "label": "wordBoundsAt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L162"}, {"id": "selection_comparepoints", "label": "comparePoints()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L227"}, {"id": "selection_selectwordat", "label": "selectWordAt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L240"}, {"id": "selection_isurlchar", "label": "isUrlChar()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L260"}, {"id": "selection_findplaintexturlat", "label": "findPlainTextUrlAt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L272"}, {"id": "selection_selectlineat", "label": "selectLineAt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L368"}, {"id": "selection_extendselection", "label": "extendSelection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L389"}, {"id": "selection_movefocus", "label": "moveFocus()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L442"}, {"id": "selection_shiftselection", "label": "shiftSelection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L470"}, {"id": "selection_shiftanchor", "label": "shiftAnchor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L573"}, {"id": "selection_shiftselectionforfollow", "label": "shiftSelectionForFollow()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L625"}, {"id": "selection_hasselection", "label": "hasSelection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L676"}, {"id": "selection_selectionbounds", "label": "selectionBounds()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L684"}, {"id": "selection_iscellselected", "label": "isCellSelected()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L698"}, {"id": "selection_extractrowtext", "label": "extractRowText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L716"}, {"id": "selection_joinrows", "label": "joinRows()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L750"}, {"id": "selection_getselectedtext", "label": "getSelectedText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L773"}, {"id": "selection_capturescrolledrows", "label": "captureScrolledRows()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L813"}, {"id": "selection_applyselectionoverlay", "label": "applySelectionOverlay()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L893"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_layout_geometry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_screen_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_screen_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_createselectionstate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L65", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_startselection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L79", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_updateselection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L100", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_finishselection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L116", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_clearselection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L122", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_charclass", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L151", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_wordboundsat", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L162", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_comparepoints", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L227", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_selectwordat", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L240", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_isurlchar", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L260", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_findplaintexturlat", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L272", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_selectlineat", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L368", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_extendselection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L389", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_movefocus", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L442", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_shiftselection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L470", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_shiftanchor", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L573", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_shiftselectionforfollow", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L625", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_hasselection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L676", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_selectionbounds", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L684", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_iscellselected", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L698", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_extractrowtext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L716", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_joinrows", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L750", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_getselectedtext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L773", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_capturescrolledrows", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L813", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts", "target": "selection_applyselectionoverlay", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L893", "weight": 1.0}, {"source": "selection_wordboundsat", "target": "selection_charclass", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L183", "weight": 1.0}, {"source": "selection_selectwordat", "target": "selection_wordboundsat", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L246", "weight": 1.0}, {"source": "selection_findplaintexturlat", "target": "selection_isurlchar", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L290", "weight": 1.0}, {"source": "selection_extendselection", "target": "selection_wordboundsat", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L400", "weight": 1.0}, {"source": "selection_extendselection", "target": "selection_comparepoints", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L408", "weight": 1.0}, {"source": "selection_shiftselection", "target": "selection_clearselection", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L487", "weight": 1.0}, {"source": "selection_shiftselectionforfollow", "target": "selection_clearselection", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L645", "weight": 1.0}, {"source": "selection_selectionbounds", "target": "selection_comparepoints", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L689", "weight": 1.0}, {"source": "selection_iscellselected", "target": "selection_selectionbounds", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L703", "weight": 1.0}, {"source": "selection_getselectedtext", "target": "selection_selectionbounds", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L774", "weight": 1.0}, {"source": "selection_getselectedtext", "target": "selection_joinrows", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L781", "weight": 1.0}, {"source": "selection_getselectedtext", "target": "selection_extractrowtext", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L787", "weight": 1.0}, {"source": "selection_capturescrolledrows", "target": "selection_selectionbounds", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L820", "weight": 1.0}, {"source": "selection_capturescrolledrows", "target": "selection_extractrowtext", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L836", "weight": 1.0}, {"source": "selection_applyselectionoverlay", "target": "selection_selectionbounds", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L898", "weight": 1.0}], "raw_calls": [{"caller_nid": "selection_charclass", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L153"}, {"caller_nid": "selection_wordboundsat", "callee": "cellAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L176"}, {"caller_nid": "selection_wordboundsat", "callee": "cellAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L181"}, {"caller_nid": "selection_wordboundsat", "callee": "cellAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L192"}, {"caller_nid": "selection_wordboundsat", "callee": "cellAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L197"}, {"caller_nid": "selection_wordboundsat", "callee": "cellAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L211"}, {"caller_nid": "selection_isurlchar", "callee": "charCodeAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L262"}, {"caller_nid": "selection_isurlchar", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L263"}, {"caller_nid": "selection_findplaintexturlat", "callee": "cellAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L284"}, {"caller_nid": "selection_findplaintexturlat", "callee": "cellAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L289"}, {"caller_nid": "selection_findplaintexturlat", "callee": "cellAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L299"}, {"caller_nid": "selection_findplaintexturlat", "callee": "cellAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L307"}, {"caller_nid": "selection_findplaintexturlat", "callee": "cellAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L313"}, {"caller_nid": "selection_findplaintexturlat", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L323"}, {"caller_nid": "selection_findplaintexturlat", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L331"}, {"caller_nid": "selection_findplaintexturlat", "callee": "at", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L337"}, {"caller_nid": "selection_findplaintexturlat", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L338"}, {"caller_nid": "selection_findplaintexturlat", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L339"}, {"caller_nid": "selection_findplaintexturlat", "callee": "charAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L347"}, {"caller_nid": "selection_findplaintexturlat", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L351"}, {"caller_nid": "selection_extendselection", "callee": "clamp", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L404"}, {"caller_nid": "selection_shiftselection", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L493"}, {"caller_nid": "selection_shiftselection", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L497"}, {"caller_nid": "selection_shiftselection", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L501"}, {"caller_nid": "selection_shiftselection", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L502"}, {"caller_nid": "selection_shiftselection", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L503"}, {"caller_nid": "selection_shiftselection", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L503"}, {"caller_nid": "selection_shiftselection", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L504"}, {"caller_nid": "selection_shiftselection", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L504"}, {"caller_nid": "selection_shiftselection", "callee": "splice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L514"}, {"caller_nid": "selection_shiftselection", "callee": "splice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L515"}, {"caller_nid": "selection_shiftselection", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L528"}, {"caller_nid": "selection_shiftselection", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L530"}, {"caller_nid": "selection_shiftselection", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L534"}, {"caller_nid": "selection_shiftselection", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L535"}, {"caller_nid": "selection_shiftselection", "callee": "shift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L545"}, {"caller_nid": "selection_shiftselection", "callee": "shift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L546"}, {"caller_nid": "selection_shiftselection", "callee": "sp", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L560"}, {"caller_nid": "selection_shiftselection", "callee": "sp", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L561"}, {"caller_nid": "selection_shiftanchor", "callee": "clamp", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L587"}, {"caller_nid": "selection_shiftanchor", "callee": "shift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L597"}, {"caller_nid": "selection_shiftanchor", "callee": "shift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L598"}, {"caller_nid": "selection_shiftselectionforfollow", "callee": "clamp", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L650"}, {"caller_nid": "selection_shiftselectionforfollow", "callee": "clamp", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L652"}, {"caller_nid": "selection_shiftselectionforfollow", "callee": "shift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L668"}, {"caller_nid": "selection_shiftselectionforfollow", "callee": "shift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L669"}, {"caller_nid": "selection_extractrowtext", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L725"}, {"caller_nid": "selection_extractrowtext", "callee": "cellAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L731"}, {"caller_nid": "selection_extractrowtext", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L743"}, {"caller_nid": "selection_joinrows", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L758"}, {"caller_nid": "selection_getselectedtext", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L794"}, {"caller_nid": "selection_capturescrolledrows", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L825"}, {"caller_nid": "selection_capturescrolledrows", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L826"}, {"caller_nid": "selection_capturescrolledrows", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L836"}, {"caller_nid": "selection_capturescrolledrows", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L837"}, {"caller_nid": "selection_capturescrolledrows", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L843"}, {"caller_nid": "selection_capturescrolledrows", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L844"}, {"caller_nid": "selection_capturescrolledrows", "callee": "unshift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L862"}, {"caller_nid": "selection_capturescrolledrows", "callee": "unshift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L863"}, {"caller_nid": "selection_applyselectionoverlay", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L905"}, {"caller_nid": "selection_applyselectionoverlay", "callee": "cellAtIndex", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L913"}, {"caller_nid": "selection_applyselectionoverlay", "callee": "setCellStyleId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L914"}, {"caller_nid": "selection_applyselectionoverlay", "callee": "withSelectionBg", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts", "source_location": "L914"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "label": "selection.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "selection_createselectionstate",
+      "label": "createSelectionState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L65"
+    },
+    {
+      "id": "selection_startselection",
+      "label": "startSelection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L79"
+    },
+    {
+      "id": "selection_updateselection",
+      "label": "updateSelection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L100"
+    },
+    {
+      "id": "selection_finishselection",
+      "label": "finishSelection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L116"
+    },
+    {
+      "id": "selection_clearselection",
+      "label": "clearSelection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L122"
+    },
+    {
+      "id": "selection_charclass",
+      "label": "charClass()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L151"
+    },
+    {
+      "id": "selection_wordboundsat",
+      "label": "wordBoundsAt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L162"
+    },
+    {
+      "id": "selection_comparepoints",
+      "label": "comparePoints()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L227"
+    },
+    {
+      "id": "selection_selectwordat",
+      "label": "selectWordAt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L240"
+    },
+    {
+      "id": "selection_isurlchar",
+      "label": "isUrlChar()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L260"
+    },
+    {
+      "id": "selection_findplaintexturlat",
+      "label": "findPlainTextUrlAt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L272"
+    },
+    {
+      "id": "selection_selectlineat",
+      "label": "selectLineAt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L368"
+    },
+    {
+      "id": "selection_extendselection",
+      "label": "extendSelection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L389"
+    },
+    {
+      "id": "selection_movefocus",
+      "label": "moveFocus()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L442"
+    },
+    {
+      "id": "selection_shiftselection",
+      "label": "shiftSelection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L470"
+    },
+    {
+      "id": "selection_shiftanchor",
+      "label": "shiftAnchor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L573"
+    },
+    {
+      "id": "selection_shiftselectionforfollow",
+      "label": "shiftSelectionForFollow()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L625"
+    },
+    {
+      "id": "selection_hasselection",
+      "label": "hasSelection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L676"
+    },
+    {
+      "id": "selection_selectionbounds",
+      "label": "selectionBounds()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L684"
+    },
+    {
+      "id": "selection_iscellselected",
+      "label": "isCellSelected()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L698"
+    },
+    {
+      "id": "selection_extractrowtext",
+      "label": "extractRowText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L716"
+    },
+    {
+      "id": "selection_joinrows",
+      "label": "joinRows()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L750"
+    },
+    {
+      "id": "selection_getselectedtext",
+      "label": "getSelectedText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L773"
+    },
+    {
+      "id": "selection_capturescrolledrows",
+      "label": "captureScrolledRows()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L813"
+    },
+    {
+      "id": "selection_applyselectionoverlay",
+      "label": "applySelectionOverlay()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L893"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_layout_geometry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_screen_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_screen_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_createselectionstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_startselection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_updateselection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_finishselection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_clearselection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_charclass",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_wordboundsat",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L162",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_comparepoints",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L227",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_selectwordat",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L240",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_isurlchar",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L260",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_findplaintexturlat",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L272",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_selectlineat",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L368",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_extendselection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L389",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_movefocus",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L442",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_shiftselection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L470",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_shiftanchor",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L573",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_shiftselectionforfollow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L625",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_hasselection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L676",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_selectionbounds",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L684",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_iscellselected",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L698",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_extractrowtext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L716",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_joinrows",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L750",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_getselectedtext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L773",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_capturescrolledrows",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L813",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_selection_ts",
+      "target": "selection_applyselectionoverlay",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L893",
+      "weight": 1.0
+    },
+    {
+      "source": "selection_wordboundsat",
+      "target": "selection_charclass",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L183",
+      "weight": 1.0
+    },
+    {
+      "source": "selection_selectwordat",
+      "target": "selection_wordboundsat",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L246",
+      "weight": 1.0
+    },
+    {
+      "source": "selection_findplaintexturlat",
+      "target": "selection_isurlchar",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L290",
+      "weight": 1.0
+    },
+    {
+      "source": "selection_extendselection",
+      "target": "selection_wordboundsat",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L400",
+      "weight": 1.0
+    },
+    {
+      "source": "selection_extendselection",
+      "target": "selection_comparepoints",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L408",
+      "weight": 1.0
+    },
+    {
+      "source": "selection_shiftselection",
+      "target": "selection_clearselection",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L487",
+      "weight": 1.0
+    },
+    {
+      "source": "selection_shiftselectionforfollow",
+      "target": "selection_clearselection",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L645",
+      "weight": 1.0
+    },
+    {
+      "source": "selection_selectionbounds",
+      "target": "selection_comparepoints",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L689",
+      "weight": 1.0
+    },
+    {
+      "source": "selection_iscellselected",
+      "target": "selection_selectionbounds",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L703",
+      "weight": 1.0
+    },
+    {
+      "source": "selection_getselectedtext",
+      "target": "selection_selectionbounds",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L774",
+      "weight": 1.0
+    },
+    {
+      "source": "selection_getselectedtext",
+      "target": "selection_joinrows",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L781",
+      "weight": 1.0
+    },
+    {
+      "source": "selection_getselectedtext",
+      "target": "selection_extractrowtext",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L787",
+      "weight": 1.0
+    },
+    {
+      "source": "selection_capturescrolledrows",
+      "target": "selection_selectionbounds",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L820",
+      "weight": 1.0
+    },
+    {
+      "source": "selection_capturescrolledrows",
+      "target": "selection_extractrowtext",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L836",
+      "weight": 1.0
+    },
+    {
+      "source": "selection_applyselectionoverlay",
+      "target": "selection_selectionbounds",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L898",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "selection_charclass",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L153"
+    },
+    {
+      "caller_nid": "selection_wordboundsat",
+      "callee": "cellAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L176"
+    },
+    {
+      "caller_nid": "selection_wordboundsat",
+      "callee": "cellAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L181"
+    },
+    {
+      "caller_nid": "selection_wordboundsat",
+      "callee": "cellAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "selection_wordboundsat",
+      "callee": "cellAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "selection_wordboundsat",
+      "callee": "cellAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L211"
+    },
+    {
+      "caller_nid": "selection_isurlchar",
+      "callee": "charCodeAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L262"
+    },
+    {
+      "caller_nid": "selection_isurlchar",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L263"
+    },
+    {
+      "caller_nid": "selection_findplaintexturlat",
+      "callee": "cellAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L284"
+    },
+    {
+      "caller_nid": "selection_findplaintexturlat",
+      "callee": "cellAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L289"
+    },
+    {
+      "caller_nid": "selection_findplaintexturlat",
+      "callee": "cellAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L299"
+    },
+    {
+      "caller_nid": "selection_findplaintexturlat",
+      "callee": "cellAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L307"
+    },
+    {
+      "caller_nid": "selection_findplaintexturlat",
+      "callee": "cellAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L313"
+    },
+    {
+      "caller_nid": "selection_findplaintexturlat",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L323"
+    },
+    {
+      "caller_nid": "selection_findplaintexturlat",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L331"
+    },
+    {
+      "caller_nid": "selection_findplaintexturlat",
+      "callee": "at",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L337"
+    },
+    {
+      "caller_nid": "selection_findplaintexturlat",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L338"
+    },
+    {
+      "caller_nid": "selection_findplaintexturlat",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L339"
+    },
+    {
+      "caller_nid": "selection_findplaintexturlat",
+      "callee": "charAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L347"
+    },
+    {
+      "caller_nid": "selection_findplaintexturlat",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L351"
+    },
+    {
+      "caller_nid": "selection_extendselection",
+      "callee": "clamp",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L404"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L493"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L497"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L501"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L502"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L503"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L503"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L504"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L504"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "splice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L514"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "splice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L515"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L528"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L530"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L534"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L535"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "shift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L545"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "shift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L546"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "sp",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L560"
+    },
+    {
+      "caller_nid": "selection_shiftselection",
+      "callee": "sp",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L561"
+    },
+    {
+      "caller_nid": "selection_shiftanchor",
+      "callee": "clamp",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L587"
+    },
+    {
+      "caller_nid": "selection_shiftanchor",
+      "callee": "shift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L597"
+    },
+    {
+      "caller_nid": "selection_shiftanchor",
+      "callee": "shift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L598"
+    },
+    {
+      "caller_nid": "selection_shiftselectionforfollow",
+      "callee": "clamp",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L650"
+    },
+    {
+      "caller_nid": "selection_shiftselectionforfollow",
+      "callee": "clamp",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L652"
+    },
+    {
+      "caller_nid": "selection_shiftselectionforfollow",
+      "callee": "shift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L668"
+    },
+    {
+      "caller_nid": "selection_shiftselectionforfollow",
+      "callee": "shift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L669"
+    },
+    {
+      "caller_nid": "selection_extractrowtext",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L725"
+    },
+    {
+      "caller_nid": "selection_extractrowtext",
+      "callee": "cellAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L731"
+    },
+    {
+      "caller_nid": "selection_extractrowtext",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L743"
+    },
+    {
+      "caller_nid": "selection_joinrows",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L758"
+    },
+    {
+      "caller_nid": "selection_getselectedtext",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L794"
+    },
+    {
+      "caller_nid": "selection_capturescrolledrows",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L825"
+    },
+    {
+      "caller_nid": "selection_capturescrolledrows",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L826"
+    },
+    {
+      "caller_nid": "selection_capturescrolledrows",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L836"
+    },
+    {
+      "caller_nid": "selection_capturescrolledrows",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L837"
+    },
+    {
+      "caller_nid": "selection_capturescrolledrows",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L843"
+    },
+    {
+      "caller_nid": "selection_capturescrolledrows",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L844"
+    },
+    {
+      "caller_nid": "selection_capturescrolledrows",
+      "callee": "unshift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L862"
+    },
+    {
+      "caller_nid": "selection_capturescrolledrows",
+      "callee": "unshift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L863"
+    },
+    {
+      "caller_nid": "selection_applyselectionoverlay",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L905"
+    },
+    {
+      "caller_nid": "selection_applyselectionoverlay",
+      "callee": "cellAtIndex",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L913"
+    },
+    {
+      "caller_nid": "selection_applyselectionoverlay",
+      "callee": "setCellStyleId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L914"
+    },
+    {
+      "caller_nid": "selection_applyselectionoverlay",
+      "callee": "withSelectionBg",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\selection.ts",
+      "source_location": "L914"
+    }
+  ]
+}

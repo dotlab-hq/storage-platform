@@ -1,1 +1,179 @@
-{"nodes": [{"id": "f_storage_platform_scripts_db_push_ts", "label": "db-push.ts", "file_type": "code", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L1"}, {"id": "db_push_quote", "label": "quote()", "file_type": "code", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L4"}, {"id": "db_push_run", "label": "run()", "file_type": "code", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L6"}, {"id": "db_push_printoutput", "label": "printOutput()", "file_type": "code", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L32"}, {"id": "db_push_getdatabasename", "label": "getDatabaseName()", "file_type": "code", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L38"}, {"id": "db_push_extractduplicateindexes", "label": "extractDuplicateIndexes()", "file_type": "code", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L49"}], "edges": [{"source": "f_storage_platform_scripts_db_push_ts", "target": "node_child_process", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_scripts_db_push_ts", "target": "node_fs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_scripts_db_push_ts", "target": "db_push_quote", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_scripts_db_push_ts", "target": "db_push_run", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_scripts_db_push_ts", "target": "db_push_printoutput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_scripts_db_push_ts", "target": "db_push_getdatabasename", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L38", "weight": 1.0}, {"source": "f_storage_platform_scripts_db_push_ts", "target": "db_push_extractduplicateindexes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L49", "weight": 1.0}], "raw_calls": [{"caller_nid": "db_push_quote", "callee": "replaceAll", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L4"}, {"caller_nid": "db_push_run", "callee": "execSync", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L8"}, {"caller_nid": "db_push_run", "callee": "cwd", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L9"}, {"caller_nid": "db_push_run", "callee": "String", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L25"}, {"caller_nid": "db_push_run", "callee": "String", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L26"}, {"caller_nid": "db_push_printoutput", "callee": "trim", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L33"}, {"caller_nid": "db_push_printoutput", "callee": "write", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L34"}, {"caller_nid": "db_push_getdatabasename", "callee": "readFileSync", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L39"}, {"caller_nid": "db_push_getdatabasename", "callee": "match", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L40"}, {"caller_nid": "db_push_extractduplicateindexes", "callee": "map", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L50"}, {"caller_nid": "db_push_extractduplicateindexes", "callee": "matchAll", "source_file": "F:\\storage-platform\\scripts\\db-push.ts", "source_location": "L50"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_scripts_db_push_ts",
+      "label": "db-push.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "db_push_quote",
+      "label": "quote()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "db_push_run",
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L6"
+    },
+    {
+      "id": "db_push_printoutput",
+      "label": "printOutput()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "db_push_getdatabasename",
+      "label": "getDatabaseName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L38"
+    },
+    {
+      "id": "db_push_extractduplicateindexes",
+      "label": "extractDuplicateIndexes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L49"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_scripts_db_push_ts",
+      "target": "node_child_process",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_scripts_db_push_ts",
+      "target": "node_fs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_scripts_db_push_ts",
+      "target": "db_push_quote",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_scripts_db_push_ts",
+      "target": "db_push_run",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_scripts_db_push_ts",
+      "target": "db_push_printoutput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_scripts_db_push_ts",
+      "target": "db_push_getdatabasename",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_scripts_db_push_ts",
+      "target": "db_push_extractduplicateindexes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "db_push_quote",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L4"
+    },
+    {
+      "caller_nid": "db_push_run",
+      "callee": "execSync",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L8"
+    },
+    {
+      "caller_nid": "db_push_run",
+      "callee": "cwd",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L9"
+    },
+    {
+      "caller_nid": "db_push_run",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "db_push_run",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "db_push_printoutput",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "db_push_printoutput",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "db_push_getdatabasename",
+      "callee": "readFileSync",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "db_push_getdatabasename",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "db_push_extractduplicateindexes",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "db_push_extractduplicateindexes",
+      "callee": "matchAll",
+      "source_file": "F:\\storage-platform\\scripts\\db-push.ts",
+      "source_location": "L50"
+    }
+  ]
+}

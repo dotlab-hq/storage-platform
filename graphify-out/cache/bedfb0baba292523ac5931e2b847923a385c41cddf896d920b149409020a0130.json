@@ -1,1 +1,97 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_sessionenvvars_ts", "label": "sessionEnvVars.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts", "source_location": "L1"}, {"id": "sessionenvvars_getsessionenvvars", "label": "getSessionEnvVars()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts", "source_location": "L8"}, {"id": "sessionenvvars_setsessionenvvar", "label": "setSessionEnvVar()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts", "source_location": "L12"}, {"id": "sessionenvvars_deletesessionenvvar", "label": "deleteSessionEnvVar()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts", "source_location": "L16"}, {"id": "sessionenvvars_clearsessionenvvars", "label": "clearSessionEnvVars()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts", "source_location": "L20"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_sessionenvvars_ts", "target": "sessionenvvars_getsessionenvvars", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionenvvars_ts", "target": "sessionenvvars_setsessionenvvar", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionenvvars_ts", "target": "sessionenvvars_deletesessionenvvar", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionenvvars_ts", "target": "sessionenvvars_clearsessionenvvars", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts", "source_location": "L20", "weight": 1.0}], "raw_calls": [{"caller_nid": "sessionenvvars_setsessionenvvar", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts", "source_location": "L13"}, {"caller_nid": "sessionenvvars_deletesessionenvvar", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts", "source_location": "L17"}, {"caller_nid": "sessionenvvars_clearsessionenvvars", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts", "source_location": "L21"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_sessionenvvars_ts",
+      "label": "sessionEnvVars.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "sessionenvvars_getsessionenvvars",
+      "label": "getSessionEnvVars()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts",
+      "source_location": "L8"
+    },
+    {
+      "id": "sessionenvvars_setsessionenvvar",
+      "label": "setSessionEnvVar()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts",
+      "source_location": "L12"
+    },
+    {
+      "id": "sessionenvvars_deletesessionenvvar",
+      "label": "deleteSessionEnvVar()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "sessionenvvars_clearsessionenvvars",
+      "label": "clearSessionEnvVars()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts",
+      "source_location": "L20"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionenvvars_ts",
+      "target": "sessionenvvars_getsessionenvvars",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionenvvars_ts",
+      "target": "sessionenvvars_setsessionenvvar",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionenvvars_ts",
+      "target": "sessionenvvars_deletesessionenvvar",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionenvvars_ts",
+      "target": "sessionenvvars_clearsessionenvvars",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "sessionenvvars_setsessionenvvar",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts",
+      "source_location": "L13"
+    },
+    {
+      "caller_nid": "sessionenvvars_deletesessionenvvar",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "sessionenvvars_clearsessionenvvars",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionEnvVars.ts",
+      "source_location": "L21"
+    }
+  ]
+}

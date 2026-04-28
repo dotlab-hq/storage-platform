@@ -1,1 +1,136 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_components_structureddiff_colordiff_ts", "label": "colorDiff.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L1"}, {"id": "colordiff_getcolormoduleunavailablereason", "label": "getColorModuleUnavailableReason()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L18"}, {"id": "colordiff_expectcolordiff", "label": "expectColorDiff()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L25"}, {"id": "colordiff_expectcolorfile", "label": "expectColorFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L29"}, {"id": "colordiff_getsyntaxtheme", "label": "getSyntaxTheme()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L33"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_components_structureddiff_colordiff_ts", "target": "color_diff_napi", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_structureddiff_colordiff_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_structureddiff_colordiff_ts", "target": "colordiff_getcolormoduleunavailablereason", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_structureddiff_colordiff_ts", "target": "colordiff_expectcolordiff", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_structureddiff_colordiff_ts", "target": "colordiff_expectcolorfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_structureddiff_colordiff_ts", "target": "colordiff_getsyntaxtheme", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L33", "weight": 1.0}, {"source": "colordiff_expectcolordiff", "target": "colordiff_getcolormoduleunavailablereason", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L26", "weight": 1.0}, {"source": "colordiff_expectcolorfile", "target": "colordiff_getcolormoduleunavailablereason", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L30", "weight": 1.0}, {"source": "colordiff_getsyntaxtheme", "target": "colordiff_getcolormoduleunavailablereason", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L34", "weight": 1.0}], "raw_calls": [{"caller_nid": "colordiff_getcolormoduleunavailablereason", "callee": "isEnvDefinedFalsy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L19"}, {"caller_nid": "colordiff_getsyntaxtheme", "callee": "nativeGetSyntaxTheme", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts", "source_location": "L35"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_components_structureddiff_colordiff_ts",
+      "label": "colorDiff.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "colordiff_getcolormoduleunavailablereason",
+      "label": "getColorModuleUnavailableReason()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L18"
+    },
+    {
+      "id": "colordiff_expectcolordiff",
+      "label": "expectColorDiff()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L25"
+    },
+    {
+      "id": "colordiff_expectcolorfile",
+      "label": "expectColorFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L29"
+    },
+    {
+      "id": "colordiff_getsyntaxtheme",
+      "label": "getSyntaxTheme()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L33"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_structureddiff_colordiff_ts",
+      "target": "color_diff_napi",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_structureddiff_colordiff_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_structureddiff_colordiff_ts",
+      "target": "colordiff_getcolormoduleunavailablereason",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_structureddiff_colordiff_ts",
+      "target": "colordiff_expectcolordiff",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_structureddiff_colordiff_ts",
+      "target": "colordiff_expectcolorfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_structureddiff_colordiff_ts",
+      "target": "colordiff_getsyntaxtheme",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "colordiff_expectcolordiff",
+      "target": "colordiff_getcolormoduleunavailablereason",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "colordiff_expectcolorfile",
+      "target": "colordiff_getcolormoduleunavailablereason",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "colordiff_getsyntaxtheme",
+      "target": "colordiff_getcolormoduleunavailablereason",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "colordiff_getcolormoduleunavailablereason",
+      "callee": "isEnvDefinedFalsy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "colordiff_getsyntaxtheme",
+      "callee": "nativeGetSyntaxTheme",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\StructuredDiff\\colorDiff.ts",
+      "source_location": "L35"
+    }
+  ]
+}

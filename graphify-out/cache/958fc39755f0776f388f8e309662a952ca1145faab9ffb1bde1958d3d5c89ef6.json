@@ -1,1 +1,694 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "label": "sessionMemory.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L1"}, {"id": "sessionmemory_issessionmemorygateenabled", "label": "isSessionMemoryGateEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L80"}, {"id": "sessionmemory_getsessionmemoryremoteconfig", "label": "getSessionMemoryRemoteConfig()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L88"}, {"id": "sessionmemory_resetlastmemorymessageuuid", "label": "resetLastMemoryMessageUuid()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L104"}, {"id": "sessionmemory_counttoolcallssince", "label": "countToolCallsSince()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L108"}, {"id": "sessionmemory_shouldextractmemory", "label": "shouldExtractMemory()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L134"}, {"id": "sessionmemory_setupsessionmemoryfile", "label": "setupSessionMemoryFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L183"}, {"id": "sessionmemory_initsessionmemory", "label": "initSessionMemory()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L357"}, {"id": "sessionmemory_manuallyextractsessionmemory", "label": "manuallyExtractSessionMemory()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L387"}, {"id": "sessionmemory_creatememoryfilecanusetool", "label": "createMemoryFileCanUseTool()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L460"}, {"id": "sessionmemory_updatelastsummarizedmessageidifsafe", "label": "updateLastSummarizedMessageIdIfSafe()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L488"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "memoize_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_prompts_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_context_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_hooks_usecanusetool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_fileedittool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_filereadtool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_types_message_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_array_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_forkedagent_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_postsamplinghooks_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_filesystem_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sequential_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_systemprompttype_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L40", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_tokens_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L41", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_services_compact_autocompact_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L44", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemoryutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L48", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L70", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L71", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "sessionmemory_issessionmemorygateenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L80", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "sessionmemory_getsessionmemoryremoteconfig", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L88", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "sessionmemory_resetlastmemorymessageuuid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L104", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "sessionmemory_counttoolcallssince", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L108", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "sessionmemory_shouldextractmemory", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L134", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "sessionmemory_setupsessionmemoryfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L183", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "sessionmemory_initsessionmemory", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L357", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "sessionmemory_manuallyextractsessionmemory", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L387", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "sessionmemory_creatememoryfilecanusetool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L460", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts", "target": "sessionmemory_updatelastsummarizedmessageidifsafe", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L488", "weight": 1.0}, {"source": "sessionmemory_shouldextractmemory", "target": "sessionmemory_counttoolcallssince", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L150", "weight": 1.0}, {"source": "sessionmemory_manuallyextractsessionmemory", "target": "sessionmemory_setupsessionmemoryfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L402", "weight": 1.0}, {"source": "sessionmemory_manuallyextractsessionmemory", "target": "sessionmemory_creatememoryfilecanusetool", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L429", "weight": 1.0}, {"source": "sessionmemory_manuallyextractsessionmemory", "target": "sessionmemory_updatelastsummarizedmessageidifsafe", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L442", "weight": 1.0}], "raw_calls": [{"caller_nid": "sessionmemory_issessionmemorygateenabled", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L81"}, {"caller_nid": "sessionmemory_getsessionmemoryremoteconfig", "callee": "getDynamicConfig_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L89"}, {"caller_nid": "sessionmemory_counttoolcallssince", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L125"}, {"caller_nid": "sessionmemory_counttoolcallssince", "callee": "count", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L126"}, {"caller_nid": "sessionmemory_shouldextractmemory", "callee": "tokenCountWithEstimation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L137"}, {"caller_nid": "sessionmemory_shouldextractmemory", "callee": "isSessionMemoryInitialized", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L138"}, {"caller_nid": "sessionmemory_shouldextractmemory", "callee": "hasMetInitializationThreshold", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L139"}, {"caller_nid": "sessionmemory_shouldextractmemory", "callee": "markSessionMemoryInitialized", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L142"}, {"caller_nid": "sessionmemory_shouldextractmemory", "callee": "hasMetUpdateThreshold", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L147"}, {"caller_nid": "sessionmemory_shouldextractmemory", "callee": "getToolCallsBetweenUpdates", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L155"}, {"caller_nid": "sessionmemory_shouldextractmemory", "callee": "hasToolCallsInLastAssistantTurn", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L158"}, {"caller_nid": "sessionmemory_setupsessionmemoryfile", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L186"}, {"caller_nid": "sessionmemory_setupsessionmemoryfile", "callee": "getSessionMemoryDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L189"}, {"caller_nid": "sessionmemory_setupsessionmemoryfile", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L190"}, {"caller_nid": "sessionmemory_setupsessionmemoryfile", "callee": "getSessionMemoryPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L192"}, {"caller_nid": "sessionmemory_setupsessionmemoryfile", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L196"}, {"caller_nid": "sessionmemory_setupsessionmemoryfile", "callee": "loadSessionMemoryTemplate", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L202"}, {"caller_nid": "sessionmemory_setupsessionmemoryfile", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L203"}, {"caller_nid": "sessionmemory_setupsessionmemoryfile", "callee": "getErrnoCode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L208"}, {"caller_nid": "sessionmemory_setupsessionmemoryfile", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L216"}, {"caller_nid": "sessionmemory_setupsessionmemoryfile", "callee": "call", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L217"}, {"caller_nid": "sessionmemory_setupsessionmemoryfile", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L228"}, {"caller_nid": "sessionmemory_initsessionmemory", "callee": "getIsRemoteMode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L358"}, {"caller_nid": "sessionmemory_initsessionmemory", "callee": "isAutoCompactEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L360"}, {"caller_nid": "sessionmemory_initsessionmemory", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L364"}, {"caller_nid": "sessionmemory_initsessionmemory", "callee": "registerPostSamplingHook", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L374"}, {"caller_nid": "sessionmemory_manuallyextractsessionmemory", "callee": "markExtractionStarted", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L394"}, {"caller_nid": "sessionmemory_manuallyextractsessionmemory", "callee": "createSubagentContext", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L398"}, {"caller_nid": "sessionmemory_manuallyextractsessionmemory", "callee": "buildSessionMemoryUpdatePrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L405"}, {"caller_nid": "sessionmemory_manuallyextractsessionmemory", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L412"}, {"caller_nid": "sessionmemory_manuallyextractsessionmemory", "callee": "getSystemPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L413"}, {"caller_nid": "sessionmemory_manuallyextractsessionmemory", "callee": "getUserContext", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L414"}, {"caller_nid": "sessionmemory_manuallyextractsessionmemory", "callee": "getSystemContext", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L415"}, {"caller_nid": "sessionmemory_manuallyextractsessionmemory", "callee": "asSystemPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L417"}, {"caller_nid": "sessionmemory_manuallyextractsessionmemory", "callee": "runForkedAgent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L420"}, {"caller_nid": "sessionmemory_manuallyextractsessionmemory", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L421"}, {"caller_nid": "sessionmemory_manuallyextractsessionmemory", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L436"}, {"caller_nid": "sessionmemory_manuallyextractsessionmemory", "callee": "recordExtractionTokenCount", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L439"}, {"caller_nid": "sessionmemory_manuallyextractsessionmemory", "callee": "tokenCountWithEstimation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L439"}, {"caller_nid": "sessionmemory_manuallyextractsessionmemory", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L448"}, {"caller_nid": "sessionmemory_manuallyextractsessionmemory", "callee": "markExtractionCompleted", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L451"}, {"caller_nid": "sessionmemory_updatelastsummarizedmessageidifsafe", "callee": "hasToolCallsInLastAssistantTurn", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L489"}, {"caller_nid": "sessionmemory_updatelastsummarizedmessageidifsafe", "callee": "setLastSummarizedMessageId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts", "source_location": "L492"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "label": "sessionMemory.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "sessionmemory_issessionmemorygateenabled",
+      "label": "isSessionMemoryGateEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L80"
+    },
+    {
+      "id": "sessionmemory_getsessionmemoryremoteconfig",
+      "label": "getSessionMemoryRemoteConfig()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L88"
+    },
+    {
+      "id": "sessionmemory_resetlastmemorymessageuuid",
+      "label": "resetLastMemoryMessageUuid()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L104"
+    },
+    {
+      "id": "sessionmemory_counttoolcallssince",
+      "label": "countToolCallsSince()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L108"
+    },
+    {
+      "id": "sessionmemory_shouldextractmemory",
+      "label": "shouldExtractMemory()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L134"
+    },
+    {
+      "id": "sessionmemory_setupsessionmemoryfile",
+      "label": "setupSessionMemoryFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L183"
+    },
+    {
+      "id": "sessionmemory_initsessionmemory",
+      "label": "initSessionMemory()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L357"
+    },
+    {
+      "id": "sessionmemory_manuallyextractsessionmemory",
+      "label": "manuallyExtractSessionMemory()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L387"
+    },
+    {
+      "id": "sessionmemory_creatememoryfilecanusetool",
+      "label": "createMemoryFileCanUseTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L460"
+    },
+    {
+      "id": "sessionmemory_updatelastsummarizedmessageidifsafe",
+      "label": "updateLastSummarizedMessageIdIfSafe()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L488"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "memoize_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_prompts_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_context_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_hooks_usecanusetool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_fileedittool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_filereadtool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_array_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_forkedagent_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_postsamplinghooks_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_filesystem_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sequential_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_systemprompttype_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_tokens_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_compact_autocompact_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemoryutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "sessionmemory_issessionmemorygateenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "sessionmemory_getsessionmemoryremoteconfig",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "sessionmemory_resetlastmemorymessageuuid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L104",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "sessionmemory_counttoolcallssince",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "sessionmemory_shouldextractmemory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "sessionmemory_setupsessionmemoryfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L183",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "sessionmemory_initsessionmemory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L357",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "sessionmemory_manuallyextractsessionmemory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L387",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "sessionmemory_creatememoryfilecanusetool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L460",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_sessionmemory_ts",
+      "target": "sessionmemory_updatelastsummarizedmessageidifsafe",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L488",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionmemory_shouldextractmemory",
+      "target": "sessionmemory_counttoolcallssince",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L150",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionmemory_manuallyextractsessionmemory",
+      "target": "sessionmemory_setupsessionmemoryfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L402",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionmemory_manuallyextractsessionmemory",
+      "target": "sessionmemory_creatememoryfilecanusetool",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L429",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionmemory_manuallyextractsessionmemory",
+      "target": "sessionmemory_updatelastsummarizedmessageidifsafe",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L442",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "sessionmemory_issessionmemorygateenabled",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "sessionmemory_getsessionmemoryremoteconfig",
+      "callee": "getDynamicConfig_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "sessionmemory_counttoolcallssince",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "sessionmemory_counttoolcallssince",
+      "callee": "count",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "sessionmemory_shouldextractmemory",
+      "callee": "tokenCountWithEstimation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "sessionmemory_shouldextractmemory",
+      "callee": "isSessionMemoryInitialized",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "sessionmemory_shouldextractmemory",
+      "callee": "hasMetInitializationThreshold",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "sessionmemory_shouldextractmemory",
+      "callee": "markSessionMemoryInitialized",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "sessionmemory_shouldextractmemory",
+      "callee": "hasMetUpdateThreshold",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "sessionmemory_shouldextractmemory",
+      "callee": "getToolCallsBetweenUpdates",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L155"
+    },
+    {
+      "caller_nid": "sessionmemory_shouldextractmemory",
+      "callee": "hasToolCallsInLastAssistantTurn",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "sessionmemory_setupsessionmemoryfile",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L186"
+    },
+    {
+      "caller_nid": "sessionmemory_setupsessionmemoryfile",
+      "callee": "getSessionMemoryDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L189"
+    },
+    {
+      "caller_nid": "sessionmemory_setupsessionmemoryfile",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L190"
+    },
+    {
+      "caller_nid": "sessionmemory_setupsessionmemoryfile",
+      "callee": "getSessionMemoryPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "sessionmemory_setupsessionmemoryfile",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L196"
+    },
+    {
+      "caller_nid": "sessionmemory_setupsessionmemoryfile",
+      "callee": "loadSessionMemoryTemplate",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "sessionmemory_setupsessionmemoryfile",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "sessionmemory_setupsessionmemoryfile",
+      "callee": "getErrnoCode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L208"
+    },
+    {
+      "caller_nid": "sessionmemory_setupsessionmemoryfile",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L216"
+    },
+    {
+      "caller_nid": "sessionmemory_setupsessionmemoryfile",
+      "callee": "call",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L217"
+    },
+    {
+      "caller_nid": "sessionmemory_setupsessionmemoryfile",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L228"
+    },
+    {
+      "caller_nid": "sessionmemory_initsessionmemory",
+      "callee": "getIsRemoteMode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L358"
+    },
+    {
+      "caller_nid": "sessionmemory_initsessionmemory",
+      "callee": "isAutoCompactEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L360"
+    },
+    {
+      "caller_nid": "sessionmemory_initsessionmemory",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L364"
+    },
+    {
+      "caller_nid": "sessionmemory_initsessionmemory",
+      "callee": "registerPostSamplingHook",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L374"
+    },
+    {
+      "caller_nid": "sessionmemory_manuallyextractsessionmemory",
+      "callee": "markExtractionStarted",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L394"
+    },
+    {
+      "caller_nid": "sessionmemory_manuallyextractsessionmemory",
+      "callee": "createSubagentContext",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L398"
+    },
+    {
+      "caller_nid": "sessionmemory_manuallyextractsessionmemory",
+      "callee": "buildSessionMemoryUpdatePrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L405"
+    },
+    {
+      "caller_nid": "sessionmemory_manuallyextractsessionmemory",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L412"
+    },
+    {
+      "caller_nid": "sessionmemory_manuallyextractsessionmemory",
+      "callee": "getSystemPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L413"
+    },
+    {
+      "caller_nid": "sessionmemory_manuallyextractsessionmemory",
+      "callee": "getUserContext",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L414"
+    },
+    {
+      "caller_nid": "sessionmemory_manuallyextractsessionmemory",
+      "callee": "getSystemContext",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L415"
+    },
+    {
+      "caller_nid": "sessionmemory_manuallyextractsessionmemory",
+      "callee": "asSystemPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L417"
+    },
+    {
+      "caller_nid": "sessionmemory_manuallyextractsessionmemory",
+      "callee": "runForkedAgent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L420"
+    },
+    {
+      "caller_nid": "sessionmemory_manuallyextractsessionmemory",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L421"
+    },
+    {
+      "caller_nid": "sessionmemory_manuallyextractsessionmemory",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L436"
+    },
+    {
+      "caller_nid": "sessionmemory_manuallyextractsessionmemory",
+      "callee": "recordExtractionTokenCount",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L439"
+    },
+    {
+      "caller_nid": "sessionmemory_manuallyextractsessionmemory",
+      "callee": "tokenCountWithEstimation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L439"
+    },
+    {
+      "caller_nid": "sessionmemory_manuallyextractsessionmemory",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L448"
+    },
+    {
+      "caller_nid": "sessionmemory_manuallyextractsessionmemory",
+      "callee": "markExtractionCompleted",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L451"
+    },
+    {
+      "caller_nid": "sessionmemory_updatelastsummarizedmessageidifsafe",
+      "callee": "hasToolCallsInLastAssistantTurn",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L489"
+    },
+    {
+      "caller_nid": "sessionmemory_updatelastsummarizedmessageidifsafe",
+      "callee": "setLastSummarizedMessageId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\sessionMemory.ts",
+      "source_location": "L492"
+    }
+  ]
+}

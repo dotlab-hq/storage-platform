@@ -1,1 +1,817 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "label": "zipCache.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L1"}, {"id": "zipcache_ispluginzipcacheenabled", "label": "isPluginZipCacheEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L55"}, {"id": "zipcache_getpluginzipcachepath", "label": "getPluginZipCachePath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L64"}, {"id": "zipcache_getzipcacheknownmarketplacespath", "label": "getZipCacheKnownMarketplacesPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L75"}, {"id": "zipcache_getzipcacheinstalledpluginspath", "label": "getZipCacheInstalledPluginsPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L86"}, {"id": "zipcache_getzipcachemarketplacesdir", "label": "getZipCacheMarketplacesDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L97"}, {"id": "zipcache_getzipcachepluginsdir", "label": "getZipCachePluginsDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L108"}, {"id": "zipcache_getsessionplugincachepath", "label": "getSessionPluginCachePath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L125"}, {"id": "zipcache_cleanupsessionplugincache", "label": "cleanupSessionPluginCache()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L146"}, {"id": "zipcache_resetsessionplugincache", "label": "resetSessionPluginCache()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L166"}, {"id": "zipcache_atomicwritetozipcache", "label": "atomicWriteToZipCache()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L175"}, {"id": "zipcache_createzipfromdirectory", "label": "createZipFromDirectory()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L216"}, {"id": "zipcache_collectfilesforzip", "label": "collectFilesForZip()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L235"}, {"id": "zipcache_extractziptodirectory", "label": "extractZipToDirectory()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L331"}, {"id": "zipcache_convertdirectorytozipinplace", "label": "convertDirectoryToZipInPlace()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L371"}, {"id": "zipcache_getmarketplacejsonrelativepath", "label": "getMarketplaceJsonRelativePath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L384"}, {"id": "zipcache_ismarketplacesourcesupportedbyzipcache", "label": "isMarketplaceSourceSupportedByZipCache()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L402"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L33", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "os", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L44", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L45", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L46", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L47", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L48", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_pathvalidation_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L49", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_schemas_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L50", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_ispluginzipcacheenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L55", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_getpluginzipcachepath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L64", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_getzipcacheknownmarketplacespath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L75", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_getzipcacheinstalledpluginspath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L86", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_getzipcachemarketplacesdir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L97", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_getzipcachepluginsdir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L108", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_getsessionplugincachepath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L125", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_cleanupsessionplugincache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L146", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_resetsessionplugincache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L166", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_atomicwritetozipcache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L175", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_createzipfromdirectory", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L216", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_collectfilesforzip", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L235", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_extractziptodirectory", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L331", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_convertdirectorytozipinplace", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L371", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_getmarketplacejsonrelativepath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L384", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts", "target": "zipcache_ismarketplacesourcesupportedbyzipcache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L402", "weight": 1.0}, {"source": "zipcache_getpluginzipcachepath", "target": "zipcache_ispluginzipcacheenabled", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L65", "weight": 1.0}, {"source": "zipcache_getzipcacheknownmarketplacespath", "target": "zipcache_getpluginzipcachepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L76", "weight": 1.0}, {"source": "zipcache_getzipcacheinstalledpluginspath", "target": "zipcache_getpluginzipcachepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L87", "weight": 1.0}, {"source": "zipcache_getzipcachemarketplacesdir", "target": "zipcache_getpluginzipcachepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L98", "weight": 1.0}, {"source": "zipcache_getzipcachepluginsdir", "target": "zipcache_getpluginzipcachepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L109", "weight": 1.0}, {"source": "zipcache_createzipfromdirectory", "target": "zipcache_collectfilesforzip", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L221", "weight": 1.0}, {"source": "zipcache_convertdirectorytozipinplace", "target": "zipcache_createzipfromdirectory", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L375", "weight": 1.0}, {"source": "zipcache_convertdirectorytozipinplace", "target": "zipcache_atomicwritetozipcache", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L376", "weight": 1.0}], "raw_calls": [{"caller_nid": "zipcache_ispluginzipcacheenabled", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L56"}, {"caller_nid": "zipcache_getpluginzipcachepath", "callee": "expandTilde", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L69"}, {"caller_nid": "zipcache_getzipcacheknownmarketplacespath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L80"}, {"caller_nid": "zipcache_getzipcacheinstalledpluginspath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L91"}, {"caller_nid": "zipcache_getzipcachemarketplacesdir", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L102"}, {"caller_nid": "zipcache_getzipcachepluginsdir", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L113"}, {"caller_nid": "zipcache_getsessionplugincachepath", "callee": "(async () => {\n      const suffix = randomBytes(8).toString('hex')\n      const dir = join(tmpdir(), `claude-plugin-session-${suffix}`)\n      await getFsImplementation().mkdir(dir)\n      sessionPluginCachePath = dir\n      logForDebugging(`Created session plugin cache at ${dir}`)\n      return dir\n    })", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L130"}, {"caller_nid": "zipcache_cleanupsessionplugincache", "callee": "rm", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L151"}, {"caller_nid": "zipcache_cleanupsessionplugincache", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L152"}, {"caller_nid": "zipcache_cleanupsessionplugincache", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L156"}, {"caller_nid": "zipcache_atomicwritetozipcache", "callee": "dirname", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L179"}, {"caller_nid": "zipcache_atomicwritetozipcache", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L180"}, {"caller_nid": "zipcache_atomicwritetozipcache", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L180"}, {"caller_nid": "zipcache_atomicwritetozipcache", "callee": "basename", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L182"}, {"caller_nid": "zipcache_atomicwritetozipcache", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L182"}, {"caller_nid": "zipcache_atomicwritetozipcache", "callee": "randomBytes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L182"}, {"caller_nid": "zipcache_atomicwritetozipcache", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L183"}, {"caller_nid": "zipcache_atomicwritetozipcache", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L187"}, {"caller_nid": "zipcache_atomicwritetozipcache", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L189"}, {"caller_nid": "zipcache_atomicwritetozipcache", "callee": "rename", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L191"}, {"caller_nid": "zipcache_atomicwritetozipcache", "callee": "rm", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L195"}, {"caller_nid": "zipcache_createzipfromdirectory", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L223"}, {"caller_nid": "zipcache_createzipfromdirectory", "callee": "zipSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L224"}, {"caller_nid": "zipcache_createzipfromdirectory", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L225"}, {"caller_nid": "zipcache_createzipfromdirectory", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L226"}, {"caller_nid": "zipcache_collectfilesforzip", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L241"}, {"caller_nid": "zipcache_collectfilesforzip", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L244"}, {"caller_nid": "zipcache_collectfilesforzip", "callee": "stat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L259"}, {"caller_nid": "zipcache_collectfilesforzip", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L266"}, {"caller_nid": "zipcache_collectfilesforzip", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L267"}, {"caller_nid": "zipcache_collectfilesforzip", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L270"}, {"caller_nid": "zipcache_collectfilesforzip", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L282"}, {"caller_nid": "zipcache_collectfilesforzip", "callee": "lstat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L287"}, {"caller_nid": "zipcache_collectfilesforzip", "callee": "isSymbolicLink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L293"}, {"caller_nid": "zipcache_collectfilesforzip", "callee": "stat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L295"}, {"caller_nid": "zipcache_collectfilesforzip", "callee": "isDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L296"}, {"caller_nid": "zipcache_collectfilesforzip", "callee": "isDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L306"}, {"caller_nid": "zipcache_collectfilesforzip", "callee": "isFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L308"}, {"caller_nid": "zipcache_collectfilesforzip", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L310"}, {"caller_nid": "zipcache_collectfilesforzip", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L319"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "readFileBytes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L335"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L335"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "unzipFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L336"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "parseZipModes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L339"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L341"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L341"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L343"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L345"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L346"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L346"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L346"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L350"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L351"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L351"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "dirname", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L351"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L352"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L357"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "chmod", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L357"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L361"}, {"caller_nid": "zipcache_extractziptodirectory", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L362"}, {"caller_nid": "zipcache_convertdirectorytozipinplace", "callee": "rm", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L377"}, {"caller_nid": "zipcache_getmarketplacejsonrelativepath", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L387"}, {"caller_nid": "zipcache_getmarketplacejsonrelativepath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L388"}, {"caller_nid": "zipcache_ismarketplacesourcesupportedbyzipcache", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts", "source_location": "L405"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "label": "zipCache.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "zipcache_ispluginzipcacheenabled",
+      "label": "isPluginZipCacheEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L55"
+    },
+    {
+      "id": "zipcache_getpluginzipcachepath",
+      "label": "getPluginZipCachePath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L64"
+    },
+    {
+      "id": "zipcache_getzipcacheknownmarketplacespath",
+      "label": "getZipCacheKnownMarketplacesPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L75"
+    },
+    {
+      "id": "zipcache_getzipcacheinstalledpluginspath",
+      "label": "getZipCacheInstalledPluginsPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L86"
+    },
+    {
+      "id": "zipcache_getzipcachemarketplacesdir",
+      "label": "getZipCacheMarketplacesDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L97"
+    },
+    {
+      "id": "zipcache_getzipcachepluginsdir",
+      "label": "getZipCachePluginsDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L108"
+    },
+    {
+      "id": "zipcache_getsessionplugincachepath",
+      "label": "getSessionPluginCachePath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L125"
+    },
+    {
+      "id": "zipcache_cleanupsessionplugincache",
+      "label": "cleanupSessionPluginCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L146"
+    },
+    {
+      "id": "zipcache_resetsessionplugincache",
+      "label": "resetSessionPluginCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L166"
+    },
+    {
+      "id": "zipcache_atomicwritetozipcache",
+      "label": "atomicWriteToZipCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L175"
+    },
+    {
+      "id": "zipcache_createzipfromdirectory",
+      "label": "createZipFromDirectory()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L216"
+    },
+    {
+      "id": "zipcache_collectfilesforzip",
+      "label": "collectFilesForZip()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L235"
+    },
+    {
+      "id": "zipcache_extractziptodirectory",
+      "label": "extractZipToDirectory()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L331"
+    },
+    {
+      "id": "zipcache_convertdirectorytozipinplace",
+      "label": "convertDirectoryToZipInPlace()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L371"
+    },
+    {
+      "id": "zipcache_getmarketplacejsonrelativepath",
+      "label": "getMarketplaceJsonRelativePath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L384"
+    },
+    {
+      "id": "zipcache_ismarketplacesourcesupportedbyzipcache",
+      "label": "isMarketplaceSourceSupportedByZipCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L402"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "os",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_pathvalidation_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_schemas_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_ispluginzipcacheenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_getpluginzipcachepath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_getzipcacheknownmarketplacespath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_getzipcacheinstalledpluginspath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_getzipcachemarketplacesdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_getzipcachepluginsdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_getsessionplugincachepath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_cleanupsessionplugincache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L146",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_resetsessionplugincache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_atomicwritetozipcache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L175",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_createzipfromdirectory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L216",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_collectfilesforzip",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L235",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_extractziptodirectory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L331",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_convertdirectorytozipinplace",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L371",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_getmarketplacejsonrelativepath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L384",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_zipcache_ts",
+      "target": "zipcache_ismarketplacesourcesupportedbyzipcache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L402",
+      "weight": 1.0
+    },
+    {
+      "source": "zipcache_getpluginzipcachepath",
+      "target": "zipcache_ispluginzipcacheenabled",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "zipcache_getzipcacheknownmarketplacespath",
+      "target": "zipcache_getpluginzipcachepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "zipcache_getzipcacheinstalledpluginspath",
+      "target": "zipcache_getpluginzipcachepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "zipcache_getzipcachemarketplacesdir",
+      "target": "zipcache_getpluginzipcachepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "zipcache_getzipcachepluginsdir",
+      "target": "zipcache_getpluginzipcachepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "zipcache_createzipfromdirectory",
+      "target": "zipcache_collectfilesforzip",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L221",
+      "weight": 1.0
+    },
+    {
+      "source": "zipcache_convertdirectorytozipinplace",
+      "target": "zipcache_createzipfromdirectory",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L375",
+      "weight": 1.0
+    },
+    {
+      "source": "zipcache_convertdirectorytozipinplace",
+      "target": "zipcache_atomicwritetozipcache",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L376",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "zipcache_ispluginzipcacheenabled",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "zipcache_getpluginzipcachepath",
+      "callee": "expandTilde",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "zipcache_getzipcacheknownmarketplacespath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L80"
+    },
+    {
+      "caller_nid": "zipcache_getzipcacheinstalledpluginspath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L91"
+    },
+    {
+      "caller_nid": "zipcache_getzipcachemarketplacesdir",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "zipcache_getzipcachepluginsdir",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "zipcache_getsessionplugincachepath",
+      "callee": "(async () => {\n      const suffix = randomBytes(8).toString('hex')\n      const dir = join(tmpdir(), `claude-plugin-session-${suffix}`)\n      await getFsImplementation().mkdir(dir)\n      sessionPluginCachePath = dir\n      logForDebugging(`Created session plugin cache at ${dir}`)\n      return dir\n    })",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "zipcache_cleanupsessionplugincache",
+      "callee": "rm",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "zipcache_cleanupsessionplugincache",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "zipcache_cleanupsessionplugincache",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "zipcache_atomicwritetozipcache",
+      "callee": "dirname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "zipcache_atomicwritetozipcache",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L180"
+    },
+    {
+      "caller_nid": "zipcache_atomicwritetozipcache",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L180"
+    },
+    {
+      "caller_nid": "zipcache_atomicwritetozipcache",
+      "callee": "basename",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L182"
+    },
+    {
+      "caller_nid": "zipcache_atomicwritetozipcache",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L182"
+    },
+    {
+      "caller_nid": "zipcache_atomicwritetozipcache",
+      "callee": "randomBytes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L182"
+    },
+    {
+      "caller_nid": "zipcache_atomicwritetozipcache",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L183"
+    },
+    {
+      "caller_nid": "zipcache_atomicwritetozipcache",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L187"
+    },
+    {
+      "caller_nid": "zipcache_atomicwritetozipcache",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L189"
+    },
+    {
+      "caller_nid": "zipcache_atomicwritetozipcache",
+      "callee": "rename",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L191"
+    },
+    {
+      "caller_nid": "zipcache_atomicwritetozipcache",
+      "callee": "rm",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L195"
+    },
+    {
+      "caller_nid": "zipcache_createzipfromdirectory",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L223"
+    },
+    {
+      "caller_nid": "zipcache_createzipfromdirectory",
+      "callee": "zipSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L224"
+    },
+    {
+      "caller_nid": "zipcache_createzipfromdirectory",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L225"
+    },
+    {
+      "caller_nid": "zipcache_createzipfromdirectory",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L226"
+    },
+    {
+      "caller_nid": "zipcache_collectfilesforzip",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L241"
+    },
+    {
+      "caller_nid": "zipcache_collectfilesforzip",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L244"
+    },
+    {
+      "caller_nid": "zipcache_collectfilesforzip",
+      "callee": "stat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L259"
+    },
+    {
+      "caller_nid": "zipcache_collectfilesforzip",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L266"
+    },
+    {
+      "caller_nid": "zipcache_collectfilesforzip",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L267"
+    },
+    {
+      "caller_nid": "zipcache_collectfilesforzip",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L270"
+    },
+    {
+      "caller_nid": "zipcache_collectfilesforzip",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L282"
+    },
+    {
+      "caller_nid": "zipcache_collectfilesforzip",
+      "callee": "lstat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L287"
+    },
+    {
+      "caller_nid": "zipcache_collectfilesforzip",
+      "callee": "isSymbolicLink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L293"
+    },
+    {
+      "caller_nid": "zipcache_collectfilesforzip",
+      "callee": "stat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L295"
+    },
+    {
+      "caller_nid": "zipcache_collectfilesforzip",
+      "callee": "isDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L296"
+    },
+    {
+      "caller_nid": "zipcache_collectfilesforzip",
+      "callee": "isDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L306"
+    },
+    {
+      "caller_nid": "zipcache_collectfilesforzip",
+      "callee": "isFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L308"
+    },
+    {
+      "caller_nid": "zipcache_collectfilesforzip",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L310"
+    },
+    {
+      "caller_nid": "zipcache_collectfilesforzip",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L319"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "readFileBytes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L335"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L335"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "unzipFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L336"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "parseZipModes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L339"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L341"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L341"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L343"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L345"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L346"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L346"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L346"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L350"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L351"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L351"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "dirname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L351"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L352"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L357"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "chmod",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L357"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L361"
+    },
+    {
+      "caller_nid": "zipcache_extractziptodirectory",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L362"
+    },
+    {
+      "caller_nid": "zipcache_convertdirectorytozipinplace",
+      "callee": "rm",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L377"
+    },
+    {
+      "caller_nid": "zipcache_getmarketplacejsonrelativepath",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L387"
+    },
+    {
+      "caller_nid": "zipcache_getmarketplacejsonrelativepath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L388"
+    },
+    {
+      "caller_nid": "zipcache_ismarketplacesourcesupportedbyzipcache",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\zipCache.ts",
+      "source_location": "L405"
+    }
+  ]
+}

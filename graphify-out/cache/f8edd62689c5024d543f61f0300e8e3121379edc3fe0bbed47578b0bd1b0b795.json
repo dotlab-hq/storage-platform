@@ -1,1 +1,153 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts", "label": "hookHelpers.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L1"}, {"id": "hookhelpers_addargumentstoprompt", "label": "addArgumentsToPrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L30"}, {"id": "hookhelpers_createstructuredoutputtool", "label": "createStructuredOutputTool()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L41"}, {"id": "hookhelpers_registerstructuredoutputenforcement", "label": "registerStructuredOutputEnforcement()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L70"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts", "target": "v4", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_argumentsubstitution_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_sessionhooks_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts", "target": "hookhelpers_addargumentstoprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts", "target": "hookhelpers_createstructuredoutputtool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L41", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts", "target": "hookhelpers_registerstructuredoutputenforcement", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L70", "weight": 1.0}], "raw_calls": [{"caller_nid": "hookhelpers_addargumentstoprompt", "callee": "substituteArguments", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L34"}, {"caller_nid": "hookhelpers_createstructuredoutputtool", "callee": "hookResponseSchema", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L44"}, {"caller_nid": "hookhelpers_registerstructuredoutputenforcement", "callee": "addFunctionHook", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts", "source_location": "L74"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts",
+      "label": "hookHelpers.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "hookhelpers_addargumentstoprompt",
+      "label": "addArgumentsToPrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L30"
+    },
+    {
+      "id": "hookhelpers_createstructuredoutputtool",
+      "label": "createStructuredOutputTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L41"
+    },
+    {
+      "id": "hookhelpers_registerstructuredoutputenforcement",
+      "label": "registerStructuredOutputEnforcement()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L70"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts",
+      "target": "v4",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_syntheticoutputtool_syntheticoutputtool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_argumentsubstitution_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_sessionhooks_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts",
+      "target": "hookhelpers_addargumentstoprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts",
+      "target": "hookhelpers_createstructuredoutputtool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookhelpers_ts",
+      "target": "hookhelpers_registerstructuredoutputenforcement",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "hookhelpers_addargumentstoprompt",
+      "callee": "substituteArguments",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "hookhelpers_createstructuredoutputtool",
+      "callee": "hookResponseSchema",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "hookhelpers_registerstructuredoutputenforcement",
+      "callee": "addFunctionHook",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookHelpers.ts",
+      "source_location": "L74"
+    }
+  ]
+}

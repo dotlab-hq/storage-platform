@@ -1,1 +1,326 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts", "label": "zip.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L1"}, {"id": "zip_ispathsafe", "label": "isPathSafe()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L44"}, {"id": "zip_validatezipfile", "label": "validateZipFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L63"}, {"id": "zip_unzipfile", "label": "unzipFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L113"}, {"id": "zip_parsezipmodes", "label": "parseZipModes()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L160"}, {"id": "zip_readandunzipfile", "label": "readAndUnzipFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L209"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_path_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts", "target": "zip_ispathsafe", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L44", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts", "target": "zip_validatezipfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L63", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts", "target": "zip_unzipfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L113", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts", "target": "zip_parsezipmodes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L160", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts", "target": "zip_readandunzipfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L209", "weight": 1.0}, {"source": "zip_validatezipfile", "target": "zip_ispathsafe", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L77", "weight": 1.0}, {"source": "zip_readandunzipfile", "target": "zip_unzipfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L218", "weight": 1.0}], "raw_calls": [{"caller_nid": "zip_ispathsafe", "callee": "containsPathTraversal", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L45"}, {"caller_nid": "zip_ispathsafe", "callee": "normalize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L50"}, {"caller_nid": "zip_ispathsafe", "callee": "isAbsolute", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L53"}, {"caller_nid": "zip_validatezipfile", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L84"}, {"caller_nid": "zip_validatezipfile", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L84"}, {"caller_nid": "zip_validatezipfile", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L92"}, {"caller_nid": "zip_validatezipfile", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L92"}, {"caller_nid": "zip_validatezipfile", "callee": "toFixed", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L98"}, {"caller_nid": "zip_unzipfile", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L116"}, {"caller_nid": "zip_unzipfile", "callee": "unzipSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L126"}, {"caller_nid": "zip_unzipfile", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L136"}, {"caller_nid": "zip_unzipfile", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L137"}, {"caller_nid": "zip_parsezipmodes", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L162"}, {"caller_nid": "zip_parsezipmodes", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L168"}, {"caller_nid": "zip_parsezipmodes", "callee": "readUInt32LE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L171"}, {"caller_nid": "zip_parsezipmodes", "callee": "readUInt16LE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L178"}, {"caller_nid": "zip_parsezipmodes", "callee": "readUInt32LE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L179"}, {"caller_nid": "zip_parsezipmodes", "callee": "readUInt32LE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L184"}, {"caller_nid": "zip_parsezipmodes", "callee": "readUInt16LE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L185"}, {"caller_nid": "zip_parsezipmodes", "callee": "readUInt16LE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L186"}, {"caller_nid": "zip_parsezipmodes", "callee": "readUInt16LE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L187"}, {"caller_nid": "zip_parsezipmodes", "callee": "readUInt16LE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L188"}, {"caller_nid": "zip_parsezipmodes", "callee": "readUInt32LE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L189"}, {"caller_nid": "zip_parsezipmodes", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L190"}, {"caller_nid": "zip_readandunzipfile", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L212"}, {"caller_nid": "zip_readandunzipfile", "callee": "readFileBytes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L215"}, {"caller_nid": "zip_readandunzipfile", "callee": "isENOENT", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L220"}, {"caller_nid": "zip_readandunzipfile", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts", "source_location": "L223"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts",
+      "label": "zip.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "zip_ispathsafe",
+      "label": "isPathSafe()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L44"
+    },
+    {
+      "id": "zip_validatezipfile",
+      "label": "validateZipFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L63"
+    },
+    {
+      "id": "zip_unzipfile",
+      "label": "unzipFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L113"
+    },
+    {
+      "id": "zip_parsezipmodes",
+      "label": "parseZipModes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L160"
+    },
+    {
+      "id": "zip_readandunzipfile",
+      "label": "readAndUnzipFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L209"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_path_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts",
+      "target": "zip_ispathsafe",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts",
+      "target": "zip_validatezipfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts",
+      "target": "zip_unzipfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts",
+      "target": "zip_parsezipmodes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_zip_ts",
+      "target": "zip_readandunzipfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L209",
+      "weight": 1.0
+    },
+    {
+      "source": "zip_validatezipfile",
+      "target": "zip_ispathsafe",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "zip_readandunzipfile",
+      "target": "zip_unzipfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L218",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "zip_ispathsafe",
+      "callee": "containsPathTraversal",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "zip_ispathsafe",
+      "callee": "normalize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "zip_ispathsafe",
+      "callee": "isAbsolute",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "zip_validatezipfile",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "zip_validatezipfile",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "zip_validatezipfile",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "zip_validatezipfile",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "zip_validatezipfile",
+      "callee": "toFixed",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L98"
+    },
+    {
+      "caller_nid": "zip_unzipfile",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "zip_unzipfile",
+      "callee": "unzipSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "zip_unzipfile",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L136"
+    },
+    {
+      "caller_nid": "zip_unzipfile",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "zip_parsezipmodes",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "zip_parsezipmodes",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "zip_parsezipmodes",
+      "callee": "readUInt32LE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L171"
+    },
+    {
+      "caller_nid": "zip_parsezipmodes",
+      "callee": "readUInt16LE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "zip_parsezipmodes",
+      "callee": "readUInt32LE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "zip_parsezipmodes",
+      "callee": "readUInt32LE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L184"
+    },
+    {
+      "caller_nid": "zip_parsezipmodes",
+      "callee": "readUInt16LE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "zip_parsezipmodes",
+      "callee": "readUInt16LE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L186"
+    },
+    {
+      "caller_nid": "zip_parsezipmodes",
+      "callee": "readUInt16LE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L187"
+    },
+    {
+      "caller_nid": "zip_parsezipmodes",
+      "callee": "readUInt16LE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L188"
+    },
+    {
+      "caller_nid": "zip_parsezipmodes",
+      "callee": "readUInt32LE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L189"
+    },
+    {
+      "caller_nid": "zip_parsezipmodes",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L190"
+    },
+    {
+      "caller_nid": "zip_readandunzipfile",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L212"
+    },
+    {
+      "caller_nid": "zip_readandunzipfile",
+      "callee": "readFileBytes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L215"
+    },
+    {
+      "caller_nid": "zip_readandunzipfile",
+      "callee": "isENOENT",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L220"
+    },
+    {
+      "caller_nid": "zip_readandunzipfile",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\zip.ts",
+      "source_location": "L223"
+    }
+  ]
+}

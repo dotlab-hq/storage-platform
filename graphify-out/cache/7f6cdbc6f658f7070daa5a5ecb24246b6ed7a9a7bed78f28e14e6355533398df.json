@@ -1,1 +1,168 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx", "label": "useChromeExtensionNotification.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L1"}, {"id": "usechromeextensionnotification_getchromeflag", "label": "getChromeFlag()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L7"}, {"id": "usechromeextensionnotification_usechromeextensionnotification", "label": "useChromeExtensionNotification()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L16"}, {"id": "usechromeextensionnotification_temp", "label": "_temp()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L19"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx", "target": "f_storage_platform_claude_code_source_main_src_ink_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_setup_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx", "target": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx", "target": "usechromeextensionnotification_getchromeflag", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx", "target": "usechromeextensionnotification_usechromeextensionnotification", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx", "target": "usechromeextensionnotification_temp", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L19", "weight": 1.0}, {"source": "usechromeextensionnotification_temp", "target": "usechromeextensionnotification_getchromeflag", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L20", "weight": 1.0}], "raw_calls": [{"caller_nid": "usechromeextensionnotification_getchromeflag", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L8"}, {"caller_nid": "usechromeextensionnotification_getchromeflag", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L11"}, {"caller_nid": "usechromeextensionnotification_usechromeextensionnotification", "callee": "useStartupNotification", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L17"}, {"caller_nid": "usechromeextensionnotification_temp", "callee": "shouldEnableClaudeInChrome", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L21"}, {"caller_nid": "usechromeextensionnotification_temp", "callee": "isClaudeAISubscriber", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L24"}, {"caller_nid": "usechromeextensionnotification_temp", "callee": "isChromeExtensionInstalled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L32"}, {"caller_nid": "usechromeextensionnotification_temp", "callee": "isRunningOnHomespace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx", "source_location": "L33"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx",
+      "label": "useChromeExtensionNotification.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "usechromeextensionnotification_getchromeflag",
+      "label": "getChromeFlag()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "usechromeextensionnotification_usechromeextensionnotification",
+      "label": "useChromeExtensionNotification()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L16"
+    },
+    {
+      "id": "usechromeextensionnotification_temp",
+      "label": "_temp()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L19"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_setup_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_hooks_notifs_usestartupnotification_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx",
+      "target": "usechromeextensionnotification_getchromeflag",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx",
+      "target": "usechromeextensionnotification_usechromeextensionnotification",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usechromeextensionnotification_tsx",
+      "target": "usechromeextensionnotification_temp",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "usechromeextensionnotification_temp",
+      "target": "usechromeextensionnotification_getchromeflag",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L20",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "usechromeextensionnotification_getchromeflag",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L8"
+    },
+    {
+      "caller_nid": "usechromeextensionnotification_getchromeflag",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L11"
+    },
+    {
+      "caller_nid": "usechromeextensionnotification_usechromeextensionnotification",
+      "callee": "useStartupNotification",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "usechromeextensionnotification_temp",
+      "callee": "shouldEnableClaudeInChrome",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "usechromeextensionnotification_temp",
+      "callee": "isClaudeAISubscriber",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L24"
+    },
+    {
+      "caller_nid": "usechromeextensionnotification_temp",
+      "callee": "isChromeExtensionInstalled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "usechromeextensionnotification_temp",
+      "callee": "isRunningOnHomespace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useChromeExtensionNotification.tsx",
+      "source_location": "L33"
+    }
+  ]
+}

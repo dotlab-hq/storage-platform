@@ -1,1 +1,533 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "label": "mcpServer.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L1"}, {"id": "mcpserver_ispermissionmode", "label": "isPermissionMode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L42"}, {"id": "mcpserver_getchromebridgeurl", "label": "getChromeBridgeUrl()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L51"}, {"id": "mcpserver_islocalbridge", "label": "isLocalBridge()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L74"}, {"id": "mcpserver_createchromecontext", "label": "createChromeContext()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L85"}, {"id": "mcpserver_runclaudeinchromemcpserver", "label": "runClaudeInChromeMcpServer()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L248"}, {"id": "mcpserver_debuglogger", "label": "DebugLogger", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L277"}, {"id": "mcpserver_debuglogger_silly", "label": ".silly()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L278"}, {"id": "mcpserver_debuglogger_debug", "label": ".debug()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L281"}, {"id": "mcpserver_debuglogger_info", "label": ".info()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L284"}, {"id": "mcpserver_debuglogger_warn", "label": ".warn()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L287"}, {"id": "mcpserver_debuglogger_error", "label": ".error()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L290"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "claude_for_chrome_mcp", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "stdio_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "util", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_datadog_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_firstpartyeventlogger_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_sink_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sidequery_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_common_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "mcpserver_ispermissionmode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "mcpserver_getchromebridgeurl", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L51", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "mcpserver_islocalbridge", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L74", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "mcpserver_createchromecontext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L85", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "mcpserver_runclaudeinchromemcpserver", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L248", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts", "target": "mcpserver_debuglogger", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L277", "weight": 1.0}, {"source": "mcpserver_debuglogger", "target": "mcpserver_debuglogger_silly", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L278", "weight": 1.0}, {"source": "mcpserver_debuglogger", "target": "mcpserver_debuglogger_debug", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L281", "weight": 1.0}, {"source": "mcpserver_debuglogger", "target": "mcpserver_debuglogger_info", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L284", "weight": 1.0}, {"source": "mcpserver_debuglogger", "target": "mcpserver_debuglogger_warn", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L287", "weight": 1.0}, {"source": "mcpserver_debuglogger", "target": "mcpserver_debuglogger_error", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L290", "weight": 1.0}, {"source": "mcpserver_createchromecontext", "target": "mcpserver_getchromebridgeurl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L89", "weight": 1.0}, {"source": "mcpserver_createchromecontext", "target": "mcpserver_debuglogger_info", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L90", "weight": 1.0}, {"source": "mcpserver_createchromecontext", "target": "mcpserver_ispermissionmode", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L96", "weight": 1.0}, {"source": "mcpserver_createchromecontext", "target": "mcpserver_debuglogger_warn", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L99", "weight": 1.0}, {"source": "mcpserver_createchromecontext", "target": "mcpserver_islocalbridge", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L148", "weight": 1.0}, {"source": "mcpserver_runclaudeinchromemcpserver", "target": "mcpserver_createchromecontext", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L251", "weight": 1.0}], "raw_calls": [{"caller_nid": "mcpserver_ispermissionmode", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L43"}, {"caller_nid": "mcpserver_getchromebridgeurl", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L54"}, {"caller_nid": "mcpserver_getchromebridgeurl", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L61"}, {"caller_nid": "mcpserver_getchromebridgeurl", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L62"}, {"caller_nid": "mcpserver_getchromebridgeurl", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L67"}, {"caller_nid": "mcpserver_islocalbridge", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L76"}, {"caller_nid": "mcpserver_islocalbridge", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L77"}, {"caller_nid": "mcpserver_createchromecontext", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L100"}, {"caller_nid": "mcpserver_createchromecontext", "callee": "getSecureSocketPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L107"}, {"caller_nid": "mcpserver_runclaudeinchromemcpserver", "callee": "enableConfigs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L249"}, {"caller_nid": "mcpserver_runclaudeinchromemcpserver", "callee": "initializeAnalyticsSink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L250"}, {"caller_nid": "mcpserver_runclaudeinchromemcpserver", "callee": "createClaudeForChromeMcpServer", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L253"}, {"caller_nid": "mcpserver_runclaudeinchromemcpserver", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L269"}, {"caller_nid": "mcpserver_runclaudeinchromemcpserver", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L270"}, {"caller_nid": "mcpserver_runclaudeinchromemcpserver", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L272"}, {"caller_nid": "mcpserver_runclaudeinchromemcpserver", "callee": "connect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L273"}, {"caller_nid": "mcpserver_runclaudeinchromemcpserver", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L274"}, {"caller_nid": "mcpserver_debuglogger_silly", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L279"}, {"caller_nid": "mcpserver_debuglogger_silly", "callee": "format", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L279"}, {"caller_nid": "mcpserver_debuglogger_debug", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L282"}, {"caller_nid": "mcpserver_debuglogger_debug", "callee": "format", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L282"}, {"caller_nid": "mcpserver_debuglogger_info", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L285"}, {"caller_nid": "mcpserver_debuglogger_info", "callee": "format", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L285"}, {"caller_nid": "mcpserver_debuglogger_warn", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L288"}, {"caller_nid": "mcpserver_debuglogger_warn", "callee": "format", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L288"}, {"caller_nid": "mcpserver_debuglogger_error", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L291"}, {"caller_nid": "mcpserver_debuglogger_error", "callee": "format", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts", "source_location": "L291"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "label": "mcpServer.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "mcpserver_ispermissionmode",
+      "label": "isPermissionMode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L42"
+    },
+    {
+      "id": "mcpserver_getchromebridgeurl",
+      "label": "getChromeBridgeUrl()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L51"
+    },
+    {
+      "id": "mcpserver_islocalbridge",
+      "label": "isLocalBridge()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L74"
+    },
+    {
+      "id": "mcpserver_createchromecontext",
+      "label": "createChromeContext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L85"
+    },
+    {
+      "id": "mcpserver_runclaudeinchromemcpserver",
+      "label": "runClaudeInChromeMcpServer()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L248"
+    },
+    {
+      "id": "mcpserver_debuglogger",
+      "label": "DebugLogger",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L277"
+    },
+    {
+      "id": "mcpserver_debuglogger_silly",
+      "label": ".silly()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L278"
+    },
+    {
+      "id": "mcpserver_debuglogger_debug",
+      "label": ".debug()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L281"
+    },
+    {
+      "id": "mcpserver_debuglogger_info",
+      "label": ".info()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L284"
+    },
+    {
+      "id": "mcpserver_debuglogger_warn",
+      "label": ".warn()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L287"
+    },
+    {
+      "id": "mcpserver_debuglogger_error",
+      "label": ".error()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L290"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "claude_for_chrome_mcp",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "stdio_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "util",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_datadog_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_firstpartyeventlogger_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_sink_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sidequery_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_common_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "mcpserver_ispermissionmode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "mcpserver_getchromebridgeurl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "mcpserver_islocalbridge",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "mcpserver_createchromecontext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "mcpserver_runclaudeinchromemcpserver",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_claudeinchrome_mcpserver_ts",
+      "target": "mcpserver_debuglogger",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L277",
+      "weight": 1.0
+    },
+    {
+      "source": "mcpserver_debuglogger",
+      "target": "mcpserver_debuglogger_silly",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L278",
+      "weight": 1.0
+    },
+    {
+      "source": "mcpserver_debuglogger",
+      "target": "mcpserver_debuglogger_debug",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L281",
+      "weight": 1.0
+    },
+    {
+      "source": "mcpserver_debuglogger",
+      "target": "mcpserver_debuglogger_info",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L284",
+      "weight": 1.0
+    },
+    {
+      "source": "mcpserver_debuglogger",
+      "target": "mcpserver_debuglogger_warn",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L287",
+      "weight": 1.0
+    },
+    {
+      "source": "mcpserver_debuglogger",
+      "target": "mcpserver_debuglogger_error",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L290",
+      "weight": 1.0
+    },
+    {
+      "source": "mcpserver_createchromecontext",
+      "target": "mcpserver_getchromebridgeurl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "mcpserver_createchromecontext",
+      "target": "mcpserver_debuglogger_info",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "mcpserver_createchromecontext",
+      "target": "mcpserver_ispermissionmode",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "mcpserver_createchromecontext",
+      "target": "mcpserver_debuglogger_warn",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "mcpserver_createchromecontext",
+      "target": "mcpserver_islocalbridge",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "mcpserver_runclaudeinchromemcpserver",
+      "target": "mcpserver_createchromecontext",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L251",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "mcpserver_ispermissionmode",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "mcpserver_getchromebridgeurl",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L54"
+    },
+    {
+      "caller_nid": "mcpserver_getchromebridgeurl",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "mcpserver_getchromebridgeurl",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "mcpserver_getchromebridgeurl",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "mcpserver_islocalbridge",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "mcpserver_islocalbridge",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "mcpserver_createchromecontext",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "mcpserver_createchromecontext",
+      "callee": "getSecureSocketPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "mcpserver_runclaudeinchromemcpserver",
+      "callee": "enableConfigs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L249"
+    },
+    {
+      "caller_nid": "mcpserver_runclaudeinchromemcpserver",
+      "callee": "initializeAnalyticsSink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L250"
+    },
+    {
+      "caller_nid": "mcpserver_runclaudeinchromemcpserver",
+      "callee": "createClaudeForChromeMcpServer",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L253"
+    },
+    {
+      "caller_nid": "mcpserver_runclaudeinchromemcpserver",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L269"
+    },
+    {
+      "caller_nid": "mcpserver_runclaudeinchromemcpserver",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L270"
+    },
+    {
+      "caller_nid": "mcpserver_runclaudeinchromemcpserver",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L272"
+    },
+    {
+      "caller_nid": "mcpserver_runclaudeinchromemcpserver",
+      "callee": "connect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L273"
+    },
+    {
+      "caller_nid": "mcpserver_runclaudeinchromemcpserver",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L274"
+    },
+    {
+      "caller_nid": "mcpserver_debuglogger_silly",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L279"
+    },
+    {
+      "caller_nid": "mcpserver_debuglogger_silly",
+      "callee": "format",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L279"
+    },
+    {
+      "caller_nid": "mcpserver_debuglogger_debug",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L282"
+    },
+    {
+      "caller_nid": "mcpserver_debuglogger_debug",
+      "callee": "format",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L282"
+    },
+    {
+      "caller_nid": "mcpserver_debuglogger_info",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L285"
+    },
+    {
+      "caller_nid": "mcpserver_debuglogger_info",
+      "callee": "format",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L285"
+    },
+    {
+      "caller_nid": "mcpserver_debuglogger_warn",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "mcpserver_debuglogger_warn",
+      "callee": "format",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "mcpserver_debuglogger_error",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L291"
+    },
+    {
+      "caller_nid": "mcpserver_debuglogger_error",
+      "callee": "format",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\claudeInChrome\\mcpServer.ts",
+      "source_location": "L291"
+    }
+  ]
+}

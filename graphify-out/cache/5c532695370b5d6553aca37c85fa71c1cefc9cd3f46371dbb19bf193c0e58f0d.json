@@ -1,1 +1,193 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts", "label": "extra-usage-core.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L1"}, {"id": "extra_usage_core_runextrausage", "label": "runExtraUsage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L18"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_billing_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_browser_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts", "target": "extra_usage_core_runextrausage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L18", "weight": 1.0}], "raw_calls": [{"caller_nid": "extra_usage_core_runextrausage", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L19"}, {"caller_nid": "extra_usage_core_runextrausage", "callee": "saveGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L20"}, {"caller_nid": "extra_usage_core_runextrausage", "callee": "invalidateOverageCreditGrantCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L25"}, {"caller_nid": "extra_usage_core_runextrausage", "callee": "getSubscriptionType", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L27"}, {"caller_nid": "extra_usage_core_runextrausage", "callee": "hasClaudeAiBillingAccess", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L30"}, {"caller_nid": "extra_usage_core_runextrausage", "callee": "fetchUtilization", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L38"}, {"caller_nid": "extra_usage_core_runextrausage", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L41"}, {"caller_nid": "extra_usage_core_runextrausage", "callee": "checkAdminRequestEligibility", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L53"}, {"caller_nid": "extra_usage_core_runextrausage", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L61"}, {"caller_nid": "extra_usage_core_runextrausage", "callee": "getMyAdminRequests", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L66"}, {"caller_nid": "extra_usage_core_runextrausage", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L78"}, {"caller_nid": "extra_usage_core_runextrausage", "callee": "createAdminRequest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L83"}, {"caller_nid": "extra_usage_core_runextrausage", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L94"}, {"caller_nid": "extra_usage_core_runextrausage", "callee": "openBrowser", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L109"}, {"caller_nid": "extra_usage_core_runextrausage", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts", "source_location": "L112"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts",
+      "label": "extra-usage-core.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "extra_usage_core_runextrausage",
+      "label": "runExtraUsage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L18"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_adminrequests_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_billing_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_browser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_extra_usage_extra_usage_core_ts",
+      "target": "extra_usage_core_runextrausage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "extra_usage_core_runextrausage",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "extra_usage_core_runextrausage",
+      "callee": "saveGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L20"
+    },
+    {
+      "caller_nid": "extra_usage_core_runextrausage",
+      "callee": "invalidateOverageCreditGrantCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "extra_usage_core_runextrausage",
+      "callee": "getSubscriptionType",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "extra_usage_core_runextrausage",
+      "callee": "hasClaudeAiBillingAccess",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L30"
+    },
+    {
+      "caller_nid": "extra_usage_core_runextrausage",
+      "callee": "fetchUtilization",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "extra_usage_core_runextrausage",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "extra_usage_core_runextrausage",
+      "callee": "checkAdminRequestEligibility",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "extra_usage_core_runextrausage",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "extra_usage_core_runextrausage",
+      "callee": "getMyAdminRequests",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "extra_usage_core_runextrausage",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "extra_usage_core_runextrausage",
+      "callee": "createAdminRequest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "extra_usage_core_runextrausage",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L94"
+    },
+    {
+      "caller_nid": "extra_usage_core_runextrausage",
+      "callee": "openBrowser",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "extra_usage_core_runextrausage",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\extra-usage\\extra-usage-core.ts",
+      "source_location": "L112"
+    }
+  ]
+}

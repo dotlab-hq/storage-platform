@@ -1,1 +1,2287 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "label": "compact.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1"}, {"id": "compact_stripimagesfrommessages", "label": "stripImagesFromMessages()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L145"}, {"id": "compact_stripreinjectedattachments", "label": "stripReinjectedAttachments()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L211"}, {"id": "compact_truncateheadforptlretry", "label": "truncateHeadForPTLRetry()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L243"}, {"id": "compact_buildpostcompactmessages", "label": "buildPostCompactMessages()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L330"}, {"id": "compact_annotateboundarywithpreservedsegment", "label": "annotateBoundaryWithPreservedSegment()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L349"}, {"id": "compact_mergehookinstructions", "label": "mergeHookInstructions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L374"}, {"id": "compact_compactconversation", "label": "compactConversation()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L387"}, {"id": "compact_partialcompactconversation", "label": "partialCompactConversation()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L772"}, {"id": "compact_adderrornotificationifneeded", "label": "addErrorNotificationIfNeeded()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1108"}, {"id": "compact_createcompactcanusetool", "label": "createCompactCanUseTool()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1125"}, {"id": "compact_streamcompactsummary", "label": "streamCompactSummary()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1136"}, {"id": "compact_createpostcompactfileattachments", "label": "createPostCompactFileAttachments()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1415"}, {"id": "compact_createplanattachmentifneeded", "label": "createPlanAttachmentIfNeeded()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1470"}, {"id": "compact_createskillattachmentifneeded", "label": "createSkillAttachmentIfNeeded()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1494"}, {"id": "compact_createplanmodeattachmentifneeded", "label": "createPlanModeAttachmentIfNeeded()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1542"}, {"id": "compact_createasyncagentattachmentsifneeded", "label": "createAsyncAgentAttachmentsIfNeeded()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1568"}, {"id": "compact_collectreadtoolfilepaths", "label": "collectReadToolFilePaths()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1610"}, {"id": "compact_truncatetotokens", "label": "truncateToTokens()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1666"}, {"id": "compact_shouldexcludefrompostcompactrestore", "label": "shouldExcludeFromPostCompactRestore()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1674"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "uniqby_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "sdk", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "state_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_querysource_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_hooks_usecanusetool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_tasks_localagenttask_localagenttask_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_filereadtool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_toolsearchtool_toolsearchtool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_types_ids_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_types_message_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_attachments_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L34", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L41", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_context_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_contextanalysis_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L47", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L48", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_filestatecache_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L49", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_forkedagent_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L50", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L54", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L58", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_memory_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L59", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L60", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_path_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L69", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L70", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sessionactivity_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L71", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstart_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L75", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstorage_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L76", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sleep_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L80", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L81", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_systemprompttype_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L83", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_task_diskoutput_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L84", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_tokens_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L85", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_toolsearch_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L90", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L94", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L95", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L99", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L103", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_promptcachebreakdetection_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L108", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_withretry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L109", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_services_internallogging_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L110", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_services_tokenestimation_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L111", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_services_compact_grouping_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L115", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L116", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_stripimagesfrommessages", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L145", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_stripreinjectedattachments", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L211", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_truncateheadforptlretry", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L243", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_buildpostcompactmessages", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L330", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_annotateboundarywithpreservedsegment", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L349", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_mergehookinstructions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L374", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_compactconversation", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L387", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_partialcompactconversation", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L772", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_adderrornotificationifneeded", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1108", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_createcompactcanusetool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1125", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_streamcompactsummary", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1136", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_createpostcompactfileattachments", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1415", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_createplanattachmentifneeded", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1470", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_createskillattachmentifneeded", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1494", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_createplanmodeattachmentifneeded", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1542", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_createasyncagentattachmentsifneeded", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1568", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_collectreadtoolfilepaths", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1610", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_truncatetotokens", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1666", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts", "target": "compact_shouldexcludefrompostcompactrestore", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1674", "weight": 1.0}, {"source": "compact_compactconversation", "target": "compact_mergehookinstructions", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L420", "weight": 1.0}, {"source": "compact_compactconversation", "target": "compact_streamcompactsummary", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L451", "weight": 1.0}, {"source": "compact_compactconversation", "target": "compact_truncateheadforptlretry", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L467", "weight": 1.0}, {"source": "compact_compactconversation", "target": "compact_createpostcompactfileattachments", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L533", "weight": 1.0}, {"source": "compact_compactconversation", "target": "compact_createasyncagentattachmentsifneeded", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L538", "weight": 1.0}, {"source": "compact_compactconversation", "target": "compact_createplanattachmentifneeded", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L545", "weight": 1.0}, {"source": "compact_compactconversation", "target": "compact_createplanmodeattachmentifneeded", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L552", "weight": 1.0}, {"source": "compact_compactconversation", "target": "compact_createskillattachmentifneeded", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L558", "weight": 1.0}, {"source": "compact_compactconversation", "target": "compact_adderrornotificationifneeded", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L754", "weight": 1.0}, {"source": "compact_partialcompactconversation", "target": "compact_streamcompactsummary", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L863", "weight": 1.0}, {"source": "compact_partialcompactconversation", "target": "compact_truncateheadforptlretry", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L877", "weight": 1.0}, {"source": "compact_partialcompactconversation", "target": "compact_createpostcompactfileattachments", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L926", "weight": 1.0}, {"source": "compact_partialcompactconversation", "target": "compact_createasyncagentattachmentsifneeded", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L932", "weight": 1.0}, {"source": "compact_partialcompactconversation", "target": "compact_createplanattachmentifneeded", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L939", "weight": 1.0}, {"source": "compact_partialcompactconversation", "target": "compact_createplanmodeattachmentifneeded", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L945", "weight": 1.0}, {"source": "compact_partialcompactconversation", "target": "compact_createskillattachmentifneeded", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L950", "weight": 1.0}, {"source": "compact_partialcompactconversation", "target": "compact_annotateboundarywithpreservedsegment", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1083", "weight": 1.0}, {"source": "compact_partialcompactconversation", "target": "compact_adderrornotificationifneeded", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1098", "weight": 1.0}, {"source": "compact_streamcompactsummary", "target": "compact_createcompactcanusetool", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1191", "weight": 1.0}, {"source": "compact_streamcompactsummary", "target": "compact_stripimagesfrommessages", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1294", "weight": 1.0}, {"source": "compact_streamcompactsummary", "target": "compact_stripreinjectedattachments", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1295", "weight": 1.0}, {"source": "compact_createpostcompactfileattachments", "target": "compact_collectreadtoolfilepaths", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1421", "weight": 1.0}], "raw_calls": [{"caller_nid": "compact_stripimagesfrommessages", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L146"}, {"caller_nid": "compact_stripreinjectedattachments", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L212"}, {"caller_nid": "compact_stripreinjectedattachments", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L213"}, {"caller_nid": "compact_truncateheadforptlretry", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L254"}, {"caller_nid": "compact_truncateheadforptlretry", "callee": "groupMessagesByApiRound", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L257"}, {"caller_nid": "compact_truncateheadforptlretry", "callee": "getPromptTooLongTokenGap", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L260"}, {"caller_nid": "compact_truncateheadforptlretry", "callee": "roughTokenCountEstimationForMessages", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L266"}, {"caller_nid": "compact_truncateheadforptlretry", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L271"}, {"caller_nid": "compact_truncateheadforptlretry", "callee": "floor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L271"}, {"caller_nid": "compact_truncateheadforptlretry", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L275"}, {"caller_nid": "compact_truncateheadforptlretry", "callee": "flat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L278"}, {"caller_nid": "compact_truncateheadforptlretry", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L278"}, {"caller_nid": "compact_truncateheadforptlretry", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L286"}, {"caller_nid": "compact_annotateboundarywithpreservedsegment", "callee": "at", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L363"}, {"caller_nid": "compact_compactconversation", "callee": "tokenCountWithEstimation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L401"}, {"caller_nid": "compact_compactconversation", "callee": "getAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L403"}, {"caller_nid": "compact_compactconversation", "callee": "logPermissionContextForAnts", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L404"}, {"caller_nid": "compact_compactconversation", "callee": "onCompactProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L406"}, {"caller_nid": "compact_compactconversation", "callee": "setSDKStatus", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L412"}, {"caller_nid": "compact_compactconversation", "callee": "executePreCompactHooks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L413"}, {"caller_nid": "compact_compactconversation", "callee": "setStreamMode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L427"}, {"caller_nid": "compact_compactconversation", "callee": "setResponseLength", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L428"}, {"caller_nid": "compact_compactconversation", "callee": "onCompactProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L429"}, {"caller_nid": "compact_compactconversation", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L435"}, {"caller_nid": "compact_compactconversation", "callee": "getCompactPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L440"}, {"caller_nid": "compact_compactconversation", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L441"}, {"caller_nid": "compact_compactconversation", "callee": "getAssistantMessageText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L459"}, {"caller_nid": "compact_compactconversation", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L460"}, {"caller_nid": "compact_compactconversation", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L470"}, {"caller_nid": "compact_compactconversation", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L479"}, {"caller_nid": "compact_compactconversation", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L494"}, {"caller_nid": "compact_compactconversation", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L495"}, {"caller_nid": "compact_compactconversation", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L498"}, {"caller_nid": "compact_compactconversation", "callee": "startsWithApiErrorPrefix", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L507"}, {"caller_nid": "compact_compactconversation", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L508"}, {"caller_nid": "compact_compactconversation", "callee": "cacheToObject", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L518"}, {"caller_nid": "compact_compactconversation", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L521"}, {"caller_nid": "compact_compactconversation", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L522"}, {"caller_nid": "compact_compactconversation", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L532"}, {"caller_nid": "compact_compactconversation", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L547"}, {"caller_nid": "compact_compactconversation", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L554"}, {"caller_nid": "compact_compactconversation", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L560"}, {"caller_nid": "compact_compactconversation", "callee": "getDeferredToolsDeltaAttachment", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L567"}, {"caller_nid": "compact_compactconversation", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L573"}, {"caller_nid": "compact_compactconversation", "callee": "createAttachmentMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L573"}, {"caller_nid": "compact_compactconversation", "callee": "getAgentListingDeltaAttachment", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L575"}, {"caller_nid": "compact_compactconversation", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L576"}, {"caller_nid": "compact_compactconversation", "callee": "createAttachmentMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L576"}, {"caller_nid": "compact_compactconversation", "callee": "getMcpInstructionsDeltaAttachment", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L578"}, {"caller_nid": "compact_compactconversation", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L584"}, {"caller_nid": "compact_compactconversation", "callee": "createAttachmentMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L584"}, {"caller_nid": "compact_compactconversation", "callee": "onCompactProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L587"}, {"caller_nid": "compact_compactconversation", "callee": "processSessionStartHooks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L592"}, {"caller_nid": "compact_compactconversation", "callee": "createCompactBoundaryMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L598"}, {"caller_nid": "compact_compactconversation", "callee": "at", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L601"}, {"caller_nid": "compact_compactconversation", "callee": "extractDiscoveredToolNames", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L606"}, {"caller_nid": "compact_compactconversation", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L608"}, {"caller_nid": "compact_compactconversation", "callee": "getTranscriptPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L613"}, {"caller_nid": "compact_compactconversation", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L615"}, {"caller_nid": "compact_compactconversation", "callee": "getCompactUserSummaryMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L616"}, {"caller_nid": "compact_compactconversation", "callee": "tokenCountFromLastAPIResponse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L629"}, {"caller_nid": "compact_compactconversation", "callee": "roughTokenCountEstimationForMessages", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L637"}, {"caller_nid": "compact_compactconversation", "callee": "getTokenUsage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L645"}, {"caller_nid": "compact_compactconversation", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L650"}, {"caller_nid": "compact_compactconversation", "callee": "(() => {\n        try {\n          return tokenStatsToStatsigMetrics(analyzeContext(messages))\n        } catch (error) {\n          logError(error as Error)\n          return {}\n        }\n      })", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L687"}, {"caller_nid": "compact_compactconversation", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L698"}, {"caller_nid": "compact_compactconversation", "callee": "notifyCompaction", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L699"}, {"caller_nid": "compact_compactconversation", "callee": "markPostCompaction", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L704"}, {"caller_nid": "compact_compactconversation", "callee": "reAppendSessionMetadata", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L711"}, {"caller_nid": "compact_compactconversation", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L715"}, {"caller_nid": "compact_compactconversation", "callee": "writeSessionTranscriptSegment", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L716"}, {"caller_nid": "compact_compactconversation", "callee": "onCompactProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L719"}, {"caller_nid": "compact_compactconversation", "callee": "executePostCompactHooks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L723"}, {"caller_nid": "compact_compactconversation", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L731"}, {"caller_nid": "compact_compactconversation", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L731"}, {"caller_nid": "compact_compactconversation", "callee": "setStreamMode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L758"}, {"caller_nid": "compact_compactconversation", "callee": "setResponseLength", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L759"}, {"caller_nid": "compact_compactconversation", "callee": "onCompactProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L760"}, {"caller_nid": "compact_compactconversation", "callee": "setSDKStatus", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L761"}, {"caller_nid": "compact_partialcompactconversation", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L783"}, {"caller_nid": "compact_partialcompactconversation", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L784"}, {"caller_nid": "compact_partialcompactconversation", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L792"}, {"caller_nid": "compact_partialcompactconversation", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L792"}, {"caller_nid": "compact_partialcompactconversation", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L800"}, {"caller_nid": "compact_partialcompactconversation", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L800"}, {"caller_nid": "compact_partialcompactconversation", "callee": "tokenCountWithEstimation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L810"}, {"caller_nid": "compact_partialcompactconversation", "callee": "onCompactProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L812"}, {"caller_nid": "compact_partialcompactconversation", "callee": "setSDKStatus", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L817"}, {"caller_nid": "compact_partialcompactconversation", "callee": "executePreCompactHooks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L818"}, {"caller_nid": "compact_partialcompactconversation", "callee": "setStreamMode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L836"}, {"caller_nid": "compact_partialcompactconversation", "callee": "setResponseLength", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L837"}, {"caller_nid": "compact_partialcompactconversation", "callee": "onCompactProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L838"}, {"caller_nid": "compact_partialcompactconversation", "callee": "getPartialCompactPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L840"}, {"caller_nid": "compact_partialcompactconversation", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L841"}, {"caller_nid": "compact_partialcompactconversation", "callee": "getAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L866"}, {"caller_nid": "compact_partialcompactconversation", "callee": "getAssistantMessageText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L871"}, {"caller_nid": "compact_partialcompactconversation", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L872"}, {"caller_nid": "compact_partialcompactconversation", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L880"}, {"caller_nid": "compact_partialcompactconversation", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L888"}, {"caller_nid": "compact_partialcompactconversation", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L901"}, {"caller_nid": "compact_partialcompactconversation", "callee": "startsWithApiErrorPrefix", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L909"}, {"caller_nid": "compact_partialcompactconversation", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L910"}, {"caller_nid": "compact_partialcompactconversation", "callee": "cacheToObject", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L919"}, {"caller_nid": "compact_partialcompactconversation", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L920"}, {"caller_nid": "compact_partialcompactconversation", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L921"}, {"caller_nid": "compact_partialcompactconversation", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L925"}, {"caller_nid": "compact_partialcompactconversation", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L941"}, {"caller_nid": "compact_partialcompactconversation", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L947"}, {"caller_nid": "compact_partialcompactconversation", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L952"}, {"caller_nid": "compact_partialcompactconversation", "callee": "getDeferredToolsDeltaAttachment", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L957"}, {"caller_nid": "compact_partialcompactconversation", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L963"}, {"caller_nid": "compact_partialcompactconversation", "callee": "createAttachmentMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L963"}, {"caller_nid": "compact_partialcompactconversation", "callee": "getAgentListingDeltaAttachment", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L965"}, {"caller_nid": "compact_partialcompactconversation", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L966"}, {"caller_nid": "compact_partialcompactconversation", "callee": "createAttachmentMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L966"}, {"caller_nid": "compact_partialcompactconversation", "callee": "getMcpInstructionsDeltaAttachment", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L968"}, {"caller_nid": "compact_partialcompactconversation", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L974"}, {"caller_nid": "compact_partialcompactconversation", "callee": "createAttachmentMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L974"}, {"caller_nid": "compact_partialcompactconversation", "callee": "onCompactProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L977"}, {"caller_nid": "compact_partialcompactconversation", "callee": "processSessionStartHooks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L981"}, {"caller_nid": "compact_partialcompactconversation", "callee": "tokenCountFromLastAPIResponse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L985"}, {"caller_nid": "compact_partialcompactconversation", "callee": "getTokenUsage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L988"}, {"caller_nid": "compact_partialcompactconversation", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L990"}, {"caller_nid": "compact_partialcompactconversation", "callee": "findLast", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1011"}, {"caller_nid": "compact_partialcompactconversation", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1011"}, {"caller_nid": "compact_partialcompactconversation", "callee": "at", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1013"}, {"caller_nid": "compact_partialcompactconversation", "callee": "createCompactBoundaryMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1014"}, {"caller_nid": "compact_partialcompactconversation", "callee": "extractDiscoveredToolNames", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1023"}, {"caller_nid": "compact_partialcompactconversation", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1025"}, {"caller_nid": "compact_partialcompactconversation", "callee": "getTranscriptPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1030"}, {"caller_nid": "compact_partialcompactconversation", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1032"}, {"caller_nid": "compact_partialcompactconversation", "callee": "getCompactUserSummaryMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1033"}, {"caller_nid": "compact_partialcompactconversation", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1047"}, {"caller_nid": "compact_partialcompactconversation", "callee": "notifyCompaction", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1048"}, {"caller_nid": "compact_partialcompactconversation", "callee": "markPostCompaction", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1053"}, {"caller_nid": "compact_partialcompactconversation", "callee": "reAppendSessionMetadata", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1057"}, {"caller_nid": "compact_partialcompactconversation", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1059"}, {"caller_nid": "compact_partialcompactconversation", "callee": "writeSessionTranscriptSegment", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1060"}, {"caller_nid": "compact_partialcompactconversation", "callee": "onCompactProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1065"}, {"caller_nid": "compact_partialcompactconversation", "callee": "executePostCompactHooks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1069"}, {"caller_nid": "compact_partialcompactconversation", "callee": "at", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1080"}, {"caller_nid": "compact_partialcompactconversation", "callee": "setStreamMode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1101"}, {"caller_nid": "compact_partialcompactconversation", "callee": "setResponseLength", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1102"}, {"caller_nid": "compact_partialcompactconversation", "callee": "onCompactProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1103"}, {"caller_nid": "compact_partialcompactconversation", "callee": "setSDKStatus", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1104"}, {"caller_nid": "compact_adderrornotificationifneeded", "callee": "hasExactErrorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1113"}, {"caller_nid": "compact_adderrornotificationifneeded", "callee": "hasExactErrorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1114"}, {"caller_nid": "compact_adderrornotificationifneeded", "callee": "addNotification", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1116"}, {"caller_nid": "compact_streamcompactsummary", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1155"}, {"caller_nid": "compact_streamcompactsummary", "callee": "isSessionActivityTrackingActive", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1167"}, {"caller_nid": "compact_streamcompactsummary", "callee": "setInterval", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1168"}, {"caller_nid": "compact_streamcompactsummary", "callee": "runForkedAgent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1188"}, {"caller_nid": "compact_streamcompactsummary", "callee": "getLastAssistantMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1201"}, {"caller_nid": "compact_streamcompactsummary", "callee": "getAssistantMessageText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1203"}, {"caller_nid": "compact_streamcompactsummary", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1213"}, {"caller_nid": "compact_streamcompactsummary", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1214"}, {"caller_nid": "compact_streamcompactsummary", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1231"}, {"caller_nid": "compact_streamcompactsummary", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1232"}, {"caller_nid": "compact_streamcompactsummary", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1235"}, {"caller_nid": "compact_streamcompactsummary", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1241"}, {"caller_nid": "compact_streamcompactsummary", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1242"}, {"caller_nid": "compact_streamcompactsummary", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1251"}, {"caller_nid": "compact_streamcompactsummary", "callee": "setResponseLength", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1261"}, {"caller_nid": "compact_streamcompactsummary", "callee": "isToolSearchEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1265"}, {"caller_nid": "compact_streamcompactsummary", "callee": "uniqBy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1282"}, {"caller_nid": "compact_streamcompactsummary", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1286"}, {"caller_nid": "compact_streamcompactsummary", "callee": "queryModelWithStreaming", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1292"}, {"caller_nid": "compact_streamcompactsummary", "callee": "normalizeMessagesForAPI", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1293"}, {"caller_nid": "compact_streamcompactsummary", "callee": "getMessagesAfterCompactBoundary", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1296"}, {"caller_nid": "compact_streamcompactsummary", "callee": "asSystemPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1302"}, {"caller_nid": "compact_streamcompactsummary", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1317"}, {"caller_nid": "compact_streamcompactsummary", "callee": "getMaxOutputTokensForModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1319"}, {"caller_nid": "compact_streamcompactsummary", "callee": "streamingGen[Symbol.asyncIterator]", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1327"}, {"caller_nid": "compact_streamcompactsummary", "callee": "next", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1328"}, {"caller_nid": "compact_streamcompactsummary", "callee": "setStreamMode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1340"}, {"caller_nid": "compact_streamcompactsummary", "callee": "setResponseLength", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1349"}, {"caller_nid": "compact_streamcompactsummary", "callee": "next", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1356"}, {"caller_nid": "compact_streamcompactsummary", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1364"}, {"caller_nid": "compact_streamcompactsummary", "callee": "sleep", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1369"}, {"caller_nid": "compact_streamcompactsummary", "callee": "getRetryDelay", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1369"}, {"caller_nid": "compact_streamcompactsummary", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1375"}, {"caller_nid": "compact_streamcompactsummary", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1379"}, {"caller_nid": "compact_streamcompactsummary", "callee": "clearInterval", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1394"}, {"caller_nid": "compact_createpostcompactfileattachments", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1422"}, {"caller_nid": "compact_createpostcompactfileattachments", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1422"}, {"caller_nid": "compact_createpostcompactfileattachments", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1422"}, {"caller_nid": "compact_createpostcompactfileattachments", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1422"}, {"caller_nid": "compact_createpostcompactfileattachments", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1422"}, {"caller_nid": "compact_createpostcompactfileattachments", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1434"}, {"caller_nid": "compact_createpostcompactfileattachments", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1435"}, {"caller_nid": "compact_createpostcompactfileattachments", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1453"}, {"caller_nid": "compact_createplanattachmentifneeded", "callee": "getPlan", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1473"}, {"caller_nid": "compact_createplanattachmentifneeded", "callee": "getPlanFilePath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1479"}, {"caller_nid": "compact_createplanattachmentifneeded", "callee": "createAttachmentMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1481"}, {"caller_nid": "compact_createskillattachmentifneeded", "callee": "getInvokedSkillsForAgent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1497"}, {"caller_nid": "compact_createskillattachmentifneeded", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1507"}, {"caller_nid": "compact_createskillattachmentifneeded", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1507"}, {"caller_nid": "compact_createskillattachmentifneeded", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1507"}, {"caller_nid": "compact_createskillattachmentifneeded", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1507"}, {"caller_nid": "compact_createskillattachmentifneeded", "callee": "values", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1507"}, {"caller_nid": "compact_createskillattachmentifneeded", "callee": "createAttachmentMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1530"}, {"caller_nid": "compact_createplanmodeattachmentifneeded", "callee": "getAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1545"}, {"caller_nid": "compact_createplanmodeattachmentifneeded", "callee": "getPlanFilePath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1550"}, {"caller_nid": "compact_createplanmodeattachmentifneeded", "callee": "getPlan", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1551"}, {"caller_nid": "compact_createplanmodeattachmentifneeded", "callee": "createAttachmentMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1553"}, {"caller_nid": "compact_createasyncagentattachmentsifneeded", "callee": "getAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1571"}, {"caller_nid": "compact_createasyncagentattachmentsifneeded", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1572"}, {"caller_nid": "compact_createasyncagentattachmentsifneeded", "callee": "values", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1572"}, {"caller_nid": "compact_createasyncagentattachmentsifneeded", "callee": "flatMap", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1576"}, {"caller_nid": "compact_collectreadtoolfilepaths", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1613"}, {"caller_nid": "compact_collectreadtoolfilepaths", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1620"}, {"caller_nid": "compact_collectreadtoolfilepaths", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1622"}, {"caller_nid": "compact_collectreadtoolfilepaths", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1631"}, {"caller_nid": "compact_collectreadtoolfilepaths", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1639"}, {"caller_nid": "compact_collectreadtoolfilepaths", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1650"}, {"caller_nid": "compact_collectreadtoolfilepaths", "callee": "expandPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1650"}, {"caller_nid": "compact_truncatetotokens", "callee": "roughTokenCountEstimation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1667"}, {"caller_nid": "compact_truncatetotokens", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1671"}, {"caller_nid": "compact_shouldexcludefrompostcompactrestore", "callee": "expandPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1678"}, {"caller_nid": "compact_shouldexcludefrompostcompactrestore", "callee": "expandPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1681"}, {"caller_nid": "compact_shouldexcludefrompostcompactrestore", "callee": "getPlanFilePath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1681"}, {"caller_nid": "compact_shouldexcludefrompostcompactrestore", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1694"}, {"caller_nid": "compact_shouldexcludefrompostcompactrestore", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts", "source_location": "L1697"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "label": "compact.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "compact_stripimagesfrommessages",
+      "label": "stripImagesFromMessages()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L145"
+    },
+    {
+      "id": "compact_stripreinjectedattachments",
+      "label": "stripReinjectedAttachments()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L211"
+    },
+    {
+      "id": "compact_truncateheadforptlretry",
+      "label": "truncateHeadForPTLRetry()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L243"
+    },
+    {
+      "id": "compact_buildpostcompactmessages",
+      "label": "buildPostCompactMessages()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L330"
+    },
+    {
+      "id": "compact_annotateboundarywithpreservedsegment",
+      "label": "annotateBoundaryWithPreservedSegment()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L349"
+    },
+    {
+      "id": "compact_mergehookinstructions",
+      "label": "mergeHookInstructions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L374"
+    },
+    {
+      "id": "compact_compactconversation",
+      "label": "compactConversation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L387"
+    },
+    {
+      "id": "compact_partialcompactconversation",
+      "label": "partialCompactConversation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L772"
+    },
+    {
+      "id": "compact_adderrornotificationifneeded",
+      "label": "addErrorNotificationIfNeeded()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1108"
+    },
+    {
+      "id": "compact_createcompactcanusetool",
+      "label": "createCompactCanUseTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1125"
+    },
+    {
+      "id": "compact_streamcompactsummary",
+      "label": "streamCompactSummary()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1136"
+    },
+    {
+      "id": "compact_createpostcompactfileattachments",
+      "label": "createPostCompactFileAttachments()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1415"
+    },
+    {
+      "id": "compact_createplanattachmentifneeded",
+      "label": "createPlanAttachmentIfNeeded()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1470"
+    },
+    {
+      "id": "compact_createskillattachmentifneeded",
+      "label": "createSkillAttachmentIfNeeded()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1494"
+    },
+    {
+      "id": "compact_createplanmodeattachmentifneeded",
+      "label": "createPlanModeAttachmentIfNeeded()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1542"
+    },
+    {
+      "id": "compact_createasyncagentattachmentsifneeded",
+      "label": "createAsyncAgentAttachmentsIfNeeded()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1568"
+    },
+    {
+      "id": "compact_collectreadtoolfilepaths",
+      "label": "collectReadToolFilePaths()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1610"
+    },
+    {
+      "id": "compact_truncatetotokens",
+      "label": "truncateToTokens()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1666"
+    },
+    {
+      "id": "compact_shouldexcludefrompostcompactrestore",
+      "label": "shouldExcludeFromPostCompactRestore()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1674"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "uniqby_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "sdk",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "state_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_querysource_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_hooks_usecanusetool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tasks_localagenttask_localagenttask_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_filereadtool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_toolsearchtool_toolsearchtool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_ids_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_attachments_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_context_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_contextanalysis_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_filestatecache_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_forkedagent_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_memory_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_path_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sessionactivity_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstart_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstorage_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sleep_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_systemprompttype_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_task_diskoutput_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_tokens_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_toolsearch_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_promptcachebreakdetection_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_withretry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_internallogging_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_tokenestimation_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_compact_grouping_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_stripimagesfrommessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L145",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_stripreinjectedattachments",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L211",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_truncateheadforptlretry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L243",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_buildpostcompactmessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L330",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_annotateboundarywithpreservedsegment",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L349",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_mergehookinstructions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L374",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_compactconversation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L387",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_partialcompactconversation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L772",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_adderrornotificationifneeded",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1108",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_createcompactcanusetool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1125",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_streamcompactsummary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1136",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_createpostcompactfileattachments",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1415",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_createplanattachmentifneeded",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1470",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_createskillattachmentifneeded",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1494",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_createplanmodeattachmentifneeded",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1542",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_createasyncagentattachmentsifneeded",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1568",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_collectreadtoolfilepaths",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1610",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_truncatetotokens",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1666",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_compact_ts",
+      "target": "compact_shouldexcludefrompostcompactrestore",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1674",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_compactconversation",
+      "target": "compact_mergehookinstructions",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L420",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_compactconversation",
+      "target": "compact_streamcompactsummary",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L451",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_compactconversation",
+      "target": "compact_truncateheadforptlretry",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L467",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_compactconversation",
+      "target": "compact_createpostcompactfileattachments",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L533",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_compactconversation",
+      "target": "compact_createasyncagentattachmentsifneeded",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L538",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_compactconversation",
+      "target": "compact_createplanattachmentifneeded",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L545",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_compactconversation",
+      "target": "compact_createplanmodeattachmentifneeded",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L552",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_compactconversation",
+      "target": "compact_createskillattachmentifneeded",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L558",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_compactconversation",
+      "target": "compact_adderrornotificationifneeded",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L754",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_partialcompactconversation",
+      "target": "compact_streamcompactsummary",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L863",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_partialcompactconversation",
+      "target": "compact_truncateheadforptlretry",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L877",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_partialcompactconversation",
+      "target": "compact_createpostcompactfileattachments",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L926",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_partialcompactconversation",
+      "target": "compact_createasyncagentattachmentsifneeded",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L932",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_partialcompactconversation",
+      "target": "compact_createplanattachmentifneeded",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L939",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_partialcompactconversation",
+      "target": "compact_createplanmodeattachmentifneeded",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L945",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_partialcompactconversation",
+      "target": "compact_createskillattachmentifneeded",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L950",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_partialcompactconversation",
+      "target": "compact_annotateboundarywithpreservedsegment",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1083",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_partialcompactconversation",
+      "target": "compact_adderrornotificationifneeded",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1098",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_streamcompactsummary",
+      "target": "compact_createcompactcanusetool",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1191",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_streamcompactsummary",
+      "target": "compact_stripimagesfrommessages",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1294",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_streamcompactsummary",
+      "target": "compact_stripreinjectedattachments",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1295",
+      "weight": 1.0
+    },
+    {
+      "source": "compact_createpostcompactfileattachments",
+      "target": "compact_collectreadtoolfilepaths",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1421",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "compact_stripimagesfrommessages",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "compact_stripreinjectedattachments",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L212"
+    },
+    {
+      "caller_nid": "compact_stripreinjectedattachments",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L213"
+    },
+    {
+      "caller_nid": "compact_truncateheadforptlretry",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L254"
+    },
+    {
+      "caller_nid": "compact_truncateheadforptlretry",
+      "callee": "groupMessagesByApiRound",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L257"
+    },
+    {
+      "caller_nid": "compact_truncateheadforptlretry",
+      "callee": "getPromptTooLongTokenGap",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L260"
+    },
+    {
+      "caller_nid": "compact_truncateheadforptlretry",
+      "callee": "roughTokenCountEstimationForMessages",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L266"
+    },
+    {
+      "caller_nid": "compact_truncateheadforptlretry",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L271"
+    },
+    {
+      "caller_nid": "compact_truncateheadforptlretry",
+      "callee": "floor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L271"
+    },
+    {
+      "caller_nid": "compact_truncateheadforptlretry",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L275"
+    },
+    {
+      "caller_nid": "compact_truncateheadforptlretry",
+      "callee": "flat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L278"
+    },
+    {
+      "caller_nid": "compact_truncateheadforptlretry",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L278"
+    },
+    {
+      "caller_nid": "compact_truncateheadforptlretry",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L286"
+    },
+    {
+      "caller_nid": "compact_annotateboundarywithpreservedsegment",
+      "callee": "at",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L363"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "tokenCountWithEstimation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L401"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "getAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L403"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "logPermissionContextForAnts",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L404"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "onCompactProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L406"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "setSDKStatus",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L412"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "executePreCompactHooks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L413"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "setStreamMode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L427"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "setResponseLength",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L428"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "onCompactProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L429"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L435"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "getCompactPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L440"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L441"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "getAssistantMessageText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L459"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L460"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L470"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L479"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L494"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L495"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L498"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "startsWithApiErrorPrefix",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L507"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L508"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "cacheToObject",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L518"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L521"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L522"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L532"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L547"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L554"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L560"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "getDeferredToolsDeltaAttachment",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L567"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L573"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "createAttachmentMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L573"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "getAgentListingDeltaAttachment",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L575"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L576"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "createAttachmentMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L576"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "getMcpInstructionsDeltaAttachment",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L578"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L584"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "createAttachmentMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L584"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "onCompactProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L587"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "processSessionStartHooks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L592"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "createCompactBoundaryMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L598"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "at",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L601"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "extractDiscoveredToolNames",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L606"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L608"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "getTranscriptPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L613"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L615"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "getCompactUserSummaryMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L616"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "tokenCountFromLastAPIResponse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L629"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "roughTokenCountEstimationForMessages",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L637"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "getTokenUsage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L645"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L650"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "(() => {\n        try {\n          return tokenStatsToStatsigMetrics(analyzeContext(messages))\n        } catch (error) {\n          logError(error as Error)\n          return {}\n        }\n      })",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L687"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L698"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "notifyCompaction",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L699"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "markPostCompaction",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L704"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "reAppendSessionMetadata",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L711"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L715"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "writeSessionTranscriptSegment",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L716"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "onCompactProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L719"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "executePostCompactHooks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L723"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L731"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L731"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "setStreamMode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L758"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "setResponseLength",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L759"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "onCompactProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L760"
+    },
+    {
+      "caller_nid": "compact_compactconversation",
+      "callee": "setSDKStatus",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L761"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L783"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L784"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L792"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L792"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L800"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L800"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "tokenCountWithEstimation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L810"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "onCompactProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L812"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "setSDKStatus",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L817"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "executePreCompactHooks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L818"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "setStreamMode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L836"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "setResponseLength",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L837"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "onCompactProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L838"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "getPartialCompactPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L840"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L841"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "getAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L866"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "getAssistantMessageText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L871"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L872"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L880"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L888"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L901"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "startsWithApiErrorPrefix",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L909"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L910"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "cacheToObject",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L919"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L920"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L921"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L925"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L941"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L947"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L952"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "getDeferredToolsDeltaAttachment",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L957"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L963"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "createAttachmentMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L963"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "getAgentListingDeltaAttachment",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L965"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L966"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "createAttachmentMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L966"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "getMcpInstructionsDeltaAttachment",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L968"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L974"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "createAttachmentMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L974"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "onCompactProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L977"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "processSessionStartHooks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L981"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "tokenCountFromLastAPIResponse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L985"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "getTokenUsage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L988"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L990"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "findLast",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1011"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1011"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "at",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1013"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "createCompactBoundaryMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1014"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "extractDiscoveredToolNames",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1023"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1025"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "getTranscriptPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1030"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1032"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "getCompactUserSummaryMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1033"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1047"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "notifyCompaction",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1048"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "markPostCompaction",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1053"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "reAppendSessionMetadata",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1057"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1059"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "writeSessionTranscriptSegment",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1060"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "onCompactProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1065"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "executePostCompactHooks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1069"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "at",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1080"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "setStreamMode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1101"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "setResponseLength",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1102"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "onCompactProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1103"
+    },
+    {
+      "caller_nid": "compact_partialcompactconversation",
+      "callee": "setSDKStatus",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1104"
+    },
+    {
+      "caller_nid": "compact_adderrornotificationifneeded",
+      "callee": "hasExactErrorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1113"
+    },
+    {
+      "caller_nid": "compact_adderrornotificationifneeded",
+      "callee": "hasExactErrorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1114"
+    },
+    {
+      "caller_nid": "compact_adderrornotificationifneeded",
+      "callee": "addNotification",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1116"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1155"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "isSessionActivityTrackingActive",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1167"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "setInterval",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1168"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "runForkedAgent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1188"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "getLastAssistantMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1201"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "getAssistantMessageText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1203"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1213"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1214"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1231"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1232"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1235"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1241"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1242"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1251"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "setResponseLength",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1261"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "isToolSearchEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1265"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "uniqBy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1282"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1286"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "queryModelWithStreaming",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1292"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "normalizeMessagesForAPI",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1293"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "getMessagesAfterCompactBoundary",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1296"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "asSystemPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1302"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1317"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "getMaxOutputTokensForModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1319"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "streamingGen[Symbol.asyncIterator]",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1327"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "next",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1328"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "setStreamMode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1340"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "setResponseLength",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1349"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "next",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1356"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1364"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "sleep",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1369"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "getRetryDelay",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1369"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1375"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1379"
+    },
+    {
+      "caller_nid": "compact_streamcompactsummary",
+      "callee": "clearInterval",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1394"
+    },
+    {
+      "caller_nid": "compact_createpostcompactfileattachments",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1422"
+    },
+    {
+      "caller_nid": "compact_createpostcompactfileattachments",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1422"
+    },
+    {
+      "caller_nid": "compact_createpostcompactfileattachments",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1422"
+    },
+    {
+      "caller_nid": "compact_createpostcompactfileattachments",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1422"
+    },
+    {
+      "caller_nid": "compact_createpostcompactfileattachments",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1422"
+    },
+    {
+      "caller_nid": "compact_createpostcompactfileattachments",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1434"
+    },
+    {
+      "caller_nid": "compact_createpostcompactfileattachments",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1435"
+    },
+    {
+      "caller_nid": "compact_createpostcompactfileattachments",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1453"
+    },
+    {
+      "caller_nid": "compact_createplanattachmentifneeded",
+      "callee": "getPlan",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1473"
+    },
+    {
+      "caller_nid": "compact_createplanattachmentifneeded",
+      "callee": "getPlanFilePath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1479"
+    },
+    {
+      "caller_nid": "compact_createplanattachmentifneeded",
+      "callee": "createAttachmentMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1481"
+    },
+    {
+      "caller_nid": "compact_createskillattachmentifneeded",
+      "callee": "getInvokedSkillsForAgent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1497"
+    },
+    {
+      "caller_nid": "compact_createskillattachmentifneeded",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1507"
+    },
+    {
+      "caller_nid": "compact_createskillattachmentifneeded",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1507"
+    },
+    {
+      "caller_nid": "compact_createskillattachmentifneeded",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1507"
+    },
+    {
+      "caller_nid": "compact_createskillattachmentifneeded",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1507"
+    },
+    {
+      "caller_nid": "compact_createskillattachmentifneeded",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1507"
+    },
+    {
+      "caller_nid": "compact_createskillattachmentifneeded",
+      "callee": "createAttachmentMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1530"
+    },
+    {
+      "caller_nid": "compact_createplanmodeattachmentifneeded",
+      "callee": "getAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1545"
+    },
+    {
+      "caller_nid": "compact_createplanmodeattachmentifneeded",
+      "callee": "getPlanFilePath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1550"
+    },
+    {
+      "caller_nid": "compact_createplanmodeattachmentifneeded",
+      "callee": "getPlan",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1551"
+    },
+    {
+      "caller_nid": "compact_createplanmodeattachmentifneeded",
+      "callee": "createAttachmentMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1553"
+    },
+    {
+      "caller_nid": "compact_createasyncagentattachmentsifneeded",
+      "callee": "getAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1571"
+    },
+    {
+      "caller_nid": "compact_createasyncagentattachmentsifneeded",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1572"
+    },
+    {
+      "caller_nid": "compact_createasyncagentattachmentsifneeded",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1572"
+    },
+    {
+      "caller_nid": "compact_createasyncagentattachmentsifneeded",
+      "callee": "flatMap",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1576"
+    },
+    {
+      "caller_nid": "compact_collectreadtoolfilepaths",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1613"
+    },
+    {
+      "caller_nid": "compact_collectreadtoolfilepaths",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1620"
+    },
+    {
+      "caller_nid": "compact_collectreadtoolfilepaths",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1622"
+    },
+    {
+      "caller_nid": "compact_collectreadtoolfilepaths",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1631"
+    },
+    {
+      "caller_nid": "compact_collectreadtoolfilepaths",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1639"
+    },
+    {
+      "caller_nid": "compact_collectreadtoolfilepaths",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1650"
+    },
+    {
+      "caller_nid": "compact_collectreadtoolfilepaths",
+      "callee": "expandPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1650"
+    },
+    {
+      "caller_nid": "compact_truncatetotokens",
+      "callee": "roughTokenCountEstimation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1667"
+    },
+    {
+      "caller_nid": "compact_truncatetotokens",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1671"
+    },
+    {
+      "caller_nid": "compact_shouldexcludefrompostcompactrestore",
+      "callee": "expandPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1678"
+    },
+    {
+      "caller_nid": "compact_shouldexcludefrompostcompactrestore",
+      "callee": "expandPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1681"
+    },
+    {
+      "caller_nid": "compact_shouldexcludefrompostcompactrestore",
+      "callee": "getPlanFilePath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1681"
+    },
+    {
+      "caller_nid": "compact_shouldexcludefrompostcompactrestore",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1694"
+    },
+    {
+      "caller_nid": "compact_shouldexcludefrompostcompactrestore",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\compact.ts",
+      "source_location": "L1697"
+    }
+  ]
+}

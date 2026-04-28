@@ -1,1 +1,115 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_s3_gateway_s3_provider_timeout_ts", "label": "s3-provider-timeout.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts", "source_location": "L1"}, {"id": "s3_provider_timeout_parsepositiveint", "label": "parsePositiveInt()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts", "source_location": "L1"}, {"id": "s3_provider_timeout_providerrequesttimeouterror", "label": "ProviderRequestTimeoutError", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts", "source_location": "L14"}, {"id": "s3_provider_timeout_providerrequesttimeouterror_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts", "source_location": "L17"}, {"id": "s3_provider_timeout_sendwithprovidertimeout", "label": "sendWithProviderTimeout()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts", "source_location": "L24"}], "edges": [{"source": "f_storage_platform_src_lib_s3_gateway_s3_provider_timeout_ts", "target": "s3_provider_timeout_parsepositiveint", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_provider_timeout_ts", "target": "s3_provider_timeout_providerrequesttimeouterror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts", "source_location": "L14", "weight": 1.0}, {"source": "s3_provider_timeout_providerrequesttimeouterror", "target": "s3_provider_timeout_providerrequesttimeouterror_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_provider_timeout_ts", "target": "s3_provider_timeout_sendwithprovidertimeout", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts", "source_location": "L24", "weight": 1.0}], "raw_calls": [{"caller_nid": "s3_provider_timeout_parsepositiveint", "callee": "parseInt", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts", "source_location": "L5"}, {"caller_nid": "s3_provider_timeout_parsepositiveint", "callee": "isFinite", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts", "source_location": "L6"}, {"caller_nid": "s3_provider_timeout_providerrequesttimeouterror_constructor", "callee": "super", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts", "source_location": "L18"}, {"caller_nid": "s3_provider_timeout_sendwithprovidertimeout", "callee": "setTimeout", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts", "source_location": "L28"}, {"caller_nid": "s3_provider_timeout_sendwithprovidertimeout", "callee": "requestFactory", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts", "source_location": "L33"}, {"caller_nid": "s3_provider_timeout_sendwithprovidertimeout", "callee": "clearTimeout", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts", "source_location": "L40"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_s3_gateway_s3_provider_timeout_ts",
+      "label": "s3-provider-timeout.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "s3_provider_timeout_parsepositiveint",
+      "label": "parsePositiveInt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "s3_provider_timeout_providerrequesttimeouterror",
+      "label": "ProviderRequestTimeoutError",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts",
+      "source_location": "L14"
+    },
+    {
+      "id": "s3_provider_timeout_providerrequesttimeouterror_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts",
+      "source_location": "L17"
+    },
+    {
+      "id": "s3_provider_timeout_sendwithprovidertimeout",
+      "label": "sendWithProviderTimeout()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts",
+      "source_location": "L24"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_provider_timeout_ts",
+      "target": "s3_provider_timeout_parsepositiveint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_provider_timeout_ts",
+      "target": "s3_provider_timeout_providerrequesttimeouterror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "s3_provider_timeout_providerrequesttimeouterror",
+      "target": "s3_provider_timeout_providerrequesttimeouterror_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_provider_timeout_ts",
+      "target": "s3_provider_timeout_sendwithprovidertimeout",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "s3_provider_timeout_parsepositiveint",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts",
+      "source_location": "L5"
+    },
+    {
+      "caller_nid": "s3_provider_timeout_parsepositiveint",
+      "callee": "isFinite",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts",
+      "source_location": "L6"
+    },
+    {
+      "caller_nid": "s3_provider_timeout_providerrequesttimeouterror_constructor",
+      "callee": "super",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "s3_provider_timeout_sendwithprovidertimeout",
+      "callee": "setTimeout",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "s3_provider_timeout_sendwithprovidertimeout",
+      "callee": "requestFactory",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "s3_provider_timeout_sendwithprovidertimeout",
+      "callee": "clearTimeout",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-provider-timeout.ts",
+      "source_location": "L40"
+    }
+  ]
+}

@@ -1,1 +1,300 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts", "label": "hookEvents.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L1"}, {"id": "hookevents_registerhookeventhandler", "label": "registerHookEventHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L61"}, {"id": "hookevents_emit", "label": "emit()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L72"}, {"id": "hookevents_shouldemit", "label": "shouldEmit()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L83"}, {"id": "hookevents_emithookstarted", "label": "emitHookStarted()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L93"}, {"id": "hookevents_emithookprogress", "label": "emitHookProgress()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L108"}, {"id": "hookevents_starthookprogressinterval", "label": "startHookProgressInterval()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L124"}, {"id": "hookevents_emithookresponse", "label": "emitHookResponse()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L153"}, {"id": "hookevents_setallhookeventsenabled", "label": "setAllHookEventsEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L184"}, {"id": "hookevents_clearhookeventstate", "label": "clearHookEventState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L188"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts", "target": "coretypes_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts", "target": "hookevents_registerhookeventhandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L61", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts", "target": "hookevents_emit", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L72", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts", "target": "hookevents_shouldemit", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L83", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts", "target": "hookevents_emithookstarted", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L93", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts", "target": "hookevents_emithookprogress", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L108", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts", "target": "hookevents_starthookprogressinterval", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L124", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts", "target": "hookevents_emithookresponse", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L153", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts", "target": "hookevents_setallhookeventsenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L184", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts", "target": "hookevents_clearhookeventstate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L188", "weight": 1.0}, {"source": "hookevents_emithookstarted", "target": "hookevents_shouldemit", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L98", "weight": 1.0}, {"source": "hookevents_emithookstarted", "target": "hookevents_emit", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L100", "weight": 1.0}, {"source": "hookevents_emithookprogress", "target": "hookevents_shouldemit", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L116", "weight": 1.0}, {"source": "hookevents_emithookprogress", "target": "hookevents_emit", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L118", "weight": 1.0}, {"source": "hookevents_starthookprogressinterval", "target": "hookevents_shouldemit", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L131", "weight": 1.0}, {"source": "hookevents_emithookresponse", "target": "hookevents_shouldemit", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L171", "weight": 1.0}, {"source": "hookevents_emithookresponse", "target": "hookevents_emit", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L173", "weight": 1.0}], "raw_calls": [{"caller_nid": "hookevents_registerhookeventhandler", "callee": "splice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L66"}, {"caller_nid": "hookevents_registerhookeventhandler", "callee": "handler", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L67"}, {"caller_nid": "hookevents_emit", "callee": "eventHandler", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L74"}, {"caller_nid": "hookevents_emit", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L76"}, {"caller_nid": "hookevents_emit", "callee": "shift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L78"}, {"caller_nid": "hookevents_shouldemit", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L84"}, {"caller_nid": "hookevents_shouldemit", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L89"}, {"caller_nid": "hookevents_starthookprogressinterval", "callee": "setInterval", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L134"}, {"caller_nid": "hookevents_starthookprogressinterval", "callee": "unref", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L148"}, {"caller_nid": "hookevents_emithookresponse", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts", "source_location": "L166"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts",
+      "label": "hookEvents.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "hookevents_registerhookeventhandler",
+      "label": "registerHookEventHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L61"
+    },
+    {
+      "id": "hookevents_emit",
+      "label": "emit()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L72"
+    },
+    {
+      "id": "hookevents_shouldemit",
+      "label": "shouldEmit()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L83"
+    },
+    {
+      "id": "hookevents_emithookstarted",
+      "label": "emitHookStarted()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L93"
+    },
+    {
+      "id": "hookevents_emithookprogress",
+      "label": "emitHookProgress()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L108"
+    },
+    {
+      "id": "hookevents_starthookprogressinterval",
+      "label": "startHookProgressInterval()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L124"
+    },
+    {
+      "id": "hookevents_emithookresponse",
+      "label": "emitHookResponse()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L153"
+    },
+    {
+      "id": "hookevents_setallhookeventsenabled",
+      "label": "setAllHookEventsEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L184"
+    },
+    {
+      "id": "hookevents_clearhookeventstate",
+      "label": "clearHookEventState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L188"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts",
+      "target": "coretypes_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts",
+      "target": "hookevents_registerhookeventhandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts",
+      "target": "hookevents_emit",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts",
+      "target": "hookevents_shouldemit",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts",
+      "target": "hookevents_emithookstarted",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts",
+      "target": "hookevents_emithookprogress",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts",
+      "target": "hookevents_starthookprogressinterval",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts",
+      "target": "hookevents_emithookresponse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts",
+      "target": "hookevents_setallhookeventsenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L184",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_hookevents_ts",
+      "target": "hookevents_clearhookeventstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L188",
+      "weight": 1.0
+    },
+    {
+      "source": "hookevents_emithookstarted",
+      "target": "hookevents_shouldemit",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "hookevents_emithookstarted",
+      "target": "hookevents_emit",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "hookevents_emithookprogress",
+      "target": "hookevents_shouldemit",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "hookevents_emithookprogress",
+      "target": "hookevents_emit",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "hookevents_starthookprogressinterval",
+      "target": "hookevents_shouldemit",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L131",
+      "weight": 1.0
+    },
+    {
+      "source": "hookevents_emithookresponse",
+      "target": "hookevents_shouldemit",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "hookevents_emithookresponse",
+      "target": "hookevents_emit",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L173",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "hookevents_registerhookeventhandler",
+      "callee": "splice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "hookevents_registerhookeventhandler",
+      "callee": "handler",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "hookevents_emit",
+      "callee": "eventHandler",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "hookevents_emit",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "hookevents_emit",
+      "callee": "shift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "hookevents_shouldemit",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "hookevents_shouldemit",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "hookevents_starthookprogressinterval",
+      "callee": "setInterval",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "hookevents_starthookprogressinterval",
+      "callee": "unref",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "hookevents_emithookresponse",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\hookEvents.ts",
+      "source_location": "L166"
+    }
+  ]
+}

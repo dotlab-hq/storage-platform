@@ -1,1 +1,196 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts", "label": "helpers.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L1"}, {"id": "helpers_validatemanifest", "label": "validateManifest()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L13"}, {"id": "helpers_parseandvalidatemanifestfromtext", "label": "parseAndValidateManifestFromText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L39"}, {"id": "helpers_parseandvalidatemanifestfrombytes", "label": "parseAndValidateManifestFromBytes()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L56"}, {"id": "helpers_generateextensionid", "label": "generateExtensionId()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L67"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts", "target": "mcpb", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts", "target": "helpers_validatemanifest", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts", "target": "helpers_parseandvalidatemanifestfromtext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts", "target": "helpers_parseandvalidatemanifestfrombytes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L56", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts", "target": "helpers_generateextensionid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L67", "weight": 1.0}, {"source": "helpers_parseandvalidatemanifestfromtext", "target": "helpers_validatemanifest", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L50", "weight": 1.0}, {"source": "helpers_parseandvalidatemanifestfrombytes", "target": "helpers_parseandvalidatemanifestfromtext", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L60", "weight": 1.0}], "raw_calls": [{"caller_nid": "helpers_validatemanifest", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L16"}, {"caller_nid": "helpers_validatemanifest", "callee": "safeParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L17"}, {"caller_nid": "helpers_validatemanifest", "callee": "flatten", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L20"}, {"caller_nid": "helpers_validatemanifest", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L21"}, {"caller_nid": "helpers_validatemanifest", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L21"}, {"caller_nid": "helpers_validatemanifest", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L22"}, {"caller_nid": "helpers_validatemanifest", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L22"}, {"caller_nid": "helpers_parseandvalidatemanifestfromtext", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L45"}, {"caller_nid": "helpers_parseandvalidatemanifestfromtext", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L47"}, {"caller_nid": "helpers_parseandvalidatemanifestfrombytes", "callee": "decode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L59"}, {"caller_nid": "helpers_generateextensionid", "callee": "sanitize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L82"}, {"caller_nid": "helpers_generateextensionid", "callee": "sanitize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts", "source_location": "L83"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts",
+      "label": "helpers.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "helpers_validatemanifest",
+      "label": "validateManifest()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L13"
+    },
+    {
+      "id": "helpers_parseandvalidatemanifestfromtext",
+      "label": "parseAndValidateManifestFromText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L39"
+    },
+    {
+      "id": "helpers_parseandvalidatemanifestfrombytes",
+      "label": "parseAndValidateManifestFromBytes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L56"
+    },
+    {
+      "id": "helpers_generateextensionid",
+      "label": "generateExtensionId()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L67"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts",
+      "target": "mcpb",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts",
+      "target": "helpers_validatemanifest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts",
+      "target": "helpers_parseandvalidatemanifestfromtext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts",
+      "target": "helpers_parseandvalidatemanifestfrombytes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_dxt_helpers_ts",
+      "target": "helpers_generateextensionid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "helpers_parseandvalidatemanifestfromtext",
+      "target": "helpers_validatemanifest",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "helpers_parseandvalidatemanifestfrombytes",
+      "target": "helpers_parseandvalidatemanifestfromtext",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L60",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "helpers_validatemanifest",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L16"
+    },
+    {
+      "caller_nid": "helpers_validatemanifest",
+      "callee": "safeParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "helpers_validatemanifest",
+      "callee": "flatten",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L20"
+    },
+    {
+      "caller_nid": "helpers_validatemanifest",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "helpers_validatemanifest",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "helpers_validatemanifest",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "helpers_validatemanifest",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "helpers_parseandvalidatemanifestfromtext",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "helpers_parseandvalidatemanifestfromtext",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "helpers_parseandvalidatemanifestfrombytes",
+      "callee": "decode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "helpers_generateextensionid",
+      "callee": "sanitize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "helpers_generateextensionid",
+      "callee": "sanitize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\dxt\\helpers.ts",
+      "source_location": "L83"
+    }
+  ]
+}

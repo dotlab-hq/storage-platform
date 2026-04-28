@@ -1,1 +1,1785 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "label": "ast.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1"}, {"id": "ast_containsanyplaceholder", "label": "containsAnyPlaceholder()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L94"}, {"id": "ast_nodetypeid", "label": "nodeTypeId()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L213"}, {"id": "ast_maskbracesinquotedcontexts", "label": "maskBracesInQuotedContexts()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L331"}, {"id": "ast_parseforsecurity", "label": "parseForSecurity()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L381"}, {"id": "ast_parseforsecurityfromast", "label": "parseForSecurityFromAst()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L400"}, {"id": "ast_walkprogram", "label": "walkProgram()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L462"}, {"id": "ast_collectcommands", "label": "collectCommands()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L482"}, {"id": "ast_walktestexpr", "label": "walkTestExpr()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L962"}, {"id": "ast_walkredirectedstatement", "label": "walkRedirectedStatement()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1017"}, {"id": "ast_walkfileredirect", "label": "walkFileRedirect()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1071"}, {"id": "ast_walkheredocredirect", "label": "walkHeredocRedirect()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1143"}, {"id": "ast_walkherestringredirect", "label": "walkHerestringRedirect()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1211"}, {"id": "ast_walkcommand", "label": "walkCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1237"}, {"id": "ast_collectcommandsubstitution", "label": "collectCommandSubstitution()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1374"}, {"id": "ast_walkargument", "label": "walkArgument()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1399"}, {"id": "ast_walkstring", "label": "walkString()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1508"}, {"id": "ast_walkarithmetic", "label": "walkArithmetic()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1675"}, {"id": "ast_extractsafecatheredoc", "label": "extractSafeCatHeredoc()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1721"}, {"id": "ast_walkvariableassignment", "label": "walkVariableAssignment()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1777"}, {"id": "ast_resolvesimpleexpansion", "label": "resolveSimpleExpansion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1937"}, {"id": "ast_applyvartoscope", "label": "applyVarToScope()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2017"}, {"id": "ast_striprawstring", "label": "stripRawString()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2029"}, {"id": "ast_toocomplex", "label": "tooComplex()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2033"}, {"id": "ast_checksemantics", "label": "checkSemantics()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2213"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_bashparser_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_parser_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_parser_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_containsanyplaceholder", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L94", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_nodetypeid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L213", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_maskbracesinquotedcontexts", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L331", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_parseforsecurity", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L381", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_parseforsecurityfromast", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L400", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_walkprogram", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L462", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_collectcommands", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L482", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_walktestexpr", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L962", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_walkredirectedstatement", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1017", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_walkfileredirect", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1071", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_walkheredocredirect", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1143", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_walkherestringredirect", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1211", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_walkcommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1237", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_collectcommandsubstitution", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1374", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_walkargument", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1399", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_walkstring", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1508", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_walkarithmetic", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1675", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_extractsafecatheredoc", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1721", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_walkvariableassignment", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1777", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_resolvesimpleexpansion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1937", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_applyvartoscope", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2017", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_striprawstring", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2029", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_toocomplex", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2033", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts", "target": "ast_checksemantics", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2213", "weight": 1.0}, {"source": "ast_parseforsecurity", "target": "ast_parseforsecurityfromast", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L391", "weight": 1.0}, {"source": "ast_parseforsecurityfromast", "target": "ast_maskbracesinquotedcontexts", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L432", "weight": 1.0}, {"source": "ast_parseforsecurityfromast", "target": "ast_walkprogram", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L459", "weight": 1.0}, {"source": "ast_walkprogram", "target": "ast_collectcommands", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L473", "weight": 1.0}, {"source": "ast_collectcommands", "target": "ast_walkcommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L490", "weight": 1.0}, {"source": "ast_collectcommands", "target": "ast_walkredirectedstatement", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L497", "weight": 1.0}, {"source": "ast_collectcommands", "target": "ast_walkargument", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L607", "weight": 1.0}, {"source": "ast_collectcommands", "target": "ast_walkvariableassignment", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L659", "weight": 1.0}, {"source": "ast_collectcommands", "target": "ast_applyvartoscope", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L662", "weight": 1.0}, {"source": "ast_collectcommands", "target": "ast_toocomplex", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L671", "weight": 1.0}, {"source": "ast_collectcommands", "target": "ast_collectcommandsubstitution", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L726", "weight": 1.0}, {"source": "ast_collectcommands", "target": "ast_containsanyplaceholder", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L864", "weight": 1.0}, {"source": "ast_collectcommands", "target": "ast_walktestexpr", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L913", "weight": 1.0}, {"source": "ast_walktestexpr", "target": "ast_walkargument", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1003", "weight": 1.0}, {"source": "ast_walkredirectedstatement", "target": "ast_walkfileredirect", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1030", "weight": 1.0}, {"source": "ast_walkredirectedstatement", "target": "ast_walkheredocredirect", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1034", "weight": 1.0}, {"source": "ast_walkredirectedstatement", "target": "ast_toocomplex", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1046", "weight": 1.0}, {"source": "ast_walkredirectedstatement", "target": "ast_collectcommands", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1058", "weight": 1.0}, {"source": "ast_walkfileredirect", "target": "ast_toocomplex", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1091", "weight": 1.0}, {"source": "ast_walkfileredirect", "target": "ast_striprawstring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1103", "weight": 1.0}, {"source": "ast_walkfileredirect", "target": "ast_walkstring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1105", "weight": 1.0}, {"source": "ast_walkfileredirect", "target": "ast_walkargument", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1112", "weight": 1.0}, {"source": "ast_walkheredocredirect", "target": "ast_toocomplex", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1166", "weight": 1.0}, {"source": "ast_walkherestringredirect", "target": "ast_walkargument", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1222", "weight": 1.0}, {"source": "ast_walkherestringredirect", "target": "ast_toocomplex", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1227", "weight": 1.0}, {"source": "ast_walkcommand", "target": "ast_walkvariableassignment", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1252", "weight": 1.0}, {"source": "ast_walkcommand", "target": "ast_walkargument", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1262", "weight": 1.0}, {"source": "ast_walkcommand", "target": "ast_resolvesimpleexpansion", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1293", "weight": 1.0}, {"source": "ast_walkcommand", "target": "ast_walkfileredirect", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1299", "weight": 1.0}, {"source": "ast_walkcommand", "target": "ast_walkherestringredirect", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1307", "weight": 1.0}, {"source": "ast_walkcommand", "target": "ast_toocomplex", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1312", "weight": 1.0}, {"source": "ast_collectcommandsubstitution", "target": "ast_collectcommands", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1389", "weight": 1.0}, {"source": "ast_walkargument", "target": "ast_striprawstring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1445", "weight": 1.0}, {"source": "ast_walkargument", "target": "ast_walkstring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1448", "weight": 1.0}, {"source": "ast_walkargument", "target": "ast_walkarithmetic", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1469", "weight": 1.0}, {"source": "ast_walkargument", "target": "ast_resolvesimpleexpansion", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1478", "weight": 1.0}, {"source": "ast_walkargument", "target": "ast_toocomplex", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1489", "weight": 1.0}, {"source": "ast_walkstring", "target": "ast_extractsafecatheredoc", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1569", "weight": 1.0}, {"source": "ast_walkstring", "target": "ast_toocomplex", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1570", "weight": 1.0}, {"source": "ast_walkstring", "target": "ast_collectcommandsubstitution", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1600", "weight": 1.0}, {"source": "ast_walkstring", "target": "ast_resolvesimpleexpansion", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1608", "weight": 1.0}, {"source": "ast_walkstring", "target": "ast_walkarithmetic", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1619", "weight": 1.0}, {"source": "ast_walkarithmetic", "target": "ast_toocomplex", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1698", "weight": 1.0}, {"source": "ast_extractsafecatheredoc", "target": "ast_walkheredocredirect", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1752", "weight": 1.0}, {"source": "ast_walkvariableassignment", "target": "ast_collectcommandsubstitution", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1802", "weight": 1.0}, {"source": "ast_walkvariableassignment", "target": "ast_resolvesimpleexpansion", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1812", "weight": 1.0}, {"source": "ast_walkvariableassignment", "target": "ast_walkargument", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1818", "weight": 1.0}, {"source": "ast_walkvariableassignment", "target": "ast_containsanyplaceholder", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1887", "weight": 1.0}, {"source": "ast_resolvesimpleexpansion", "target": "ast_toocomplex", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1955", "weight": 1.0}, {"source": "ast_resolvesimpleexpansion", "target": "ast_containsanyplaceholder", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1968", "weight": 1.0}, {"source": "ast_applyvartoscope", "target": "ast_containsanyplaceholder", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2025", "weight": 1.0}], "raw_calls": [{"caller_nid": "ast_containsanyplaceholder", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L95"}, {"caller_nid": "ast_containsanyplaceholder", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L95"}, {"caller_nid": "ast_nodetypeid", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L216"}, {"caller_nid": "ast_maskbracesinquotedcontexts", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L334"}, {"caller_nid": "ast_maskbracesinquotedcontexts", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L344"}, {"caller_nid": "ast_maskbracesinquotedcontexts", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L350"}, {"caller_nid": "ast_maskbracesinquotedcontexts", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L354"}, {"caller_nid": "ast_maskbracesinquotedcontexts", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L360"}, {"caller_nid": "ast_maskbracesinquotedcontexts", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L365"}, {"caller_nid": "ast_maskbracesinquotedcontexts", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L370"}, {"caller_nid": "ast_parseforsecurity", "callee": "parseCommandRaw", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L388"}, {"caller_nid": "ast_parseforsecurityfromast", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L408"}, {"caller_nid": "ast_parseforsecurityfromast", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L411"}, {"caller_nid": "ast_parseforsecurityfromast", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L414"}, {"caller_nid": "ast_parseforsecurityfromast", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L420"}, {"caller_nid": "ast_parseforsecurityfromast", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L426"}, {"caller_nid": "ast_parseforsecurityfromast", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L432"}, {"caller_nid": "ast_parseforsecurityfromast", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L439"}, {"caller_nid": "ast_collectcommands", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L492"}, {"caller_nid": "ast_collectcommands", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L504"}, {"caller_nid": "ast_collectcommands", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L547"}, {"caller_nid": "ast_collectcommands", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L596"}, {"caller_nid": "ast_collectcommands", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L627"}, {"caller_nid": "ast_collectcommands", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L647"}, {"caller_nid": "ast_collectcommands", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L655"}, {"caller_nid": "ast_collectcommands", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L663"}, {"caller_nid": "ast_collectcommands", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L668"}, {"caller_nid": "ast_collectcommands", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L674"}, {"caller_nid": "ast_collectcommands", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L753"}, {"caller_nid": "ast_collectcommands", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L846"}, {"caller_nid": "ast_collectcommands", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L848"}, {"caller_nid": "ast_collectcommands", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L848"}, {"caller_nid": "ast_collectcommands", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L861"}, {"caller_nid": "ast_collectcommands", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L872"}, {"caller_nid": "ast_collectcommands", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L916"}, {"caller_nid": "ast_collectcommands", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L931"}, {"caller_nid": "ast_collectcommands", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L934"}, {"caller_nid": "ast_collectcommands", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L938"}, {"caller_nid": "ast_collectcommands", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L943"}, {"caller_nid": "ast_collectcommands", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L950"}, {"caller_nid": "ast_walktestexpr", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L992"}, {"caller_nid": "ast_walktestexpr", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L999"}, {"caller_nid": "ast_walktestexpr", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1005"}, {"caller_nid": "ast_walkredirectedstatement", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1032"}, {"caller_nid": "ast_walkredirectedstatement", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1053"}, {"caller_nid": "ast_walkredirectedstatement", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1062"}, {"caller_nid": "ast_walkfileredirect", "callee": "Number", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1083"}, {"caller_nid": "ast_walkfileredirect", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1096"}, {"caller_nid": "ast_walkfileredirect", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1101"}, {"caller_nid": "ast_walkheredocredirect", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1172"}, {"caller_nid": "ast_walkheredocredirect", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1172"}, {"caller_nid": "ast_walkheredocredirect", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1173"}, {"caller_nid": "ast_walkheredocredirect", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1173"}, {"caller_nid": "ast_walkheredocredirect", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1174"}, {"caller_nid": "ast_walkherestringredirect", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1227"}, {"caller_nid": "ast_walkcommand", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1258"}, {"caller_nid": "ast_walkcommand", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1268"}, {"caller_nid": "ast_walkcommand", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1279"}, {"caller_nid": "ast_walkcommand", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1295"}, {"caller_nid": "ast_walkcommand", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1301"}, {"caller_nid": "ast_walkcommand", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1350"}, {"caller_nid": "ast_walkcommand", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1350"}, {"caller_nid": "ast_walkcommand", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1351"}, {"caller_nid": "ast_walkcommand", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1351"}, {"caller_nid": "ast_walkargument", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1418"}, {"caller_nid": "ast_walkargument", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1425"}, {"caller_nid": "ast_walkargument", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1451"}, {"caller_nid": "ast_walkstring", "callee": "repeat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1535"}, {"caller_nid": "ast_walkstring", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1552"}, {"caller_nid": "ast_walkstring", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1584"}, {"caller_nid": "ast_walkstring", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1585"}, {"caller_nid": "ast_walkarithmetic", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1679"}, {"caller_nid": "ast_extractsafecatheredoc", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1742"}, {"caller_nid": "ast_extractsafecatheredoc", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1770"}, {"caller_nid": "ast_extractsafecatheredoc", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1773"}, {"caller_nid": "ast_walkvariableassignment", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1835"}, {"caller_nid": "ast_walkvariableassignment", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1895"}, {"caller_nid": "ast_walkvariableassignment", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1896"}, {"caller_nid": "ast_walkvariableassignment", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1914"}, {"caller_nid": "ast_resolvesimpleexpansion", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1966"}, {"caller_nid": "ast_resolvesimpleexpansion", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1991"}, {"caller_nid": "ast_resolvesimpleexpansion", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L1999"}, {"caller_nid": "ast_resolvesimpleexpansion", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2002"}, {"caller_nid": "ast_resolvesimpleexpansion", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2002"}, {"caller_nid": "ast_applyvartoscope", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2021"}, {"caller_nid": "ast_applyvartoscope", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2023"}, {"caller_nid": "ast_striprawstring", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2030"}, {"caller_nid": "ast_toocomplex", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2037"}, {"caller_nid": "ast_checksemantics", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2222"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2243"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2248"}, {"caller_nid": "ast_checksemantics", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2251"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2263"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2266"}, {"caller_nid": "ast_checksemantics", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2268"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2279"}, {"caller_nid": "ast_checksemantics", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2280"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2300"}, {"caller_nid": "ast_checksemantics", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2301"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2302"}, {"caller_nid": "ast_checksemantics", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2303"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2304"}, {"caller_nid": "ast_checksemantics", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2315"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2326"}, {"caller_nid": "ast_checksemantics", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2326"}, {"caller_nid": "ast_checksemantics", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2332"}, {"caller_nid": "ast_checksemantics", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2344"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2358"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2360"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2362"}, {"caller_nid": "ast_checksemantics", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2364"}, {"caller_nid": "ast_checksemantics", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2377"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2406"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2406"}, {"caller_nid": "ast_checksemantics", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2415"}, {"caller_nid": "ast_checksemantics", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2415"}, {"caller_nid": "ast_checksemantics", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2415"}, {"caller_nid": "ast_checksemantics", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2433"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2433"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2446"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2449"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2450"}, {"caller_nid": "ast_checksemantics", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2464"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2466"}, {"caller_nid": "ast_checksemantics", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2488"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2489"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2489"}, {"caller_nid": "ast_checksemantics", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2504"}, {"caller_nid": "ast_checksemantics", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2514"}, {"caller_nid": "ast_checksemantics", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2524"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2533"}, {"caller_nid": "ast_checksemantics", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2547"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2561"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2561"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2570"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2570"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2579"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2579"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2596"}, {"caller_nid": "ast_checksemantics", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2605"}, {"caller_nid": "ast_checksemantics", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2619"}, {"caller_nid": "ast_checksemantics", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2626"}, {"caller_nid": "ast_checksemantics", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2634"}, {"caller_nid": "ast_checksemantics", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2634"}, {"caller_nid": "ast_checksemantics", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2643"}, {"caller_nid": "ast_checksemantics", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2643"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2662"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2662"}, {"caller_nid": "ast_checksemantics", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2670"}, {"caller_nid": "ast_checksemantics", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts", "source_location": "L2670"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "label": "ast.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "ast_containsanyplaceholder",
+      "label": "containsAnyPlaceholder()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L94"
+    },
+    {
+      "id": "ast_nodetypeid",
+      "label": "nodeTypeId()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L213"
+    },
+    {
+      "id": "ast_maskbracesinquotedcontexts",
+      "label": "maskBracesInQuotedContexts()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L331"
+    },
+    {
+      "id": "ast_parseforsecurity",
+      "label": "parseForSecurity()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L381"
+    },
+    {
+      "id": "ast_parseforsecurityfromast",
+      "label": "parseForSecurityFromAst()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L400"
+    },
+    {
+      "id": "ast_walkprogram",
+      "label": "walkProgram()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L462"
+    },
+    {
+      "id": "ast_collectcommands",
+      "label": "collectCommands()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L482"
+    },
+    {
+      "id": "ast_walktestexpr",
+      "label": "walkTestExpr()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L962"
+    },
+    {
+      "id": "ast_walkredirectedstatement",
+      "label": "walkRedirectedStatement()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1017"
+    },
+    {
+      "id": "ast_walkfileredirect",
+      "label": "walkFileRedirect()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1071"
+    },
+    {
+      "id": "ast_walkheredocredirect",
+      "label": "walkHeredocRedirect()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1143"
+    },
+    {
+      "id": "ast_walkherestringredirect",
+      "label": "walkHerestringRedirect()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1211"
+    },
+    {
+      "id": "ast_walkcommand",
+      "label": "walkCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1237"
+    },
+    {
+      "id": "ast_collectcommandsubstitution",
+      "label": "collectCommandSubstitution()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1374"
+    },
+    {
+      "id": "ast_walkargument",
+      "label": "walkArgument()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1399"
+    },
+    {
+      "id": "ast_walkstring",
+      "label": "walkString()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1508"
+    },
+    {
+      "id": "ast_walkarithmetic",
+      "label": "walkArithmetic()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1675"
+    },
+    {
+      "id": "ast_extractsafecatheredoc",
+      "label": "extractSafeCatHeredoc()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1721"
+    },
+    {
+      "id": "ast_walkvariableassignment",
+      "label": "walkVariableAssignment()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1777"
+    },
+    {
+      "id": "ast_resolvesimpleexpansion",
+      "label": "resolveSimpleExpansion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1937"
+    },
+    {
+      "id": "ast_applyvartoscope",
+      "label": "applyVarToScope()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2017"
+    },
+    {
+      "id": "ast_striprawstring",
+      "label": "stripRawString()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2029"
+    },
+    {
+      "id": "ast_toocomplex",
+      "label": "tooComplex()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2033"
+    },
+    {
+      "id": "ast_checksemantics",
+      "label": "checkSemantics()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2213"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_bashparser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_parser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_parser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_containsanyplaceholder",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_nodetypeid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L213",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_maskbracesinquotedcontexts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L331",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_parseforsecurity",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L381",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_parseforsecurityfromast",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L400",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_walkprogram",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L462",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_collectcommands",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L482",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_walktestexpr",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L962",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_walkredirectedstatement",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1017",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_walkfileredirect",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1071",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_walkheredocredirect",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1143",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_walkherestringredirect",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1211",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_walkcommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1237",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_collectcommandsubstitution",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1374",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_walkargument",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1399",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_walkstring",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1508",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_walkarithmetic",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1675",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_extractsafecatheredoc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1721",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_walkvariableassignment",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1777",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_resolvesimpleexpansion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1937",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_applyvartoscope",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2017",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_striprawstring",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2029",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_toocomplex",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2033",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_ast_ts",
+      "target": "ast_checksemantics",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2213",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_parseforsecurity",
+      "target": "ast_parseforsecurityfromast",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L391",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_parseforsecurityfromast",
+      "target": "ast_maskbracesinquotedcontexts",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L432",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_parseforsecurityfromast",
+      "target": "ast_walkprogram",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L459",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkprogram",
+      "target": "ast_collectcommands",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L473",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_collectcommands",
+      "target": "ast_walkcommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L490",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_collectcommands",
+      "target": "ast_walkredirectedstatement",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L497",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_collectcommands",
+      "target": "ast_walkargument",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L607",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_collectcommands",
+      "target": "ast_walkvariableassignment",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L659",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_collectcommands",
+      "target": "ast_applyvartoscope",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L662",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_collectcommands",
+      "target": "ast_toocomplex",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L671",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_collectcommands",
+      "target": "ast_collectcommandsubstitution",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L726",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_collectcommands",
+      "target": "ast_containsanyplaceholder",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L864",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_collectcommands",
+      "target": "ast_walktestexpr",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L913",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walktestexpr",
+      "target": "ast_walkargument",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1003",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkredirectedstatement",
+      "target": "ast_walkfileredirect",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1030",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkredirectedstatement",
+      "target": "ast_walkheredocredirect",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1034",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkredirectedstatement",
+      "target": "ast_toocomplex",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1046",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkredirectedstatement",
+      "target": "ast_collectcommands",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1058",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkfileredirect",
+      "target": "ast_toocomplex",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1091",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkfileredirect",
+      "target": "ast_striprawstring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1103",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkfileredirect",
+      "target": "ast_walkstring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1105",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkfileredirect",
+      "target": "ast_walkargument",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1112",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkheredocredirect",
+      "target": "ast_toocomplex",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1166",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkherestringredirect",
+      "target": "ast_walkargument",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1222",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkherestringredirect",
+      "target": "ast_toocomplex",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1227",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkcommand",
+      "target": "ast_walkvariableassignment",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1252",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkcommand",
+      "target": "ast_walkargument",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1262",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkcommand",
+      "target": "ast_resolvesimpleexpansion",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1293",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkcommand",
+      "target": "ast_walkfileredirect",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1299",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkcommand",
+      "target": "ast_walkherestringredirect",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1307",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkcommand",
+      "target": "ast_toocomplex",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1312",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_collectcommandsubstitution",
+      "target": "ast_collectcommands",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1389",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkargument",
+      "target": "ast_striprawstring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1445",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkargument",
+      "target": "ast_walkstring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1448",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkargument",
+      "target": "ast_walkarithmetic",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1469",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkargument",
+      "target": "ast_resolvesimpleexpansion",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1478",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkargument",
+      "target": "ast_toocomplex",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1489",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkstring",
+      "target": "ast_extractsafecatheredoc",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1569",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkstring",
+      "target": "ast_toocomplex",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1570",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkstring",
+      "target": "ast_collectcommandsubstitution",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1600",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkstring",
+      "target": "ast_resolvesimpleexpansion",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1608",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkstring",
+      "target": "ast_walkarithmetic",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1619",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkarithmetic",
+      "target": "ast_toocomplex",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1698",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_extractsafecatheredoc",
+      "target": "ast_walkheredocredirect",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1752",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkvariableassignment",
+      "target": "ast_collectcommandsubstitution",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1802",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkvariableassignment",
+      "target": "ast_resolvesimpleexpansion",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1812",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkvariableassignment",
+      "target": "ast_walkargument",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1818",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_walkvariableassignment",
+      "target": "ast_containsanyplaceholder",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1887",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_resolvesimpleexpansion",
+      "target": "ast_toocomplex",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1955",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_resolvesimpleexpansion",
+      "target": "ast_containsanyplaceholder",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1968",
+      "weight": 1.0
+    },
+    {
+      "source": "ast_applyvartoscope",
+      "target": "ast_containsanyplaceholder",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2025",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "ast_containsanyplaceholder",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "ast_containsanyplaceholder",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "ast_nodetypeid",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L216"
+    },
+    {
+      "caller_nid": "ast_maskbracesinquotedcontexts",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L334"
+    },
+    {
+      "caller_nid": "ast_maskbracesinquotedcontexts",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L344"
+    },
+    {
+      "caller_nid": "ast_maskbracesinquotedcontexts",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L350"
+    },
+    {
+      "caller_nid": "ast_maskbracesinquotedcontexts",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L354"
+    },
+    {
+      "caller_nid": "ast_maskbracesinquotedcontexts",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L360"
+    },
+    {
+      "caller_nid": "ast_maskbracesinquotedcontexts",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L365"
+    },
+    {
+      "caller_nid": "ast_maskbracesinquotedcontexts",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L370"
+    },
+    {
+      "caller_nid": "ast_parseforsecurity",
+      "callee": "parseCommandRaw",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L388"
+    },
+    {
+      "caller_nid": "ast_parseforsecurityfromast",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L408"
+    },
+    {
+      "caller_nid": "ast_parseforsecurityfromast",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L411"
+    },
+    {
+      "caller_nid": "ast_parseforsecurityfromast",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L414"
+    },
+    {
+      "caller_nid": "ast_parseforsecurityfromast",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L420"
+    },
+    {
+      "caller_nid": "ast_parseforsecurityfromast",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L426"
+    },
+    {
+      "caller_nid": "ast_parseforsecurityfromast",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L432"
+    },
+    {
+      "caller_nid": "ast_parseforsecurityfromast",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L439"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L492"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L504"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L547"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L596"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L627"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L647"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L655"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L663"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L668"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L674"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L753"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L846"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L848"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L848"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L861"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L872"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L916"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L931"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L934"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L938"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L943"
+    },
+    {
+      "caller_nid": "ast_collectcommands",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L950"
+    },
+    {
+      "caller_nid": "ast_walktestexpr",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L992"
+    },
+    {
+      "caller_nid": "ast_walktestexpr",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L999"
+    },
+    {
+      "caller_nid": "ast_walktestexpr",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1005"
+    },
+    {
+      "caller_nid": "ast_walkredirectedstatement",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1032"
+    },
+    {
+      "caller_nid": "ast_walkredirectedstatement",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1053"
+    },
+    {
+      "caller_nid": "ast_walkredirectedstatement",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1062"
+    },
+    {
+      "caller_nid": "ast_walkfileredirect",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1083"
+    },
+    {
+      "caller_nid": "ast_walkfileredirect",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1096"
+    },
+    {
+      "caller_nid": "ast_walkfileredirect",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1101"
+    },
+    {
+      "caller_nid": "ast_walkheredocredirect",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1172"
+    },
+    {
+      "caller_nid": "ast_walkheredocredirect",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1172"
+    },
+    {
+      "caller_nid": "ast_walkheredocredirect",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1173"
+    },
+    {
+      "caller_nid": "ast_walkheredocredirect",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1173"
+    },
+    {
+      "caller_nid": "ast_walkheredocredirect",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1174"
+    },
+    {
+      "caller_nid": "ast_walkherestringredirect",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1227"
+    },
+    {
+      "caller_nid": "ast_walkcommand",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1258"
+    },
+    {
+      "caller_nid": "ast_walkcommand",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1268"
+    },
+    {
+      "caller_nid": "ast_walkcommand",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1279"
+    },
+    {
+      "caller_nid": "ast_walkcommand",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1295"
+    },
+    {
+      "caller_nid": "ast_walkcommand",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1301"
+    },
+    {
+      "caller_nid": "ast_walkcommand",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1350"
+    },
+    {
+      "caller_nid": "ast_walkcommand",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1350"
+    },
+    {
+      "caller_nid": "ast_walkcommand",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1351"
+    },
+    {
+      "caller_nid": "ast_walkcommand",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1351"
+    },
+    {
+      "caller_nid": "ast_walkargument",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1418"
+    },
+    {
+      "caller_nid": "ast_walkargument",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1425"
+    },
+    {
+      "caller_nid": "ast_walkargument",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1451"
+    },
+    {
+      "caller_nid": "ast_walkstring",
+      "callee": "repeat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1535"
+    },
+    {
+      "caller_nid": "ast_walkstring",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1552"
+    },
+    {
+      "caller_nid": "ast_walkstring",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1584"
+    },
+    {
+      "caller_nid": "ast_walkstring",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1585"
+    },
+    {
+      "caller_nid": "ast_walkarithmetic",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1679"
+    },
+    {
+      "caller_nid": "ast_extractsafecatheredoc",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1742"
+    },
+    {
+      "caller_nid": "ast_extractsafecatheredoc",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1770"
+    },
+    {
+      "caller_nid": "ast_extractsafecatheredoc",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1773"
+    },
+    {
+      "caller_nid": "ast_walkvariableassignment",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1835"
+    },
+    {
+      "caller_nid": "ast_walkvariableassignment",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1895"
+    },
+    {
+      "caller_nid": "ast_walkvariableassignment",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1896"
+    },
+    {
+      "caller_nid": "ast_walkvariableassignment",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1914"
+    },
+    {
+      "caller_nid": "ast_resolvesimpleexpansion",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1966"
+    },
+    {
+      "caller_nid": "ast_resolvesimpleexpansion",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1991"
+    },
+    {
+      "caller_nid": "ast_resolvesimpleexpansion",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L1999"
+    },
+    {
+      "caller_nid": "ast_resolvesimpleexpansion",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2002"
+    },
+    {
+      "caller_nid": "ast_resolvesimpleexpansion",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2002"
+    },
+    {
+      "caller_nid": "ast_applyvartoscope",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2021"
+    },
+    {
+      "caller_nid": "ast_applyvartoscope",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2023"
+    },
+    {
+      "caller_nid": "ast_striprawstring",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2030"
+    },
+    {
+      "caller_nid": "ast_toocomplex",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2037"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2222"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2243"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2248"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2251"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2263"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2266"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2268"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2279"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2280"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2300"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2301"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2302"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2303"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2304"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2315"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2326"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2326"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2332"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2344"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2358"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2360"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2362"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2364"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2377"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2406"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2406"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2415"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2415"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2415"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2433"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2433"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2446"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2449"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2450"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2464"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2466"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2488"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2489"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2489"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2504"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2514"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2524"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2533"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2547"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2561"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2561"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2570"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2570"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2579"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2579"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2596"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2605"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2619"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2626"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2634"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2634"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2643"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2643"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2662"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2662"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2670"
+    },
+    {
+      "caller_nid": "ast_checksemantics",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ast.ts",
+      "source_location": "L2670"
+    }
+  ]
+}

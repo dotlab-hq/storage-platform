@@ -1,1 +1,334 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts", "label": "headlessProfiler.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L1"}, {"id": "headlessprofiler_clearheadlessmarks", "label": "clearHeadlessMarks()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L48"}, {"id": "headlessprofiler_headlessprofilerstartturn", "label": "headlessProfilerStartTurn()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L62"}, {"id": "headlessprofiler_headlessprofilercheckpoint", "label": "headlessProfilerCheckpoint()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L83"}, {"id": "headlessprofiler_logheadlessprofilerturn", "label": "logHeadlessProfilerTurn()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L103"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_profilerbase_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts", "target": "headlessprofiler_clearheadlessmarks", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L48", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts", "target": "headlessprofiler_headlessprofilerstartturn", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L62", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts", "target": "headlessprofiler_headlessprofilercheckpoint", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L83", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts", "target": "headlessprofiler_logheadlessprofilerturn", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L103", "weight": 1.0}, {"source": "headlessprofiler_headlessprofilerstartturn", "target": "headlessprofiler_clearheadlessmarks", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L69", "weight": 1.0}], "raw_calls": [{"caller_nid": "headlessprofiler_clearheadlessmarks", "callee": "getPerformance", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L49"}, {"caller_nid": "headlessprofiler_clearheadlessmarks", "callee": "getEntriesByType", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L50"}, {"caller_nid": "headlessprofiler_clearheadlessmarks", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L52"}, {"caller_nid": "headlessprofiler_clearheadlessmarks", "callee": "clearMarks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L53"}, {"caller_nid": "headlessprofiler_headlessprofilerstartturn", "callee": "getIsNonInteractiveSession", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L64"}, {"caller_nid": "headlessprofiler_headlessprofilerstartturn", "callee": "getPerformance", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L71"}, {"caller_nid": "headlessprofiler_headlessprofilerstartturn", "callee": "mark", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L72"}, {"caller_nid": "headlessprofiler_headlessprofilerstartturn", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L75"}, {"caller_nid": "headlessprofiler_headlessprofilercheckpoint", "callee": "getIsNonInteractiveSession", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L85"}, {"caller_nid": "headlessprofiler_headlessprofilercheckpoint", "callee": "getPerformance", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L89"}, {"caller_nid": "headlessprofiler_headlessprofilercheckpoint", "callee": "mark", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L90"}, {"caller_nid": "headlessprofiler_headlessprofilercheckpoint", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L93"}, {"caller_nid": "headlessprofiler_headlessprofilercheckpoint", "callee": "toFixed", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L94"}, {"caller_nid": "headlessprofiler_headlessprofilercheckpoint", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L94"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "getIsNonInteractiveSession", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L105"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "getPerformance", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L109"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "getEntriesByType", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L110"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L113"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L119"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L120"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L123"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L133"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L135"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L139"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L141"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L145"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L147"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L151"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L153"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L166"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L174"}, {"caller_nid": "headlessprofiler_logheadlessprofilerturn", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts", "source_location": "L175"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts",
+      "label": "headlessProfiler.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "headlessprofiler_clearheadlessmarks",
+      "label": "clearHeadlessMarks()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L48"
+    },
+    {
+      "id": "headlessprofiler_headlessprofilerstartturn",
+      "label": "headlessProfilerStartTurn()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L62"
+    },
+    {
+      "id": "headlessprofiler_headlessprofilercheckpoint",
+      "label": "headlessProfilerCheckpoint()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L83"
+    },
+    {
+      "id": "headlessprofiler_logheadlessprofilerturn",
+      "label": "logHeadlessProfilerTurn()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L103"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_profilerbase_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts",
+      "target": "headlessprofiler_clearheadlessmarks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts",
+      "target": "headlessprofiler_headlessprofilerstartturn",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts",
+      "target": "headlessprofiler_headlessprofilercheckpoint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_headlessprofiler_ts",
+      "target": "headlessprofiler_logheadlessprofilerturn",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "headlessprofiler_headlessprofilerstartturn",
+      "target": "headlessprofiler_clearheadlessmarks",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L69",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "headlessprofiler_clearheadlessmarks",
+      "callee": "getPerformance",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "headlessprofiler_clearheadlessmarks",
+      "callee": "getEntriesByType",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "headlessprofiler_clearheadlessmarks",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "headlessprofiler_clearheadlessmarks",
+      "callee": "clearMarks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "headlessprofiler_headlessprofilerstartturn",
+      "callee": "getIsNonInteractiveSession",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "headlessprofiler_headlessprofilerstartturn",
+      "callee": "getPerformance",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "headlessprofiler_headlessprofilerstartturn",
+      "callee": "mark",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "headlessprofiler_headlessprofilerstartturn",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "headlessprofiler_headlessprofilercheckpoint",
+      "callee": "getIsNonInteractiveSession",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "headlessprofiler_headlessprofilercheckpoint",
+      "callee": "getPerformance",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "headlessprofiler_headlessprofilercheckpoint",
+      "callee": "mark",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "headlessprofiler_headlessprofilercheckpoint",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "headlessprofiler_headlessprofilercheckpoint",
+      "callee": "toFixed",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L94"
+    },
+    {
+      "caller_nid": "headlessprofiler_headlessprofilercheckpoint",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L94"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "getIsNonInteractiveSession",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "getPerformance",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "getEntriesByType",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L123"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L153"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L166"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L174"
+    },
+    {
+      "caller_nid": "headlessprofiler_logheadlessprofilerturn",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\headlessProfiler.ts",
+      "source_location": "L175"
+    }
+  ]
+}

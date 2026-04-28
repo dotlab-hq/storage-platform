@@ -1,1 +1,169 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_imagevalidation_ts", "label": "imageValidation.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L1"}, {"id": "imagevalidation_imagesizeerror", "label": "ImageSizeError", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L16"}, {"id": "imagevalidation_imagesizeerror_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L17"}, {"id": "imagevalidation_isbase64imageblock", "label": "isBase64ImageBlock()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L40"}, {"id": "imagevalidation_validateimagesforapi", "label": "validateImagesForAPI()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L65"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_imagevalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_apilimits_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_imagevalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_imagevalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_format_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_imagevalidation_ts", "target": "imagevalidation_imagesizeerror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L16", "weight": 1.0}, {"source": "imagevalidation_imagesizeerror", "target": "imagevalidation_imagesizeerror_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_imagevalidation_ts", "target": "imagevalidation_isbase64imageblock", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L40", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_imagevalidation_ts", "target": "imagevalidation_validateimagesforapi", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L65", "weight": 1.0}, {"source": "imagevalidation_validateimagesforapi", "target": "imagevalidation_isbase64imageblock", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L85", "weight": 1.0}], "raw_calls": [{"caller_nid": "imagevalidation_imagesizeerror_constructor", "callee": "formatFileSize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L22"}, {"caller_nid": "imagevalidation_imagesizeerror_constructor", "callee": "formatFileSize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L22"}, {"caller_nid": "imagevalidation_imagesizeerror_constructor", "callee": "formatFileSize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L26"}, {"caller_nid": "imagevalidation_imagesizeerror_constructor", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L27"}, {"caller_nid": "imagevalidation_imagesizeerror_constructor", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L27"}, {"caller_nid": "imagevalidation_imagesizeerror_constructor", "callee": "super", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L32"}, {"caller_nid": "imagevalidation_validateimagesforapi", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L82"}, {"caller_nid": "imagevalidation_validateimagesforapi", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L91"}, {"caller_nid": "imagevalidation_validateimagesforapi", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts", "source_location": "L95"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_imagevalidation_ts",
+      "label": "imageValidation.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "imagevalidation_imagesizeerror",
+      "label": "ImageSizeError",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "imagevalidation_imagesizeerror_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L17"
+    },
+    {
+      "id": "imagevalidation_isbase64imageblock",
+      "label": "isBase64ImageBlock()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L40"
+    },
+    {
+      "id": "imagevalidation_validateimagesforapi",
+      "label": "validateImagesForAPI()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L65"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_imagevalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_apilimits_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_imagevalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_imagevalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_format_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_imagevalidation_ts",
+      "target": "imagevalidation_imagesizeerror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "imagevalidation_imagesizeerror",
+      "target": "imagevalidation_imagesizeerror_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_imagevalidation_ts",
+      "target": "imagevalidation_isbase64imageblock",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_imagevalidation_ts",
+      "target": "imagevalidation_validateimagesforapi",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "imagevalidation_validateimagesforapi",
+      "target": "imagevalidation_isbase64imageblock",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L85",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "imagevalidation_imagesizeerror_constructor",
+      "callee": "formatFileSize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "imagevalidation_imagesizeerror_constructor",
+      "callee": "formatFileSize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "imagevalidation_imagesizeerror_constructor",
+      "callee": "formatFileSize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "imagevalidation_imagesizeerror_constructor",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "imagevalidation_imagesizeerror_constructor",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "imagevalidation_imagesizeerror_constructor",
+      "callee": "super",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "imagevalidation_validateimagesforapi",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "imagevalidation_validateimagesforapi",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L91"
+    },
+    {
+      "caller_nid": "imagevalidation_validateimagesforapi",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\imageValidation.ts",
+      "source_location": "L95"
+    }
+  ]
+}

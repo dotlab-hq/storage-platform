@@ -1,1 +1,149 @@
-{"nodes": [{"id": "f_storage_platform_src_components_storage_upload_widget_tsx", "label": "upload-widget.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L1"}, {"id": "upload_widget_handleclose", "label": "handleClose()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L101"}, {"id": "upload_widget_handleclearcompleted", "label": "handleClearCompleted()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L105"}], "edges": [{"source": "f_storage_platform_src_components_storage_upload_widget_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_upload_widget_tsx", "target": "upload_store", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_upload_widget_tsx", "target": "upload_utils", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_upload_widget_tsx", "target": "auth_client", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_upload_widget_tsx", "target": "sonner", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_upload_widget_tsx", "target": "uploading_card", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_upload_widget_tsx", "target": "lucide_react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_upload_widget_tsx", "target": "button", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_upload_widget_tsx", "target": "utils", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_upload_widget_tsx", "target": "tooltip", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_upload_widget_tsx", "target": "upload_widget_handleclose", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L101", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_upload_widget_tsx", "target": "upload_widget_handleclearcompleted", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L105", "weight": 1.0}], "raw_calls": [{"caller_nid": "upload_widget_handleclose", "callee": "setIsVisible", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L102"}, {"caller_nid": "upload_widget_handleclearcompleted", "callee": "forEach", "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx", "source_location": "L106"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_components_storage_upload_widget_tsx",
+      "label": "upload-widget.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "upload_widget_handleclose",
+      "label": "handleClose()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L101"
+    },
+    {
+      "id": "upload_widget_handleclearcompleted",
+      "label": "handleClearCompleted()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L105"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_components_storage_upload_widget_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_upload_widget_tsx",
+      "target": "upload_store",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_upload_widget_tsx",
+      "target": "upload_utils",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_upload_widget_tsx",
+      "target": "auth_client",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_upload_widget_tsx",
+      "target": "sonner",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_upload_widget_tsx",
+      "target": "uploading_card",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_upload_widget_tsx",
+      "target": "lucide_react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_upload_widget_tsx",
+      "target": "button",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_upload_widget_tsx",
+      "target": "utils",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_upload_widget_tsx",
+      "target": "tooltip",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_upload_widget_tsx",
+      "target": "upload_widget_handleclose",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_upload_widget_tsx",
+      "target": "upload_widget_handleclearcompleted",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L105",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "upload_widget_handleclose",
+      "callee": "setIsVisible",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "upload_widget_handleclearcompleted",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\upload-widget.tsx",
+      "source_location": "L106"
+    }
+  ]
+}

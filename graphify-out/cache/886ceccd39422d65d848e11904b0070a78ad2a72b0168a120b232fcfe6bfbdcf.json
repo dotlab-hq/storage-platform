@@ -1,1 +1,276 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx", "label": "object-settings.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L1"}, {"id": "object_settings_message", "label": "message()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L38"}, {"id": "object_settings_resolveownedbucket", "label": "resolveOwnedBucket()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L63"}, {"id": "object_settings_resolveownedobject", "label": "resolveOwnedObject()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L87"}], "edges": [{"source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx", "target": "react_router", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx", "target": "zod", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx", "target": "s3_controls", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx", "target": "storage", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx", "target": "s3_gateway", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx", "target": "server_auth", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx", "target": "upload_key_utils", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx", "target": "s3_versioning", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx", "target": "object_settings_message", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L38", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx", "target": "object_settings_resolveownedbucket", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L63", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx", "target": "object_settings_resolveownedobject", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L87", "weight": 1.0}, {"source": "object_settings_resolveownedobject", "target": "object_settings_resolveownedbucket", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L92", "weight": 1.0}], "raw_calls": [{"caller_nid": "object_settings_resolveownedbucket", "callee": "limit", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L67"}, {"caller_nid": "object_settings_resolveownedbucket", "callee": "where", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L67"}, {"caller_nid": "object_settings_resolveownedbucket", "callee": "from", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L67"}, {"caller_nid": "object_settings_resolveownedbucket", "callee": "select", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L67"}, {"caller_nid": "object_settings_resolveownedbucket", "callee": "and", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L74"}, {"caller_nid": "object_settings_resolveownedbucket", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L75"}, {"caller_nid": "object_settings_resolveownedbucket", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L76"}, {"caller_nid": "object_settings_resolveownedbucket", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L77"}, {"caller_nid": "object_settings_resolveownedbucket", "callee": "at", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L82"}, {"caller_nid": "object_settings_resolveownedobject", "callee": "buildUpstreamObjectKey", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L95"}, {"caller_nid": "object_settings_resolveownedobject", "callee": "limit", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L101"}, {"caller_nid": "object_settings_resolveownedobject", "callee": "where", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L101"}, {"caller_nid": "object_settings_resolveownedobject", "callee": "from", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L101"}, {"caller_nid": "object_settings_resolveownedobject", "callee": "select", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L101"}, {"caller_nid": "object_settings_resolveownedobject", "callee": "and", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L113"}, {"caller_nid": "object_settings_resolveownedobject", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L114"}, {"caller_nid": "object_settings_resolveownedobject", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L115"}, {"caller_nid": "object_settings_resolveownedobject", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L116"}, {"caller_nid": "object_settings_resolveownedobject", "callee": "at", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx", "source_location": "L121"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx",
+      "label": "object-settings.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "object_settings_message",
+      "label": "message()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L38"
+    },
+    {
+      "id": "object_settings_resolveownedbucket",
+      "label": "resolveOwnedBucket()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L63"
+    },
+    {
+      "id": "object_settings_resolveownedobject",
+      "label": "resolveOwnedObject()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L87"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx",
+      "target": "react_router",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx",
+      "target": "zod",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx",
+      "target": "s3_controls",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx",
+      "target": "storage",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx",
+      "target": "s3_gateway",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx",
+      "target": "server_auth",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx",
+      "target": "upload_key_utils",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx",
+      "target": "s3_versioning",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx",
+      "target": "object_settings_message",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx",
+      "target": "object_settings_resolveownedbucket",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_object_settings_tsx",
+      "target": "object_settings_resolveownedobject",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "object_settings_resolveownedobject",
+      "target": "object_settings_resolveownedbucket",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L92",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "object_settings_resolveownedbucket",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedbucket",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedbucket",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedbucket",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedbucket",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedbucket",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedbucket",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedbucket",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedbucket",
+      "callee": "at",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedobject",
+      "callee": "buildUpstreamObjectKey",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedobject",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedobject",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedobject",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedobject",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedobject",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedobject",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedobject",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedobject",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "object_settings_resolveownedobject",
+      "callee": "at",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\object-settings.tsx",
+      "source_location": "L121"
+    }
+  ]
+}

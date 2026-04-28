@@ -1,1 +1,133 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts", "label": "usage.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L1"}, {"id": "usage_fetchutilization", "label": "fetchUtilization()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L33"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts", "target": "axios", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_http_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_useragent_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts", "target": "f_storage_platform_claude_code_source_main_src_services_oauth_client_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts", "target": "usage_fetchutilization", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L33", "weight": 1.0}], "raw_calls": [{"caller_nid": "usage_fetchutilization", "callee": "isClaudeAISubscriber", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L34"}, {"caller_nid": "usage_fetchutilization", "callee": "hasProfileScope", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L34"}, {"caller_nid": "usage_fetchutilization", "callee": "getClaudeAIOAuthTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L39"}, {"caller_nid": "usage_fetchutilization", "callee": "isOAuthTokenExpired", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L40"}, {"caller_nid": "usage_fetchutilization", "callee": "getAuthHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L44"}, {"caller_nid": "usage_fetchutilization", "callee": "getClaudeCodeUserAgent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L51"}, {"caller_nid": "usage_fetchutilization", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L55"}, {"caller_nid": "usage_fetchutilization", "callee": "await axios.get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts", "source_location": "L57"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts",
+      "label": "usage.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "usage_fetchutilization",
+      "label": "fetchUtilization()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L33"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_http_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_useragent_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_oauth_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_usage_ts",
+      "target": "usage_fetchutilization",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "usage_fetchutilization",
+      "callee": "isClaudeAISubscriber",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "usage_fetchutilization",
+      "callee": "hasProfileScope",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "usage_fetchutilization",
+      "callee": "getClaudeAIOAuthTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "usage_fetchutilization",
+      "callee": "isOAuthTokenExpired",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "usage_fetchutilization",
+      "callee": "getAuthHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "usage_fetchutilization",
+      "callee": "getClaudeCodeUserAgent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "usage_fetchutilization",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "usage_fetchutilization",
+      "callee": "await axios.get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\usage.ts",
+      "source_location": "L57"
+    }
+  ]
+}

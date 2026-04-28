@@ -1,1 +1,118 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_constants_systempromptsections_ts", "label": "systemPromptSections.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts", "source_location": "L1"}, {"id": "systempromptsections_systempromptsection", "label": "systemPromptSection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts", "source_location": "L20"}, {"id": "systempromptsections_dangerous_uncachedsystempromptsection", "label": "DANGEROUS_uncachedSystemPromptSection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts", "source_location": "L32"}, {"id": "systempromptsections_resolvesystempromptsections", "label": "resolveSystemPromptSections()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts", "source_location": "L43"}, {"id": "systempromptsections_clearsystempromptsections", "label": "clearSystemPromptSections()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts", "source_location": "L65"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_constants_systempromptsections_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_systempromptsections_ts", "target": "systempromptsections_systempromptsection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_systempromptsections_ts", "target": "systempromptsections_dangerous_uncachedsystempromptsection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_systempromptsections_ts", "target": "systempromptsections_resolvesystempromptsections", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_systempromptsections_ts", "target": "systempromptsections_clearsystempromptsections", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts", "source_location": "L65", "weight": 1.0}], "raw_calls": [{"caller_nid": "systempromptsections_resolvesystempromptsections", "callee": "getSystemPromptSectionCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts", "source_location": "L46"}, {"caller_nid": "systempromptsections_resolvesystempromptsections", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts", "source_location": "L48"}, {"caller_nid": "systempromptsections_resolvesystempromptsections", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts", "source_location": "L49"}, {"caller_nid": "systempromptsections_clearsystempromptsections", "callee": "clearSystemPromptSectionState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts", "source_location": "L66"}, {"caller_nid": "systempromptsections_clearsystempromptsections", "callee": "clearBetaHeaderLatches", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts", "source_location": "L67"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_constants_systempromptsections_ts",
+      "label": "systemPromptSections.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "systempromptsections_systempromptsection",
+      "label": "systemPromptSection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts",
+      "source_location": "L20"
+    },
+    {
+      "id": "systempromptsections_dangerous_uncachedsystempromptsection",
+      "label": "DANGEROUS_uncachedSystemPromptSection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "systempromptsections_resolvesystempromptsections",
+      "label": "resolveSystemPromptSections()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "systempromptsections_clearsystempromptsections",
+      "label": "clearSystemPromptSections()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts",
+      "source_location": "L65"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_systempromptsections_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_systempromptsections_ts",
+      "target": "systempromptsections_systempromptsection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_systempromptsections_ts",
+      "target": "systempromptsections_dangerous_uncachedsystempromptsection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_systempromptsections_ts",
+      "target": "systempromptsections_resolvesystempromptsections",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_systempromptsections_ts",
+      "target": "systempromptsections_clearsystempromptsections",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts",
+      "source_location": "L65",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "systempromptsections_resolvesystempromptsections",
+      "callee": "getSystemPromptSectionCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "systempromptsections_resolvesystempromptsections",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "systempromptsections_resolvesystempromptsections",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "systempromptsections_clearsystempromptsections",
+      "callee": "clearSystemPromptSectionState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "systempromptsections_clearsystempromptsections",
+      "callee": "clearBetaHeaderLatches",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\systemPromptSections.ts",
+      "source_location": "L67"
+    }
+  ]
+}

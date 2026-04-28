@@ -1,1 +1,46 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_authz_ts", "label": "authz.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\authz.ts", "source_location": "L1"}, {"id": "authz_normalizeuserrole", "label": "normalizeUserRole()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\authz.ts", "source_location": "L11"}, {"id": "authz_isadminrole", "label": "isAdminRole()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\authz.ts", "source_location": "L15"}], "edges": [{"source": "f_storage_platform_src_lib_authz_ts", "target": "authz_normalizeuserrole", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\authz.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_src_lib_authz_ts", "target": "authz_isadminrole", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\authz.ts", "source_location": "L15", "weight": 1.0}], "raw_calls": []}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_authz_ts",
+      "label": "authz.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\authz.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "authz_normalizeuserrole",
+      "label": "normalizeUserRole()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\authz.ts",
+      "source_location": "L11"
+    },
+    {
+      "id": "authz_isadminrole",
+      "label": "isAdminRole()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\authz.ts",
+      "source_location": "L15"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_authz_ts",
+      "target": "authz_normalizeuserrole",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\authz.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_authz_ts",
+      "target": "authz_isadminrole",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\authz.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": []
+}

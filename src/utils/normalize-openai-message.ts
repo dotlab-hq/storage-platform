@@ -28,7 +28,10 @@ function isRecord(value: unknown): value is NormalizableRecord {
   return !!value && typeof value === 'object'
 }
 
-function readString(record: NormalizableRecord, key: string): string | undefined {
+function readString(
+  record: NormalizableRecord,
+  key: string,
+): string | undefined {
   const value = record[key]
   return typeof value === 'string' ? value : undefined
 }
@@ -120,7 +123,8 @@ export function normalizeOpenAiContent(content: unknown): {
   }
 
   return {
-    content: parts.length === 1 && parts[0]?.type === 'text' ? parts[0].text : parts,
+    content:
+      parts.length === 1 && parts[0]?.type === 'text' ? parts[0].text : parts,
     text: textChunks.join(''),
     reasoning: reasoningChunks.join('\n'),
   }
@@ -136,7 +140,9 @@ function normalizeToolCalls(
     if (!Array.isArray(candidate)) continue
     for (const value of candidate) {
       if (!isRecord(value)) continue
-      const nestedFunction = isRecord(value.function) ? value.function : undefined
+      const nestedFunction = isRecord(value.function)
+        ? value.function
+        : undefined
       const name = readString(nestedFunction ?? value, 'name')
       if (!name) continue
       const rawArgs =
@@ -180,8 +186,12 @@ function normalizeOne(message: unknown): OpenAiCompatibleMessage {
   }
 }
 
-export function normalizeOpenAiMessage(message: unknown): OpenAiCompatibleMessage
-export function normalizeOpenAiMessage(message: unknown[]): OpenAiCompatibleMessage[]
+export function normalizeOpenAiMessage(
+  message: unknown,
+): OpenAiCompatibleMessage
+export function normalizeOpenAiMessage(
+  message: unknown[],
+): OpenAiCompatibleMessage[]
 export function normalizeOpenAiMessage(
   message: unknown | unknown[],
 ): OpenAiCompatibleMessage | OpenAiCompatibleMessage[] {

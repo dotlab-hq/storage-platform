@@ -1,1 +1,166 @@
-{"nodes": [{"id": "f_storage_platform_src_components_storage_new_folder_dialog_tsx", "label": "new-folder-dialog.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L1"}, {"id": "new_folder_dialog_newfolderdialog", "label": "NewFolderDialog()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L22"}], "edges": [{"source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx", "target": "react_hotkeys", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx", "target": "button", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx", "target": "activity", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx", "target": "input", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx", "target": "keyboard_shortcut", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx", "target": "dialog", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx", "target": "new_folder_dialog_newfolderdialog", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L22", "weight": 1.0}], "raw_calls": [{"caller_nid": "new_folder_dialog_newfolderdialog", "callee": "useRef", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L27"}, {"caller_nid": "new_folder_dialog_newfolderdialog", "callee": "useState", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L28"}, {"caller_nid": "new_folder_dialog_newfolderdialog", "callee": "useOptimistic", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L30"}, {"caller_nid": "new_folder_dialog_newfolderdialog", "callee": "useState", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L31"}, {"caller_nid": "new_folder_dialog_newfolderdialog", "callee": "useState", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L32"}, {"caller_nid": "new_folder_dialog_newfolderdialog", "callee": "useRef", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L33"}, {"caller_nid": "new_folder_dialog_newfolderdialog", "callee": "useLayoutEffect", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L35"}, {"caller_nid": "new_folder_dialog_newfolderdialog", "callee": "useEffectEvent", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L44"}, {"caller_nid": "new_folder_dialog_newfolderdialog", "callee": "useEffectEvent", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L68"}, {"caller_nid": "new_folder_dialog_newfolderdialog", "callee": "useHotkey", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L70"}, {"caller_nid": "new_folder_dialog_newfolderdialog", "callee": "useHotkey", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L78"}, {"caller_nid": "new_folder_dialog_newfolderdialog", "callee": "(\n    <Dialog open={open} onOpenChange={onOpenChange}>\n      <DialogContent className=\"sm:max-w-md\">\n        <form ref={formRef} onSubmit={handleSubmit}>\n          <DialogHeader>\n            <DialogTitle>New Folder</DialogTitle>\n            <DialogDescription>\n              Create <span className=\"font-medium\">{optimisticFolderName}</span>{' '}\n              in the current location.\n            </DialogDescription>\n          </DialogHeader>\n\n          <div className=\"py-4\">\n            <Input\n              ref={inputRef}\n              value={folderName}\n              onChange={(e) => {\n                setFolderName(e.target.value)\n                setOptimisticFolderName(e.target.value)\n              }}\n              placeholder=\"Folder name\"\n              autoFocus\n              disabled={isCreating}\n            />\n          </div>\n\n          <DialogFooter>\n            <Activity when={Boolean(error)}>\n              <p className=\"text-destructive mr-auto text-sm\">{error}</p>\n            </Activity>\n            <Button\n              type=\"button\"\n              variant=\"outline\"\n              onClick={()", "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx", "source_location": "L80"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_components_storage_new_folder_dialog_tsx",
+      "label": "new-folder-dialog.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "new_folder_dialog_newfolderdialog",
+      "label": "NewFolderDialog()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L22"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx",
+      "target": "react_hotkeys",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx",
+      "target": "button",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx",
+      "target": "activity",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx",
+      "target": "input",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx",
+      "target": "keyboard_shortcut",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx",
+      "target": "dialog",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_new_folder_dialog_tsx",
+      "target": "new_folder_dialog_newfolderdialog",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L22",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "new_folder_dialog_newfolderdialog",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "new_folder_dialog_newfolderdialog",
+      "callee": "useState",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "new_folder_dialog_newfolderdialog",
+      "callee": "useOptimistic",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L30"
+    },
+    {
+      "caller_nid": "new_folder_dialog_newfolderdialog",
+      "callee": "useState",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L31"
+    },
+    {
+      "caller_nid": "new_folder_dialog_newfolderdialog",
+      "callee": "useState",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "new_folder_dialog_newfolderdialog",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "new_folder_dialog_newfolderdialog",
+      "callee": "useLayoutEffect",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "new_folder_dialog_newfolderdialog",
+      "callee": "useEffectEvent",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "new_folder_dialog_newfolderdialog",
+      "callee": "useEffectEvent",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "new_folder_dialog_newfolderdialog",
+      "callee": "useHotkey",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "new_folder_dialog_newfolderdialog",
+      "callee": "useHotkey",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "new_folder_dialog_newfolderdialog",
+      "callee": "(\n    <Dialog open={open} onOpenChange={onOpenChange}>\n      <DialogContent className=\"sm:max-w-md\">\n        <form ref={formRef} onSubmit={handleSubmit}>\n          <DialogHeader>\n            <DialogTitle>New Folder</DialogTitle>\n            <DialogDescription>\n              Create <span className=\"font-medium\">{optimisticFolderName}</span>{' '}\n              in the current location.\n            </DialogDescription>\n          </DialogHeader>\n\n          <div className=\"py-4\">\n            <Input\n              ref={inputRef}\n              value={folderName}\n              onChange={(e) => {\n                setFolderName(e.target.value)\n                setOptimisticFolderName(e.target.value)\n              }}\n              placeholder=\"Folder name\"\n              autoFocus\n              disabled={isCreating}\n            />\n          </div>\n\n          <DialogFooter>\n            <Activity when={Boolean(error)}>\n              <p className=\"text-destructive mr-auto text-sm\">{error}</p>\n            </Activity>\n            <Button\n              type=\"button\"\n              variant=\"outline\"\n              onClick={()",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\new-folder-dialog.tsx",
+      "source_location": "L80"
+    }
+  ]
+}

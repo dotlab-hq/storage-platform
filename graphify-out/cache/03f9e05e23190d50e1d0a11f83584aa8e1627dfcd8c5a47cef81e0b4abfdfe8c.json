@@ -1,1 +1,668 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "label": "memdir.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L1"}, {"id": "memdir_truncateentrypointcontent", "label": "truncateEntrypointContent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L57"}, {"id": "memdir_ensurememorydirexists", "label": "ensureMemoryDirExists()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L129"}, {"id": "memdir_logmemorydircounts", "label": "logMemoryDirCounts()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L153"}, {"id": "memdir_buildmemorylines", "label": "buildMemoryLines()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L199"}, {"id": "memdir_buildmemoryprompt", "label": "buildMemoryPrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L272"}, {"id": "memdir_buildassistantdailylogprompt", "label": "buildAssistantDailyLogPrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L327"}, {"id": "memdir_buildsearchingpastcontextsection", "label": "buildSearchingPastContextSection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L375"}, {"id": "memdir_loadmemoryprompt", "label": "loadMemoryPrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L419"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "f_storage_platform_claude_code_source_main_src_memdir_paths_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_greptool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_repltool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_embeddedtools_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_format_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstorage_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "f_storage_platform_claude_code_source_main_src_memdir_memorytypes_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "memdir_truncateentrypointcontent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L57", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "memdir_ensurememorydirexists", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L129", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "memdir_logmemorydircounts", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L153", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "memdir_buildmemorylines", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L199", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "memdir_buildmemoryprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L272", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "memdir_buildassistantdailylogprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L327", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "memdir_buildsearchingpastcontextsection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L375", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts", "target": "memdir_loadmemoryprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L419", "weight": 1.0}, {"source": "memdir_buildmemorylines", "target": "memdir_buildsearchingpastcontextsection", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L263", "weight": 1.0}, {"source": "memdir_buildmemoryprompt", "target": "memdir_buildmemorylines", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L293", "weight": 1.0}, {"source": "memdir_buildmemoryprompt", "target": "memdir_truncateentrypointcontent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L296", "weight": 1.0}, {"source": "memdir_buildmemoryprompt", "target": "memdir_logmemorydircounts", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L298", "weight": 1.0}, {"source": "memdir_buildassistantdailylogprompt", "target": "memdir_buildsearchingpastcontextsection", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L366", "weight": 1.0}, {"source": "memdir_loadmemoryprompt", "target": "memdir_logmemorydircounts", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L433", "weight": 1.0}, {"source": "memdir_loadmemoryprompt", "target": "memdir_buildassistantdailylogprompt", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L437", "weight": 1.0}, {"source": "memdir_loadmemoryprompt", "target": "memdir_ensurememorydirexists", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L459", "weight": 1.0}, {"source": "memdir_loadmemoryprompt", "target": "memdir_buildmemorylines", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L484", "weight": 1.0}], "raw_calls": [{"caller_nid": "memdir_truncateentrypointcontent", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L58"}, {"caller_nid": "memdir_truncateentrypointcontent", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L59"}, {"caller_nid": "memdir_truncateentrypointcontent", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L79"}, {"caller_nid": "memdir_truncateentrypointcontent", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L79"}, {"caller_nid": "memdir_truncateentrypointcontent", "callee": "lastIndexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L83"}, {"caller_nid": "memdir_truncateentrypointcontent", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L84"}, {"caller_nid": "memdir_truncateentrypointcontent", "callee": "formatFileSize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L89"}, {"caller_nid": "memdir_truncateentrypointcontent", "callee": "formatFileSize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L89"}, {"caller_nid": "memdir_truncateentrypointcontent", "callee": "formatFileSize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L92"}, {"caller_nid": "memdir_ensurememorydirexists", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L130"}, {"caller_nid": "memdir_ensurememorydirexists", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L132"}, {"caller_nid": "memdir_ensurememorydirexists", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L142"}, {"caller_nid": "memdir_ensurememorydirexists", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L143"}, {"caller_nid": "memdir_logmemorydircounts", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L162"}, {"caller_nid": "memdir_logmemorydircounts", "callee": "then", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L163"}, {"caller_nid": "memdir_logmemorydircounts", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L163"}, {"caller_nid": "memdir_buildmemorylines", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L263"}, {"caller_nid": "memdir_buildmemoryprompt", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L278"}, {"caller_nid": "memdir_buildmemoryprompt", "callee": "readFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L288"}, {"caller_nid": "memdir_buildmemoryprompt", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L295"}, {"caller_nid": "memdir_buildmemoryprompt", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L306"}, {"caller_nid": "memdir_buildmemoryprompt", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L308"}, {"caller_nid": "memdir_buildmemoryprompt", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L315"}, {"caller_nid": "memdir_buildassistantdailylogprompt", "callee": "getAutoMemPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L328"}, {"caller_nid": "memdir_buildassistantdailylogprompt", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L335"}, {"caller_nid": "memdir_buildassistantdailylogprompt", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L369"}, {"caller_nid": "memdir_buildsearchingpastcontextsection", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L376"}, {"caller_nid": "memdir_buildsearchingpastcontextsection", "callee": "getProjectDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L379"}, {"caller_nid": "memdir_buildsearchingpastcontextsection", "callee": "getOriginalCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L379"}, {"caller_nid": "memdir_buildsearchingpastcontextsection", "callee": "hasEmbeddedSearchTools", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L385"}, {"caller_nid": "memdir_buildsearchingpastcontextsection", "callee": "isReplModeEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L385"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "isAutoMemoryEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L420"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L422"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L432"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "getKairosActive", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L432"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "getAutoMemPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L433"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L444"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L448"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "isTeamMemoryEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L449"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "getAutoMemPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L450"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "getTeamMemPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L451"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "buildCombinedMemoryPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L468"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "getAutoMemPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L476"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L484"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L492"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L493"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L497"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "getInitialSettings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L498"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L503"}, {"caller_nid": "memdir_loadmemoryprompt", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts", "source_location": "L504"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "label": "memdir.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "memdir_truncateentrypointcontent",
+      "label": "truncateEntrypointContent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L57"
+    },
+    {
+      "id": "memdir_ensurememorydirexists",
+      "label": "ensureMemoryDirExists()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L129"
+    },
+    {
+      "id": "memdir_logmemorydircounts",
+      "label": "logMemoryDirCounts()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L153"
+    },
+    {
+      "id": "memdir_buildmemorylines",
+      "label": "buildMemoryLines()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L199"
+    },
+    {
+      "id": "memdir_buildmemoryprompt",
+      "label": "buildMemoryPrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L272"
+    },
+    {
+      "id": "memdir_buildassistantdailylogprompt",
+      "label": "buildAssistantDailyLogPrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L327"
+    },
+    {
+      "id": "memdir_buildsearchingpastcontextsection",
+      "label": "buildSearchingPastContextSection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L375"
+    },
+    {
+      "id": "memdir_loadmemoryprompt",
+      "label": "loadMemoryPrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L419"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_memdir_paths_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_greptool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_repltool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_embeddedtools_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_format_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstorage_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_memdir_memorytypes_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "memdir_truncateentrypointcontent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "memdir_ensurememorydirexists",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "memdir_logmemorydircounts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "memdir_buildmemorylines",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L199",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "memdir_buildmemoryprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L272",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "memdir_buildassistantdailylogprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L327",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "memdir_buildsearchingpastcontextsection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L375",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_memdir_memdir_ts",
+      "target": "memdir_loadmemoryprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "memdir_buildmemorylines",
+      "target": "memdir_buildsearchingpastcontextsection",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L263",
+      "weight": 1.0
+    },
+    {
+      "source": "memdir_buildmemoryprompt",
+      "target": "memdir_buildmemorylines",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L293",
+      "weight": 1.0
+    },
+    {
+      "source": "memdir_buildmemoryprompt",
+      "target": "memdir_truncateentrypointcontent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L296",
+      "weight": 1.0
+    },
+    {
+      "source": "memdir_buildmemoryprompt",
+      "target": "memdir_logmemorydircounts",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L298",
+      "weight": 1.0
+    },
+    {
+      "source": "memdir_buildassistantdailylogprompt",
+      "target": "memdir_buildsearchingpastcontextsection",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L366",
+      "weight": 1.0
+    },
+    {
+      "source": "memdir_loadmemoryprompt",
+      "target": "memdir_logmemorydircounts",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L433",
+      "weight": 1.0
+    },
+    {
+      "source": "memdir_loadmemoryprompt",
+      "target": "memdir_buildassistantdailylogprompt",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L437",
+      "weight": 1.0
+    },
+    {
+      "source": "memdir_loadmemoryprompt",
+      "target": "memdir_ensurememorydirexists",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L459",
+      "weight": 1.0
+    },
+    {
+      "source": "memdir_loadmemoryprompt",
+      "target": "memdir_buildmemorylines",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L484",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "memdir_truncateentrypointcontent",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "memdir_truncateentrypointcontent",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "memdir_truncateentrypointcontent",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "memdir_truncateentrypointcontent",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "memdir_truncateentrypointcontent",
+      "callee": "lastIndexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "memdir_truncateentrypointcontent",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "memdir_truncateentrypointcontent",
+      "callee": "formatFileSize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "memdir_truncateentrypointcontent",
+      "callee": "formatFileSize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "memdir_truncateentrypointcontent",
+      "callee": "formatFileSize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "memdir_ensurememorydirexists",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "memdir_ensurememorydirexists",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "memdir_ensurememorydirexists",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "memdir_ensurememorydirexists",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "memdir_logmemorydircounts",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "memdir_logmemorydircounts",
+      "callee": "then",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L163"
+    },
+    {
+      "caller_nid": "memdir_logmemorydircounts",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L163"
+    },
+    {
+      "caller_nid": "memdir_buildmemorylines",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L263"
+    },
+    {
+      "caller_nid": "memdir_buildmemoryprompt",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L278"
+    },
+    {
+      "caller_nid": "memdir_buildmemoryprompt",
+      "callee": "readFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "memdir_buildmemoryprompt",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L295"
+    },
+    {
+      "caller_nid": "memdir_buildmemoryprompt",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L306"
+    },
+    {
+      "caller_nid": "memdir_buildmemoryprompt",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L308"
+    },
+    {
+      "caller_nid": "memdir_buildmemoryprompt",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L315"
+    },
+    {
+      "caller_nid": "memdir_buildassistantdailylogprompt",
+      "callee": "getAutoMemPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L328"
+    },
+    {
+      "caller_nid": "memdir_buildassistantdailylogprompt",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L335"
+    },
+    {
+      "caller_nid": "memdir_buildassistantdailylogprompt",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L369"
+    },
+    {
+      "caller_nid": "memdir_buildsearchingpastcontextsection",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L376"
+    },
+    {
+      "caller_nid": "memdir_buildsearchingpastcontextsection",
+      "callee": "getProjectDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L379"
+    },
+    {
+      "caller_nid": "memdir_buildsearchingpastcontextsection",
+      "callee": "getOriginalCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L379"
+    },
+    {
+      "caller_nid": "memdir_buildsearchingpastcontextsection",
+      "callee": "hasEmbeddedSearchTools",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L385"
+    },
+    {
+      "caller_nid": "memdir_buildsearchingpastcontextsection",
+      "callee": "isReplModeEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L385"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "isAutoMemoryEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L420"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L422"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L432"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "getKairosActive",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L432"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "getAutoMemPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L433"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L444"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L448"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "isTeamMemoryEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L449"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "getAutoMemPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L450"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "getTeamMemPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L451"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "buildCombinedMemoryPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L468"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "getAutoMemPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L476"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L484"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L492"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L493"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L497"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "getInitialSettings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L498"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L503"
+    },
+    {
+      "caller_nid": "memdir_loadmemoryprompt",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\memdir\\memdir.ts",
+      "source_location": "L504"
+    }
+  ]
+}

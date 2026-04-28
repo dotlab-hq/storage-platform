@@ -1,1 +1,1007 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "label": "utils.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L1"}, {"id": "utils_filtertoolsbyserver", "label": "filterToolsByServer()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L39"}, {"id": "utils_commandbelongstoserver", "label": "commandBelongsToServer()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L52"}, {"id": "utils_filtercommandsbyserver", "label": "filterCommandsByServer()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L70"}, {"id": "utils_filtermcppromptsbyserver", "label": "filterMcpPromptsByServer()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L85"}, {"id": "utils_filterresourcesbyserver", "label": "filterResourcesByServer()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L102"}, {"id": "utils_excludetoolsbyserver", "label": "excludeToolsByServer()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L115"}, {"id": "utils_excludecommandsbyserver", "label": "excludeCommandsByServer()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L129"}, {"id": "utils_excluderesourcesbyserver", "label": "excludeResourcesByServer()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L142"}, {"id": "utils_hashmcpconfig", "label": "hashMcpConfig()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L157"}, {"id": "utils_excludestalepluginclients", "label": "excludeStalePluginClients()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L185"}, {"id": "utils_istoolfrommcpserver", "label": "isToolFromMcpServer()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L232"}, {"id": "utils_ismcptool", "label": "isMcpTool()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L245"}, {"id": "utils_ismcpcommand", "label": "isMcpCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L254"}, {"id": "utils_describemcpconfigfilepath", "label": "describeMcpConfigFilePath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L263"}, {"id": "utils_getscopelabel", "label": "getScopeLabel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L282"}, {"id": "utils_ensureconfigscope", "label": "ensureConfigScope()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L301"}, {"id": "utils_ensuretransport", "label": "ensureTransport()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L313"}, {"id": "utils_parseheaders", "label": "parseHeaders()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L325"}, {"id": "utils_getprojectmcpserverstatus", "label": "getProjectMcpServerStatus()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L351"}, {"id": "utils_getmcpserverscopefromtoolname", "label": "getMcpServerScopeFromToolName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L413"}, {"id": "utils_isstdioconfig", "label": "isStdioConfig()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L439"}, {"id": "utils_issseconfig", "label": "isSSEConfig()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L445"}, {"id": "utils_ishttpconfig", "label": "isHTTPConfig()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L449"}, {"id": "utils_iswebsocketconfig", "label": "isWebSocketConfig()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L453"}, {"id": "utils_extractagentmcpservers", "label": "extractAgentMcpServers()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L466"}, {"id": "utils_getloggingsafemcpbaseurl", "label": "getLoggingSafeMcpBaseUrl()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L561"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_commands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_components_mcp_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_loadagentsdir_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_env_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_mcpstringutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_normalization_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_filtertoolsbyserver", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_commandbelongstoserver", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L52", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_filtercommandsbyserver", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L70", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_filtermcppromptsbyserver", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L85", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_filterresourcesbyserver", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L102", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_excludetoolsbyserver", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L115", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_excludecommandsbyserver", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L129", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_excluderesourcesbyserver", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L142", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_hashmcpconfig", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L157", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_excludestalepluginclients", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L185", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_istoolfrommcpserver", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L232", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_ismcptool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L245", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_ismcpcommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L254", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_describemcpconfigfilepath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L263", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_getscopelabel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L282", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_ensureconfigscope", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L301", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_ensuretransport", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L313", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_parseheaders", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L325", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_getprojectmcpserverstatus", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L351", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_getmcpserverscopefromtoolname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L413", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_isstdioconfig", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L439", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_issseconfig", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L445", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_ishttpconfig", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L449", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_iswebsocketconfig", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L453", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_extractagentmcpservers", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L466", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts", "target": "utils_getloggingsafemcpbaseurl", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L561", "weight": 1.0}, {"source": "utils_excludestalepluginclients", "target": "utils_excludetoolsbyserver", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L211", "weight": 1.0}, {"source": "utils_excludestalepluginclients", "target": "utils_excludecommandsbyserver", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L212", "weight": 1.0}, {"source": "utils_excludestalepluginclients", "target": "utils_excluderesourcesbyserver", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L213", "weight": 1.0}, {"source": "utils_getmcpserverscopefromtoolname", "target": "utils_ismcptool", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L416", "weight": 1.0}, {"source": "utils_extractagentmcpservers", "target": "utils_isstdioconfig", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L515", "weight": 1.0}, {"source": "utils_extractagentmcpservers", "target": "utils_issseconfig", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L523", "weight": 1.0}, {"source": "utils_extractagentmcpservers", "target": "utils_ishttpconfig", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L531", "weight": 1.0}, {"source": "utils_extractagentmcpservers", "target": "utils_iswebsocketconfig", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L539", "weight": 1.0}], "raw_calls": [{"caller_nid": "utils_filtertoolsbyserver", "callee": "normalizeNameForMCP", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L40"}, {"caller_nid": "utils_filtertoolsbyserver", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L41"}, {"caller_nid": "utils_commandbelongstoserver", "callee": "normalizeNameForMCP", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L56"}, {"caller_nid": "utils_commandbelongstoserver", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L60"}, {"caller_nid": "utils_commandbelongstoserver", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L60"}, {"caller_nid": "utils_filtercommandsbyserver", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L74"}, {"caller_nid": "utils_filtermcppromptsbyserver", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L89"}, {"caller_nid": "utils_filterresourcesbyserver", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L106"}, {"caller_nid": "utils_excludetoolsbyserver", "callee": "normalizeNameForMCP", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L119"}, {"caller_nid": "utils_excludetoolsbyserver", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L120"}, {"caller_nid": "utils_excludecommandsbyserver", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L133"}, {"caller_nid": "utils_hashmcpconfig", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L159"}, {"caller_nid": "utils_hashmcpconfig", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L168"}, {"caller_nid": "utils_hashmcpconfig", "callee": "digest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L168"}, {"caller_nid": "utils_hashmcpconfig", "callee": "update", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L168"}, {"caller_nid": "utils_hashmcpconfig", "callee": "createHash", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L168"}, {"caller_nid": "utils_excludestalepluginclients", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L200"}, {"caller_nid": "utils_excludestalepluginclients", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L215"}, {"caller_nid": "utils_excludestalepluginclients", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L218"}, {"caller_nid": "utils_istoolfrommcpserver", "callee": "mcpInfoFromString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L236"}, {"caller_nid": "utils_ismcptool", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L246"}, {"caller_nid": "utils_ismcpcommand", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L255"}, {"caller_nid": "utils_describemcpconfigfilepath", "callee": "getGlobalClaudeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L266"}, {"caller_nid": "utils_describemcpconfigfilepath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L268"}, {"caller_nid": "utils_describemcpconfigfilepath", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L268"}, {"caller_nid": "utils_describemcpconfigfilepath", "callee": "getGlobalClaudeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L270"}, {"caller_nid": "utils_describemcpconfigfilepath", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L270"}, {"caller_nid": "utils_describemcpconfigfilepath", "callee": "getEnterpriseMcpFilePath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L274"}, {"caller_nid": "utils_ensureconfigscope", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L304"}, {"caller_nid": "utils_ensureconfigscope", "callee": "ConfigScopeSchema", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L304"}, {"caller_nid": "utils_ensureconfigscope", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L306"}, {"caller_nid": "utils_ensureconfigscope", "callee": "ConfigScopeSchema", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L306"}, {"caller_nid": "utils_parseheaders", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L329"}, {"caller_nid": "utils_parseheaders", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L336"}, {"caller_nid": "utils_parseheaders", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L336"}, {"caller_nid": "utils_parseheaders", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L337"}, {"caller_nid": "utils_parseheaders", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L337"}, {"caller_nid": "utils_getprojectmcpserverstatus", "callee": "getSettings_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L354"}, {"caller_nid": "utils_getprojectmcpserverstatus", "callee": "normalizeNameForMCP", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L355"}, {"caller_nid": "utils_getprojectmcpserverstatus", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L360"}, {"caller_nid": "utils_getprojectmcpserverstatus", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L368"}, {"caller_nid": "utils_getprojectmcpserverstatus", "callee": "hasSkipDangerousModePermissionPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L387"}, {"caller_nid": "utils_getprojectmcpserverstatus", "callee": "isSettingSourceEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L388"}, {"caller_nid": "utils_getprojectmcpserverstatus", "callee": "getIsNonInteractiveSession", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L399"}, {"caller_nid": "utils_getprojectmcpserverstatus", "callee": "isSettingSourceEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L400"}, {"caller_nid": "utils_getmcpserverscopefromtoolname", "callee": "mcpInfoFromString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L421"}, {"caller_nid": "utils_getmcpserverscopefromtoolname", "callee": "getMcpConfigByName", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L427"}, {"caller_nid": "utils_getmcpserverscopefromtoolname", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L431"}, {"caller_nid": "utils_extractagentmcpservers", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L486"}, {"caller_nid": "utils_extractagentmcpservers", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L490"}, {"caller_nid": "utils_extractagentmcpservers", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L494"}, {"caller_nid": "utils_extractagentmcpservers", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L495"}, {"caller_nid": "utils_extractagentmcpservers", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L499"}, {"caller_nid": "utils_extractagentmcpservers", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L516"}, {"caller_nid": "utils_extractagentmcpservers", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L524"}, {"caller_nid": "utils_extractagentmcpservers", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L532"}, {"caller_nid": "utils_extractagentmcpservers", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L540"}, {"caller_nid": "utils_extractagentmcpservers", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L552"}, {"caller_nid": "utils_getloggingsafemcpbaseurl", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L571"}, {"caller_nid": "utils_getloggingsafemcpbaseurl", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts", "source_location": "L571"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "label": "utils.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "utils_filtertoolsbyserver",
+      "label": "filterToolsByServer()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L39"
+    },
+    {
+      "id": "utils_commandbelongstoserver",
+      "label": "commandBelongsToServer()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L52"
+    },
+    {
+      "id": "utils_filtercommandsbyserver",
+      "label": "filterCommandsByServer()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L70"
+    },
+    {
+      "id": "utils_filtermcppromptsbyserver",
+      "label": "filterMcpPromptsByServer()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L85"
+    },
+    {
+      "id": "utils_filterresourcesbyserver",
+      "label": "filterResourcesByServer()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L102"
+    },
+    {
+      "id": "utils_excludetoolsbyserver",
+      "label": "excludeToolsByServer()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L115"
+    },
+    {
+      "id": "utils_excludecommandsbyserver",
+      "label": "excludeCommandsByServer()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L129"
+    },
+    {
+      "id": "utils_excluderesourcesbyserver",
+      "label": "excludeResourcesByServer()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L142"
+    },
+    {
+      "id": "utils_hashmcpconfig",
+      "label": "hashMcpConfig()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L157"
+    },
+    {
+      "id": "utils_excludestalepluginclients",
+      "label": "excludeStalePluginClients()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L185"
+    },
+    {
+      "id": "utils_istoolfrommcpserver",
+      "label": "isToolFromMcpServer()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L232"
+    },
+    {
+      "id": "utils_ismcptool",
+      "label": "isMcpTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L245"
+    },
+    {
+      "id": "utils_ismcpcommand",
+      "label": "isMcpCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L254"
+    },
+    {
+      "id": "utils_describemcpconfigfilepath",
+      "label": "describeMcpConfigFilePath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L263"
+    },
+    {
+      "id": "utils_getscopelabel",
+      "label": "getScopeLabel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L282"
+    },
+    {
+      "id": "utils_ensureconfigscope",
+      "label": "ensureConfigScope()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L301"
+    },
+    {
+      "id": "utils_ensuretransport",
+      "label": "ensureTransport()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L313"
+    },
+    {
+      "id": "utils_parseheaders",
+      "label": "parseHeaders()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L325"
+    },
+    {
+      "id": "utils_getprojectmcpserverstatus",
+      "label": "getProjectMcpServerStatus()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L351"
+    },
+    {
+      "id": "utils_getmcpserverscopefromtoolname",
+      "label": "getMcpServerScopeFromToolName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L413"
+    },
+    {
+      "id": "utils_isstdioconfig",
+      "label": "isStdioConfig()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L439"
+    },
+    {
+      "id": "utils_issseconfig",
+      "label": "isSSEConfig()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L445"
+    },
+    {
+      "id": "utils_ishttpconfig",
+      "label": "isHTTPConfig()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L449"
+    },
+    {
+      "id": "utils_iswebsocketconfig",
+      "label": "isWebSocketConfig()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L453"
+    },
+    {
+      "id": "utils_extractagentmcpservers",
+      "label": "extractAgentMcpServers()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L466"
+    },
+    {
+      "id": "utils_getloggingsafemcpbaseurl",
+      "label": "getLoggingSafeMcpBaseUrl()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L561"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_commands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_components_mcp_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_loadagentsdir_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_env_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_mcpstringutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_normalization_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_filtertoolsbyserver",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_commandbelongstoserver",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_filtercommandsbyserver",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_filtermcppromptsbyserver",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_filterresourcesbyserver",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_excludetoolsbyserver",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_excludecommandsbyserver",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_excluderesourcesbyserver",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L142",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_hashmcpconfig",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L157",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_excludestalepluginclients",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L185",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_istoolfrommcpserver",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L232",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_ismcptool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L245",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_ismcpcommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L254",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_describemcpconfigfilepath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L263",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_getscopelabel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L282",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_ensureconfigscope",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L301",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_ensuretransport",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L313",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_parseheaders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L325",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_getprojectmcpserverstatus",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L351",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_getmcpserverscopefromtoolname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L413",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_isstdioconfig",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L439",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_issseconfig",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L445",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_ishttpconfig",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L449",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_iswebsocketconfig",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L453",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_extractagentmcpservers",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L466",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_utils_ts",
+      "target": "utils_getloggingsafemcpbaseurl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L561",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_excludestalepluginclients",
+      "target": "utils_excludetoolsbyserver",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L211",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_excludestalepluginclients",
+      "target": "utils_excludecommandsbyserver",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L212",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_excludestalepluginclients",
+      "target": "utils_excluderesourcesbyserver",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L213",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_getmcpserverscopefromtoolname",
+      "target": "utils_ismcptool",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L416",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_extractagentmcpservers",
+      "target": "utils_isstdioconfig",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L515",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_extractagentmcpservers",
+      "target": "utils_issseconfig",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L523",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_extractagentmcpservers",
+      "target": "utils_ishttpconfig",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L531",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_extractagentmcpservers",
+      "target": "utils_iswebsocketconfig",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L539",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "utils_filtertoolsbyserver",
+      "callee": "normalizeNameForMCP",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "utils_filtertoolsbyserver",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "utils_commandbelongstoserver",
+      "callee": "normalizeNameForMCP",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "utils_commandbelongstoserver",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "utils_commandbelongstoserver",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "utils_filtercommandsbyserver",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "utils_filtermcppromptsbyserver",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "utils_filterresourcesbyserver",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L106"
+    },
+    {
+      "caller_nid": "utils_excludetoolsbyserver",
+      "callee": "normalizeNameForMCP",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "utils_excludetoolsbyserver",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "utils_excludecommandsbyserver",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "utils_hashmcpconfig",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "utils_hashmcpconfig",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "utils_hashmcpconfig",
+      "callee": "digest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "utils_hashmcpconfig",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "utils_hashmcpconfig",
+      "callee": "createHash",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "utils_excludestalepluginclients",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "utils_excludestalepluginclients",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L215"
+    },
+    {
+      "caller_nid": "utils_excludestalepluginclients",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "utils_istoolfrommcpserver",
+      "callee": "mcpInfoFromString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L236"
+    },
+    {
+      "caller_nid": "utils_ismcptool",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L246"
+    },
+    {
+      "caller_nid": "utils_ismcpcommand",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L255"
+    },
+    {
+      "caller_nid": "utils_describemcpconfigfilepath",
+      "callee": "getGlobalClaudeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L266"
+    },
+    {
+      "caller_nid": "utils_describemcpconfigfilepath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L268"
+    },
+    {
+      "caller_nid": "utils_describemcpconfigfilepath",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L268"
+    },
+    {
+      "caller_nid": "utils_describemcpconfigfilepath",
+      "callee": "getGlobalClaudeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L270"
+    },
+    {
+      "caller_nid": "utils_describemcpconfigfilepath",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L270"
+    },
+    {
+      "caller_nid": "utils_describemcpconfigfilepath",
+      "callee": "getEnterpriseMcpFilePath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L274"
+    },
+    {
+      "caller_nid": "utils_ensureconfigscope",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L304"
+    },
+    {
+      "caller_nid": "utils_ensureconfigscope",
+      "callee": "ConfigScopeSchema",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L304"
+    },
+    {
+      "caller_nid": "utils_ensureconfigscope",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L306"
+    },
+    {
+      "caller_nid": "utils_ensureconfigscope",
+      "callee": "ConfigScopeSchema",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L306"
+    },
+    {
+      "caller_nid": "utils_parseheaders",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L329"
+    },
+    {
+      "caller_nid": "utils_parseheaders",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L336"
+    },
+    {
+      "caller_nid": "utils_parseheaders",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L336"
+    },
+    {
+      "caller_nid": "utils_parseheaders",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L337"
+    },
+    {
+      "caller_nid": "utils_parseheaders",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L337"
+    },
+    {
+      "caller_nid": "utils_getprojectmcpserverstatus",
+      "callee": "getSettings_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L354"
+    },
+    {
+      "caller_nid": "utils_getprojectmcpserverstatus",
+      "callee": "normalizeNameForMCP",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L355"
+    },
+    {
+      "caller_nid": "utils_getprojectmcpserverstatus",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L360"
+    },
+    {
+      "caller_nid": "utils_getprojectmcpserverstatus",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L368"
+    },
+    {
+      "caller_nid": "utils_getprojectmcpserverstatus",
+      "callee": "hasSkipDangerousModePermissionPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L387"
+    },
+    {
+      "caller_nid": "utils_getprojectmcpserverstatus",
+      "callee": "isSettingSourceEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L388"
+    },
+    {
+      "caller_nid": "utils_getprojectmcpserverstatus",
+      "callee": "getIsNonInteractiveSession",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L399"
+    },
+    {
+      "caller_nid": "utils_getprojectmcpserverstatus",
+      "callee": "isSettingSourceEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L400"
+    },
+    {
+      "caller_nid": "utils_getmcpserverscopefromtoolname",
+      "callee": "mcpInfoFromString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L421"
+    },
+    {
+      "caller_nid": "utils_getmcpserverscopefromtoolname",
+      "callee": "getMcpConfigByName",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L427"
+    },
+    {
+      "caller_nid": "utils_getmcpserverscopefromtoolname",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L431"
+    },
+    {
+      "caller_nid": "utils_extractagentmcpservers",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L486"
+    },
+    {
+      "caller_nid": "utils_extractagentmcpservers",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L490"
+    },
+    {
+      "caller_nid": "utils_extractagentmcpservers",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L494"
+    },
+    {
+      "caller_nid": "utils_extractagentmcpservers",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L495"
+    },
+    {
+      "caller_nid": "utils_extractagentmcpservers",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L499"
+    },
+    {
+      "caller_nid": "utils_extractagentmcpservers",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L516"
+    },
+    {
+      "caller_nid": "utils_extractagentmcpservers",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L524"
+    },
+    {
+      "caller_nid": "utils_extractagentmcpservers",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L532"
+    },
+    {
+      "caller_nid": "utils_extractagentmcpservers",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L540"
+    },
+    {
+      "caller_nid": "utils_extractagentmcpservers",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L552"
+    },
+    {
+      "caller_nid": "utils_getloggingsafemcpbaseurl",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L571"
+    },
+    {
+      "caller_nid": "utils_getloggingsafemcpbaseurl",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\utils.ts",
+      "source_location": "L571"
+    }
+  ]
+}

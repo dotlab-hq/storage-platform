@@ -1,1 +1,134 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts", "label": "bridgeDebug.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L1"}, {"id": "bridgedebug_registerbridgedebughandle", "label": "registerBridgeDebugHandle()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L57"}, {"id": "bridgedebug_clearbridgedebughandle", "label": "clearBridgeDebugHandle()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L61"}, {"id": "bridgedebug_getbridgedebughandle", "label": "getBridgeDebugHandle()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L66"}, {"id": "bridgedebug_injectbridgefault", "label": "injectBridgeFault()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L70"}, {"id": "bridgedebug_wrapapiforfaultinjection", "label": "wrapApiForFaultInjection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L84"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts", "target": "f_storage_platform_claude_code_source_main_src_bridge_bridgeapi_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts", "target": "f_storage_platform_claude_code_source_main_src_bridge_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts", "target": "bridgedebug_registerbridgedebughandle", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L57", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts", "target": "bridgedebug_clearbridgedebughandle", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L61", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts", "target": "bridgedebug_getbridgedebughandle", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L66", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts", "target": "bridgedebug_injectbridgefault", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L70", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts", "target": "bridgedebug_wrapapiforfaultinjection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L84", "weight": 1.0}], "raw_calls": [{"caller_nid": "bridgedebug_injectbridgefault", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L71"}, {"caller_nid": "bridgedebug_injectbridgefault", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts", "source_location": "L72"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts",
+      "label": "bridgeDebug.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "bridgedebug_registerbridgedebughandle",
+      "label": "registerBridgeDebugHandle()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L57"
+    },
+    {
+      "id": "bridgedebug_clearbridgedebughandle",
+      "label": "clearBridgeDebugHandle()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L61"
+    },
+    {
+      "id": "bridgedebug_getbridgedebughandle",
+      "label": "getBridgeDebugHandle()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L66"
+    },
+    {
+      "id": "bridgedebug_injectbridgefault",
+      "label": "injectBridgeFault()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L70"
+    },
+    {
+      "id": "bridgedebug_wrapapiforfaultinjection",
+      "label": "wrapApiForFaultInjection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L84"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bridge_bridgeapi_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bridge_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts",
+      "target": "bridgedebug_registerbridgedebughandle",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts",
+      "target": "bridgedebug_clearbridgedebughandle",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts",
+      "target": "bridgedebug_getbridgedebughandle",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts",
+      "target": "bridgedebug_injectbridgefault",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts",
+      "target": "bridgedebug_wrapapiforfaultinjection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L84",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "bridgedebug_injectbridgefault",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "bridgedebug_injectbridgefault",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeDebug.ts",
+      "source_location": "L72"
+    }
+  ]
+}

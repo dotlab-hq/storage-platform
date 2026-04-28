@@ -1,1 +1,539 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "label": "completions.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L1"}, {"id": "completions_options", "label": "OPTIONS()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L30"}, {"id": "completions_post", "label": "POST()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L42"}], "edges": [{"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "server_auth", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "chat", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "converters", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "tool_registry", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "tool_registry_scoped", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "f_storage_platform_src_routes_api_v1_schemas", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "chat_llm_streamer", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "f_storage_platform_src_routes_api_v1_chat_non_streaming_handler", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "f_storage_platform_src_routes_api_v1_chat_deep_agent_stream_handler", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "f_storage_platform_src_routes_api_v1_chat_orchestrated_stream_handler", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "f_storage_platform_src_routes_api_v1_chat_auth_helpers", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "f_storage_platform_src_routes_api_v1_chat_external_tools", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "react_router", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "react_start", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "completions_options", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_v1_chat_completions_ts", "target": "completions_post", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L42", "weight": 1.0}], "raw_calls": [{"caller_nid": "completions_options", "callee": "json", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L31"}, {"caller_nid": "completions_post", "callee": "error", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L47"}, {"caller_nid": "completions_post", "callee": "json", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L48"}, {"caller_nid": "completions_post", "callee": "json", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L61"}, {"caller_nid": "completions_post", "callee": "log", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L67"}, {"caller_nid": "completions_post", "callee": "slice", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L69"}, {"caller_nid": "completions_post", "callee": "stringify", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L69"}, {"caller_nid": "completions_post", "callee": "log", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L71"}, {"caller_nid": "completions_post", "callee": "isArray", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L74"}, {"caller_nid": "completions_post", "callee": "parse", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L76"}, {"caller_nid": "completions_post", "callee": "catch", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L78"}, {"caller_nid": "completions_post", "callee": "getAuthenticatedUser", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L78"}, {"caller_nid": "completions_post", "callee": "catch", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L79"}, {"caller_nid": "completions_post", "callee": "getUserFromApiKey", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L79"}, {"caller_nid": "completions_post", "callee": "json", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L84"}, {"caller_nid": "completions_post", "callee": "getFilteredTools", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L102"}, {"caller_nid": "completions_post", "callee": "getToolsByName", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L104"}, {"caller_nid": "completions_post", "callee": "map", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L104"}, {"caller_nid": "completions_post", "callee": "getAllTools", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L105"}, {"caller_nid": "completions_post", "callee": "createExternalPassthroughTools", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L109"}, {"caller_nid": "completions_post", "callee": "map", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L111"}, {"caller_nid": "completions_post", "callee": "push", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L114"}, {"caller_nid": "completions_post", "callee": "log", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L117"}, {"caller_nid": "completions_post", "callee": "map", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L123"}, {"caller_nid": "completions_post", "callee": "limit", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L132"}, {"caller_nid": "completions_post", "callee": "where", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L132"}, {"caller_nid": "completions_post", "callee": "from", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L132"}, {"caller_nid": "completions_post", "callee": "select", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L132"}, {"caller_nid": "completions_post", "callee": "and", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L136"}, {"caller_nid": "completions_post", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L137"}, {"caller_nid": "completions_post", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L138"}, {"caller_nid": "completions_post", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L139"}, {"caller_nid": "completions_post", "callee": "json", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L145"}, {"caller_nid": "completions_post", "callee": "returning", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L159"}, {"caller_nid": "completions_post", "callee": "values", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L159"}, {"caller_nid": "completions_post", "callee": "insert", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L159"}, {"caller_nid": "completions_post", "callee": "openAIMessagesToLangChain", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L175"}, {"caller_nid": "completions_post", "callee": "returning", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L181"}, {"caller_nid": "completions_post", "callee": "values", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L181"}, {"caller_nid": "completions_post", "callee": "insert", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L181"}, {"caller_nid": "completions_post", "callee": "stringify", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L190"}, {"caller_nid": "completions_post", "callee": "map", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L200"}, {"caller_nid": "completions_post", "callee": "getToolsByName", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L201"}, {"caller_nid": "completions_post", "callee": "createExternalPassthroughTools", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L202"}, {"caller_nid": "completions_post", "callee": "map", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L204"}, {"caller_nid": "completions_post", "callee": "getAllTools", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L210"}, {"caller_nid": "completions_post", "callee": "log", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L211"}, {"caller_nid": "completions_post", "callee": "log", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L214"}, {"caller_nid": "completions_post", "callee": "map", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L218"}, {"caller_nid": "completions_post", "callee": "isArray", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L224"}, {"caller_nid": "completions_post", "callee": "get", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L245"}, {"caller_nid": "completions_post", "callee": "handleDeepAgentStream", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L252"}, {"caller_nid": "completions_post", "callee": "handleOrchestratedAgentStream", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L262"}, {"caller_nid": "completions_post", "callee": "warn", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L274"}, {"caller_nid": "completions_post", "callee": "handleNonStreamingResponse", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L278"}, {"caller_nid": "completions_post", "callee": "String", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L289"}, {"caller_nid": "completions_post", "callee": "error", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L292"}, {"caller_nid": "completions_post", "callee": "json", "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts", "source_location": "L301"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "label": "completions.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "completions_options",
+      "label": "OPTIONS()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L30"
+    },
+    {
+      "id": "completions_post",
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L42"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "server_auth",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "chat",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "converters",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "tool_registry",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "tool_registry_scoped",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "f_storage_platform_src_routes_api_v1_schemas",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "chat_llm_streamer",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "f_storage_platform_src_routes_api_v1_chat_non_streaming_handler",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "f_storage_platform_src_routes_api_v1_chat_deep_agent_stream_handler",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "f_storage_platform_src_routes_api_v1_chat_orchestrated_stream_handler",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "f_storage_platform_src_routes_api_v1_chat_auth_helpers",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "f_storage_platform_src_routes_api_v1_chat_external_tools",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "react_router",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "react_start",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "completions_options",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_v1_chat_completions_ts",
+      "target": "completions_post",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "completions_options",
+      "callee": "json",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L31"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "json",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "json",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "stringify",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "getAuthenticatedUser",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "getUserFromApiKey",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "json",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "getFilteredTools",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "getToolsByName",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "getAllTools",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "createExternalPassthroughTools",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L123"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L136"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "json",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "returning",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "insert",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "openAIMessagesToLangChain",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "returning",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L181"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L181"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "insert",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L181"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "stringify",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L190"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "getToolsByName",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L201"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "createExternalPassthroughTools",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L204"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "getAllTools",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L210"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L211"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L214"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L224"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L245"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "handleDeepAgentStream",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L252"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "handleOrchestratedAgentStream",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L262"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "warn",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L274"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "handleNonStreamingResponse",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L278"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L289"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L292"
+    },
+    {
+      "caller_nid": "completions_post",
+      "callee": "json",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\v1\\chat\\completions.ts",
+      "source_location": "L301"
+    }
+  ]
+}

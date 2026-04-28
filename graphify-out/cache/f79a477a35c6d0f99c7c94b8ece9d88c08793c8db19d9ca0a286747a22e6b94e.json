@@ -1,1 +1,364 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts", "label": "detectRepository.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L1"}, {"id": "detectrepository_clearrepositorycaches", "label": "clearRepositoryCaches()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L13"}, {"id": "detectrepository_detectcurrentrepository", "label": "detectCurrentRepository()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L17"}, {"id": "detectrepository_detectcurrentrepositorywithhost", "label": "detectCurrentRepositoryWithHost()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L32"}, {"id": "detectrepository_getcachedrepository", "label": "getCachedRepository()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L68"}, {"id": "detectrepository_parsegitremote", "label": "parseGitRemote()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L87"}, {"id": "detectrepository_parsegithubrepository", "label": "parseGitHubRepository()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L132"}, {"id": "detectrepository_lookslikerealhostname", "label": "looksLikeRealHostname()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L170"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts", "target": "detectrepository_clearrepositorycaches", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts", "target": "detectrepository_detectcurrentrepository", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts", "target": "detectrepository_detectcurrentrepositorywithhost", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts", "target": "detectrepository_getcachedrepository", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L68", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts", "target": "detectrepository_parsegitremote", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L87", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts", "target": "detectrepository_parsegithubrepository", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L132", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts", "target": "detectrepository_lookslikerealhostname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L170", "weight": 1.0}, {"source": "detectrepository_detectcurrentrepository", "target": "detectrepository_detectcurrentrepositorywithhost", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L18", "weight": 1.0}, {"source": "detectrepository_detectcurrentrepositorywithhost", "target": "detectrepository_parsegitremote", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L48", "weight": 1.0}, {"source": "detectrepository_parsegitremote", "target": "detectrepository_lookslikerealhostname", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L93", "weight": 1.0}, {"source": "detectrepository_parsegithubrepository", "target": "detectrepository_parsegitremote", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L139", "weight": 1.0}], "raw_calls": [{"caller_nid": "detectrepository_clearrepositorycaches", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L14"}, {"caller_nid": "detectrepository_detectcurrentrepositorywithhost", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L33"}, {"caller_nid": "detectrepository_detectcurrentrepositorywithhost", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L35"}, {"caller_nid": "detectrepository_detectcurrentrepositorywithhost", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L36"}, {"caller_nid": "detectrepository_detectcurrentrepositorywithhost", "callee": "getRemoteUrl", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L40"}, {"caller_nid": "detectrepository_detectcurrentrepositorywithhost", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L41"}, {"caller_nid": "detectrepository_detectcurrentrepositorywithhost", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L43"}, {"caller_nid": "detectrepository_detectcurrentrepositorywithhost", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L44"}, {"caller_nid": "detectrepository_detectcurrentrepositorywithhost", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L49"}, {"caller_nid": "detectrepository_detectcurrentrepositorywithhost", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L52"}, {"caller_nid": "detectrepository_detectcurrentrepositorywithhost", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L55"}, {"caller_nid": "detectrepository_detectcurrentrepositorywithhost", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L56"}, {"caller_nid": "detectrepository_getcachedrepository", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L69"}, {"caller_nid": "detectrepository_getcachedrepository", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L69"}, {"caller_nid": "detectrepository_parsegitremote", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L88"}, {"caller_nid": "detectrepository_parsegitremote", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L91"}, {"caller_nid": "detectrepository_parsegitremote", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L102"}, {"caller_nid": "detectrepository_parsegitremote", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L108"}, {"caller_nid": "detectrepository_parsegithubrepository", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L133"}, {"caller_nid": "detectrepository_parsegithubrepository", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L147"}, {"caller_nid": "detectrepository_parsegithubrepository", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L148"}, {"caller_nid": "detectrepository_parsegithubrepository", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L149"}, {"caller_nid": "detectrepository_parsegithubrepository", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L151"}, {"caller_nid": "detectrepository_parsegithubrepository", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L154"}, {"caller_nid": "detectrepository_parsegithubrepository", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L159"}, {"caller_nid": "detectrepository_lookslikerealhostname", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L171"}, {"caller_nid": "detectrepository_lookslikerealhostname", "callee": "pop", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L172"}, {"caller_nid": "detectrepository_lookslikerealhostname", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L172"}, {"caller_nid": "detectrepository_lookslikerealhostname", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts", "source_location": "L177"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts",
+      "label": "detectRepository.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "detectrepository_clearrepositorycaches",
+      "label": "clearRepositoryCaches()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L13"
+    },
+    {
+      "id": "detectrepository_detectcurrentrepository",
+      "label": "detectCurrentRepository()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L17"
+    },
+    {
+      "id": "detectrepository_detectcurrentrepositorywithhost",
+      "label": "detectCurrentRepositoryWithHost()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "detectrepository_getcachedrepository",
+      "label": "getCachedRepository()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L68"
+    },
+    {
+      "id": "detectrepository_parsegitremote",
+      "label": "parseGitRemote()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L87"
+    },
+    {
+      "id": "detectrepository_parsegithubrepository",
+      "label": "parseGitHubRepository()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L132"
+    },
+    {
+      "id": "detectrepository_lookslikerealhostname",
+      "label": "looksLikeRealHostname()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L170"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts",
+      "target": "detectrepository_clearrepositorycaches",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts",
+      "target": "detectrepository_detectcurrentrepository",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts",
+      "target": "detectrepository_detectcurrentrepositorywithhost",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts",
+      "target": "detectrepository_getcachedrepository",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts",
+      "target": "detectrepository_parsegitremote",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts",
+      "target": "detectrepository_parsegithubrepository",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts",
+      "target": "detectrepository_lookslikerealhostname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "detectrepository_detectcurrentrepository",
+      "target": "detectrepository_detectcurrentrepositorywithhost",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "detectrepository_detectcurrentrepositorywithhost",
+      "target": "detectrepository_parsegitremote",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "detectrepository_parsegitremote",
+      "target": "detectrepository_lookslikerealhostname",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "detectrepository_parsegithubrepository",
+      "target": "detectrepository_parsegitremote",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L139",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "detectrepository_clearrepositorycaches",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L14"
+    },
+    {
+      "caller_nid": "detectrepository_detectcurrentrepositorywithhost",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "detectrepository_detectcurrentrepositorywithhost",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "detectrepository_detectcurrentrepositorywithhost",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "detectrepository_detectcurrentrepositorywithhost",
+      "callee": "getRemoteUrl",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "detectrepository_detectcurrentrepositorywithhost",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "detectrepository_detectcurrentrepositorywithhost",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "detectrepository_detectcurrentrepositorywithhost",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "detectrepository_detectcurrentrepositorywithhost",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "detectrepository_detectcurrentrepositorywithhost",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "detectrepository_detectcurrentrepositorywithhost",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "detectrepository_detectcurrentrepositorywithhost",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "detectrepository_getcachedrepository",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "detectrepository_getcachedrepository",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "detectrepository_parsegitremote",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "detectrepository_parsegitremote",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L91"
+    },
+    {
+      "caller_nid": "detectrepository_parsegitremote",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "detectrepository_parsegitremote",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L108"
+    },
+    {
+      "caller_nid": "detectrepository_parsegithubrepository",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "detectrepository_parsegithubrepository",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "detectrepository_parsegithubrepository",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "detectrepository_parsegithubrepository",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "detectrepository_parsegithubrepository",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "detectrepository_parsegithubrepository",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "detectrepository_parsegithubrepository",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "detectrepository_lookslikerealhostname",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L171"
+    },
+    {
+      "caller_nid": "detectrepository_lookslikerealhostname",
+      "callee": "pop",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "detectrepository_lookslikerealhostname",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "detectrepository_lookslikerealhostname",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\detectRepository.ts",
+      "source_location": "L177"
+    }
+  ]
+}

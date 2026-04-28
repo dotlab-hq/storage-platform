@@ -41,19 +41,19 @@ Use this skill when a user asks for thread memory, conversation context retentio
 ## Minimal TypeScript example
 
 ```ts
-import { createAgent, summarizationMiddleware } from "langchain";
-import { MemorySaver } from "@langchain/langgraph";
+import { createAgent, summarizationMiddleware } from 'langchain'
+import { MemorySaver } from '@langchain/langgraph'
 
 const agent = createAgent({
-  model: "gpt-4.1",
+  model: 'gpt-4.1',
   tools: [],
   middleware: [
     summarizationMiddleware({
-      model: "gpt-4.1-mini",
+      model: 'gpt-4.1-mini',
       trigger: { tokens: 4000 },
       keep: { messages: 20 },
     }),
   ],
   checkpointer: new MemorySaver(),
-});
+})
 ```

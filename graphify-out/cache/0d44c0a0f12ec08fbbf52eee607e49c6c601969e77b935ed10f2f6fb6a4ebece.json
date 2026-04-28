@@ -1,1 +1,116 @@
-{"nodes": [{"id": "f_storage_platform_src_components_storage_bucket_manager_tsx", "label": "bucket-manager.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx", "source_location": "L1"}, {"id": "bucket_manager_dialogskeleton", "label": "DialogSkeleton()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx", "source_location": "L30"}, {"id": "bucket_manager_activecredentialsbucket", "label": "activeCredentialsBucket()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx", "source_location": "L193"}], "edges": [{"source": "f_storage_platform_src_components_storage_bucket_manager_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_bucket_manager_tsx", "target": "lucide_react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_bucket_manager_tsx", "target": "button", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_bucket_manager_tsx", "target": "input", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_bucket_manager_tsx", "target": "page_skeleton", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_bucket_manager_tsx", "target": "use_s3_buckets", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_bucket_manager_tsx", "target": "bucket_manager_table", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_bucket_manager_tsx", "target": "bucket_manager_dialogskeleton", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_bucket_manager_tsx", "target": "bucket_manager_activecredentialsbucket", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx", "source_location": "L193", "weight": 1.0}], "raw_calls": [{"caller_nid": "bucket_manager_activecredentialsbucket", "callee": "rotateCredentials", "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx", "source_location": "L196"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_components_storage_bucket_manager_tsx",
+      "label": "bucket-manager.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "bucket_manager_dialogskeleton",
+      "label": "DialogSkeleton()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx",
+      "source_location": "L30"
+    },
+    {
+      "id": "bucket_manager_activecredentialsbucket",
+      "label": "activeCredentialsBucket()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx",
+      "source_location": "L193"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_components_storage_bucket_manager_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_bucket_manager_tsx",
+      "target": "lucide_react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_bucket_manager_tsx",
+      "target": "button",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_bucket_manager_tsx",
+      "target": "input",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_bucket_manager_tsx",
+      "target": "page_skeleton",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_bucket_manager_tsx",
+      "target": "use_s3_buckets",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_bucket_manager_tsx",
+      "target": "bucket_manager_table",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_bucket_manager_tsx",
+      "target": "bucket_manager_dialogskeleton",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_bucket_manager_tsx",
+      "target": "bucket_manager_activecredentialsbucket",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx",
+      "source_location": "L193",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "bucket_manager_activecredentialsbucket",
+      "callee": "rotateCredentials",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\bucket-manager.tsx",
+      "source_location": "L196"
+    }
+  ]
+}

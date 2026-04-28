@@ -1,1 +1,1187 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "label": "parser.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1"}, {"id": "parser_getparsetimeoutms", "label": "getParseTimeoutMs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L208"}, {"id": "parser_makeinvalidresult", "label": "makeInvalidResult()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L653"}, {"id": "parser_toutf16lebase64", "label": "toUtf16LeBase64()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L669"}, {"id": "parser_buildparsescript", "label": "buildParseScript()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L687"}, {"id": "parser_ensurearray", "label": "ensureArray()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L703"}, {"id": "parser_mapstatementtype", "label": "mapStatementType()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L712"}, {"id": "parser_mapelementtype", "label": "mapElementType()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L749"}, {"id": "parser_classifycommandname", "label": "classifyCommandName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L800"}, {"id": "parser_stripmoduleprefix", "label": "stripModulePrefix()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L814"}, {"id": "parser_transformcommandast", "label": "transformCommandAst()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L830"}, {"id": "parser_transformexpressionelement", "label": "transformExpressionElement()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L939"}, {"id": "parser_transformredirection", "label": "transformRedirection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L962"}, {"id": "parser_transformstatement", "label": "transformStatement()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1002"}, {"id": "parser_transformrawoutput", "label": "transformRawOutput()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1106"}, {"id": "parser_parsepowershellcommandimpl", "label": "parsePowerShellCommandImpl()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1136"}, {"id": "parser_getallcommandnames", "label": "getAllCommandNames()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1467"}, {"id": "parser_getallcommands", "label": "getAllCommands()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1486"}, {"id": "parser_getallredirections", "label": "getAllRedirections()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1507"}, {"id": "parser_getvariablesbyscope", "label": "getVariablesByScope()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1533"}, {"id": "parser_hascommandnamed", "label": "hasCommandNamed()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1545"}, {"id": "parser_hasdirectorychange", "label": "hasDirectoryChange()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1578"}, {"id": "parser_issinglecommand", "label": "isSingleCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1594"}, {"id": "parser_commandhasarg", "label": "commandHasArg()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1608"}, {"id": "parser_ispowershellparameter", "label": "isPowerShellParameter()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1647"}, {"id": "parser_commandhasargabbreviation", "label": "commandHasArgAbbreviation()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1663"}, {"id": "parser_getpipelinesegments", "label": "getPipelineSegments()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1690"}, {"id": "parser_isnullredirectiontarget", "label": "isNullRedirectionTarget()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1703"}, {"id": "parser_getfileredirections", "label": "getFileRedirections()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1713"}, {"id": "parser_derivesecurityflags", "label": "deriveSecurityFlags()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1728"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "execa", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_memoize_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_shell_powershelldetection_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_getparsetimeoutms", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L208", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_makeinvalidresult", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L653", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_toutf16lebase64", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L669", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_buildparsescript", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L687", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_ensurearray", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L703", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_mapstatementtype", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L712", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_mapelementtype", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L749", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_classifycommandname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L800", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_stripmoduleprefix", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L814", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_transformcommandast", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L830", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_transformexpressionelement", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L939", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_transformredirection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L962", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_transformstatement", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1002", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_transformrawoutput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1106", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_parsepowershellcommandimpl", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1136", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_getallcommandnames", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1467", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_getallcommands", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1486", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_getallredirections", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1507", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_getvariablesbyscope", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1533", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_hascommandnamed", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1545", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_hasdirectorychange", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1578", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_issinglecommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1594", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_commandhasarg", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1608", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_ispowershellparameter", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1647", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_commandhasargabbreviation", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1663", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_getpipelinesegments", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1690", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_isnullredirectiontarget", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1703", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_getfileredirections", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1713", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts", "target": "parser_derivesecurityflags", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1728", "weight": 1.0}, {"source": "parser_transformcommandast", "target": "parser_ensurearray", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L833", "weight": 1.0}, {"source": "parser_transformcommandast", "target": "parser_classifycommandname", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L885", "weight": 1.0}, {"source": "parser_transformcommandast", "target": "parser_stripmoduleprefix", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L887", "weight": 1.0}, {"source": "parser_transformcommandast", "target": "parser_mapelementtype", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L888", "weight": 1.0}, {"source": "parser_transformexpressionelement", "target": "parser_mapelementtype", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L947", "weight": 1.0}, {"source": "parser_transformstatement", "target": "parser_mapstatementtype", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1003", "weight": 1.0}, {"source": "parser_transformstatement", "target": "parser_ensurearray", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1009", "weight": 1.0}, {"source": "parser_transformstatement", "target": "parser_transformcommandast", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1011", "weight": 1.0}, {"source": "parser_transformstatement", "target": "parser_transformredirection", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1013", "weight": 1.0}, {"source": "parser_transformstatement", "target": "parser_transformexpressionelement", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1016", "weight": 1.0}, {"source": "parser_transformrawoutput", "target": "parser_ensurearray", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1109", "weight": 1.0}, {"source": "parser_parsepowershellcommandimpl", "target": "parser_makeinvalidresult", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1149", "weight": 1.0}, {"source": "parser_parsepowershellcommandimpl", "target": "parser_buildparsescript", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1165", "weight": 1.0}, {"source": "parser_parsepowershellcommandimpl", "target": "parser_toutf16lebase64", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1173", "weight": 1.0}, {"source": "parser_parsepowershellcommandimpl", "target": "parser_getparsetimeoutms", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1188", "weight": 1.0}, {"source": "parser_parsepowershellcommandimpl", "target": "parser_transformrawoutput", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1250", "weight": 1.0}, {"source": "parser_hascommandnamed", "target": "parser_getallcommandnames", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1552", "weight": 1.0}, {"source": "parser_hasdirectorychange", "target": "parser_getallcommandnames", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1579", "weight": 1.0}, {"source": "parser_getfileredirections", "target": "parser_getallredirections", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1716", "weight": 1.0}], "raw_calls": [{"caller_nid": "parser_getparsetimeoutms", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L211"}, {"caller_nid": "parser_getparsetimeoutms", "callee": "isNaN", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L212"}, {"caller_nid": "parser_toutf16lebase64", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L671"}, {"caller_nid": "parser_toutf16lebase64", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L671"}, {"caller_nid": "parser_toutf16lebase64", "callee": "charCodeAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L676"}, {"caller_nid": "parser_toutf16lebase64", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L677"}, {"caller_nid": "parser_toutf16lebase64", "callee": "btoa", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L679"}, {"caller_nid": "parser_toutf16lebase64", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L679"}, {"caller_nid": "parser_toutf16lebase64", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L679"}, {"caller_nid": "parser_buildparsescript", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L690"}, {"caller_nid": "parser_buildparsescript", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L690"}, {"caller_nid": "parser_buildparsescript", "callee": "btoa", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L691"}, {"caller_nid": "parser_buildparsescript", "callee": "reduce", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L692"}, {"caller_nid": "parser_buildparsescript", "callee": "encode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L692"}, {"caller_nid": "parser_ensurearray", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L707"}, {"caller_nid": "parser_classifycommandname", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L803"}, {"caller_nid": "parser_classifycommandname", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L806"}, {"caller_nid": "parser_stripmoduleprefix", "callee": "lastIndexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L815"}, {"caller_nid": "parser_stripmoduleprefix", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L819"}, {"caller_nid": "parser_stripmoduleprefix", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L820"}, {"caller_nid": "parser_stripmoduleprefix", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L821"}, {"caller_nid": "parser_stripmoduleprefix", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L822"}, {"caller_nid": "parser_stripmoduleprefix", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L825"}, {"caller_nid": "parser_transformcommandast", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L869"}, {"caller_nid": "parser_transformcommandast", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L882"}, {"caller_nid": "parser_transformcommandast", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L888"}, {"caller_nid": "parser_transformcommandast", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L899"}, {"caller_nid": "parser_transformcommandast", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L900"}, {"caller_nid": "parser_transformcommandast", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L906"}, {"caller_nid": "parser_transformcommandast", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L907"}, {"caller_nid": "parser_transformcommandast", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L913"}, {"caller_nid": "parser_transformcommandast", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L931"}, {"caller_nid": "parser_transformstatement", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1011"}, {"caller_nid": "parser_transformstatement", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1013"}, {"caller_nid": "parser_transformstatement", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1016"}, {"caller_nid": "parser_transformstatement", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1023"}, {"caller_nid": "parser_transformstatement", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1038"}, {"caller_nid": "parser_transformstatement", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1042"}, {"caller_nid": "parser_transformstatement", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1043"}, {"caller_nid": "parser_transformstatement", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1044"}, {"caller_nid": "parser_transformstatement", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1049"}, {"caller_nid": "parser_transformstatement", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1080"}, {"caller_nid": "parser_transformstatement", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1087"}, {"caller_nid": "parser_transformrawoutput", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1110"}, {"caller_nid": "parser_parsepowershellcommandimpl", "callee": "byteLength", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1144"}, {"caller_nid": "parser_parsepowershellcommandimpl", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1146"}, {"caller_nid": "parser_parsepowershellcommandimpl", "callee": "getCachedPowerShellPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1156"}, {"caller_nid": "parser_parsepowershellcommandimpl", "callee": "execa", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1195"}, {"caller_nid": "parser_parsepowershellcommandimpl", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1204"}, {"caller_nid": "parser_parsepowershellcommandimpl", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1214"}, {"caller_nid": "parser_parsepowershellcommandimpl", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1228"}, {"caller_nid": "parser_parsepowershellcommandimpl", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1238"}, {"caller_nid": "parser_parsepowershellcommandimpl", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1240"}, {"caller_nid": "parser_parsepowershellcommandimpl", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1249"}, {"caller_nid": "parser_parsepowershellcommandimpl", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1252"}, {"caller_nid": "parser_parsepowershellcommandimpl", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1253"}, {"caller_nid": "parser_getallcommandnames", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1471"}, {"caller_nid": "parser_getallcommandnames", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1471"}, {"caller_nid": "parser_getallcommandnames", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1475"}, {"caller_nid": "parser_getallcommandnames", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1475"}, {"caller_nid": "parser_getallcommands", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1492"}, {"caller_nid": "parser_getallcommands", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1496"}, {"caller_nid": "parser_getallredirections", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1513"}, {"caller_nid": "parser_getallredirections", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1520"}, {"caller_nid": "parser_getvariablesbyscope", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1537"}, {"caller_nid": "parser_getvariablesbyscope", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1538"}, {"caller_nid": "parser_hascommandnamed", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1549"}, {"caller_nid": "parser_hascommandnamed", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1550"}, {"caller_nid": "parser_hascommandnamed", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1557"}, {"caller_nid": "parser_hasdirectorychange", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1581"}, {"caller_nid": "parser_hasdirectorychange", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1582"}, {"caller_nid": "parser_commandhasarg", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1612"}, {"caller_nid": "parser_commandhasarg", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1613"}, {"caller_nid": "parser_ispowershellparameter", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1654"}, {"caller_nid": "parser_commandhasargabbreviation", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1668"}, {"caller_nid": "parser_commandhasargabbreviation", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1669"}, {"caller_nid": "parser_commandhasargabbreviation", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1670"}, {"caller_nid": "parser_isnullredirectiontarget", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1704"}, {"caller_nid": "parser_isnullredirectiontarget", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1704"}, {"caller_nid": "parser_getfileredirections", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1716"}, {"caller_nid": "parser_derivesecurityflags", "callee": "checkElements", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1768"}, {"caller_nid": "parser_derivesecurityflags", "callee": "checkElements", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts", "source_location": "L1772"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "label": "parser.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "parser_getparsetimeoutms",
+      "label": "getParseTimeoutMs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L208"
+    },
+    {
+      "id": "parser_makeinvalidresult",
+      "label": "makeInvalidResult()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L653"
+    },
+    {
+      "id": "parser_toutf16lebase64",
+      "label": "toUtf16LeBase64()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L669"
+    },
+    {
+      "id": "parser_buildparsescript",
+      "label": "buildParseScript()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L687"
+    },
+    {
+      "id": "parser_ensurearray",
+      "label": "ensureArray()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L703"
+    },
+    {
+      "id": "parser_mapstatementtype",
+      "label": "mapStatementType()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L712"
+    },
+    {
+      "id": "parser_mapelementtype",
+      "label": "mapElementType()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L749"
+    },
+    {
+      "id": "parser_classifycommandname",
+      "label": "classifyCommandName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L800"
+    },
+    {
+      "id": "parser_stripmoduleprefix",
+      "label": "stripModulePrefix()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L814"
+    },
+    {
+      "id": "parser_transformcommandast",
+      "label": "transformCommandAst()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L830"
+    },
+    {
+      "id": "parser_transformexpressionelement",
+      "label": "transformExpressionElement()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L939"
+    },
+    {
+      "id": "parser_transformredirection",
+      "label": "transformRedirection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L962"
+    },
+    {
+      "id": "parser_transformstatement",
+      "label": "transformStatement()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1002"
+    },
+    {
+      "id": "parser_transformrawoutput",
+      "label": "transformRawOutput()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1106"
+    },
+    {
+      "id": "parser_parsepowershellcommandimpl",
+      "label": "parsePowerShellCommandImpl()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1136"
+    },
+    {
+      "id": "parser_getallcommandnames",
+      "label": "getAllCommandNames()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1467"
+    },
+    {
+      "id": "parser_getallcommands",
+      "label": "getAllCommands()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1486"
+    },
+    {
+      "id": "parser_getallredirections",
+      "label": "getAllRedirections()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1507"
+    },
+    {
+      "id": "parser_getvariablesbyscope",
+      "label": "getVariablesByScope()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1533"
+    },
+    {
+      "id": "parser_hascommandnamed",
+      "label": "hasCommandNamed()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1545"
+    },
+    {
+      "id": "parser_hasdirectorychange",
+      "label": "hasDirectoryChange()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1578"
+    },
+    {
+      "id": "parser_issinglecommand",
+      "label": "isSingleCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1594"
+    },
+    {
+      "id": "parser_commandhasarg",
+      "label": "commandHasArg()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1608"
+    },
+    {
+      "id": "parser_ispowershellparameter",
+      "label": "isPowerShellParameter()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1647"
+    },
+    {
+      "id": "parser_commandhasargabbreviation",
+      "label": "commandHasArgAbbreviation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1663"
+    },
+    {
+      "id": "parser_getpipelinesegments",
+      "label": "getPipelineSegments()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1690"
+    },
+    {
+      "id": "parser_isnullredirectiontarget",
+      "label": "isNullRedirectionTarget()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1703"
+    },
+    {
+      "id": "parser_getfileredirections",
+      "label": "getFileRedirections()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1713"
+    },
+    {
+      "id": "parser_derivesecurityflags",
+      "label": "deriveSecurityFlags()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1728"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "execa",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_memoize_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_shell_powershelldetection_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_getparsetimeoutms",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L208",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_makeinvalidresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L653",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_toutf16lebase64",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L669",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_buildparsescript",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L687",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_ensurearray",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L703",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_mapstatementtype",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L712",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_mapelementtype",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L749",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_classifycommandname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L800",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_stripmoduleprefix",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L814",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_transformcommandast",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L830",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_transformexpressionelement",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L939",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_transformredirection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L962",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_transformstatement",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1002",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_transformrawoutput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1106",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_parsepowershellcommandimpl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1136",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_getallcommandnames",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1467",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_getallcommands",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1486",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_getallredirections",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1507",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_getvariablesbyscope",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1533",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_hascommandnamed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1545",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_hasdirectorychange",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1578",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_issinglecommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1594",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_commandhasarg",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1608",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_ispowershellparameter",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1647",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_commandhasargabbreviation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1663",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_getpipelinesegments",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1690",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_isnullredirectiontarget",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1703",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_getfileredirections",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1713",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_powershell_parser_ts",
+      "target": "parser_derivesecurityflags",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1728",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_transformcommandast",
+      "target": "parser_ensurearray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L833",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_transformcommandast",
+      "target": "parser_classifycommandname",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L885",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_transformcommandast",
+      "target": "parser_stripmoduleprefix",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L887",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_transformcommandast",
+      "target": "parser_mapelementtype",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L888",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_transformexpressionelement",
+      "target": "parser_mapelementtype",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L947",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_transformstatement",
+      "target": "parser_mapstatementtype",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1003",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_transformstatement",
+      "target": "parser_ensurearray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1009",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_transformstatement",
+      "target": "parser_transformcommandast",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1011",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_transformstatement",
+      "target": "parser_transformredirection",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1013",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_transformstatement",
+      "target": "parser_transformexpressionelement",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1016",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_transformrawoutput",
+      "target": "parser_ensurearray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1109",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_parsepowershellcommandimpl",
+      "target": "parser_makeinvalidresult",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1149",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_parsepowershellcommandimpl",
+      "target": "parser_buildparsescript",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1165",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_parsepowershellcommandimpl",
+      "target": "parser_toutf16lebase64",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1173",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_parsepowershellcommandimpl",
+      "target": "parser_getparsetimeoutms",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1188",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_parsepowershellcommandimpl",
+      "target": "parser_transformrawoutput",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1250",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_hascommandnamed",
+      "target": "parser_getallcommandnames",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1552",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_hasdirectorychange",
+      "target": "parser_getallcommandnames",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1579",
+      "weight": 1.0
+    },
+    {
+      "source": "parser_getfileredirections",
+      "target": "parser_getallredirections",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1716",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "parser_getparsetimeoutms",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L211"
+    },
+    {
+      "caller_nid": "parser_getparsetimeoutms",
+      "callee": "isNaN",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L212"
+    },
+    {
+      "caller_nid": "parser_toutf16lebase64",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L671"
+    },
+    {
+      "caller_nid": "parser_toutf16lebase64",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L671"
+    },
+    {
+      "caller_nid": "parser_toutf16lebase64",
+      "callee": "charCodeAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L676"
+    },
+    {
+      "caller_nid": "parser_toutf16lebase64",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L677"
+    },
+    {
+      "caller_nid": "parser_toutf16lebase64",
+      "callee": "btoa",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L679"
+    },
+    {
+      "caller_nid": "parser_toutf16lebase64",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L679"
+    },
+    {
+      "caller_nid": "parser_toutf16lebase64",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L679"
+    },
+    {
+      "caller_nid": "parser_buildparsescript",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L690"
+    },
+    {
+      "caller_nid": "parser_buildparsescript",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L690"
+    },
+    {
+      "caller_nid": "parser_buildparsescript",
+      "callee": "btoa",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L691"
+    },
+    {
+      "caller_nid": "parser_buildparsescript",
+      "callee": "reduce",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L692"
+    },
+    {
+      "caller_nid": "parser_buildparsescript",
+      "callee": "encode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L692"
+    },
+    {
+      "caller_nid": "parser_ensurearray",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L707"
+    },
+    {
+      "caller_nid": "parser_classifycommandname",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L803"
+    },
+    {
+      "caller_nid": "parser_classifycommandname",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L806"
+    },
+    {
+      "caller_nid": "parser_stripmoduleprefix",
+      "callee": "lastIndexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L815"
+    },
+    {
+      "caller_nid": "parser_stripmoduleprefix",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L819"
+    },
+    {
+      "caller_nid": "parser_stripmoduleprefix",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L820"
+    },
+    {
+      "caller_nid": "parser_stripmoduleprefix",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L821"
+    },
+    {
+      "caller_nid": "parser_stripmoduleprefix",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L822"
+    },
+    {
+      "caller_nid": "parser_stripmoduleprefix",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L825"
+    },
+    {
+      "caller_nid": "parser_transformcommandast",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L869"
+    },
+    {
+      "caller_nid": "parser_transformcommandast",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L882"
+    },
+    {
+      "caller_nid": "parser_transformcommandast",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L888"
+    },
+    {
+      "caller_nid": "parser_transformcommandast",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L899"
+    },
+    {
+      "caller_nid": "parser_transformcommandast",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L900"
+    },
+    {
+      "caller_nid": "parser_transformcommandast",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L906"
+    },
+    {
+      "caller_nid": "parser_transformcommandast",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L907"
+    },
+    {
+      "caller_nid": "parser_transformcommandast",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L913"
+    },
+    {
+      "caller_nid": "parser_transformcommandast",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L931"
+    },
+    {
+      "caller_nid": "parser_transformstatement",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1011"
+    },
+    {
+      "caller_nid": "parser_transformstatement",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1013"
+    },
+    {
+      "caller_nid": "parser_transformstatement",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1016"
+    },
+    {
+      "caller_nid": "parser_transformstatement",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1023"
+    },
+    {
+      "caller_nid": "parser_transformstatement",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1038"
+    },
+    {
+      "caller_nid": "parser_transformstatement",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1042"
+    },
+    {
+      "caller_nid": "parser_transformstatement",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1043"
+    },
+    {
+      "caller_nid": "parser_transformstatement",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1044"
+    },
+    {
+      "caller_nid": "parser_transformstatement",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1049"
+    },
+    {
+      "caller_nid": "parser_transformstatement",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1080"
+    },
+    {
+      "caller_nid": "parser_transformstatement",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1087"
+    },
+    {
+      "caller_nid": "parser_transformrawoutput",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1110"
+    },
+    {
+      "caller_nid": "parser_parsepowershellcommandimpl",
+      "callee": "byteLength",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1144"
+    },
+    {
+      "caller_nid": "parser_parsepowershellcommandimpl",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1146"
+    },
+    {
+      "caller_nid": "parser_parsepowershellcommandimpl",
+      "callee": "getCachedPowerShellPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1156"
+    },
+    {
+      "caller_nid": "parser_parsepowershellcommandimpl",
+      "callee": "execa",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1195"
+    },
+    {
+      "caller_nid": "parser_parsepowershellcommandimpl",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1204"
+    },
+    {
+      "caller_nid": "parser_parsepowershellcommandimpl",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1214"
+    },
+    {
+      "caller_nid": "parser_parsepowershellcommandimpl",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1228"
+    },
+    {
+      "caller_nid": "parser_parsepowershellcommandimpl",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1238"
+    },
+    {
+      "caller_nid": "parser_parsepowershellcommandimpl",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1240"
+    },
+    {
+      "caller_nid": "parser_parsepowershellcommandimpl",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1249"
+    },
+    {
+      "caller_nid": "parser_parsepowershellcommandimpl",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1252"
+    },
+    {
+      "caller_nid": "parser_parsepowershellcommandimpl",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1253"
+    },
+    {
+      "caller_nid": "parser_getallcommandnames",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1471"
+    },
+    {
+      "caller_nid": "parser_getallcommandnames",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1471"
+    },
+    {
+      "caller_nid": "parser_getallcommandnames",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1475"
+    },
+    {
+      "caller_nid": "parser_getallcommandnames",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1475"
+    },
+    {
+      "caller_nid": "parser_getallcommands",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1492"
+    },
+    {
+      "caller_nid": "parser_getallcommands",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1496"
+    },
+    {
+      "caller_nid": "parser_getallredirections",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1513"
+    },
+    {
+      "caller_nid": "parser_getallredirections",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1520"
+    },
+    {
+      "caller_nid": "parser_getvariablesbyscope",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1537"
+    },
+    {
+      "caller_nid": "parser_getvariablesbyscope",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1538"
+    },
+    {
+      "caller_nid": "parser_hascommandnamed",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1549"
+    },
+    {
+      "caller_nid": "parser_hascommandnamed",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1550"
+    },
+    {
+      "caller_nid": "parser_hascommandnamed",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1557"
+    },
+    {
+      "caller_nid": "parser_hasdirectorychange",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1581"
+    },
+    {
+      "caller_nid": "parser_hasdirectorychange",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1582"
+    },
+    {
+      "caller_nid": "parser_commandhasarg",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1612"
+    },
+    {
+      "caller_nid": "parser_commandhasarg",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1613"
+    },
+    {
+      "caller_nid": "parser_ispowershellparameter",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1654"
+    },
+    {
+      "caller_nid": "parser_commandhasargabbreviation",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1668"
+    },
+    {
+      "caller_nid": "parser_commandhasargabbreviation",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1669"
+    },
+    {
+      "caller_nid": "parser_commandhasargabbreviation",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1670"
+    },
+    {
+      "caller_nid": "parser_isnullredirectiontarget",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1704"
+    },
+    {
+      "caller_nid": "parser_isnullredirectiontarget",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1704"
+    },
+    {
+      "caller_nid": "parser_getfileredirections",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1716"
+    },
+    {
+      "caller_nid": "parser_derivesecurityflags",
+      "callee": "checkElements",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1768"
+    },
+    {
+      "caller_nid": "parser_derivesecurityflags",
+      "callee": "checkElements",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\powershell\\parser.ts",
+      "source_location": "L1772"
+    }
+  ]
+}

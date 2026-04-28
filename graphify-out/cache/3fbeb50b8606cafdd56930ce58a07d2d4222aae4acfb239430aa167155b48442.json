@@ -1,1 +1,55 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_auth_client_ts", "label": "auth-client.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\auth-client.ts", "source_location": "L1"}, {"id": "auth_client_useauth", "label": "useAuth()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\auth-client.ts", "source_location": "L24"}], "edges": [{"source": "f_storage_platform_src_lib_auth_client_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\auth-client.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_auth_client_ts", "target": "plugins", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\auth-client.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_auth_client_ts", "target": "auth_client_useauth", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\auth-client.ts", "source_location": "L24", "weight": 1.0}], "raw_calls": [{"caller_nid": "auth_client_useauth", "callee": "useSession", "source_file": "F:\\storage-platform\\src\\lib\\auth-client.ts", "source_location": "L25"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_auth_client_ts",
+      "label": "auth-client.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\auth-client.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "auth_client_useauth",
+      "label": "useAuth()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\auth-client.ts",
+      "source_location": "L24"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_auth_client_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\auth-client.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_auth_client_ts",
+      "target": "plugins",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\auth-client.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_auth_client_ts",
+      "target": "auth_client_useauth",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\auth-client.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "auth_client_useauth",
+      "callee": "useSession",
+      "source_file": "F:\\storage-platform\\src\\lib\\auth-client.ts",
+      "source_location": "L25"
+    }
+  ]
+}

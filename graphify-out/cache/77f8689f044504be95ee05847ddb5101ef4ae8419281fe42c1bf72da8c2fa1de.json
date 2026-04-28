@@ -1,1 +1,258 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_texthighlighting_ts", "label": "textHighlighting.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L1"}, {"id": "texthighlighting_segmenttextbyhighlights", "label": "segmentTextByHighlights()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L27"}, {"id": "texthighlighting_highlightsegmenter", "label": "HighlightSegmenter", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L62"}, {"id": "texthighlighting_highlightsegmenter_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L72"}, {"id": "texthighlighting_highlightsegmenter_segment", "label": ".segment()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L76"}, {"id": "texthighlighting_highlightsegmenter_segmentto", "label": ".segmentTo()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L96"}, {"id": "texthighlighting_reducecodes", "label": "reduceCodes()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L164"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_texthighlighting_ts", "target": "ansi_tokenize", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_texthighlighting_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_theme_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_texthighlighting_ts", "target": "texthighlighting_segmenttextbyhighlights", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_texthighlighting_ts", "target": "texthighlighting_highlightsegmenter", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L62", "weight": 1.0}, {"source": "texthighlighting_highlightsegmenter", "target": "texthighlighting_highlightsegmenter_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L72", "weight": 1.0}, {"source": "texthighlighting_highlightsegmenter", "target": "texthighlighting_highlightsegmenter_segment", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L76", "weight": 1.0}, {"source": "texthighlighting_highlightsegmenter", "target": "texthighlighting_highlightsegmenter_segmentto", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L96", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_texthighlighting_ts", "target": "texthighlighting_reducecodes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L164", "weight": 1.0}, {"source": "texthighlighting_segmenttextbyhighlights", "target": "texthighlighting_highlightsegmenter_segment", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L59", "weight": 1.0}, {"source": "texthighlighting_highlightsegmenter_segment", "target": "texthighlighting_highlightsegmenter_segmentto", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L80", "weight": 1.0}, {"source": "texthighlighting_highlightsegmenter_segmentto", "target": "texthighlighting_reducecodes", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L150", "weight": 1.0}], "raw_calls": [{"caller_nid": "texthighlighting_segmenttextbyhighlights", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L35"}, {"caller_nid": "texthighlighting_segmenttextbyhighlights", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L46"}, {"caller_nid": "texthighlighting_segmenttextbyhighlights", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L54"}, {"caller_nid": "texthighlighting_segmenttextbyhighlights", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L55"}, {"caller_nid": "texthighlighting_highlightsegmenter_constructor", "callee": "tokenize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L73"}, {"caller_nid": "texthighlighting_highlightsegmenter_segment", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L81"}, {"caller_nid": "texthighlighting_highlightsegmenter_segment", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L86"}, {"caller_nid": "texthighlighting_highlightsegmenter_segment", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L91"}, {"caller_nid": "texthighlighting_highlightsegmenter_segmentto", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L110"}, {"caller_nid": "texthighlighting_highlightsegmenter_segmentto", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L126"}, {"caller_nid": "texthighlighting_highlightsegmenter_segmentto", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L132"}, {"caller_nid": "texthighlighting_highlightsegmenter_segmentto", "callee": "ansiCodesToString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L154"}, {"caller_nid": "texthighlighting_highlightsegmenter_segmentto", "callee": "ansiCodesToString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L155"}, {"caller_nid": "texthighlighting_highlightsegmenter_segmentto", "callee": "undoAnsiCodes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L155"}, {"caller_nid": "texthighlighting_highlightsegmenter_segmentto", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L158"}, {"caller_nid": "texthighlighting_reducecodes", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L165"}, {"caller_nid": "texthighlighting_reducecodes", "callee": "reduceAnsiCodes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts", "source_location": "L165"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_texthighlighting_ts",
+      "label": "textHighlighting.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "texthighlighting_segmenttextbyhighlights",
+      "label": "segmentTextByHighlights()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L27"
+    },
+    {
+      "id": "texthighlighting_highlightsegmenter",
+      "label": "HighlightSegmenter",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L62"
+    },
+    {
+      "id": "texthighlighting_highlightsegmenter_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L72"
+    },
+    {
+      "id": "texthighlighting_highlightsegmenter_segment",
+      "label": ".segment()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L76"
+    },
+    {
+      "id": "texthighlighting_highlightsegmenter_segmentto",
+      "label": ".segmentTo()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L96"
+    },
+    {
+      "id": "texthighlighting_reducecodes",
+      "label": "reduceCodes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L164"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_texthighlighting_ts",
+      "target": "ansi_tokenize",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_texthighlighting_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_theme_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_texthighlighting_ts",
+      "target": "texthighlighting_segmenttextbyhighlights",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_texthighlighting_ts",
+      "target": "texthighlighting_highlightsegmenter",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "texthighlighting_highlightsegmenter",
+      "target": "texthighlighting_highlightsegmenter_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "texthighlighting_highlightsegmenter",
+      "target": "texthighlighting_highlightsegmenter_segment",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "texthighlighting_highlightsegmenter",
+      "target": "texthighlighting_highlightsegmenter_segmentto",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_texthighlighting_ts",
+      "target": "texthighlighting_reducecodes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "texthighlighting_segmenttextbyhighlights",
+      "target": "texthighlighting_highlightsegmenter_segment",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "texthighlighting_highlightsegmenter_segment",
+      "target": "texthighlighting_highlightsegmenter_segmentto",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "texthighlighting_highlightsegmenter_segmentto",
+      "target": "texthighlighting_reducecodes",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L150",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "texthighlighting_segmenttextbyhighlights",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "texthighlighting_segmenttextbyhighlights",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "texthighlighting_segmenttextbyhighlights",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L54"
+    },
+    {
+      "caller_nid": "texthighlighting_segmenttextbyhighlights",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "texthighlighting_highlightsegmenter_constructor",
+      "callee": "tokenize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "texthighlighting_highlightsegmenter_segment",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "texthighlighting_highlightsegmenter_segment",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "texthighlighting_highlightsegmenter_segment",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L91"
+    },
+    {
+      "caller_nid": "texthighlighting_highlightsegmenter_segmentto",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "texthighlighting_highlightsegmenter_segmentto",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "texthighlighting_highlightsegmenter_segmentto",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "texthighlighting_highlightsegmenter_segmentto",
+      "callee": "ansiCodesToString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "texthighlighting_highlightsegmenter_segmentto",
+      "callee": "ansiCodesToString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L155"
+    },
+    {
+      "caller_nid": "texthighlighting_highlightsegmenter_segmentto",
+      "callee": "undoAnsiCodes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L155"
+    },
+    {
+      "caller_nid": "texthighlighting_highlightsegmenter_segmentto",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "texthighlighting_reducecodes",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "texthighlighting_reducecodes",
+      "callee": "reduceAnsiCodes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\textHighlighting.ts",
+      "source_location": "L165"
+    }
+  ]
+}

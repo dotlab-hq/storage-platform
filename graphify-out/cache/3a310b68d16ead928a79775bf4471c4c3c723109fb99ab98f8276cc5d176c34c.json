@@ -1,1 +1,256 @@
-{"nodes": [{"id": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts", "label": "webrtc-server.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L1"}, {"id": "webrtc_server_parsewebrtcpermission", "label": "parseWebrtcPermission()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L30"}, {"id": "webrtc_server_issessionexpired", "label": "isSessionExpired()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L54"}, {"id": "webrtc_server_loadsessionorthrow", "label": "loadSessionOrThrow()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L58"}, {"id": "webrtc_server_resolvesignalkey", "label": "resolveSignalKey()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L68"}, {"id": "webrtc_server_issignalrecordvalid", "label": "isSignalRecordValid()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L72"}, {"id": "webrtc_server_readsignalqueue", "label": "readSignalQueue()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L81"}, {"id": "webrtc_server_writesignalqueue", "label": "writeSignalQueue()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L91"}], "edges": [{"source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts", "target": "react_start", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts", "target": "zod", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts", "target": "cache", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts", "target": "tiny_session", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts", "target": "webrtc_server_parsewebrtcpermission", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts", "target": "webrtc_server_issessionexpired", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L54", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts", "target": "webrtc_server_loadsessionorthrow", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L58", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts", "target": "webrtc_server_resolvesignalkey", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L68", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts", "target": "webrtc_server_issignalrecordvalid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L72", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts", "target": "webrtc_server_readsignalqueue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L81", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts", "target": "webrtc_server_writesignalqueue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L91", "weight": 1.0}, {"source": "webrtc_server_loadsessionorthrow", "target": "webrtc_server_issessionexpired", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L62", "weight": 1.0}], "raw_calls": [{"caller_nid": "webrtc_server_parsewebrtcpermission", "callee": "startsWith", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L35"}, {"caller_nid": "webrtc_server_parsewebrtcpermission", "callee": "slice", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L36"}, {"caller_nid": "webrtc_server_parsewebrtcpermission", "callee": "startsWith", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L43"}, {"caller_nid": "webrtc_server_parsewebrtcpermission", "callee": "slice", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L44"}, {"caller_nid": "webrtc_server_issessionexpired", "callee": "getTime", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L55"}, {"caller_nid": "webrtc_server_issessionexpired", "callee": "now", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L55"}, {"caller_nid": "webrtc_server_loadsessionorthrow", "callee": "await Cache.get", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L59"}, {"caller_nid": "webrtc_server_issignalrecordvalid", "callee": "getTime", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L77"}, {"caller_nid": "webrtc_server_readsignalqueue", "callee": "await Cache.get", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L82"}, {"caller_nid": "webrtc_server_readsignalqueue", "callee": "isArray", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L83"}, {"caller_nid": "webrtc_server_readsignalqueue", "callee": "now", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L87"}, {"caller_nid": "webrtc_server_readsignalqueue", "callee": "filter", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L88"}, {"caller_nid": "webrtc_server_writesignalqueue", "callee": "delete", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L96"}, {"caller_nid": "webrtc_server_writesignalqueue", "callee": "set", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts", "source_location": "L100"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts",
+      "label": "webrtc-server.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "webrtc_server_parsewebrtcpermission",
+      "label": "parseWebrtcPermission()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L30"
+    },
+    {
+      "id": "webrtc_server_issessionexpired",
+      "label": "isSessionExpired()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L54"
+    },
+    {
+      "id": "webrtc_server_loadsessionorthrow",
+      "label": "loadSessionOrThrow()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L58"
+    },
+    {
+      "id": "webrtc_server_resolvesignalkey",
+      "label": "resolveSignalKey()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L68"
+    },
+    {
+      "id": "webrtc_server_issignalrecordvalid",
+      "label": "isSignalRecordValid()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L72"
+    },
+    {
+      "id": "webrtc_server_readsignalqueue",
+      "label": "readSignalQueue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L81"
+    },
+    {
+      "id": "webrtc_server_writesignalqueue",
+      "label": "writeSignalQueue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L91"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts",
+      "target": "react_start",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts",
+      "target": "zod",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts",
+      "target": "cache",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts",
+      "target": "tiny_session",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts",
+      "target": "webrtc_server_parsewebrtcpermission",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts",
+      "target": "webrtc_server_issessionexpired",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts",
+      "target": "webrtc_server_loadsessionorthrow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts",
+      "target": "webrtc_server_resolvesignalkey",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts",
+      "target": "webrtc_server_issignalrecordvalid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts",
+      "target": "webrtc_server_readsignalqueue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_webrtc_server_ts",
+      "target": "webrtc_server_writesignalqueue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "webrtc_server_loadsessionorthrow",
+      "target": "webrtc_server_issessionexpired",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "webrtc_server_parsewebrtcpermission",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "webrtc_server_parsewebrtcpermission",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "webrtc_server_parsewebrtcpermission",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "webrtc_server_parsewebrtcpermission",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "webrtc_server_issessionexpired",
+      "callee": "getTime",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "webrtc_server_issessionexpired",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "webrtc_server_loadsessionorthrow",
+      "callee": "await Cache.get",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "webrtc_server_issignalrecordvalid",
+      "callee": "getTime",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "webrtc_server_readsignalqueue",
+      "callee": "await Cache.get",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "webrtc_server_readsignalqueue",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "webrtc_server_readsignalqueue",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "webrtc_server_readsignalqueue",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "webrtc_server_writesignalqueue",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "webrtc_server_writesignalqueue",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\webrtc-server.ts",
+      "source_location": "L100"
+    }
+  ]
+}

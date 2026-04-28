@@ -6,8 +6,9 @@ import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 
 import { cn } from '@/lib/utils'
 
-interface CheckboxProps
-  extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> {
+interface CheckboxProps extends React.ComponentPropsWithoutRef<
+  typeof CheckboxPrimitive.Root
+> {
   indeterminate?: boolean
 }
 
@@ -27,11 +28,7 @@ const Checkbox = React.forwardRef<
       className={cn('flex items-center justify-center text-current')}
     >
       {indeterminate ? (
-        <svg
-          className="h-4 w-4"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
           <path d="M5 11h14v2H5z" />
         </svg>
       ) : (

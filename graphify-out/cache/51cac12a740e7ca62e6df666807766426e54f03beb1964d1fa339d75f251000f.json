@@ -1,1 +1,651 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_agent_orchestration_graph_ts", "label": "graph.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L1"}, {"id": "graph_createsupervisornode", "label": "createSupervisorNode()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L35"}, {"id": "graph_createtoolnode", "label": "createToolNode()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L106"}, {"id": "graph_createsupervisorgraph", "label": "createSupervisorGraph()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L161"}, {"id": "graph_createworkernode", "label": "createWorkerNode()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L289"}, {"id": "graph_toolexecutionnode", "label": "toolExecutionNode()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L353"}, {"id": "graph_createreflectnode", "label": "createReflectNode()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L412"}], "edges": [{"source": "f_storage_platform_src_lib_agent_orchestration_graph_ts", "target": "langgraph", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_agent_orchestration_graph_ts", "target": "langgraph", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_agent_orchestration_graph_ts", "target": "messages", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_agent_orchestration_graph_ts", "target": "tools", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_lib_agent_orchestration_graph_ts", "target": "graph_createsupervisornode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_src_lib_agent_orchestration_graph_ts", "target": "graph_createtoolnode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L106", "weight": 1.0}, {"source": "f_storage_platform_src_lib_agent_orchestration_graph_ts", "target": "graph_createsupervisorgraph", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L161", "weight": 1.0}, {"source": "f_storage_platform_src_lib_agent_orchestration_graph_ts", "target": "graph_createsupervisornode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L233", "weight": 1.0}, {"source": "f_storage_platform_src_lib_agent_orchestration_graph_ts", "target": "graph_createworkernode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L289", "weight": 1.0}, {"source": "f_storage_platform_src_lib_agent_orchestration_graph_ts", "target": "graph_toolexecutionnode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L353", "weight": 1.0}, {"source": "f_storage_platform_src_lib_agent_orchestration_graph_ts", "target": "graph_createreflectnode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L412", "weight": 1.0}, {"source": "f_storage_platform_src_lib_agent_orchestration_graph_ts", "target": "graph_createsupervisorgraph", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L453", "weight": 1.0}, {"source": "graph_createsupervisorgraph", "target": "graph_createsupervisornode", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L163", "weight": 1.0}, {"source": "graph_createsupervisorgraph", "target": "graph_createreflectnode", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L164", "weight": 1.0}], "raw_calls": [{"caller_nid": "graph_createsupervisornode", "callee": "_getType", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L44"}, {"caller_nid": "graph_createsupervisornode", "callee": "find", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L67"}, {"caller_nid": "graph_createsupervisornode", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L68"}, {"caller_nid": "graph_createsupervisornode", "callee": "toString", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L68"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L74"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L75"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L76"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L77"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L78"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L79"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L83"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L84"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L85"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L86"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L87"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L88"}, {"caller_nid": "graph_createtoolnode", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L125"}, {"caller_nid": "graph_createtoolnode", "callee": "executeToolCalls", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L127"}, {"caller_nid": "graph_createtoolnode", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L128"}, {"caller_nid": "graph_createtoolnode", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L138"}, {"caller_nid": "graph_createtoolnode", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L139"}, {"caller_nid": "graph_createtoolnode", "callee": "error", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L152"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "addNode", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L162"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "addNode", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L162"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "forEach", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L167"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "entries", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L167"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "forEach", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L172"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "entries", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L172"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "addEdge", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L179"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "addConditionalEdges", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L182"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "forEach", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L187"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "keys", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L187"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "forEach", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L199"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "keys", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L199"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "addConditionalEdges", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L206"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "compile", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L226"}, {"caller_nid": "graph_createsupervisornode", "callee": "find", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L251"}, {"caller_nid": "graph_createsupervisornode", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L252"}, {"caller_nid": "graph_createsupervisornode", "callee": "toString", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L252"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L258"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L259"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L260"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L261"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L262"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L263"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L267"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L268"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L269"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L270"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L271"}, {"caller_nid": "graph_createsupervisornode", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L272"}, {"caller_nid": "graph_createworkernode", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L296"}, {"caller_nid": "graph_createworkernode", "callee": "bindTools", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L299"}, {"caller_nid": "graph_createworkernode", "callee": "invoke", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L302"}, {"caller_nid": "graph_createworkernode", "callee": "forEach", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L309"}, {"caller_nid": "graph_createworkernode", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L314"}, {"caller_nid": "graph_createworkernode", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L330"}, {"caller_nid": "graph_createworkernode", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L341"}, {"caller_nid": "graph_createworkernode", "callee": "error", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L344"}, {"caller_nid": "graph_toolexecutionnode", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L371"}, {"caller_nid": "graph_toolexecutionnode", "callee": "executeToolCalls", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L373"}, {"caller_nid": "graph_toolexecutionnode", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L374"}, {"caller_nid": "graph_toolexecutionnode", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L384"}, {"caller_nid": "graph_toolexecutionnode", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L385"}, {"caller_nid": "graph_toolexecutionnode", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L393"}, {"caller_nid": "graph_createreflectnode", "callee": "_getType", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L428"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "addNode", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L454"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "addNode", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L454"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "addNode", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L454"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "forEach", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L460"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "entries", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L460"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "addEdge", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L465"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "addConditionalEdges", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L468"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "forEach", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L473"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "keys", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L473"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "addEdge", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L483"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "addConditionalEdges", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L486"}, {"caller_nid": "graph_createsupervisorgraph", "callee": "compile", "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts", "source_location": "L490"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_agent_orchestration_graph_ts",
+      "label": "graph.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "graph_createsupervisornode",
+      "label": "createSupervisorNode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L35"
+    },
+    {
+      "id": "graph_createtoolnode",
+      "label": "createToolNode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L106"
+    },
+    {
+      "id": "graph_createsupervisorgraph",
+      "label": "createSupervisorGraph()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L161"
+    },
+    {
+      "id": "graph_createworkernode",
+      "label": "createWorkerNode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L289"
+    },
+    {
+      "id": "graph_toolexecutionnode",
+      "label": "toolExecutionNode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L353"
+    },
+    {
+      "id": "graph_createreflectnode",
+      "label": "createReflectNode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L412"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_agent_orchestration_graph_ts",
+      "target": "langgraph",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_agent_orchestration_graph_ts",
+      "target": "langgraph",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_agent_orchestration_graph_ts",
+      "target": "messages",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_agent_orchestration_graph_ts",
+      "target": "tools",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_agent_orchestration_graph_ts",
+      "target": "graph_createsupervisornode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_agent_orchestration_graph_ts",
+      "target": "graph_createtoolnode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_agent_orchestration_graph_ts",
+      "target": "graph_createsupervisorgraph",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L161",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_agent_orchestration_graph_ts",
+      "target": "graph_createsupervisornode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L233",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_agent_orchestration_graph_ts",
+      "target": "graph_createworkernode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L289",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_agent_orchestration_graph_ts",
+      "target": "graph_toolexecutionnode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L353",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_agent_orchestration_graph_ts",
+      "target": "graph_createreflectnode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L412",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_agent_orchestration_graph_ts",
+      "target": "graph_createsupervisorgraph",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L453",
+      "weight": 1.0
+    },
+    {
+      "source": "graph_createsupervisorgraph",
+      "target": "graph_createsupervisornode",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "graph_createsupervisorgraph",
+      "target": "graph_createreflectnode",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L164",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "_getType",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "graph_createtoolnode",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "graph_createtoolnode",
+      "callee": "executeToolCalls",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "graph_createtoolnode",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "graph_createtoolnode",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "graph_createtoolnode",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "graph_createtoolnode",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "addNode",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "addNode",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L167"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L167"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "addEdge",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "addConditionalEdges",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L182"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L187"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L187"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L199"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L199"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "addConditionalEdges",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L206"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "compile",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L226"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L251"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L252"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L252"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L258"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L259"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L260"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L261"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L262"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L263"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L267"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L268"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L269"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L270"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L271"
+    },
+    {
+      "caller_nid": "graph_createsupervisornode",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L272"
+    },
+    {
+      "caller_nid": "graph_createworkernode",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L296"
+    },
+    {
+      "caller_nid": "graph_createworkernode",
+      "callee": "bindTools",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L299"
+    },
+    {
+      "caller_nid": "graph_createworkernode",
+      "callee": "invoke",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L302"
+    },
+    {
+      "caller_nid": "graph_createworkernode",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L309"
+    },
+    {
+      "caller_nid": "graph_createworkernode",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L314"
+    },
+    {
+      "caller_nid": "graph_createworkernode",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L330"
+    },
+    {
+      "caller_nid": "graph_createworkernode",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L341"
+    },
+    {
+      "caller_nid": "graph_createworkernode",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L344"
+    },
+    {
+      "caller_nid": "graph_toolexecutionnode",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L371"
+    },
+    {
+      "caller_nid": "graph_toolexecutionnode",
+      "callee": "executeToolCalls",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L373"
+    },
+    {
+      "caller_nid": "graph_toolexecutionnode",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L374"
+    },
+    {
+      "caller_nid": "graph_toolexecutionnode",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L384"
+    },
+    {
+      "caller_nid": "graph_toolexecutionnode",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L385"
+    },
+    {
+      "caller_nid": "graph_toolexecutionnode",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L393"
+    },
+    {
+      "caller_nid": "graph_createreflectnode",
+      "callee": "_getType",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L428"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "addNode",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L454"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "addNode",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L454"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "addNode",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L454"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L460"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L460"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "addEdge",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L465"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "addConditionalEdges",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L468"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L473"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L473"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "addEdge",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L483"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "addConditionalEdges",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L486"
+    },
+    {
+      "caller_nid": "graph_createsupervisorgraph",
+      "callee": "compile",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\orchestration\\graph.ts",
+      "source_location": "L490"
+    }
+  ]
+}

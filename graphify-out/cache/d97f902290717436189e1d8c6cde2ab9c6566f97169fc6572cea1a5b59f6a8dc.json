@@ -1,1 +1,207 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_computeruse_appnames_ts", "label": "appNames.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L1"}, {"id": "appnames_isuserfacingpath", "label": "isUserFacingPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L112"}, {"id": "appnames_isnoisyname", "label": "isNoisyName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L123"}, {"id": "appnames_sanitizecore", "label": "sanitizeCore()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L132"}, {"id": "appnames_sanitizeappnames", "label": "sanitizeAppNames()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L150"}, {"id": "appnames_sanitizetrustednames", "label": "sanitizeTrustedNames()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L159"}, {"id": "appnames_filterappsfordescription", "label": "filterAppsForDescription()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L168"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_appnames_ts", "target": "appnames_isuserfacingpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L112", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_appnames_ts", "target": "appnames_isnoisyname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L123", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_appnames_ts", "target": "appnames_sanitizecore", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L132", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_appnames_ts", "target": "appnames_sanitizeappnames", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L150", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_appnames_ts", "target": "appnames_sanitizetrustednames", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L159", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_appnames_ts", "target": "appnames_filterappsfordescription", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L168", "weight": 1.0}, {"source": "appnames_sanitizeappnames", "target": "appnames_sanitizecore", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L151", "weight": 1.0}, {"source": "appnames_sanitizetrustednames", "target": "appnames_sanitizecore", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L160", "weight": 1.0}, {"source": "appnames_filterappsfordescription", "target": "appnames_sanitizetrustednames", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L190", "weight": 1.0}, {"source": "appnames_filterappsfordescription", "target": "appnames_sanitizeappnames", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L194", "weight": 1.0}], "raw_calls": [{"caller_nid": "appnames_isuserfacingpath", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L113"}, {"caller_nid": "appnames_isuserfacingpath", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L115"}, {"caller_nid": "appnames_isuserfacingpath", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L118"}, {"caller_nid": "appnames_isnoisyname", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L124"}, {"caller_nid": "appnames_sanitizecore", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L137"}, {"caller_nid": "appnames_sanitizecore", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L137"}, {"caller_nid": "appnames_sanitizecore", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L137"}, {"caller_nid": "appnames_sanitizeappnames", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L154"}, {"caller_nid": "appnames_filterappsfordescription", "callee": "reduce", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L172"}, {"caller_nid": "appnames_filterappsfordescription", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts", "source_location": "L194"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_computeruse_appnames_ts",
+      "label": "appNames.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "appnames_isuserfacingpath",
+      "label": "isUserFacingPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L112"
+    },
+    {
+      "id": "appnames_isnoisyname",
+      "label": "isNoisyName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L123"
+    },
+    {
+      "id": "appnames_sanitizecore",
+      "label": "sanitizeCore()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L132"
+    },
+    {
+      "id": "appnames_sanitizeappnames",
+      "label": "sanitizeAppNames()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L150"
+    },
+    {
+      "id": "appnames_sanitizetrustednames",
+      "label": "sanitizeTrustedNames()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L159"
+    },
+    {
+      "id": "appnames_filterappsfordescription",
+      "label": "filterAppsForDescription()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L168"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_appnames_ts",
+      "target": "appnames_isuserfacingpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_appnames_ts",
+      "target": "appnames_isnoisyname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_appnames_ts",
+      "target": "appnames_sanitizecore",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_appnames_ts",
+      "target": "appnames_sanitizeappnames",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L150",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_appnames_ts",
+      "target": "appnames_sanitizetrustednames",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_appnames_ts",
+      "target": "appnames_filterappsfordescription",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "appnames_sanitizeappnames",
+      "target": "appnames_sanitizecore",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "appnames_sanitizetrustednames",
+      "target": "appnames_sanitizecore",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "appnames_filterappsfordescription",
+      "target": "appnames_sanitizetrustednames",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L190",
+      "weight": 1.0
+    },
+    {
+      "source": "appnames_filterappsfordescription",
+      "target": "appnames_sanitizeappnames",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L194",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "appnames_isuserfacingpath",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "appnames_isuserfacingpath",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "appnames_isuserfacingpath",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "appnames_isnoisyname",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "appnames_sanitizecore",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "appnames_sanitizecore",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "appnames_sanitizecore",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "appnames_sanitizeappnames",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "appnames_filterappsfordescription",
+      "callee": "reduce",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "appnames_filterappsfordescription",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\appNames.ts",
+      "source_location": "L194"
+    }
+  ]
+}

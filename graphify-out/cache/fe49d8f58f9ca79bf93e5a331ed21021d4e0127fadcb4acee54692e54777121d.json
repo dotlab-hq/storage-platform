@@ -1,1 +1,902 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "label": "formatters.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L1"}, {"id": "formatters_formaturi", "label": "formatUri()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L24"}, {"id": "formatters_groupbyfile", "label": "groupByFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L78"}, {"id": "formatters_formatlocation", "label": "formatLocation()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L99"}, {"id": "formatters_locationlinktolocation", "label": "locationLinkToLocation()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L109"}, {"id": "formatters_islocationlink", "label": "isLocationLink()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L119"}, {"id": "formatters_formatgotodefinitionresult", "label": "formatGoToDefinitionResult()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L127"}, {"id": "formatters_formatfindreferencesresult", "label": "formatFindReferencesResult()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L174"}, {"id": "formatters_extractmarkuptext", "label": "extractMarkupText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L223"}, {"id": "formatters_formathoverresult", "label": "formatHoverResult()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L253"}, {"id": "formatters_symbolkindtostring", "label": "symbolKindToString()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L272"}, {"id": "formatters_formatdocumentsymbolnode", "label": "formatDocumentSymbolNode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L307"}, {"id": "formatters_formatdocumentsymbolresult", "label": "formatDocumentSymbolResult()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L340"}, {"id": "formatters_formatworkspacesymbolresult", "label": "formatWorkspaceSymbolResult()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L371"}, {"id": "formatters_formatcallhierarchyitem", "label": "formatCallHierarchyItem()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L428"}, {"id": "formatters_formatpreparecallhierarchyresult", "label": "formatPrepareCallHierarchyResult()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L455"}, {"id": "formatters_formatincomingcallsresult", "label": "formatIncomingCallsResult()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L478"}, {"id": "formatters_formatoutgoingcallsresult", "label": "formatOutgoingCallsResult()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L538"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "vscode_languageserver_types", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_formaturi", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_groupbyfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L78", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_formatlocation", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L99", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_locationlinktolocation", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L109", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_islocationlink", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L119", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_formatgotodefinitionresult", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L127", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_formatfindreferencesresult", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L174", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_extractmarkuptext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L223", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_formathoverresult", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L253", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_symbolkindtostring", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L272", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_formatdocumentsymbolnode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L307", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_formatdocumentsymbolresult", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L340", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_formatworkspacesymbolresult", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L371", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_formatcallhierarchyitem", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L428", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_formatpreparecallhierarchyresult", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L455", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_formatincomingcallsresult", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L478", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts", "target": "formatters_formatoutgoingcallsresult", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L538", "weight": 1.0}, {"source": "formatters_groupbyfile", "target": "formatters_formaturi", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L85", "weight": 1.0}, {"source": "formatters_formatlocation", "target": "formatters_formaturi", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L100", "weight": 1.0}, {"source": "formatters_formatgotodefinitionresult", "target": "formatters_formatlocation", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L156", "weight": 1.0}, {"source": "formatters_formatgotodefinitionresult", "target": "formatters_islocationlink", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L165", "weight": 1.0}, {"source": "formatters_formatgotodefinitionresult", "target": "formatters_locationlinktolocation", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L166", "weight": 1.0}, {"source": "formatters_formatfindreferencesresult", "target": "formatters_formatlocation", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L198", "weight": 1.0}, {"source": "formatters_formatfindreferencesresult", "target": "formatters_groupbyfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L202", "weight": 1.0}, {"source": "formatters_formathoverresult", "target": "formatters_extractmarkuptext", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L258", "weight": 1.0}, {"source": "formatters_formatdocumentsymbolnode", "target": "formatters_symbolkindtostring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L313", "weight": 1.0}, {"source": "formatters_formatdocumentsymbolresult", "target": "formatters_formatworkspacesymbolresult", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L355", "weight": 1.0}, {"source": "formatters_formatdocumentsymbolresult", "target": "formatters_formatdocumentsymbolnode", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L362", "weight": 1.0}, {"source": "formatters_formatworkspacesymbolresult", "target": "formatters_groupbyfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L403", "weight": 1.0}, {"source": "formatters_formatworkspacesymbolresult", "target": "formatters_symbolkindtostring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L408", "weight": 1.0}, {"source": "formatters_formatcallhierarchyitem", "target": "formatters_symbolkindtostring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L438", "weight": 1.0}, {"source": "formatters_formatcallhierarchyitem", "target": "formatters_formaturi", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L441", "weight": 1.0}, {"source": "formatters_formatpreparecallhierarchyresult", "target": "formatters_formatcallhierarchyitem", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L464", "weight": 1.0}, {"source": "formatters_formatincomingcallsresult", "target": "formatters_formaturi", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L500", "weight": 1.0}, {"source": "formatters_formatincomingcallsresult", "target": "formatters_symbolkindtostring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L515", "weight": 1.0}, {"source": "formatters_formatoutgoingcallsresult", "target": "formatters_formaturi", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L560", "weight": 1.0}, {"source": "formatters_formatoutgoingcallsresult", "target": "formatters_symbolkindtostring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L575", "weight": 1.0}], "raw_calls": [{"caller_nid": "formatters_formaturi", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L29"}, {"caller_nid": "formatters_formaturi", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L39"}, {"caller_nid": "formatters_formaturi", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L40"}, {"caller_nid": "formatters_formaturi", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L41"}, {"caller_nid": "formatters_formaturi", "callee": "decodeURIComponent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L46"}, {"caller_nid": "formatters_formaturi", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L49"}, {"caller_nid": "formatters_formaturi", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L50"}, {"caller_nid": "formatters_formaturi", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L60"}, {"caller_nid": "formatters_formaturi", "callee": "relative", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L60"}, {"caller_nid": "formatters_formaturi", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L64"}, {"caller_nid": "formatters_formaturi", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L71"}, {"caller_nid": "formatters_groupbyfile", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L86"}, {"caller_nid": "formatters_groupbyfile", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L88"}, {"caller_nid": "formatters_groupbyfile", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L90"}, {"caller_nid": "formatters_formatgotodefinitionresult", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L135"}, {"caller_nid": "formatters_formatgotodefinitionresult", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L137"}, {"caller_nid": "formatters_formatgotodefinitionresult", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L142"}, {"caller_nid": "formatters_formatgotodefinitionresult", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L144"}, {"caller_nid": "formatters_formatgotodefinitionresult", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L150"}, {"caller_nid": "formatters_formatgotodefinitionresult", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L158"}, {"caller_nid": "formatters_formatgotodefinitionresult", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L158"}, {"caller_nid": "formatters_formatfindreferencesresult", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L183"}, {"caller_nid": "formatters_formatfindreferencesresult", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L185"}, {"caller_nid": "formatters_formatfindreferencesresult", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L191"}, {"caller_nid": "formatters_formatfindreferencesresult", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L209"}, {"caller_nid": "formatters_formatfindreferencesresult", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L213"}, {"caller_nid": "formatters_formatfindreferencesresult", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L217"}, {"caller_nid": "formatters_extractmarkuptext", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L226"}, {"caller_nid": "formatters_extractmarkuptext", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L227"}, {"caller_nid": "formatters_extractmarkuptext", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L227"}, {"caller_nid": "formatters_formatdocumentsymbolnode", "callee": "repeat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L312"}, {"caller_nid": "formatters_formatdocumentsymbolnode", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L323"}, {"caller_nid": "formatters_formatdocumentsymbolnode", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L328"}, {"caller_nid": "formatters_formatdocumentsymbolresult", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L362"}, {"caller_nid": "formatters_formatdocumentsymbolresult", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L365"}, {"caller_nid": "formatters_formatworkspacesymbolresult", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L380"}, {"caller_nid": "formatters_formatworkspacesymbolresult", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L384"}, {"caller_nid": "formatters_formatworkspacesymbolresult", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L390"}, {"caller_nid": "formatters_formatworkspacesymbolresult", "callee": "plural", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L399"}, {"caller_nid": "formatters_formatworkspacesymbolresult", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L406"}, {"caller_nid": "formatters_formatworkspacesymbolresult", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L417"}, {"caller_nid": "formatters_formatworkspacesymbolresult", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L421"}, {"caller_nid": "formatters_formatcallhierarchyitem", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L434"}, {"caller_nid": "formatters_formatpreparecallhierarchyresult", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L469"}, {"caller_nid": "formatters_formatpreparecallhierarchyresult", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L471"}, {"caller_nid": "formatters_formatincomingcallsresult", "callee": "plural", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L487"}, {"caller_nid": "formatters_formatincomingcallsresult", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L494"}, {"caller_nid": "formatters_formatincomingcallsresult", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L501"}, {"caller_nid": "formatters_formatincomingcallsresult", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L503"}, {"caller_nid": "formatters_formatincomingcallsresult", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L505"}, {"caller_nid": "formatters_formatincomingcallsresult", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L510"}, {"caller_nid": "formatters_formatincomingcallsresult", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L521"}, {"caller_nid": "formatters_formatincomingcallsresult", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L521"}, {"caller_nid": "formatters_formatincomingcallsresult", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L527"}, {"caller_nid": "formatters_formatincomingcallsresult", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L531"}, {"caller_nid": "formatters_formatoutgoingcallsresult", "callee": "plural", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L547"}, {"caller_nid": "formatters_formatoutgoingcallsresult", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L554"}, {"caller_nid": "formatters_formatoutgoingcallsresult", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L561"}, {"caller_nid": "formatters_formatoutgoingcallsresult", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L563"}, {"caller_nid": "formatters_formatoutgoingcallsresult", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L565"}, {"caller_nid": "formatters_formatoutgoingcallsresult", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L570"}, {"caller_nid": "formatters_formatoutgoingcallsresult", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L581"}, {"caller_nid": "formatters_formatoutgoingcallsresult", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L581"}, {"caller_nid": "formatters_formatoutgoingcallsresult", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L587"}, {"caller_nid": "formatters_formatoutgoingcallsresult", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts", "source_location": "L591"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "label": "formatters.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "formatters_formaturi",
+      "label": "formatUri()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L24"
+    },
+    {
+      "id": "formatters_groupbyfile",
+      "label": "groupByFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L78"
+    },
+    {
+      "id": "formatters_formatlocation",
+      "label": "formatLocation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L99"
+    },
+    {
+      "id": "formatters_locationlinktolocation",
+      "label": "locationLinkToLocation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L109"
+    },
+    {
+      "id": "formatters_islocationlink",
+      "label": "isLocationLink()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L119"
+    },
+    {
+      "id": "formatters_formatgotodefinitionresult",
+      "label": "formatGoToDefinitionResult()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L127"
+    },
+    {
+      "id": "formatters_formatfindreferencesresult",
+      "label": "formatFindReferencesResult()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L174"
+    },
+    {
+      "id": "formatters_extractmarkuptext",
+      "label": "extractMarkupText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L223"
+    },
+    {
+      "id": "formatters_formathoverresult",
+      "label": "formatHoverResult()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L253"
+    },
+    {
+      "id": "formatters_symbolkindtostring",
+      "label": "symbolKindToString()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L272"
+    },
+    {
+      "id": "formatters_formatdocumentsymbolnode",
+      "label": "formatDocumentSymbolNode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L307"
+    },
+    {
+      "id": "formatters_formatdocumentsymbolresult",
+      "label": "formatDocumentSymbolResult()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L340"
+    },
+    {
+      "id": "formatters_formatworkspacesymbolresult",
+      "label": "formatWorkspaceSymbolResult()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L371"
+    },
+    {
+      "id": "formatters_formatcallhierarchyitem",
+      "label": "formatCallHierarchyItem()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L428"
+    },
+    {
+      "id": "formatters_formatpreparecallhierarchyresult",
+      "label": "formatPrepareCallHierarchyResult()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L455"
+    },
+    {
+      "id": "formatters_formatincomingcallsresult",
+      "label": "formatIncomingCallsResult()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L478"
+    },
+    {
+      "id": "formatters_formatoutgoingcallsresult",
+      "label": "formatOutgoingCallsResult()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L538"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "vscode_languageserver_types",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_formaturi",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_groupbyfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_formatlocation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_locationlinktolocation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_islocationlink",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_formatgotodefinitionresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_formatfindreferencesresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L174",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_extractmarkuptext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L223",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_formathoverresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L253",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_symbolkindtostring",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L272",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_formatdocumentsymbolnode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L307",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_formatdocumentsymbolresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L340",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_formatworkspacesymbolresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L371",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_formatcallhierarchyitem",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L428",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_formatpreparecallhierarchyresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L455",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_formatincomingcallsresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L478",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_formatters_ts",
+      "target": "formatters_formatoutgoingcallsresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L538",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_groupbyfile",
+      "target": "formatters_formaturi",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatlocation",
+      "target": "formatters_formaturi",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatgotodefinitionresult",
+      "target": "formatters_formatlocation",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L156",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatgotodefinitionresult",
+      "target": "formatters_islocationlink",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L165",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatgotodefinitionresult",
+      "target": "formatters_locationlinktolocation",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatfindreferencesresult",
+      "target": "formatters_formatlocation",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L198",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatfindreferencesresult",
+      "target": "formatters_groupbyfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L202",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formathoverresult",
+      "target": "formatters_extractmarkuptext",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L258",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatdocumentsymbolnode",
+      "target": "formatters_symbolkindtostring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L313",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatdocumentsymbolresult",
+      "target": "formatters_formatworkspacesymbolresult",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L355",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatdocumentsymbolresult",
+      "target": "formatters_formatdocumentsymbolnode",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L362",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatworkspacesymbolresult",
+      "target": "formatters_groupbyfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L403",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatworkspacesymbolresult",
+      "target": "formatters_symbolkindtostring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L408",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatcallhierarchyitem",
+      "target": "formatters_symbolkindtostring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L438",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatcallhierarchyitem",
+      "target": "formatters_formaturi",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L441",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatpreparecallhierarchyresult",
+      "target": "formatters_formatcallhierarchyitem",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L464",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatincomingcallsresult",
+      "target": "formatters_formaturi",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L500",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatincomingcallsresult",
+      "target": "formatters_symbolkindtostring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L515",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatoutgoingcallsresult",
+      "target": "formatters_formaturi",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L560",
+      "weight": 1.0
+    },
+    {
+      "source": "formatters_formatoutgoingcallsresult",
+      "target": "formatters_symbolkindtostring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L575",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "formatters_formaturi",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "formatters_formaturi",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "formatters_formaturi",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "formatters_formaturi",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "formatters_formaturi",
+      "callee": "decodeURIComponent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "formatters_formaturi",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "formatters_formaturi",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "formatters_formaturi",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "formatters_formaturi",
+      "callee": "relative",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "formatters_formaturi",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "formatters_formaturi",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "formatters_groupbyfile",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "formatters_groupbyfile",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "formatters_groupbyfile",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "formatters_formatgotodefinitionresult",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "formatters_formatgotodefinitionresult",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "formatters_formatgotodefinitionresult",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "formatters_formatgotodefinitionresult",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "formatters_formatgotodefinitionresult",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "formatters_formatgotodefinitionresult",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "formatters_formatgotodefinitionresult",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "formatters_formatfindreferencesresult",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L183"
+    },
+    {
+      "caller_nid": "formatters_formatfindreferencesresult",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "formatters_formatfindreferencesresult",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L191"
+    },
+    {
+      "caller_nid": "formatters_formatfindreferencesresult",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L209"
+    },
+    {
+      "caller_nid": "formatters_formatfindreferencesresult",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L213"
+    },
+    {
+      "caller_nid": "formatters_formatfindreferencesresult",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L217"
+    },
+    {
+      "caller_nid": "formatters_extractmarkuptext",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L226"
+    },
+    {
+      "caller_nid": "formatters_extractmarkuptext",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L227"
+    },
+    {
+      "caller_nid": "formatters_extractmarkuptext",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L227"
+    },
+    {
+      "caller_nid": "formatters_formatdocumentsymbolnode",
+      "callee": "repeat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L312"
+    },
+    {
+      "caller_nid": "formatters_formatdocumentsymbolnode",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L323"
+    },
+    {
+      "caller_nid": "formatters_formatdocumentsymbolnode",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L328"
+    },
+    {
+      "caller_nid": "formatters_formatdocumentsymbolresult",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L362"
+    },
+    {
+      "caller_nid": "formatters_formatdocumentsymbolresult",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L365"
+    },
+    {
+      "caller_nid": "formatters_formatworkspacesymbolresult",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L380"
+    },
+    {
+      "caller_nid": "formatters_formatworkspacesymbolresult",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L384"
+    },
+    {
+      "caller_nid": "formatters_formatworkspacesymbolresult",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L390"
+    },
+    {
+      "caller_nid": "formatters_formatworkspacesymbolresult",
+      "callee": "plural",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L399"
+    },
+    {
+      "caller_nid": "formatters_formatworkspacesymbolresult",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L406"
+    },
+    {
+      "caller_nid": "formatters_formatworkspacesymbolresult",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L417"
+    },
+    {
+      "caller_nid": "formatters_formatworkspacesymbolresult",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L421"
+    },
+    {
+      "caller_nid": "formatters_formatcallhierarchyitem",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L434"
+    },
+    {
+      "caller_nid": "formatters_formatpreparecallhierarchyresult",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L469"
+    },
+    {
+      "caller_nid": "formatters_formatpreparecallhierarchyresult",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L471"
+    },
+    {
+      "caller_nid": "formatters_formatincomingcallsresult",
+      "callee": "plural",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L487"
+    },
+    {
+      "caller_nid": "formatters_formatincomingcallsresult",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L494"
+    },
+    {
+      "caller_nid": "formatters_formatincomingcallsresult",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L501"
+    },
+    {
+      "caller_nid": "formatters_formatincomingcallsresult",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L503"
+    },
+    {
+      "caller_nid": "formatters_formatincomingcallsresult",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L505"
+    },
+    {
+      "caller_nid": "formatters_formatincomingcallsresult",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L510"
+    },
+    {
+      "caller_nid": "formatters_formatincomingcallsresult",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L521"
+    },
+    {
+      "caller_nid": "formatters_formatincomingcallsresult",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L521"
+    },
+    {
+      "caller_nid": "formatters_formatincomingcallsresult",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L527"
+    },
+    {
+      "caller_nid": "formatters_formatincomingcallsresult",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L531"
+    },
+    {
+      "caller_nid": "formatters_formatoutgoingcallsresult",
+      "callee": "plural",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L547"
+    },
+    {
+      "caller_nid": "formatters_formatoutgoingcallsresult",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L554"
+    },
+    {
+      "caller_nid": "formatters_formatoutgoingcallsresult",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L561"
+    },
+    {
+      "caller_nid": "formatters_formatoutgoingcallsresult",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L563"
+    },
+    {
+      "caller_nid": "formatters_formatoutgoingcallsresult",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L565"
+    },
+    {
+      "caller_nid": "formatters_formatoutgoingcallsresult",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L570"
+    },
+    {
+      "caller_nid": "formatters_formatoutgoingcallsresult",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L581"
+    },
+    {
+      "caller_nid": "formatters_formatoutgoingcallsresult",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L581"
+    },
+    {
+      "caller_nid": "formatters_formatoutgoingcallsresult",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L587"
+    },
+    {
+      "caller_nid": "formatters_formatoutgoingcallsresult",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\formatters.ts",
+      "source_location": "L591"
+    }
+  ]
+}

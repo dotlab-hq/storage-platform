@@ -1,1 +1,153 @@
-{"nodes": [{"id": "f_storage_platform_src_hooks_webrtc_connection_lifecycle_ts", "label": "connection-lifecycle.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L1"}, {"id": "connection_lifecycle_stopsignalpolling", "label": "stopSignalPolling()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L10"}, {"id": "connection_lifecycle_closeconnection", "label": "closeConnection()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L17"}, {"id": "connection_lifecycle_setuppeerconnection", "label": "setupPeerConnection()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L38"}], "edges": [{"source": "f_storage_platform_src_hooks_webrtc_connection_lifecycle_ts", "target": "f_storage_platform_src_hooks_webrtc_file_transfer_channel", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_connection_lifecycle_ts", "target": "f_storage_platform_src_hooks_webrtc_connection_types", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_connection_lifecycle_ts", "target": "f_storage_platform_src_hooks_webrtc_types", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_connection_lifecycle_ts", "target": "connection_lifecycle_stopsignalpolling", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_connection_lifecycle_ts", "target": "connection_lifecycle_closeconnection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_webrtc_connection_lifecycle_ts", "target": "connection_lifecycle_setuppeerconnection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L38", "weight": 1.0}, {"source": "connection_lifecycle_closeconnection", "target": "connection_lifecycle_stopsignalpolling", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L21", "weight": 1.0}], "raw_calls": [{"caller_nid": "connection_lifecycle_stopsignalpolling", "callee": "clearInterval", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L12"}, {"caller_nid": "connection_lifecycle_closeconnection", "callee": "close", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L28"}, {"caller_nid": "connection_lifecycle_closeconnection", "callee": "setIsConnected", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L35"}, {"caller_nid": "connection_lifecycle_setuppeerconnection", "callee": "close", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L45"}, {"caller_nid": "connection_lifecycle_setuppeerconnection", "callee": "createDataChannel", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L97"}, {"caller_nid": "connection_lifecycle_setuppeerconnection", "callee": "setupFileTransferDataChannel", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L99"}, {"caller_nid": "connection_lifecycle_setuppeerconnection", "callee": "createOffer", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L101"}, {"caller_nid": "connection_lifecycle_setuppeerconnection", "callee": "setLocalDescription", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L102"}, {"caller_nid": "connection_lifecycle_setuppeerconnection", "callee": "sendSignal", "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts", "source_location": "L103"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_hooks_webrtc_connection_lifecycle_ts",
+      "label": "connection-lifecycle.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "connection_lifecycle_stopsignalpolling",
+      "label": "stopSignalPolling()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "connection_lifecycle_closeconnection",
+      "label": "closeConnection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L17"
+    },
+    {
+      "id": "connection_lifecycle_setuppeerconnection",
+      "label": "setupPeerConnection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L38"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_connection_lifecycle_ts",
+      "target": "f_storage_platform_src_hooks_webrtc_file_transfer_channel",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_connection_lifecycle_ts",
+      "target": "f_storage_platform_src_hooks_webrtc_connection_types",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_connection_lifecycle_ts",
+      "target": "f_storage_platform_src_hooks_webrtc_types",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_connection_lifecycle_ts",
+      "target": "connection_lifecycle_stopsignalpolling",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_connection_lifecycle_ts",
+      "target": "connection_lifecycle_closeconnection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_webrtc_connection_lifecycle_ts",
+      "target": "connection_lifecycle_setuppeerconnection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "connection_lifecycle_closeconnection",
+      "target": "connection_lifecycle_stopsignalpolling",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "connection_lifecycle_stopsignalpolling",
+      "callee": "clearInterval",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L12"
+    },
+    {
+      "caller_nid": "connection_lifecycle_closeconnection",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "connection_lifecycle_closeconnection",
+      "callee": "setIsConnected",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "connection_lifecycle_setuppeerconnection",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "connection_lifecycle_setuppeerconnection",
+      "callee": "createDataChannel",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "connection_lifecycle_setuppeerconnection",
+      "callee": "setupFileTransferDataChannel",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "connection_lifecycle_setuppeerconnection",
+      "callee": "createOffer",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "connection_lifecycle_setuppeerconnection",
+      "callee": "setLocalDescription",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "connection_lifecycle_setuppeerconnection",
+      "callee": "sendSignal",
+      "source_file": "F:\\storage-platform\\src\\hooks\\webrtc\\connection-lifecycle.ts",
+      "source_location": "L103"
+    }
+  ]
+}

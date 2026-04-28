@@ -1,1 +1,197 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_filereadcache_ts", "label": "fileReadCache.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L1"}, {"id": "filereadcache_filereadcache", "label": "FileReadCache", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L14"}, {"id": "filereadcache_filereadcache_readfile", "label": ".readFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L22"}, {"id": "filereadcache_filereadcache_clear", "label": ".clear()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L73"}, {"id": "filereadcache_filereadcache_invalidate", "label": ".invalidate()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L80"}, {"id": "filereadcache_filereadcache_getstats", "label": ".getStats()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L87"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_filereadcache_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_file_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_filereadcache_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_filereadcache_ts", "target": "filereadcache_filereadcache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L14", "weight": 1.0}, {"source": "filereadcache_filereadcache", "target": "filereadcache_filereadcache_readfile", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L22", "weight": 1.0}, {"source": "filereadcache_filereadcache", "target": "filereadcache_filereadcache_clear", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L73", "weight": 1.0}, {"source": "filereadcache_filereadcache", "target": "filereadcache_filereadcache_invalidate", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L80", "weight": 1.0}, {"source": "filereadcache_filereadcache", "target": "filereadcache_filereadcache_getstats", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L87", "weight": 1.0}], "raw_calls": [{"caller_nid": "filereadcache_filereadcache_readfile", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L23"}, {"caller_nid": "filereadcache_filereadcache_readfile", "callee": "statSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L28"}, {"caller_nid": "filereadcache_filereadcache_readfile", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L31"}, {"caller_nid": "filereadcache_filereadcache_readfile", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L36"}, {"caller_nid": "filereadcache_filereadcache_readfile", "callee": "detectFileEncoding", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L47"}, {"caller_nid": "filereadcache_filereadcache_readfile", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L48"}, {"caller_nid": "filereadcache_filereadcache_readfile", "callee": "readFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L48"}, {"caller_nid": "filereadcache_filereadcache_readfile", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L53"}, {"caller_nid": "filereadcache_filereadcache_readfile", "callee": "next", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L61"}, {"caller_nid": "filereadcache_filereadcache_readfile", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L61"}, {"caller_nid": "filereadcache_filereadcache_readfile", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L63"}, {"caller_nid": "filereadcache_filereadcache_invalidate", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L81"}, {"caller_nid": "filereadcache_filereadcache_getstats", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L90"}, {"caller_nid": "filereadcache_filereadcache_getstats", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts", "source_location": "L90"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_filereadcache_ts",
+      "label": "fileReadCache.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "filereadcache_filereadcache",
+      "label": "FileReadCache",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L14"
+    },
+    {
+      "id": "filereadcache_filereadcache_readfile",
+      "label": ".readFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "filereadcache_filereadcache_clear",
+      "label": ".clear()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L73"
+    },
+    {
+      "id": "filereadcache_filereadcache_invalidate",
+      "label": ".invalidate()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L80"
+    },
+    {
+      "id": "filereadcache_filereadcache_getstats",
+      "label": ".getStats()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L87"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_filereadcache_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_file_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_filereadcache_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_filereadcache_ts",
+      "target": "filereadcache_filereadcache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "filereadcache_filereadcache",
+      "target": "filereadcache_filereadcache_readfile",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "filereadcache_filereadcache",
+      "target": "filereadcache_filereadcache_clear",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "filereadcache_filereadcache",
+      "target": "filereadcache_filereadcache_invalidate",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "filereadcache_filereadcache",
+      "target": "filereadcache_filereadcache_getstats",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L87",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "filereadcache_filereadcache_readfile",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "filereadcache_filereadcache_readfile",
+      "callee": "statSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "filereadcache_filereadcache_readfile",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L31"
+    },
+    {
+      "caller_nid": "filereadcache_filereadcache_readfile",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "filereadcache_filereadcache_readfile",
+      "callee": "detectFileEncoding",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "filereadcache_filereadcache_readfile",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "filereadcache_filereadcache_readfile",
+      "callee": "readFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "filereadcache_filereadcache_readfile",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "filereadcache_filereadcache_readfile",
+      "callee": "next",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "filereadcache_filereadcache_readfile",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "filereadcache_filereadcache_readfile",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "filereadcache_filereadcache_invalidate",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "filereadcache_filereadcache_getstats",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "filereadcache_filereadcache_getstats",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\fileReadCache.ts",
+      "source_location": "L90"
+    }
+  ]
+}

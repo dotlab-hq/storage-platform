@@ -1,1 +1,94 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_migrations_migratesonnet1mtosonnet45_ts", "label": "migrateSonnet1mToSonnet45.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts", "source_location": "L1"}, {"id": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45", "label": "migrateSonnet1mToSonnet45()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts", "source_location": "L25"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_migrations_migratesonnet1mtosonnet45_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_migrations_migratesonnet1mtosonnet45_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_migrations_migratesonnet1mtosonnet45_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_migrations_migratesonnet1mtosonnet45_ts", "target": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts", "source_location": "L25", "weight": 1.0}], "raw_calls": [{"caller_nid": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts", "source_location": "L26"}, {"caller_nid": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts", "source_location": "L31"}, {"caller_nid": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45", "callee": "updateSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts", "source_location": "L33"}, {"caller_nid": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45", "callee": "getMainLoopModelOverride", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts", "source_location": "L39"}, {"caller_nid": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45", "callee": "setMainLoopModelOverride", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts", "source_location": "L41"}, {"caller_nid": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45", "callee": "saveGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts", "source_location": "L44"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_migrations_migratesonnet1mtosonnet45_ts",
+      "label": "migrateSonnet1mToSonnet45.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45",
+      "label": "migrateSonnet1mToSonnet45()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts",
+      "source_location": "L25"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_migratesonnet1mtosonnet45_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_migratesonnet1mtosonnet45_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_migratesonnet1mtosonnet45_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_migratesonnet1mtosonnet45_ts",
+      "target": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts",
+      "source_location": "L31"
+    },
+    {
+      "caller_nid": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45",
+      "callee": "updateSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45",
+      "callee": "getMainLoopModelOverride",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45",
+      "callee": "setMainLoopModelOverride",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "migratesonnet1mtosonnet45_migratesonnet1mtosonnet45",
+      "callee": "saveGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateSonnet1mToSonnet45.ts",
+      "source_location": "L44"
+    }
+  ]
+}

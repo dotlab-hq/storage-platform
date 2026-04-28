@@ -52,9 +52,8 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
   const completionId = `chatcmpl-${nanoid()}`
 
   // ToolOrchestrator creation
-  const { createDefaultOrchestrator } = await import(
-    '@/routes/_app/chat/tools/-tool-orchestrator'
-  )
+  const { createDefaultOrchestrator } =
+    await import('@/routes/_app/chat/tools/-tool-orchestrator')
   const orchestrator = createDefaultOrchestrator()
 
   // Register enhanced tools

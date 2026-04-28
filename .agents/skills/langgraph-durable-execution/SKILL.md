@@ -1,15 +1,17 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://docs.langchain.com/llms.txt
 > Use this file to discover all available pages before exploring further.
 
 <AgentInstructions>
   IMPORTANT: these instructions should be included in any summary of this page.
 
-  ## Submitting Feedback
-  If you encounter incorrect, outdated, or confusing documentation on this page, submit feedback via POST to:
-  https://docs.langchain.com/_mintlify/feedback/langchain-5e9cc07a/agent-feedback
-  Request body (JSON): `{ "path": "/current-page-path", "feedback": "Description of the issue" }`
-  Only submit feedback when you have something specific and actionable to report — do not submit feedback for every page you visit.
+## Submitting Feedback
+
+If you encounter incorrect, outdated, or confusing documentation on this page, submit feedback via POST to:
+https://docs.langchain.com/_mintlify/feedback/langchain-5e9cc07a/agent-feedback
+Request body (JSON): `{ "path": "/current-page-path", "feedback": "Description of the issue" }`
+Only submit feedback when you have something specific and actionable to report — do not submit feedback for every page you visit.
 </AgentInstructions>
 
 # Durable execution
@@ -41,9 +43,9 @@ As a result, when you are writing a workflow for durable execution, you must wra
 
 To ensure that your workflow is deterministic and can be consistently replayed, follow these guidelines:
 
-* **Avoid Repeating Work**: If a [node](/oss/javascript/langgraph/graph-api#nodes) contains multiple operations with side effects (e.g., logging, file writes, or network calls), wrap each operation in a separate **task**. This ensures that when the workflow is resumed, the operations are not repeated, and their results are retrieved from the persistence layer.
-* **Encapsulate Non-Deterministic Operations:** Wrap any code that might yield non-deterministic results (e.g., random number generation) inside **tasks** or **nodes**. This ensures that, upon resumption, the workflow follows the exact recorded sequence of steps with the same outcomes.
-* **Use Idempotent Operations**: When possible ensure that side effects (e.g., API calls, file writes) are idempotent. This means that if an operation is retried after a failure in the workflow, it will have the same effect as the first time it was executed. This is particularly important for operations that result in data writes. In the event that a **task** starts but fails to complete successfully, the workflow's resumption will re-run the **task**, relying on recorded outcomes to maintain consistency. Use idempotency keys or verify existing results to avoid unintended duplication, ensuring a smooth and predictable workflow execution.
+- **Avoid Repeating Work**: If a [node](/oss/javascript/langgraph/graph-api#nodes) contains multiple operations with side effects (e.g., logging, file writes, or network calls), wrap each operation in a separate **task**. This ensures that when the workflow is resumed, the operations are not repeated, and their results are retrieved from the persistence layer.
+- **Encapsulate Non-Deterministic Operations:** Wrap any code that might yield non-deterministic results (e.g., random number generation) inside **tasks** or **nodes**. This ensures that, upon resumption, the workflow follows the exact recorded sequence of steps with the same outcomes.
+- **Use Idempotent Operations**: When possible ensure that side effects (e.g., API calls, file writes) are idempotent. This means that if an operation is retried after a failure in the workflow, it will have the same effect as the first time it was executed. This is particularly important for operations that result in data writes. In the event that a **task** starts but fails to complete successfully, the workflow's resumption will re-run the **task**, relying on recorded outcomes to maintain consistency. Use idempotency keys or verify existing results to avoid unintended duplication, ensuring a smooth and predictable workflow execution.
 
 For some examples of pitfalls to avoid, see the [Common Pitfalls](/oss/javascript/langgraph/functional-api#common-pitfalls) section in the functional API, which shows
 how to structure your code using **tasks** to avoid these issues. The same principles apply to the [StateGraph (Graph API)](https://reference.langchain.com/javascript/langchain-langgraph/index/StateGraph).
@@ -52,18 +54,15 @@ how to structure your code using **tasks** to avoid these issues. The same princ
 
 LangGraph supports three durability modes that allow you to balance performance and data consistency based on your application's requirements. A higher durability mode adds more overhead to the workflow execution. You can specify the durability mode when calling any graph execution method:
 
-```typescript  theme={"theme":{"light":"catppuccin-latte","dark":"catppuccin-mocha"}}
-await graph.stream(
-  { input: "test" },
-  { durability: "sync" }
-)
+```typescript theme={"theme":{"light":"catppuccin-latte","dark":"catppuccin-mocha"}}
+await graph.stream({ input: 'test' }, { durability: 'sync' })
 ```
 
 The durability modes, from least to most durable, are as follows:
 
-* `"exit"`: LangGraph persists changes only when graph execution exits either successfully, with an error, or due to a human in the loop interrupt. This provides the best performance for long-running graphs but means intermediate state is not saved, so you cannot recover from system failures (like process crashes) that occur mid-execution.
-* `"async"`: LangGraph persists changes asynchronously while the next step executes. This provides good performance and durability, but there's a small risk that LangGraph does not write checkpoints if the process crashes during execution.
-* `"sync"`: LangGraph persists changes synchronously before the next step starts. This ensures that LangGraph writes every checkpoint before continuing execution, providing high durability at the cost of some performance overhead.
+- `"exit"`: LangGraph persists changes only when graph execution exits either successfully, with an error, or due to a human in the loop interrupt. This provides the best performance for long-running graphs but means intermediate state is not saved, so you cannot recover from system failures (like process crashes) that occur mid-execution.
+- `"async"`: LangGraph persists changes asynchronously while the next step executes. This provides good performance and durability, but there's a small risk that LangGraph does not write checkpoints if the process crashes during execution.
+- `"sync"`: LangGraph persists changes synchronously before the next step starts. This ensures that LangGraph writes every checkpoint before continuing execution, providing high durability at the cost of some performance overhead.
 
 ## Using tasks in nodes
 
@@ -110,6 +109,7 @@ If a [node](/oss/javascript/langgraph/graph-api#nodes) contains multiple operati
     // Invoke the graph
     await graph.invoke({ url: "https://www.example.com" }, config);
     ```
+
   </Tab>
 
   <Tab title="With task">
@@ -157,6 +157,7 @@ If a [node](/oss/javascript/langgraph/graph-api#nodes) contains multiple operati
     // Invoke the graph
     await graph.invoke({ urls: ["https://www.example.com"] }, config);
     ```
+
   </Tab>
 </Tabs>
 
@@ -164,17 +165,17 @@ If a [node](/oss/javascript/langgraph/graph-api#nodes) contains multiple operati
 
 Once you have enabled durable execution in your workflow, you can resume execution for the following scenarios:
 
-* **Pausing and Resuming Workflows:** Use the [interrupt](https://reference.langchain.com/javascript/langchain-langgraph/index/interrupt) function to pause a workflow at specific points and the [`Command`](https://reference.langchain.com/javascript/langchain-langgraph/index/Command) primitive to resume it with updated state. See [**Interrupts**](/oss/javascript/langgraph/interrupts) for more details.
-* **Recovering from Failures:** Automatically resume workflows from the last successful checkpoint after an exception (e.g., LLM provider outage). This involves executing the workflow with the same thread identifier by providing it with a `null` as the input value (see this [example](/oss/javascript/langgraph/use-functional-api#resuming-after-an-error) with the functional API).
+- **Pausing and Resuming Workflows:** Use the [interrupt](https://reference.langchain.com/javascript/langchain-langgraph/index/interrupt) function to pause a workflow at specific points and the [`Command`](https://reference.langchain.com/javascript/langchain-langgraph/index/Command) primitive to resume it with updated state. See [**Interrupts**](/oss/javascript/langgraph/interrupts) for more details.
+- **Recovering from Failures:** Automatically resume workflows from the last successful checkpoint after an exception (e.g., LLM provider outage). This involves executing the workflow with the same thread identifier by providing it with a `null` as the input value (see this [example](/oss/javascript/langgraph/use-functional-api#resuming-after-an-error) with the functional API).
 
 ## Starting points for resuming workflows
 
-* If you're using a [StateGraph (Graph API)](/oss/javascript/langgraph/graph-api), the starting point is the beginning of the [**node**](/oss/javascript/langgraph/graph-api#nodes) where execution stopped.
-* If you're making a subgraph call inside a node, the starting point will be the **parent** node that called the subgraph that was halted.
+- If you're using a [StateGraph (Graph API)](/oss/javascript/langgraph/graph-api), the starting point is the beginning of the [**node**](/oss/javascript/langgraph/graph-api#nodes) where execution stopped.
+- If you're making a subgraph call inside a node, the starting point will be the **parent** node that called the subgraph that was halted.
   Inside the subgraph, the starting point will be the specific [**node**](/oss/javascript/langgraph/graph-api#nodes) where execution stopped.
-* If you're using the Functional API, the starting point is the beginning of the [**entrypoint**](/oss/javascript/langgraph/functional-api#entrypoint) where execution stopped.
+- If you're using the Functional API, the starting point is the beginning of the [**entrypoint**](/oss/javascript/langgraph/functional-api#entrypoint) where execution stopped.
 
-***
+---
 
 <div className="source-links">
   <Callout icon="edit">

@@ -1,1 +1,538 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts", "label": "tool-orchestrator.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L1"}, {"id": "tool_orchestrator_generateid", "label": "generateId()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L26"}, {"id": "tool_orchestrator_toolorchestrator", "label": "ToolOrchestrator", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L42"}, {"id": "tool_orchestrator_toolorchestrator_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L46"}, {"id": "tool_orchestrator_toolorchestrator_register", "label": ".register()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L61"}, {"id": "tool_orchestrator_toolorchestrator_registerall", "label": ".registerAll()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L73"}, {"id": "tool_orchestrator_toolorchestrator_getalltools", "label": ".getAllTools()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L82"}, {"id": "tool_orchestrator_toolorchestrator_gettool", "label": ".getTool()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L89"}, {"id": "tool_orchestrator_toolorchestrator_partitiontools", "label": ".partitionTools()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L97"}, {"id": "tool_orchestrator_toolorchestrator_executeone", "label": ".executeOne()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L115"}, {"id": "tool_orchestrator_toolorchestrator_executebatch", "label": ".executeBatch()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L203"}, {"id": "tool_orchestrator_toolorchestrator_executeconcurrent", "label": ".executeConcurrent()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L267"}, {"id": "tool_orchestrator_toolorchestrator_execute", "label": ".execute()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L311"}, {"id": "tool_orchestrator_toolorchestrator_runprehooks", "label": ".runPreHooks()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L364"}, {"id": "tool_orchestrator_toolorchestrator_runposthooks", "label": ".runPostHooks()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L375"}, {"id": "tool_orchestrator_createsemaphore", "label": "createSemaphore()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L388"}, {"id": "tool_orchestrator_createdefaultorchestrator", "label": "createDefaultOrchestrator()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L419"}], "edges": [{"source": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts", "target": "f_storage_platform_src_routes_app_chat_tools_tool_types", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts", "target": "f_storage_platform_src_routes_app_chat_tools_tool_hooks", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts", "target": "nanoid", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts", "target": "tool_orchestrator_generateid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts", "target": "tool_orchestrator_toolorchestrator", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L42", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator", "target": "tool_orchestrator_toolorchestrator_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L46", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator", "target": "tool_orchestrator_toolorchestrator_register", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L61", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator", "target": "tool_orchestrator_toolorchestrator_registerall", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L73", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator", "target": "tool_orchestrator_toolorchestrator_getalltools", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L82", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator", "target": "tool_orchestrator_toolorchestrator_gettool", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L89", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator", "target": "tool_orchestrator_toolorchestrator_partitiontools", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L97", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator", "target": "tool_orchestrator_toolorchestrator_executeone", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L115", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator", "target": "tool_orchestrator_toolorchestrator_executebatch", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L203", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator", "target": "tool_orchestrator_toolorchestrator_executeconcurrent", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L267", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator", "target": "tool_orchestrator_toolorchestrator_execute", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L311", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator", "target": "tool_orchestrator_toolorchestrator_runprehooks", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L364", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator", "target": "tool_orchestrator_toolorchestrator_runposthooks", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L375", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts", "target": "tool_orchestrator_createsemaphore", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L388", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts", "target": "tool_orchestrator_createdefaultorchestrator", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L419", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator_registerall", "target": "tool_orchestrator_toolorchestrator_register", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L75", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator_executeone", "target": "tool_orchestrator_toolorchestrator_runprehooks", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L123", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator_executeone", "target": "tool_orchestrator_toolorchestrator_runposthooks", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L168", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator_executebatch", "target": "tool_orchestrator_toolorchestrator_partitiontools", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L234", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator_executebatch", "target": "tool_orchestrator_toolorchestrator_executeconcurrent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L240", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator_executebatch", "target": "tool_orchestrator_toolorchestrator_executeone", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L256", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator_executeconcurrent", "target": "tool_orchestrator_createsemaphore", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L271", "weight": 1.0}, {"source": "tool_orchestrator_toolorchestrator_execute", "target": "tool_orchestrator_toolorchestrator_executebatch", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L358", "weight": 1.0}], "raw_calls": [{"caller_nid": "tool_orchestrator_generateid", "callee": "nanoid", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L27"}, {"caller_nid": "tool_orchestrator_toolorchestrator_constructor", "callee": "bind", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L50"}, {"caller_nid": "tool_orchestrator_toolorchestrator_register", "callee": "has", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L62"}, {"caller_nid": "tool_orchestrator_toolorchestrator_register", "callee": "warn", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L63"}, {"caller_nid": "tool_orchestrator_toolorchestrator_register", "callee": "set", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L67"}, {"caller_nid": "tool_orchestrator_toolorchestrator_getalltools", "callee": "from", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L83"}, {"caller_nid": "tool_orchestrator_toolorchestrator_getalltools", "callee": "values", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L83"}, {"caller_nid": "tool_orchestrator_toolorchestrator_gettool", "callee": "get", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L90"}, {"caller_nid": "tool_orchestrator_toolorchestrator_partitiontools", "callee": "push", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L103"}, {"caller_nid": "tool_orchestrator_toolorchestrator_partitiontools", "callee": "push", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L105"}, {"caller_nid": "tool_orchestrator_toolorchestrator_executeone", "callee": "now", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L119"}, {"caller_nid": "tool_orchestrator_toolorchestrator_executeone", "callee": "now", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L132"}, {"caller_nid": "tool_orchestrator_toolorchestrator_executeone", "callee": "validateInput", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L141"}, {"caller_nid": "tool_orchestrator_toolorchestrator_executeone", "callee": "now", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L151"}, {"caller_nid": "tool_orchestrator_toolorchestrator_executeone", "callee": "call", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L157"}, {"caller_nid": "tool_orchestrator_toolorchestrator_executeone", "callee": "now", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L159"}, {"caller_nid": "tool_orchestrator_toolorchestrator_executeone", "callee": "now", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L177"}, {"caller_nid": "tool_orchestrator_toolorchestrator_executebatch", "callee": "permissionChecker", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L214"}, {"caller_nid": "tool_orchestrator_toolorchestrator_executebatch", "callee": "map", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L234"}, {"caller_nid": "tool_orchestrator_toolorchestrator_executebatch", "callee": "filter", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L241"}, {"caller_nid": "tool_orchestrator_toolorchestrator_executebatch", "callee": "push", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L244"}, {"caller_nid": "tool_orchestrator_toolorchestrator_executebatch", "callee": "filter", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L249"}, {"caller_nid": "tool_orchestrator_toolorchestrator_executebatch", "callee": "push", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L257"}, {"caller_nid": "tool_orchestrator_toolorchestrator_executeconcurrent", "callee": "map", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L274"}, {"caller_nid": "tool_orchestrator_toolorchestrator_executeconcurrent", "callee": "all", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L303"}, {"caller_nid": "tool_orchestrator_toolorchestrator_execute", "callee": "get", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L325"}, {"caller_nid": "tool_orchestrator_toolorchestrator_execute", "callee": "parse", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L334"}, {"caller_nid": "tool_orchestrator_toolorchestrator_execute", "callee": "push", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts", "source_location": "L355"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts",
+      "label": "tool-orchestrator.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "tool_orchestrator_generateid",
+      "label": "generateId()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L26"
+    },
+    {
+      "id": "tool_orchestrator_toolorchestrator",
+      "label": "ToolOrchestrator",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L42"
+    },
+    {
+      "id": "tool_orchestrator_toolorchestrator_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L46"
+    },
+    {
+      "id": "tool_orchestrator_toolorchestrator_register",
+      "label": ".register()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L61"
+    },
+    {
+      "id": "tool_orchestrator_toolorchestrator_registerall",
+      "label": ".registerAll()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L73"
+    },
+    {
+      "id": "tool_orchestrator_toolorchestrator_getalltools",
+      "label": ".getAllTools()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L82"
+    },
+    {
+      "id": "tool_orchestrator_toolorchestrator_gettool",
+      "label": ".getTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L89"
+    },
+    {
+      "id": "tool_orchestrator_toolorchestrator_partitiontools",
+      "label": ".partitionTools()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L97"
+    },
+    {
+      "id": "tool_orchestrator_toolorchestrator_executeone",
+      "label": ".executeOne()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L115"
+    },
+    {
+      "id": "tool_orchestrator_toolorchestrator_executebatch",
+      "label": ".executeBatch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L203"
+    },
+    {
+      "id": "tool_orchestrator_toolorchestrator_executeconcurrent",
+      "label": ".executeConcurrent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L267"
+    },
+    {
+      "id": "tool_orchestrator_toolorchestrator_execute",
+      "label": ".execute()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L311"
+    },
+    {
+      "id": "tool_orchestrator_toolorchestrator_runprehooks",
+      "label": ".runPreHooks()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L364"
+    },
+    {
+      "id": "tool_orchestrator_toolorchestrator_runposthooks",
+      "label": ".runPostHooks()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L375"
+    },
+    {
+      "id": "tool_orchestrator_createsemaphore",
+      "label": "createSemaphore()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L388"
+    },
+    {
+      "id": "tool_orchestrator_createdefaultorchestrator",
+      "label": "createDefaultOrchestrator()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L419"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts",
+      "target": "f_storage_platform_src_routes_app_chat_tools_tool_types",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts",
+      "target": "f_storage_platform_src_routes_app_chat_tools_tool_hooks",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts",
+      "target": "nanoid",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts",
+      "target": "tool_orchestrator_generateid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts",
+      "target": "tool_orchestrator_toolorchestrator",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator",
+      "target": "tool_orchestrator_toolorchestrator_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator",
+      "target": "tool_orchestrator_toolorchestrator_register",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator",
+      "target": "tool_orchestrator_toolorchestrator_registerall",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator",
+      "target": "tool_orchestrator_toolorchestrator_getalltools",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator",
+      "target": "tool_orchestrator_toolorchestrator_gettool",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator",
+      "target": "tool_orchestrator_toolorchestrator_partitiontools",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator",
+      "target": "tool_orchestrator_toolorchestrator_executeone",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator",
+      "target": "tool_orchestrator_toolorchestrator_executebatch",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L203",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator",
+      "target": "tool_orchestrator_toolorchestrator_executeconcurrent",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L267",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator",
+      "target": "tool_orchestrator_toolorchestrator_execute",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L311",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator",
+      "target": "tool_orchestrator_toolorchestrator_runprehooks",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L364",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator",
+      "target": "tool_orchestrator_toolorchestrator_runposthooks",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L375",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts",
+      "target": "tool_orchestrator_createsemaphore",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L388",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_tool_orchestrator_ts",
+      "target": "tool_orchestrator_createdefaultorchestrator",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator_registerall",
+      "target": "tool_orchestrator_toolorchestrator_register",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator_executeone",
+      "target": "tool_orchestrator_toolorchestrator_runprehooks",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator_executeone",
+      "target": "tool_orchestrator_toolorchestrator_runposthooks",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator_executebatch",
+      "target": "tool_orchestrator_toolorchestrator_partitiontools",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L234",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator_executebatch",
+      "target": "tool_orchestrator_toolorchestrator_executeconcurrent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L240",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator_executebatch",
+      "target": "tool_orchestrator_toolorchestrator_executeone",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L256",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator_executeconcurrent",
+      "target": "tool_orchestrator_createsemaphore",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L271",
+      "weight": 1.0
+    },
+    {
+      "source": "tool_orchestrator_toolorchestrator_execute",
+      "target": "tool_orchestrator_toolorchestrator_executebatch",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L358",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "tool_orchestrator_generateid",
+      "callee": "nanoid",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_constructor",
+      "callee": "bind",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_register",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_register",
+      "callee": "warn",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_register",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_getalltools",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_getalltools",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_gettool",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_partitiontools",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L103"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_partitiontools",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_executeone",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_executeone",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_executeone",
+      "callee": "validateInput",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_executeone",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_executeone",
+      "callee": "call",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L157"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_executeone",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_executeone",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L177"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_executebatch",
+      "callee": "permissionChecker",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L214"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_executebatch",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L234"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_executebatch",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L241"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_executebatch",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L244"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_executebatch",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L249"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_executebatch",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L257"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_executeconcurrent",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L274"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_executeconcurrent",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L303"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_execute",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L325"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_execute",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L334"
+    },
+    {
+      "caller_nid": "tool_orchestrator_toolorchestrator_execute",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\tool-orchestrator.ts",
+      "source_location": "L355"
+    }
+  ]
+}

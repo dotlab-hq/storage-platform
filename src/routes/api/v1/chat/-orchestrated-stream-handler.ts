@@ -34,35 +34,35 @@ export async function handleOrchestratedAgentStream(
 ) {
   const encoder = new TextEncoder()
 
-  const readable = new ReadableStream( {
-    async start( controller ) {
+  const readable = new ReadableStream({
+    async start(controller) {
       let assistantMessageId: string | null = null
       let fullContent = ''
       let emittedReasoning = ''
 
       try {
-        const hasWebScope = hasScope( params.permissions, 'chat:tool:web' )
-        const hasMemoryScope = hasScope( params.permissions, 'chat:memory' )
+        const hasWebScope = hasScope(params.permissions, 'chat:tool:web')
+        const hasMemoryScope = hasScope(params.permissions, 'chat:memory')
         const hasStorageScope = hasScope(
           params.permissions,
           'chat:tool:storage',
         )
 
-        const allTools = getFilteredTools( params.permissions )
+        const allTools = getFilteredTools(params.permissions)
         const agentTools: Record<string, any[]> = {}
 
         agentTools[generalAgent.name] = generalAgent.getTools()
 
-        if ( hasWebScope ) {
+        if (hasWebScope) {
           agentTools[webAgent.name] = webAgent.getTools()
         }
 
-        if ( hasStorageScope ) {
+        if (hasStorageScope) {
           agentTools[storageAgent.name] = storageAgent.getTools()
         }
 
         let augmentedMessages = params.messages
-        if ( hasMemoryScope ) {
+        if (hasMemoryScope) {
           augmentedMessages = await augmentMessagesWithMemory(
             params.messages,
             params.userId,
@@ -71,10 +71,10 @@ export async function handleOrchestratedAgentStream(
           )
         }
 
-        const graph = buildSupervisorGraph( agentTools, allTools, {
+        const graph = buildSupervisorGraph(agentTools, allTools, {
           userId: params.userId,
           threadId: params.threadId,
-        } )
+        })
 
         const initialState = {
           messages: augmentedMessages,
@@ -86,37 +86,41 @@ export async function handleOrchestratedAgentStream(
 
         // Use streamMode: 'updates' to get node outputs as they complete
         // instead of full state snapshots (which buffer everything)
-        const graphStream = await graph.stream( initialState, {
+        const graphStream = await graph.stream(initialState, {
           streamMode: 'updates',
-        } )
+        })
 
         let reasoningBuffer = ''
         let contentBuffer = ''
 
-        for await ( const stepOutput of graphStream ) {
+        for await (const stepOutput of graphStream) {
           // Each stepOutput is { nodeName: state } for the node that just completed
-          for ( const [nodeName, state] of Object.entries( stepOutput ) ) {
-            const nodeState = state as { messages?: BaseMessage[]; reasoning_content?: string; content?: string | unknown[] }
+          for (const [nodeName, state] of Object.entries(stepOutput)) {
+            const nodeState = state as {
+              messages?: BaseMessage[]
+              reasoning_content?: string
+              content?: string | unknown[]
+            }
             const msgs = nodeState.messages as BaseMessage[]
-            if ( !msgs || msgs.length === 0 ) continue
+            if (!msgs || msgs.length === 0) continue
 
             const last = msgs[msgs.length - 1]
-            if ( !last ) continue
+            if (!last) continue
 
             // Emit reasoning content immediately when available
             const reasoning = nodeState.reasoning_content
-            if ( reasoning && reasoning !== reasoningBuffer ) {
+            if (reasoning && reasoning !== reasoningBuffer) {
               reasoningBuffer = reasoning
               controller.enqueue(
                 encoder.encode(
                   toSseEvent(
-                    toOpenAiChunk( {
+                    toOpenAiChunk({
                       id: `chatcmpl-${assistantMessageId || 'pending'}`,
-                      created: Math.floor( Date.now() / 1000 ),
+                      created: Math.floor(Date.now() / 1000),
                       model: params.model,
                       delta: { reasoning_content: reasoning },
                       finishReason: null,
-                    } ),
+                    }),
                   ),
                 ),
               )
@@ -124,28 +128,28 @@ export async function handleOrchestratedAgentStream(
 
             // Emit content delta
             const content = nodeState.content
-            if ( content ) {
+            if (content) {
               const contentStr =
                 typeof content === 'string'
                   ? content
-                  : ( content as Array<{ type?: string; text?: string }> )
-                    .map( ( part ) => part?.text || '' )
-                    .join( '' )
+                  : (content as Array<{ type?: string; text?: string }>)
+                      .map((part) => part?.text || '')
+                      .join('')
 
-              if ( contentStr.length > contentBuffer.length ) {
-                const delta = contentStr.slice( contentBuffer.length )
+              if (contentStr.length > contentBuffer.length) {
+                const delta = contentStr.slice(contentBuffer.length)
                 contentBuffer = contentStr
 
                 controller.enqueue(
                   encoder.encode(
                     toSseEvent(
-                      toOpenAiChunk( {
+                      toOpenAiChunk({
                         id: `chatcmpl-${assistantMessageId || 'pending'}`,
-                        created: Math.floor( Date.now() / 1000 ),
+                        created: Math.floor(Date.now() / 1000),
                         model: params.model,
                         delta: { content: delta },
                         finishReason: null,
-                      } ),
+                      }),
                     ),
                   ),
                 )
@@ -153,63 +157,68 @@ export async function handleOrchestratedAgentStream(
             }
 
             // Handle AI message type from messages array
-            if ( last?._getType() === 'ai' ) {
-              const normalized = normalizeOpenAiMessage( last )
+            if (last?._getType() === 'ai') {
+              const normalized = normalizeOpenAiMessage(last)
               const reasoningText = normalized.reasoning_content ?? ''
               const aiContent =
                 typeof normalized.content === 'string'
                   ? normalized.content
-                  : ( normalized.content as Array<{ type?: string; text?: string }> )
-                    .map( ( part ) => ( part.type === 'text' ? part.text : '' ) )
-                    .join( '' )
+                  : (
+                      normalized.content as Array<{
+                        type?: string
+                        text?: string
+                      }>
+                    )
+                      .map((part) => (part.type === 'text' ? part.text : ''))
+                      .join('')
 
               // Emit reasoning
-              if ( reasoningText && reasoningText !== emittedReasoning ) {
+              if (reasoningText && reasoningText !== emittedReasoning) {
                 emittedReasoning = reasoningText
                 controller.enqueue(
                   encoder.encode(
                     toSseEvent(
-                      toOpenAiChunk( {
+                      toOpenAiChunk({
                         id: `chatcmpl-${assistantMessageId || 'pending'}`,
-                        created: Math.floor( Date.now() / 1000 ),
+                        created: Math.floor(Date.now() / 1000),
                         model: params.model,
                         delta: { reasoning_content: reasoningText },
                         finishReason: null,
-                      } ),
+                      }),
                     ),
                   ),
                 )
               }
 
               // Emit content
-              if ( aiContent.length > collectedContent.length ) {
-                const delta = aiContent.slice( collectedContent.length )
+              if (aiContent.length > collectedContent.length) {
+                const delta = aiContent.slice(collectedContent.length)
                 collectedContent = aiContent
 
                 controller.enqueue(
                   encoder.encode(
                     toSseEvent(
-                      toOpenAiChunk( {
+                      toOpenAiChunk({
                         id: `chatcmpl-${assistantMessageId || 'pending'}`,
-                        created: Math.floor( Date.now() / 1000 ),
+                        created: Math.floor(Date.now() / 1000),
                         model: params.model,
                         delta: { content: delta },
                         finishReason: null,
-                      } ),
+                      }),
                     ),
                   ),
                 )
 
                 // Handle tool calls
                 const toolCalls = normalized.tool_calls
-                if ( toolCalls?.length ) {
-                  for ( const tc of toolCalls ) {
+                if (toolCalls?.length) {
+                  for (const tc of toolCalls) {
                     controller.enqueue(
                       encoder.encode(
                         toSseEvent(
-                          toOpenAiChunk( {
+                          toOpenAiChunk({
                             id: `chatcmpl-${assistantMessageId || 'pending'}`,
-                            created: Math.floor( Date.now() / 1000 ),
+                            created: Math.floor(Date.now() / 1000),
                             model: params.model,
                             delta: {
                               tool_calls: [
@@ -225,7 +234,7 @@ export async function handleOrchestratedAgentStream(
                               ],
                             },
                             finishReason: null,
-                          } ),
+                          }),
                         ),
                       ),
                     )
@@ -235,20 +244,25 @@ export async function handleOrchestratedAgentStream(
             }
 
             // Handle tool result messages
-            if ( last?._getType() === 'tool' ) {
+            if (last?._getType() === 'tool') {
               const toolMsg = last as {
                 content?: unknown
                 tool_call_id?: string
               }
-              const normalizedTool = normalizeOpenAiMessage( toolMsg )
+              const normalizedTool = normalizeOpenAiMessage(toolMsg)
               const toolContent =
                 typeof normalizedTool.content === 'string'
                   ? normalizedTool.content
-                  : ( normalizedTool.content as Array<{ type?: string; text?: string }> )
-                    .map( ( part ) => ( part.type === 'text' ? part.text : '' ) )
-                    .join( '' )
+                  : (
+                      normalizedTool.content as Array<{
+                        type?: string
+                        text?: string
+                      }>
+                    )
+                      .map((part) => (part.type === 'text' ? part.text : ''))
+                      .join('')
 
-              await db.insert( chatMessage ).values( {
+              await db.insert(chatMessage).values({
                 threadId: params.threadId,
                 userId: params.userId,
                 role: 'tool',
@@ -258,20 +272,20 @@ export async function handleOrchestratedAgentStream(
                 isDeleted: false,
                 createdAt: new Date(),
                 updatedAt: new Date(),
-              } )
+              })
 
               controller.enqueue(
                 encoder.encode(
                   toSseEvent(
-                    toOpenAiChunk( {
+                    toOpenAiChunk({
                       id: `chatcmpl-${assistantMessageId || 'pending'}`,
-                      created: Math.floor( Date.now() / 1000 ),
+                      created: Math.floor(Date.now() / 1000),
                       model: params.model,
                       delta: {
                         content: `\n[Tool Result] ${toolContent}`,
                       },
                       finishReason: null,
-                    } ),
+                    }),
                   ),
                 ),
               )
@@ -282,8 +296,8 @@ export async function handleOrchestratedAgentStream(
         fullContent = collectedContent
 
         const [saved] = await db
-          .insert( chatMessage )
-          .values( {
+          .insert(chatMessage)
+          .values({
             threadId: params.threadId,
             userId: params.userId,
             role: 'assistant',
@@ -293,71 +307,71 @@ export async function handleOrchestratedAgentStream(
             isDeleted: false,
             createdAt: new Date(),
             updatedAt: new Date(),
-          } )
-          .returning( { id: chatMessage.id } )
+          })
+          .returning({ id: chatMessage.id })
 
         assistantMessageId = saved.id
 
-        if ( hasMemoryScope ) {
+        if (hasMemoryScope) {
           await MemoryManager.addFact(
             params.userId,
             params.threadId,
-            `Interaction: ${fullContent.slice( 0, 200 )}`,
+            `Interaction: ${fullContent.slice(0, 200)}`,
           )
         }
 
         const usage = {
-          prompt_tokens: Math.floor( params.messages.length * 150 ),
-          completion_tokens: Math.floor( fullContent.length / 4 ),
+          prompt_tokens: Math.floor(params.messages.length * 150),
+          completion_tokens: Math.floor(fullContent.length / 4),
           total_tokens:
-            Math.floor( fullContent.length / 4 ) + params.messages.length * 150,
+            Math.floor(fullContent.length / 4) + params.messages.length * 150,
         }
 
         controller.enqueue(
           encoder.encode(
             toSseEvent(
-              toOpenAiChunkWithUsage( {
+              toOpenAiChunkWithUsage({
                 id: `chatcmpl-${assistantMessageId}`,
-                created: Math.floor( Date.now() / 1000 ),
+                created: Math.floor(Date.now() / 1000),
                 model: params.model,
                 usage,
                 systemFingerprint: SYSTEM_FINGERPRINT,
-              } ),
+              }),
             ),
           ),
         )
 
-        controller.enqueue( encoder.encode( toSseEvent( '[DONE]' ) ) )
-      } catch ( error ) {
-        console.error( '[OrchestratedAgent]', error )
+        controller.enqueue(encoder.encode(toSseEvent('[DONE]')))
+      } catch (error) {
+        console.error('[OrchestratedAgent]', error)
 
         controller.enqueue(
           encoder.encode(
             toSseEvent(
-              toOpenAiChunk( {
+              toOpenAiChunk({
                 id: 'chatcmpl-error',
-                created: Math.floor( Date.now() / 1000 ),
+                created: Math.floor(Date.now() / 1000),
                 model: params.model,
                 delta: { content: `\n[Error] ${error}` },
                 finishReason: null,
-              } ),
+              }),
             ),
           ),
         )
 
-        controller.enqueue( encoder.encode( toSseEvent( '[DONE]' ) ) )
+        controller.enqueue(encoder.encode(toSseEvent('[DONE]')))
       } finally {
-        if ( assistantMessageId ) {
+        if (assistantMessageId) {
           try {
-            await refreshThreadLatestMessage( params.threadId )
-          } catch { }
+            await refreshThreadLatestMessage(params.threadId)
+          } catch {}
         }
         controller.close()
       }
     },
-  } )
+  })
 
-  return new Response( readable, {
+  return new Response(readable, {
     headers: {
       'Content-Type': 'text/event-stream',
       'Cache-Control': 'no-cache',
@@ -365,5 +379,5 @@ export async function handleOrchestratedAgentStream(
       'Access-Control-Allow-Origin': '*',
       'X-Thread-Id': params.threadId,
     },
-  } )
+  })
 }

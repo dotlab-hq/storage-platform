@@ -1,1 +1,269 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts", "label": "overageCreditGrant.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L1"}, {"id": "overagecreditgrant_fetchoveragecreditgrant", "label": "fetchOverageCreditGrant()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L29"}, {"id": "overagecreditgrant_getcachedoveragecreditgrant", "label": "getCachedOverageCreditGrant()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L48"}, {"id": "overagecreditgrant_invalidateoveragecreditgrantcache", "label": "invalidateOverageCreditGrantCache()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L61"}, {"id": "overagecreditgrant_refreshoveragecreditgrantcache", "label": "refreshOverageCreditGrantCache()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L77"}, {"id": "overagecreditgrant_formatgrantamount", "label": "formatGrantAmount()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L127"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts", "target": "axios", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_api_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts", "target": "overagecreditgrant_fetchoveragecreditgrant", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts", "target": "overagecreditgrant_getcachedoveragecreditgrant", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L48", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts", "target": "overagecreditgrant_invalidateoveragecreditgrantcache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L61", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts", "target": "overagecreditgrant_refreshoveragecreditgrantcache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L77", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts", "target": "overagecreditgrant_formatgrantamount", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L127", "weight": 1.0}, {"source": "overagecreditgrant_refreshoveragecreditgrantcache", "target": "overagecreditgrant_fetchoveragecreditgrant", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L81", "weight": 1.0}], "raw_calls": [{"caller_nid": "overagecreditgrant_fetchoveragecreditgrant", "callee": "prepareApiRequest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L31"}, {"caller_nid": "overagecreditgrant_fetchoveragecreditgrant", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L32"}, {"caller_nid": "overagecreditgrant_fetchoveragecreditgrant", "callee": "await axios.get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L33"}, {"caller_nid": "overagecreditgrant_fetchoveragecreditgrant", "callee": "getOAuthHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L34"}, {"caller_nid": "overagecreditgrant_fetchoveragecreditgrant", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L38"}, {"caller_nid": "overagecreditgrant_getcachedoveragecreditgrant", "callee": "getOauthAccountInfo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L49"}, {"caller_nid": "overagecreditgrant_getcachedoveragecreditgrant", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L51"}, {"caller_nid": "overagecreditgrant_getcachedoveragecreditgrant", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L53"}, {"caller_nid": "overagecreditgrant_invalidateoveragecreditgrantcache", "callee": "getOauthAccountInfo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L62"}, {"caller_nid": "overagecreditgrant_invalidateoveragecreditgrantcache", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L64"}, {"caller_nid": "overagecreditgrant_invalidateoveragecreditgrantcache", "callee": "saveGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L66"}, {"caller_nid": "overagecreditgrant_refreshoveragecreditgrantcache", "callee": "isEssentialTrafficOnly", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L78"}, {"caller_nid": "overagecreditgrant_refreshoveragecreditgrantcache", "callee": "getOauthAccountInfo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L79"}, {"caller_nid": "overagecreditgrant_refreshoveragecreditgrantcache", "callee": "saveGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L87"}, {"caller_nid": "overagecreditgrant_formatgrantamount", "callee": "toUpperCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L130"}, {"caller_nid": "overagecreditgrant_formatgrantamount", "callee": "isInteger", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L132"}, {"caller_nid": "overagecreditgrant_formatgrantamount", "callee": "toFixed", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts", "source_location": "L132"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts",
+      "label": "overageCreditGrant.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "overagecreditgrant_fetchoveragecreditgrant",
+      "label": "fetchOverageCreditGrant()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L29"
+    },
+    {
+      "id": "overagecreditgrant_getcachedoveragecreditgrant",
+      "label": "getCachedOverageCreditGrant()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L48"
+    },
+    {
+      "id": "overagecreditgrant_invalidateoveragecreditgrantcache",
+      "label": "invalidateOverageCreditGrantCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L61"
+    },
+    {
+      "id": "overagecreditgrant_refreshoveragecreditgrantcache",
+      "label": "refreshOverageCreditGrantCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L77"
+    },
+    {
+      "id": "overagecreditgrant_formatgrantamount",
+      "label": "formatGrantAmount()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L127"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_api_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts",
+      "target": "overagecreditgrant_fetchoveragecreditgrant",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts",
+      "target": "overagecreditgrant_getcachedoveragecreditgrant",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts",
+      "target": "overagecreditgrant_invalidateoveragecreditgrantcache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts",
+      "target": "overagecreditgrant_refreshoveragecreditgrantcache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_overagecreditgrant_ts",
+      "target": "overagecreditgrant_formatgrantamount",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "overagecreditgrant_refreshoveragecreditgrantcache",
+      "target": "overagecreditgrant_fetchoveragecreditgrant",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L81",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "overagecreditgrant_fetchoveragecreditgrant",
+      "callee": "prepareApiRequest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L31"
+    },
+    {
+      "caller_nid": "overagecreditgrant_fetchoveragecreditgrant",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "overagecreditgrant_fetchoveragecreditgrant",
+      "callee": "await axios.get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "overagecreditgrant_fetchoveragecreditgrant",
+      "callee": "getOAuthHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "overagecreditgrant_fetchoveragecreditgrant",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "overagecreditgrant_getcachedoveragecreditgrant",
+      "callee": "getOauthAccountInfo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "overagecreditgrant_getcachedoveragecreditgrant",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "overagecreditgrant_getcachedoveragecreditgrant",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "overagecreditgrant_invalidateoveragecreditgrantcache",
+      "callee": "getOauthAccountInfo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "overagecreditgrant_invalidateoveragecreditgrantcache",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "overagecreditgrant_invalidateoveragecreditgrantcache",
+      "callee": "saveGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "overagecreditgrant_refreshoveragecreditgrantcache",
+      "callee": "isEssentialTrafficOnly",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "overagecreditgrant_refreshoveragecreditgrantcache",
+      "callee": "getOauthAccountInfo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "overagecreditgrant_refreshoveragecreditgrantcache",
+      "callee": "saveGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "overagecreditgrant_formatgrantamount",
+      "callee": "toUpperCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "overagecreditgrant_formatgrantamount",
+      "callee": "isInteger",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "overagecreditgrant_formatgrantamount",
+      "callee": "toFixed",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\overageCreditGrant.ts",
+      "source_location": "L132"
+    }
+  ]
+}

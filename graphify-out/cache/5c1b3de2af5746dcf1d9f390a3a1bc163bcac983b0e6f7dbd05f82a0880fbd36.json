@@ -1,1 +1,161 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commandsemantics_ts", "label": "commandSemantics.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L1"}, {"id": "commandsemantics_default_semantic", "label": "DEFAULT_SEMANTIC()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L22"}, {"id": "commandsemantics_getcommandsemantic", "label": "getCommandSemantic()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L94"}, {"id": "commandsemantics_extractbasecommand", "label": "extractBaseCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L104"}, {"id": "commandsemantics_heuristicallyextractbasecommand", "label": "heuristicallyExtractBaseCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L112"}, {"id": "commandsemantics_interpretcommandresult", "label": "interpretCommandResult()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L124"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commandsemantics_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_commands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commandsemantics_ts", "target": "commandsemantics_default_semantic", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commandsemantics_ts", "target": "commandsemantics_getcommandsemantic", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L94", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commandsemantics_ts", "target": "commandsemantics_extractbasecommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L104", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commandsemantics_ts", "target": "commandsemantics_heuristicallyextractbasecommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L112", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commandsemantics_ts", "target": "commandsemantics_interpretcommandresult", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L124", "weight": 1.0}, {"source": "commandsemantics_getcommandsemantic", "target": "commandsemantics_heuristicallyextractbasecommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L96", "weight": 1.0}, {"source": "commandsemantics_heuristicallyextractbasecommand", "target": "commandsemantics_extractbasecommand", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L118", "weight": 1.0}, {"source": "commandsemantics_interpretcommandresult", "target": "commandsemantics_getcommandsemantic", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L133", "weight": 1.0}], "raw_calls": [{"caller_nid": "commandsemantics_getcommandsemantic", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L97"}, {"caller_nid": "commandsemantics_extractbasecommand", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L105"}, {"caller_nid": "commandsemantics_extractbasecommand", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L105"}, {"caller_nid": "commandsemantics_heuristicallyextractbasecommand", "callee": "splitCommand_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L113"}, {"caller_nid": "commandsemantics_interpretcommandresult", "callee": "semantic", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts", "source_location": "L134"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commandsemantics_ts",
+      "label": "commandSemantics.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "commandsemantics_default_semantic",
+      "label": "DEFAULT_SEMANTIC()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "commandsemantics_getcommandsemantic",
+      "label": "getCommandSemantic()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L94"
+    },
+    {
+      "id": "commandsemantics_extractbasecommand",
+      "label": "extractBaseCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L104"
+    },
+    {
+      "id": "commandsemantics_heuristicallyextractbasecommand",
+      "label": "heuristicallyExtractBaseCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L112"
+    },
+    {
+      "id": "commandsemantics_interpretcommandresult",
+      "label": "interpretCommandResult()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L124"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commandsemantics_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_commands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commandsemantics_ts",
+      "target": "commandsemantics_default_semantic",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commandsemantics_ts",
+      "target": "commandsemantics_getcommandsemantic",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commandsemantics_ts",
+      "target": "commandsemantics_extractbasecommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L104",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commandsemantics_ts",
+      "target": "commandsemantics_heuristicallyextractbasecommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commandsemantics_ts",
+      "target": "commandsemantics_interpretcommandresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "commandsemantics_getcommandsemantic",
+      "target": "commandsemantics_heuristicallyextractbasecommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "commandsemantics_heuristicallyextractbasecommand",
+      "target": "commandsemantics_extractbasecommand",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "commandsemantics_interpretcommandresult",
+      "target": "commandsemantics_getcommandsemantic",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L133",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "commandsemantics_getcommandsemantic",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "commandsemantics_extractbasecommand",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "commandsemantics_extractbasecommand",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "commandsemantics_heuristicallyextractbasecommand",
+      "callee": "splitCommand_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "commandsemantics_interpretcommandresult",
+      "callee": "semantic",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\BashTool\\commandSemantics.ts",
+      "source_location": "L134"
+    }
+  ]
+}

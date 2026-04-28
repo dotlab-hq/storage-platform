@@ -35,107 +35,107 @@ import { impersonateUserFn } from '@/routes/_app/admin/-components/-admin-server
 type UserRowActionsDropdownProps = {
   user: AdminUser
   onViewFiles?: () => void
-  onRoleChange?: ( isAdmin: boolean ) => Promise<void>
-  onBan?: ( banned: boolean ) => Promise<void>
+  onRoleChange?: (isAdmin: boolean) => Promise<void>
+  onBan?: (banned: boolean) => Promise<void>
   onDelete?: () => Promise<void>
-  onUpdateStorage?: ( storageLimitBytes: number ) => Promise<void>
+  onUpdateStorage?: (storageLimitBytes: number) => Promise<void>
 }
 
-export function UserRowActionsDropdown( {
+export function UserRowActionsDropdown({
   user,
   onViewFiles,
   onRoleChange,
   onBan,
   onDelete,
   onUpdateStorage,
-}: UserRowActionsDropdownProps ) {
-  const [showStorageDialog, setShowStorageDialog] = useState( false )
+}: UserRowActionsDropdownProps) {
+  const [showStorageDialog, setShowStorageDialog] = useState(false)
   const [storageInput, setStorageInput] = useState(
-    String( user.storageLimitBytes ),
+    String(user.storageLimitBytes),
   )
-  const [isUpdating, setIsUpdating] = useState( false )
+  const [isUpdating, setIsUpdating] = useState(false)
 
   const handleImpersonate = async () => {
-    setIsUpdating( true )
+    setIsUpdating(true)
     try {
-      await impersonateUserFn( { data: { userId: user.id } } )
+      await impersonateUserFn({ data: { userId: user.id } })
       window.location.href = '/'
-    } catch ( error ) {
+    } catch (error) {
       const message =
         error instanceof Error ? error.message : 'Failed to impersonate user'
-      toast.error( message )
+      toast.error(message)
     } finally {
-      setIsUpdating( false )
+      setIsUpdating(false)
     }
   }
 
   const handleStorageUpdate = async () => {
-    const bytes = Number( storageInput )
-    if ( !Number.isFinite( bytes ) || bytes <= 0 ) {
-      toast.error( 'Please enter a valid storage limit' )
+    const bytes = Number(storageInput)
+    if (!Number.isFinite(bytes) || bytes <= 0) {
+      toast.error('Please enter a valid storage limit')
       return
     }
-    if ( !onUpdateStorage ) return
-    setIsUpdating( true )
+    if (!onUpdateStorage) return
+    setIsUpdating(true)
     try {
-      await onUpdateStorage( bytes )
-      toast.success( 'Storage limit updated' )
-      setShowStorageDialog( false )
-    } catch ( error ) {
+      await onUpdateStorage(bytes)
+      toast.success('Storage limit updated')
+      setShowStorageDialog(false)
+    } catch (error) {
       const message =
         error instanceof Error ? error.message : 'Failed to update storage'
-      toast.error( message )
+      toast.error(message)
     } finally {
-      setIsUpdating( false )
+      setIsUpdating(false)
     }
   }
 
-  const toggleBan = async ( banned: boolean ) => {
-    if ( !onBan ) return
-    setIsUpdating( true )
+  const toggleBan = async (banned: boolean) => {
+    if (!onBan) return
+    setIsUpdating(true)
     try {
-      await onBan( banned )
-      toast.success( banned ? 'User banned' : 'User unbanned' )
-    } catch ( error ) {
+      await onBan(banned)
+      toast.success(banned ? 'User banned' : 'User unbanned')
+    } catch (error) {
       const message =
         error instanceof Error ? error.message : 'Failed to update ban status'
-      toast.error( message )
+      toast.error(message)
     } finally {
-      setIsUpdating( false )
+      setIsUpdating(false)
     }
   }
 
   const handleDelete = async () => {
-    if ( !onDelete ) return
+    if (!onDelete) return
     const confirmed = window.confirm(
       `Are you sure you want to delete user "${user.name}"? This cannot be undone.`,
     )
-    if ( !confirmed ) return
-    setIsUpdating( true )
+    if (!confirmed) return
+    setIsUpdating(true)
     try {
       await onDelete()
-      toast.success( 'User deleted' )
-    } catch ( error ) {
+      toast.success('User deleted')
+    } catch (error) {
       const message =
         error instanceof Error ? error.message : 'Failed to delete user'
-      toast.error( message )
+      toast.error(message)
     } finally {
-      setIsUpdating( false )
+      setIsUpdating(false)
     }
   }
 
-  const handleRoleChange = async ( isAdmin: boolean ) => {
-    if ( !onRoleChange ) return
-    setIsUpdating( true )
+  const handleRoleChange = async (isAdmin: boolean) => {
+    if (!onRoleChange) return
+    setIsUpdating(true)
     try {
-      await onRoleChange( isAdmin )
-      toast.success( 'User role updated' )
-    } catch ( error ) {
+      await onRoleChange(isAdmin)
+      toast.success('User role updated')
+    } catch (error) {
       const message =
         error instanceof Error ? error.message : 'Failed to update role'
-      toast.error( message )
+      toast.error(message)
     } finally {
-      setIsUpdating( false )
+      setIsUpdating(false)
     }
   }
 
@@ -158,25 +158,25 @@ export function UserRowActionsDropdown( {
             View Files
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={() => handleRoleChange( !user.isAdmin )}>
+          <DropdownMenuItem onClick={() => handleRoleChange(!user.isAdmin)}>
             <UserCog className="mr-2 h-4 w-4" />
             {user.isAdmin ? 'Make User' : 'Make Admin'}
           </DropdownMenuItem>
           {user.banned ? (
-            <DropdownMenuItem onClick={() => toggleBan( false )}>
+            <DropdownMenuItem onClick={() => toggleBan(false)}>
               <ShieldOff className="mr-2 h-4 w-4" />
               Unban
             </DropdownMenuItem>
           ) : (
             <DropdownMenuItem
-              onClick={() => toggleBan( true )}
+              onClick={() => toggleBan(true)}
               className="text-destructive focus:text-destructive"
             >
               <Ban className="mr-2 h-4 w-4" />
               Ban
             </DropdownMenuItem>
           )}
-          <DropdownMenuItem onClick={() => setShowStorageDialog( true )}>
+          <DropdownMenuItem onClick={() => setShowStorageDialog(true)}>
             <HardDrive className="mr-2 h-4 w-4" />
             Storage Limit
           </DropdownMenuItem>
@@ -210,12 +210,12 @@ export function UserRowActionsDropdown( {
               type="number"
               placeholder={`Current: ${user.storageLimitBytes} bytes`}
               value={storageInput}
-              onChange={( e ) => setStorageInput( e.target.value )}
+              onChange={(e) => setStorageInput(e.target.value)}
             />
             <div className="flex justify-end gap-2">
               <Button
                 variant="outline"
-                onClick={() => setShowStorageDialog( false )}
+                onClick={() => setShowStorageDialog(false)}
               >
                 Cancel
               </Button>
@@ -233,4 +233,3 @@ export function UserRowActionsDropdown( {
     </>
   )
 }
-

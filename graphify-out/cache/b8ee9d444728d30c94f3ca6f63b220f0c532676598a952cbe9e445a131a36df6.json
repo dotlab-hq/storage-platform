@@ -1,1 +1,98 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx", "label": "UI.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx", "source_location": "L1"}, {"id": "ui_rendertoolusemessage", "label": "renderToolUseMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx", "source_location": "L6"}, {"id": "ui_rendertoolresultmessage", "label": "renderToolResultMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx", "source_location": "L15"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx", "target": "f_storage_platform_claude_code_source_main_src_components_messageresponse_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx", "target": "f_storage_platform_claude_code_source_main_src_ink_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx", "target": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_sendmessagetool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx", "target": "ui_rendertoolusemessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx", "target": "ui_rendertoolresultmessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx", "source_location": "L15", "weight": 1.0}], "raw_calls": [{"caller_nid": "ui_rendertoolresultmessage", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx", "source_location": "L20"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx",
+      "label": "UI.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "ui_rendertoolusemessage",
+      "label": "renderToolUseMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx",
+      "source_location": "L6"
+    },
+    {
+      "id": "ui_rendertoolresultmessage",
+      "label": "renderToolResultMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx",
+      "source_location": "L15"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_components_messageresponse_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_sendmessagetool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx",
+      "target": "ui_rendertoolusemessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_sendmessagetool_ui_tsx",
+      "target": "ui_rendertoolresultmessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "ui_rendertoolresultmessage",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\SendMessageTool\\UI.tsx",
+      "source_location": "L20"
+    }
+  ]
+}

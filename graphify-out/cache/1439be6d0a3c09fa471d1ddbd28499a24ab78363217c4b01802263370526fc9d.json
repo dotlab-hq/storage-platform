@@ -1,1 +1,724 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "label": "marketplaceHelpers.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L1"}, {"id": "marketplacehelpers_formatfailuredetails", "label": "formatFailureDetails()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L16"}, {"id": "marketplacehelpers_getmarketplacesourcedisplay", "label": "getMarketplaceSourceDisplay()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L38"}, {"id": "marketplacehelpers_createpluginid", "label": "createPluginId()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L60"}, {"id": "marketplacehelpers_loadmarketplaceswithgracefuldegradation", "label": "loadMarketplacesWithGracefulDegradation()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L71"}, {"id": "marketplacehelpers_formatmarketplaceloadingerrors", "label": "formatMarketplaceLoadingErrors()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L119"}, {"id": "marketplacehelpers_formatfailurenames", "label": "formatFailureNames()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L143"}, {"id": "marketplacehelpers_formatfailureerrors", "label": "formatFailureErrors()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L149"}, {"id": "marketplacehelpers_getstrictknownmarketplaces", "label": "getStrictKnownMarketplaces()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L159"}, {"id": "marketplacehelpers_getblockedmarketplaces", "label": "getBlockedMarketplaces()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L171"}, {"id": "marketplacehelpers_getplugintrustmessage", "label": "getPluginTrustMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L183"}, {"id": "marketplacehelpers_aresourcesequal", "label": "areSourcesEqual()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L191"}, {"id": "marketplacehelpers_extracthostfromsource", "label": "extractHostFromSource()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L235"}, {"id": "marketplacehelpers_doessourcematchhostpattern", "label": "doesSourceMatchHostPattern()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L278"}, {"id": "marketplacehelpers_doessourcematchpathpattern", "label": "doesSourceMatchPathPattern()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L305"}, {"id": "marketplacehelpers_gethostpatternsfromallowlist", "label": "getHostPatternsFromAllowlist()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L327"}, {"id": "marketplacehelpers_extractgithubrepofromgiturl", "label": "extractGitHubRepoFromGitUrl()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L348"}, {"id": "marketplacehelpers_blockedconstraintmatches", "label": "blockedConstraintMatches()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L371"}, {"id": "marketplacehelpers_aresourcesequivalentforblocklist", "label": "areSourcesEquivalentForBlocklist()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L391"}, {"id": "marketplacehelpers_issourceinblocklist", "label": "isSourceInBlocklist()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L461"}, {"id": "marketplacehelpers_issourceallowedbypolicy", "label": "isSourceAllowedByPolicy()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L480"}, {"id": "marketplacehelpers_formatsourcefordisplay", "label": "formatSourceForDisplay()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L510"}, {"id": "marketplacehelpers_detectemptymarketplacereason", "label": "detectEmptyMarketplaceReason()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L550"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "isequal_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_gitavailability_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacemanager_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_schemas_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_formatfailuredetails", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_getmarketplacesourcedisplay", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L38", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_createpluginid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L60", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_loadmarketplaceswithgracefuldegradation", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L71", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_formatmarketplaceloadingerrors", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L119", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_formatfailurenames", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L143", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_formatfailureerrors", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L149", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_getstrictknownmarketplaces", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L159", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_getblockedmarketplaces", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L171", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_getplugintrustmessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L183", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_aresourcesequal", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L191", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_extracthostfromsource", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L235", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_doessourcematchhostpattern", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L278", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_doessourcematchpathpattern", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L305", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_gethostpatternsfromallowlist", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L327", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_extractgithubrepofromgiturl", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L348", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_blockedconstraintmatches", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L371", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_aresourcesequivalentforblocklist", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L391", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_issourceinblocklist", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L461", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_issourceallowedbypolicy", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L480", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_formatsourcefordisplay", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L510", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "target": "marketplacehelpers_detectemptymarketplacereason", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L550", "weight": 1.0}, {"source": "marketplacehelpers_loadmarketplaceswithgracefuldegradation", "target": "marketplacehelpers_issourceallowedbypolicy", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L90", "weight": 1.0}, {"source": "marketplacehelpers_formatmarketplaceloadingerrors", "target": "marketplacehelpers_formatfailurenames", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L132", "weight": 1.0}, {"source": "marketplacehelpers_formatmarketplaceloadingerrors", "target": "marketplacehelpers_formatfailureerrors", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L139", "weight": 1.0}, {"source": "marketplacehelpers_doessourcematchhostpattern", "target": "marketplacehelpers_extracthostfromsource", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L282", "weight": 1.0}, {"source": "marketplacehelpers_gethostpatternsfromallowlist", "target": "marketplacehelpers_getstrictknownmarketplaces", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L328", "weight": 1.0}, {"source": "marketplacehelpers_aresourcesequivalentforblocklist", "target": "marketplacehelpers_blockedconstraintmatches", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L402", "weight": 1.0}, {"source": "marketplacehelpers_aresourcesequivalentforblocklist", "target": "marketplacehelpers_extractgithubrepofromgiturl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L431", "weight": 1.0}, {"source": "marketplacehelpers_issourceinblocklist", "target": "marketplacehelpers_getblockedmarketplaces", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L462", "weight": 1.0}, {"source": "marketplacehelpers_issourceallowedbypolicy", "target": "marketplacehelpers_issourceinblocklist", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L482", "weight": 1.0}, {"source": "marketplacehelpers_issourceallowedbypolicy", "target": "marketplacehelpers_getstrictknownmarketplaces", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L487", "weight": 1.0}, {"source": "marketplacehelpers_detectemptymarketplacereason", "target": "marketplacehelpers_getstrictknownmarketplaces", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L564", "weight": 1.0}], "raw_calls": [{"caller_nid": "marketplacehelpers_formatfailuredetails", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L21"}, {"caller_nid": "marketplacehelpers_formatfailuredetails", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L21"}, {"caller_nid": "marketplacehelpers_formatfailuredetails", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L21"}, {"caller_nid": "marketplacehelpers_loadmarketplaceswithgracefuldegradation", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L88"}, {"caller_nid": "marketplacehelpers_loadmarketplaceswithgracefuldegradation", "callee": "getMarketplace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L96"}, {"caller_nid": "marketplacehelpers_loadmarketplaceswithgracefuldegradation", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L99"}, {"caller_nid": "marketplacehelpers_loadmarketplaceswithgracefuldegradation", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L100"}, {"caller_nid": "marketplacehelpers_loadmarketplaceswithgracefuldegradation", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L103"}, {"caller_nid": "marketplacehelpers_loadmarketplaceswithgracefuldegradation", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L103"}, {"caller_nid": "marketplacehelpers_loadmarketplaceswithgracefuldegradation", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L106"}, {"caller_nid": "marketplacehelpers_formatfailurenames", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L146"}, {"caller_nid": "marketplacehelpers_formatfailurenames", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L146"}, {"caller_nid": "marketplacehelpers_formatfailureerrors", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L152"}, {"caller_nid": "marketplacehelpers_formatfailureerrors", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L152"}, {"caller_nid": "marketplacehelpers_getstrictknownmarketplaces", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L160"}, {"caller_nid": "marketplacehelpers_getblockedmarketplaces", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L172"}, {"caller_nid": "marketplacehelpers_getplugintrustmessage", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L184"}, {"caller_nid": "marketplacehelpers_aresourcesequal", "callee": "isEqual", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L218"}, {"caller_nid": "marketplacehelpers_extracthostfromsource", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L245"}, {"caller_nid": "marketplacehelpers_doessourcematchhostpattern", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L289"}, {"caller_nid": "marketplacehelpers_doessourcematchhostpattern", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L292"}, {"caller_nid": "marketplacehelpers_doessourcematchpathpattern", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L316"}, {"caller_nid": "marketplacehelpers_doessourcematchpathpattern", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L318"}, {"caller_nid": "marketplacehelpers_gethostpatternsfromallowlist", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L331"}, {"caller_nid": "marketplacehelpers_gethostpatternsfromallowlist", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L331"}, {"caller_nid": "marketplacehelpers_extractgithubrepofromgiturl", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L350"}, {"caller_nid": "marketplacehelpers_extractgithubrepofromgiturl", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L356"}, {"caller_nid": "marketplacehelpers_issourceinblocklist", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L466"}, {"caller_nid": "marketplacehelpers_issourceallowedbypolicy", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L493"}, {"caller_nid": "marketplacehelpers_formatsourcefordisplay", "callee": "plural", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L529"}, {"caller_nid": "marketplacehelpers_detectemptymarketplacereason", "callee": "checkGitAvailable", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts", "source_location": "L558"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "label": "marketplaceHelpers.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "marketplacehelpers_formatfailuredetails",
+      "label": "formatFailureDetails()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "marketplacehelpers_getmarketplacesourcedisplay",
+      "label": "getMarketplaceSourceDisplay()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L38"
+    },
+    {
+      "id": "marketplacehelpers_createpluginid",
+      "label": "createPluginId()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L60"
+    },
+    {
+      "id": "marketplacehelpers_loadmarketplaceswithgracefuldegradation",
+      "label": "loadMarketplacesWithGracefulDegradation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L71"
+    },
+    {
+      "id": "marketplacehelpers_formatmarketplaceloadingerrors",
+      "label": "formatMarketplaceLoadingErrors()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L119"
+    },
+    {
+      "id": "marketplacehelpers_formatfailurenames",
+      "label": "formatFailureNames()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L143"
+    },
+    {
+      "id": "marketplacehelpers_formatfailureerrors",
+      "label": "formatFailureErrors()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L149"
+    },
+    {
+      "id": "marketplacehelpers_getstrictknownmarketplaces",
+      "label": "getStrictKnownMarketplaces()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L159"
+    },
+    {
+      "id": "marketplacehelpers_getblockedmarketplaces",
+      "label": "getBlockedMarketplaces()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L171"
+    },
+    {
+      "id": "marketplacehelpers_getplugintrustmessage",
+      "label": "getPluginTrustMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L183"
+    },
+    {
+      "id": "marketplacehelpers_aresourcesequal",
+      "label": "areSourcesEqual()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L191"
+    },
+    {
+      "id": "marketplacehelpers_extracthostfromsource",
+      "label": "extractHostFromSource()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L235"
+    },
+    {
+      "id": "marketplacehelpers_doessourcematchhostpattern",
+      "label": "doesSourceMatchHostPattern()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L278"
+    },
+    {
+      "id": "marketplacehelpers_doessourcematchpathpattern",
+      "label": "doesSourceMatchPathPattern()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L305"
+    },
+    {
+      "id": "marketplacehelpers_gethostpatternsfromallowlist",
+      "label": "getHostPatternsFromAllowlist()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L327"
+    },
+    {
+      "id": "marketplacehelpers_extractgithubrepofromgiturl",
+      "label": "extractGitHubRepoFromGitUrl()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L348"
+    },
+    {
+      "id": "marketplacehelpers_blockedconstraintmatches",
+      "label": "blockedConstraintMatches()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L371"
+    },
+    {
+      "id": "marketplacehelpers_aresourcesequivalentforblocklist",
+      "label": "areSourcesEquivalentForBlocklist()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L391"
+    },
+    {
+      "id": "marketplacehelpers_issourceinblocklist",
+      "label": "isSourceInBlocklist()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L461"
+    },
+    {
+      "id": "marketplacehelpers_issourceallowedbypolicy",
+      "label": "isSourceAllowedByPolicy()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L480"
+    },
+    {
+      "id": "marketplacehelpers_formatsourcefordisplay",
+      "label": "formatSourceForDisplay()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L510"
+    },
+    {
+      "id": "marketplacehelpers_detectemptymarketplacereason",
+      "label": "detectEmptyMarketplaceReason()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L550"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "isequal_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_gitavailability_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacemanager_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_schemas_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_formatfailuredetails",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_getmarketplacesourcedisplay",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_createpluginid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_loadmarketplaceswithgracefuldegradation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_formatmarketplaceloadingerrors",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_formatfailurenames",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L143",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_formatfailureerrors",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_getstrictknownmarketplaces",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_getblockedmarketplaces",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_getplugintrustmessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L183",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_aresourcesequal",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L191",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_extracthostfromsource",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L235",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_doessourcematchhostpattern",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L278",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_doessourcematchpathpattern",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L305",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_gethostpatternsfromallowlist",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L327",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_extractgithubrepofromgiturl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L348",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_blockedconstraintmatches",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L371",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_aresourcesequivalentforblocklist",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L391",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_issourceinblocklist",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L461",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_issourceallowedbypolicy",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L480",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_formatsourcefordisplay",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L510",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "target": "marketplacehelpers_detectemptymarketplacereason",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L550",
+      "weight": 1.0
+    },
+    {
+      "source": "marketplacehelpers_loadmarketplaceswithgracefuldegradation",
+      "target": "marketplacehelpers_issourceallowedbypolicy",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "marketplacehelpers_formatmarketplaceloadingerrors",
+      "target": "marketplacehelpers_formatfailurenames",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "marketplacehelpers_formatmarketplaceloadingerrors",
+      "target": "marketplacehelpers_formatfailureerrors",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "marketplacehelpers_doessourcematchhostpattern",
+      "target": "marketplacehelpers_extracthostfromsource",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L282",
+      "weight": 1.0
+    },
+    {
+      "source": "marketplacehelpers_gethostpatternsfromallowlist",
+      "target": "marketplacehelpers_getstrictknownmarketplaces",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L328",
+      "weight": 1.0
+    },
+    {
+      "source": "marketplacehelpers_aresourcesequivalentforblocklist",
+      "target": "marketplacehelpers_blockedconstraintmatches",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L402",
+      "weight": 1.0
+    },
+    {
+      "source": "marketplacehelpers_aresourcesequivalentforblocklist",
+      "target": "marketplacehelpers_extractgithubrepofromgiturl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L431",
+      "weight": 1.0
+    },
+    {
+      "source": "marketplacehelpers_issourceinblocklist",
+      "target": "marketplacehelpers_getblockedmarketplaces",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L462",
+      "weight": 1.0
+    },
+    {
+      "source": "marketplacehelpers_issourceallowedbypolicy",
+      "target": "marketplacehelpers_issourceinblocklist",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L482",
+      "weight": 1.0
+    },
+    {
+      "source": "marketplacehelpers_issourceallowedbypolicy",
+      "target": "marketplacehelpers_getstrictknownmarketplaces",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L487",
+      "weight": 1.0
+    },
+    {
+      "source": "marketplacehelpers_detectemptymarketplacereason",
+      "target": "marketplacehelpers_getstrictknownmarketplaces",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L564",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "marketplacehelpers_formatfailuredetails",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "marketplacehelpers_formatfailuredetails",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "marketplacehelpers_formatfailuredetails",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "marketplacehelpers_loadmarketplaceswithgracefuldegradation",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "marketplacehelpers_loadmarketplaceswithgracefuldegradation",
+      "callee": "getMarketplace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "marketplacehelpers_loadmarketplaceswithgracefuldegradation",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "marketplacehelpers_loadmarketplaceswithgracefuldegradation",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "marketplacehelpers_loadmarketplaceswithgracefuldegradation",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L103"
+    },
+    {
+      "caller_nid": "marketplacehelpers_loadmarketplaceswithgracefuldegradation",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L103"
+    },
+    {
+      "caller_nid": "marketplacehelpers_loadmarketplaceswithgracefuldegradation",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L106"
+    },
+    {
+      "caller_nid": "marketplacehelpers_formatfailurenames",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "marketplacehelpers_formatfailurenames",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "marketplacehelpers_formatfailureerrors",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "marketplacehelpers_formatfailureerrors",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "marketplacehelpers_getstrictknownmarketplaces",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L160"
+    },
+    {
+      "caller_nid": "marketplacehelpers_getblockedmarketplaces",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "marketplacehelpers_getplugintrustmessage",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L184"
+    },
+    {
+      "caller_nid": "marketplacehelpers_aresourcesequal",
+      "callee": "isEqual",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "marketplacehelpers_extracthostfromsource",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L245"
+    },
+    {
+      "caller_nid": "marketplacehelpers_doessourcematchhostpattern",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L289"
+    },
+    {
+      "caller_nid": "marketplacehelpers_doessourcematchhostpattern",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L292"
+    },
+    {
+      "caller_nid": "marketplacehelpers_doessourcematchpathpattern",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L316"
+    },
+    {
+      "caller_nid": "marketplacehelpers_doessourcematchpathpattern",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L318"
+    },
+    {
+      "caller_nid": "marketplacehelpers_gethostpatternsfromallowlist",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L331"
+    },
+    {
+      "caller_nid": "marketplacehelpers_gethostpatternsfromallowlist",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L331"
+    },
+    {
+      "caller_nid": "marketplacehelpers_extractgithubrepofromgiturl",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L350"
+    },
+    {
+      "caller_nid": "marketplacehelpers_extractgithubrepofromgiturl",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L356"
+    },
+    {
+      "caller_nid": "marketplacehelpers_issourceinblocklist",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L466"
+    },
+    {
+      "caller_nid": "marketplacehelpers_issourceallowedbypolicy",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L493"
+    },
+    {
+      "caller_nid": "marketplacehelpers_formatsourcefordisplay",
+      "callee": "plural",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L529"
+    },
+    {
+      "caller_nid": "marketplacehelpers_detectemptymarketplacereason",
+      "callee": "checkGitAvailable",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\marketplaceHelpers.ts",
+      "source_location": "L558"
+    }
+  ]
+}

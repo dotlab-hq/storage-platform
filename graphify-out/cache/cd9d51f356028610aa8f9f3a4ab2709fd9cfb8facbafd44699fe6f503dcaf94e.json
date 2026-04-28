@@ -1,1 +1,103 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_hooks_usemainloopmodel_ts", "label": "useMainLoopModel.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts", "source_location": "L1"}, {"id": "usemainloopmodel_usemainloopmodel", "label": "useMainLoopModel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts", "source_location": "L13"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_hooks_usemainloopmodel_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usemainloopmodel_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usemainloopmodel_ts", "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usemainloopmodel_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usemainloopmodel_ts", "target": "usemainloopmodel_usemainloopmodel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts", "source_location": "L13", "weight": 1.0}], "raw_calls": [{"caller_nid": "usemainloopmodel_usemainloopmodel", "callee": "useAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts", "source_location": "L14"}, {"caller_nid": "usemainloopmodel_usemainloopmodel", "callee": "useAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts", "source_location": "L15"}, {"caller_nid": "usemainloopmodel_usemainloopmodel", "callee": "useReducer", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts", "source_location": "L25"}, {"caller_nid": "usemainloopmodel_usemainloopmodel", "callee": "useEffect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts", "source_location": "L26"}, {"caller_nid": "usemainloopmodel_usemainloopmodel", "callee": "parseUserSpecifiedModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts", "source_location": "L28"}, {"caller_nid": "usemainloopmodel_usemainloopmodel", "callee": "getDefaultMainLoopModelSetting", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts", "source_location": "L31"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_hooks_usemainloopmodel_ts",
+      "label": "useMainLoopModel.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "usemainloopmodel_usemainloopmodel",
+      "label": "useMainLoopModel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts",
+      "source_location": "L13"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usemainloopmodel_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usemainloopmodel_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usemainloopmodel_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usemainloopmodel_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usemainloopmodel_ts",
+      "target": "usemainloopmodel_usemainloopmodel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "usemainloopmodel_usemainloopmodel",
+      "callee": "useAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts",
+      "source_location": "L14"
+    },
+    {
+      "caller_nid": "usemainloopmodel_usemainloopmodel",
+      "callee": "useAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts",
+      "source_location": "L15"
+    },
+    {
+      "caller_nid": "usemainloopmodel_usemainloopmodel",
+      "callee": "useReducer",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "usemainloopmodel_usemainloopmodel",
+      "callee": "useEffect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "usemainloopmodel_usemainloopmodel",
+      "callee": "parseUserSpecifiedModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "usemainloopmodel_usemainloopmodel",
+      "callee": "getDefaultMainLoopModelSetting",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMainLoopModel.ts",
+      "source_location": "L31"
+    }
+  ]
+}

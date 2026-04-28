@@ -1,1 +1,833 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "label": "claudeAiLimits.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L1"}, {"id": "claudeailimits_getratelimitdisplayname", "label": "getRateLimitDisplayName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L87"}, {"id": "claudeailimits_computetimeprogress", "label": "computeTimeProgress()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L98"}, {"id": "claudeailimits_getrawutilization", "label": "getRawUtilization()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L160"}, {"id": "claudeailimits_extractrawutilization", "label": "extractRawUtilization()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L164"}, {"id": "claudeailimits_emitstatuschange", "label": "emitStatusChange()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L184"}, {"id": "claudeailimits_maketestquery", "label": "makeTestQuery()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L199"}, {"id": "claudeailimits_checkquotastatus", "label": "checkQuotaStatus()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L220"}, {"id": "claudeailimits_getheaderbasedearlywarning", "label": "getHeaderBasedEarlyWarning()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L255"}, {"id": "claudeailimits_gettimerelativeearlywarning", "label": "getTimeRelativeEarlyWarning()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L301"}, {"id": "claudeailimits_getearlywarningfromheaders", "label": "getEarlyWarningFromHeaders()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L347"}, {"id": "claudeailimits_computenewlimitsfromheaders", "label": "computeNewLimitsFromHeaders()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L376"}, {"id": "claudeailimits_cacheextrausagedisabledreason", "label": "cacheExtraUsageDisabledReason()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L441"}, {"id": "claudeailimits_extractquotastatusfromheaders", "label": "extractQuotaStatusFromHeaders()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L454"}, {"id": "claudeailimits_extractquotastatusfromerror", "label": "extractQuotaStatusFromError()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L487"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "sdk", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "index_mjs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "isequal_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_betas_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_client_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "claudeailimits_getratelimitdisplayname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L87", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "claudeailimits_computetimeprogress", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L98", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "claudeailimits_getrawutilization", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L160", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "claudeailimits_extractrawutilization", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L164", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "claudeailimits_emitstatuschange", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L184", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "claudeailimits_maketestquery", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L199", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "claudeailimits_checkquotastatus", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L220", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "claudeailimits_getheaderbasedearlywarning", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L255", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "claudeailimits_gettimerelativeearlywarning", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L301", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "claudeailimits_getearlywarningfromheaders", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L347", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "claudeailimits_computenewlimitsfromheaders", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L376", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "claudeailimits_cacheextrausagedisabledreason", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L441", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "claudeailimits_extractquotastatusfromheaders", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L454", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "target": "claudeailimits_extractquotastatusfromerror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L487", "weight": 1.0}, {"source": "claudeailimits_checkquotastatus", "target": "claudeailimits_maketestquery", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L240", "weight": 1.0}, {"source": "claudeailimits_checkquotastatus", "target": "claudeailimits_extractquotastatusfromheaders", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L243", "weight": 1.0}, {"source": "claudeailimits_checkquotastatus", "target": "claudeailimits_extractquotastatusfromerror", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L246", "weight": 1.0}, {"source": "claudeailimits_gettimerelativeearlywarning", "target": "claudeailimits_computetimeprogress", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L321", "weight": 1.0}, {"source": "claudeailimits_getearlywarningfromheaders", "target": "claudeailimits_getheaderbasedearlywarning", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L352", "weight": 1.0}, {"source": "claudeailimits_getearlywarningfromheaders", "target": "claudeailimits_gettimerelativeearlywarning", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L363", "weight": 1.0}, {"source": "claudeailimits_computenewlimitsfromheaders", "target": "claudeailimits_getearlywarningfromheaders", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L415", "weight": 1.0}, {"source": "claudeailimits_extractquotastatusfromheaders", "target": "claudeailimits_emitstatuschange", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L469", "weight": 1.0}, {"source": "claudeailimits_extractquotastatusfromheaders", "target": "claudeailimits_extractrawutilization", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L476", "weight": 1.0}, {"source": "claudeailimits_extractquotastatusfromheaders", "target": "claudeailimits_computenewlimitsfromheaders", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L477", "weight": 1.0}, {"source": "claudeailimits_extractquotastatusfromheaders", "target": "claudeailimits_cacheextrausagedisabledreason", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L480", "weight": 1.0}, {"source": "claudeailimits_extractquotastatusfromerror", "target": "claudeailimits_extractrawutilization", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L500", "weight": 1.0}, {"source": "claudeailimits_extractquotastatusfromerror", "target": "claudeailimits_computenewlimitsfromheaders", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L501", "weight": 1.0}, {"source": "claudeailimits_extractquotastatusfromerror", "target": "claudeailimits_cacheextrausagedisabledreason", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L504", "weight": 1.0}, {"source": "claudeailimits_extractquotastatusfromerror", "target": "claudeailimits_emitstatuschange", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L510", "weight": 1.0}], "raw_calls": [{"caller_nid": "claudeailimits_computetimeprogress", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L99"}, {"caller_nid": "claudeailimits_computetimeprogress", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L102"}, {"caller_nid": "claudeailimits_computetimeprogress", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L102"}, {"caller_nid": "claudeailimits_extractrawutilization", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L170"}, {"caller_nid": "claudeailimits_extractrawutilization", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L173"}, {"caller_nid": "claudeailimits_extractrawutilization", "callee": "Number", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L175"}, {"caller_nid": "claudeailimits_extractrawutilization", "callee": "Number", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L175"}, {"caller_nid": "claudeailimits_emitstatuschange", "callee": "forEach", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L186"}, {"caller_nid": "claudeailimits_emitstatuschange", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L187"}, {"caller_nid": "claudeailimits_emitstatuschange", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L188"}, {"caller_nid": "claudeailimits_emitstatuschange", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L191"}, {"caller_nid": "claudeailimits_maketestquery", "callee": "getSmallFastModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L200"}, {"caller_nid": "claudeailimits_maketestquery", "callee": "getAnthropicClient", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L201"}, {"caller_nid": "claudeailimits_maketestquery", "callee": "getModelBetas", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L207"}, {"caller_nid": "claudeailimits_maketestquery", "callee": "asResponse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L209"}, {"caller_nid": "claudeailimits_maketestquery", "callee": "create", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L209"}, {"caller_nid": "claudeailimits_maketestquery", "callee": "getAPIMetadata", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L214"}, {"caller_nid": "claudeailimits_checkquotastatus", "callee": "isEssentialTrafficOnly", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L222"}, {"caller_nid": "claudeailimits_checkquotastatus", "callee": "shouldProcessRateLimits", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L227"}, {"caller_nid": "claudeailimits_checkquotastatus", "callee": "isClaudeAISubscriber", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L227"}, {"caller_nid": "claudeailimits_checkquotastatus", "callee": "getIsNonInteractiveSession", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L234"}, {"caller_nid": "claudeailimits_getheaderbasedearlywarning", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L260"}, {"caller_nid": "claudeailimits_getheaderbasedearlywarning", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L263"}, {"caller_nid": "claudeailimits_getheaderbasedearlywarning", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L269"}, {"caller_nid": "claudeailimits_getheaderbasedearlywarning", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L272"}, {"caller_nid": "claudeailimits_getheaderbasedearlywarning", "callee": "Number", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L277"}, {"caller_nid": "claudeailimits_getheaderbasedearlywarning", "callee": "Number", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L279"}, {"caller_nid": "claudeailimits_getheaderbasedearlywarning", "callee": "Number", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L288"}, {"caller_nid": "claudeailimits_gettimerelativeearlywarning", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L308"}, {"caller_nid": "claudeailimits_gettimerelativeearlywarning", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L311"}, {"caller_nid": "claudeailimits_gettimerelativeearlywarning", "callee": "Number", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L319"}, {"caller_nid": "claudeailimits_gettimerelativeearlywarning", "callee": "Number", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L320"}, {"caller_nid": "claudeailimits_gettimerelativeearlywarning", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L324"}, {"caller_nid": "claudeailimits_computenewlimitsfromheaders", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L380"}, {"caller_nid": "claudeailimits_computenewlimitsfromheaders", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L382"}, {"caller_nid": "claudeailimits_computenewlimitsfromheaders", "callee": "Number", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L383"}, {"caller_nid": "claudeailimits_computenewlimitsfromheaders", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L385"}, {"caller_nid": "claudeailimits_computenewlimitsfromheaders", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L388"}, {"caller_nid": "claudeailimits_computenewlimitsfromheaders", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L391"}, {"caller_nid": "claudeailimits_computenewlimitsfromheaders", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L394"}, {"caller_nid": "claudeailimits_computenewlimitsfromheaders", "callee": "Number", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L398"}, {"caller_nid": "claudeailimits_computenewlimitsfromheaders", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L402"}, {"caller_nid": "claudeailimits_cacheextrausagedisabledreason", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L444"}, {"caller_nid": "claudeailimits_cacheextrausagedisabledreason", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L445"}, {"caller_nid": "claudeailimits_cacheextrausagedisabledreason", "callee": "saveGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L447"}, {"caller_nid": "claudeailimits_extractquotastatusfromheaders", "callee": "isClaudeAISubscriber", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L458"}, {"caller_nid": "claudeailimits_extractquotastatusfromheaders", "callee": "shouldProcessRateLimits", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L460"}, {"caller_nid": "claudeailimits_extractquotastatusfromheaders", "callee": "processRateLimitHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L475"}, {"caller_nid": "claudeailimits_extractquotastatusfromheaders", "callee": "isEqual", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L482"}, {"caller_nid": "claudeailimits_extractquotastatusfromerror", "callee": "shouldProcessRateLimits", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L489"}, {"caller_nid": "claudeailimits_extractquotastatusfromerror", "callee": "isClaudeAISubscriber", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L489"}, {"caller_nid": "claudeailimits_extractquotastatusfromerror", "callee": "processRateLimitHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L499"}, {"caller_nid": "claudeailimits_extractquotastatusfromerror", "callee": "isEqual", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L509"}, {"caller_nid": "claudeailimits_extractquotastatusfromerror", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts", "source_location": "L513"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "label": "claudeAiLimits.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "claudeailimits_getratelimitdisplayname",
+      "label": "getRateLimitDisplayName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L87"
+    },
+    {
+      "id": "claudeailimits_computetimeprogress",
+      "label": "computeTimeProgress()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L98"
+    },
+    {
+      "id": "claudeailimits_getrawutilization",
+      "label": "getRawUtilization()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L160"
+    },
+    {
+      "id": "claudeailimits_extractrawutilization",
+      "label": "extractRawUtilization()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L164"
+    },
+    {
+      "id": "claudeailimits_emitstatuschange",
+      "label": "emitStatusChange()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L184"
+    },
+    {
+      "id": "claudeailimits_maketestquery",
+      "label": "makeTestQuery()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L199"
+    },
+    {
+      "id": "claudeailimits_checkquotastatus",
+      "label": "checkQuotaStatus()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L220"
+    },
+    {
+      "id": "claudeailimits_getheaderbasedearlywarning",
+      "label": "getHeaderBasedEarlyWarning()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L255"
+    },
+    {
+      "id": "claudeailimits_gettimerelativeearlywarning",
+      "label": "getTimeRelativeEarlyWarning()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L301"
+    },
+    {
+      "id": "claudeailimits_getearlywarningfromheaders",
+      "label": "getEarlyWarningFromHeaders()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L347"
+    },
+    {
+      "id": "claudeailimits_computenewlimitsfromheaders",
+      "label": "computeNewLimitsFromHeaders()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L376"
+    },
+    {
+      "id": "claudeailimits_cacheextrausagedisabledreason",
+      "label": "cacheExtraUsageDisabledReason()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L441"
+    },
+    {
+      "id": "claudeailimits_extractquotastatusfromheaders",
+      "label": "extractQuotaStatusFromHeaders()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L454"
+    },
+    {
+      "id": "claudeailimits_extractquotastatusfromerror",
+      "label": "extractQuotaStatusFromError()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L487"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "sdk",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "index_mjs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "isequal_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_betas_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "claudeailimits_getratelimitdisplayname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "claudeailimits_computetimeprogress",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "claudeailimits_getrawutilization",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "claudeailimits_extractrawutilization",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "claudeailimits_emitstatuschange",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L184",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "claudeailimits_maketestquery",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L199",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "claudeailimits_checkquotastatus",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L220",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "claudeailimits_getheaderbasedearlywarning",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L255",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "claudeailimits_gettimerelativeearlywarning",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L301",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "claudeailimits_getearlywarningfromheaders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L347",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "claudeailimits_computenewlimitsfromheaders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L376",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "claudeailimits_cacheextrausagedisabledreason",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L441",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "claudeailimits_extractquotastatusfromheaders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L454",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "target": "claudeailimits_extractquotastatusfromerror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L487",
+      "weight": 1.0
+    },
+    {
+      "source": "claudeailimits_checkquotastatus",
+      "target": "claudeailimits_maketestquery",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L240",
+      "weight": 1.0
+    },
+    {
+      "source": "claudeailimits_checkquotastatus",
+      "target": "claudeailimits_extractquotastatusfromheaders",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L243",
+      "weight": 1.0
+    },
+    {
+      "source": "claudeailimits_checkquotastatus",
+      "target": "claudeailimits_extractquotastatusfromerror",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L246",
+      "weight": 1.0
+    },
+    {
+      "source": "claudeailimits_gettimerelativeearlywarning",
+      "target": "claudeailimits_computetimeprogress",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L321",
+      "weight": 1.0
+    },
+    {
+      "source": "claudeailimits_getearlywarningfromheaders",
+      "target": "claudeailimits_getheaderbasedearlywarning",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L352",
+      "weight": 1.0
+    },
+    {
+      "source": "claudeailimits_getearlywarningfromheaders",
+      "target": "claudeailimits_gettimerelativeearlywarning",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L363",
+      "weight": 1.0
+    },
+    {
+      "source": "claudeailimits_computenewlimitsfromheaders",
+      "target": "claudeailimits_getearlywarningfromheaders",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L415",
+      "weight": 1.0
+    },
+    {
+      "source": "claudeailimits_extractquotastatusfromheaders",
+      "target": "claudeailimits_emitstatuschange",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L469",
+      "weight": 1.0
+    },
+    {
+      "source": "claudeailimits_extractquotastatusfromheaders",
+      "target": "claudeailimits_extractrawutilization",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L476",
+      "weight": 1.0
+    },
+    {
+      "source": "claudeailimits_extractquotastatusfromheaders",
+      "target": "claudeailimits_computenewlimitsfromheaders",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L477",
+      "weight": 1.0
+    },
+    {
+      "source": "claudeailimits_extractquotastatusfromheaders",
+      "target": "claudeailimits_cacheextrausagedisabledreason",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L480",
+      "weight": 1.0
+    },
+    {
+      "source": "claudeailimits_extractquotastatusfromerror",
+      "target": "claudeailimits_extractrawutilization",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L500",
+      "weight": 1.0
+    },
+    {
+      "source": "claudeailimits_extractquotastatusfromerror",
+      "target": "claudeailimits_computenewlimitsfromheaders",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L501",
+      "weight": 1.0
+    },
+    {
+      "source": "claudeailimits_extractquotastatusfromerror",
+      "target": "claudeailimits_cacheextrausagedisabledreason",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L504",
+      "weight": 1.0
+    },
+    {
+      "source": "claudeailimits_extractquotastatusfromerror",
+      "target": "claudeailimits_emitstatuschange",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L510",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "claudeailimits_computetimeprogress",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "claudeailimits_computetimeprogress",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "claudeailimits_computetimeprogress",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "claudeailimits_extractrawutilization",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L170"
+    },
+    {
+      "caller_nid": "claudeailimits_extractrawutilization",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "claudeailimits_extractrawutilization",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "claudeailimits_extractrawutilization",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "claudeailimits_emitstatuschange",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L186"
+    },
+    {
+      "caller_nid": "claudeailimits_emitstatuschange",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L187"
+    },
+    {
+      "caller_nid": "claudeailimits_emitstatuschange",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L188"
+    },
+    {
+      "caller_nid": "claudeailimits_emitstatuschange",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L191"
+    },
+    {
+      "caller_nid": "claudeailimits_maketestquery",
+      "callee": "getSmallFastModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "claudeailimits_maketestquery",
+      "callee": "getAnthropicClient",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L201"
+    },
+    {
+      "caller_nid": "claudeailimits_maketestquery",
+      "callee": "getModelBetas",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L207"
+    },
+    {
+      "caller_nid": "claudeailimits_maketestquery",
+      "callee": "asResponse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L209"
+    },
+    {
+      "caller_nid": "claudeailimits_maketestquery",
+      "callee": "create",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L209"
+    },
+    {
+      "caller_nid": "claudeailimits_maketestquery",
+      "callee": "getAPIMetadata",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L214"
+    },
+    {
+      "caller_nid": "claudeailimits_checkquotastatus",
+      "callee": "isEssentialTrafficOnly",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L222"
+    },
+    {
+      "caller_nid": "claudeailimits_checkquotastatus",
+      "callee": "shouldProcessRateLimits",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L227"
+    },
+    {
+      "caller_nid": "claudeailimits_checkquotastatus",
+      "callee": "isClaudeAISubscriber",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L227"
+    },
+    {
+      "caller_nid": "claudeailimits_checkquotastatus",
+      "callee": "getIsNonInteractiveSession",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L234"
+    },
+    {
+      "caller_nid": "claudeailimits_getheaderbasedearlywarning",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L260"
+    },
+    {
+      "caller_nid": "claudeailimits_getheaderbasedearlywarning",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L263"
+    },
+    {
+      "caller_nid": "claudeailimits_getheaderbasedearlywarning",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L269"
+    },
+    {
+      "caller_nid": "claudeailimits_getheaderbasedearlywarning",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L272"
+    },
+    {
+      "caller_nid": "claudeailimits_getheaderbasedearlywarning",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L277"
+    },
+    {
+      "caller_nid": "claudeailimits_getheaderbasedearlywarning",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L279"
+    },
+    {
+      "caller_nid": "claudeailimits_getheaderbasedearlywarning",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "claudeailimits_gettimerelativeearlywarning",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L308"
+    },
+    {
+      "caller_nid": "claudeailimits_gettimerelativeearlywarning",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L311"
+    },
+    {
+      "caller_nid": "claudeailimits_gettimerelativeearlywarning",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L319"
+    },
+    {
+      "caller_nid": "claudeailimits_gettimerelativeearlywarning",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L320"
+    },
+    {
+      "caller_nid": "claudeailimits_gettimerelativeearlywarning",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L324"
+    },
+    {
+      "caller_nid": "claudeailimits_computenewlimitsfromheaders",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L380"
+    },
+    {
+      "caller_nid": "claudeailimits_computenewlimitsfromheaders",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L382"
+    },
+    {
+      "caller_nid": "claudeailimits_computenewlimitsfromheaders",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L383"
+    },
+    {
+      "caller_nid": "claudeailimits_computenewlimitsfromheaders",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L385"
+    },
+    {
+      "caller_nid": "claudeailimits_computenewlimitsfromheaders",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L388"
+    },
+    {
+      "caller_nid": "claudeailimits_computenewlimitsfromheaders",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L391"
+    },
+    {
+      "caller_nid": "claudeailimits_computenewlimitsfromheaders",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L394"
+    },
+    {
+      "caller_nid": "claudeailimits_computenewlimitsfromheaders",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L398"
+    },
+    {
+      "caller_nid": "claudeailimits_computenewlimitsfromheaders",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L402"
+    },
+    {
+      "caller_nid": "claudeailimits_cacheextrausagedisabledreason",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L444"
+    },
+    {
+      "caller_nid": "claudeailimits_cacheextrausagedisabledreason",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L445"
+    },
+    {
+      "caller_nid": "claudeailimits_cacheextrausagedisabledreason",
+      "callee": "saveGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L447"
+    },
+    {
+      "caller_nid": "claudeailimits_extractquotastatusfromheaders",
+      "callee": "isClaudeAISubscriber",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L458"
+    },
+    {
+      "caller_nid": "claudeailimits_extractquotastatusfromheaders",
+      "callee": "shouldProcessRateLimits",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L460"
+    },
+    {
+      "caller_nid": "claudeailimits_extractquotastatusfromheaders",
+      "callee": "processRateLimitHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L475"
+    },
+    {
+      "caller_nid": "claudeailimits_extractquotastatusfromheaders",
+      "callee": "isEqual",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L482"
+    },
+    {
+      "caller_nid": "claudeailimits_extractquotastatusfromerror",
+      "callee": "shouldProcessRateLimits",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L489"
+    },
+    {
+      "caller_nid": "claudeailimits_extractquotastatusfromerror",
+      "callee": "isClaudeAISubscriber",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L489"
+    },
+    {
+      "caller_nid": "claudeailimits_extractquotastatusfromerror",
+      "callee": "processRateLimitHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L499"
+    },
+    {
+      "caller_nid": "claudeailimits_extractquotastatusfromerror",
+      "callee": "isEqual",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L509"
+    },
+    {
+      "caller_nid": "claudeailimits_extractquotastatusfromerror",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\claudeAiLimits.ts",
+      "source_location": "L513"
+    }
+  ]
+}

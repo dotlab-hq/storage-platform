@@ -1,1 +1,1338 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "label": "sessionStoragePortable.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L1"}, {"id": "sessionstorageportable_validateuuid", "label": "validateUuid()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L26"}, {"id": "sessionstorageportable_unescapejsonstring", "label": "unescapeJsonString()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L39"}, {"id": "sessionstorageportable_extractjsonstringfield", "label": "extractJsonStringField()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L53"}, {"id": "sessionstorageportable_extractlastjsonstringfield", "label": "extractLastJsonStringField()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L82"}, {"id": "sessionstorageportable_extractfirstpromptfromhead", "label": "extractFirstPromptFromHead()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L135"}, {"id": "sessionstorageportable_readheadandtail", "label": "readHeadAndTail()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L215"}, {"id": "sessionstorageportable_readsessionlite", "label": "readSessionLite()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L256"}, {"id": "sessionstorageportable_simplehash", "label": "simpleHash()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L295"}, {"id": "sessionstorageportable_sanitizepath", "label": "sanitizePath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L311"}, {"id": "sessionstorageportable_getprojectsdir", "label": "getProjectsDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L325"}, {"id": "sessionstorageportable_getprojectdir", "label": "getProjectDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L329"}, {"id": "sessionstorageportable_canonicalizepath", "label": "canonicalizePath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L339"}, {"id": "sessionstorageportable_findprojectdir", "label": "findProjectDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L354"}, {"id": "sessionstorageportable_resolvesessionfilepath", "label": "resolveSessionFilePath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L403"}, {"id": "sessionstorageportable_compactboundarymarker", "label": "compactBoundaryMarker()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L485"}, {"id": "sessionstorageportable_parseboundaryline", "label": "parseBoundaryLine()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L493"}, {"id": "sessionstorageportable_sinkwrite", "label": "sinkWrite()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L525"}, {"id": "sessionstorageportable_hasprefix", "label": "hasPrefix()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L539"}, {"id": "sessionstorageportable_processstraddle", "label": "processStraddle()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L572"}, {"id": "sessionstorageportable_scanchunklines", "label": "scanChunkLines()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L614"}, {"id": "sessionstorageportable_capturesnap", "label": "captureSnap()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L664"}, {"id": "sessionstorageportable_capturecarry", "label": "captureCarry()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L689"}, {"id": "sessionstorageportable_finalizeoutput", "label": "finalizeOutput()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L699"}, {"id": "sessionstorageportable_readtranscriptforload", "label": "readTranscriptForLoad()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L717"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_getworktreepathsportable_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_hash_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_validateuuid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_unescapejsonstring", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_extractjsonstringfield", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L53", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_extractlastjsonstringfield", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L82", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_extractfirstpromptfromhead", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L135", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_readheadandtail", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L215", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_readsessionlite", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L256", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_simplehash", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L295", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_sanitizepath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L311", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_getprojectsdir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L325", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_getprojectdir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L329", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_canonicalizepath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L339", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_findprojectdir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L354", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_resolvesessionfilepath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L403", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_compactboundarymarker", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L485", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_parseboundaryline", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L493", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_sinkwrite", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L525", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_hasprefix", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L539", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_processstraddle", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L572", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_scanchunklines", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L614", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_capturesnap", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L664", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_capturecarry", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L689", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_finalizeoutput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L699", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts", "target": "sessionstorageportable_readtranscriptforload", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L717", "weight": 1.0}, {"source": "sessionstorageportable_extractjsonstringfield", "target": "sessionstorageportable_unescapejsonstring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L70", "weight": 1.0}, {"source": "sessionstorageportable_extractlastjsonstringfield", "target": "sessionstorageportable_unescapejsonstring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L102", "weight": 1.0}, {"source": "sessionstorageportable_sanitizepath", "target": "sessionstorageportable_simplehash", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L317", "weight": 1.0}, {"source": "sessionstorageportable_getprojectdir", "target": "sessionstorageportable_getprojectsdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L330", "weight": 1.0}, {"source": "sessionstorageportable_getprojectdir", "target": "sessionstorageportable_sanitizepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L330", "weight": 1.0}, {"source": "sessionstorageportable_findprojectdir", "target": "sessionstorageportable_getprojectdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L357", "weight": 1.0}, {"source": "sessionstorageportable_findprojectdir", "target": "sessionstorageportable_sanitizepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L364", "weight": 1.0}, {"source": "sessionstorageportable_findprojectdir", "target": "sessionstorageportable_getprojectsdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L369", "weight": 1.0}, {"source": "sessionstorageportable_resolvesessionfilepath", "target": "sessionstorageportable_canonicalizepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L413", "weight": 1.0}, {"source": "sessionstorageportable_resolvesessionfilepath", "target": "sessionstorageportable_findprojectdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L414", "weight": 1.0}, {"source": "sessionstorageportable_resolvesessionfilepath", "target": "sessionstorageportable_getprojectsdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L448", "weight": 1.0}, {"source": "sessionstorageportable_processstraddle", "target": "sessionstorageportable_hasprefix", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L584", "weight": 1.0}, {"source": "sessionstorageportable_processstraddle", "target": "sessionstorageportable_parseboundaryline", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L592", "weight": 1.0}, {"source": "sessionstorageportable_processstraddle", "target": "sessionstorageportable_sinkwrite", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L605", "weight": 1.0}, {"source": "sessionstorageportable_scanchunklines", "target": "sessionstorageportable_hasprefix", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L630", "weight": 1.0}, {"source": "sessionstorageportable_scanchunklines", "target": "sessionstorageportable_sinkwrite", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L631", "weight": 1.0}, {"source": "sessionstorageportable_scanchunklines", "target": "sessionstorageportable_parseboundaryline", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L639", "weight": 1.0}, {"source": "sessionstorageportable_finalizeoutput", "target": "sessionstorageportable_hasprefix", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L702", "weight": 1.0}, {"source": "sessionstorageportable_finalizeoutput", "target": "sessionstorageportable_sinkwrite", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L706", "weight": 1.0}, {"source": "sessionstorageportable_readtranscriptforload", "target": "sessionstorageportable_compactboundarymarker", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L725", "weight": 1.0}, {"source": "sessionstorageportable_readtranscriptforload", "target": "sessionstorageportable_processstraddle", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L766", "weight": 1.0}, {"source": "sessionstorageportable_readtranscriptforload", "target": "sessionstorageportable_scanchunklines", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L778", "weight": 1.0}, {"source": "sessionstorageportable_readtranscriptforload", "target": "sessionstorageportable_capturesnap", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L779", "weight": 1.0}, {"source": "sessionstorageportable_readtranscriptforload", "target": "sessionstorageportable_capturecarry", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L780", "weight": 1.0}, {"source": "sessionstorageportable_readtranscriptforload", "target": "sessionstorageportable_finalizeoutput", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L783", "weight": 1.0}], "raw_calls": [{"caller_nid": "sessionstorageportable_validateuuid", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L28"}, {"caller_nid": "sessionstorageportable_unescapejsonstring", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L40"}, {"caller_nid": "sessionstorageportable_unescapejsonstring", "callee": "parse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L42"}, {"caller_nid": "sessionstorageportable_extractjsonstringfield", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L59"}, {"caller_nid": "sessionstorageportable_extractjsonstringfield", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L70"}, {"caller_nid": "sessionstorageportable_extractlastjsonstringfield", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L91"}, {"caller_nid": "sessionstorageportable_extractlastjsonstringfield", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L102"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L139"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L141"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L141"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L144"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L144"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L146"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L147"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L147"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L150"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L151"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "parse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L156"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L165"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L166"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L169"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L175"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L175"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L179"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L186"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L187"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L189"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L192"}, {"caller_nid": "sessionstorageportable_extractfirstpromptfromhead", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L192"}, {"caller_nid": "sessionstorageportable_readheadandtail", "callee": "fsOpen", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L221"}, {"caller_nid": "sessionstorageportable_readheadandtail", "callee": "read", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L223"}, {"caller_nid": "sessionstorageportable_readheadandtail", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L226"}, {"caller_nid": "sessionstorageportable_readheadandtail", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L228"}, {"caller_nid": "sessionstorageportable_readheadandtail", "callee": "read", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L231"}, {"caller_nid": "sessionstorageportable_readheadandtail", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L232"}, {"caller_nid": "sessionstorageportable_readheadandtail", "callee": "close", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L237"}, {"caller_nid": "sessionstorageportable_readsessionlite", "callee": "fsOpen", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L260"}, {"caller_nid": "sessionstorageportable_readsessionlite", "callee": "stat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L262"}, {"caller_nid": "sessionstorageportable_readsessionlite", "callee": "allocUnsafe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L263"}, {"caller_nid": "sessionstorageportable_readsessionlite", "callee": "read", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L264"}, {"caller_nid": "sessionstorageportable_readsessionlite", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L267"}, {"caller_nid": "sessionstorageportable_readsessionlite", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L268"}, {"caller_nid": "sessionstorageportable_readsessionlite", "callee": "read", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L271"}, {"caller_nid": "sessionstorageportable_readsessionlite", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L272"}, {"caller_nid": "sessionstorageportable_readsessionlite", "callee": "getTime", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L275"}, {"caller_nid": "sessionstorageportable_readsessionlite", "callee": "close", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L277"}, {"caller_nid": "sessionstorageportable_simplehash", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L296"}, {"caller_nid": "sessionstorageportable_simplehash", "callee": "abs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L296"}, {"caller_nid": "sessionstorageportable_simplehash", "callee": "djb2Hash", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L296"}, {"caller_nid": "sessionstorageportable_sanitizepath", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L312"}, {"caller_nid": "sessionstorageportable_sanitizepath", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L317"}, {"caller_nid": "sessionstorageportable_sanitizepath", "callee": "hash", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L317"}, {"caller_nid": "sessionstorageportable_sanitizepath", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L318"}, {"caller_nid": "sessionstorageportable_getprojectsdir", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L326"}, {"caller_nid": "sessionstorageportable_getprojectsdir", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L326"}, {"caller_nid": "sessionstorageportable_getprojectdir", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L330"}, {"caller_nid": "sessionstorageportable_canonicalizepath", "callee": "normalize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L341"}, {"caller_nid": "sessionstorageportable_canonicalizepath", "callee": "realpath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L341"}, {"caller_nid": "sessionstorageportable_canonicalizepath", "callee": "normalize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L343"}, {"caller_nid": "sessionstorageportable_findprojectdir", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L359"}, {"caller_nid": "sessionstorageportable_findprojectdir", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L368"}, {"caller_nid": "sessionstorageportable_findprojectdir", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L371"}, {"caller_nid": "sessionstorageportable_findprojectdir", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L372"}, {"caller_nid": "sessionstorageportable_findprojectdir", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L375"}, {"caller_nid": "sessionstorageportable_resolvesessionfilepath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L416"}, {"caller_nid": "sessionstorageportable_resolvesessionfilepath", "callee": "stat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L418"}, {"caller_nid": "sessionstorageportable_resolvesessionfilepath", "callee": "getWorktreePathsPortable", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L428"}, {"caller_nid": "sessionstorageportable_resolvesessionfilepath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L436"}, {"caller_nid": "sessionstorageportable_resolvesessionfilepath", "callee": "stat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L438"}, {"caller_nid": "sessionstorageportable_resolvesessionfilepath", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L451"}, {"caller_nid": "sessionstorageportable_resolvesessionfilepath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L456"}, {"caller_nid": "sessionstorageportable_resolvesessionfilepath", "callee": "stat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L458"}, {"caller_nid": "sessionstorageportable_compactboundarymarker", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L486"}, {"caller_nid": "sessionstorageportable_parseboundaryline", "callee": "parse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L497"}, {"caller_nid": "sessionstorageportable_parseboundaryline", "callee": "Boolean", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L506"}, {"caller_nid": "sessionstorageportable_sinkwrite", "callee": "allocUnsafe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L529"}, {"caller_nid": "sessionstorageportable_sinkwrite", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L530"}, {"caller_nid": "sessionstorageportable_sinkwrite", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L530"}, {"caller_nid": "sessionstorageportable_sinkwrite", "callee": "copy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L532"}, {"caller_nid": "sessionstorageportable_sinkwrite", "callee": "copy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L535"}, {"caller_nid": "sessionstorageportable_hasprefix", "callee": "compare", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L547"}, {"caller_nid": "sessionstorageportable_processstraddle", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L581"}, {"caller_nid": "sessionstorageportable_processstraddle", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L593"}, {"caller_nid": "sessionstorageportable_processstraddle", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L594"}, {"caller_nid": "sessionstorageportable_scanchunklines", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L619"}, {"caller_nid": "sessionstorageportable_scanchunklines", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L624"}, {"caller_nid": "sessionstorageportable_scanchunklines", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L628"}, {"caller_nid": "sessionstorageportable_scanchunklines", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L637"}, {"caller_nid": "sessionstorageportable_scanchunklines", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L639"}, {"caller_nid": "sessionstorageportable_scanchunklines", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L651"}, {"caller_nid": "sessionstorageportable_scanchunklines", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L657"}, {"caller_nid": "sessionstorageportable_capturesnap", "callee": "allocUnsafe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L674"}, {"caller_nid": "sessionstorageportable_capturesnap", "callee": "copy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L676"}, {"caller_nid": "sessionstorageportable_capturesnap", "callee": "allocUnsafe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L681"}, {"caller_nid": "sessionstorageportable_capturesnap", "callee": "copy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L683"}, {"caller_nid": "sessionstorageportable_capturesnap", "callee": "copy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L684"}, {"caller_nid": "sessionstorageportable_capturecarry", "callee": "allocUnsafe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L693"}, {"caller_nid": "sessionstorageportable_capturecarry", "callee": "copy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L695"}, {"caller_nid": "sessionstorageportable_readtranscriptforload", "callee": "allocUnsafe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L734"}, {"caller_nid": "sessionstorageportable_readtranscriptforload", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L734"}, {"caller_nid": "sessionstorageportable_readtranscriptforload", "callee": "allocUnsafe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L752"}, {"caller_nid": "sessionstorageportable_readtranscriptforload", "callee": "fsOpen", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L753"}, {"caller_nid": "sessionstorageportable_readtranscriptforload", "callee": "read", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L757"}, {"caller_nid": "sessionstorageportable_readtranscriptforload", "callee": "min", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L760"}, {"caller_nid": "sessionstorageportable_readtranscriptforload", "callee": "allocUnsafe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L771"}, {"caller_nid": "sessionstorageportable_readtranscriptforload", "callee": "copy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L772"}, {"caller_nid": "sessionstorageportable_readtranscriptforload", "callee": "copy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L773"}, {"caller_nid": "sessionstorageportable_readtranscriptforload", "callee": "subarray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L775"}, {"caller_nid": "sessionstorageportable_readtranscriptforload", "callee": "close", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L785"}, {"caller_nid": "sessionstorageportable_readtranscriptforload", "callee": "subarray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts", "source_location": "L790"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "label": "sessionStoragePortable.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "sessionstorageportable_validateuuid",
+      "label": "validateUuid()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L26"
+    },
+    {
+      "id": "sessionstorageportable_unescapejsonstring",
+      "label": "unescapeJsonString()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L39"
+    },
+    {
+      "id": "sessionstorageportable_extractjsonstringfield",
+      "label": "extractJsonStringField()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L53"
+    },
+    {
+      "id": "sessionstorageportable_extractlastjsonstringfield",
+      "label": "extractLastJsonStringField()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L82"
+    },
+    {
+      "id": "sessionstorageportable_extractfirstpromptfromhead",
+      "label": "extractFirstPromptFromHead()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L135"
+    },
+    {
+      "id": "sessionstorageportable_readheadandtail",
+      "label": "readHeadAndTail()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L215"
+    },
+    {
+      "id": "sessionstorageportable_readsessionlite",
+      "label": "readSessionLite()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L256"
+    },
+    {
+      "id": "sessionstorageportable_simplehash",
+      "label": "simpleHash()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L295"
+    },
+    {
+      "id": "sessionstorageportable_sanitizepath",
+      "label": "sanitizePath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L311"
+    },
+    {
+      "id": "sessionstorageportable_getprojectsdir",
+      "label": "getProjectsDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L325"
+    },
+    {
+      "id": "sessionstorageportable_getprojectdir",
+      "label": "getProjectDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L329"
+    },
+    {
+      "id": "sessionstorageportable_canonicalizepath",
+      "label": "canonicalizePath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L339"
+    },
+    {
+      "id": "sessionstorageportable_findprojectdir",
+      "label": "findProjectDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L354"
+    },
+    {
+      "id": "sessionstorageportable_resolvesessionfilepath",
+      "label": "resolveSessionFilePath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L403"
+    },
+    {
+      "id": "sessionstorageportable_compactboundarymarker",
+      "label": "compactBoundaryMarker()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L485"
+    },
+    {
+      "id": "sessionstorageportable_parseboundaryline",
+      "label": "parseBoundaryLine()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L493"
+    },
+    {
+      "id": "sessionstorageportable_sinkwrite",
+      "label": "sinkWrite()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L525"
+    },
+    {
+      "id": "sessionstorageportable_hasprefix",
+      "label": "hasPrefix()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L539"
+    },
+    {
+      "id": "sessionstorageportable_processstraddle",
+      "label": "processStraddle()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L572"
+    },
+    {
+      "id": "sessionstorageportable_scanchunklines",
+      "label": "scanChunkLines()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L614"
+    },
+    {
+      "id": "sessionstorageportable_capturesnap",
+      "label": "captureSnap()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L664"
+    },
+    {
+      "id": "sessionstorageportable_capturecarry",
+      "label": "captureCarry()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L689"
+    },
+    {
+      "id": "sessionstorageportable_finalizeoutput",
+      "label": "finalizeOutput()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L699"
+    },
+    {
+      "id": "sessionstorageportable_readtranscriptforload",
+      "label": "readTranscriptForLoad()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L717"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_getworktreepathsportable_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_hash_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_validateuuid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_unescapejsonstring",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_extractjsonstringfield",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_extractlastjsonstringfield",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_extractfirstpromptfromhead",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L135",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_readheadandtail",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L215",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_readsessionlite",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L256",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_simplehash",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L295",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_sanitizepath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L311",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_getprojectsdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L325",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_getprojectdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L329",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_canonicalizepath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L339",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_findprojectdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L354",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_resolvesessionfilepath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L403",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_compactboundarymarker",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L485",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_parseboundaryline",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L493",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_sinkwrite",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L525",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_hasprefix",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L539",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_processstraddle",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L572",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_scanchunklines",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L614",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_capturesnap",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L664",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_capturecarry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L689",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_finalizeoutput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L699",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_sessionstorageportable_ts",
+      "target": "sessionstorageportable_readtranscriptforload",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L717",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_extractjsonstringfield",
+      "target": "sessionstorageportable_unescapejsonstring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_extractlastjsonstringfield",
+      "target": "sessionstorageportable_unescapejsonstring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_sanitizepath",
+      "target": "sessionstorageportable_simplehash",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L317",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_getprojectdir",
+      "target": "sessionstorageportable_getprojectsdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L330",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_getprojectdir",
+      "target": "sessionstorageportable_sanitizepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L330",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_findprojectdir",
+      "target": "sessionstorageportable_getprojectdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L357",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_findprojectdir",
+      "target": "sessionstorageportable_sanitizepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L364",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_findprojectdir",
+      "target": "sessionstorageportable_getprojectsdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L369",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_resolvesessionfilepath",
+      "target": "sessionstorageportable_canonicalizepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L413",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_resolvesessionfilepath",
+      "target": "sessionstorageportable_findprojectdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L414",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_resolvesessionfilepath",
+      "target": "sessionstorageportable_getprojectsdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L448",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_processstraddle",
+      "target": "sessionstorageportable_hasprefix",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L584",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_processstraddle",
+      "target": "sessionstorageportable_parseboundaryline",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L592",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_processstraddle",
+      "target": "sessionstorageportable_sinkwrite",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L605",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_scanchunklines",
+      "target": "sessionstorageportable_hasprefix",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L630",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_scanchunklines",
+      "target": "sessionstorageportable_sinkwrite",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L631",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_scanchunklines",
+      "target": "sessionstorageportable_parseboundaryline",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L639",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_finalizeoutput",
+      "target": "sessionstorageportable_hasprefix",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L702",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_finalizeoutput",
+      "target": "sessionstorageportable_sinkwrite",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L706",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_readtranscriptforload",
+      "target": "sessionstorageportable_compactboundarymarker",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L725",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_readtranscriptforload",
+      "target": "sessionstorageportable_processstraddle",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L766",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_readtranscriptforload",
+      "target": "sessionstorageportable_scanchunklines",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L778",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_readtranscriptforload",
+      "target": "sessionstorageportable_capturesnap",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L779",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_readtranscriptforload",
+      "target": "sessionstorageportable_capturecarry",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L780",
+      "weight": 1.0
+    },
+    {
+      "source": "sessionstorageportable_readtranscriptforload",
+      "target": "sessionstorageportable_finalizeoutput",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L783",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "sessionstorageportable_validateuuid",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "sessionstorageportable_unescapejsonstring",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "sessionstorageportable_unescapejsonstring",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractjsonstringfield",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractjsonstringfield",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractlastjsonstringfield",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L91"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractlastjsonstringfield",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L166"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L169"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L186"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L187"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L189"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "sessionstorageportable_extractfirstpromptfromhead",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readheadandtail",
+      "callee": "fsOpen",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L221"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readheadandtail",
+      "callee": "read",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L223"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readheadandtail",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L226"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readheadandtail",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L228"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readheadandtail",
+      "callee": "read",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L231"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readheadandtail",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L232"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readheadandtail",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L237"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readsessionlite",
+      "callee": "fsOpen",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L260"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readsessionlite",
+      "callee": "stat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L262"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readsessionlite",
+      "callee": "allocUnsafe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L263"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readsessionlite",
+      "callee": "read",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L264"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readsessionlite",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L267"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readsessionlite",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L268"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readsessionlite",
+      "callee": "read",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L271"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readsessionlite",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L272"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readsessionlite",
+      "callee": "getTime",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L275"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readsessionlite",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L277"
+    },
+    {
+      "caller_nid": "sessionstorageportable_simplehash",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L296"
+    },
+    {
+      "caller_nid": "sessionstorageportable_simplehash",
+      "callee": "abs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L296"
+    },
+    {
+      "caller_nid": "sessionstorageportable_simplehash",
+      "callee": "djb2Hash",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L296"
+    },
+    {
+      "caller_nid": "sessionstorageportable_sanitizepath",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L312"
+    },
+    {
+      "caller_nid": "sessionstorageportable_sanitizepath",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L317"
+    },
+    {
+      "caller_nid": "sessionstorageportable_sanitizepath",
+      "callee": "hash",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L317"
+    },
+    {
+      "caller_nid": "sessionstorageportable_sanitizepath",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L318"
+    },
+    {
+      "caller_nid": "sessionstorageportable_getprojectsdir",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L326"
+    },
+    {
+      "caller_nid": "sessionstorageportable_getprojectsdir",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L326"
+    },
+    {
+      "caller_nid": "sessionstorageportable_getprojectdir",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L330"
+    },
+    {
+      "caller_nid": "sessionstorageportable_canonicalizepath",
+      "callee": "normalize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L341"
+    },
+    {
+      "caller_nid": "sessionstorageportable_canonicalizepath",
+      "callee": "realpath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L341"
+    },
+    {
+      "caller_nid": "sessionstorageportable_canonicalizepath",
+      "callee": "normalize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L343"
+    },
+    {
+      "caller_nid": "sessionstorageportable_findprojectdir",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L359"
+    },
+    {
+      "caller_nid": "sessionstorageportable_findprojectdir",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L368"
+    },
+    {
+      "caller_nid": "sessionstorageportable_findprojectdir",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L371"
+    },
+    {
+      "caller_nid": "sessionstorageportable_findprojectdir",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L372"
+    },
+    {
+      "caller_nid": "sessionstorageportable_findprojectdir",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L375"
+    },
+    {
+      "caller_nid": "sessionstorageportable_resolvesessionfilepath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L416"
+    },
+    {
+      "caller_nid": "sessionstorageportable_resolvesessionfilepath",
+      "callee": "stat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L418"
+    },
+    {
+      "caller_nid": "sessionstorageportable_resolvesessionfilepath",
+      "callee": "getWorktreePathsPortable",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L428"
+    },
+    {
+      "caller_nid": "sessionstorageportable_resolvesessionfilepath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L436"
+    },
+    {
+      "caller_nid": "sessionstorageportable_resolvesessionfilepath",
+      "callee": "stat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L438"
+    },
+    {
+      "caller_nid": "sessionstorageportable_resolvesessionfilepath",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L451"
+    },
+    {
+      "caller_nid": "sessionstorageportable_resolvesessionfilepath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L456"
+    },
+    {
+      "caller_nid": "sessionstorageportable_resolvesessionfilepath",
+      "callee": "stat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L458"
+    },
+    {
+      "caller_nid": "sessionstorageportable_compactboundarymarker",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L486"
+    },
+    {
+      "caller_nid": "sessionstorageportable_parseboundaryline",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L497"
+    },
+    {
+      "caller_nid": "sessionstorageportable_parseboundaryline",
+      "callee": "Boolean",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L506"
+    },
+    {
+      "caller_nid": "sessionstorageportable_sinkwrite",
+      "callee": "allocUnsafe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L529"
+    },
+    {
+      "caller_nid": "sessionstorageportable_sinkwrite",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L530"
+    },
+    {
+      "caller_nid": "sessionstorageportable_sinkwrite",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L530"
+    },
+    {
+      "caller_nid": "sessionstorageportable_sinkwrite",
+      "callee": "copy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L532"
+    },
+    {
+      "caller_nid": "sessionstorageportable_sinkwrite",
+      "callee": "copy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L535"
+    },
+    {
+      "caller_nid": "sessionstorageportable_hasprefix",
+      "callee": "compare",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L547"
+    },
+    {
+      "caller_nid": "sessionstorageportable_processstraddle",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L581"
+    },
+    {
+      "caller_nid": "sessionstorageportable_processstraddle",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L593"
+    },
+    {
+      "caller_nid": "sessionstorageportable_processstraddle",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L594"
+    },
+    {
+      "caller_nid": "sessionstorageportable_scanchunklines",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L619"
+    },
+    {
+      "caller_nid": "sessionstorageportable_scanchunklines",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L624"
+    },
+    {
+      "caller_nid": "sessionstorageportable_scanchunklines",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L628"
+    },
+    {
+      "caller_nid": "sessionstorageportable_scanchunklines",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L637"
+    },
+    {
+      "caller_nid": "sessionstorageportable_scanchunklines",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L639"
+    },
+    {
+      "caller_nid": "sessionstorageportable_scanchunklines",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L651"
+    },
+    {
+      "caller_nid": "sessionstorageportable_scanchunklines",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L657"
+    },
+    {
+      "caller_nid": "sessionstorageportable_capturesnap",
+      "callee": "allocUnsafe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L674"
+    },
+    {
+      "caller_nid": "sessionstorageportable_capturesnap",
+      "callee": "copy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L676"
+    },
+    {
+      "caller_nid": "sessionstorageportable_capturesnap",
+      "callee": "allocUnsafe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L681"
+    },
+    {
+      "caller_nid": "sessionstorageportable_capturesnap",
+      "callee": "copy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L683"
+    },
+    {
+      "caller_nid": "sessionstorageportable_capturesnap",
+      "callee": "copy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L684"
+    },
+    {
+      "caller_nid": "sessionstorageportable_capturecarry",
+      "callee": "allocUnsafe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L693"
+    },
+    {
+      "caller_nid": "sessionstorageportable_capturecarry",
+      "callee": "copy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L695"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readtranscriptforload",
+      "callee": "allocUnsafe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L734"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readtranscriptforload",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L734"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readtranscriptforload",
+      "callee": "allocUnsafe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L752"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readtranscriptforload",
+      "callee": "fsOpen",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L753"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readtranscriptforload",
+      "callee": "read",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L757"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readtranscriptforload",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L760"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readtranscriptforload",
+      "callee": "allocUnsafe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L771"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readtranscriptforload",
+      "callee": "copy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L772"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readtranscriptforload",
+      "callee": "copy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L773"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readtranscriptforload",
+      "callee": "subarray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L775"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readtranscriptforload",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L785"
+    },
+    {
+      "caller_nid": "sessionstorageportable_readtranscriptforload",
+      "callee": "subarray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\sessionStoragePortable.ts",
+      "source_location": "L790"
+    }
+  ]
+}

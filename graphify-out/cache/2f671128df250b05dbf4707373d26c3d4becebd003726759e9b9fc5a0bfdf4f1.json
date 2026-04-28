@@ -1,1 +1,215 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts", "label": "systemPrompt.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L1"}, {"id": "systemprompt_isproactiveactive_safe_to_call_anywhere", "label": "isProactiveActive_SAFE_TO_CALL_ANYWHERE()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L24"}, {"id": "systemprompt_buildeffectivesystemprompt", "label": "buildEffectiveSystemPrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L41"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_loadagentsdir_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_loadagentsdir_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_systemprompttype_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts", "target": "systemprompt_isproactiveactive_safe_to_call_anywhere", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts", "target": "systemprompt_buildeffectivesystemprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L41", "weight": 1.0}, {"source": "systemprompt_buildeffectivesystemprompt", "target": "systemprompt_isproactiveactive_safe_to_call_anywhere", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L106", "weight": 1.0}], "raw_calls": [{"caller_nid": "systemprompt_isproactiveactive_safe_to_call_anywhere", "callee": "isProactiveActive", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L25"}, {"caller_nid": "systemprompt_buildeffectivesystemprompt", "callee": "asSystemPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L57"}, {"caller_nid": "systemprompt_buildeffectivesystemprompt", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L63"}, {"caller_nid": "systemprompt_buildeffectivesystemprompt", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L64"}, {"caller_nid": "systemprompt_buildeffectivesystemprompt", "callee": "require", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L70"}, {"caller_nid": "systemprompt_buildeffectivesystemprompt", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L70"}, {"caller_nid": "systemprompt_buildeffectivesystemprompt", "callee": "asSystemPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L71"}, {"caller_nid": "systemprompt_buildeffectivesystemprompt", "callee": "getCoordinatorSystemPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L72"}, {"caller_nid": "systemprompt_buildeffectivesystemprompt", "callee": "isBuiltInAgent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L78"}, {"caller_nid": "systemprompt_buildeffectivesystemprompt", "callee": "getSystemPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L79"}, {"caller_nid": "systemprompt_buildeffectivesystemprompt", "callee": "getSystemPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L82"}, {"caller_nid": "systemprompt_buildeffectivesystemprompt", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L87"}, {"caller_nid": "systemprompt_buildeffectivesystemprompt", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L105"}, {"caller_nid": "systemprompt_buildeffectivesystemprompt", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L105"}, {"caller_nid": "systemprompt_buildeffectivesystemprompt", "callee": "asSystemPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L108"}, {"caller_nid": "systemprompt_buildeffectivesystemprompt", "callee": "asSystemPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts", "source_location": "L115"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts",
+      "label": "systemPrompt.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "systemprompt_isproactiveactive_safe_to_call_anywhere",
+      "label": "isProactiveActive_SAFE_TO_CALL_ANYWHERE()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L24"
+    },
+    {
+      "id": "systemprompt_buildeffectivesystemprompt",
+      "label": "buildEffectiveSystemPrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L41"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_loadagentsdir_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_loadagentsdir_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_systemprompttype_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts",
+      "target": "systemprompt_isproactiveactive_safe_to_call_anywhere",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemprompt_ts",
+      "target": "systemprompt_buildeffectivesystemprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "systemprompt_buildeffectivesystemprompt",
+      "target": "systemprompt_isproactiveactive_safe_to_call_anywhere",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L106",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "systemprompt_isproactiveactive_safe_to_call_anywhere",
+      "callee": "isProactiveActive",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "systemprompt_buildeffectivesystemprompt",
+      "callee": "asSystemPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "systemprompt_buildeffectivesystemprompt",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "systemprompt_buildeffectivesystemprompt",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "systemprompt_buildeffectivesystemprompt",
+      "callee": "require",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "systemprompt_buildeffectivesystemprompt",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "systemprompt_buildeffectivesystemprompt",
+      "callee": "asSystemPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "systemprompt_buildeffectivesystemprompt",
+      "callee": "getCoordinatorSystemPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "systemprompt_buildeffectivesystemprompt",
+      "callee": "isBuiltInAgent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "systemprompt_buildeffectivesystemprompt",
+      "callee": "getSystemPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "systemprompt_buildeffectivesystemprompt",
+      "callee": "getSystemPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "systemprompt_buildeffectivesystemprompt",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "systemprompt_buildeffectivesystemprompt",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "systemprompt_buildeffectivesystemprompt",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "systemprompt_buildeffectivesystemprompt",
+      "callee": "asSystemPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L108"
+    },
+    {
+      "caller_nid": "systemprompt_buildeffectivesystemprompt",
+      "callee": "asSystemPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemPrompt.ts",
+      "source_location": "L115"
+    }
+  ]
+}

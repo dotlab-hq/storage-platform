@@ -1,1 +1,90 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_file_summary_state_ts", "label": "state.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts", "source_location": "L1"}, {"id": "state_openfilesummarydialog", "label": "openFileSummaryDialog()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts", "source_location": "L17"}, {"id": "state_closefilesummarydialog", "label": "closeFileSummaryDialog()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts", "source_location": "L24"}, {"id": "state_resetfilesummarydialogtarget", "label": "resetFileSummaryDialogTarget()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts", "source_location": "L31"}], "edges": [{"source": "f_storage_platform_src_lib_file_summary_state_ts", "target": "store", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_state_ts", "target": "state_openfilesummarydialog", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_state_ts", "target": "state_closefilesummarydialog", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_state_ts", "target": "state_resetfilesummarydialogtarget", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts", "source_location": "L31", "weight": 1.0}], "raw_calls": [{"caller_nid": "state_openfilesummarydialog", "callee": "setState", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts", "source_location": "L18"}, {"caller_nid": "state_closefilesummarydialog", "callee": "setState", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts", "source_location": "L25"}, {"caller_nid": "state_resetfilesummarydialogtarget", "callee": "setState", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts", "source_location": "L32"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_file_summary_state_ts",
+      "label": "state.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "state_openfilesummarydialog",
+      "label": "openFileSummaryDialog()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts",
+      "source_location": "L17"
+    },
+    {
+      "id": "state_closefilesummarydialog",
+      "label": "closeFileSummaryDialog()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts",
+      "source_location": "L24"
+    },
+    {
+      "id": "state_resetfilesummarydialogtarget",
+      "label": "resetFileSummaryDialogTarget()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts",
+      "source_location": "L31"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_file_summary_state_ts",
+      "target": "store",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_state_ts",
+      "target": "state_openfilesummarydialog",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_state_ts",
+      "target": "state_closefilesummarydialog",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_state_ts",
+      "target": "state_resetfilesummarydialogtarget",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "state_openfilesummarydialog",
+      "callee": "setState",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "state_closefilesummarydialog",
+      "callee": "setState",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "state_resetfilesummarydialogtarget",
+      "callee": "setState",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\state.ts",
+      "source_location": "L32"
+    }
+  ]
+}

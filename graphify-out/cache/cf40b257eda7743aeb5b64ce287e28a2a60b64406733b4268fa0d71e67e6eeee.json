@@ -1,1 +1,796 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "label": "log-update.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L1"}, {"id": "log_update_logupdate", "label": "LogUpdate", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L43"}, {"id": "log_update_logupdate_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L46"}, {"id": "log_update_logupdate_renderpreviousoutput_deprecated", "label": ".renderPreviousOutput_DEPRECATED()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L52"}, {"id": "log_update_logupdate_reset", "label": ".reset()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L61"}, {"id": "log_update_logupdate_renderfullframe", "label": ".renderFullFrame()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L65"}, {"id": "log_update_logupdate_getrenderopsfordone", "label": ".getRenderOpsForDone()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L114"}, {"id": "log_update_logupdate_render", "label": ".render()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L123"}, {"id": "log_update_transitionhyperlink", "label": "transitionHyperlink()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L470"}, {"id": "log_update_transitionstyle", "label": "transitionStyle()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L482"}, {"id": "log_update_readline", "label": "readLine()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L495"}, {"id": "log_update_fullresetsequence_causes_flicker", "label": "fullResetSequence_CAUSES_FLICKER()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L503"}, {"id": "log_update_renderframe", "label": "renderFrame()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L515"}, {"id": "log_update_renderframeslice", "label": "renderFrameSlice()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L527"}, {"id": "log_update_writecellwithstylestr", "label": "writeCellWithStyleStr()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L638"}, {"id": "log_update_movecursorto", "label": "moveCursorTo()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L693"}, {"id": "log_update_needswidthcompensation", "label": "needsWidthCompensation()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L733"}, {"id": "log_update_virtualscreen", "label": "VirtualScreen", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L752"}, {"id": "log_update_virtualscreen_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L758"}, {"id": "log_update_virtualscreen_txn", "label": ".txn()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L765"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "ansi_tokenize", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_frame_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_layout_geometry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_screen_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_termio_csi_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_termio_osc_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "log_update_logupdate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L43", "weight": 1.0}, {"source": "log_update_logupdate", "target": "log_update_logupdate_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L46", "weight": 1.0}, {"source": "log_update_logupdate", "target": "log_update_logupdate_renderpreviousoutput_deprecated", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L52", "weight": 1.0}, {"source": "log_update_logupdate", "target": "log_update_logupdate_reset", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L61", "weight": 1.0}, {"source": "log_update_logupdate", "target": "log_update_logupdate_renderfullframe", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L65", "weight": 1.0}, {"source": "log_update_logupdate", "target": "log_update_logupdate_getrenderopsfordone", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L114", "weight": 1.0}, {"source": "log_update_logupdate", "target": "log_update_logupdate_render", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L123", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "log_update_transitionhyperlink", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L470", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "log_update_transitionstyle", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L482", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "log_update_readline", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L495", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "log_update_fullresetsequence_causes_flicker", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L503", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "log_update_renderframe", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L515", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "log_update_renderframeslice", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L527", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "log_update_writecellwithstylestr", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L638", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "log_update_movecursorto", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L693", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "log_update_needswidthcompensation", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L733", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts", "target": "log_update_virtualscreen", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L752", "weight": 1.0}, {"source": "log_update_virtualscreen", "target": "log_update_virtualscreen_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L758", "weight": 1.0}, {"source": "log_update_virtualscreen", "target": "log_update_virtualscreen_txn", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L765", "weight": 1.0}, {"source": "log_update_logupdate_renderpreviousoutput_deprecated", "target": "log_update_logupdate_getrenderopsfordone", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L57", "weight": 1.0}, {"source": "log_update_logupdate_render", "target": "log_update_logupdate_renderfullframe", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L130", "weight": 1.0}, {"source": "log_update_logupdate_render", "target": "log_update_fullresetsequence_causes_flicker", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L146", "weight": 1.0}, {"source": "log_update_logupdate_render", "target": "log_update_readline", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L240", "weight": 1.0}, {"source": "log_update_logupdate_render", "target": "log_update_virtualscreen_txn", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L276", "weight": 1.0}, {"source": "log_update_logupdate_render", "target": "log_update_transitionstyle", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L391", "weight": 1.0}, {"source": "log_update_logupdate_render", "target": "log_update_transitionhyperlink", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L397", "weight": 1.0}, {"source": "log_update_logupdate_render", "target": "log_update_renderframeslice", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L405", "weight": 1.0}, {"source": "log_update_logupdate_render", "target": "log_update_movecursorto", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L450", "weight": 1.0}, {"source": "log_update_fullresetsequence_causes_flicker", "target": "log_update_renderframe", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L511", "weight": 1.0}, {"source": "log_update_renderframe", "target": "log_update_renderframeslice", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L520", "weight": 1.0}, {"source": "log_update_renderframeslice", "target": "log_update_virtualscreen_txn", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L552", "weight": 1.0}, {"source": "log_update_renderframeslice", "target": "log_update_movecursorto", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L580", "weight": 1.0}, {"source": "log_update_renderframeslice", "target": "log_update_transitionhyperlink", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L584", "weight": 1.0}, {"source": "log_update_renderframeslice", "target": "log_update_writecellwithstylestr", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L592", "weight": 1.0}, {"source": "log_update_renderframeslice", "target": "log_update_transitionstyle", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L601", "weight": 1.0}, {"source": "log_update_writecellwithstylestr", "target": "log_update_needswidthcompensation", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L662", "weight": 1.0}, {"source": "log_update_movecursorto", "target": "log_update_virtualscreen_txn", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L694", "weight": 1.0}], "raw_calls": [{"caller_nid": "log_update_logupdate_renderfullframe", "callee": "cellAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L73"}, {"caller_nid": "log_update_logupdate_renderfullframe", "callee": "oscLink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L81"}, {"caller_nid": "log_update_logupdate_renderfullframe", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L85"}, {"caller_nid": "log_update_logupdate_renderfullframe", "callee": "diffAnsiCodes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L86"}, {"caller_nid": "log_update_logupdate_renderfullframe", "callee": "ansiCodesToString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L88"}, {"caller_nid": "log_update_logupdate_renderfullframe", "callee": "diffAnsiCodes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L100"}, {"caller_nid": "log_update_logupdate_renderfullframe", "callee": "ansiCodesToString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L102"}, {"caller_nid": "log_update_logupdate_renderfullframe", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L105"}, {"caller_nid": "log_update_logupdate_renderfullframe", "callee": "trimEnd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L105"}, {"caller_nid": "log_update_logupdate_renderfullframe", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L111"}, {"caller_nid": "log_update_logupdate_render", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L133"}, {"caller_nid": "log_update_logupdate_render", "callee": "shiftRows", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L173"}, {"caller_nid": "log_update_logupdate_render", "callee": "setScrollRegion", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L178"}, {"caller_nid": "log_update_logupdate_render", "callee": "csiScrollUp", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L179"}, {"caller_nid": "log_update_logupdate_render", "callee": "csiScrollDown", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L179"}, {"caller_nid": "log_update_logupdate_render", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L215"}, {"caller_nid": "log_update_logupdate_render", "callee": "diffEach", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L233"}, {"caller_nid": "log_update_logupdate_render", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L254"}, {"caller_nid": "log_update_logupdate_render", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L254"}, {"caller_nid": "log_update_logupdate_render", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L294"}, {"caller_nid": "log_update_logupdate_render", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L298"}, {"caller_nid": "log_update_logupdate_render", "callee": "diffEach", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L308"}, {"caller_nid": "log_update_logupdate_render", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L453"}, {"caller_nid": "log_update_logupdate_render", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L459"}, {"caller_nid": "log_update_logupdate_render", "callee": "toFixed", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L460"}, {"caller_nid": "log_update_transitionhyperlink", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L476"}, {"caller_nid": "log_update_transitionstyle", "callee": "transition", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L488"}, {"caller_nid": "log_update_transitionstyle", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L490"}, {"caller_nid": "log_update_readline", "callee": "charInCellAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L498"}, {"caller_nid": "log_update_readline", "callee": "trimEnd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L500"}, {"caller_nid": "log_update_renderframeslice", "callee": "visibleCellAtIndex", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L569"}, {"caller_nid": "log_update_renderframeslice", "callee": "transition", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L591"}, {"caller_nid": "log_update_writecellwithstylestr", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L659"}, {"caller_nid": "log_update_writecellwithstylestr", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L671"}, {"caller_nid": "log_update_writecellwithstylestr", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L672"}, {"caller_nid": "log_update_writecellwithstylestr", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L673"}, {"caller_nid": "log_update_writecellwithstylestr", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L676"}, {"caller_nid": "log_update_writecellwithstylestr", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L680"}, {"caller_nid": "log_update_needswidthcompensation", "callee": "codePointAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L734"}, {"caller_nid": "log_update_needswidthcompensation", "callee": "charCodeAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L746"}, {"caller_nid": "log_update_virtualscreen_txn", "callee": "fn", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L766"}, {"caller_nid": "log_update_virtualscreen_txn", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts", "source_location": "L768"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "label": "log-update.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "log_update_logupdate",
+      "label": "LogUpdate",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "log_update_logupdate_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L46"
+    },
+    {
+      "id": "log_update_logupdate_renderpreviousoutput_deprecated",
+      "label": ".renderPreviousOutput_DEPRECATED()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L52"
+    },
+    {
+      "id": "log_update_logupdate_reset",
+      "label": ".reset()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L61"
+    },
+    {
+      "id": "log_update_logupdate_renderfullframe",
+      "label": ".renderFullFrame()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L65"
+    },
+    {
+      "id": "log_update_logupdate_getrenderopsfordone",
+      "label": ".getRenderOpsForDone()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L114"
+    },
+    {
+      "id": "log_update_logupdate_render",
+      "label": ".render()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L123"
+    },
+    {
+      "id": "log_update_transitionhyperlink",
+      "label": "transitionHyperlink()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L470"
+    },
+    {
+      "id": "log_update_transitionstyle",
+      "label": "transitionStyle()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L482"
+    },
+    {
+      "id": "log_update_readline",
+      "label": "readLine()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L495"
+    },
+    {
+      "id": "log_update_fullresetsequence_causes_flicker",
+      "label": "fullResetSequence_CAUSES_FLICKER()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L503"
+    },
+    {
+      "id": "log_update_renderframe",
+      "label": "renderFrame()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L515"
+    },
+    {
+      "id": "log_update_renderframeslice",
+      "label": "renderFrameSlice()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L527"
+    },
+    {
+      "id": "log_update_writecellwithstylestr",
+      "label": "writeCellWithStyleStr()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L638"
+    },
+    {
+      "id": "log_update_movecursorto",
+      "label": "moveCursorTo()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L693"
+    },
+    {
+      "id": "log_update_needswidthcompensation",
+      "label": "needsWidthCompensation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L733"
+    },
+    {
+      "id": "log_update_virtualscreen",
+      "label": "VirtualScreen",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L752"
+    },
+    {
+      "id": "log_update_virtualscreen_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L758"
+    },
+    {
+      "id": "log_update_virtualscreen_txn",
+      "label": ".txn()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L765"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "ansi_tokenize",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_frame_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_layout_geometry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_screen_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_termio_csi_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_termio_osc_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "log_update_logupdate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_logupdate",
+      "target": "log_update_logupdate_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_logupdate",
+      "target": "log_update_logupdate_renderpreviousoutput_deprecated",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_logupdate",
+      "target": "log_update_logupdate_reset",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_logupdate",
+      "target": "log_update_logupdate_renderfullframe",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_logupdate",
+      "target": "log_update_logupdate_getrenderopsfordone",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_logupdate",
+      "target": "log_update_logupdate_render",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "log_update_transitionhyperlink",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L470",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "log_update_transitionstyle",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L482",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "log_update_readline",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L495",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "log_update_fullresetsequence_causes_flicker",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L503",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "log_update_renderframe",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L515",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "log_update_renderframeslice",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L527",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "log_update_writecellwithstylestr",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L638",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "log_update_movecursorto",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L693",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "log_update_needswidthcompensation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L733",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_log_update_ts",
+      "target": "log_update_virtualscreen",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L752",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_virtualscreen",
+      "target": "log_update_virtualscreen_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L758",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_virtualscreen",
+      "target": "log_update_virtualscreen_txn",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L765",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_logupdate_renderpreviousoutput_deprecated",
+      "target": "log_update_logupdate_getrenderopsfordone",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_logupdate_render",
+      "target": "log_update_logupdate_renderfullframe",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_logupdate_render",
+      "target": "log_update_fullresetsequence_causes_flicker",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L146",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_logupdate_render",
+      "target": "log_update_readline",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L240",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_logupdate_render",
+      "target": "log_update_virtualscreen_txn",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L276",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_logupdate_render",
+      "target": "log_update_transitionstyle",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L391",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_logupdate_render",
+      "target": "log_update_transitionhyperlink",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L397",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_logupdate_render",
+      "target": "log_update_renderframeslice",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L405",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_logupdate_render",
+      "target": "log_update_movecursorto",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L450",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_fullresetsequence_causes_flicker",
+      "target": "log_update_renderframe",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L511",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_renderframe",
+      "target": "log_update_renderframeslice",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L520",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_renderframeslice",
+      "target": "log_update_virtualscreen_txn",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L552",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_renderframeslice",
+      "target": "log_update_movecursorto",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L580",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_renderframeslice",
+      "target": "log_update_transitionhyperlink",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L584",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_renderframeslice",
+      "target": "log_update_writecellwithstylestr",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L592",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_renderframeslice",
+      "target": "log_update_transitionstyle",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L601",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_writecellwithstylestr",
+      "target": "log_update_needswidthcompensation",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L662",
+      "weight": 1.0
+    },
+    {
+      "source": "log_update_movecursorto",
+      "target": "log_update_virtualscreen_txn",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L694",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "log_update_logupdate_renderfullframe",
+      "callee": "cellAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "log_update_logupdate_renderfullframe",
+      "callee": "oscLink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "log_update_logupdate_renderfullframe",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "log_update_logupdate_renderfullframe",
+      "callee": "diffAnsiCodes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "log_update_logupdate_renderfullframe",
+      "callee": "ansiCodesToString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "log_update_logupdate_renderfullframe",
+      "callee": "diffAnsiCodes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "log_update_logupdate_renderfullframe",
+      "callee": "ansiCodesToString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "log_update_logupdate_renderfullframe",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "log_update_logupdate_renderfullframe",
+      "callee": "trimEnd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "log_update_logupdate_renderfullframe",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "log_update_logupdate_render",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "log_update_logupdate_render",
+      "callee": "shiftRows",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "log_update_logupdate_render",
+      "callee": "setScrollRegion",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "log_update_logupdate_render",
+      "callee": "csiScrollUp",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "log_update_logupdate_render",
+      "callee": "csiScrollDown",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "log_update_logupdate_render",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L215"
+    },
+    {
+      "caller_nid": "log_update_logupdate_render",
+      "callee": "diffEach",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L233"
+    },
+    {
+      "caller_nid": "log_update_logupdate_render",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L254"
+    },
+    {
+      "caller_nid": "log_update_logupdate_render",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L254"
+    },
+    {
+      "caller_nid": "log_update_logupdate_render",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L294"
+    },
+    {
+      "caller_nid": "log_update_logupdate_render",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L298"
+    },
+    {
+      "caller_nid": "log_update_logupdate_render",
+      "callee": "diffEach",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L308"
+    },
+    {
+      "caller_nid": "log_update_logupdate_render",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L453"
+    },
+    {
+      "caller_nid": "log_update_logupdate_render",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L459"
+    },
+    {
+      "caller_nid": "log_update_logupdate_render",
+      "callee": "toFixed",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L460"
+    },
+    {
+      "caller_nid": "log_update_transitionhyperlink",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L476"
+    },
+    {
+      "caller_nid": "log_update_transitionstyle",
+      "callee": "transition",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L488"
+    },
+    {
+      "caller_nid": "log_update_transitionstyle",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L490"
+    },
+    {
+      "caller_nid": "log_update_readline",
+      "callee": "charInCellAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L498"
+    },
+    {
+      "caller_nid": "log_update_readline",
+      "callee": "trimEnd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L500"
+    },
+    {
+      "caller_nid": "log_update_renderframeslice",
+      "callee": "visibleCellAtIndex",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L569"
+    },
+    {
+      "caller_nid": "log_update_renderframeslice",
+      "callee": "transition",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L591"
+    },
+    {
+      "caller_nid": "log_update_writecellwithstylestr",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L659"
+    },
+    {
+      "caller_nid": "log_update_writecellwithstylestr",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L671"
+    },
+    {
+      "caller_nid": "log_update_writecellwithstylestr",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L672"
+    },
+    {
+      "caller_nid": "log_update_writecellwithstylestr",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L673"
+    },
+    {
+      "caller_nid": "log_update_writecellwithstylestr",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L676"
+    },
+    {
+      "caller_nid": "log_update_writecellwithstylestr",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L680"
+    },
+    {
+      "caller_nid": "log_update_needswidthcompensation",
+      "callee": "codePointAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L734"
+    },
+    {
+      "caller_nid": "log_update_needswidthcompensation",
+      "callee": "charCodeAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L746"
+    },
+    {
+      "caller_nid": "log_update_virtualscreen_txn",
+      "callee": "fn",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L766"
+    },
+    {
+      "caller_nid": "log_update_virtualscreen_txn",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\log-update.ts",
+      "source_location": "L768"
+    }
+  ]
+}

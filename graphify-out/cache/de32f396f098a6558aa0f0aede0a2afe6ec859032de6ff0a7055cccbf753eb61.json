@@ -1,1 +1,379 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_app_chat_chat_server_db_ts", "label": "-chat-server-db.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L1"}, {"id": "chat_server_db_topreview", "label": "toPreview()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L24"}, {"id": "chat_server_db_findownedthread", "label": "findOwnedThread()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L29"}, {"id": "chat_server_db_findownedmessage", "label": "findOwnedMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L54"}, {"id": "chat_server_db_refreshthreadlatestmessage", "label": "refreshThreadLatestMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L82"}], "edges": [{"source": "f_storage_platform_src_routes_app_chat_chat_server_db_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_server_db_ts", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_server_db_ts", "target": "chat", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_server_db_ts", "target": "chat_server_db_topreview", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_server_db_ts", "target": "chat_server_db_findownedthread", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_server_db_ts", "target": "chat_server_db_findownedmessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L54", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_server_db_ts", "target": "chat_server_db_refreshthreadlatestmessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L82", "weight": 1.0}, {"source": "chat_server_db_refreshthreadlatestmessage", "target": "chat_server_db_topreview", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L101", "weight": 1.0}], "raw_calls": [{"caller_nid": "chat_server_db_topreview", "callee": "replace", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L25"}, {"caller_nid": "chat_server_db_topreview", "callee": "trim", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L25"}, {"caller_nid": "chat_server_db_topreview", "callee": "slice", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L26"}, {"caller_nid": "chat_server_db_findownedthread", "callee": "limit", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L33"}, {"caller_nid": "chat_server_db_findownedthread", "callee": "where", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L33"}, {"caller_nid": "chat_server_db_findownedthread", "callee": "from", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L33"}, {"caller_nid": "chat_server_db_findownedthread", "callee": "select", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L33"}, {"caller_nid": "chat_server_db_findownedthread", "callee": "and", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L44"}, {"caller_nid": "chat_server_db_findownedthread", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L45"}, {"caller_nid": "chat_server_db_findownedthread", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L46"}, {"caller_nid": "chat_server_db_findownedthread", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L47"}, {"caller_nid": "chat_server_db_findownedmessage", "callee": "limit", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L58"}, {"caller_nid": "chat_server_db_findownedmessage", "callee": "where", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L58"}, {"caller_nid": "chat_server_db_findownedmessage", "callee": "innerJoin", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L58"}, {"caller_nid": "chat_server_db_findownedmessage", "callee": "from", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L58"}, {"caller_nid": "chat_server_db_findownedmessage", "callee": "select", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L58"}, {"caller_nid": "chat_server_db_findownedmessage", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L69"}, {"caller_nid": "chat_server_db_findownedmessage", "callee": "and", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L71"}, {"caller_nid": "chat_server_db_findownedmessage", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L72"}, {"caller_nid": "chat_server_db_findownedmessage", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L73"}, {"caller_nid": "chat_server_db_findownedmessage", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L74"}, {"caller_nid": "chat_server_db_findownedmessage", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L75"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "limit", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L85"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "orderBy", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L85"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "where", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L85"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "from", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L85"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "select", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L85"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "and", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L92"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L92"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L92"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "desc", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L94"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "where", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L98"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "set", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L98"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "update", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L98"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L105"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "limit", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L109"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "where", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L109"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "from", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L109"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "select", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L109"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L112"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "where", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L115"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "set", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L115"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "update", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L115"}, {"caller_nid": "chat_server_db_refreshthreadlatestmessage", "callee": "eq", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts", "source_location": "L122"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_app_chat_chat_server_db_ts",
+      "label": "-chat-server-db.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "chat_server_db_topreview",
+      "label": "toPreview()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L24"
+    },
+    {
+      "id": "chat_server_db_findownedthread",
+      "label": "findOwnedThread()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L29"
+    },
+    {
+      "id": "chat_server_db_findownedmessage",
+      "label": "findOwnedMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L54"
+    },
+    {
+      "id": "chat_server_db_refreshthreadlatestmessage",
+      "label": "refreshThreadLatestMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L82"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_server_db_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_server_db_ts",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_server_db_ts",
+      "target": "chat",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_server_db_ts",
+      "target": "chat_server_db_topreview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_server_db_ts",
+      "target": "chat_server_db_findownedthread",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_server_db_ts",
+      "target": "chat_server_db_findownedmessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_server_db_ts",
+      "target": "chat_server_db_refreshthreadlatestmessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "chat_server_db_refreshthreadlatestmessage",
+      "target": "chat_server_db_topreview",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L101",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "chat_server_db_topreview",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "chat_server_db_topreview",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "chat_server_db_topreview",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedthread",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedthread",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedthread",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedthread",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedthread",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedthread",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedthread",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedthread",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedmessage",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedmessage",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedmessage",
+      "callee": "innerJoin",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedmessage",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedmessage",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedmessage",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedmessage",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedmessage",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedmessage",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedmessage",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "chat_server_db_findownedmessage",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "orderBy",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "desc",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L94"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L98"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L98"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L98"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "chat_server_db_refreshthreadlatestmessage",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-server-db.ts",
+      "source_location": "L122"
+    }
+  ]
+}

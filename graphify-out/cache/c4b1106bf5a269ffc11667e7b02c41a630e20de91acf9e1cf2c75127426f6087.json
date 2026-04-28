@@ -1,1 +1,71 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_file_summary_request_context_ts", "label": "request-context.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts", "source_location": "L1"}, {"id": "request_context_readrequestcontext", "label": "readRequestContext()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts", "source_location": "L19"}, {"id": "request_context_getworkflowbindingfromrequestcontext", "label": "getWorkflowBindingFromRequestContext()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts", "source_location": "L42"}], "edges": [{"source": "f_storage_platform_src_lib_file_summary_request_context_ts", "target": "server", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_request_context_ts", "target": "request_context_readrequestcontext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_request_context_ts", "target": "request_context_getworkflowbindingfromrequestcontext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts", "source_location": "L42", "weight": 1.0}, {"source": "request_context_getworkflowbindingfromrequestcontext", "target": "request_context_readrequestcontext", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts", "source_location": "L43", "weight": 1.0}], "raw_calls": [{"caller_nid": "request_context_readrequestcontext", "callee": "getRequest", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts", "source_location": "L20"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_file_summary_request_context_ts",
+      "label": "request-context.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "request_context_readrequestcontext",
+      "label": "readRequestContext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts",
+      "source_location": "L19"
+    },
+    {
+      "id": "request_context_getworkflowbindingfromrequestcontext",
+      "label": "getWorkflowBindingFromRequestContext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts",
+      "source_location": "L42"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_file_summary_request_context_ts",
+      "target": "server",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_request_context_ts",
+      "target": "request_context_readrequestcontext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_request_context_ts",
+      "target": "request_context_getworkflowbindingfromrequestcontext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "request_context_getworkflowbindingfromrequestcontext",
+      "target": "request_context_readrequestcontext",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "request_context_readrequestcontext",
+      "callee": "getRequest",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\request-context.ts",
+      "source_location": "L20"
+    }
+  ]
+}

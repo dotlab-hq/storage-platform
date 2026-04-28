@@ -1,1 +1,184 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx", "label": "staticRender.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L1"}, {"id": "staticrender_renderonceandexit", "label": "RenderOnceAndExit()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L18"}, {"id": "staticrender_extractfirstframe", "label": "extractFirstFrame()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L62"}, {"id": "staticrender_rendertoansistring", "label": "renderToAnsiString()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L74"}, {"id": "staticrender_rendertostring", "label": "renderToString()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L112"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx", "target": "compiler_runtime", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx", "target": "stream", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx", "target": "strip_ansi", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx", "target": "f_storage_platform_claude_code_source_main_src_ink_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx", "target": "staticrender_renderonceandexit", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx", "target": "staticrender_extractfirstframe", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L62", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx", "target": "staticrender_rendertoansistring", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L74", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx", "target": "staticrender_rendertostring", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L112", "weight": 1.0}, {"source": "staticrender_rendertostring", "target": "staticrender_rendertoansistring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L113", "weight": 1.0}], "raw_calls": [{"caller_nid": "staticrender_renderonceandexit", "callee": "_c", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L19"}, {"caller_nid": "staticrender_renderonceandexit", "callee": "useApp", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L25"}, {"caller_nid": "staticrender_renderonceandexit", "callee": "useLayoutEffect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L41"}, {"caller_nid": "staticrender_extractfirstframe", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L63"}, {"caller_nid": "staticrender_extractfirstframe", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L66"}, {"caller_nid": "staticrender_extractfirstframe", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L68"}, {"caller_nid": "staticrender_rendertostring", "callee": "stripAnsi", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx", "source_location": "L114"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx",
+      "label": "staticRender.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "staticrender_renderonceandexit",
+      "label": "RenderOnceAndExit()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L18"
+    },
+    {
+      "id": "staticrender_extractfirstframe",
+      "label": "extractFirstFrame()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L62"
+    },
+    {
+      "id": "staticrender_rendertoansistring",
+      "label": "renderToAnsiString()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L74"
+    },
+    {
+      "id": "staticrender_rendertostring",
+      "label": "renderToString()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L112"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx",
+      "target": "compiler_runtime",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx",
+      "target": "stream",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx",
+      "target": "strip_ansi",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx",
+      "target": "staticrender_renderonceandexit",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx",
+      "target": "staticrender_extractfirstframe",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx",
+      "target": "staticrender_rendertoansistring",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_staticrender_tsx",
+      "target": "staticrender_rendertostring",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "staticrender_rendertostring",
+      "target": "staticrender_rendertoansistring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L113",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "staticrender_renderonceandexit",
+      "callee": "_c",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "staticrender_renderonceandexit",
+      "callee": "useApp",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "staticrender_renderonceandexit",
+      "callee": "useLayoutEffect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "staticrender_extractfirstframe",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "staticrender_extractfirstframe",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "staticrender_extractfirstframe",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "staticrender_rendertostring",
+      "callee": "stripAnsi",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\staticRender.tsx",
+      "source_location": "L114"
+    }
+  ]
+}

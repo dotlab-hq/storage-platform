@@ -1,1 +1,488 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts", "label": "HybridTransport.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L1"}, {"id": "hybridtransport_hybridtransport", "label": "HybridTransport", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L54"}, {"id": "hybridtransport_hybridtransport_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L63"}, {"id": "hybridtransport_hybridtransport_write", "label": ".write()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L117"}, {"id": "hybridtransport_hybridtransport_writebatch", "label": ".writeBatch()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L135"}, {"id": "hybridtransport_hybridtransport_droppedbatchcount", "label": ".droppedBatchCount()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L141"}, {"id": "hybridtransport_hybridtransport_flush", "label": ".flush()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L149"}, {"id": "hybridtransport_hybridtransport_takestreamevents", "label": ".takeStreamEvents()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L155"}, {"id": "hybridtransport_hybridtransport_flushstreamevents", "label": ".flushStreamEvents()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L166"}, {"id": "hybridtransport_hybridtransport_close", "label": ".close()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L171"}, {"id": "hybridtransport_hybridtransport_postonce", "label": ".postOnce()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L202"}, {"id": "hybridtransport_convertwsurltoposturl", "label": "convertWsUrlToPostUrl()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L269"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts", "target": "axios", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts", "target": "controltypes_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sessioningressauth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts", "target": "f_storage_platform_claude_code_source_main_src_cli_transports_serialbatcheventuploader_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts", "target": "f_storage_platform_claude_code_source_main_src_cli_transports_websockettransport_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts", "target": "hybridtransport_hybridtransport", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L54", "weight": 1.0}, {"source": "hybridtransport_hybridtransport", "target": "hybridtransport_hybridtransport_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L63", "weight": 1.0}, {"source": "hybridtransport_hybridtransport", "target": "hybridtransport_hybridtransport_write", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L117", "weight": 1.0}, {"source": "hybridtransport_hybridtransport", "target": "hybridtransport_hybridtransport_writebatch", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L135", "weight": 1.0}, {"source": "hybridtransport_hybridtransport", "target": "hybridtransport_hybridtransport_droppedbatchcount", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L141", "weight": 1.0}, {"source": "hybridtransport_hybridtransport", "target": "hybridtransport_hybridtransport_flush", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L149", "weight": 1.0}, {"source": "hybridtransport_hybridtransport", "target": "hybridtransport_hybridtransport_takestreamevents", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L155", "weight": 1.0}, {"source": "hybridtransport_hybridtransport", "target": "hybridtransport_hybridtransport_flushstreamevents", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L166", "weight": 1.0}, {"source": "hybridtransport_hybridtransport", "target": "hybridtransport_hybridtransport_close", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L171", "weight": 1.0}, {"source": "hybridtransport_hybridtransport", "target": "hybridtransport_hybridtransport_postonce", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L202", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts", "target": "hybridtransport_convertwsurltoposturl", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L269", "weight": 1.0}, {"source": "hybridtransport_hybridtransport_constructor", "target": "hybridtransport_convertwsurltoposturl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L75", "weight": 1.0}, {"source": "hybridtransport_hybridtransport_write", "target": "hybridtransport_hybridtransport_takestreamevents", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L131", "weight": 1.0}, {"source": "hybridtransport_hybridtransport_write", "target": "hybridtransport_hybridtransport_flush", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L132", "weight": 1.0}, {"source": "hybridtransport_hybridtransport_writebatch", "target": "hybridtransport_hybridtransport_takestreamevents", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L136", "weight": 1.0}, {"source": "hybridtransport_hybridtransport_writebatch", "target": "hybridtransport_hybridtransport_flush", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L137", "weight": 1.0}, {"source": "hybridtransport_hybridtransport_flush", "target": "hybridtransport_hybridtransport_takestreamevents", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L150", "weight": 1.0}, {"source": "hybridtransport_hybridtransport_flushstreamevents", "target": "hybridtransport_hybridtransport_takestreamevents", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L168", "weight": 1.0}, {"source": "hybridtransport_hybridtransport_close", "target": "hybridtransport_hybridtransport_flush", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L185", "weight": 1.0}], "raw_calls": [{"caller_nid": "hybridtransport_hybridtransport_constructor", "callee": "super", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L73"}, {"caller_nid": "hybridtransport_hybridtransport_constructor", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L106"}, {"caller_nid": "hybridtransport_hybridtransport_constructor", "callee": "logForDiagnosticsNoPII", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L107"}, {"caller_nid": "hybridtransport_hybridtransport_write", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L121"}, {"caller_nid": "hybridtransport_hybridtransport_write", "callee": "setTimeout", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L123"}, {"caller_nid": "hybridtransport_hybridtransport_write", "callee": "enqueue", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L131"}, {"caller_nid": "hybridtransport_hybridtransport_writebatch", "callee": "enqueue", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L136"}, {"caller_nid": "hybridtransport_hybridtransport_flush", "callee": "enqueue", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L150"}, {"caller_nid": "hybridtransport_hybridtransport_takestreamevents", "callee": "clearTimeout", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L157"}, {"caller_nid": "hybridtransport_hybridtransport_flushstreamevents", "callee": "enqueue", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L168"}, {"caller_nid": "hybridtransport_hybridtransport_close", "callee": "clearTimeout", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L173"}, {"caller_nid": "hybridtransport_hybridtransport_close", "callee": "finally", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L184"}, {"caller_nid": "hybridtransport_hybridtransport_close", "callee": "race", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L184"}, {"caller_nid": "hybridtransport_hybridtransport_postonce", "callee": "getSessionIngressAuthToken", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L203"}, {"caller_nid": "hybridtransport_hybridtransport_postonce", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L205"}, {"caller_nid": "hybridtransport_hybridtransport_postonce", "callee": "logForDiagnosticsNoPII", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L206"}, {"caller_nid": "hybridtransport_hybridtransport_postonce", "callee": "post", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L217"}, {"caller_nid": "hybridtransport_hybridtransport_postonce", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L228"}, {"caller_nid": "hybridtransport_hybridtransport_postonce", "callee": "logForDiagnosticsNoPII", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L229"}, {"caller_nid": "hybridtransport_hybridtransport_postonce", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L234"}, {"caller_nid": "hybridtransport_hybridtransport_postonce", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L244"}, {"caller_nid": "hybridtransport_hybridtransport_postonce", "callee": "logForDiagnosticsNoPII", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L247"}, {"caller_nid": "hybridtransport_hybridtransport_postonce", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L254"}, {"caller_nid": "hybridtransport_hybridtransport_postonce", "callee": "logForDiagnosticsNoPII", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L257"}, {"caller_nid": "hybridtransport_convertwsurltoposturl", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L274"}, {"caller_nid": "hybridtransport_convertwsurltoposturl", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L275"}, {"caller_nid": "hybridtransport_convertwsurltoposturl", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts", "source_location": "L276"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts",
+      "label": "HybridTransport.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "hybridtransport_hybridtransport",
+      "label": "HybridTransport",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L54"
+    },
+    {
+      "id": "hybridtransport_hybridtransport_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L63"
+    },
+    {
+      "id": "hybridtransport_hybridtransport_write",
+      "label": ".write()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L117"
+    },
+    {
+      "id": "hybridtransport_hybridtransport_writebatch",
+      "label": ".writeBatch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L135"
+    },
+    {
+      "id": "hybridtransport_hybridtransport_droppedbatchcount",
+      "label": ".droppedBatchCount()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L141"
+    },
+    {
+      "id": "hybridtransport_hybridtransport_flush",
+      "label": ".flush()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L149"
+    },
+    {
+      "id": "hybridtransport_hybridtransport_takestreamevents",
+      "label": ".takeStreamEvents()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L155"
+    },
+    {
+      "id": "hybridtransport_hybridtransport_flushstreamevents",
+      "label": ".flushStreamEvents()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L166"
+    },
+    {
+      "id": "hybridtransport_hybridtransport_close",
+      "label": ".close()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L171"
+    },
+    {
+      "id": "hybridtransport_hybridtransport_postonce",
+      "label": ".postOnce()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L202"
+    },
+    {
+      "id": "hybridtransport_convertwsurltoposturl",
+      "label": "convertWsUrlToPostUrl()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L269"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts",
+      "target": "controltypes_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sessioningressauth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_cli_transports_serialbatcheventuploader_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_cli_transports_websockettransport_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts",
+      "target": "hybridtransport_hybridtransport",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport",
+      "target": "hybridtransport_hybridtransport_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport",
+      "target": "hybridtransport_hybridtransport_write",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport",
+      "target": "hybridtransport_hybridtransport_writebatch",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L135",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport",
+      "target": "hybridtransport_hybridtransport_droppedbatchcount",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L141",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport",
+      "target": "hybridtransport_hybridtransport_flush",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport",
+      "target": "hybridtransport_hybridtransport_takestreamevents",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L155",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport",
+      "target": "hybridtransport_hybridtransport_flushstreamevents",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport",
+      "target": "hybridtransport_hybridtransport_close",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport",
+      "target": "hybridtransport_hybridtransport_postonce",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L202",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_transports_hybridtransport_ts",
+      "target": "hybridtransport_convertwsurltoposturl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L269",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport_constructor",
+      "target": "hybridtransport_convertwsurltoposturl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport_write",
+      "target": "hybridtransport_hybridtransport_takestreamevents",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L131",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport_write",
+      "target": "hybridtransport_hybridtransport_flush",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport_writebatch",
+      "target": "hybridtransport_hybridtransport_takestreamevents",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport_writebatch",
+      "target": "hybridtransport_hybridtransport_flush",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport_flush",
+      "target": "hybridtransport_hybridtransport_takestreamevents",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L150",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport_flushstreamevents",
+      "target": "hybridtransport_hybridtransport_takestreamevents",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "hybridtransport_hybridtransport_close",
+      "target": "hybridtransport_hybridtransport_flush",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L185",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "hybridtransport_hybridtransport_constructor",
+      "callee": "super",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_constructor",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L106"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_constructor",
+      "callee": "logForDiagnosticsNoPII",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_write",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L121"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_write",
+      "callee": "setTimeout",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L123"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_write",
+      "callee": "enqueue",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_writebatch",
+      "callee": "enqueue",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L136"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_flush",
+      "callee": "enqueue",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_takestreamevents",
+      "callee": "clearTimeout",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L157"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_flushstreamevents",
+      "callee": "enqueue",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_close",
+      "callee": "clearTimeout",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_close",
+      "callee": "finally",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L184"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_close",
+      "callee": "race",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L184"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_postonce",
+      "callee": "getSessionIngressAuthToken",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_postonce",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L205"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_postonce",
+      "callee": "logForDiagnosticsNoPII",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L206"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_postonce",
+      "callee": "post",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L217"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_postonce",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L228"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_postonce",
+      "callee": "logForDiagnosticsNoPII",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L229"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_postonce",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L234"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_postonce",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L244"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_postonce",
+      "callee": "logForDiagnosticsNoPII",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L247"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_postonce",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L254"
+    },
+    {
+      "caller_nid": "hybridtransport_hybridtransport_postonce",
+      "callee": "logForDiagnosticsNoPII",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L257"
+    },
+    {
+      "caller_nid": "hybridtransport_convertwsurltoposturl",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L274"
+    },
+    {
+      "caller_nid": "hybridtransport_convertwsurltoposturl",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L275"
+    },
+    {
+      "caller_nid": "hybridtransport_convertwsurltoposturl",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\transports\\HybridTransport.ts",
+      "source_location": "L276"
+    }
+  ]
+}

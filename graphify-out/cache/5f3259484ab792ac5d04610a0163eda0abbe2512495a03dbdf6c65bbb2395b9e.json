@@ -1,1 +1,1677 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "label": "permissions.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1"}, {"id": "permissions_permissionrulesourcedisplaystring", "label": "permissionRuleSourceDisplayString()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L116"}, {"id": "permissions_getallowrules", "label": "getAllowRules()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L122"}, {"id": "permissions_createpermissionrequestmessage", "label": "createPermissionRequestMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L137"}, {"id": "permissions_getdenyrules", "label": "getDenyRules()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L213"}, {"id": "permissions_getaskrules", "label": "getAskRules()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L223"}, {"id": "permissions_toolmatchesrule", "label": "toolMatchesRule()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L238"}, {"id": "permissions_toolalwaysallowedrule", "label": "toolAlwaysAllowedRule()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L275"}, {"id": "permissions_getdenyrulefortool", "label": "getDenyRuleForTool()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L287"}, {"id": "permissions_getaskrulefortool", "label": "getAskRuleForTool()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L297"}, {"id": "permissions_getdenyruleforagent", "label": "getDenyRuleForAgent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L308"}, {"id": "permissions_filterdeniedagents", "label": "filterDeniedAgents()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L325"}, {"id": "permissions_getrulebycontentsfortool", "label": "getRuleByContentsForTool()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L349"}, {"id": "permissions_getrulebycontentsfortoolname", "label": "getRuleByContentsForToolName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L362"}, {"id": "permissions_runpermissionrequesthooksforheadlessagent", "label": "runPermissionRequestHooksForHeadlessAgent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L400"}, {"id": "permissions_haspermissionstousetool", "label": "hasPermissionsToUseTool()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L473"}, {"id": "permissions_persistdenialstate", "label": "persistDenialState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L963"}, {"id": "permissions_handledeniallimitexceeded", "label": "handleDenialLimitExceeded()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L984"}, {"id": "permissions_checkrulebasedpermissions", "label": "checkRuleBasedPermissions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1071"}, {"id": "permissions_haspermissionstousetoolinner", "label": "hasPermissionsToUseToolInner()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1158"}, {"id": "permissions_deletepermissionrule", "label": "deletePermissionRule()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1329"}, {"id": "permissions_convertrulestoupdates", "label": "convertRulesToUpdates()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1375"}, {"id": "permissions_applypermissionrulestopermissioncontext", "label": "applyPermissionRulesToPermissionContext()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1408"}, {"id": "permissions_syncpermissionrulesfromdisk", "label": "syncPermissionRulesFromDisk()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1419"}, {"id": "permissions_getupdatedinputorfallback", "label": "getUpdatedInputOrFallback()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1477"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "sdk", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_hooks_usecanusetool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_mcpstringutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_shouldusesandbox_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_toolname_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_toolname_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_repltool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_types_message_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_commands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sandbox_sandbox_adapter_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionmode_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionresult_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionrule_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L33", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionupdate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionupdateschema_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L44", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionruleparser_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L48", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionsloader_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L52", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L66", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L73", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L74", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_metadata_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L78", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_classifierapprovals_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L79", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L83", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L84", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L85", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_modelcost_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L91", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L93", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_denialtracking_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L94", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_yoloclassifier_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L102", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_permissionrulesourcedisplaystring", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L116", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_getallowrules", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L122", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_createpermissionrequestmessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L137", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_getdenyrules", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L213", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_getaskrules", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L223", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_toolmatchesrule", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L238", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_toolalwaysallowedrule", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L275", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_getdenyrulefortool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L287", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_getaskrulefortool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L297", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_getdenyruleforagent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L308", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_filterdeniedagents", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L325", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_getrulebycontentsfortool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L349", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_getrulebycontentsfortoolname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L362", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_runpermissionrequesthooksforheadlessagent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L400", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_haspermissionstousetool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L473", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_persistdenialstate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L963", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_handledeniallimitexceeded", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L984", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_checkrulebasedpermissions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1071", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_haspermissionstousetoolinner", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1158", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_deletepermissionrule", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1329", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_convertrulestoupdates", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1375", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_applypermissionrulestopermissioncontext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1408", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_syncpermissionrulesfromdisk", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1419", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts", "target": "permissions_getupdatedinputorfallback", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1477", "weight": 1.0}, {"source": "permissions_createpermissionrequestmessage", "target": "permissions_permissionrulesourcedisplaystring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L160", "weight": 1.0}, {"source": "permissions_toolalwaysallowedrule", "target": "permissions_getallowrules", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L280", "weight": 1.0}, {"source": "permissions_getdenyrulefortool", "target": "permissions_getdenyrules", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L291", "weight": 1.0}, {"source": "permissions_getaskrulefortool", "target": "permissions_getaskrules", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L301", "weight": 1.0}, {"source": "permissions_getdenyruleforagent", "target": "permissions_getdenyrules", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L314", "weight": 1.0}, {"source": "permissions_filterdeniedagents", "target": "permissions_getdenyrules", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L334", "weight": 1.0}, {"source": "permissions_getrulebycontentsfortool", "target": "permissions_getrulebycontentsfortoolname", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L354", "weight": 1.0}, {"source": "permissions_getrulebycontentsfortoolname", "target": "permissions_getallowrules", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L371", "weight": 1.0}, {"source": "permissions_getrulebycontentsfortoolname", "target": "permissions_getdenyrules", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L374", "weight": 1.0}, {"source": "permissions_getrulebycontentsfortoolname", "target": "permissions_getaskrules", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L377", "weight": 1.0}, {"source": "permissions_haspermissionstousetool", "target": "permissions_haspermissionstousetoolinner", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L480", "weight": 1.0}, {"source": "permissions_haspermissionstousetool", "target": "permissions_persistdenialstate", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L497", "weight": 1.0}, {"source": "permissions_haspermissionstousetool", "target": "permissions_handledeniallimitexceeded", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L890", "weight": 1.0}, {"source": "permissions_haspermissionstousetool", "target": "permissions_runpermissionrequesthooksforheadlessagent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L933", "weight": 1.0}, {"source": "permissions_handledeniallimitexceeded", "target": "permissions_persistdenialstate", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1035", "weight": 1.0}, {"source": "permissions_checkrulebasedpermissions", "target": "permissions_getdenyrulefortool", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1079", "weight": 1.0}, {"source": "permissions_checkrulebasedpermissions", "target": "permissions_getaskrulefortool", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1092", "weight": 1.0}, {"source": "permissions_checkrulebasedpermissions", "target": "permissions_createpermissionrequestmessage", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1107", "weight": 1.0}, {"source": "permissions_haspermissionstousetoolinner", "target": "permissions_getdenyrulefortool", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1171", "weight": 1.0}, {"source": "permissions_haspermissionstousetoolinner", "target": "permissions_getaskrulefortool", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1184", "weight": 1.0}, {"source": "permissions_haspermissionstousetoolinner", "target": "permissions_createpermissionrequestmessage", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1202", "weight": 1.0}, {"source": "permissions_haspermissionstousetoolinner", "target": "permissions_getupdatedinputorfallback", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1275", "weight": 1.0}, {"source": "permissions_haspermissionstousetoolinner", "target": "permissions_toolalwaysallowedrule", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1284", "weight": 1.0}, {"source": "permissions_applypermissionrulestopermissioncontext", "target": "permissions_convertrulestoupdates", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1412", "weight": 1.0}, {"source": "permissions_syncpermissionrulesfromdisk", "target": "permissions_convertrulestoupdates", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1469", "weight": 1.0}], "raw_calls": [{"caller_nid": "permissions_permissionrulesourcedisplaystring", "callee": "getSettingSourceDisplayNameLowercase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L119"}, {"caller_nid": "permissions_getallowrules", "callee": "flatMap", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L125"}, {"caller_nid": "permissions_createpermissionrequestmessage", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L144"}, {"caller_nid": "permissions_createpermissionrequestmessage", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L144"}, {"caller_nid": "permissions_createpermissionrequestmessage", "callee": "permissionRuleValueToString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L157"}, {"caller_nid": "permissions_createpermissionrequestmessage", "callee": "extractOutputRedirections", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L173"}, {"caller_nid": "permissions_createpermissionrequestmessage", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L177"}, {"caller_nid": "permissions_createpermissionrequestmessage", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L179"}, {"caller_nid": "permissions_createpermissionrequestmessage", "callee": "plural", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L185"}, {"caller_nid": "permissions_createpermissionrequestmessage", "callee": "plural", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L185"}, {"caller_nid": "permissions_createpermissionrequestmessage", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L185"}, {"caller_nid": "permissions_createpermissionrequestmessage", "callee": "permissionModeTitle", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L199"}, {"caller_nid": "permissions_getdenyrules", "callee": "flatMap", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L214"}, {"caller_nid": "permissions_getaskrules", "callee": "flatMap", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L224"}, {"caller_nid": "permissions_toolmatchesrule", "callee": "getToolNameForPermissionCheck", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L251"}, {"caller_nid": "permissions_toolmatchesrule", "callee": "mcpInfoFromString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L260"}, {"caller_nid": "permissions_toolmatchesrule", "callee": "mcpInfoFromString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L261"}, {"caller_nid": "permissions_toolalwaysallowedrule", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L280"}, {"caller_nid": "permissions_getdenyrulefortool", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L291"}, {"caller_nid": "permissions_getaskrulefortool", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L301"}, {"caller_nid": "permissions_getdenyruleforagent", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L314"}, {"caller_nid": "permissions_filterdeniedagents", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L339"}, {"caller_nid": "permissions_filterdeniedagents", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L342"}, {"caller_nid": "permissions_getrulebycontentsfortool", "callee": "getToolNameForPermissionCheck", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L356"}, {"caller_nid": "permissions_getrulebycontentsfortoolname", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L386"}, {"caller_nid": "permissions_runpermissionrequesthooksforheadlessagent", "callee": "executePermissionRequestHooks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L409"}, {"caller_nid": "permissions_runpermissionrequesthooksforheadlessagent", "callee": "persistPermissionUpdates", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L426"}, {"caller_nid": "permissions_runpermissionrequesthooksforheadlessagent", "callee": "setAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L427"}, {"caller_nid": "permissions_runpermissionrequesthooksforheadlessagent", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L446"}, {"caller_nid": "permissions_runpermissionrequesthooksforheadlessagent", "callee": "abort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L449"}, {"caller_nid": "permissions_runpermissionrequesthooksforheadlessagent", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L464"}, {"caller_nid": "permissions_runpermissionrequesthooksforheadlessagent", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L466"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "getAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L487"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L488"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "recordSuccess", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L496"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "getAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L506"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "DONT_ASK_REJECT_MESSAGE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L515"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L521"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "isAutoModeActive", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L524"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "requiresUserInteraction", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L549"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "createDenialTrackingState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L558"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L574"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L587"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "parse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L606"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "checkPermissions", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L607"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "recordSuccess", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L621"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L623"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L626"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "sanitizeToolNameForAnalytics", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L629"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "isInProtectedNamespace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L630"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "isAutoModeAllowlistedTool", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L660"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "recordSuccess", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L661"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L663"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L666"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "sanitizeToolNameForAnalytics", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L669"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "isInProtectedNamespace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L670"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "formatActionForClassifier", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L689"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "setClassifierChecking", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L690"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "classifyYoloAction", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L693"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "clearClassifierChecking", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L701"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "addNotification", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L710"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "calculateCostFromTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L728"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L733"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "sanitizeToolNameForAnalytics", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L736"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "isInProtectedNamespace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L737"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "getTotalInputTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L767"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "getTotalOutputTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L768"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "getTotalCacheReadInputTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L769"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "getTotalCacheCreationInputTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L770"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "calculateCostFromTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L788"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "calculateCostFromTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L807"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "addToTurnClassifierDuration", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L815"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L830"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "getFeatureValue_CACHED_WITH_REFRESH", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L847"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L853"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "buildClassifierUnavailableMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L864"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L871"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "recordDenial", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L879"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L882"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "buildYoloRejectionMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L910"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "recordSuccess", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L915"}, {"caller_nid": "permissions_haspermissionstousetool", "callee": "AUTO_REJECT_MESSAGE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L950"}, {"caller_nid": "permissions_persistdenialstate", "callee": "assign", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L968"}, {"caller_nid": "permissions_persistdenialstate", "callee": "setAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L970"}, {"caller_nid": "permissions_handledeniallimitexceeded", "callee": "shouldFallbackToPrompting", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L995"}, {"caller_nid": "permissions_handledeniallimitexceeded", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1009"}, {"caller_nid": "permissions_handledeniallimitexceeded", "callee": "sanitizeToolNameForAnalytics", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1020"}, {"caller_nid": "permissions_handledeniallimitexceeded", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1029"}, {"caller_nid": "permissions_checkrulebasedpermissions", "callee": "getAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1076"}, {"caller_nid": "permissions_checkrulebasedpermissions", "callee": "isSandboxingEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1096"}, {"caller_nid": "permissions_checkrulebasedpermissions", "callee": "isAutoAllowBashIfSandboxedEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1097"}, {"caller_nid": "permissions_checkrulebasedpermissions", "callee": "shouldUseSandbox", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1098"}, {"caller_nid": "permissions_checkrulebasedpermissions", "callee": "parse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1119"}, {"caller_nid": "permissions_checkrulebasedpermissions", "callee": "checkPermissions", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1120"}, {"caller_nid": "permissions_checkrulebasedpermissions", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1125"}, {"caller_nid": "permissions_haspermissionstousetoolinner", "callee": "getAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1167"}, {"caller_nid": "permissions_haspermissionstousetoolinner", "callee": "isSandboxingEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1191"}, {"caller_nid": "permissions_haspermissionstousetoolinner", "callee": "isAutoAllowBashIfSandboxedEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1192"}, {"caller_nid": "permissions_haspermissionstousetoolinner", "callee": "shouldUseSandbox", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1193"}, {"caller_nid": "permissions_haspermissionstousetoolinner", "callee": "parse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1215"}, {"caller_nid": "permissions_haspermissionstousetoolinner", "callee": "checkPermissions", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1216"}, {"caller_nid": "permissions_haspermissionstousetoolinner", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1222"}, {"caller_nid": "permissions_haspermissionstousetoolinner", "callee": "requiresUserInteraction", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1232"}, {"caller_nid": "permissions_haspermissionstousetoolinner", "callee": "getAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1264"}, {"caller_nid": "permissions_haspermissionstousetoolinner", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1313"}, {"caller_nid": "permissions_haspermissionstousetoolinner", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1314"}, {"caller_nid": "permissions_deletepermissionrule", "callee": "applyPermissionUpdate", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1342"}, {"caller_nid": "permissions_deletepermissionrule", "callee": "deletePermissionRuleFromSettings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1356"}, {"caller_nid": "permissions_deletepermissionrule", "callee": "setToolPermissionContext", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1369"}, {"caller_nid": "permissions_convertrulestoupdates", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1384"}, {"caller_nid": "permissions_convertrulestoupdates", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1385"}, {"caller_nid": "permissions_convertrulestoupdates", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1387"}, {"caller_nid": "permissions_convertrulestoupdates", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1387"}, {"caller_nid": "permissions_convertrulestoupdates", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1393"}, {"caller_nid": "permissions_convertrulestoupdates", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1394"}, {"caller_nid": "permissions_applypermissionrulestopermissioncontext", "callee": "applyPermissionUpdates", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1413"}, {"caller_nid": "permissions_syncpermissionrulesfromdisk", "callee": "shouldAllowManagedPermissionRulesOnly", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1426"}, {"caller_nid": "permissions_syncpermissionrulesfromdisk", "callee": "applyPermissionUpdate", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1438"}, {"caller_nid": "permissions_syncpermissionrulesfromdisk", "callee": "applyPermissionUpdate", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1460"}, {"caller_nid": "permissions_syncpermissionrulesfromdisk", "callee": "applyPermissionUpdates", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts", "source_location": "L1470"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "label": "permissions.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "permissions_permissionrulesourcedisplaystring",
+      "label": "permissionRuleSourceDisplayString()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L116"
+    },
+    {
+      "id": "permissions_getallowrules",
+      "label": "getAllowRules()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L122"
+    },
+    {
+      "id": "permissions_createpermissionrequestmessage",
+      "label": "createPermissionRequestMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L137"
+    },
+    {
+      "id": "permissions_getdenyrules",
+      "label": "getDenyRules()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L213"
+    },
+    {
+      "id": "permissions_getaskrules",
+      "label": "getAskRules()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L223"
+    },
+    {
+      "id": "permissions_toolmatchesrule",
+      "label": "toolMatchesRule()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L238"
+    },
+    {
+      "id": "permissions_toolalwaysallowedrule",
+      "label": "toolAlwaysAllowedRule()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L275"
+    },
+    {
+      "id": "permissions_getdenyrulefortool",
+      "label": "getDenyRuleForTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L287"
+    },
+    {
+      "id": "permissions_getaskrulefortool",
+      "label": "getAskRuleForTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L297"
+    },
+    {
+      "id": "permissions_getdenyruleforagent",
+      "label": "getDenyRuleForAgent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L308"
+    },
+    {
+      "id": "permissions_filterdeniedagents",
+      "label": "filterDeniedAgents()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L325"
+    },
+    {
+      "id": "permissions_getrulebycontentsfortool",
+      "label": "getRuleByContentsForTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L349"
+    },
+    {
+      "id": "permissions_getrulebycontentsfortoolname",
+      "label": "getRuleByContentsForToolName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L362"
+    },
+    {
+      "id": "permissions_runpermissionrequesthooksforheadlessagent",
+      "label": "runPermissionRequestHooksForHeadlessAgent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L400"
+    },
+    {
+      "id": "permissions_haspermissionstousetool",
+      "label": "hasPermissionsToUseTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L473"
+    },
+    {
+      "id": "permissions_persistdenialstate",
+      "label": "persistDenialState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L963"
+    },
+    {
+      "id": "permissions_handledeniallimitexceeded",
+      "label": "handleDenialLimitExceeded()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L984"
+    },
+    {
+      "id": "permissions_checkrulebasedpermissions",
+      "label": "checkRuleBasedPermissions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1071"
+    },
+    {
+      "id": "permissions_haspermissionstousetoolinner",
+      "label": "hasPermissionsToUseToolInner()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1158"
+    },
+    {
+      "id": "permissions_deletepermissionrule",
+      "label": "deletePermissionRule()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1329"
+    },
+    {
+      "id": "permissions_convertrulestoupdates",
+      "label": "convertRulesToUpdates()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1375"
+    },
+    {
+      "id": "permissions_applypermissionrulestopermissioncontext",
+      "label": "applyPermissionRulesToPermissionContext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1408"
+    },
+    {
+      "id": "permissions_syncpermissionrulesfromdisk",
+      "label": "syncPermissionRulesFromDisk()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1419"
+    },
+    {
+      "id": "permissions_getupdatedinputorfallback",
+      "label": "getUpdatedInputOrFallback()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1477"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "sdk",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_hooks_usecanusetool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_mcpstringutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_shouldusesandbox_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_toolname_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_powershelltool_toolname_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_repltool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_commands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sandbox_sandbox_adapter_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionmode_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionresult_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionrule_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionupdate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionupdateschema_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionruleparser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionsloader_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_metadata_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_classifierapprovals_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_modelcost_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_denialtracking_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_yoloclassifier_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_permissionrulesourcedisplaystring",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_getallowrules",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_createpermissionrequestmessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_getdenyrules",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L213",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_getaskrules",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L223",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_toolmatchesrule",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L238",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_toolalwaysallowedrule",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L275",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_getdenyrulefortool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L287",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_getaskrulefortool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L297",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_getdenyruleforagent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L308",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_filterdeniedagents",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L325",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_getrulebycontentsfortool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L349",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_getrulebycontentsfortoolname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L362",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_runpermissionrequesthooksforheadlessagent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L400",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_haspermissionstousetool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L473",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_persistdenialstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L963",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_handledeniallimitexceeded",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L984",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_checkrulebasedpermissions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1071",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_haspermissionstousetoolinner",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1158",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_deletepermissionrule",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1329",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_convertrulestoupdates",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1375",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_applypermissionrulestopermissioncontext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1408",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_syncpermissionrulesfromdisk",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1419",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissions_ts",
+      "target": "permissions_getupdatedinputorfallback",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1477",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_createpermissionrequestmessage",
+      "target": "permissions_permissionrulesourcedisplaystring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_toolalwaysallowedrule",
+      "target": "permissions_getallowrules",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L280",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_getdenyrulefortool",
+      "target": "permissions_getdenyrules",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L291",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_getaskrulefortool",
+      "target": "permissions_getaskrules",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L301",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_getdenyruleforagent",
+      "target": "permissions_getdenyrules",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L314",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_filterdeniedagents",
+      "target": "permissions_getdenyrules",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L334",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_getrulebycontentsfortool",
+      "target": "permissions_getrulebycontentsfortoolname",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L354",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_getrulebycontentsfortoolname",
+      "target": "permissions_getallowrules",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L371",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_getrulebycontentsfortoolname",
+      "target": "permissions_getdenyrules",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L374",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_getrulebycontentsfortoolname",
+      "target": "permissions_getaskrules",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L377",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_haspermissionstousetool",
+      "target": "permissions_haspermissionstousetoolinner",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L480",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_haspermissionstousetool",
+      "target": "permissions_persistdenialstate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L497",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_haspermissionstousetool",
+      "target": "permissions_handledeniallimitexceeded",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L890",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_haspermissionstousetool",
+      "target": "permissions_runpermissionrequesthooksforheadlessagent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L933",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_handledeniallimitexceeded",
+      "target": "permissions_persistdenialstate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1035",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_checkrulebasedpermissions",
+      "target": "permissions_getdenyrulefortool",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1079",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_checkrulebasedpermissions",
+      "target": "permissions_getaskrulefortool",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1092",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_checkrulebasedpermissions",
+      "target": "permissions_createpermissionrequestmessage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1107",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_haspermissionstousetoolinner",
+      "target": "permissions_getdenyrulefortool",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1171",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_haspermissionstousetoolinner",
+      "target": "permissions_getaskrulefortool",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1184",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_haspermissionstousetoolinner",
+      "target": "permissions_createpermissionrequestmessage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1202",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_haspermissionstousetoolinner",
+      "target": "permissions_getupdatedinputorfallback",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1275",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_haspermissionstousetoolinner",
+      "target": "permissions_toolalwaysallowedrule",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1284",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_applypermissionrulestopermissioncontext",
+      "target": "permissions_convertrulestoupdates",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1412",
+      "weight": 1.0
+    },
+    {
+      "source": "permissions_syncpermissionrulesfromdisk",
+      "target": "permissions_convertrulestoupdates",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1469",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "permissions_permissionrulesourcedisplaystring",
+      "callee": "getSettingSourceDisplayNameLowercase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "permissions_getallowrules",
+      "callee": "flatMap",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "permissions_createpermissionrequestmessage",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "permissions_createpermissionrequestmessage",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "permissions_createpermissionrequestmessage",
+      "callee": "permissionRuleValueToString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L157"
+    },
+    {
+      "caller_nid": "permissions_createpermissionrequestmessage",
+      "callee": "extractOutputRedirections",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "permissions_createpermissionrequestmessage",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L177"
+    },
+    {
+      "caller_nid": "permissions_createpermissionrequestmessage",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "permissions_createpermissionrequestmessage",
+      "callee": "plural",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "permissions_createpermissionrequestmessage",
+      "callee": "plural",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "permissions_createpermissionrequestmessage",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "permissions_createpermissionrequestmessage",
+      "callee": "permissionModeTitle",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L199"
+    },
+    {
+      "caller_nid": "permissions_getdenyrules",
+      "callee": "flatMap",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L214"
+    },
+    {
+      "caller_nid": "permissions_getaskrules",
+      "callee": "flatMap",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L224"
+    },
+    {
+      "caller_nid": "permissions_toolmatchesrule",
+      "callee": "getToolNameForPermissionCheck",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L251"
+    },
+    {
+      "caller_nid": "permissions_toolmatchesrule",
+      "callee": "mcpInfoFromString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L260"
+    },
+    {
+      "caller_nid": "permissions_toolmatchesrule",
+      "callee": "mcpInfoFromString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L261"
+    },
+    {
+      "caller_nid": "permissions_toolalwaysallowedrule",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L280"
+    },
+    {
+      "caller_nid": "permissions_getdenyrulefortool",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L291"
+    },
+    {
+      "caller_nid": "permissions_getaskrulefortool",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L301"
+    },
+    {
+      "caller_nid": "permissions_getdenyruleforagent",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L314"
+    },
+    {
+      "caller_nid": "permissions_filterdeniedagents",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L339"
+    },
+    {
+      "caller_nid": "permissions_filterdeniedagents",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L342"
+    },
+    {
+      "caller_nid": "permissions_getrulebycontentsfortool",
+      "callee": "getToolNameForPermissionCheck",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L356"
+    },
+    {
+      "caller_nid": "permissions_getrulebycontentsfortoolname",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L386"
+    },
+    {
+      "caller_nid": "permissions_runpermissionrequesthooksforheadlessagent",
+      "callee": "executePermissionRequestHooks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L409"
+    },
+    {
+      "caller_nid": "permissions_runpermissionrequesthooksforheadlessagent",
+      "callee": "persistPermissionUpdates",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L426"
+    },
+    {
+      "caller_nid": "permissions_runpermissionrequesthooksforheadlessagent",
+      "callee": "setAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L427"
+    },
+    {
+      "caller_nid": "permissions_runpermissionrequesthooksforheadlessagent",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L446"
+    },
+    {
+      "caller_nid": "permissions_runpermissionrequesthooksforheadlessagent",
+      "callee": "abort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L449"
+    },
+    {
+      "caller_nid": "permissions_runpermissionrequesthooksforheadlessagent",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L464"
+    },
+    {
+      "caller_nid": "permissions_runpermissionrequesthooksforheadlessagent",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L466"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "getAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L487"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L488"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "recordSuccess",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L496"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "getAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L506"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "DONT_ASK_REJECT_MESSAGE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L515"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L521"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "isAutoModeActive",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L524"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "requiresUserInteraction",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L549"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "createDenialTrackingState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L558"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L574"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L587"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L606"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "checkPermissions",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L607"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "recordSuccess",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L621"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L623"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L626"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "sanitizeToolNameForAnalytics",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L629"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "isInProtectedNamespace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L630"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "isAutoModeAllowlistedTool",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L660"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "recordSuccess",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L661"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L663"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L666"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "sanitizeToolNameForAnalytics",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L669"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "isInProtectedNamespace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L670"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "formatActionForClassifier",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L689"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "setClassifierChecking",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L690"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "classifyYoloAction",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L693"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "clearClassifierChecking",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L701"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "addNotification",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L710"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "calculateCostFromTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L728"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L733"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "sanitizeToolNameForAnalytics",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L736"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "isInProtectedNamespace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L737"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "getTotalInputTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L767"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "getTotalOutputTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L768"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "getTotalCacheReadInputTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L769"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "getTotalCacheCreationInputTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L770"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "calculateCostFromTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L788"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "calculateCostFromTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L807"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "addToTurnClassifierDuration",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L815"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L830"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "getFeatureValue_CACHED_WITH_REFRESH",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L847"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L853"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "buildClassifierUnavailableMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L864"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L871"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "recordDenial",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L879"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L882"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "buildYoloRejectionMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L910"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "recordSuccess",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L915"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetool",
+      "callee": "AUTO_REJECT_MESSAGE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L950"
+    },
+    {
+      "caller_nid": "permissions_persistdenialstate",
+      "callee": "assign",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L968"
+    },
+    {
+      "caller_nid": "permissions_persistdenialstate",
+      "callee": "setAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L970"
+    },
+    {
+      "caller_nid": "permissions_handledeniallimitexceeded",
+      "callee": "shouldFallbackToPrompting",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L995"
+    },
+    {
+      "caller_nid": "permissions_handledeniallimitexceeded",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1009"
+    },
+    {
+      "caller_nid": "permissions_handledeniallimitexceeded",
+      "callee": "sanitizeToolNameForAnalytics",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1020"
+    },
+    {
+      "caller_nid": "permissions_handledeniallimitexceeded",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1029"
+    },
+    {
+      "caller_nid": "permissions_checkrulebasedpermissions",
+      "callee": "getAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1076"
+    },
+    {
+      "caller_nid": "permissions_checkrulebasedpermissions",
+      "callee": "isSandboxingEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1096"
+    },
+    {
+      "caller_nid": "permissions_checkrulebasedpermissions",
+      "callee": "isAutoAllowBashIfSandboxedEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1097"
+    },
+    {
+      "caller_nid": "permissions_checkrulebasedpermissions",
+      "callee": "shouldUseSandbox",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1098"
+    },
+    {
+      "caller_nid": "permissions_checkrulebasedpermissions",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1119"
+    },
+    {
+      "caller_nid": "permissions_checkrulebasedpermissions",
+      "callee": "checkPermissions",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1120"
+    },
+    {
+      "caller_nid": "permissions_checkrulebasedpermissions",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1125"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetoolinner",
+      "callee": "getAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1167"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetoolinner",
+      "callee": "isSandboxingEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1191"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetoolinner",
+      "callee": "isAutoAllowBashIfSandboxedEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1192"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetoolinner",
+      "callee": "shouldUseSandbox",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1193"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetoolinner",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1215"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetoolinner",
+      "callee": "checkPermissions",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1216"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetoolinner",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1222"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetoolinner",
+      "callee": "requiresUserInteraction",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1232"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetoolinner",
+      "callee": "getAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1264"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetoolinner",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1313"
+    },
+    {
+      "caller_nid": "permissions_haspermissionstousetoolinner",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1314"
+    },
+    {
+      "caller_nid": "permissions_deletepermissionrule",
+      "callee": "applyPermissionUpdate",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1342"
+    },
+    {
+      "caller_nid": "permissions_deletepermissionrule",
+      "callee": "deletePermissionRuleFromSettings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1356"
+    },
+    {
+      "caller_nid": "permissions_deletepermissionrule",
+      "callee": "setToolPermissionContext",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1369"
+    },
+    {
+      "caller_nid": "permissions_convertrulestoupdates",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1384"
+    },
+    {
+      "caller_nid": "permissions_convertrulestoupdates",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1385"
+    },
+    {
+      "caller_nid": "permissions_convertrulestoupdates",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1387"
+    },
+    {
+      "caller_nid": "permissions_convertrulestoupdates",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1387"
+    },
+    {
+      "caller_nid": "permissions_convertrulestoupdates",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1393"
+    },
+    {
+      "caller_nid": "permissions_convertrulestoupdates",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1394"
+    },
+    {
+      "caller_nid": "permissions_applypermissionrulestopermissioncontext",
+      "callee": "applyPermissionUpdates",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1413"
+    },
+    {
+      "caller_nid": "permissions_syncpermissionrulesfromdisk",
+      "callee": "shouldAllowManagedPermissionRulesOnly",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1426"
+    },
+    {
+      "caller_nid": "permissions_syncpermissionrulesfromdisk",
+      "callee": "applyPermissionUpdate",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1438"
+    },
+    {
+      "caller_nid": "permissions_syncpermissionrulesfromdisk",
+      "callee": "applyPermissionUpdate",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1460"
+    },
+    {
+      "caller_nid": "permissions_syncpermissionrulesfromdisk",
+      "callee": "applyPermissionUpdates",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\permissions.ts",
+      "source_location": "L1470"
+    }
+  ]
+}

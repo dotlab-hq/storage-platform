@@ -1,1 +1,656 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "label": "promptSuggestion.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L1"}, {"id": "promptsuggestion_getpromptvariant", "label": "getPromptVariant()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L33"}, {"id": "promptsuggestion_shouldenablepromptsuggestion", "label": "shouldEnablePromptSuggestion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L37"}, {"id": "promptsuggestion_abortpromptsuggestion", "label": "abortPromptSuggestion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L96"}, {"id": "promptsuggestion_getsuggestionsuppressreason", "label": "getSuggestionSuppressReason()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L107"}, {"id": "promptsuggestion_trygeneratesuggestion", "label": "tryGenerateSuggestion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L125"}, {"id": "promptsuggestion_executepromptsuggestion", "label": "executePromptSuggestion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L184"}, {"id": "promptsuggestion_getparentcachesuppressreason", "label": "getParentCacheSuppressReason()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L241"}, {"id": "promptsuggestion_generatesuggestion", "label": "generateSuggestion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L294"}, {"id": "promptsuggestion_shouldfiltersuggestion", "label": "shouldFilterSuggestion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L354"}, {"id": "promptsuggestion_logsuggestionoutcome", "label": "logSuggestionOutcome()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L462"}, {"id": "promptsuggestion_logsuggestionsuppressed", "label": "logSuggestionSuppressed()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L499"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_types_message_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_agentswarmsenabled_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_array_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_forkedagent_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_postsamplinghooks_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_teammate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_speculation_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "promptsuggestion_getpromptvariant", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L33", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "promptsuggestion_shouldenablepromptsuggestion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "promptsuggestion_abortpromptsuggestion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L96", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "promptsuggestion_getsuggestionsuppressreason", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L107", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "promptsuggestion_trygeneratesuggestion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L125", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "promptsuggestion_executepromptsuggestion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L184", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "promptsuggestion_getparentcachesuppressreason", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L241", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "promptsuggestion_generatesuggestion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L294", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "promptsuggestion_shouldfiltersuggestion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L354", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "promptsuggestion_logsuggestionoutcome", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L462", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts", "target": "promptsuggestion_logsuggestionsuppressed", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L499", "weight": 1.0}, {"source": "promptsuggestion_trygeneratesuggestion", "target": "promptsuggestion_logsuggestionsuppressed", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L137", "weight": 1.0}, {"source": "promptsuggestion_trygeneratesuggestion", "target": "promptsuggestion_getparentcachesuppressreason", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L152", "weight": 1.0}, {"source": "promptsuggestion_trygeneratesuggestion", "target": "promptsuggestion_getsuggestionsuppressreason", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L159", "weight": 1.0}, {"source": "promptsuggestion_trygeneratesuggestion", "target": "promptsuggestion_getpromptvariant", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L165", "weight": 1.0}, {"source": "promptsuggestion_trygeneratesuggestion", "target": "promptsuggestion_generatesuggestion", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L166", "weight": 1.0}, {"source": "promptsuggestion_trygeneratesuggestion", "target": "promptsuggestion_shouldfiltersuggestion", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L179", "weight": 1.0}, {"source": "promptsuggestion_executepromptsuggestion", "target": "promptsuggestion_trygeneratesuggestion", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L194", "weight": 1.0}, {"source": "promptsuggestion_executepromptsuggestion", "target": "promptsuggestion_logsuggestionsuppressed", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L228", "weight": 1.0}, {"source": "promptsuggestion_shouldfiltersuggestion", "target": "promptsuggestion_logsuggestionsuppressed", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L360", "weight": 1.0}, {"source": "promptsuggestion_logsuggestionsuppressed", "target": "promptsuggestion_getpromptvariant", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L505", "weight": 1.0}], "raw_calls": [{"caller_nid": "promptsuggestion_shouldenablepromptsuggestion", "callee": "isEnvDefinedFalsy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L40"}, {"caller_nid": "promptsuggestion_shouldenablepromptsuggestion", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L41"}, {"caller_nid": "promptsuggestion_shouldenablepromptsuggestion", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L48"}, {"caller_nid": "promptsuggestion_shouldenablepromptsuggestion", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L49"}, {"caller_nid": "promptsuggestion_shouldenablepromptsuggestion", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L58"}, {"caller_nid": "promptsuggestion_shouldenablepromptsuggestion", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L59"}, {"caller_nid": "promptsuggestion_shouldenablepromptsuggestion", "callee": "getIsNonInteractiveSession", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L68"}, {"caller_nid": "promptsuggestion_shouldenablepromptsuggestion", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L69"}, {"caller_nid": "promptsuggestion_shouldenablepromptsuggestion", "callee": "isAgentSwarmsEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L78"}, {"caller_nid": "promptsuggestion_shouldenablepromptsuggestion", "callee": "isTeammate", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L78"}, {"caller_nid": "promptsuggestion_shouldenablepromptsuggestion", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L79"}, {"caller_nid": "promptsuggestion_shouldenablepromptsuggestion", "callee": "getInitialSettings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L87"}, {"caller_nid": "promptsuggestion_shouldenablepromptsuggestion", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L88"}, {"caller_nid": "promptsuggestion_abortpromptsuggestion", "callee": "abort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L98"}, {"caller_nid": "promptsuggestion_trygeneratesuggestion", "callee": "count", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L141"}, {"caller_nid": "promptsuggestion_trygeneratesuggestion", "callee": "getLastAssistantMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L147"}, {"caller_nid": "promptsuggestion_trygeneratesuggestion", "callee": "getAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L158"}, {"caller_nid": "promptsuggestion_executepromptsuggestion", "callee": "createCacheSafeParams", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L191"}, {"caller_nid": "promptsuggestion_executepromptsuggestion", "callee": "setAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L203"}, {"caller_nid": "promptsuggestion_executepromptsuggestion", "callee": "isSpeculationEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L214"}, {"caller_nid": "promptsuggestion_executepromptsuggestion", "callee": "startSpeculation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L215"}, {"caller_nid": "promptsuggestion_executepromptsuggestion", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L231"}, {"caller_nid": "promptsuggestion_executepromptsuggestion", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L231"}, {"caller_nid": "promptsuggestion_generatesuggestion", "callee": "runForkedAgent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L319"}, {"caller_nid": "promptsuggestion_generatesuggestion", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L320"}, {"caller_nid": "promptsuggestion_generatesuggestion", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L334"}, {"caller_nid": "promptsuggestion_generatesuggestion", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L342"}, {"caller_nid": "promptsuggestion_generatesuggestion", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L344"}, {"caller_nid": "promptsuggestion_shouldfiltersuggestion", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L364"}, {"caller_nid": "promptsuggestion_shouldfiltersuggestion", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L365"}, {"caller_nid": "promptsuggestion_shouldfiltersuggestion", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L365"}, {"caller_nid": "promptsuggestion_shouldfiltersuggestion", "callee": "check", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L449"}, {"caller_nid": "promptsuggestion_logsuggestionoutcome", "callee": "round", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L470"}, {"caller_nid": "promptsuggestion_logsuggestionoutcome", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L472"}, {"caller_nid": "promptsuggestion_logsuggestionoutcome", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L472"}, {"caller_nid": "promptsuggestion_logsuggestionoutcome", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L474"}, {"caller_nid": "promptsuggestion_logsuggestionsuppressed", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts", "source_location": "L506"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "label": "promptSuggestion.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "promptsuggestion_getpromptvariant",
+      "label": "getPromptVariant()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L33"
+    },
+    {
+      "id": "promptsuggestion_shouldenablepromptsuggestion",
+      "label": "shouldEnablePromptSuggestion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L37"
+    },
+    {
+      "id": "promptsuggestion_abortpromptsuggestion",
+      "label": "abortPromptSuggestion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L96"
+    },
+    {
+      "id": "promptsuggestion_getsuggestionsuppressreason",
+      "label": "getSuggestionSuppressReason()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L107"
+    },
+    {
+      "id": "promptsuggestion_trygeneratesuggestion",
+      "label": "tryGenerateSuggestion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L125"
+    },
+    {
+      "id": "promptsuggestion_executepromptsuggestion",
+      "label": "executePromptSuggestion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L184"
+    },
+    {
+      "id": "promptsuggestion_getparentcachesuppressreason",
+      "label": "getParentCacheSuppressReason()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L241"
+    },
+    {
+      "id": "promptsuggestion_generatesuggestion",
+      "label": "generateSuggestion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L294"
+    },
+    {
+      "id": "promptsuggestion_shouldfiltersuggestion",
+      "label": "shouldFilterSuggestion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L354"
+    },
+    {
+      "id": "promptsuggestion_logsuggestionoutcome",
+      "label": "logSuggestionOutcome()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L462"
+    },
+    {
+      "id": "promptsuggestion_logsuggestionsuppressed",
+      "label": "logSuggestionSuppressed()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L499"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_agentswarmsenabled_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_array_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_forkedagent_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_postsamplinghooks_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teammate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_claudeailimits_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_speculation_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "promptsuggestion_getpromptvariant",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "promptsuggestion_shouldenablepromptsuggestion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "promptsuggestion_abortpromptsuggestion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "promptsuggestion_getsuggestionsuppressreason",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "promptsuggestion_trygeneratesuggestion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "promptsuggestion_executepromptsuggestion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L184",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "promptsuggestion_getparentcachesuppressreason",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L241",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "promptsuggestion_generatesuggestion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L294",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "promptsuggestion_shouldfiltersuggestion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L354",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "promptsuggestion_logsuggestionoutcome",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L462",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_promptsuggestion_promptsuggestion_ts",
+      "target": "promptsuggestion_logsuggestionsuppressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L499",
+      "weight": 1.0
+    },
+    {
+      "source": "promptsuggestion_trygeneratesuggestion",
+      "target": "promptsuggestion_logsuggestionsuppressed",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "promptsuggestion_trygeneratesuggestion",
+      "target": "promptsuggestion_getparentcachesuppressreason",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L152",
+      "weight": 1.0
+    },
+    {
+      "source": "promptsuggestion_trygeneratesuggestion",
+      "target": "promptsuggestion_getsuggestionsuppressreason",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "promptsuggestion_trygeneratesuggestion",
+      "target": "promptsuggestion_getpromptvariant",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L165",
+      "weight": 1.0
+    },
+    {
+      "source": "promptsuggestion_trygeneratesuggestion",
+      "target": "promptsuggestion_generatesuggestion",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "promptsuggestion_trygeneratesuggestion",
+      "target": "promptsuggestion_shouldfiltersuggestion",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "promptsuggestion_executepromptsuggestion",
+      "target": "promptsuggestion_trygeneratesuggestion",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "promptsuggestion_executepromptsuggestion",
+      "target": "promptsuggestion_logsuggestionsuppressed",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L228",
+      "weight": 1.0
+    },
+    {
+      "source": "promptsuggestion_shouldfiltersuggestion",
+      "target": "promptsuggestion_logsuggestionsuppressed",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L360",
+      "weight": 1.0
+    },
+    {
+      "source": "promptsuggestion_logsuggestionsuppressed",
+      "target": "promptsuggestion_getpromptvariant",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L505",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "promptsuggestion_shouldenablepromptsuggestion",
+      "callee": "isEnvDefinedFalsy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldenablepromptsuggestion",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldenablepromptsuggestion",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldenablepromptsuggestion",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldenablepromptsuggestion",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldenablepromptsuggestion",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldenablepromptsuggestion",
+      "callee": "getIsNonInteractiveSession",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldenablepromptsuggestion",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldenablepromptsuggestion",
+      "callee": "isAgentSwarmsEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldenablepromptsuggestion",
+      "callee": "isTeammate",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldenablepromptsuggestion",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldenablepromptsuggestion",
+      "callee": "getInitialSettings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldenablepromptsuggestion",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "promptsuggestion_abortpromptsuggestion",
+      "callee": "abort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L98"
+    },
+    {
+      "caller_nid": "promptsuggestion_trygeneratesuggestion",
+      "callee": "count",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "promptsuggestion_trygeneratesuggestion",
+      "callee": "getLastAssistantMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "promptsuggestion_trygeneratesuggestion",
+      "callee": "getAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "promptsuggestion_executepromptsuggestion",
+      "callee": "createCacheSafeParams",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L191"
+    },
+    {
+      "caller_nid": "promptsuggestion_executepromptsuggestion",
+      "callee": "setAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "promptsuggestion_executepromptsuggestion",
+      "callee": "isSpeculationEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L214"
+    },
+    {
+      "caller_nid": "promptsuggestion_executepromptsuggestion",
+      "callee": "startSpeculation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L215"
+    },
+    {
+      "caller_nid": "promptsuggestion_executepromptsuggestion",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L231"
+    },
+    {
+      "caller_nid": "promptsuggestion_executepromptsuggestion",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L231"
+    },
+    {
+      "caller_nid": "promptsuggestion_generatesuggestion",
+      "callee": "runForkedAgent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L319"
+    },
+    {
+      "caller_nid": "promptsuggestion_generatesuggestion",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L320"
+    },
+    {
+      "caller_nid": "promptsuggestion_generatesuggestion",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L334"
+    },
+    {
+      "caller_nid": "promptsuggestion_generatesuggestion",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L342"
+    },
+    {
+      "caller_nid": "promptsuggestion_generatesuggestion",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L344"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldfiltersuggestion",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L364"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldfiltersuggestion",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L365"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldfiltersuggestion",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L365"
+    },
+    {
+      "caller_nid": "promptsuggestion_shouldfiltersuggestion",
+      "callee": "check",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L449"
+    },
+    {
+      "caller_nid": "promptsuggestion_logsuggestionoutcome",
+      "callee": "round",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L470"
+    },
+    {
+      "caller_nid": "promptsuggestion_logsuggestionoutcome",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L472"
+    },
+    {
+      "caller_nid": "promptsuggestion_logsuggestionoutcome",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L472"
+    },
+    {
+      "caller_nid": "promptsuggestion_logsuggestionoutcome",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L474"
+    },
+    {
+      "caller_nid": "promptsuggestion_logsuggestionsuppressed",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\PromptSuggestion\\promptSuggestion.ts",
+      "source_location": "L506"
+    }
+  ]
+}

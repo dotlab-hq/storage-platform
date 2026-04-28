@@ -1,1 +1,77 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_cli_ndjsonsafestringify_ts", "label": "ndjsonSafeStringify.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts", "source_location": "L1"}, {"id": "ndjsonsafestringify_escapejslineterminators", "label": "escapeJsLineTerminators()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts", "source_location": "L18"}, {"id": "ndjsonsafestringify_ndjsonsafestringify", "label": "ndjsonSafeStringify()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts", "source_location": "L30"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_cli_ndjsonsafestringify_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_ndjsonsafestringify_ts", "target": "ndjsonsafestringify_escapejslineterminators", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_ndjsonsafestringify_ts", "target": "ndjsonsafestringify_ndjsonsafestringify", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts", "source_location": "L30", "weight": 1.0}, {"source": "ndjsonsafestringify_ndjsonsafestringify", "target": "ndjsonsafestringify_escapejslineterminators", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts", "source_location": "L31", "weight": 1.0}], "raw_calls": [{"caller_nid": "ndjsonsafestringify_escapejslineterminators", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts", "source_location": "L19"}, {"caller_nid": "ndjsonsafestringify_ndjsonsafestringify", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts", "source_location": "L31"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_cli_ndjsonsafestringify_ts",
+      "label": "ndjsonSafeStringify.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "ndjsonsafestringify_escapejslineterminators",
+      "label": "escapeJsLineTerminators()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts",
+      "source_location": "L18"
+    },
+    {
+      "id": "ndjsonsafestringify_ndjsonsafestringify",
+      "label": "ndjsonSafeStringify()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts",
+      "source_location": "L30"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_ndjsonsafestringify_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_ndjsonsafestringify_ts",
+      "target": "ndjsonsafestringify_escapejslineterminators",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_ndjsonsafestringify_ts",
+      "target": "ndjsonsafestringify_ndjsonsafestringify",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "ndjsonsafestringify_ndjsonsafestringify",
+      "target": "ndjsonsafestringify_escapejslineterminators",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "ndjsonsafestringify_escapejslineterminators",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "ndjsonsafestringify_ndjsonsafestringify",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\ndjsonSafeStringify.ts",
+      "source_location": "L31"
+    }
+  ]
+}

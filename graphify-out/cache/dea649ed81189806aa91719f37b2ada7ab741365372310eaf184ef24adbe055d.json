@@ -1,1 +1,312 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_diff_ts", "label": "diff.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L1"}, {"id": "diff_adjusthunklinenumbers", "label": "adjustHunkLineNumbers()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L17"}, {"id": "diff_escapefordiff", "label": "escapeForDiff()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L35"}, {"id": "diff_unescapefromdiff", "label": "unescapeFromDiff()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L39"}, {"id": "diff_countlineschanged", "label": "countLinesChanged()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L49"}, {"id": "diff_getpatchfromcontents", "label": "getPatchFromContents()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L81"}, {"id": "diff_getpatchfordisplay", "label": "getPatchForDisplay()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L128"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts", "target": "diff", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts", "target": "index_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts", "target": "f_storage_platform_claude_code_source_main_src_cost_tracker_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_fileedittool_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_array_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_file_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts", "target": "diff_adjusthunklinenumbers", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts", "target": "diff_escapefordiff", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts", "target": "diff_unescapefromdiff", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts", "target": "diff_countlineschanged", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L49", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts", "target": "diff_getpatchfromcontents", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L81", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts", "target": "diff_getpatchfordisplay", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L128", "weight": 1.0}, {"source": "diff_getpatchfromcontents", "target": "diff_escapefordiff", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L97", "weight": 1.0}, {"source": "diff_getpatchfordisplay", "target": "diff_escapefordiff", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L139", "weight": 1.0}], "raw_calls": [{"caller_nid": "diff_adjusthunklinenumbers", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L22"}, {"caller_nid": "diff_escapefordiff", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L36"}, {"caller_nid": "diff_escapefordiff", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L36"}, {"caller_nid": "diff_unescapefromdiff", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L40"}, {"caller_nid": "diff_unescapefromdiff", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L40"}, {"caller_nid": "diff_countlineschanged", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L58"}, {"caller_nid": "diff_countlineschanged", "callee": "reduce", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L60"}, {"caller_nid": "diff_countlineschanged", "callee": "reduce", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L64"}, {"caller_nid": "diff_countlineschanged", "callee": "addToTotalLinesChanged", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L70"}, {"caller_nid": "diff_countlineschanged", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L72"}, {"caller_nid": "diff_countlineschanged", "callee": "getLocCounter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L72"}, {"caller_nid": "diff_countlineschanged", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L73"}, {"caller_nid": "diff_countlineschanged", "callee": "getLocCounter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L73"}, {"caller_nid": "diff_countlineschanged", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L75"}, {"caller_nid": "diff_getpatchfromcontents", "callee": "structuredPatch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L94"}, {"caller_nid": "diff_getpatchfromcontents", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L110"}, {"caller_nid": "diff_getpatchfordisplay", "callee": "convertLeadingTabsToSpaces", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L140"}, {"caller_nid": "diff_getpatchfordisplay", "callee": "structuredPatch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L142"}, {"caller_nid": "diff_getpatchfordisplay", "callee": "reduce", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L146"}, {"caller_nid": "diff_getpatchfordisplay", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts", "source_location": "L173"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_diff_ts",
+      "label": "diff.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "diff_adjusthunklinenumbers",
+      "label": "adjustHunkLineNumbers()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L17"
+    },
+    {
+      "id": "diff_escapefordiff",
+      "label": "escapeForDiff()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L35"
+    },
+    {
+      "id": "diff_unescapefromdiff",
+      "label": "unescapeFromDiff()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L39"
+    },
+    {
+      "id": "diff_countlineschanged",
+      "label": "countLinesChanged()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L49"
+    },
+    {
+      "id": "diff_getpatchfromcontents",
+      "label": "getPatchFromContents()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L81"
+    },
+    {
+      "id": "diff_getpatchfordisplay",
+      "label": "getPatchForDisplay()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L128"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts",
+      "target": "diff",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts",
+      "target": "index_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_cost_tracker_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_fileedittool_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_array_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_file_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts",
+      "target": "diff_adjusthunklinenumbers",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts",
+      "target": "diff_escapefordiff",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts",
+      "target": "diff_unescapefromdiff",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts",
+      "target": "diff_countlineschanged",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts",
+      "target": "diff_getpatchfromcontents",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diff_ts",
+      "target": "diff_getpatchfordisplay",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L128",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_getpatchfromcontents",
+      "target": "diff_escapefordiff",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_getpatchfordisplay",
+      "target": "diff_escapefordiff",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L139",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "diff_adjusthunklinenumbers",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "diff_escapefordiff",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "diff_escapefordiff",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "diff_unescapefromdiff",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "diff_unescapefromdiff",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "diff_countlineschanged",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "diff_countlineschanged",
+      "callee": "reduce",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "diff_countlineschanged",
+      "callee": "reduce",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "diff_countlineschanged",
+      "callee": "addToTotalLinesChanged",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "diff_countlineschanged",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "diff_countlineschanged",
+      "callee": "getLocCounter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "diff_countlineschanged",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "diff_countlineschanged",
+      "callee": "getLocCounter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "diff_countlineschanged",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "diff_getpatchfromcontents",
+      "callee": "structuredPatch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L94"
+    },
+    {
+      "caller_nid": "diff_getpatchfromcontents",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "diff_getpatchfordisplay",
+      "callee": "convertLeadingTabsToSpaces",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L140"
+    },
+    {
+      "caller_nid": "diff_getpatchfordisplay",
+      "callee": "structuredPatch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "diff_getpatchfordisplay",
+      "callee": "reduce",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "diff_getpatchfordisplay",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diff.ts",
+      "source_location": "L173"
+    }
+  ]
+}

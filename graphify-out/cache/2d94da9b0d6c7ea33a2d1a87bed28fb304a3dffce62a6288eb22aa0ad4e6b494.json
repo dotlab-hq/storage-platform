@@ -1,1 +1,382 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts", "label": "exampleCommands.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L1"}, {"id": "examplecommands_iscorefile", "label": "isCoreFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L31"}, {"id": "examplecommands_countandsortitems", "label": "countAndSortItems()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L39"}, {"id": "examplecommands_pickdiversecorefiles", "label": "pickDiverseCoreFiles()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L56"}, {"id": "examplecommands_getfrequentlymodifiedfiles", "label": "getFrequentlyModifiedFiles()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L86"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts", "target": "memoize_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts", "target": "sample_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_env_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_user_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts", "target": "examplecommands_iscorefile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts", "target": "examplecommands_countandsortitems", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts", "target": "examplecommands_pickdiversecorefiles", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L56", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts", "target": "examplecommands_getfrequentlymodifiedfiles", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L86", "weight": 1.0}, {"source": "examplecommands_pickdiversecorefiles", "target": "examplecommands_iscorefile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L71", "weight": 1.0}, {"source": "examplecommands_getfrequentlymodifiedfiles", "target": "examplecommands_pickdiversecorefiles", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L133", "weight": 1.0}], "raw_calls": [{"caller_nid": "examplecommands_iscorefile", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L32"}, {"caller_nid": "examplecommands_countandsortitems", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L42"}, {"caller_nid": "examplecommands_countandsortitems", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L42"}, {"caller_nid": "examplecommands_countandsortitems", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L44"}, {"caller_nid": "examplecommands_countandsortitems", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L44"}, {"caller_nid": "examplecommands_countandsortitems", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L44"}, {"caller_nid": "examplecommands_countandsortitems", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L44"}, {"caller_nid": "examplecommands_countandsortitems", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L44"}, {"caller_nid": "examplecommands_countandsortitems", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L44"}, {"caller_nid": "examplecommands_pickdiversecorefiles", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L72"}, {"caller_nid": "examplecommands_pickdiversecorefiles", "callee": "lastIndexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L72"}, {"caller_nid": "examplecommands_pickdiversecorefiles", "callee": "lastIndexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L72"}, {"caller_nid": "examplecommands_pickdiversecorefiles", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L73"}, {"caller_nid": "examplecommands_pickdiversecorefiles", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L74"}, {"caller_nid": "examplecommands_pickdiversecorefiles", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L75"}, {"caller_nid": "examplecommands_pickdiversecorefiles", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L76"}, {"caller_nid": "examplecommands_pickdiversecorefiles", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L77"}, {"caller_nid": "examplecommands_pickdiversecorefiles", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L78"}, {"caller_nid": "examplecommands_pickdiversecorefiles", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L79"}, {"caller_nid": "examplecommands_pickdiversecorefiles", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L79"}, {"caller_nid": "examplecommands_getfrequentlymodifiedfiles", "callee": "getIsGit", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L89"}, {"caller_nid": "examplecommands_getfrequentlymodifiedfiles", "callee": "getGitEmail", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L93"}, {"caller_nid": "examplecommands_getfrequentlymodifiedfiles", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L113"}, {"caller_nid": "examplecommands_getfrequentlymodifiedfiles", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L116"}, {"caller_nid": "examplecommands_getfrequentlymodifiedfiles", "callee": "tallyInto", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L118"}, {"caller_nid": "examplecommands_getfrequentlymodifiedfiles", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L123"}, {"caller_nid": "examplecommands_getfrequentlymodifiedfiles", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L123"}, {"caller_nid": "examplecommands_getfrequentlymodifiedfiles", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L124"}, {"caller_nid": "examplecommands_getfrequentlymodifiedfiles", "callee": "tallyInto", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L126"}, {"caller_nid": "examplecommands_getfrequentlymodifiedfiles", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L129"}, {"caller_nid": "examplecommands_getfrequentlymodifiedfiles", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L129"}, {"caller_nid": "examplecommands_getfrequentlymodifiedfiles", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L129"}, {"caller_nid": "examplecommands_getfrequentlymodifiedfiles", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L129"}, {"caller_nid": "examplecommands_getfrequentlymodifiedfiles", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts", "source_location": "L135"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts",
+      "label": "exampleCommands.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "examplecommands_iscorefile",
+      "label": "isCoreFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L31"
+    },
+    {
+      "id": "examplecommands_countandsortitems",
+      "label": "countAndSortItems()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L39"
+    },
+    {
+      "id": "examplecommands_pickdiversecorefiles",
+      "label": "pickDiverseCoreFiles()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L56"
+    },
+    {
+      "id": "examplecommands_getfrequentlymodifiedfiles",
+      "label": "getFrequentlyModifiedFiles()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L86"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts",
+      "target": "memoize_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts",
+      "target": "sample_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_env_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_user_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts",
+      "target": "examplecommands_iscorefile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts",
+      "target": "examplecommands_countandsortitems",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts",
+      "target": "examplecommands_pickdiversecorefiles",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_examplecommands_ts",
+      "target": "examplecommands_getfrequentlymodifiedfiles",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "examplecommands_pickdiversecorefiles",
+      "target": "examplecommands_iscorefile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "examplecommands_getfrequentlymodifiedfiles",
+      "target": "examplecommands_pickdiversecorefiles",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L133",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "examplecommands_iscorefile",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "examplecommands_countandsortitems",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "examplecommands_countandsortitems",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "examplecommands_countandsortitems",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "examplecommands_countandsortitems",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "examplecommands_countandsortitems",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "examplecommands_countandsortitems",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "examplecommands_countandsortitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "examplecommands_countandsortitems",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "examplecommands_pickdiversecorefiles",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "examplecommands_pickdiversecorefiles",
+      "callee": "lastIndexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "examplecommands_pickdiversecorefiles",
+      "callee": "lastIndexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "examplecommands_pickdiversecorefiles",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "examplecommands_pickdiversecorefiles",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "examplecommands_pickdiversecorefiles",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "examplecommands_pickdiversecorefiles",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "examplecommands_pickdiversecorefiles",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "examplecommands_pickdiversecorefiles",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "examplecommands_pickdiversecorefiles",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "examplecommands_pickdiversecorefiles",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "examplecommands_getfrequentlymodifiedfiles",
+      "callee": "getIsGit",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "examplecommands_getfrequentlymodifiedfiles",
+      "callee": "getGitEmail",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "examplecommands_getfrequentlymodifiedfiles",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "examplecommands_getfrequentlymodifiedfiles",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "examplecommands_getfrequentlymodifiedfiles",
+      "callee": "tallyInto",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "examplecommands_getfrequentlymodifiedfiles",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L123"
+    },
+    {
+      "caller_nid": "examplecommands_getfrequentlymodifiedfiles",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L123"
+    },
+    {
+      "caller_nid": "examplecommands_getfrequentlymodifiedfiles",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "examplecommands_getfrequentlymodifiedfiles",
+      "callee": "tallyInto",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "examplecommands_getfrequentlymodifiedfiles",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "examplecommands_getfrequentlymodifiedfiles",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "examplecommands_getfrequentlymodifiedfiles",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "examplecommands_getfrequentlymodifiedfiles",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "examplecommands_getfrequentlymodifiedfiles",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exampleCommands.ts",
+      "source_location": "L135"
+    }
+  ]
+}

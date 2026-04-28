@@ -1,1 +1,144 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts", "label": "channelAllowlist.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L1"}, {"id": "channelallowlist_getchannelallowlist", "label": "getChannelAllowlist()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L37"}, {"id": "channelallowlist_ischannelsenabled", "label": "isChannelsEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L51"}, {"id": "channelallowlist_ischannelallowlisted", "label": "isChannelAllowlisted()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L67"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts", "target": "v4", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginidentifier_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts", "target": "channelallowlist_getchannelallowlist", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts", "target": "channelallowlist_ischannelsenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L51", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts", "target": "channelallowlist_ischannelallowlisted", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L67", "weight": 1.0}, {"source": "channelallowlist_ischannelallowlisted", "target": "channelallowlist_getchannelallowlist", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L73", "weight": 1.0}], "raw_calls": [{"caller_nid": "channelallowlist_getchannelallowlist", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L38"}, {"caller_nid": "channelallowlist_getchannelallowlist", "callee": "safeParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L42"}, {"caller_nid": "channelallowlist_getchannelallowlist", "callee": "ChannelAllowlistSchema", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L42"}, {"caller_nid": "channelallowlist_ischannelsenabled", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L52"}, {"caller_nid": "channelallowlist_ischannelallowlisted", "callee": "parsePluginIdentifier", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L71"}, {"caller_nid": "channelallowlist_ischannelallowlisted", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts", "source_location": "L73"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts",
+      "label": "channelAllowlist.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "channelallowlist_getchannelallowlist",
+      "label": "getChannelAllowlist()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L37"
+    },
+    {
+      "id": "channelallowlist_ischannelsenabled",
+      "label": "isChannelsEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L51"
+    },
+    {
+      "id": "channelallowlist_ischannelallowlisted",
+      "label": "isChannelAllowlisted()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L67"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts",
+      "target": "v4",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginidentifier_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts",
+      "target": "channelallowlist_getchannelallowlist",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts",
+      "target": "channelallowlist_ischannelsenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_mcp_channelallowlist_ts",
+      "target": "channelallowlist_ischannelallowlisted",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "channelallowlist_ischannelallowlisted",
+      "target": "channelallowlist_getchannelallowlist",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L73",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "channelallowlist_getchannelallowlist",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "channelallowlist_getchannelallowlist",
+      "callee": "safeParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "channelallowlist_getchannelallowlist",
+      "callee": "ChannelAllowlistSchema",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "channelallowlist_ischannelsenabled",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "channelallowlist_ischannelallowlisted",
+      "callee": "parsePluginIdentifier",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "channelallowlist_ischannelallowlisted",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\mcp\\channelAllowlist.ts",
+      "source_location": "L73"
+    }
+  ]
+}

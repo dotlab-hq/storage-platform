@@ -1,1 +1,124 @@
-{"nodes": [{"id": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts", "label": "use-keyboard-shortcuts.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L1"}, {"id": "use_keyboard_shortcuts_usekeyboardshortcuts", "label": "useKeyboardShortcuts()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L7"}], "edges": [{"source": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts", "target": "react_hotkeys", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts", "target": "keyboard_shortcuts_store", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts", "target": "use_keyboard_shortcuts_usekeyboardshortcuts", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L7", "weight": 1.0}], "raw_calls": [{"caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts", "callee": "useKeyboardShortcutsStore", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L8"}, {"caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts", "callee": "useEffectEvent", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L9"}, {"caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts", "callee": "useEffectEvent", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L10"}, {"caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts", "callee": "useEffectEvent", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L11"}, {"caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts", "callee": "useLayoutEffect", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L13"}, {"caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts", "callee": "useHotkey", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L17"}, {"caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts", "callee": "Boolean", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L17"}, {"caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts", "callee": "useHotkey", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L18"}, {"caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts", "callee": "Boolean", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L18"}, {"caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts", "callee": "useHotkey", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L19"}, {"caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts", "callee": "Boolean", "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts", "source_location": "L19"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts",
+      "label": "use-keyboard-shortcuts.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "label": "useKeyboardShortcuts()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L7"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts",
+      "target": "react_hotkeys",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts",
+      "target": "keyboard_shortcuts_store",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_keyboard_shortcuts_ts",
+      "target": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "callee": "useKeyboardShortcutsStore",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L8"
+    },
+    {
+      "caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "callee": "useEffectEvent",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L9"
+    },
+    {
+      "caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "callee": "useEffectEvent",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L10"
+    },
+    {
+      "caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "callee": "useEffectEvent",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L11"
+    },
+    {
+      "caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "callee": "useLayoutEffect",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L13"
+    },
+    {
+      "caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "callee": "useHotkey",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "callee": "Boolean",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "callee": "useHotkey",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "callee": "Boolean",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "callee": "useHotkey",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "use_keyboard_shortcuts_usekeyboardshortcuts",
+      "callee": "Boolean",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-keyboard-shortcuts.ts",
+      "source_location": "L19"
+    }
+  ]
+}

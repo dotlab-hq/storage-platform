@@ -58,9 +58,7 @@ export function useStorageActions(params: UseStorageActionsParams) {
     onMutate: ({ item, newName }) => {
       // Optimistic rename
       setItems((previous) =>
-        previous.map((i) =>
-          i.id === item.id ? { ...i, name: newName } : i,
-        ),
+        previous.map((i) => (i.id === item.id ? { ...i, name: newName } : i)),
       )
       startTransition(() => {
         addOptimisticRename({ itemId: item.id, newName })
@@ -69,9 +67,7 @@ export function useStorageActions(params: UseStorageActionsParams) {
     onError: (error, { item }) => {
       // Rollback on failure
       setItems((previous) =>
-        previous.map((i) =>
-          i.id === item.id ? { ...i, name: item.name } : i,
-        ),
+        previous.map((i) => (i.id === item.id ? { ...i, name: item.name } : i)),
       )
       toast.error(`Rename failed: ${getErrorMessage(error, 'Unknown error')}`)
     },

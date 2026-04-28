@@ -1,1 +1,156 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts", "label": "stopTask.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L1"}, {"id": "stoptask_stoptaskerror", "label": "StopTaskError", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L10"}, {"id": "stoptask_stoptaskerror_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L11"}, {"id": "stoptask_stoptask", "label": "stopTask()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L38"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts", "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts", "target": "f_storage_platform_claude_code_source_main_src_task_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts", "target": "f_storage_platform_claude_code_source_main_src_tasks_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sdkeventqueue_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts", "target": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_guards_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts", "target": "stoptask_stoptaskerror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L10", "weight": 1.0}, {"source": "stoptask_stoptaskerror", "target": "stoptask_stoptaskerror_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts", "target": "stoptask_stoptask", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L38", "weight": 1.0}], "raw_calls": [{"caller_nid": "stoptask_stoptaskerror_constructor", "callee": "super", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L15"}, {"caller_nid": "stoptask_stoptask", "callee": "getAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L43"}, {"caller_nid": "stoptask_stoptask", "callee": "getTaskByType", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L57"}, {"caller_nid": "stoptask_stoptask", "callee": "kill", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L65"}, {"caller_nid": "stoptask_stoptask", "callee": "isLocalShellTask", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L70"}, {"caller_nid": "stoptask_stoptask", "callee": "setAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L72"}, {"caller_nid": "stoptask_stoptask", "callee": "emitTaskTerminatedSdk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L90"}, {"caller_nid": "stoptask_stoptask", "callee": "isLocalShellTask", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts", "source_location": "L97"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts",
+      "label": "stopTask.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "stoptask_stoptaskerror",
+      "label": "StopTaskError",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "stoptask_stoptaskerror_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L11"
+    },
+    {
+      "id": "stoptask_stoptask",
+      "label": "stopTask()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L38"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_task_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tasks_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sdkeventqueue_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tasks_localshelltask_guards_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts",
+      "target": "stoptask_stoptaskerror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "stoptask_stoptaskerror",
+      "target": "stoptask_stoptaskerror_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tasks_stoptask_ts",
+      "target": "stoptask_stoptask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "stoptask_stoptaskerror_constructor",
+      "callee": "super",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L15"
+    },
+    {
+      "caller_nid": "stoptask_stoptask",
+      "callee": "getAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "stoptask_stoptask",
+      "callee": "getTaskByType",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "stoptask_stoptask",
+      "callee": "kill",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "stoptask_stoptask",
+      "callee": "isLocalShellTask",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "stoptask_stoptask",
+      "callee": "setAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "stoptask_stoptask",
+      "callee": "emitTaskTerminatedSdk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "stoptask_stoptask",
+      "callee": "isLocalShellTask",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tasks\\stopTask.ts",
+      "source_location": "L97"
+    }
+  ]
+}

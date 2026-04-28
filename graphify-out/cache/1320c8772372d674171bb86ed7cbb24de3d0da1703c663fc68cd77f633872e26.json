@@ -1,1 +1,55 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_focus_ts", "label": "use-terminal-focus.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-focus.ts", "source_location": "L1"}, {"id": "use_terminal_focus_useterminalfocus", "label": "useTerminalFocus()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-focus.ts", "source_location": "L13"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_focus_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-focus.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_focus_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_components_terminalfocuscontext_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-focus.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_focus_ts", "target": "use_terminal_focus_useterminalfocus", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-focus.ts", "source_location": "L13", "weight": 1.0}], "raw_calls": [{"caller_nid": "use_terminal_focus_useterminalfocus", "callee": "useContext", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-focus.ts", "source_location": "L14"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_focus_ts",
+      "label": "use-terminal-focus.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-focus.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "use_terminal_focus_useterminalfocus",
+      "label": "useTerminalFocus()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-focus.ts",
+      "source_location": "L13"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_focus_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-focus.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_focus_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_components_terminalfocuscontext_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-focus.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_terminal_focus_ts",
+      "target": "use_terminal_focus_useterminalfocus",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-focus.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "use_terminal_focus_useterminalfocus",
+      "callee": "useContext",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-terminal-focus.ts",
+      "source_location": "L14"
+    }
+  ]
+}

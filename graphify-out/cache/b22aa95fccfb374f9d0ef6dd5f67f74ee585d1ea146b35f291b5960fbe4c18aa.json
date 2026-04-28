@@ -1,1 +1,1298 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "label": "collapseReadSearch.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L1"}, {"id": "collapsereadsearch_getfilepathfromtoolinput", "label": "getFilePathFromToolInput()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L71"}, {"id": "collapsereadsearch_ismemorysearch", "label": "isMemorySearch()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L81"}, {"id": "collapsereadsearch_ismemorywriteoredit", "label": "isMemoryWriteOrEdit()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L109"}, {"id": "collapsereadsearch_commandashint", "label": "commandAsHint()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L125"}, {"id": "collapsereadsearch_gettoolsearchorreadinfo", "label": "getToolSearchOrReadInfo()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L143"}, {"id": "collapsereadsearch_getsearchorreadfromcontent", "label": "getSearchOrReadFromContent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L244"}, {"id": "collapsereadsearch_istoolsearchorread", "label": "isToolSearchOrRead()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L278"}, {"id": "collapsereadsearch_getcollapsibletoolinfo", "label": "getCollapsibleToolInfo()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L290"}, {"id": "collapsereadsearch_istextbreaker", "label": "isTextBreaker()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L331"}, {"id": "collapsereadsearch_isnoncollapsibletooluse", "label": "isNonCollapsibleToolUse()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L345"}, {"id": "collapsereadsearch_ispretoolhooksummary", "label": "isPreToolHookSummary()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L370"}, {"id": "collapsereadsearch_shouldskipmessage", "label": "shouldSkipMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L384"}, {"id": "collapsereadsearch_iscollapsibletooluse", "label": "isCollapsibleToolUse()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L406"}, {"id": "collapsereadsearch_iscollapsibletoolresult", "label": "isCollapsibleToolResult()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L431"}, {"id": "collapsereadsearch_gettooluseidsfrommessage", "label": "getToolUseIdsFromMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L452"}, {"id": "collapsereadsearch_gettooluseidsfromcollapsedgroup", "label": "getToolUseIdsFromCollapsedGroup()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L473"}, {"id": "collapsereadsearch_hasanytoolinprogress", "label": "hasAnyToolInProgress()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L486"}, {"id": "collapsereadsearch_getdisplaymessagefromcollapsed", "label": "getDisplayMessageFromCollapsed()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L500"}, {"id": "collapsereadsearch_counttooluses", "label": "countToolUses()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L513"}, {"id": "collapsereadsearch_getfilepathsfromreadmessage", "label": "getFilePathsFromReadMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L524"}, {"id": "collapsereadsearch_scanbashresultforgitops", "label": "scanBashResultForGitOps()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L555"}, {"id": "collapsereadsearch_createemptygroup", "label": "createEmptyGroup()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L625"}, {"id": "collapsereadsearch_createcollapsedgroup", "label": "createCollapsedGroup()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L661"}, {"id": "collapsereadsearch_collapsereadsearchgroups", "label": "collapseReadSearchGroups()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L762"}, {"id": "collapsereadsearch_getsearchreadsummarytext", "label": "getSearchReadSummaryText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L961"}, {"id": "collapsereadsearch_summarizerecentactivities", "label": "summarizeRecentActivities()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L1074"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commentlabel_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_toolname_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_fileedittool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_filewritetool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_repltool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_repltool_primitivetools_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_shared_gitoperationtracking_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_toolsearchtool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "f_storage_platform_claude_code_source_main_src_types_message_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_file_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fullscreen_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_getfilepathfromtoolinput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L71", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_ismemorysearch", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L81", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_ismemorywriteoredit", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L109", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_commandashint", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L125", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_gettoolsearchorreadinfo", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L143", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_getsearchorreadfromcontent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L244", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_istoolsearchorread", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L278", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_getcollapsibletoolinfo", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L290", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_istextbreaker", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L331", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_isnoncollapsibletooluse", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L345", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_ispretoolhooksummary", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L370", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_shouldskipmessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L384", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_iscollapsibletooluse", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L406", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_iscollapsibletoolresult", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L431", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_gettooluseidsfrommessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L452", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_gettooluseidsfromcollapsedgroup", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L473", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_hasanytoolinprogress", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L486", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_getdisplaymessagefromcollapsed", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L500", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_counttooluses", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L513", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_getfilepathsfromreadmessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L524", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_scanbashresultforgitops", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L555", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_createemptygroup", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L625", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_createcollapsedgroup", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L661", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_collapsereadsearchgroups", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L762", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_getsearchreadsummarytext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L961", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts", "target": "collapsereadsearch_summarizerecentactivities", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L1074", "weight": 1.0}, {"source": "collapsereadsearch_ismemorywriteoredit", "target": "collapsereadsearch_getfilepathfromtoolinput", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L113", "weight": 1.0}, {"source": "collapsereadsearch_gettoolsearchorreadinfo", "target": "collapsereadsearch_ismemorywriteoredit", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L165", "weight": 1.0}, {"source": "collapsereadsearch_getsearchorreadfromcontent", "target": "collapsereadsearch_gettoolsearchorreadinfo", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L258", "weight": 1.0}, {"source": "collapsereadsearch_istoolsearchorread", "target": "collapsereadsearch_gettoolsearchorreadinfo", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L283", "weight": 1.0}, {"source": "collapsereadsearch_getcollapsibletoolinfo", "target": "collapsereadsearch_getsearchorreadfromcontent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L307", "weight": 1.0}, {"source": "collapsereadsearch_isnoncollapsibletooluse", "target": "collapsereadsearch_istoolsearchorread", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L353", "weight": 1.0}, {"source": "collapsereadsearch_iscollapsibletooluse", "target": "collapsereadsearch_istoolsearchorread", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L414", "weight": 1.0}, {"source": "collapsereadsearch_gettooluseidsfromcollapsedgroup", "target": "collapsereadsearch_gettooluseidsfrommessage", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L478", "weight": 1.0}, {"source": "collapsereadsearch_hasanytoolinprogress", "target": "collapsereadsearch_gettooluseidsfromcollapsedgroup", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L490", "weight": 1.0}, {"source": "collapsereadsearch_collapsereadsearchgroups", "target": "collapsereadsearch_createemptygroup", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L767", "weight": 1.0}, {"source": "collapsereadsearch_collapsereadsearchgroups", "target": "collapsereadsearch_iscollapsibletooluse", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L783", "weight": 1.0}, {"source": "collapsereadsearch_collapsereadsearchgroups", "target": "collapsereadsearch_getcollapsibletoolinfo", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L785", "weight": 1.0}, {"source": "collapsereadsearch_collapsereadsearchgroups", "target": "collapsereadsearch_counttooluses", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L789", "weight": 1.0}, {"source": "collapsereadsearch_collapsereadsearchgroups", "target": "collapsereadsearch_commandashint", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L824", "weight": 1.0}, {"source": "collapsereadsearch_collapsereadsearchgroups", "target": "collapsereadsearch_gettooluseidsfrommessage", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L827", "weight": 1.0}, {"source": "collapsereadsearch_collapsereadsearchgroups", "target": "collapsereadsearch_ismemorysearch", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L850", "weight": 1.0}, {"source": "collapsereadsearch_collapsereadsearchgroups", "target": "collapsereadsearch_getfilepathsfromreadmessage", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L862", "weight": 1.0}, {"source": "collapsereadsearch_collapsereadsearchgroups", "target": "collapsereadsearch_iscollapsibletoolresult", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L891", "weight": 1.0}, {"source": "collapsereadsearch_collapsereadsearchgroups", "target": "collapsereadsearch_scanbashresultforgitops", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L895", "weight": 1.0}, {"source": "collapsereadsearch_collapsereadsearchgroups", "target": "collapsereadsearch_ispretoolhooksummary", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L897", "weight": 1.0}, {"source": "collapsereadsearch_collapsereadsearchgroups", "target": "collapsereadsearch_shouldskipmessage", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L918", "weight": 1.0}, {"source": "collapsereadsearch_collapsereadsearchgroups", "target": "collapsereadsearch_istextbreaker", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L933", "weight": 1.0}, {"source": "collapsereadsearch_collapsereadsearchgroups", "target": "collapsereadsearch_isnoncollapsibletooluse", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L937", "weight": 1.0}, {"source": "collapsereadsearch_summarizerecentactivities", "target": "collapsereadsearch_getsearchreadsummarytext", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L1099", "weight": 1.0}], "raw_calls": [{"caller_nid": "collapsereadsearch_ismemorysearch", "callee": "isAutoManagedMemoryFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L90"}, {"caller_nid": "collapsereadsearch_ismemorysearch", "callee": "isMemoryDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L90"}, {"caller_nid": "collapsereadsearch_ismemorysearch", "callee": "isAutoManagedMemoryPattern", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L95"}, {"caller_nid": "collapsereadsearch_ismemorysearch", "callee": "isShellCommandTargetingMemory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L100"}, {"caller_nid": "collapsereadsearch_ismemorywriteoredit", "callee": "isAutoManagedMemoryFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L114"}, {"caller_nid": "collapsereadsearch_commandashint", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L128"}, {"caller_nid": "collapsereadsearch_commandashint", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L128"}, {"caller_nid": "collapsereadsearch_commandashint", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L128"}, {"caller_nid": "collapsereadsearch_commandashint", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L128"}, {"caller_nid": "collapsereadsearch_commandashint", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L134"}, {"caller_nid": "collapsereadsearch_gettoolsearchorreadinfo", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L181"}, {"caller_nid": "collapsereadsearch_gettoolsearchorreadinfo", "callee": "isFullscreenEnvEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L182"}, {"caller_nid": "collapsereadsearch_gettoolsearchorreadinfo", "callee": "findToolByName", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L200"}, {"caller_nid": "collapsereadsearch_gettoolsearchorreadinfo", "callee": "findToolByName", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L201"}, {"caller_nid": "collapsereadsearch_gettoolsearchorreadinfo", "callee": "getReplPrimitiveTools", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L201"}, {"caller_nid": "collapsereadsearch_gettoolsearchorreadinfo", "callee": "isSearchOrReadCommand", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L216"}, {"caller_nid": "collapsereadsearch_gettoolsearchorreadinfo", "callee": "isFullscreenEnvEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L226"}, {"caller_nid": "collapsereadsearch_gettoolsearchorreadinfo", "callee": "isFullscreenEnvEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L234"}, {"caller_nid": "collapsereadsearch_istextbreaker", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L334"}, {"caller_nid": "collapsereadsearch_iscollapsibletoolresult", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L436"}, {"caller_nid": "collapsereadsearch_iscollapsibletoolresult", "callee": "every", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L443"}, {"caller_nid": "collapsereadsearch_gettooluseidsfrommessage", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L460"}, {"caller_nid": "collapsereadsearch_gettooluseidsfrommessage", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L460"}, {"caller_nid": "collapsereadsearch_gettooluseidsfromcollapsedgroup", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L478"}, {"caller_nid": "collapsereadsearch_hasanytoolinprogress", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L490"}, {"caller_nid": "collapsereadsearch_getfilepathsfromreadmessage", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L532"}, {"caller_nid": "collapsereadsearch_getfilepathsfromreadmessage", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L541"}, {"caller_nid": "collapsereadsearch_scanbashresultforgitops", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L568"}, {"caller_nid": "collapsereadsearch_scanbashresultforgitops", "callee": "detectGitOperation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L570"}, {"caller_nid": "collapsereadsearch_scanbashresultforgitops", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L571"}, {"caller_nid": "collapsereadsearch_scanbashresultforgitops", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L572"}, {"caller_nid": "collapsereadsearch_scanbashresultforgitops", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L573"}, {"caller_nid": "collapsereadsearch_scanbashresultforgitops", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L574"}, {"caller_nid": "collapsereadsearch_createemptygroup", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L642"}, {"caller_nid": "collapsereadsearch_createemptygroup", "callee": "isFullscreenEnvEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L649"}, {"caller_nid": "collapsereadsearch_createcollapsedgroup", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L681"}, {"caller_nid": "collapsereadsearch_createcollapsedgroup", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L684"}, {"caller_nid": "collapsereadsearch_createcollapsedgroup", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L688"}, {"caller_nid": "collapsereadsearch_createcollapsedgroup", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L691"}, {"caller_nid": "collapsereadsearch_createcollapsedgroup", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L694"}, {"caller_nid": "collapsereadsearch_createcollapsedgroup", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L700"}, {"caller_nid": "collapsereadsearch_createcollapsedgroup", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L704"}, {"caller_nid": "collapsereadsearch_createcollapsedgroup", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L724"}, {"caller_nid": "collapsereadsearch_createcollapsedgroup", "callee": "isFullscreenEnvEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L733"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L791"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "isTeamMemoryWriteOrEdit", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L792"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L808"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "isFullscreenEnvEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L813"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "extractBashCommentLabel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L823"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L828"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L845"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "isTeamMemorySearch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L846"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L856"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L864"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L865"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "isTeamMemFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L865"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L866"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "isAutoManagedMemoryFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L867"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L868"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "getDisplayPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L871"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L887"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L890"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L892"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "isFullscreenEnvEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L894"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "reduce", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L902"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L903"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L917"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L929"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L931"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "flushGroup", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L935"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L936"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "flushGroup", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L939"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L940"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "flushGroup", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L943"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L944"}, {"caller_nid": "collapsereadsearch_collapsereadsearchgroups", "callee": "flushGroup", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L948"}, {"caller_nid": "collapsereadsearch_getsearchreadsummarytext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L990"}, {"caller_nid": "collapsereadsearch_getsearchreadsummarytext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L1002"}, {"caller_nid": "collapsereadsearch_getsearchreadsummarytext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L1012"}, {"caller_nid": "collapsereadsearch_getsearchreadsummarytext", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L1017"}, {"caller_nid": "collapsereadsearch_getsearchreadsummarytext", "callee": "appendTeamMemorySummaryParts", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L1018"}, {"caller_nid": "collapsereadsearch_getsearchreadsummarytext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L1030"}, {"caller_nid": "collapsereadsearch_getsearchreadsummarytext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L1043"}, {"caller_nid": "collapsereadsearch_getsearchreadsummarytext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L1054"}, {"caller_nid": "collapsereadsearch_getsearchreadsummarytext", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L1061"}, {"caller_nid": "collapsereadsearch_getsearchreadsummarytext", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts", "source_location": "L1064"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "label": "collapseReadSearch.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "collapsereadsearch_getfilepathfromtoolinput",
+      "label": "getFilePathFromToolInput()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L71"
+    },
+    {
+      "id": "collapsereadsearch_ismemorysearch",
+      "label": "isMemorySearch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L81"
+    },
+    {
+      "id": "collapsereadsearch_ismemorywriteoredit",
+      "label": "isMemoryWriteOrEdit()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L109"
+    },
+    {
+      "id": "collapsereadsearch_commandashint",
+      "label": "commandAsHint()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L125"
+    },
+    {
+      "id": "collapsereadsearch_gettoolsearchorreadinfo",
+      "label": "getToolSearchOrReadInfo()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L143"
+    },
+    {
+      "id": "collapsereadsearch_getsearchorreadfromcontent",
+      "label": "getSearchOrReadFromContent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L244"
+    },
+    {
+      "id": "collapsereadsearch_istoolsearchorread",
+      "label": "isToolSearchOrRead()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L278"
+    },
+    {
+      "id": "collapsereadsearch_getcollapsibletoolinfo",
+      "label": "getCollapsibleToolInfo()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L290"
+    },
+    {
+      "id": "collapsereadsearch_istextbreaker",
+      "label": "isTextBreaker()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L331"
+    },
+    {
+      "id": "collapsereadsearch_isnoncollapsibletooluse",
+      "label": "isNonCollapsibleToolUse()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L345"
+    },
+    {
+      "id": "collapsereadsearch_ispretoolhooksummary",
+      "label": "isPreToolHookSummary()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L370"
+    },
+    {
+      "id": "collapsereadsearch_shouldskipmessage",
+      "label": "shouldSkipMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L384"
+    },
+    {
+      "id": "collapsereadsearch_iscollapsibletooluse",
+      "label": "isCollapsibleToolUse()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L406"
+    },
+    {
+      "id": "collapsereadsearch_iscollapsibletoolresult",
+      "label": "isCollapsibleToolResult()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L431"
+    },
+    {
+      "id": "collapsereadsearch_gettooluseidsfrommessage",
+      "label": "getToolUseIdsFromMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L452"
+    },
+    {
+      "id": "collapsereadsearch_gettooluseidsfromcollapsedgroup",
+      "label": "getToolUseIdsFromCollapsedGroup()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L473"
+    },
+    {
+      "id": "collapsereadsearch_hasanytoolinprogress",
+      "label": "hasAnyToolInProgress()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L486"
+    },
+    {
+      "id": "collapsereadsearch_getdisplaymessagefromcollapsed",
+      "label": "getDisplayMessageFromCollapsed()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L500"
+    },
+    {
+      "id": "collapsereadsearch_counttooluses",
+      "label": "countToolUses()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L513"
+    },
+    {
+      "id": "collapsereadsearch_getfilepathsfromreadmessage",
+      "label": "getFilePathsFromReadMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L524"
+    },
+    {
+      "id": "collapsereadsearch_scanbashresultforgitops",
+      "label": "scanBashResultForGitOps()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L555"
+    },
+    {
+      "id": "collapsereadsearch_createemptygroup",
+      "label": "createEmptyGroup()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L625"
+    },
+    {
+      "id": "collapsereadsearch_createcollapsedgroup",
+      "label": "createCollapsedGroup()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L661"
+    },
+    {
+      "id": "collapsereadsearch_collapsereadsearchgroups",
+      "label": "collapseReadSearchGroups()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L762"
+    },
+    {
+      "id": "collapsereadsearch_getsearchreadsummarytext",
+      "label": "getSearchReadSummaryText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L961"
+    },
+    {
+      "id": "collapsereadsearch_summarizerecentactivities",
+      "label": "summarizeRecentActivities()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L1074"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_commentlabel_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_toolname_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_fileedittool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_filewritetool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_repltool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_repltool_primitivetools_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_shared_gitoperationtracking_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_toolsearchtool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_file_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fullscreen_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_getfilepathfromtoolinput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_ismemorysearch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_ismemorywriteoredit",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_commandashint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_gettoolsearchorreadinfo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L143",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_getsearchorreadfromcontent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L244",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_istoolsearchorread",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L278",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_getcollapsibletoolinfo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L290",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_istextbreaker",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L331",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_isnoncollapsibletooluse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L345",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_ispretoolhooksummary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L370",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_shouldskipmessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L384",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_iscollapsibletooluse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L406",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_iscollapsibletoolresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L431",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_gettooluseidsfrommessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L452",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_gettooluseidsfromcollapsedgroup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L473",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_hasanytoolinprogress",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L486",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_getdisplaymessagefromcollapsed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L500",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_counttooluses",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L513",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_getfilepathsfromreadmessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L524",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_scanbashresultforgitops",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L555",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_createemptygroup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L625",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_createcollapsedgroup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L661",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_collapsereadsearchgroups",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L762",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_getsearchreadsummarytext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L961",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_collapsereadsearch_ts",
+      "target": "collapsereadsearch_summarizerecentactivities",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L1074",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_ismemorywriteoredit",
+      "target": "collapsereadsearch_getfilepathfromtoolinput",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_gettoolsearchorreadinfo",
+      "target": "collapsereadsearch_ismemorywriteoredit",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L165",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_getsearchorreadfromcontent",
+      "target": "collapsereadsearch_gettoolsearchorreadinfo",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L258",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_istoolsearchorread",
+      "target": "collapsereadsearch_gettoolsearchorreadinfo",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L283",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_getcollapsibletoolinfo",
+      "target": "collapsereadsearch_getsearchorreadfromcontent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L307",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_isnoncollapsibletooluse",
+      "target": "collapsereadsearch_istoolsearchorread",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L353",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_iscollapsibletooluse",
+      "target": "collapsereadsearch_istoolsearchorread",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L414",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_gettooluseidsfromcollapsedgroup",
+      "target": "collapsereadsearch_gettooluseidsfrommessage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L478",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_hasanytoolinprogress",
+      "target": "collapsereadsearch_gettooluseidsfromcollapsedgroup",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L490",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_collapsereadsearchgroups",
+      "target": "collapsereadsearch_createemptygroup",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L767",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_collapsereadsearchgroups",
+      "target": "collapsereadsearch_iscollapsibletooluse",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L783",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_collapsereadsearchgroups",
+      "target": "collapsereadsearch_getcollapsibletoolinfo",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L785",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_collapsereadsearchgroups",
+      "target": "collapsereadsearch_counttooluses",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L789",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_collapsereadsearchgroups",
+      "target": "collapsereadsearch_commandashint",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L824",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_collapsereadsearchgroups",
+      "target": "collapsereadsearch_gettooluseidsfrommessage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L827",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_collapsereadsearchgroups",
+      "target": "collapsereadsearch_ismemorysearch",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L850",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_collapsereadsearchgroups",
+      "target": "collapsereadsearch_getfilepathsfromreadmessage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L862",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_collapsereadsearchgroups",
+      "target": "collapsereadsearch_iscollapsibletoolresult",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L891",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_collapsereadsearchgroups",
+      "target": "collapsereadsearch_scanbashresultforgitops",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L895",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_collapsereadsearchgroups",
+      "target": "collapsereadsearch_ispretoolhooksummary",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L897",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_collapsereadsearchgroups",
+      "target": "collapsereadsearch_shouldskipmessage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L918",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_collapsereadsearchgroups",
+      "target": "collapsereadsearch_istextbreaker",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L933",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_collapsereadsearchgroups",
+      "target": "collapsereadsearch_isnoncollapsibletooluse",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L937",
+      "weight": 1.0
+    },
+    {
+      "source": "collapsereadsearch_summarizerecentactivities",
+      "target": "collapsereadsearch_getsearchreadsummarytext",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L1099",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "collapsereadsearch_ismemorysearch",
+      "callee": "isAutoManagedMemoryFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "collapsereadsearch_ismemorysearch",
+      "callee": "isMemoryDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "collapsereadsearch_ismemorysearch",
+      "callee": "isAutoManagedMemoryPattern",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "collapsereadsearch_ismemorysearch",
+      "callee": "isShellCommandTargetingMemory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "collapsereadsearch_ismemorywriteoredit",
+      "callee": "isAutoManagedMemoryFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "collapsereadsearch_commandashint",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "collapsereadsearch_commandashint",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "collapsereadsearch_commandashint",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "collapsereadsearch_commandashint",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "collapsereadsearch_commandashint",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "collapsereadsearch_gettoolsearchorreadinfo",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L181"
+    },
+    {
+      "caller_nid": "collapsereadsearch_gettoolsearchorreadinfo",
+      "callee": "isFullscreenEnvEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L182"
+    },
+    {
+      "caller_nid": "collapsereadsearch_gettoolsearchorreadinfo",
+      "callee": "findToolByName",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "collapsereadsearch_gettoolsearchorreadinfo",
+      "callee": "findToolByName",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L201"
+    },
+    {
+      "caller_nid": "collapsereadsearch_gettoolsearchorreadinfo",
+      "callee": "getReplPrimitiveTools",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L201"
+    },
+    {
+      "caller_nid": "collapsereadsearch_gettoolsearchorreadinfo",
+      "callee": "isSearchOrReadCommand",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L216"
+    },
+    {
+      "caller_nid": "collapsereadsearch_gettoolsearchorreadinfo",
+      "callee": "isFullscreenEnvEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L226"
+    },
+    {
+      "caller_nid": "collapsereadsearch_gettoolsearchorreadinfo",
+      "callee": "isFullscreenEnvEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L234"
+    },
+    {
+      "caller_nid": "collapsereadsearch_istextbreaker",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L334"
+    },
+    {
+      "caller_nid": "collapsereadsearch_iscollapsibletoolresult",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L436"
+    },
+    {
+      "caller_nid": "collapsereadsearch_iscollapsibletoolresult",
+      "callee": "every",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L443"
+    },
+    {
+      "caller_nid": "collapsereadsearch_gettooluseidsfrommessage",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L460"
+    },
+    {
+      "caller_nid": "collapsereadsearch_gettooluseidsfrommessage",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L460"
+    },
+    {
+      "caller_nid": "collapsereadsearch_gettooluseidsfromcollapsedgroup",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L478"
+    },
+    {
+      "caller_nid": "collapsereadsearch_hasanytoolinprogress",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L490"
+    },
+    {
+      "caller_nid": "collapsereadsearch_getfilepathsfromreadmessage",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L532"
+    },
+    {
+      "caller_nid": "collapsereadsearch_getfilepathsfromreadmessage",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L541"
+    },
+    {
+      "caller_nid": "collapsereadsearch_scanbashresultforgitops",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L568"
+    },
+    {
+      "caller_nid": "collapsereadsearch_scanbashresultforgitops",
+      "callee": "detectGitOperation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L570"
+    },
+    {
+      "caller_nid": "collapsereadsearch_scanbashresultforgitops",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L571"
+    },
+    {
+      "caller_nid": "collapsereadsearch_scanbashresultforgitops",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L572"
+    },
+    {
+      "caller_nid": "collapsereadsearch_scanbashresultforgitops",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L573"
+    },
+    {
+      "caller_nid": "collapsereadsearch_scanbashresultforgitops",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L574"
+    },
+    {
+      "caller_nid": "collapsereadsearch_createemptygroup",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L642"
+    },
+    {
+      "caller_nid": "collapsereadsearch_createemptygroup",
+      "callee": "isFullscreenEnvEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L649"
+    },
+    {
+      "caller_nid": "collapsereadsearch_createcollapsedgroup",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L681"
+    },
+    {
+      "caller_nid": "collapsereadsearch_createcollapsedgroup",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L684"
+    },
+    {
+      "caller_nid": "collapsereadsearch_createcollapsedgroup",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L688"
+    },
+    {
+      "caller_nid": "collapsereadsearch_createcollapsedgroup",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L691"
+    },
+    {
+      "caller_nid": "collapsereadsearch_createcollapsedgroup",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L694"
+    },
+    {
+      "caller_nid": "collapsereadsearch_createcollapsedgroup",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L700"
+    },
+    {
+      "caller_nid": "collapsereadsearch_createcollapsedgroup",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L704"
+    },
+    {
+      "caller_nid": "collapsereadsearch_createcollapsedgroup",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L724"
+    },
+    {
+      "caller_nid": "collapsereadsearch_createcollapsedgroup",
+      "callee": "isFullscreenEnvEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L733"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L791"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "isTeamMemoryWriteOrEdit",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L792"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L808"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "isFullscreenEnvEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L813"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "extractBashCommentLabel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L823"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L828"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L845"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "isTeamMemorySearch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L846"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L856"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L864"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L865"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "isTeamMemFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L865"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L866"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "isAutoManagedMemoryFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L867"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L868"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "getDisplayPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L871"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L887"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L890"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L892"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "isFullscreenEnvEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L894"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "reduce",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L902"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L903"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L917"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L929"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L931"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "flushGroup",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L935"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L936"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "flushGroup",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L939"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L940"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "flushGroup",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L943"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L944"
+    },
+    {
+      "caller_nid": "collapsereadsearch_collapsereadsearchgroups",
+      "callee": "flushGroup",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L948"
+    },
+    {
+      "caller_nid": "collapsereadsearch_getsearchreadsummarytext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L990"
+    },
+    {
+      "caller_nid": "collapsereadsearch_getsearchreadsummarytext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L1002"
+    },
+    {
+      "caller_nid": "collapsereadsearch_getsearchreadsummarytext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L1012"
+    },
+    {
+      "caller_nid": "collapsereadsearch_getsearchreadsummarytext",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L1017"
+    },
+    {
+      "caller_nid": "collapsereadsearch_getsearchreadsummarytext",
+      "callee": "appendTeamMemorySummaryParts",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L1018"
+    },
+    {
+      "caller_nid": "collapsereadsearch_getsearchreadsummarytext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L1030"
+    },
+    {
+      "caller_nid": "collapsereadsearch_getsearchreadsummarytext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L1043"
+    },
+    {
+      "caller_nid": "collapsereadsearch_getsearchreadsummarytext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L1054"
+    },
+    {
+      "caller_nid": "collapsereadsearch_getsearchreadsummarytext",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L1061"
+    },
+    {
+      "caller_nid": "collapsereadsearch_getsearchreadsummarytext",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\collapseReadSearch.ts",
+      "source_location": "L1064"
+    }
+  ]
+}

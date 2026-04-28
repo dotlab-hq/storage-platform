@@ -61,8 +61,7 @@ export const useStorageStore = create<StorageState>((set) => ({
       const idSet = new Set(ids)
       return { items: state.items.filter((i) => !idSet.has(i.id)) }
     }),
-  prependItem: (item) =>
-    set((state) => ({ items: [item, ...state.items] })),
+  prependItem: (item) => set((state) => ({ items: [item, ...state.items] })),
   setFolders: (folders) => set({ folders }),
   appendFolders: (newFolders) =>
     set((state) => {

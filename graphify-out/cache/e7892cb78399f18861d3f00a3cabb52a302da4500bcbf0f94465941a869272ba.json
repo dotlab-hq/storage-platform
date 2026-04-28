@@ -1,1 +1,76 @@
-{"nodes": [{"id": "f_storage_platform_src_hooks_use_quota_ts", "label": "use-quota.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts", "source_location": "L1"}, {"id": "use_quota_usequota", "label": "useQuota()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts", "source_location": "L5"}], "edges": [{"source": "f_storage_platform_src_hooks_use_quota_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_quota_ts", "target": "quota", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_quota_ts", "target": "storage", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_quota_ts", "target": "use_quota_usequota", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts", "source_location": "L5", "weight": 1.0}], "raw_calls": [{"caller_nid": "use_quota_usequota", "callee": "useState", "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts", "source_location": "L6"}, {"caller_nid": "use_quota_usequota", "callee": "useCallback", "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts", "source_location": "L8"}, {"caller_nid": "use_quota_usequota", "callee": "useEffect", "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts", "source_location": "L17"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_hooks_use_quota_ts",
+      "label": "use-quota.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "use_quota_usequota",
+      "label": "useQuota()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts",
+      "source_location": "L5"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_hooks_use_quota_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_quota_ts",
+      "target": "quota",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_quota_ts",
+      "target": "storage",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_quota_ts",
+      "target": "use_quota_usequota",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "use_quota_usequota",
+      "callee": "useState",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts",
+      "source_location": "L6"
+    },
+    {
+      "caller_nid": "use_quota_usequota",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts",
+      "source_location": "L8"
+    },
+    {
+      "caller_nid": "use_quota_usequota",
+      "callee": "useEffect",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-quota.ts",
+      "source_location": "L17"
+    }
+  ]
+}

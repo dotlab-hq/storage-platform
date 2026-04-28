@@ -1,1 +1,97 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_keybindings_shortcutformat_ts", "label": "shortcutFormat.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts", "source_location": "L1"}, {"id": "shortcutformat_getshortcutdisplay", "label": "getShortcutDisplay()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts", "source_location": "L38"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_keybindings_shortcutformat_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_shortcutformat_ts", "target": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_shortcutformat_ts", "target": "f_storage_platform_claude_code_source_main_src_keybindings_resolver_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_shortcutformat_ts", "target": "f_storage_platform_claude_code_source_main_src_keybindings_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_shortcutformat_ts", "target": "shortcutformat_getshortcutdisplay", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts", "source_location": "L38", "weight": 1.0}], "raw_calls": [{"caller_nid": "shortcutformat_getshortcutdisplay", "callee": "loadKeybindingsSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts", "source_location": "L43"}, {"caller_nid": "shortcutformat_getshortcutdisplay", "callee": "getBindingDisplayText", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts", "source_location": "L44"}, {"caller_nid": "shortcutformat_getshortcutdisplay", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts", "source_location": "L47"}, {"caller_nid": "shortcutformat_getshortcutdisplay", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts", "source_location": "L48"}, {"caller_nid": "shortcutformat_getshortcutdisplay", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts", "source_location": "L49"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_keybindings_shortcutformat_ts",
+      "label": "shortcutFormat.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "shortcutformat_getshortcutdisplay",
+      "label": "getShortcutDisplay()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts",
+      "source_location": "L38"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_shortcutformat_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_shortcutformat_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_shortcutformat_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_resolver_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_shortcutformat_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_shortcutformat_ts",
+      "target": "shortcutformat_getshortcutdisplay",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "shortcutformat_getshortcutdisplay",
+      "callee": "loadKeybindingsSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "shortcutformat_getshortcutdisplay",
+      "callee": "getBindingDisplayText",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "shortcutformat_getshortcutdisplay",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "shortcutformat_getshortcutdisplay",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "shortcutformat_getshortcutdisplay",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\shortcutFormat.ts",
+      "source_location": "L49"
+    }
+  ]
+}

@@ -1,1 +1,145 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "label": "oauth.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L1"}, {"id": "oauth_getoauthconfigtype", "label": "getOauthConfigType()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L6"}, {"id": "oauth_filesuffixforoauthconfig", "label": "fileSuffixForOauthConfig()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L18"}, {"id": "oauth_getlocaloauthconfig", "label": "getLocalOauthConfig()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L148"}, {"id": "oauth_getoauthconfig", "label": "getOauthConfig()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L186"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "target": "envutils_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "target": "oauth_getoauthconfigtype", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "target": "oauth_filesuffixforoauthconfig", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "target": "oauth_getlocaloauthconfig", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L148", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "target": "oauth_getoauthconfig", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L186", "weight": 1.0}, {"source": "oauth_filesuffixforoauthconfig", "target": "oauth_getoauthconfigtype", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L22", "weight": 1.0}], "raw_calls": [{"caller_nid": "oauth_getoauthconfigtype", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L8"}, {"caller_nid": "oauth_getoauthconfigtype", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L11"}, {"caller_nid": "oauth_getlocaloauthconfig", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L150"}, {"caller_nid": "oauth_getlocaloauthconfig", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L153"}, {"caller_nid": "oauth_getlocaloauthconfig", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L156"}, {"caller_nid": "oauth_getoauthconfig", "callee": "(() => {\n    switch (getOauthConfigType()) {\n      case 'local':\n        return getLocalOauthConfig()\n      case 'staging':\n        return STAGING_OAUTH_CONFIG ?? PROD_OAUTH_CONFIG\n      case 'prod':\n        return PROD_OAUTH_CONFIG\n    }\n  })", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L187"}, {"caller_nid": "oauth_getoauthconfig", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L202"}, {"caller_nid": "oauth_getoauthconfig", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts", "source_location": "L203"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "label": "oauth.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "oauth_getoauthconfigtype",
+      "label": "getOauthConfigType()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L6"
+    },
+    {
+      "id": "oauth_filesuffixforoauthconfig",
+      "label": "fileSuffixForOauthConfig()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L18"
+    },
+    {
+      "id": "oauth_getlocaloauthconfig",
+      "label": "getLocalOauthConfig()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L148"
+    },
+    {
+      "id": "oauth_getoauthconfig",
+      "label": "getOauthConfig()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L186"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "target": "envutils_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "target": "oauth_getoauthconfigtype",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "target": "oauth_filesuffixforoauthconfig",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "target": "oauth_getlocaloauthconfig",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "target": "oauth_getoauthconfig",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L186",
+      "weight": 1.0
+    },
+    {
+      "source": "oauth_filesuffixforoauthconfig",
+      "target": "oauth_getoauthconfigtype",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "oauth_getoauthconfigtype",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L8"
+    },
+    {
+      "caller_nid": "oauth_getoauthconfigtype",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L11"
+    },
+    {
+      "caller_nid": "oauth_getlocaloauthconfig",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "oauth_getlocaloauthconfig",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L153"
+    },
+    {
+      "caller_nid": "oauth_getlocaloauthconfig",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "oauth_getoauthconfig",
+      "callee": "(() => {\n    switch (getOauthConfigType()) {\n      case 'local':\n        return getLocalOauthConfig()\n      case 'staging':\n        return STAGING_OAUTH_CONFIG ?? PROD_OAUTH_CONFIG\n      case 'prod':\n        return PROD_OAUTH_CONFIG\n    }\n  })",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L187"
+    },
+    {
+      "caller_nid": "oauth_getoauthconfig",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "oauth_getoauthconfig",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\oauth.ts",
+      "source_location": "L203"
+    }
+  ]
+}

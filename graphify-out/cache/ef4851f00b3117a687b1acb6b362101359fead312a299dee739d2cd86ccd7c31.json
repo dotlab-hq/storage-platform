@@ -1,1 +1,296 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts", "label": "voiceStreamSTT.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L1"}, {"id": "voicestreamstt_isvoicestreamavailable", "label": "isVoiceStreamAvailable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L98"}, {"id": "voicestreamstt_connectvoicestream", "label": "connectVoiceStream()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L111"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts", "target": "http", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts", "target": "ws", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_http_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_mtls_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts", "target": "voicestreamstt_isvoicestreamavailable", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L98", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts", "target": "voicestreamstt_connectvoicestream", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L111", "weight": 1.0}], "raw_calls": [{"caller_nid": "voicestreamstt_isvoicestreamavailable", "callee": "isAnthropicAuthEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L102"}, {"caller_nid": "voicestreamstt_isvoicestreamavailable", "callee": "getClaudeAIOAuthTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L105"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "checkAndRefreshOAuthTokenIfNeeded", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L116"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "getClaudeAIOAuthTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L118"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L120"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L134"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L134"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L134"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L139"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L157"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L162"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L163"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L164"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "append", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L171"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L175"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L177"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "getUserAgent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L181"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "getWebSocketTLSOptions", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L185"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "getWebSocketProxyUrl", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L190"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "getWebSocketProxyAgent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L193"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L322"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L357"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L463"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L511"}, {"caller_nid": "voicestreamstt_connectvoicestream", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts", "source_location": "L535"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts",
+      "label": "voiceStreamSTT.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "voicestreamstt_isvoicestreamavailable",
+      "label": "isVoiceStreamAvailable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L98"
+    },
+    {
+      "id": "voicestreamstt_connectvoicestream",
+      "label": "connectVoiceStream()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L111"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts",
+      "target": "http",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts",
+      "target": "ws",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_http_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_mtls_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts",
+      "target": "voicestreamstt_isvoicestreamavailable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_voicestreamstt_ts",
+      "target": "voicestreamstt_connectvoicestream",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L111",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "voicestreamstt_isvoicestreamavailable",
+      "callee": "isAnthropicAuthEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "voicestreamstt_isvoicestreamavailable",
+      "callee": "getClaudeAIOAuthTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "checkAndRefreshOAuthTokenIfNeeded",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "getClaudeAIOAuthTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L157"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L163"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "append",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L171"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L177"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "getUserAgent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L181"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "getWebSocketTLSOptions",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "getWebSocketProxyUrl",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L190"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "getWebSocketProxyAgent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L193"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L322"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L357"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L463"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L511"
+    },
+    {
+      "caller_nid": "voicestreamstt_connectvoicestream",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\voiceStreamSTT.ts",
+      "source_location": "L535"
+    }
+  ]
+}

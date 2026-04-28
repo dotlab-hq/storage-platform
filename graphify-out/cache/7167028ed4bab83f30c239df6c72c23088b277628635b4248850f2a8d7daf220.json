@@ -1,1 +1,46 @@
-{"nodes": [{"id": "f_storage_platform_src_utils_doc_loaders_web_loader_ts", "label": "web.loader.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\utils\\doc-loaders\\web.loader.ts", "source_location": "L1"}, {"id": "web_loader_webloader", "label": "webLoader()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\utils\\doc-loaders\\web.loader.ts", "source_location": "L3"}], "edges": [{"source": "f_storage_platform_src_utils_doc_loaders_web_loader_ts", "target": "puppeteer", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\utils\\doc-loaders\\web.loader.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_utils_doc_loaders_web_loader_ts", "target": "web_loader_webloader", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\utils\\doc-loaders\\web.loader.ts", "source_location": "L3", "weight": 1.0}], "raw_calls": [{"caller_nid": "web_loader_webloader", "callee": "load", "source_file": "F:\\storage-platform\\src\\utils\\doc-loaders\\web.loader.ts", "source_location": "L13"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_utils_doc_loaders_web_loader_ts",
+      "label": "web.loader.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\utils\\doc-loaders\\web.loader.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "web_loader_webloader",
+      "label": "webLoader()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\utils\\doc-loaders\\web.loader.ts",
+      "source_location": "L3"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_utils_doc_loaders_web_loader_ts",
+      "target": "puppeteer",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\utils\\doc-loaders\\web.loader.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_utils_doc_loaders_web_loader_ts",
+      "target": "web_loader_webloader",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\utils\\doc-loaders\\web.loader.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "web_loader_webloader",
+      "callee": "load",
+      "source_file": "F:\\storage-platform\\src\\utils\\doc-loaders\\web.loader.ts",
+      "source_location": "L13"
+    }
+  ]
+}

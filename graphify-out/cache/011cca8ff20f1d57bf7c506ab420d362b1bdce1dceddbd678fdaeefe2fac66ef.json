@@ -1,1 +1,113 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_api_auth_ts", "label": "$.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts", "source_location": "L1"}, {"id": "createserviceunavailableresponse", "label": "createServiceUnavailableResponse()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts", "source_location": "L9"}, {"id": "handleauthrequest", "label": "handleAuthRequest()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts", "source_location": "L19"}], "edges": [{"source": "f_storage_platform_src_routes_api_auth_ts", "target": "react_router", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_auth_ts", "target": "react_start", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_auth_ts", "target": "auth_loader", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_auth_ts", "target": "createserviceunavailableresponse", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_auth_ts", "target": "handleauthrequest", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts", "source_location": "L19", "weight": 1.0}, {"source": "handleauthrequest", "target": "createserviceunavailableresponse", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts", "source_location": "L39", "weight": 1.0}], "raw_calls": [{"caller_nid": "createserviceunavailableresponse", "callee": "json", "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts", "source_location": "L10"}, {"caller_nid": "handleauthrequest", "callee": "loadAuth", "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts", "source_location": "L21"}, {"caller_nid": "handleauthrequest", "callee": "race", "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts", "source_location": "L22"}, {"caller_nid": "handleauthrequest", "callee": "handler", "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts", "source_location": "L23"}, {"caller_nid": "handleauthrequest", "callee": "error", "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts", "source_location": "L36"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_api_auth_ts",
+      "label": "$.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "createserviceunavailableresponse",
+      "label": "createServiceUnavailableResponse()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts",
+      "source_location": "L9"
+    },
+    {
+      "id": "handleauthrequest",
+      "label": "handleAuthRequest()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts",
+      "source_location": "L19"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_api_auth_ts",
+      "target": "react_router",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_auth_ts",
+      "target": "react_start",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_auth_ts",
+      "target": "auth_loader",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_auth_ts",
+      "target": "createserviceunavailableresponse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_auth_ts",
+      "target": "handleauthrequest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "handleauthrequest",
+      "target": "createserviceunavailableresponse",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "createserviceunavailableresponse",
+      "callee": "json",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts",
+      "source_location": "L10"
+    },
+    {
+      "caller_nid": "handleauthrequest",
+      "callee": "loadAuth",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "handleauthrequest",
+      "callee": "race",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "handleauthrequest",
+      "callee": "handler",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "handleauthrequest",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\auth\\$.ts",
+      "source_location": "L36"
+    }
+  ]
+}

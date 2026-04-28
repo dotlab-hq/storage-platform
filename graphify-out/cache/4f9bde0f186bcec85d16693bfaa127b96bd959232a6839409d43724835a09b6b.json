@@ -1,1 +1,61 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_github_ghauthstatus_ts", "label": "ghAuthStatus.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\github\\ghAuthStatus.ts", "source_location": "L1"}, {"id": "ghauthstatus_getghauthstatus", "label": "getGhAuthStatus()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\github\\ghAuthStatus.ts", "source_location": "L17"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_github_ghauthstatus_ts", "target": "execa", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\github\\ghAuthStatus.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_github_ghauthstatus_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_which_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\github\\ghAuthStatus.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_github_ghauthstatus_ts", "target": "ghauthstatus_getghauthstatus", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\github\\ghAuthStatus.ts", "source_location": "L17", "weight": 1.0}], "raw_calls": [{"caller_nid": "ghauthstatus_getghauthstatus", "callee": "which", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\github\\ghAuthStatus.ts", "source_location": "L18"}, {"caller_nid": "ghauthstatus_getghauthstatus", "callee": "execa", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\github\\ghAuthStatus.ts", "source_location": "L22"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_github_ghauthstatus_ts",
+      "label": "ghAuthStatus.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\github\\ghAuthStatus.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "ghauthstatus_getghauthstatus",
+      "label": "getGhAuthStatus()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\github\\ghAuthStatus.ts",
+      "source_location": "L17"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_github_ghauthstatus_ts",
+      "target": "execa",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\github\\ghAuthStatus.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_github_ghauthstatus_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_which_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\github\\ghAuthStatus.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_github_ghauthstatus_ts",
+      "target": "ghauthstatus_getghauthstatus",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\github\\ghAuthStatus.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "ghauthstatus_getghauthstatus",
+      "callee": "which",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\github\\ghAuthStatus.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "ghauthstatus_getghauthstatus",
+      "callee": "execa",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\github\\ghAuthStatus.ts",
+      "source_location": "L22"
+    }
+  ]
+}

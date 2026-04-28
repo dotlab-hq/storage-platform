@@ -1,1 +1,313 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts", "label": "directConnectManager.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L1"}, {"id": "directconnectmanager_isstdoutmessage", "label": "isStdoutMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L31"}, {"id": "directconnectmanager_directconnectsessionmanager", "label": "DirectConnectSessionManager", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L40"}, {"id": "directconnectmanager_directconnectsessionmanager_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L45"}, {"id": "directconnectmanager_directconnectsessionmanager_connect", "label": ".connect()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L50"}, {"id": "directconnectmanager_directconnectsessionmanager_sendmessage", "label": ".sendMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L125"}, {"id": "directconnectmanager_directconnectsessionmanager_respondtopermissionrequest", "label": ".respondToPermissionRequest()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L144"}, {"id": "directconnectmanager_directconnectsessionmanager_sendinterrupt", "label": ".sendInterrupt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L172"}, {"id": "directconnectmanager_directconnectsessionmanager_senderrorresponse", "label": ".sendErrorResponse()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L188"}, {"id": "directconnectmanager_directconnectsessionmanager_disconnect", "label": ".disconnect()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L203"}, {"id": "directconnectmanager_directconnectsessionmanager_isconnected", "label": ".isConnected()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L210"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_entrypoints_agentsdktypes_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_entrypoints_sdk_controltypes_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_remote_remotesessionmanager_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_api_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts", "target": "directconnectmanager_isstdoutmessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts", "target": "directconnectmanager_directconnectsessionmanager", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L40", "weight": 1.0}, {"source": "directconnectmanager_directconnectsessionmanager", "target": "directconnectmanager_directconnectsessionmanager_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L45", "weight": 1.0}, {"source": "directconnectmanager_directconnectsessionmanager", "target": "directconnectmanager_directconnectsessionmanager_connect", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L50", "weight": 1.0}, {"source": "directconnectmanager_directconnectsessionmanager", "target": "directconnectmanager_directconnectsessionmanager_sendmessage", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L125", "weight": 1.0}, {"source": "directconnectmanager_directconnectsessionmanager", "target": "directconnectmanager_directconnectsessionmanager_respondtopermissionrequest", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L144", "weight": 1.0}, {"source": "directconnectmanager_directconnectsessionmanager", "target": "directconnectmanager_directconnectsessionmanager_sendinterrupt", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L172", "weight": 1.0}, {"source": "directconnectmanager_directconnectsessionmanager", "target": "directconnectmanager_directconnectsessionmanager_senderrorresponse", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L188", "weight": 1.0}, {"source": "directconnectmanager_directconnectsessionmanager", "target": "directconnectmanager_directconnectsessionmanager_disconnect", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L203", "weight": 1.0}, {"source": "directconnectmanager_directconnectsessionmanager", "target": "directconnectmanager_directconnectsessionmanager_isconnected", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L210", "weight": 1.0}], "raw_calls": [{"caller_nid": "directconnectmanager_directconnectsessionmanager_connect", "callee": "addEventListener", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L60"}, {"caller_nid": "directconnectmanager_directconnectsessionmanager_connect", "callee": "addEventListener", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L64"}, {"caller_nid": "directconnectmanager_directconnectsessionmanager_connect", "callee": "addEventListener", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L116"}, {"caller_nid": "directconnectmanager_directconnectsessionmanager_connect", "callee": "addEventListener", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L120"}, {"caller_nid": "directconnectmanager_directconnectsessionmanager_sendmessage", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L131"}, {"caller_nid": "directconnectmanager_directconnectsessionmanager_sendmessage", "callee": "send", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L140"}, {"caller_nid": "directconnectmanager_directconnectsessionmanager_respondtopermissionrequest", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L153"}, {"caller_nid": "directconnectmanager_directconnectsessionmanager_respondtopermissionrequest", "callee": "send", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L166"}, {"caller_nid": "directconnectmanager_directconnectsessionmanager_sendinterrupt", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L178"}, {"caller_nid": "directconnectmanager_directconnectsessionmanager_sendinterrupt", "callee": "randomUUID", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L180"}, {"caller_nid": "directconnectmanager_directconnectsessionmanager_sendinterrupt", "callee": "send", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L185"}, {"caller_nid": "directconnectmanager_directconnectsessionmanager_senderrorresponse", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L192"}, {"caller_nid": "directconnectmanager_directconnectsessionmanager_senderrorresponse", "callee": "send", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L200"}, {"caller_nid": "directconnectmanager_directconnectsessionmanager_disconnect", "callee": "close", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts", "source_location": "L205"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts",
+      "label": "directConnectManager.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "directconnectmanager_isstdoutmessage",
+      "label": "isStdoutMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L31"
+    },
+    {
+      "id": "directconnectmanager_directconnectsessionmanager",
+      "label": "DirectConnectSessionManager",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L40"
+    },
+    {
+      "id": "directconnectmanager_directconnectsessionmanager_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L45"
+    },
+    {
+      "id": "directconnectmanager_directconnectsessionmanager_connect",
+      "label": ".connect()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L50"
+    },
+    {
+      "id": "directconnectmanager_directconnectsessionmanager_sendmessage",
+      "label": ".sendMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L125"
+    },
+    {
+      "id": "directconnectmanager_directconnectsessionmanager_respondtopermissionrequest",
+      "label": ".respondToPermissionRequest()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L144"
+    },
+    {
+      "id": "directconnectmanager_directconnectsessionmanager_sendinterrupt",
+      "label": ".sendInterrupt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L172"
+    },
+    {
+      "id": "directconnectmanager_directconnectsessionmanager_senderrorresponse",
+      "label": ".sendErrorResponse()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L188"
+    },
+    {
+      "id": "directconnectmanager_directconnectsessionmanager_disconnect",
+      "label": ".disconnect()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L203"
+    },
+    {
+      "id": "directconnectmanager_directconnectsessionmanager_isconnected",
+      "label": ".isConnected()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L210"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_entrypoints_agentsdktypes_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_entrypoints_sdk_controltypes_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_remote_remotesessionmanager_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_api_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts",
+      "target": "directconnectmanager_isstdoutmessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_server_directconnectmanager_ts",
+      "target": "directconnectmanager_directconnectsessionmanager",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "directconnectmanager_directconnectsessionmanager",
+      "target": "directconnectmanager_directconnectsessionmanager_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "directconnectmanager_directconnectsessionmanager",
+      "target": "directconnectmanager_directconnectsessionmanager_connect",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "directconnectmanager_directconnectsessionmanager",
+      "target": "directconnectmanager_directconnectsessionmanager_sendmessage",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "directconnectmanager_directconnectsessionmanager",
+      "target": "directconnectmanager_directconnectsessionmanager_respondtopermissionrequest",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "directconnectmanager_directconnectsessionmanager",
+      "target": "directconnectmanager_directconnectsessionmanager_sendinterrupt",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L172",
+      "weight": 1.0
+    },
+    {
+      "source": "directconnectmanager_directconnectsessionmanager",
+      "target": "directconnectmanager_directconnectsessionmanager_senderrorresponse",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L188",
+      "weight": 1.0
+    },
+    {
+      "source": "directconnectmanager_directconnectsessionmanager",
+      "target": "directconnectmanager_directconnectsessionmanager_disconnect",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L203",
+      "weight": 1.0
+    },
+    {
+      "source": "directconnectmanager_directconnectsessionmanager",
+      "target": "directconnectmanager_directconnectsessionmanager_isconnected",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L210",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "directconnectmanager_directconnectsessionmanager_connect",
+      "callee": "addEventListener",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "directconnectmanager_directconnectsessionmanager_connect",
+      "callee": "addEventListener",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "directconnectmanager_directconnectsessionmanager_connect",
+      "callee": "addEventListener",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "directconnectmanager_directconnectsessionmanager_connect",
+      "callee": "addEventListener",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "directconnectmanager_directconnectsessionmanager_sendmessage",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "directconnectmanager_directconnectsessionmanager_sendmessage",
+      "callee": "send",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L140"
+    },
+    {
+      "caller_nid": "directconnectmanager_directconnectsessionmanager_respondtopermissionrequest",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L153"
+    },
+    {
+      "caller_nid": "directconnectmanager_directconnectsessionmanager_respondtopermissionrequest",
+      "callee": "send",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L166"
+    },
+    {
+      "caller_nid": "directconnectmanager_directconnectsessionmanager_sendinterrupt",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "directconnectmanager_directconnectsessionmanager_sendinterrupt",
+      "callee": "randomUUID",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L180"
+    },
+    {
+      "caller_nid": "directconnectmanager_directconnectsessionmanager_sendinterrupt",
+      "callee": "send",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "directconnectmanager_directconnectsessionmanager_senderrorresponse",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "directconnectmanager_directconnectsessionmanager_senderrorresponse",
+      "callee": "send",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "directconnectmanager_directconnectsessionmanager_disconnect",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\server\\directConnectManager.ts",
+      "source_location": "L205"
+    }
+  ]
+}

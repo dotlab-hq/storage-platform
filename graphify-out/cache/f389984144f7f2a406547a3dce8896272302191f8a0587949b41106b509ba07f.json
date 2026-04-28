@@ -1,1 +1,181 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts", "label": "rateLimitMocking.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L1"}, {"id": "ratelimitmocking_processratelimitheaders", "label": "processRateLimitHeaders()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L19"}, {"id": "ratelimitmocking_shouldprocessratelimits", "label": "shouldProcessRateLimits()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L32"}, {"id": "ratelimitmocking_checkmockratelimiterror", "label": "checkMockRateLimitError()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L42"}, {"id": "ratelimitmocking_ismockratelimiterror", "label": "isMockRateLimitError()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L137"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts", "target": "sdk", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mockratelimits_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts", "target": "ratelimitmocking_processratelimitheaders", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts", "target": "ratelimitmocking_shouldprocessratelimits", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts", "target": "ratelimitmocking_checkmockratelimiterror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts", "target": "ratelimitmocking_ismockratelimiterror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L137", "weight": 1.0}], "raw_calls": [{"caller_nid": "ratelimitmocking_processratelimitheaders", "callee": "shouldProcessMockLimits", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L23"}, {"caller_nid": "ratelimitmocking_processratelimitheaders", "callee": "applyMockHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L24"}, {"caller_nid": "ratelimitmocking_shouldprocessratelimits", "callee": "shouldProcessMockLimits", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L33"}, {"caller_nid": "ratelimitmocking_checkmockratelimiterror", "callee": "shouldProcessMockLimits", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L46"}, {"caller_nid": "ratelimitmocking_checkmockratelimiterror", "callee": "getMockHeaderless429Message", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L50"}, {"caller_nid": "ratelimitmocking_checkmockratelimiterror", "callee": "getMockHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L61"}, {"caller_nid": "ratelimitmocking_checkmockratelimiterror", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L81"}, {"caller_nid": "ratelimitmocking_checkmockratelimiterror", "callee": "isMockFastModeRateLimitScenario", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L90"}, {"caller_nid": "ratelimitmocking_checkmockratelimiterror", "callee": "checkMockFastModeRateLimit", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L91"}, {"caller_nid": "ratelimitmocking_checkmockratelimiterror", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L102"}, {"caller_nid": "ratelimitmocking_checkmockratelimiterror", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L102"}, {"caller_nid": "ratelimitmocking_checkmockratelimiterror", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L122"}, {"caller_nid": "ratelimitmocking_checkmockratelimiterror", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L122"}, {"caller_nid": "ratelimitmocking_ismockratelimiterror", "callee": "shouldProcessMockLimits", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts", "source_location": "L138"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts",
+      "label": "rateLimitMocking.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "ratelimitmocking_processratelimitheaders",
+      "label": "processRateLimitHeaders()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L19"
+    },
+    {
+      "id": "ratelimitmocking_shouldprocessratelimits",
+      "label": "shouldProcessRateLimits()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "ratelimitmocking_checkmockratelimiterror",
+      "label": "checkMockRateLimitError()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L42"
+    },
+    {
+      "id": "ratelimitmocking_ismockratelimiterror",
+      "label": "isMockRateLimitError()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L137"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts",
+      "target": "sdk",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mockratelimits_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts",
+      "target": "ratelimitmocking_processratelimitheaders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts",
+      "target": "ratelimitmocking_shouldprocessratelimits",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts",
+      "target": "ratelimitmocking_checkmockratelimiterror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_ratelimitmocking_ts",
+      "target": "ratelimitmocking_ismockratelimiterror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L137",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "ratelimitmocking_processratelimitheaders",
+      "callee": "shouldProcessMockLimits",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "ratelimitmocking_processratelimitheaders",
+      "callee": "applyMockHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L24"
+    },
+    {
+      "caller_nid": "ratelimitmocking_shouldprocessratelimits",
+      "callee": "shouldProcessMockLimits",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "ratelimitmocking_checkmockratelimiterror",
+      "callee": "shouldProcessMockLimits",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "ratelimitmocking_checkmockratelimiterror",
+      "callee": "getMockHeaderless429Message",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "ratelimitmocking_checkmockratelimiterror",
+      "callee": "getMockHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "ratelimitmocking_checkmockratelimiterror",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "ratelimitmocking_checkmockratelimiterror",
+      "callee": "isMockFastModeRateLimitScenario",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "ratelimitmocking_checkmockratelimiterror",
+      "callee": "checkMockFastModeRateLimit",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L91"
+    },
+    {
+      "caller_nid": "ratelimitmocking_checkmockratelimiterror",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "ratelimitmocking_checkmockratelimiterror",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "ratelimitmocking_checkmockratelimiterror",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "ratelimitmocking_checkmockratelimiterror",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "ratelimitmocking_ismockratelimiterror",
+      "callee": "shouldProcessMockLimits",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\rateLimitMocking.ts",
+      "source_location": "L138"
+    }
+  ]
+}

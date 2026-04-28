@@ -1,1 +1,342 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "label": "framework.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L1"}, {"id": "framework_updatetaskstate", "label": "updateTaskState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L48"}, {"id": "framework_registertask", "label": "registerTask()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L77"}, {"id": "framework_evictterminaltask", "label": "evictTerminalTask()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L125"}, {"id": "framework_getrunningtasks", "label": "getRunningTasks()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L149"}, {"id": "framework_generatetaskattachments", "label": "generateTaskAttachments()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L158"}, {"id": "framework_applytaskoffsetsandevictions", "label": "applyTaskOffsetsAndEvictions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L213"}, {"id": "framework_polltasks", "label": "pollTasks()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L255"}, {"id": "framework_enqueuetasknotification", "label": "enqueueTaskNotification()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L274"}, {"id": "framework_getstatustext", "label": "getStatusText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L295"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_xml_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "f_storage_platform_claude_code_source_main_src_task_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "f_storage_platform_claude_code_source_main_src_tasks_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sdkeventqueue_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_task_diskoutput_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "framework_updatetaskstate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L48", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "framework_registertask", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L77", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "framework_evictterminaltask", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L125", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "framework_getrunningtasks", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L149", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "framework_generatetaskattachments", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L158", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "framework_applytaskoffsetsandevictions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L213", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "framework_polltasks", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L255", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "framework_enqueuetasknotification", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L274", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts", "target": "framework_getstatustext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L295", "weight": 1.0}, {"source": "framework_polltasks", "target": "framework_generatetaskattachments", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L261", "weight": 1.0}, {"source": "framework_polltasks", "target": "framework_applytaskoffsetsandevictions", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L263", "weight": 1.0}, {"source": "framework_polltasks", "target": "framework_enqueuetasknotification", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L267", "weight": 1.0}, {"source": "framework_enqueuetasknotification", "target": "framework_getstatustext", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L275", "weight": 1.0}], "raw_calls": [{"caller_nid": "framework_updatetaskstate", "callee": "setAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L53"}, {"caller_nid": "framework_registertask", "callee": "setAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L79"}, {"caller_nid": "framework_registertask", "callee": "enqueueSdkEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L104"}, {"caller_nid": "framework_evictterminaltask", "callee": "setAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L129"}, {"caller_nid": "framework_getrunningtasks", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L151"}, {"caller_nid": "framework_getrunningtasks", "callee": "values", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L151"}, {"caller_nid": "framework_generatetaskattachments", "callee": "values", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L171"}, {"caller_nid": "framework_generatetaskattachments", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L178"}, {"caller_nid": "framework_generatetaskattachments", "callee": "getTaskOutputDelta", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L190"}, {"caller_nid": "framework_applytaskoffsetsandevictions", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L218"}, {"caller_nid": "framework_applytaskoffsetsandevictions", "callee": "setAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L222"}, {"caller_nid": "framework_polltasks", "callee": "getAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L259"}, {"caller_nid": "framework_enqueuetasknotification", "callee": "getTaskOutputPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L277"}, {"caller_nid": "framework_enqueuetasknotification", "callee": "enqueuePendingNotification", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts", "source_location": "L289"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "label": "framework.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "framework_updatetaskstate",
+      "label": "updateTaskState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L48"
+    },
+    {
+      "id": "framework_registertask",
+      "label": "registerTask()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L77"
+    },
+    {
+      "id": "framework_evictterminaltask",
+      "label": "evictTerminalTask()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L125"
+    },
+    {
+      "id": "framework_getrunningtasks",
+      "label": "getRunningTasks()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L149"
+    },
+    {
+      "id": "framework_generatetaskattachments",
+      "label": "generateTaskAttachments()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L158"
+    },
+    {
+      "id": "framework_applytaskoffsetsandevictions",
+      "label": "applyTaskOffsetsAndEvictions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L213"
+    },
+    {
+      "id": "framework_polltasks",
+      "label": "pollTasks()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L255"
+    },
+    {
+      "id": "framework_enqueuetasknotification",
+      "label": "enqueueTaskNotification()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L274"
+    },
+    {
+      "id": "framework_getstatustext",
+      "label": "getStatusText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L295"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_xml_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_task_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tasks_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messagequeuemanager_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sdkeventqueue_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_task_diskoutput_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "framework_updatetaskstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "framework_registertask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "framework_evictterminaltask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "framework_getrunningtasks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "framework_generatetaskattachments",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L158",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "framework_applytaskoffsetsandevictions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L213",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "framework_polltasks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L255",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "framework_enqueuetasknotification",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L274",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_framework_ts",
+      "target": "framework_getstatustext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L295",
+      "weight": 1.0
+    },
+    {
+      "source": "framework_polltasks",
+      "target": "framework_generatetaskattachments",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L261",
+      "weight": 1.0
+    },
+    {
+      "source": "framework_polltasks",
+      "target": "framework_applytaskoffsetsandevictions",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L263",
+      "weight": 1.0
+    },
+    {
+      "source": "framework_polltasks",
+      "target": "framework_enqueuetasknotification",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L267",
+      "weight": 1.0
+    },
+    {
+      "source": "framework_enqueuetasknotification",
+      "target": "framework_getstatustext",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L275",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "framework_updatetaskstate",
+      "callee": "setAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "framework_registertask",
+      "callee": "setAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "framework_registertask",
+      "callee": "enqueueSdkEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "framework_evictterminaltask",
+      "callee": "setAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "framework_getrunningtasks",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "framework_getrunningtasks",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "framework_generatetaskattachments",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L171"
+    },
+    {
+      "caller_nid": "framework_generatetaskattachments",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "framework_generatetaskattachments",
+      "callee": "getTaskOutputDelta",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L190"
+    },
+    {
+      "caller_nid": "framework_applytaskoffsetsandevictions",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "framework_applytaskoffsetsandevictions",
+      "callee": "setAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L222"
+    },
+    {
+      "caller_nid": "framework_polltasks",
+      "callee": "getAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L259"
+    },
+    {
+      "caller_nid": "framework_enqueuetasknotification",
+      "callee": "getTaskOutputPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L277"
+    },
+    {
+      "caller_nid": "framework_enqueuetasknotification",
+      "callee": "enqueuePendingNotification",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\framework.ts",
+      "source_location": "L289"
+    }
+  ]
+}

@@ -1,1 +1,178 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_commands_bridge_kick_ts", "label": "bridge-kick.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L1"}, {"id": "bridge_kick_call", "label": "call()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L51"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_commands_bridge_kick_ts", "target": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_bridge_kick_ts", "target": "f_storage_platform_claude_code_source_main_src_commands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_bridge_kick_ts", "target": "f_storage_platform_claude_code_source_main_src_types_command_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_bridge_kick_ts", "target": "bridge_kick_call", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L51", "weight": 1.0}], "raw_calls": [{"caller_nid": "bridge_kick_call", "callee": "getBridgeDebugHandle", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L52"}, {"caller_nid": "bridge_kick_call", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L61"}, {"caller_nid": "bridge_kick_call", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L61"}, {"caller_nid": "bridge_kick_call", "callee": "Number", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L65"}, {"caller_nid": "bridge_kick_call", "callee": "isFinite", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L66"}, {"caller_nid": "bridge_kick_call", "callee": "fireClose", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L69"}, {"caller_nid": "bridge_kick_call", "callee": "injectFault", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L78"}, {"caller_nid": "bridge_kick_call", "callee": "wakePollLoop", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L84"}, {"caller_nid": "bridge_kick_call", "callee": "Number", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L91"}, {"caller_nid": "bridge_kick_call", "callee": "isFinite", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L92"}, {"caller_nid": "bridge_kick_call", "callee": "injectFault", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L102"}, {"caller_nid": "bridge_kick_call", "callee": "wakePollLoop", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L109"}, {"caller_nid": "bridge_kick_call", "callee": "injectFault", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L118"}, {"caller_nid": "bridge_kick_call", "callee": "Number", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L131"}, {"caller_nid": "bridge_kick_call", "callee": "injectFault", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L132"}, {"caller_nid": "bridge_kick_call", "callee": "injectFault", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L145"}, {"caller_nid": "bridge_kick_call", "callee": "Number", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L160"}, {"caller_nid": "bridge_kick_call", "callee": "injectFault", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L161"}, {"caller_nid": "bridge_kick_call", "callee": "forceReconnect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L175"}, {"caller_nid": "bridge_kick_call", "callee": "describe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts", "source_location": "L183"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_commands_bridge_kick_ts",
+      "label": "bridge-kick.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "bridge_kick_call",
+      "label": "call()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L51"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_bridge_kick_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bridge_bridgedebug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_bridge_kick_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_commands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_bridge_kick_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_command_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_bridge_kick_ts",
+      "target": "bridge_kick_call",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L51",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "getBridgeDebugHandle",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "isFinite",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "fireClose",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "injectFault",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "wakePollLoop",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L91"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "isFinite",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "injectFault",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "wakePollLoop",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "injectFault",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "injectFault",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "injectFault",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L160"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "injectFault",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "forceReconnect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "bridge_kick_call",
+      "callee": "describe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\bridge-kick.ts",
+      "source_location": "L183"
+    }
+  ]
+}

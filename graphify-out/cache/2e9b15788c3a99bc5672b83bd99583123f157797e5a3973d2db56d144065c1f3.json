@@ -1,1 +1,58 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_compact_grouping_ts", "label": "grouping.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\grouping.ts", "source_location": "L1"}, {"id": "grouping_groupmessagesbyapiround", "label": "groupMessagesByApiRound()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\grouping.ts", "source_location": "L22"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_compact_grouping_ts", "target": "f_storage_platform_claude_code_source_main_src_types_message_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\grouping.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_grouping_ts", "target": "grouping_groupmessagesbyapiround", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\grouping.ts", "source_location": "L22", "weight": 1.0}], "raw_calls": [{"caller_nid": "grouping_groupmessagesbyapiround", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\grouping.ts", "source_location": "L49"}, {"caller_nid": "grouping_groupmessagesbyapiround", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\grouping.ts", "source_location": "L52"}, {"caller_nid": "grouping_groupmessagesbyapiround", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\grouping.ts", "source_location": "L60"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_compact_grouping_ts",
+      "label": "grouping.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\grouping.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "grouping_groupmessagesbyapiround",
+      "label": "groupMessagesByApiRound()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\grouping.ts",
+      "source_location": "L22"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_grouping_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\grouping.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_grouping_ts",
+      "target": "grouping_groupmessagesbyapiround",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\grouping.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "grouping_groupmessagesbyapiround",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\grouping.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "grouping_groupmessagesbyapiround",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\grouping.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "grouping_groupmessagesbyapiround",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\grouping.ts",
+      "source_location": "L60"
+    }
+  ]
+}

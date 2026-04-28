@@ -1,1 +1,266 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts", "label": "PluginInstallationManager.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L1"}, {"id": "plugininstallationmanager_updatemarketplacestatus", "label": "updateMarketplaceStatus()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L30"}, {"id": "plugininstallationmanager_performbackgroundplugininstallations", "label": "performBackgroundPluginInstallations()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L60"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacemanager_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginloader_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_reconciler_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_refresh_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts", "target": "plugininstallationmanager_updatemarketplacestatus", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts", "target": "plugininstallationmanager_performbackgroundplugininstallations", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L60", "weight": 1.0}], "raw_calls": [{"caller_nid": "plugininstallationmanager_updatemarketplacestatus", "callee": "setAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L36"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L63"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "getDeclaredMarketplaces", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L67"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L68"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "loadKnownMarketplacesConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L68"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "diffMarketplaces", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L69"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L73"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "setAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L79"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L97"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "reconcileMarketplaces", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L101"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L128"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "logForDiagnosticsNoPII", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L129"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "clearMarketplacesCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L141"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L142"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "refreshActivePlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L146"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L150"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L151"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "clearPluginCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L155"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "setAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L158"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "clearMarketplacesCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L169"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "clearPluginCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L170"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "setAppState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L173"}, {"caller_nid": "plugininstallationmanager_performbackgroundplugininstallations", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts", "source_location": "L182"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts",
+      "label": "PluginInstallationManager.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "plugininstallationmanager_updatemarketplacestatus",
+      "label": "updateMarketplaceStatus()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L30"
+    },
+    {
+      "id": "plugininstallationmanager_performbackgroundplugininstallations",
+      "label": "performBackgroundPluginInstallations()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L60"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacemanager_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginloader_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_reconciler_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_refresh_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts",
+      "target": "plugininstallationmanager_updatemarketplacestatus",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_plugins_plugininstallationmanager_ts",
+      "target": "plugininstallationmanager_performbackgroundplugininstallations",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L60",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "plugininstallationmanager_updatemarketplacestatus",
+      "callee": "setAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "getDeclaredMarketplaces",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "loadKnownMarketplacesConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "diffMarketplaces",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "setAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "reconcileMarketplaces",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "logForDiagnosticsNoPII",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "clearMarketplacesCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "refreshActivePlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "clearPluginCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L155"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "setAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "clearMarketplacesCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L169"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "clearPluginCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L170"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "setAppState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "plugininstallationmanager_performbackgroundplugininstallations",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\plugins\\PluginInstallationManager.ts",
+      "source_location": "L182"
+    }
+  ]
+}

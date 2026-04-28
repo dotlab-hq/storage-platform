@@ -1,1 +1,246 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts", "label": "outputsScanner.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L1"}, {"id": "outputsscanner_logdebug", "label": "logDebug()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L17"}, {"id": "outputsscanner_getenvironmentkind", "label": "getEnvironmentKind()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L25"}, {"id": "outputsscanner_hasparentpath", "label": "hasParentPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L33"}, {"id": "outputsscanner_haspath", "label": "hasPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L39"}, {"id": "outputsscanner_getentryparentpath", "label": "getEntryParentPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L43"}, {"id": "outputsscanner_findmodifiedfiles", "label": "findModifiedFiles()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L62"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_environments_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts", "target": "outputsscanner_logdebug", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts", "target": "outputsscanner_getenvironmentkind", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts", "target": "outputsscanner_hasparentpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L33", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts", "target": "outputsscanner_haspath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts", "target": "outputsscanner_getentryparentpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts", "target": "outputsscanner_findmodifiedfiles", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L62", "weight": 1.0}, {"source": "outputsscanner_getentryparentpath", "target": "outputsscanner_hasparentpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L44", "weight": 1.0}, {"source": "outputsscanner_getentryparentpath", "target": "outputsscanner_haspath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L47", "weight": 1.0}, {"source": "outputsscanner_findmodifiedfiles", "target": "outputsscanner_getentryparentpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L86", "weight": 1.0}, {"source": "outputsscanner_findmodifiedfiles", "target": "outputsscanner_logdebug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L92", "weight": 1.0}], "raw_calls": [{"caller_nid": "outputsscanner_logdebug", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L18"}, {"caller_nid": "outputsscanner_findmodifiedfiles", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L69"}, {"caller_nid": "outputsscanner_findmodifiedfiles", "callee": "isSymbolicLink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L81"}, {"caller_nid": "outputsscanner_findmodifiedfiles", "callee": "isFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L84"}, {"caller_nid": "outputsscanner_findmodifiedfiles", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L87"}, {"caller_nid": "outputsscanner_findmodifiedfiles", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L87"}, {"caller_nid": "outputsscanner_findmodifiedfiles", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L97"}, {"caller_nid": "outputsscanner_findmodifiedfiles", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L98"}, {"caller_nid": "outputsscanner_findmodifiedfiles", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts", "source_location": "L117"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts",
+      "label": "outputsScanner.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "outputsscanner_logdebug",
+      "label": "logDebug()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L17"
+    },
+    {
+      "id": "outputsscanner_getenvironmentkind",
+      "label": "getEnvironmentKind()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L25"
+    },
+    {
+      "id": "outputsscanner_hasparentpath",
+      "label": "hasParentPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L33"
+    },
+    {
+      "id": "outputsscanner_haspath",
+      "label": "hasPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L39"
+    },
+    {
+      "id": "outputsscanner_getentryparentpath",
+      "label": "getEntryParentPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "outputsscanner_findmodifiedfiles",
+      "label": "findModifiedFiles()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L62"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_environments_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts",
+      "target": "outputsscanner_logdebug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts",
+      "target": "outputsscanner_getenvironmentkind",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts",
+      "target": "outputsscanner_hasparentpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts",
+      "target": "outputsscanner_haspath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts",
+      "target": "outputsscanner_getentryparentpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts",
+      "target": "outputsscanner_findmodifiedfiles",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "outputsscanner_getentryparentpath",
+      "target": "outputsscanner_hasparentpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "outputsscanner_getentryparentpath",
+      "target": "outputsscanner_haspath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "outputsscanner_findmodifiedfiles",
+      "target": "outputsscanner_getentryparentpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "outputsscanner_findmodifiedfiles",
+      "target": "outputsscanner_logdebug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L92",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "outputsscanner_logdebug",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "outputsscanner_findmodifiedfiles",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "outputsscanner_findmodifiedfiles",
+      "callee": "isSymbolicLink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "outputsscanner_findmodifiedfiles",
+      "callee": "isFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "outputsscanner_findmodifiedfiles",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "outputsscanner_findmodifiedfiles",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "outputsscanner_findmodifiedfiles",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "outputsscanner_findmodifiedfiles",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L98"
+    },
+    {
+      "caller_nid": "outputsscanner_findmodifiedfiles",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\filePersistence\\outputsScanner.ts",
+      "source_location": "L117"
+    }
+  ]
+}

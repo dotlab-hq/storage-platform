@@ -1,1 +1,329 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_bash_heredoc_ts", "label": "heredoc.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L1"}, {"id": "heredoc_generateplaceholdersalt", "label": "generatePlaceholderSalt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L36"}, {"id": "heredoc_extractheredocs", "label": "extractHeredocs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L113"}, {"id": "heredoc_restoreheredocsinstring", "label": "restoreHeredocsInString()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L693"}, {"id": "heredoc_restoreheredocs", "label": "restoreHeredocs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L711"}, {"id": "heredoc_containsheredoc", "label": "containsHeredoc()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L731"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_bash_heredoc_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_heredoc_ts", "target": "heredoc_generateplaceholdersalt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L36", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_heredoc_ts", "target": "heredoc_extractheredocs", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L113", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_heredoc_ts", "target": "heredoc_restoreheredocsinstring", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L693", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_heredoc_ts", "target": "heredoc_restoreheredocs", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L711", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_heredoc_ts", "target": "heredoc_containsheredoc", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L731", "weight": 1.0}, {"source": "heredoc_extractheredocs", "target": "heredoc_generateplaceholdersalt", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L663", "weight": 1.0}], "raw_calls": [{"caller_nid": "heredoc_generateplaceholdersalt", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L38"}, {"caller_nid": "heredoc_generateplaceholdersalt", "callee": "randomBytes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L38"}, {"caller_nid": "heredoc_extractheredocs", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L120"}, {"caller_nid": "heredoc_extractheredocs", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L139"}, {"caller_nid": "heredoc_extractheredocs", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L147"}, {"caller_nid": "heredoc_extractheredocs", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L148"}, {"caller_nid": "heredoc_extractheredocs", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L148"}, {"caller_nid": "heredoc_extractheredocs", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L161"}, {"caller_nid": "heredoc_extractheredocs", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L163"}, {"caller_nid": "heredoc_extractheredocs", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L164"}, {"caller_nid": "heredoc_extractheredocs", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L277"}, {"caller_nid": "heredoc_extractheredocs", "callee": "advanceScan", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L284"}, {"caller_nid": "heredoc_extractheredocs", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L354"}, {"caller_nid": "heredoc_extractheredocs", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L372"}, {"caller_nid": "heredoc_extractheredocs", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L454"}, {"caller_nid": "heredoc_extractheredocs", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L474"}, {"caller_nid": "heredoc_extractheredocs", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L475"}, {"caller_nid": "heredoc_extractheredocs", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L487"}, {"caller_nid": "heredoc_extractheredocs", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L512"}, {"caller_nid": "heredoc_extractheredocs", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L515"}, {"caller_nid": "heredoc_extractheredocs", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L518"}, {"caller_nid": "heredoc_extractheredocs", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L544"}, {"caller_nid": "heredoc_extractheredocs", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L545"}, {"caller_nid": "heredoc_extractheredocs", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L548"}, {"caller_nid": "heredoc_extractheredocs", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L561"}, {"caller_nid": "heredoc_extractheredocs", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L562"}, {"caller_nid": "heredoc_extractheredocs", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L602"}, {"caller_nid": "heredoc_extractheredocs", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L603"}, {"caller_nid": "heredoc_extractheredocs", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L606"}, {"caller_nid": "heredoc_extractheredocs", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L624"}, {"caller_nid": "heredoc_extractheredocs", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L651"}, {"caller_nid": "heredoc_extractheredocs", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L659"}, {"caller_nid": "heredoc_extractheredocs", "callee": "forEach", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L666"}, {"caller_nid": "heredoc_restoreheredocsinstring", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L699"}, {"caller_nid": "heredoc_restoreheredocs", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L719"}, {"caller_nid": "heredoc_containsheredoc", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts", "source_location": "L732"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_bash_heredoc_ts",
+      "label": "heredoc.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "heredoc_generateplaceholdersalt",
+      "label": "generatePlaceholderSalt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L36"
+    },
+    {
+      "id": "heredoc_extractheredocs",
+      "label": "extractHeredocs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L113"
+    },
+    {
+      "id": "heredoc_restoreheredocsinstring",
+      "label": "restoreHeredocsInString()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L693"
+    },
+    {
+      "id": "heredoc_restoreheredocs",
+      "label": "restoreHeredocs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L711"
+    },
+    {
+      "id": "heredoc_containsheredoc",
+      "label": "containsHeredoc()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L731"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_heredoc_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_heredoc_ts",
+      "target": "heredoc_generateplaceholdersalt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_heredoc_ts",
+      "target": "heredoc_extractheredocs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_heredoc_ts",
+      "target": "heredoc_restoreheredocsinstring",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L693",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_heredoc_ts",
+      "target": "heredoc_restoreheredocs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L711",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_heredoc_ts",
+      "target": "heredoc_containsheredoc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L731",
+      "weight": 1.0
+    },
+    {
+      "source": "heredoc_extractheredocs",
+      "target": "heredoc_generateplaceholdersalt",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L663",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "heredoc_generateplaceholdersalt",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "heredoc_generateplaceholdersalt",
+      "callee": "randomBytes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L163"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L277"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "advanceScan",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L284"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L354"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L372"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L454"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L474"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L475"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L487"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L512"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L515"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L518"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L544"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L545"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L548"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L561"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L562"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L602"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L603"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L606"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L624"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L651"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L659"
+    },
+    {
+      "caller_nid": "heredoc_extractheredocs",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L666"
+    },
+    {
+      "caller_nid": "heredoc_restoreheredocsinstring",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L699"
+    },
+    {
+      "caller_nid": "heredoc_restoreheredocs",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L719"
+    },
+    {
+      "caller_nid": "heredoc_containsheredoc",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\heredoc.ts",
+      "source_location": "L732"
+    }
+  ]
+}

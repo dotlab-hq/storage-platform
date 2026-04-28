@@ -1,1 +1,128 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts", "label": "bridgeUI.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts", "source_location": "L1"}, {"id": "bridgeui_generateqr", "label": "generateQr()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts", "source_location": "L37"}, {"id": "bridgeui_createbridgelogger", "label": "createBridgeLogger()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts", "source_location": "L42"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts", "target": "chalk", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts", "target": "qrcode", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_figures_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_stringwidth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts", "target": "f_storage_platform_claude_code_source_main_src_bridge_bridgestatusutil_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts", "target": "f_storage_platform_claude_code_source_main_src_bridge_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts", "target": "bridgeui_generateqr", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts", "target": "bridgeui_createbridgelogger", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts", "source_location": "L42", "weight": 1.0}], "raw_calls": [{"caller_nid": "bridgeui_generateqr", "callee": "qrToString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts", "source_location": "L38"}, {"caller_nid": "bridgeui_generateqr", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts", "source_location": "L39"}, {"caller_nid": "bridgeui_generateqr", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts", "source_location": "L39"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts",
+      "label": "bridgeUI.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "bridgeui_generateqr",
+      "label": "generateQr()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts",
+      "source_location": "L37"
+    },
+    {
+      "id": "bridgeui_createbridgelogger",
+      "label": "createBridgeLogger()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts",
+      "source_location": "L42"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts",
+      "target": "chalk",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts",
+      "target": "qrcode",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_figures_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_stringwidth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bridge_bridgestatusutil_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bridge_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts",
+      "target": "bridgeui_generateqr",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_bridge_bridgeui_ts",
+      "target": "bridgeui_createbridgelogger",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "bridgeui_generateqr",
+      "callee": "qrToString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "bridgeui_generateqr",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "bridgeui_generateqr",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\bridge\\bridgeUI.ts",
+      "source_location": "L39"
+    }
+  ]
+}

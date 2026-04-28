@@ -1,1 +1,53 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_bundledmode_ts", "label": "bundledMode.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bundledMode.ts", "source_location": "L1"}, {"id": "bundledmode_isrunningwithbun", "label": "isRunningWithBun()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bundledMode.ts", "source_location": "L7"}, {"id": "bundledmode_isinbundledmode", "label": "isInBundledMode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bundledMode.ts", "source_location": "L16"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_bundledmode_ts", "target": "bundledmode_isrunningwithbun", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bundledMode.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bundledmode_ts", "target": "bundledmode_isinbundledmode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bundledMode.ts", "source_location": "L16", "weight": 1.0}], "raw_calls": [{"caller_nid": "bundledmode_isinbundledmode", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bundledMode.ts", "source_location": "L19"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_bundledmode_ts",
+      "label": "bundledMode.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bundledMode.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "bundledmode_isrunningwithbun",
+      "label": "isRunningWithBun()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bundledMode.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "bundledmode_isinbundledmode",
+      "label": "isInBundledMode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bundledMode.ts",
+      "source_location": "L16"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bundledmode_ts",
+      "target": "bundledmode_isrunningwithbun",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bundledMode.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bundledmode_ts",
+      "target": "bundledmode_isinbundledmode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bundledMode.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "bundledmode_isinbundledmode",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bundledMode.ts",
+      "source_location": "L19"
+    }
+  ]
+}

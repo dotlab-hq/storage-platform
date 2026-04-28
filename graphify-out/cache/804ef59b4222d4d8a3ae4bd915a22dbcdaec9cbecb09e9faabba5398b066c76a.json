@@ -1,1 +1,147 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts", "label": "s3-authz.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L1"}, {"id": "s3_authz_bucketarn", "label": "bucketArn()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L19"}, {"id": "s3_authz_objectarn", "label": "objectArn()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L23"}, {"id": "s3_authz_isactionallowed", "label": "isActionAllowed()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L27"}], "edges": [{"source": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts", "target": "s3_context", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts", "target": "s3_context", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts", "target": "s3_policy", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts", "target": "s3_acl", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts", "target": "s3_authz_bucketarn", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts", "target": "s3_authz_objectarn", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts", "target": "s3_authz_isactionallowed", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L27", "weight": 1.0}, {"source": "s3_authz_isactionallowed", "target": "s3_authz_objectarn", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L42", "weight": 1.0}, {"source": "s3_authz_isactionallowed", "target": "s3_authz_bucketarn", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L43", "weight": 1.0}], "raw_calls": [{"caller_nid": "s3_authz_isactionallowed", "callee": "accessKeyIdForBucket", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L38"}, {"caller_nid": "s3_authz_isactionallowed", "callee": "evaluateBucketPolicy", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L45"}, {"caller_nid": "s3_authz_isactionallowed", "callee": "isBucketPublicReadable", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L66"}, {"caller_nid": "s3_authz_isactionallowed", "callee": "isObjectPublicReadable", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L70"}, {"caller_nid": "s3_authz_isactionallowed", "callee": "isBucketPublicReadable", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts", "source_location": "L80"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts",
+      "label": "s3-authz.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "s3_authz_bucketarn",
+      "label": "bucketArn()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L19"
+    },
+    {
+      "id": "s3_authz_objectarn",
+      "label": "objectArn()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L23"
+    },
+    {
+      "id": "s3_authz_isactionallowed",
+      "label": "isActionAllowed()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L27"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts",
+      "target": "s3_context",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts",
+      "target": "s3_context",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts",
+      "target": "s3_policy",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts",
+      "target": "s3_acl",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts",
+      "target": "s3_authz_bucketarn",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts",
+      "target": "s3_authz_objectarn",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_authz_ts",
+      "target": "s3_authz_isactionallowed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "s3_authz_isactionallowed",
+      "target": "s3_authz_objectarn",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "s3_authz_isactionallowed",
+      "target": "s3_authz_bucketarn",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "s3_authz_isactionallowed",
+      "callee": "accessKeyIdForBucket",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "s3_authz_isactionallowed",
+      "callee": "evaluateBucketPolicy",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "s3_authz_isactionallowed",
+      "callee": "isBucketPublicReadable",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "s3_authz_isactionallowed",
+      "callee": "isObjectPublicReadable",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "s3_authz_isactionallowed",
+      "callee": "isBucketPublicReadable",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-authz.ts",
+      "source_location": "L80"
+    }
+  ]
+}

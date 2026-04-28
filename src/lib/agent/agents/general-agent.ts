@@ -17,7 +17,7 @@ export class GeneralAgent {
   }
 
   createNode() {
-    return createWorkerNode( this.name, this.getTools() )
+    return createWorkerNode(this.name, this.getTools())
   }
 }
 

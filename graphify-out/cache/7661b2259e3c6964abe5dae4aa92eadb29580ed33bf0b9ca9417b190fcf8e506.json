@@ -1,1 +1,287 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_s3_gateway_s3_request_ts", "label": "s3-request.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L1"}, {"id": "s3_request_parses3path", "label": "parseS3Path()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L13"}, {"id": "s3_request_hasmultipartcreateflag", "label": "hasMultipartCreateFlag()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L58"}, {"id": "s3_request_multipartuploadid", "label": "multipartUploadId()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L63"}, {"id": "s3_request_multipartpartnumber", "label": "multipartPartNumber()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L69"}, {"id": "s3_request_listprefix", "label": "listPrefix()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L82"}, {"id": "s3_request_listdelimiter", "label": "listDelimiter()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L87"}, {"id": "s3_request_listtypeisv2", "label": "listTypeIsV2()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L96"}, {"id": "s3_request_parsecopysource", "label": "parseCopySource()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L102"}], "edges": [{"source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts", "target": "s3_request_parses3path", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts", "target": "s3_request_hasmultipartcreateflag", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L58", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts", "target": "s3_request_multipartuploadid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L63", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts", "target": "s3_request_multipartpartnumber", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L69", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts", "target": "s3_request_listprefix", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L82", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts", "target": "s3_request_listdelimiter", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L87", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts", "target": "s3_request_listtypeisv2", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L96", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts", "target": "s3_request_parsecopysource", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L102", "weight": 1.0}], "raw_calls": [{"caller_nid": "s3_request_parses3path", "callee": "startsWith", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L24"}, {"caller_nid": "s3_request_parses3path", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L31"}, {"caller_nid": "s3_request_parses3path", "callee": "indexOf", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L39"}, {"caller_nid": "s3_request_parses3path", "callee": "decodeURIComponent", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L42"}, {"caller_nid": "s3_request_parses3path", "callee": "decodeURIComponent", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L47"}, {"caller_nid": "s3_request_parses3path", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L47"}, {"caller_nid": "s3_request_parses3path", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L48"}, {"caller_nid": "s3_request_parses3path", "callee": "decodeURIComponent", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L50"}, {"caller_nid": "s3_request_hasmultipartcreateflag", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L60"}, {"caller_nid": "s3_request_multipartuploadid", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L65"}, {"caller_nid": "s3_request_multipartpartnumber", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L71"}, {"caller_nid": "s3_request_multipartpartnumber", "callee": "Number", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L75"}, {"caller_nid": "s3_request_multipartpartnumber", "callee": "isInteger", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L76"}, {"caller_nid": "s3_request_listprefix", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L84"}, {"caller_nid": "s3_request_listdelimiter", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L89"}, {"caller_nid": "s3_request_listtypeisv2", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L98"}, {"caller_nid": "s3_request_parsecopysource", "callee": "split", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L103"}, {"caller_nid": "s3_request_parsecopysource", "callee": "trim", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L104"}, {"caller_nid": "s3_request_parsecopysource", "callee": "decodeURIComponent", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L104"}, {"caller_nid": "s3_request_parsecopysource", "callee": "startsWith", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L105"}, {"caller_nid": "s3_request_parsecopysource", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L105"}, {"caller_nid": "s3_request_parsecopysource", "callee": "indexOf", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L110"}, {"caller_nid": "s3_request_parsecopysource", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L116"}, {"caller_nid": "s3_request_parsecopysource", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts", "source_location": "L117"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_s3_gateway_s3_request_ts",
+      "label": "s3-request.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "s3_request_parses3path",
+      "label": "parseS3Path()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L13"
+    },
+    {
+      "id": "s3_request_hasmultipartcreateflag",
+      "label": "hasMultipartCreateFlag()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L58"
+    },
+    {
+      "id": "s3_request_multipartuploadid",
+      "label": "multipartUploadId()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L63"
+    },
+    {
+      "id": "s3_request_multipartpartnumber",
+      "label": "multipartPartNumber()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L69"
+    },
+    {
+      "id": "s3_request_listprefix",
+      "label": "listPrefix()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L82"
+    },
+    {
+      "id": "s3_request_listdelimiter",
+      "label": "listDelimiter()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L87"
+    },
+    {
+      "id": "s3_request_listtypeisv2",
+      "label": "listTypeIsV2()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L96"
+    },
+    {
+      "id": "s3_request_parsecopysource",
+      "label": "parseCopySource()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L102"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts",
+      "target": "s3_request_parses3path",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts",
+      "target": "s3_request_hasmultipartcreateflag",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts",
+      "target": "s3_request_multipartuploadid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts",
+      "target": "s3_request_multipartpartnumber",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts",
+      "target": "s3_request_listprefix",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts",
+      "target": "s3_request_listdelimiter",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts",
+      "target": "s3_request_listtypeisv2",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_request_ts",
+      "target": "s3_request_parsecopysource",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L102",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "s3_request_parses3path",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L24"
+    },
+    {
+      "caller_nid": "s3_request_parses3path",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L31"
+    },
+    {
+      "caller_nid": "s3_request_parses3path",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "s3_request_parses3path",
+      "callee": "decodeURIComponent",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "s3_request_parses3path",
+      "callee": "decodeURIComponent",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "s3_request_parses3path",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "s3_request_parses3path",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "s3_request_parses3path",
+      "callee": "decodeURIComponent",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "s3_request_hasmultipartcreateflag",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "s3_request_multipartuploadid",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "s3_request_multipartpartnumber",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "s3_request_multipartpartnumber",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "s3_request_multipartpartnumber",
+      "callee": "isInteger",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "s3_request_listprefix",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "s3_request_listdelimiter",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "s3_request_listtypeisv2",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L98"
+    },
+    {
+      "caller_nid": "s3_request_parsecopysource",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L103"
+    },
+    {
+      "caller_nid": "s3_request_parsecopysource",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "s3_request_parsecopysource",
+      "callee": "decodeURIComponent",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "s3_request_parsecopysource",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "s3_request_parsecopysource",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "s3_request_parsecopysource",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "s3_request_parsecopysource",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "s3_request_parsecopysource",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-request.ts",
+      "source_location": "L117"
+    }
+  ]
+}

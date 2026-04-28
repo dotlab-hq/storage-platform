@@ -1,1 +1,138 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_voice_voicemodeenabled_ts", "label": "voiceModeEnabled.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L1"}, {"id": "voicemodeenabled_isvoicegrowthbookenabled", "label": "isVoiceGrowthBookEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L16"}, {"id": "voicemodeenabled_hasvoiceauth", "label": "hasVoiceAuth()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L32"}, {"id": "voicemodeenabled_isvoicemodeenabled", "label": "isVoiceModeEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L52"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_voice_voicemodeenabled_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_voice_voicemodeenabled_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_voice_voicemodeenabled_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_voice_voicemodeenabled_ts", "target": "voicemodeenabled_isvoicegrowthbookenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_voice_voicemodeenabled_ts", "target": "voicemodeenabled_hasvoiceauth", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_voice_voicemodeenabled_ts", "target": "voicemodeenabled_isvoicemodeenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L52", "weight": 1.0}, {"source": "voicemodeenabled_isvoicemodeenabled", "target": "voicemodeenabled_hasvoiceauth", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L53", "weight": 1.0}, {"source": "voicemodeenabled_isvoicemodeenabled", "target": "voicemodeenabled_isvoicegrowthbookenabled", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L53", "weight": 1.0}], "raw_calls": [{"caller_nid": "voicemodeenabled_isvoicegrowthbookenabled", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L20"}, {"caller_nid": "voicemodeenabled_isvoicegrowthbookenabled", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L21"}, {"caller_nid": "voicemodeenabled_hasvoiceauth", "callee": "isAnthropicAuthEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L36"}, {"caller_nid": "voicemodeenabled_hasvoiceauth", "callee": "getClaudeAIOAuthTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L42"}, {"caller_nid": "voicemodeenabled_hasvoiceauth", "callee": "Boolean", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts", "source_location": "L43"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_voice_voicemodeenabled_ts",
+      "label": "voiceModeEnabled.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "voicemodeenabled_isvoicegrowthbookenabled",
+      "label": "isVoiceGrowthBookEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "voicemodeenabled_hasvoiceauth",
+      "label": "hasVoiceAuth()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "voicemodeenabled_isvoicemodeenabled",
+      "label": "isVoiceModeEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L52"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_voice_voicemodeenabled_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_voice_voicemodeenabled_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_voice_voicemodeenabled_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_voice_voicemodeenabled_ts",
+      "target": "voicemodeenabled_isvoicegrowthbookenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_voice_voicemodeenabled_ts",
+      "target": "voicemodeenabled_hasvoiceauth",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_voice_voicemodeenabled_ts",
+      "target": "voicemodeenabled_isvoicemodeenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "voicemodeenabled_isvoicemodeenabled",
+      "target": "voicemodeenabled_hasvoiceauth",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "voicemodeenabled_isvoicemodeenabled",
+      "target": "voicemodeenabled_isvoicegrowthbookenabled",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L53",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "voicemodeenabled_isvoicegrowthbookenabled",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L20"
+    },
+    {
+      "caller_nid": "voicemodeenabled_isvoicegrowthbookenabled",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "voicemodeenabled_hasvoiceauth",
+      "callee": "isAnthropicAuthEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "voicemodeenabled_hasvoiceauth",
+      "callee": "getClaudeAIOAuthTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "voicemodeenabled_hasvoiceauth",
+      "callee": "Boolean",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\voice\\voiceModeEnabled.ts",
+      "source_location": "L43"
+    }
+  ]
+}

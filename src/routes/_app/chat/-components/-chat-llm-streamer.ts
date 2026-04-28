@@ -197,7 +197,8 @@ export async function* generateAssistantReplyStream(
     if (!finalUsage && fullContent) {
       const messagesText = messages
         .map(
-          (msg) => `${msg.getType()}: ${normalizeOpenAiContent(msg.content).text}`,
+          (msg) =>
+            `${msg.getType()}: ${normalizeOpenAiContent(msg.content).text}`,
         )
         .join('\n\n')
       const promptTokens = countTokens(messagesText)

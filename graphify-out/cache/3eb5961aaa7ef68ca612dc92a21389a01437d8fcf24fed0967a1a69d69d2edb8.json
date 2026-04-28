@@ -1,1 +1,587 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "label": "s3-dispatch-put.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L1"}, {"id": "s3_dispatch_put_readputobjectrequestmetadata", "label": "readPutObjectRequestMetadata()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L52"}, {"id": "s3_dispatch_put_handleput", "label": "handlePut()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L73"}], "edges": [{"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "target": "s3_object_store", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "target": "s3_versioning", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "target": "virtual_buckets", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "target": "s3_context", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "target": "s3_dispatch_context", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "target": "s3_request", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "target": "s3_multipart", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "target": "s3_control_xml", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "target": "s3_acl", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "target": "s3_bucket_controls", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "target": "s3_object_tagging", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L33", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "target": "s3_xml", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "target": "s3_encryption", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "target": "s3_dispatch_put_readputobjectrequestmetadata", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L52", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts", "target": "s3_dispatch_put_handleput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L73", "weight": 1.0}, {"source": "s3_dispatch_put_handleput", "target": "s3_dispatch_put_readputobjectrequestmetadata", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L263", "weight": 1.0}], "raw_calls": [{"caller_nid": "s3_dispatch_put_readputobjectrequestmetadata", "callee": "forEach", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L56"}, {"caller_nid": "s3_dispatch_put_readputobjectrequestmetadata", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L65"}, {"caller_nid": "s3_dispatch_put_readputobjectrequestmetadata", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L66"}, {"caller_nid": "s3_dispatch_put_readputobjectrequestmetadata", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L67"}, {"caller_nid": "s3_dispatch_put_readputobjectrequestmetadata", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L68"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L78"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "parseAccessKeyId", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L80"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "resolveBucketByAccessKey", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L82"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L87"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L94"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "resolveBucketByName", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L95"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L97"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "setBucketVersioning", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L103"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "parseVersioningState", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L105"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "text", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L105"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L109"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "resolveBucketByName", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L110"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L112"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "ensureAccess", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L118"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L119"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "putBucketAcl", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L125"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L128"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "resolveBucketByName", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L129"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L131"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "putBucketPolicy", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L137"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "text", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L137"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L140"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "resolveBucketByName", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L141"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L143"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "replaceBucketCors", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L149"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "parseBucketCorsXml", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L151"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "text", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L151"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "resolveBucketByName", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L156"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L159"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L165"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "createVirtualBucket", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L172"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "resolveAuthorizedBucket", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L176"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L178"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L186"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "ensureAccess", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L188"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L190"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "putObjectAcl", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L196"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L199"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "replaceObjectTags", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L200"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "parseObjectTaggingXml", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L203"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "text", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L203"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L208"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "parseCopySource", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L210"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L212"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "resolveAuthorizedBucket", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L218"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L223"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "copyObject", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L229"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "xmlResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L235"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "copyObjectXml", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L236"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L243"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "multipartUploadId", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L249"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "multipartPartNumber", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L250"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "s3ErrorResponse", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L255"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "uploadPart", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L267"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L273"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "parseContentLength", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L274"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "putObject", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L276"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L280"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "parseContentLength", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L281"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "getBucketVersioningState", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L285"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "createObjectVersionFromCurrent", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L287"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "createObjectVersionFromCurrent", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L289"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "persistSseMetadata", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L290"}, {"caller_nid": "s3_dispatch_put_handleput", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts", "source_location": "L293"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "label": "s3-dispatch-put.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "s3_dispatch_put_readputobjectrequestmetadata",
+      "label": "readPutObjectRequestMetadata()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L52"
+    },
+    {
+      "id": "s3_dispatch_put_handleput",
+      "label": "handlePut()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L73"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "target": "s3_object_store",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "target": "s3_versioning",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "target": "virtual_buckets",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "target": "s3_context",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "target": "s3_dispatch_context",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "target": "s3_request",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "target": "s3_multipart",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "target": "s3_control_xml",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "target": "s3_acl",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "target": "s3_bucket_controls",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "target": "s3_object_tagging",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "target": "s3_xml",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "target": "s3_encryption",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "target": "s3_dispatch_put_readputobjectrequestmetadata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_dispatch_put_ts",
+      "target": "s3_dispatch_put_handleput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "s3_dispatch_put_handleput",
+      "target": "s3_dispatch_put_readputobjectrequestmetadata",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L263",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "s3_dispatch_put_readputobjectrequestmetadata",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_readputobjectrequestmetadata",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_readputobjectrequestmetadata",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_readputobjectrequestmetadata",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_readputobjectrequestmetadata",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "parseAccessKeyId",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L80"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "resolveBucketByAccessKey",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L94"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "resolveBucketByName",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "setBucketVersioning",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L103"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "parseVersioningState",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "text",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "resolveBucketByName",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "ensureAccess",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "putBucketAcl",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "resolveBucketByName",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "putBucketPolicy",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "text",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L140"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "resolveBucketByName",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "replaceBucketCors",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "parseBucketCorsXml",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "text",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "resolveBucketByName",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "createVirtualBucket",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "resolveAuthorizedBucket",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L176"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L186"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "ensureAccess",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L188"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L190"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "putObjectAcl",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L196"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L199"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "replaceObjectTags",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "parseObjectTaggingXml",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "text",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L208"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "parseCopySource",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L210"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L212"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "resolveAuthorizedBucket",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L223"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "copyObject",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L229"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "xmlResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L235"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "copyObjectXml",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L236"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L243"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "multipartUploadId",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L249"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "multipartPartNumber",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L250"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "s3ErrorResponse",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L255"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "uploadPart",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L267"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L273"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "parseContentLength",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L274"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "putObject",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L276"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L280"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "parseContentLength",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L281"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "getBucketVersioningState",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L285"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "createObjectVersionFromCurrent",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L287"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "createObjectVersionFromCurrent",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L289"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "persistSseMetadata",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L290"
+    },
+    {
+      "caller_nid": "s3_dispatch_put_handleput",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-dispatch-put.ts",
+      "source_location": "L293"
+    }
+  ]
+}

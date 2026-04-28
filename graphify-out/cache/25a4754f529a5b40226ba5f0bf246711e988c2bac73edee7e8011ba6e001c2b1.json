@@ -1,1 +1,163 @@
-{"nodes": [{"id": "f_storage_platform_src_hooks_use_file_selection_ts", "label": "use-file-selection.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L1"}, {"id": "use_file_selection_usefileselection", "label": "useFileSelection()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L6"}], "edges": [{"source": "f_storage_platform_src_hooks_use_file_selection_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_file_selection_ts", "target": "file_selection_store", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_file_selection_ts", "target": "file_selection_ui_store", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_file_selection_ts", "target": "storage", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_file_selection_ts", "target": "use_file_selection_usefileselection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L6", "weight": 1.0}], "raw_calls": [{"caller_nid": "use_file_selection_usefileselection", "callee": "useFileSelectionStore", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L7"}, {"caller_nid": "use_file_selection_usefileselection", "callee": "useFileSelectionStore", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L8"}, {"caller_nid": "use_file_selection_usefileselection", "callee": "useFileSelectionStore", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L9"}, {"caller_nid": "use_file_selection_usefileselection", "callee": "useFileSelectionStore", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L10"}, {"caller_nid": "use_file_selection_usefileselection", "callee": "useFileSelectionStore", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L11"}, {"caller_nid": "use_file_selection_usefileselection", "callee": "useFileSelectionStore", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L12"}, {"caller_nid": "use_file_selection_usefileselection", "callee": "useFileSelectionStore", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L13"}, {"caller_nid": "use_file_selection_usefileselection", "callee": "useLayoutEffect", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L16"}, {"caller_nid": "use_file_selection_usefileselection", "callee": "useEffect", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L20"}, {"caller_nid": "use_file_selection_usefileselection", "callee": "useMemo", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L25"}, {"caller_nid": "use_file_selection_usefileselection", "callee": "useCallback", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L28"}, {"caller_nid": "use_file_selection_usefileselection", "callee": "useCallback", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L33"}, {"caller_nid": "use_file_selection_usefileselection", "callee": "useCallback", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L38"}, {"caller_nid": "use_file_selection_usefileselection", "callee": "useCallback", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L43"}, {"caller_nid": "use_file_selection_usefileselection", "callee": "useCallback", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L48"}, {"caller_nid": "use_file_selection_usefileselection", "callee": "useCallback", "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts", "source_location": "L53"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_hooks_use_file_selection_ts",
+      "label": "use-file-selection.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "use_file_selection_usefileselection",
+      "label": "useFileSelection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L6"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_hooks_use_file_selection_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_file_selection_ts",
+      "target": "file_selection_store",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_file_selection_ts",
+      "target": "file_selection_ui_store",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_file_selection_ts",
+      "target": "storage",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_file_selection_ts",
+      "target": "use_file_selection_usefileselection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useFileSelectionStore",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L7"
+    },
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useFileSelectionStore",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L8"
+    },
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useFileSelectionStore",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L9"
+    },
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useFileSelectionStore",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L10"
+    },
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useFileSelectionStore",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L11"
+    },
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useFileSelectionStore",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L12"
+    },
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useFileSelectionStore",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L13"
+    },
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useLayoutEffect",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L16"
+    },
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useEffect",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L20"
+    },
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useMemo",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "use_file_selection_usefileselection",
+      "callee": "useCallback",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-file-selection.ts",
+      "source_location": "L53"
+    }
+  ]
+}

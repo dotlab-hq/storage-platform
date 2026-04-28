@@ -1,1 +1,2064 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "label": "teleport.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1"}, {"id": "teleport_createteleportresumesystemmessage", "label": "createTeleportResumeSystemMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L54"}, {"id": "teleport_createteleportresumeusermessage", "label": "createTeleportResumeUserMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L66"}, {"id": "teleport_generatetitleandbranch", "label": "generateTitleAndBranch()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L102"}, {"id": "teleport_validategitstate", "label": "validateGitState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L172"}, {"id": "teleport_fetchfromorigin", "label": "fetchFromOrigin()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L187"}, {"id": "teleport_ensureupstreamisset", "label": "ensureUpstreamIsSet()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L215"}, {"id": "teleport_checkoutbranch", "label": "checkoutBranch()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L251"}, {"id": "teleport_getcurrentbranch", "label": "getCurrentBranch()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L287"}, {"id": "teleport_processmessagesforteleportresume", "label": "processMessagesForTeleportResume()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L301"}, {"id": "teleport_checkoutteleportedsessionbranch", "label": "checkOutTeleportedSessionBranch()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L315"}, {"id": "teleport_validatesessionrepository", "label": "validateSessionRepository()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L367"}, {"id": "teleport_teleportresumecodesession", "label": "teleportResumeCodeSession()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L430"}, {"id": "teleport_handleteleportprerequisites", "label": "handleTeleportPrerequisites()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L509"}, {"id": "teleport_teleporttoremotewitherrorhandling", "label": "teleportToRemoteWithErrorHandling()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L544"}, {"id": "teleport_teleportfromsessionsapi", "label": "teleportFromSessionsAPI()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L565"}, {"id": "teleport_pollremotesessionevents", "label": "pollRemoteSessionEvents()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L633"}, {"id": "teleport_teleporttoremote", "label": "teleportToRemote()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L730"}, {"id": "teleport_archiveremotesession", "label": "archiveRemoteSession()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1200"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "axios", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "chalk", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "state_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "growthbook_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "index_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "index_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "v4", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_components_teleporterror_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_entrypoints_agentsdktypes_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_ink_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingprovidersetup_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_services_api_sessioningress_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_services_oauth_client_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_types_message_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_types_permissions_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_background_remote_preconditions_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_conversationrecovery_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_format_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_json_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L33", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L34", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstorage_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L36", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L38", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_systemprompttype_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_api_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L40", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_environments_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L41", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_gitbundle_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_createteleportresumesystemmessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L54", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_createteleportresumeusermessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L66", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_generatetitleandbranch", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L102", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_validategitstate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L172", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_fetchfromorigin", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L187", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_ensureupstreamisset", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L215", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_checkoutbranch", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L251", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_getcurrentbranch", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L287", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_processmessagesforteleportresume", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L301", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_checkoutteleportedsessionbranch", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L315", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_validatesessionrepository", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L367", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_teleportresumecodesession", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L430", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_handleteleportprerequisites", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L509", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_teleporttoremotewitherrorhandling", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L544", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_teleportfromsessionsapi", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L565", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_pollremotesessionevents", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L633", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_teleporttoremote", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L730", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx", "target": "teleport_archiveremotesession", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1200", "weight": 1.0}, {"source": "teleport_checkoutbranch", "target": "teleport_ensureupstreamisset", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L281", "weight": 1.0}, {"source": "teleport_processmessagesforteleportresume", "target": "teleport_createteleportresumeusermessage", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L306", "weight": 1.0}, {"source": "teleport_processmessagesforteleportresume", "target": "teleport_createteleportresumesystemmessage", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L306", "weight": 1.0}, {"source": "teleport_checkoutteleportedsessionbranch", "target": "teleport_getcurrentbranch", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L320", "weight": 1.0}, {"source": "teleport_checkoutteleportedsessionbranch", "target": "teleport_fetchfromorigin", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L324", "weight": 1.0}, {"source": "teleport_checkoutteleportedsessionbranch", "target": "teleport_checkoutbranch", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L325", "weight": 1.0}, {"source": "teleport_teleportresumecodesession", "target": "teleport_validatesessionrepository", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L456", "weight": 1.0}, {"source": "teleport_teleportresumecodesession", "target": "teleport_teleportfromsessionsapi", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L491", "weight": 1.0}, {"source": "teleport_teleporttoremotewitherrorhandling", "target": "teleport_handleteleportprerequisites", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L546", "weight": 1.0}, {"source": "teleport_teleporttoremotewitherrorhandling", "target": "teleport_teleporttoremote", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L547", "weight": 1.0}, {"source": "teleport_teleporttoremote", "target": "teleport_generatetitleandbranch", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L926", "weight": 1.0}], "raw_calls": [{"caller_nid": "teleport_createteleportresumesystemmessage", "callee": "createSystemMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L56"}, {"caller_nid": "teleport_createteleportresumesystemmessage", "callee": "createSystemMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L59"}, {"caller_nid": "teleport_createteleportresumeusermessage", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L67"}, {"caller_nid": "teleport_createteleportresumeusermessage", "callee": "getOriginalCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L68"}, {"caller_nid": "teleport_generatetitleandbranch", "callee": "truncateToWidth", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L103"}, {"caller_nid": "teleport_generatetitleandbranch", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L106"}, {"caller_nid": "teleport_generatetitleandbranch", "callee": "queryHaiku", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L107"}, {"caller_nid": "teleport_generatetitleandbranch", "callee": "asSystemPrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L108"}, {"caller_nid": "teleport_generatetitleandbranch", "callee": "safeParseJSON", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L144"}, {"caller_nid": "teleport_generatetitleandbranch", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L144"}, {"caller_nid": "teleport_generatetitleandbranch", "callee": "safeParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L145"}, {"caller_nid": "teleport_generatetitleandbranch", "callee": "object", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L145"}, {"caller_nid": "teleport_generatetitleandbranch", "callee": "string", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L146"}, {"caller_nid": "teleport_generatetitleandbranch", "callee": "string", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L147"}, {"caller_nid": "teleport_generatetitleandbranch", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L160"}, {"caller_nid": "teleport_validategitstate", "callee": "getIsClean", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L173"}, {"caller_nid": "teleport_validategitstate", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L177"}, {"caller_nid": "teleport_validategitstate", "callee": "red", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L178"}, {"caller_nid": "teleport_fetchfromorigin", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L192"}, {"caller_nid": "teleport_fetchfromorigin", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L192"}, {"caller_nid": "teleport_fetchfromorigin", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L196"}, {"caller_nid": "teleport_fetchfromorigin", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L197"}, {"caller_nid": "teleport_fetchfromorigin", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L201"}, {"caller_nid": "teleport_fetchfromorigin", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L201"}, {"caller_nid": "teleport_fetchfromorigin", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L203"}, {"caller_nid": "teleport_fetchfromorigin", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L206"}, {"caller_nid": "teleport_ensureupstreamisset", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L219"}, {"caller_nid": "teleport_ensureupstreamisset", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L219"}, {"caller_nid": "teleport_ensureupstreamisset", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L222"}, {"caller_nid": "teleport_ensureupstreamisset", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L229"}, {"caller_nid": "teleport_ensureupstreamisset", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L229"}, {"caller_nid": "teleport_ensureupstreamisset", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L232"}, {"caller_nid": "teleport_ensureupstreamisset", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L236"}, {"caller_nid": "teleport_ensureupstreamisset", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L236"}, {"caller_nid": "teleport_ensureupstreamisset", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L238"}, {"caller_nid": "teleport_ensureupstreamisset", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L241"}, {"caller_nid": "teleport_ensureupstreamisset", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L244"}, {"caller_nid": "teleport_checkoutbranch", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L256"}, {"caller_nid": "teleport_checkoutbranch", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L256"}, {"caller_nid": "teleport_checkoutbranch", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L260"}, {"caller_nid": "teleport_checkoutbranch", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L263"}, {"caller_nid": "teleport_checkoutbranch", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L263"}, {"caller_nid": "teleport_checkoutbranch", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L269"}, {"caller_nid": "teleport_checkoutbranch", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L270"}, {"caller_nid": "teleport_checkoutbranch", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L270"}, {"caller_nid": "teleport_checkoutbranch", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L276"}, {"caller_nid": "teleport_checkoutbranch", "callee": "red", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L277"}, {"caller_nid": "teleport_getcurrentbranch", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L290"}, {"caller_nid": "teleport_getcurrentbranch", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L290"}, {"caller_nid": "teleport_getcurrentbranch", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L291"}, {"caller_nid": "teleport_processmessagesforteleportresume", "callee": "deserializeMessages", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L303"}, {"caller_nid": "teleport_checkoutteleportedsessionbranch", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L321"}, {"caller_nid": "teleport_checkoutteleportedsessionbranch", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L323"}, {"caller_nid": "teleport_checkoutteleportedsessionbranch", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L327"}, {"caller_nid": "teleport_checkoutteleportedsessionbranch", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L329"}, {"caller_nid": "teleport_checkoutteleportedsessionbranch", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L338"}, {"caller_nid": "teleport_validatesessionrepository", "callee": "detectCurrentRepositoryWithHost", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L368"}, {"caller_nid": "teleport_validatesessionrepository", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L370"}, {"caller_nid": "teleport_validatesessionrepository", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L373"}, {"caller_nid": "teleport_validatesessionrepository", "callee": "parseGitRemote", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L378"}, {"caller_nid": "teleport_validatesessionrepository", "callee": "parseGitHubRepository", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L379"}, {"caller_nid": "teleport_validatesessionrepository", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L385"}, {"caller_nid": "teleport_validatesessionrepository", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L401"}, {"caller_nid": "teleport_validatesessionrepository", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L401"}, {"caller_nid": "teleport_validatesessionrepository", "callee": "stripPort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L402"}, {"caller_nid": "teleport_validatesessionrepository", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L402"}, {"caller_nid": "teleport_validatesessionrepository", "callee": "stripPort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L402"}, {"caller_nid": "teleport_validatesessionrepository", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L402"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "isPolicyAllowed", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L431"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L434"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "getClaudeAIOAuthTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L436"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L438"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "getOrganizationUUID", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L445"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L447"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "onProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L454"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "fetchSession", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L455"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L464"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L468"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "red", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L469"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "bold", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L469"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L473"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L478"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L478"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L478"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L478"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "red", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L481"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "bold", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L481"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "bold", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L481"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "red", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L484"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L496"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L497"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L498"}, {"caller_nid": "teleport_teleportresumecodesession", "callee": "red", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L501"}, {"caller_nid": "teleport_handleteleportprerequisites", "callee": "getTeleportErrors", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L510"}, {"caller_nid": "teleport_handleteleportprerequisites", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L513"}, {"caller_nid": "teleport_handleteleportprerequisites", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L514"}, {"caller_nid": "teleport_handleteleportprerequisites", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L514"}, {"caller_nid": "teleport_handleteleportprerequisites", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L515"}, {"caller_nid": "teleport_handleteleportprerequisites", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L515"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L566"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L569"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "onProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L570"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L571"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "getTeleportEvents", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L577"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L579"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "getSessionLogsViaOAuth", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L580"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L582"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L582"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L588"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L589"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L590"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L590"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "onProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L593"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "getBranchFromSession", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L594"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L596"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L598"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L598"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L604"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "isAxiosError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L607"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L608"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "dim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L611"}, {"caller_nid": "teleport_teleportfromsessionsapi", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L613"}, {"caller_nid": "teleport_pollremotesessionevents", "callee": "getClaudeAIOAuthTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L636"}, {"caller_nid": "teleport_pollremotesessionevents", "callee": "getOrganizationUUID", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L640"}, {"caller_nid": "teleport_pollremotesessionevents", "callee": "getOAuthHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L645"}, {"caller_nid": "teleport_pollremotesessionevents", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L649"}, {"caller_nid": "teleport_pollremotesessionevents", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L662"}, {"caller_nid": "teleport_pollremotesessionevents", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L673"}, {"caller_nid": "teleport_pollremotesessionevents", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L682"}, {"caller_nid": "teleport_pollremotesessionevents", "callee": "fetchSession", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L701"}, {"caller_nid": "teleport_pollremotesessionevents", "callee": "getBranchFromSession", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L702"}, {"caller_nid": "teleport_pollremotesessionevents", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L705"}, {"caller_nid": "teleport_teleporttoremote", "callee": "checkAndRefreshOAuthTokenIfNeeded", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L802"}, {"caller_nid": "teleport_teleporttoremote", "callee": "getClaudeAIOAuthTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L803"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L805"}, {"caller_nid": "teleport_teleporttoremote", "callee": "getOrganizationUUID", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L810"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L812"}, {"caller_nid": "teleport_teleporttoremote", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L822"}, {"caller_nid": "teleport_teleporttoremote", "callee": "getOAuthHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L824"}, {"caller_nid": "teleport_teleporttoremote", "callee": "createAndUploadGitBundle", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L839"}, {"caller_nid": "teleport_teleporttoremote", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L841"}, {"caller_nid": "teleport_teleporttoremote", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L842"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L847"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L851"}, {"caller_nid": "teleport_teleporttoremote", "callee": "detectCurrentRepositoryWithHost", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L858"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L880"}, {"caller_nid": "teleport_teleporttoremote", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L880"}, {"caller_nid": "teleport_teleporttoremote", "callee": "post", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L881"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L886"}, {"caller_nid": "teleport_teleporttoremote", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L886"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L891"}, {"caller_nid": "teleport_teleporttoremote", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L891"}, {"caller_nid": "teleport_teleporttoremote", "callee": "detectCurrentRepositoryWithHost", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L916"}, {"caller_nid": "teleport_teleporttoremote", "callee": "findGitRoot", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L942"}, {"caller_nid": "teleport_teleporttoremote", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L942"}, {"caller_nid": "teleport_teleporttoremote", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L943"}, {"caller_nid": "teleport_teleporttoremote", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L944"}, {"caller_nid": "teleport_teleporttoremote", "callee": "checkGate_CACHED_OR_BLOCKING", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L944"}, {"caller_nid": "teleport_teleporttoremote", "callee": "checkGithubAppInstalled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L947"}, {"caller_nid": "teleport_teleporttoremote", "callee": "getDefaultBranch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L971"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L972"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1002"}, {"caller_nid": "teleport_teleporttoremote", "callee": "createAndUploadGitBundle", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1003"}, {"caller_nid": "teleport_teleporttoremote", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1005"}, {"caller_nid": "teleport_teleporttoremote", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1006"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1011"}, {"caller_nid": "teleport_teleporttoremote", "callee": "onBundleFail", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1035"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1039"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1046"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1051"}, {"caller_nid": "teleport_teleporttoremote", "callee": "fetchEnvironments", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1055"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1057"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1060"}, {"caller_nid": "teleport_teleporttoremote", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1060"}, {"caller_nid": "teleport_teleporttoremote", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1060"}, {"caller_nid": "teleport_teleporttoremote", "callee": "getSettings_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1066"}, {"caller_nid": "teleport_teleporttoremote", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1068"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1074"}, {"caller_nid": "teleport_teleporttoremote", "callee": "fetchEnvironments", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1075"}, {"caller_nid": "teleport_teleporttoremote", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1076"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1078"}, {"caller_nid": "teleport_teleporttoremote", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1078"}, {"caller_nid": "teleport_teleporttoremote", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1078"}, {"caller_nid": "teleport_teleporttoremote", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1083"}, {"caller_nid": "teleport_teleporttoremote", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1083"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1085"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1090"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1093"}, {"caller_nid": "teleport_teleporttoremote", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1096"}, {"caller_nid": "teleport_teleporttoremote", "callee": "getOAuthHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1098"}, {"caller_nid": "teleport_teleporttoremote", "callee": "getMainLoopModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1108"}, {"caller_nid": "teleport_teleporttoremote", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1127"}, {"caller_nid": "teleport_teleporttoremote", "callee": "randomUUID", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1131"}, {"caller_nid": "teleport_teleporttoremote", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1141"}, {"caller_nid": "teleport_teleporttoremote", "callee": "randomUUID", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1144"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1161"}, {"caller_nid": "teleport_teleporttoremote", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1161"}, {"caller_nid": "teleport_teleporttoremote", "callee": "post", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1164"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1170"}, {"caller_nid": "teleport_teleporttoremote", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1170"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1177"}, {"caller_nid": "teleport_teleporttoremote", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1177"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1180"}, {"caller_nid": "teleport_teleporttoremote", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1186"}, {"caller_nid": "teleport_teleporttoremote", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1187"}, {"caller_nid": "teleport_archiveremotesession", "callee": "getClaudeAIOAuthTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1201"}, {"caller_nid": "teleport_archiveremotesession", "callee": "getOrganizationUUID", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1203"}, {"caller_nid": "teleport_archiveremotesession", "callee": "getOAuthHeaders", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1206"}, {"caller_nid": "teleport_archiveremotesession", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1210"}, {"caller_nid": "teleport_archiveremotesession", "callee": "post", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1212"}, {"caller_nid": "teleport_archiveremotesession", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1218"}, {"caller_nid": "teleport_archiveremotesession", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1220"}, {"caller_nid": "teleport_archiveremotesession", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1220"}, {"caller_nid": "teleport_archiveremotesession", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx", "source_location": "L1223"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "label": "teleport.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "teleport_createteleportresumesystemmessage",
+      "label": "createTeleportResumeSystemMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L54"
+    },
+    {
+      "id": "teleport_createteleportresumeusermessage",
+      "label": "createTeleportResumeUserMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L66"
+    },
+    {
+      "id": "teleport_generatetitleandbranch",
+      "label": "generateTitleAndBranch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L102"
+    },
+    {
+      "id": "teleport_validategitstate",
+      "label": "validateGitState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L172"
+    },
+    {
+      "id": "teleport_fetchfromorigin",
+      "label": "fetchFromOrigin()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L187"
+    },
+    {
+      "id": "teleport_ensureupstreamisset",
+      "label": "ensureUpstreamIsSet()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L215"
+    },
+    {
+      "id": "teleport_checkoutbranch",
+      "label": "checkoutBranch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L251"
+    },
+    {
+      "id": "teleport_getcurrentbranch",
+      "label": "getCurrentBranch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L287"
+    },
+    {
+      "id": "teleport_processmessagesforteleportresume",
+      "label": "processMessagesForTeleportResume()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L301"
+    },
+    {
+      "id": "teleport_checkoutteleportedsessionbranch",
+      "label": "checkOutTeleportedSessionBranch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L315"
+    },
+    {
+      "id": "teleport_validatesessionrepository",
+      "label": "validateSessionRepository()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L367"
+    },
+    {
+      "id": "teleport_teleportresumecodesession",
+      "label": "teleportResumeCodeSession()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L430"
+    },
+    {
+      "id": "teleport_handleteleportprerequisites",
+      "label": "handleTeleportPrerequisites()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L509"
+    },
+    {
+      "id": "teleport_teleporttoremotewitherrorhandling",
+      "label": "teleportToRemoteWithErrorHandling()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L544"
+    },
+    {
+      "id": "teleport_teleportfromsessionsapi",
+      "label": "teleportFromSessionsAPI()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L565"
+    },
+    {
+      "id": "teleport_pollremotesessionevents",
+      "label": "pollRemoteSessionEvents()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L633"
+    },
+    {
+      "id": "teleport_teleporttoremote",
+      "label": "teleportToRemote()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L730"
+    },
+    {
+      "id": "teleport_archiveremotesession",
+      "label": "archiveRemoteSession()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1200"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "chalk",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "state_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "growthbook_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "index_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "index_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "v4",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_components_teleporterror_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_entrypoints_agentsdktypes_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingprovidersetup_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_claude_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_sessioningress_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_services_oauth_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_types_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_types_permissions_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_background_remote_preconditions_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_conversationrecovery_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_format_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_json_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sessionstorage_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_systemprompttype_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_api_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_environments_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_gitbundle_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_createteleportresumesystemmessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_createteleportresumeusermessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_generatetitleandbranch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_validategitstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L172",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_fetchfromorigin",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_ensureupstreamisset",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L215",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_checkoutbranch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L251",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_getcurrentbranch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L287",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_processmessagesforteleportresume",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L301",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_checkoutteleportedsessionbranch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L315",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_validatesessionrepository",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L367",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_teleportresumecodesession",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L430",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_handleteleportprerequisites",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L509",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_teleporttoremotewitherrorhandling",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L544",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_teleportfromsessionsapi",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L565",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_pollremotesessionevents",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L633",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_teleporttoremote",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L730",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teleport_tsx",
+      "target": "teleport_archiveremotesession",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1200",
+      "weight": 1.0
+    },
+    {
+      "source": "teleport_checkoutbranch",
+      "target": "teleport_ensureupstreamisset",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L281",
+      "weight": 1.0
+    },
+    {
+      "source": "teleport_processmessagesforteleportresume",
+      "target": "teleport_createteleportresumeusermessage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L306",
+      "weight": 1.0
+    },
+    {
+      "source": "teleport_processmessagesforteleportresume",
+      "target": "teleport_createteleportresumesystemmessage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L306",
+      "weight": 1.0
+    },
+    {
+      "source": "teleport_checkoutteleportedsessionbranch",
+      "target": "teleport_getcurrentbranch",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L320",
+      "weight": 1.0
+    },
+    {
+      "source": "teleport_checkoutteleportedsessionbranch",
+      "target": "teleport_fetchfromorigin",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L324",
+      "weight": 1.0
+    },
+    {
+      "source": "teleport_checkoutteleportedsessionbranch",
+      "target": "teleport_checkoutbranch",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L325",
+      "weight": 1.0
+    },
+    {
+      "source": "teleport_teleportresumecodesession",
+      "target": "teleport_validatesessionrepository",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L456",
+      "weight": 1.0
+    },
+    {
+      "source": "teleport_teleportresumecodesession",
+      "target": "teleport_teleportfromsessionsapi",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L491",
+      "weight": 1.0
+    },
+    {
+      "source": "teleport_teleporttoremotewitherrorhandling",
+      "target": "teleport_handleteleportprerequisites",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L546",
+      "weight": 1.0
+    },
+    {
+      "source": "teleport_teleporttoremotewitherrorhandling",
+      "target": "teleport_teleporttoremote",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L547",
+      "weight": 1.0
+    },
+    {
+      "source": "teleport_teleporttoremote",
+      "target": "teleport_generatetitleandbranch",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L926",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "teleport_createteleportresumesystemmessage",
+      "callee": "createSystemMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "teleport_createteleportresumesystemmessage",
+      "callee": "createSystemMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "teleport_createteleportresumeusermessage",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "teleport_createteleportresumeusermessage",
+      "callee": "getOriginalCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "teleport_generatetitleandbranch",
+      "callee": "truncateToWidth",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L103"
+    },
+    {
+      "caller_nid": "teleport_generatetitleandbranch",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L106"
+    },
+    {
+      "caller_nid": "teleport_generatetitleandbranch",
+      "callee": "queryHaiku",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "teleport_generatetitleandbranch",
+      "callee": "asSystemPrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L108"
+    },
+    {
+      "caller_nid": "teleport_generatetitleandbranch",
+      "callee": "safeParseJSON",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "teleport_generatetitleandbranch",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "teleport_generatetitleandbranch",
+      "callee": "safeParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "teleport_generatetitleandbranch",
+      "callee": "object",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "teleport_generatetitleandbranch",
+      "callee": "string",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "teleport_generatetitleandbranch",
+      "callee": "string",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "teleport_generatetitleandbranch",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L160"
+    },
+    {
+      "caller_nid": "teleport_validategitstate",
+      "callee": "getIsClean",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "teleport_validategitstate",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L177"
+    },
+    {
+      "caller_nid": "teleport_validategitstate",
+      "callee": "red",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "teleport_fetchfromorigin",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "teleport_fetchfromorigin",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "teleport_fetchfromorigin",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L196"
+    },
+    {
+      "caller_nid": "teleport_fetchfromorigin",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "teleport_fetchfromorigin",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L201"
+    },
+    {
+      "caller_nid": "teleport_fetchfromorigin",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L201"
+    },
+    {
+      "caller_nid": "teleport_fetchfromorigin",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "teleport_fetchfromorigin",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L206"
+    },
+    {
+      "caller_nid": "teleport_ensureupstreamisset",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L219"
+    },
+    {
+      "caller_nid": "teleport_ensureupstreamisset",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L219"
+    },
+    {
+      "caller_nid": "teleport_ensureupstreamisset",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L222"
+    },
+    {
+      "caller_nid": "teleport_ensureupstreamisset",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L229"
+    },
+    {
+      "caller_nid": "teleport_ensureupstreamisset",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L229"
+    },
+    {
+      "caller_nid": "teleport_ensureupstreamisset",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L232"
+    },
+    {
+      "caller_nid": "teleport_ensureupstreamisset",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L236"
+    },
+    {
+      "caller_nid": "teleport_ensureupstreamisset",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L236"
+    },
+    {
+      "caller_nid": "teleport_ensureupstreamisset",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L238"
+    },
+    {
+      "caller_nid": "teleport_ensureupstreamisset",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L241"
+    },
+    {
+      "caller_nid": "teleport_ensureupstreamisset",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L244"
+    },
+    {
+      "caller_nid": "teleport_checkoutbranch",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L256"
+    },
+    {
+      "caller_nid": "teleport_checkoutbranch",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L256"
+    },
+    {
+      "caller_nid": "teleport_checkoutbranch",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L260"
+    },
+    {
+      "caller_nid": "teleport_checkoutbranch",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L263"
+    },
+    {
+      "caller_nid": "teleport_checkoutbranch",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L263"
+    },
+    {
+      "caller_nid": "teleport_checkoutbranch",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L269"
+    },
+    {
+      "caller_nid": "teleport_checkoutbranch",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L270"
+    },
+    {
+      "caller_nid": "teleport_checkoutbranch",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L270"
+    },
+    {
+      "caller_nid": "teleport_checkoutbranch",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L276"
+    },
+    {
+      "caller_nid": "teleport_checkoutbranch",
+      "callee": "red",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L277"
+    },
+    {
+      "caller_nid": "teleport_getcurrentbranch",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L290"
+    },
+    {
+      "caller_nid": "teleport_getcurrentbranch",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L290"
+    },
+    {
+      "caller_nid": "teleport_getcurrentbranch",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L291"
+    },
+    {
+      "caller_nid": "teleport_processmessagesforteleportresume",
+      "callee": "deserializeMessages",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L303"
+    },
+    {
+      "caller_nid": "teleport_checkoutteleportedsessionbranch",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L321"
+    },
+    {
+      "caller_nid": "teleport_checkoutteleportedsessionbranch",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L323"
+    },
+    {
+      "caller_nid": "teleport_checkoutteleportedsessionbranch",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L327"
+    },
+    {
+      "caller_nid": "teleport_checkoutteleportedsessionbranch",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L329"
+    },
+    {
+      "caller_nid": "teleport_checkoutteleportedsessionbranch",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L338"
+    },
+    {
+      "caller_nid": "teleport_validatesessionrepository",
+      "callee": "detectCurrentRepositoryWithHost",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L368"
+    },
+    {
+      "caller_nid": "teleport_validatesessionrepository",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L370"
+    },
+    {
+      "caller_nid": "teleport_validatesessionrepository",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L373"
+    },
+    {
+      "caller_nid": "teleport_validatesessionrepository",
+      "callee": "parseGitRemote",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L378"
+    },
+    {
+      "caller_nid": "teleport_validatesessionrepository",
+      "callee": "parseGitHubRepository",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L379"
+    },
+    {
+      "caller_nid": "teleport_validatesessionrepository",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L385"
+    },
+    {
+      "caller_nid": "teleport_validatesessionrepository",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L401"
+    },
+    {
+      "caller_nid": "teleport_validatesessionrepository",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L401"
+    },
+    {
+      "caller_nid": "teleport_validatesessionrepository",
+      "callee": "stripPort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L402"
+    },
+    {
+      "caller_nid": "teleport_validatesessionrepository",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L402"
+    },
+    {
+      "caller_nid": "teleport_validatesessionrepository",
+      "callee": "stripPort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L402"
+    },
+    {
+      "caller_nid": "teleport_validatesessionrepository",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L402"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "isPolicyAllowed",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L431"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L434"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "getClaudeAIOAuthTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L436"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L438"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "getOrganizationUUID",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L445"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L447"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "onProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L454"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "fetchSession",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L455"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L464"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L468"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "red",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L469"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "bold",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L469"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L473"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L478"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L478"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L478"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L478"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "red",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L481"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "bold",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L481"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "bold",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L481"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "red",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L484"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L496"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L497"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L498"
+    },
+    {
+      "caller_nid": "teleport_teleportresumecodesession",
+      "callee": "red",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L501"
+    },
+    {
+      "caller_nid": "teleport_handleteleportprerequisites",
+      "callee": "getTeleportErrors",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L510"
+    },
+    {
+      "caller_nid": "teleport_handleteleportprerequisites",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L513"
+    },
+    {
+      "caller_nid": "teleport_handleteleportprerequisites",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L514"
+    },
+    {
+      "caller_nid": "teleport_handleteleportprerequisites",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L514"
+    },
+    {
+      "caller_nid": "teleport_handleteleportprerequisites",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L515"
+    },
+    {
+      "caller_nid": "teleport_handleteleportprerequisites",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L515"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L566"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L569"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "onProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L570"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L571"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "getTeleportEvents",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L577"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L579"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "getSessionLogsViaOAuth",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L580"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L582"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L582"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L588"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L589"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L590"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L590"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "onProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L593"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "getBranchFromSession",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L594"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L596"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L598"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L598"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L604"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "isAxiosError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L607"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L608"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "dim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L611"
+    },
+    {
+      "caller_nid": "teleport_teleportfromsessionsapi",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L613"
+    },
+    {
+      "caller_nid": "teleport_pollremotesessionevents",
+      "callee": "getClaudeAIOAuthTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L636"
+    },
+    {
+      "caller_nid": "teleport_pollremotesessionevents",
+      "callee": "getOrganizationUUID",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L640"
+    },
+    {
+      "caller_nid": "teleport_pollremotesessionevents",
+      "callee": "getOAuthHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L645"
+    },
+    {
+      "caller_nid": "teleport_pollremotesessionevents",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L649"
+    },
+    {
+      "caller_nid": "teleport_pollremotesessionevents",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L662"
+    },
+    {
+      "caller_nid": "teleport_pollremotesessionevents",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L673"
+    },
+    {
+      "caller_nid": "teleport_pollremotesessionevents",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L682"
+    },
+    {
+      "caller_nid": "teleport_pollremotesessionevents",
+      "callee": "fetchSession",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L701"
+    },
+    {
+      "caller_nid": "teleport_pollremotesessionevents",
+      "callee": "getBranchFromSession",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L702"
+    },
+    {
+      "caller_nid": "teleport_pollremotesessionevents",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L705"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "checkAndRefreshOAuthTokenIfNeeded",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L802"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "getClaudeAIOAuthTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L803"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L805"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "getOrganizationUUID",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L810"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L812"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L822"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "getOAuthHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L824"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "createAndUploadGitBundle",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L839"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L841"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L842"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L847"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L851"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "detectCurrentRepositoryWithHost",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L858"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L880"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L880"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "post",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L881"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L886"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L886"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L891"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L891"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "detectCurrentRepositoryWithHost",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L916"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "findGitRoot",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L942"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L942"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L943"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L944"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "checkGate_CACHED_OR_BLOCKING",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L944"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "checkGithubAppInstalled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L947"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "getDefaultBranch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L971"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L972"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1002"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "createAndUploadGitBundle",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1003"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1005"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1006"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1011"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "onBundleFail",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1035"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1039"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1046"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1051"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "fetchEnvironments",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1055"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1057"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1060"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1060"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1060"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "getSettings_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1066"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1068"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1074"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "fetchEnvironments",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1075"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1076"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1078"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1078"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1078"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1083"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1083"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1085"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1090"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1093"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1096"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "getOAuthHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1098"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "getMainLoopModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1108"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1127"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "randomUUID",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1131"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1141"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "randomUUID",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1144"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1161"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1161"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "post",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1164"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1170"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1170"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1177"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1177"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1180"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1186"
+    },
+    {
+      "caller_nid": "teleport_teleporttoremote",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1187"
+    },
+    {
+      "caller_nid": "teleport_archiveremotesession",
+      "callee": "getClaudeAIOAuthTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1201"
+    },
+    {
+      "caller_nid": "teleport_archiveremotesession",
+      "callee": "getOrganizationUUID",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1203"
+    },
+    {
+      "caller_nid": "teleport_archiveremotesession",
+      "callee": "getOAuthHeaders",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1206"
+    },
+    {
+      "caller_nid": "teleport_archiveremotesession",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1210"
+    },
+    {
+      "caller_nid": "teleport_archiveremotesession",
+      "callee": "post",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1212"
+    },
+    {
+      "caller_nid": "teleport_archiveremotesession",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1218"
+    },
+    {
+      "caller_nid": "teleport_archiveremotesession",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1220"
+    },
+    {
+      "caller_nid": "teleport_archiveremotesession",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1220"
+    },
+    {
+      "caller_nid": "teleport_archiveremotesession",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teleport.tsx",
+      "source_location": "L1223"
+    }
+  ]
+}

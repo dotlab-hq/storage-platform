@@ -1,1 +1,109 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx", "label": "-chat-message-item.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx", "source_location": "L1"}, {"id": "chat_message_item_chatmessageitem", "label": "ChatMessageItem()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx", "source_location": "L42"}], "edges": [{"source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx", "target": "lucide_react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx", "target": "react_router", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx", "target": "react_start", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx", "target": "utils", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx", "target": "page_skeleton", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx", "target": "f_storage_platform_src_routes_app_chat_chat_message_shell", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx", "target": "f_storage_platform_src_routes_app_chat_chat_types", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx", "target": "chat_message_item_chatmessageitem", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx", "source_location": "L42", "weight": 1.0}], "raw_calls": [{"caller_nid": "chat_message_item_chatmessageitem", "callee": "(\n    <ChatMessageShell\n      from={isUser ? 'user' : 'assistant'}\n      className={cn(\n        'group max-w-full rounded-md p-3 shadow-sm sm:p-4',\n        isUser\n          ? 'ml-auto w-full bg-primary text-primary-foreground sm:max-w-[80%]'\n          : 'mr-auto w-full bg-card sm:max-w-[86%]',\n      )}\n    >\n      <header className=\"mb-2 flex items-center justify-between gap-2 text-xs opacity-85\">\n        <div className=\"flex items-center gap-1.5\">\n          {isUser ? <UserRound className=\"h-3.5 w-3.5\" /> : null}\n          <span>{isUser ? 'You' : 'Assistant'}</span>\n          {!isUser && message.regenerationCount > 0 ? (\n            <span className=\"bg-muted px-2 py-0.5 text-[11px]\">\n              v{message.regenerationCount + 1}\n            </span>\n          ) : null}\n        </div>\n\n        <ChatMessageActions className=\"gap-1 opacity-80 group-hover:opacity-100\">\n          <ChatMessageActionButton\n            className=\"h-7 w-7\"\n            onClick={() => void navigator.clipboard.writeText(message.content)}\n            aria-label=\"Copy message\"\n            tooltip=\"Copy message\"\n            label=\"Copy message\"\n          >\n            <Copy className=\"h-3.5 w-3.5\" />\n          </ChatMessageActionButton>\n          {!isUser ? (\n            <ChatMessageActionButton\n              className=\"h-7 w-7\"\n              onClick={() => onRegenerate(message.id)}\n              disabled={isPending}\n              aria-label=\"Regenerate response\"\n              tooltip=\"Regenerate response\"\n              label=\"Regenerate response\"\n            >\n              <RefreshCw className=\"h-3.5 w-3.5\" />\n            </ChatMessageActionButton>\n          ) : null}\n          <ChatMessageActionButton\n            className=\"h-7 w-7\"\n            onClick={()", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx", "source_location": "L51"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx",
+      "label": "-chat-message-item.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "chat_message_item_chatmessageitem",
+      "label": "ChatMessageItem()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx",
+      "source_location": "L42"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx",
+      "target": "lucide_react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx",
+      "target": "react_router",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx",
+      "target": "react_start",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx",
+      "target": "utils",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx",
+      "target": "page_skeleton",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx",
+      "target": "f_storage_platform_src_routes_app_chat_chat_message_shell",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx",
+      "target": "f_storage_platform_src_routes_app_chat_chat_types",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_item_tsx",
+      "target": "chat_message_item_chatmessageitem",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx",
+      "source_location": "L42",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "chat_message_item_chatmessageitem",
+      "callee": "(\n    <ChatMessageShell\n      from={isUser ? 'user' : 'assistant'}\n      className={cn(\n        'group max-w-full rounded-md p-3 shadow-sm sm:p-4',\n        isUser\n          ? 'ml-auto w-full bg-primary text-primary-foreground sm:max-w-[80%]'\n          : 'mr-auto w-full bg-card sm:max-w-[86%]',\n      )}\n    >\n      <header className=\"mb-2 flex items-center justify-between gap-2 text-xs opacity-85\">\n        <div className=\"flex items-center gap-1.5\">\n          {isUser ? <UserRound className=\"h-3.5 w-3.5\" /> : null}\n          <span>{isUser ? 'You' : 'Assistant'}</span>\n          {!isUser && message.regenerationCount > 0 ? (\n            <span className=\"bg-muted px-2 py-0.5 text-[11px]\">\n              v{message.regenerationCount + 1}\n            </span>\n          ) : null}\n        </div>\n\n        <ChatMessageActions className=\"gap-1 opacity-80 group-hover:opacity-100\">\n          <ChatMessageActionButton\n            className=\"h-7 w-7\"\n            onClick={() => void navigator.clipboard.writeText(message.content)}\n            aria-label=\"Copy message\"\n            tooltip=\"Copy message\"\n            label=\"Copy message\"\n          >\n            <Copy className=\"h-3.5 w-3.5\" />\n          </ChatMessageActionButton>\n          {!isUser ? (\n            <ChatMessageActionButton\n              className=\"h-7 w-7\"\n              onClick={() => onRegenerate(message.id)}\n              disabled={isPending}\n              aria-label=\"Regenerate response\"\n              tooltip=\"Regenerate response\"\n              label=\"Regenerate response\"\n            >\n              <RefreshCw className=\"h-3.5 w-3.5\" />\n            </ChatMessageActionButton>\n          ) : null}\n          <ChatMessageActionButton\n            className=\"h-7 w-7\"\n            onClick={()",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-item.tsx",
+      "source_location": "L51"
+    }
+  ]
+}

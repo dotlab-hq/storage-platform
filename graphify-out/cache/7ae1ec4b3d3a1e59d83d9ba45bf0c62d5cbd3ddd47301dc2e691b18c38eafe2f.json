@@ -1,1 +1,77 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_commands_passes_index_ts", "label": "index.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts", "source_location": "L1"}, {"id": "index_description", "label": "description()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts", "source_location": "L10"}, {"id": "index_ishidden", "label": "isHidden()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts", "source_location": "L17"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_commands_passes_index_ts", "target": "f_storage_platform_claude_code_source_main_src_commands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_passes_index_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_passes_index_ts", "target": "index_description", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_passes_index_ts", "target": "index_ishidden", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts", "source_location": "L17", "weight": 1.0}], "raw_calls": [{"caller_nid": "index_description", "callee": "getCachedReferrerReward", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts", "source_location": "L11"}, {"caller_nid": "index_ishidden", "callee": "checkCachedPassesEligibility", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts", "source_location": "L18"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_commands_passes_index_ts",
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "index_description",
+      "label": "description()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "index_ishidden",
+      "label": "isHidden()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts",
+      "source_location": "L17"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_passes_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_commands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_passes_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_referral_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_passes_index_ts",
+      "target": "index_description",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_passes_index_ts",
+      "target": "index_ishidden",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "index_description",
+      "callee": "getCachedReferrerReward",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts",
+      "source_location": "L11"
+    },
+    {
+      "caller_nid": "index_ishidden",
+      "callee": "checkCachedPassesEligibility",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\passes\\index.ts",
+      "source_location": "L18"
+    }
+  ]
+}

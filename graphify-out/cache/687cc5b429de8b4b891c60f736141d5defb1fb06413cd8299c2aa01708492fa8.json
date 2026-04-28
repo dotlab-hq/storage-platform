@@ -1,1 +1,169 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts", "label": "abortController.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L1"}, {"id": "abortcontroller_createabortcontroller", "label": "createAbortController()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L16"}, {"id": "abortcontroller_propagateabort", "label": "propagateAbort()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L30"}, {"id": "abortcontroller_removeaborthandler", "label": "removeAbortHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L44"}, {"id": "abortcontroller_createchildabortcontroller", "label": "createChildAbortController()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L68"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts", "target": "events", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts", "target": "abortcontroller_createabortcontroller", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts", "target": "abortcontroller_propagateabort", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts", "target": "abortcontroller_removeaborthandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L44", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts", "target": "abortcontroller_createchildabortcontroller", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L68", "weight": 1.0}, {"source": "abortcontroller_createchildabortcontroller", "target": "abortcontroller_createabortcontroller", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L72", "weight": 1.0}], "raw_calls": [{"caller_nid": "abortcontroller_createabortcontroller", "callee": "setMaxListeners", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L20"}, {"caller_nid": "abortcontroller_propagateabort", "callee": "deref", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L34"}, {"caller_nid": "abortcontroller_propagateabort", "callee": "abort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L35"}, {"caller_nid": "abortcontroller_propagateabort", "callee": "deref", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L35"}, {"caller_nid": "abortcontroller_removeaborthandler", "callee": "deref", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L48"}, {"caller_nid": "abortcontroller_removeaborthandler", "callee": "deref", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L49"}, {"caller_nid": "abortcontroller_removeaborthandler", "callee": "removeEventListener", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L51"}, {"caller_nid": "abortcontroller_createchildabortcontroller", "callee": "abort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L76"}, {"caller_nid": "abortcontroller_createchildabortcontroller", "callee": "bind", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L85"}, {"caller_nid": "abortcontroller_createchildabortcontroller", "callee": "addEventListener", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L87"}, {"caller_nid": "abortcontroller_createchildabortcontroller", "callee": "addEventListener", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L92"}, {"caller_nid": "abortcontroller_createchildabortcontroller", "callee": "bind", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts", "source_location": "L94"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts",
+      "label": "abortController.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "abortcontroller_createabortcontroller",
+      "label": "createAbortController()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "abortcontroller_propagateabort",
+      "label": "propagateAbort()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L30"
+    },
+    {
+      "id": "abortcontroller_removeaborthandler",
+      "label": "removeAbortHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L44"
+    },
+    {
+      "id": "abortcontroller_createchildabortcontroller",
+      "label": "createChildAbortController()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L68"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts",
+      "target": "events",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts",
+      "target": "abortcontroller_createabortcontroller",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts",
+      "target": "abortcontroller_propagateabort",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts",
+      "target": "abortcontroller_removeaborthandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts",
+      "target": "abortcontroller_createchildabortcontroller",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "abortcontroller_createchildabortcontroller",
+      "target": "abortcontroller_createabortcontroller",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L72",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "abortcontroller_createabortcontroller",
+      "callee": "setMaxListeners",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L20"
+    },
+    {
+      "caller_nid": "abortcontroller_propagateabort",
+      "callee": "deref",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "abortcontroller_propagateabort",
+      "callee": "abort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "abortcontroller_propagateabort",
+      "callee": "deref",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "abortcontroller_removeaborthandler",
+      "callee": "deref",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "abortcontroller_removeaborthandler",
+      "callee": "deref",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "abortcontroller_removeaborthandler",
+      "callee": "removeEventListener",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "abortcontroller_createchildabortcontroller",
+      "callee": "abort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "abortcontroller_createchildabortcontroller",
+      "callee": "bind",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "abortcontroller_createchildabortcontroller",
+      "callee": "addEventListener",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "abortcontroller_createchildabortcontroller",
+      "callee": "addEventListener",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "abortcontroller_createchildabortcontroller",
+      "callee": "bind",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\abortController.ts",
+      "source_location": "L94"
+    }
+  ]
+}

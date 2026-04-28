@@ -1,1 +1,501 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_storage_provider_queries_ts", "label": "storage-provider-queries.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L1"}, {"id": "storage_provider_queries_loaddb", "label": "loadDb()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L7"}, {"id": "storage_provider_queries_tononnegativebytes", "label": "toNonNegativeBytes()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L12"}, {"id": "storage_provider_queries_listproviderswithusage", "label": "listProvidersWithUsage()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L20"}, {"id": "storage_provider_queries_listuserproviderswithusage", "label": "listUserProvidersWithUsage()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L77"}, {"id": "storage_provider_queries_getstorageadminsummary", "label": "getStorageAdminSummary()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L136"}, {"id": "storage_provider_queries_getuserswithusage", "label": "getUsersWithUsage()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L163"}], "edges": [{"source": "f_storage_platform_src_lib_storage_provider_queries_ts", "target": "auth_schema", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_provider_queries_ts", "target": "storage", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_provider_queries_ts", "target": "storage_provider", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_provider_queries_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_provider_queries_ts", "target": "storage_quota_constants", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_provider_queries_ts", "target": "storage_provider_queries_loaddb", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_provider_queries_ts", "target": "storage_provider_queries_tononnegativebytes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_provider_queries_ts", "target": "storage_provider_queries_listproviderswithusage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_provider_queries_ts", "target": "storage_provider_queries_listuserproviderswithusage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L77", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_provider_queries_ts", "target": "storage_provider_queries_getstorageadminsummary", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L136", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_provider_queries_ts", "target": "storage_provider_queries_getuserswithusage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L163", "weight": 1.0}, {"source": "storage_provider_queries_listproviderswithusage", "target": "storage_provider_queries_loaddb", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L21", "weight": 1.0}, {"source": "storage_provider_queries_listuserproviderswithusage", "target": "storage_provider_queries_loaddb", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L78", "weight": 1.0}, {"source": "storage_provider_queries_getstorageadminsummary", "target": "storage_provider_queries_loaddb", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L137", "weight": 1.0}, {"source": "storage_provider_queries_getstorageadminsummary", "target": "storage_provider_queries_tononnegativebytes", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L155", "weight": 1.0}, {"source": "storage_provider_queries_getuserswithusage", "target": "storage_provider_queries_loaddb", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L164", "weight": 1.0}], "raw_calls": [{"caller_nid": "storage_provider_queries_loaddb", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L8"}, {"caller_nid": "storage_provider_queries_tononnegativebytes", "callee": "Number", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L13"}, {"caller_nid": "storage_provider_queries_tononnegativebytes", "callee": "isFinite", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L14"}, {"caller_nid": "storage_provider_queries_tononnegativebytes", "callee": "max", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L17"}, {"caller_nid": "storage_provider_queries_listproviderswithusage", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L22"}, {"caller_nid": "storage_provider_queries_listproviderswithusage", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L22"}, {"caller_nid": "storage_provider_queries_listproviderswithusage", "callee": "groupBy", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L37"}, {"caller_nid": "storage_provider_queries_listproviderswithusage", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L37"}, {"caller_nid": "storage_provider_queries_listproviderswithusage", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L37"}, {"caller_nid": "storage_provider_queries_listproviderswithusage", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L37"}, {"caller_nid": "storage_provider_queries_listproviderswithusage", "callee": "mapWith", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L40"}, {"caller_nid": "storage_provider_queries_listproviderswithusage", "callee": "sum", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L40"}, {"caller_nid": "storage_provider_queries_listproviderswithusage", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L43"}, {"caller_nid": "storage_provider_queries_listproviderswithusage", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L47"}, {"caller_nid": "storage_provider_queries_listproviderswithusage", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L53"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L79"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L79"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L79"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L93"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "groupBy", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L95"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L95"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L95"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L95"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "mapWith", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L98"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "sum", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L98"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L102"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L103"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L104"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "isNotNull", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L105"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L111"}, {"caller_nid": "storage_provider_queries_listuserproviderswithusage", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L114"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L138"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L138"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L138"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "count", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L140"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "isNull", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L143"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L144"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L144"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "count", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L146"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L149"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L149"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L149"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "mapWith", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L150"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "sum", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L150"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L152"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "Number", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L153"}, {"caller_nid": "storage_provider_queries_getstorageadminsummary", "callee": "Number", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L154"}, {"caller_nid": "storage_provider_queries_getuserswithusage", "callee": "await db.all", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L165"}, {"caller_nid": "storage_provider_queries_getuserswithusage", "callee": "sql", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L175"}, {"caller_nid": "storage_provider_queries_getuserswithusage", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts", "source_location": "L190"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_storage_provider_queries_ts",
+      "label": "storage-provider-queries.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "storage_provider_queries_loaddb",
+      "label": "loadDb()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "storage_provider_queries_tononnegativebytes",
+      "label": "toNonNegativeBytes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L12"
+    },
+    {
+      "id": "storage_provider_queries_listproviderswithusage",
+      "label": "listProvidersWithUsage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L20"
+    },
+    {
+      "id": "storage_provider_queries_listuserproviderswithusage",
+      "label": "listUserProvidersWithUsage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L77"
+    },
+    {
+      "id": "storage_provider_queries_getstorageadminsummary",
+      "label": "getStorageAdminSummary()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L136"
+    },
+    {
+      "id": "storage_provider_queries_getuserswithusage",
+      "label": "getUsersWithUsage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L163"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_storage_provider_queries_ts",
+      "target": "auth_schema",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_provider_queries_ts",
+      "target": "storage",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_provider_queries_ts",
+      "target": "storage_provider",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_provider_queries_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_provider_queries_ts",
+      "target": "storage_quota_constants",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_provider_queries_ts",
+      "target": "storage_provider_queries_loaddb",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_provider_queries_ts",
+      "target": "storage_provider_queries_tononnegativebytes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_provider_queries_ts",
+      "target": "storage_provider_queries_listproviderswithusage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_provider_queries_ts",
+      "target": "storage_provider_queries_listuserproviderswithusage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_provider_queries_ts",
+      "target": "storage_provider_queries_getstorageadminsummary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_provider_queries_ts",
+      "target": "storage_provider_queries_getuserswithusage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "storage_provider_queries_listproviderswithusage",
+      "target": "storage_provider_queries_loaddb",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "storage_provider_queries_listuserproviderswithusage",
+      "target": "storage_provider_queries_loaddb",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "storage_provider_queries_getstorageadminsummary",
+      "target": "storage_provider_queries_loaddb",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "storage_provider_queries_getstorageadminsummary",
+      "target": "storage_provider_queries_tononnegativebytes",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L155",
+      "weight": 1.0
+    },
+    {
+      "source": "storage_provider_queries_getuserswithusage",
+      "target": "storage_provider_queries_loaddb",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L164",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "storage_provider_queries_loaddb",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L8"
+    },
+    {
+      "caller_nid": "storage_provider_queries_tononnegativebytes",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L13"
+    },
+    {
+      "caller_nid": "storage_provider_queries_tononnegativebytes",
+      "callee": "isFinite",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L14"
+    },
+    {
+      "caller_nid": "storage_provider_queries_tononnegativebytes",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listproviderswithusage",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listproviderswithusage",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listproviderswithusage",
+      "callee": "groupBy",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listproviderswithusage",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listproviderswithusage",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listproviderswithusage",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listproviderswithusage",
+      "callee": "mapWith",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listproviderswithusage",
+      "callee": "sum",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listproviderswithusage",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listproviderswithusage",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listproviderswithusage",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "groupBy",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "mapWith",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L98"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "sum",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L98"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L102"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L103"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "isNotNull",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "storage_provider_queries_listuserproviderswithusage",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "count",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L140"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "isNull",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "count",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "mapWith",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "sum",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L153"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getstorageadminsummary",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getuserswithusage",
+      "callee": "await db.all",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getuserswithusage",
+      "callee": "sql",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "storage_provider_queries_getuserswithusage",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-provider-queries.ts",
+      "source_location": "L190"
+    }
+  ]
+}

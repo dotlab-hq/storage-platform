@@ -1,1 +1,94 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_search_highlight_ts", "label": "use-search-highlight.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts", "source_location": "L1"}, {"id": "use_search_highlight_usesearchhighlight", "label": "useSearchHighlight()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts", "source_location": "L18"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_search_highlight_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_search_highlight_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_components_stdincontext_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_search_highlight_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_dom_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_search_highlight_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_instances_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_search_highlight_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_render_to_screen_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_search_highlight_ts", "target": "use_search_highlight_usesearchhighlight", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts", "source_location": "L18", "weight": 1.0}], "raw_calls": [{"caller_nid": "use_search_highlight_usesearchhighlight", "callee": "useContext", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts", "source_location": "L37"}, {"caller_nid": "use_search_highlight_usesearchhighlight", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts", "source_location": "L38"}, {"caller_nid": "use_search_highlight_usesearchhighlight", "callee": "useMemo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts", "source_location": "L39"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_search_highlight_ts",
+      "label": "use-search-highlight.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "use_search_highlight_usesearchhighlight",
+      "label": "useSearchHighlight()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts",
+      "source_location": "L18"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_search_highlight_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_search_highlight_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_components_stdincontext_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_search_highlight_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_dom_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_search_highlight_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_instances_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_search_highlight_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_render_to_screen_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_ink_hooks_use_search_highlight_ts",
+      "target": "use_search_highlight_usesearchhighlight",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "use_search_highlight_usesearchhighlight",
+      "callee": "useContext",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "use_search_highlight_usesearchhighlight",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "use_search_highlight_usesearchhighlight",
+      "callee": "useMemo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\ink\\hooks\\use-search-highlight.ts",
+      "source_location": "L39"
+    }
+  ]
+}

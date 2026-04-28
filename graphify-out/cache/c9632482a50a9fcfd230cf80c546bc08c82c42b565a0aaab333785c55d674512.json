@@ -1,1 +1,347 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts", "label": "modelAllowlist.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L1"}, {"id": "modelallowlist_modelbelongstofamily", "label": "modelBelongsToFamily()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L10"}, {"id": "modelallowlist_prefixmatchesmodel", "label": "prefixMatchesModel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L27"}, {"id": "modelallowlist_modelmatchesversionprefix", "label": "modelMatchesVersionPrefix()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L39"}, {"id": "modelallowlist_familyhasspecificentries", "label": "familyHasSpecificEntries()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L65"}, {"id": "modelallowlist_ismodelallowed", "label": "isModelAllowed()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L100"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_aliases_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_modelstrings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts", "target": "modelallowlist_modelbelongstofamily", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts", "target": "modelallowlist_prefixmatchesmodel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts", "target": "modelallowlist_modelmatchesversionprefix", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts", "target": "modelallowlist_familyhasspecificentries", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L65", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts", "target": "modelallowlist_ismodelallowed", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L100", "weight": 1.0}, {"source": "modelallowlist_modelmatchesversionprefix", "target": "modelallowlist_prefixmatchesmodel", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L46", "weight": 1.0}, {"source": "modelallowlist_ismodelallowed", "target": "modelallowlist_familyhasspecificentries", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L121", "weight": 1.0}, {"source": "modelallowlist_ismodelallowed", "target": "modelallowlist_modelbelongstofamily", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L134", "weight": 1.0}, {"source": "modelallowlist_ismodelallowed", "target": "modelallowlist_modelmatchesversionprefix", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L163", "weight": 1.0}], "raw_calls": [{"caller_nid": "modelallowlist_modelbelongstofamily", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L11"}, {"caller_nid": "modelallowlist_modelbelongstofamily", "callee": "isModelAlias", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L15"}, {"caller_nid": "modelallowlist_modelbelongstofamily", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L16"}, {"caller_nid": "modelallowlist_modelbelongstofamily", "callee": "parseUserSpecifiedModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L16"}, {"caller_nid": "modelallowlist_modelbelongstofamily", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L17"}, {"caller_nid": "modelallowlist_prefixmatchesmodel", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L28"}, {"caller_nid": "modelallowlist_modelmatchesversionprefix", "callee": "isModelAlias", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L41"}, {"caller_nid": "modelallowlist_modelmatchesversionprefix", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L42"}, {"caller_nid": "modelallowlist_modelmatchesversionprefix", "callee": "parseUserSpecifiedModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L42"}, {"caller_nid": "modelallowlist_modelmatchesversionprefix", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L51"}, {"caller_nid": "modelallowlist_familyhasspecificentries", "callee": "isModelFamilyAlias", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L70"}, {"caller_nid": "modelallowlist_familyhasspecificentries", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L77"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "getSettings_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L101"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "resolveOverriddenModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L110"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L111"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L111"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L112"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L118"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "isModelFamilyAlias", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L120"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "isModelFamilyAlias", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L132"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "isModelAlias", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L142"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L143"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "parseUserSpecifiedModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L143"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L144"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "isModelFamilyAlias", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L151"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "isModelAlias", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L151"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L152"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "parseUserSpecifiedModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L152"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "isModelFamilyAlias", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L162"}, {"caller_nid": "modelallowlist_ismodelallowed", "callee": "isModelAlias", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts", "source_location": "L162"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts",
+      "label": "modelAllowlist.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "modelallowlist_modelbelongstofamily",
+      "label": "modelBelongsToFamily()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "modelallowlist_prefixmatchesmodel",
+      "label": "prefixMatchesModel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L27"
+    },
+    {
+      "id": "modelallowlist_modelmatchesversionprefix",
+      "label": "modelMatchesVersionPrefix()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L39"
+    },
+    {
+      "id": "modelallowlist_familyhasspecificentries",
+      "label": "familyHasSpecificEntries()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L65"
+    },
+    {
+      "id": "modelallowlist_ismodelallowed",
+      "label": "isModelAllowed()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L100"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_aliases_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_modelstrings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts",
+      "target": "modelallowlist_modelbelongstofamily",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts",
+      "target": "modelallowlist_prefixmatchesmodel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts",
+      "target": "modelallowlist_modelmatchesversionprefix",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts",
+      "target": "modelallowlist_familyhasspecificentries",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_model_modelallowlist_ts",
+      "target": "modelallowlist_ismodelallowed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "modelallowlist_modelmatchesversionprefix",
+      "target": "modelallowlist_prefixmatchesmodel",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "modelallowlist_ismodelallowed",
+      "target": "modelallowlist_familyhasspecificentries",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L121",
+      "weight": 1.0
+    },
+    {
+      "source": "modelallowlist_ismodelallowed",
+      "target": "modelallowlist_modelbelongstofamily",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "modelallowlist_ismodelallowed",
+      "target": "modelallowlist_modelmatchesversionprefix",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L163",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "modelallowlist_modelbelongstofamily",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L11"
+    },
+    {
+      "caller_nid": "modelallowlist_modelbelongstofamily",
+      "callee": "isModelAlias",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L15"
+    },
+    {
+      "caller_nid": "modelallowlist_modelbelongstofamily",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L16"
+    },
+    {
+      "caller_nid": "modelallowlist_modelbelongstofamily",
+      "callee": "parseUserSpecifiedModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L16"
+    },
+    {
+      "caller_nid": "modelallowlist_modelbelongstofamily",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "modelallowlist_prefixmatchesmodel",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "modelallowlist_modelmatchesversionprefix",
+      "callee": "isModelAlias",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "modelallowlist_modelmatchesversionprefix",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "modelallowlist_modelmatchesversionprefix",
+      "callee": "parseUserSpecifiedModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "modelallowlist_modelmatchesversionprefix",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "modelallowlist_familyhasspecificentries",
+      "callee": "isModelFamilyAlias",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "modelallowlist_familyhasspecificentries",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "getSettings_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "resolveOverriddenModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "isModelFamilyAlias",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "isModelFamilyAlias",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "isModelAlias",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "parseUserSpecifiedModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "isModelFamilyAlias",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "isModelAlias",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "parseUserSpecifiedModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "isModelFamilyAlias",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "modelallowlist_ismodelallowed",
+      "callee": "isModelAlias",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\model\\modelAllowlist.ts",
+      "source_location": "L162"
+    }
+  ]
+}

@@ -1,1 +1,592 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts", "label": "ParsedCommand.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L1"}, {"id": "parsedcommand_regexparsedcommand_deprecated", "label": "RegexParsedCommand_DEPRECATED", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L42"}, {"id": "parsedcommand_regexparsedcommand_deprecated_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L45"}, {"id": "parsedcommand_regexparsedcommand_deprecated_tostring", "label": ".toString()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L49"}, {"id": "parsedcommand_regexparsedcommand_deprecated_getpipesegments", "label": ".getPipeSegments()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L53"}, {"id": "parsedcommand_regexparsedcommand_deprecated_withoutoutputredirections", "label": ".withoutOutputRedirections()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L80"}, {"id": "parsedcommand_regexparsedcommand_deprecated_getoutputredirections", "label": ".getOutputRedirections()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L91"}, {"id": "parsedcommand_regexparsedcommand_deprecated_gettreesitteranalysis", "label": ".getTreeSitterAnalysis()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L96"}, {"id": "parsedcommand_visitnodes", "label": "visitNodes()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L106"}, {"id": "parsedcommand_extractpipepositions", "label": "extractPipePositions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L113"}, {"id": "parsedcommand_extractredirectionnodes", "label": "extractRedirectionNodes()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L131"}, {"id": "parsedcommand_treesitterparsedcommand", "label": "TreeSitterParsedCommand", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L151"}, {"id": "parsedcommand_treesitterparsedcommand_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L164"}, {"id": "parsedcommand_treesitterparsedcommand_tostring", "label": ".toString()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L177"}, {"id": "parsedcommand_treesitterparsedcommand_getpipesegments", "label": ".getPipeSegments()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L181"}, {"id": "parsedcommand_treesitterparsedcommand_withoutoutputredirections", "label": ".withoutOutputRedirections()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L211"}, {"id": "parsedcommand_treesitterparsedcommand_getoutputredirections", "label": ".getOutputRedirections()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L228"}, {"id": "parsedcommand_treesitterparsedcommand_gettreesitteranalysis", "label": ".getTreeSitterAnalysis()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L235"}, {"id": "parsedcommand_buildparsedcommandfromroot", "label": "buildParsedCommandFromRoot()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L255"}, {"id": "parsedcommand_doparse", "label": "doParse()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L270"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts", "target": "memoize_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_commands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_parser_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_bash_treesitteranalysis_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts", "target": "parsedcommand_regexparsedcommand_deprecated", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L42", "weight": 1.0}, {"source": "parsedcommand_regexparsedcommand_deprecated", "target": "parsedcommand_regexparsedcommand_deprecated_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L45", "weight": 1.0}, {"source": "parsedcommand_regexparsedcommand_deprecated", "target": "parsedcommand_regexparsedcommand_deprecated_tostring", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L49", "weight": 1.0}, {"source": "parsedcommand_regexparsedcommand_deprecated", "target": "parsedcommand_regexparsedcommand_deprecated_getpipesegments", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L53", "weight": 1.0}, {"source": "parsedcommand_regexparsedcommand_deprecated", "target": "parsedcommand_regexparsedcommand_deprecated_withoutoutputredirections", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L80", "weight": 1.0}, {"source": "parsedcommand_regexparsedcommand_deprecated", "target": "parsedcommand_regexparsedcommand_deprecated_getoutputredirections", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L91", "weight": 1.0}, {"source": "parsedcommand_regexparsedcommand_deprecated", "target": "parsedcommand_regexparsedcommand_deprecated_gettreesitteranalysis", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L96", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts", "target": "parsedcommand_visitnodes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L106", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts", "target": "parsedcommand_extractpipepositions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L113", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts", "target": "parsedcommand_extractredirectionnodes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L131", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts", "target": "parsedcommand_treesitterparsedcommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L151", "weight": 1.0}, {"source": "parsedcommand_treesitterparsedcommand", "target": "parsedcommand_treesitterparsedcommand_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L164", "weight": 1.0}, {"source": "parsedcommand_treesitterparsedcommand", "target": "parsedcommand_treesitterparsedcommand_tostring", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L177", "weight": 1.0}, {"source": "parsedcommand_treesitterparsedcommand", "target": "parsedcommand_treesitterparsedcommand_getpipesegments", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L181", "weight": 1.0}, {"source": "parsedcommand_treesitterparsedcommand", "target": "parsedcommand_treesitterparsedcommand_withoutoutputredirections", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L211", "weight": 1.0}, {"source": "parsedcommand_treesitterparsedcommand", "target": "parsedcommand_treesitterparsedcommand_getoutputredirections", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L228", "weight": 1.0}, {"source": "parsedcommand_treesitterparsedcommand", "target": "parsedcommand_treesitterparsedcommand_gettreesitteranalysis", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L235", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts", "target": "parsedcommand_buildparsedcommandfromroot", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L255", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts", "target": "parsedcommand_doparse", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L270", "weight": 1.0}, {"source": "parsedcommand_extractpipepositions", "target": "parsedcommand_visitnodes", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L115", "weight": 1.0}, {"source": "parsedcommand_extractredirectionnodes", "target": "parsedcommand_visitnodes", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L133", "weight": 1.0}, {"source": "parsedcommand_treesitterparsedcommand_getpipesegments", "target": "parsedcommand_treesitterparsedcommand_tostring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L190", "weight": 1.0}, {"source": "parsedcommand_treesitterparsedcommand_withoutoutputredirections", "target": "parsedcommand_treesitterparsedcommand_tostring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L225", "weight": 1.0}, {"source": "parsedcommand_buildparsedcommandfromroot", "target": "parsedcommand_extractpipepositions", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L259", "weight": 1.0}, {"source": "parsedcommand_buildparsedcommandfromroot", "target": "parsedcommand_extractredirectionnodes", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L260", "weight": 1.0}, {"source": "parsedcommand_doparse", "target": "parsedcommand_buildparsedcommandfromroot", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L281", "weight": 1.0}], "raw_calls": [{"caller_nid": "parsedcommand_regexparsedcommand_deprecated_getpipesegments", "callee": "splitCommandWithOperators", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L55"}, {"caller_nid": "parsedcommand_regexparsedcommand_deprecated_getpipesegments", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L62"}, {"caller_nid": "parsedcommand_regexparsedcommand_deprecated_getpipesegments", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L62"}, {"caller_nid": "parsedcommand_regexparsedcommand_deprecated_getpipesegments", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L66"}, {"caller_nid": "parsedcommand_regexparsedcommand_deprecated_getpipesegments", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L71"}, {"caller_nid": "parsedcommand_regexparsedcommand_deprecated_getpipesegments", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L71"}, {"caller_nid": "parsedcommand_regexparsedcommand_deprecated_withoutoutputredirections", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L81"}, {"caller_nid": "parsedcommand_regexparsedcommand_deprecated_withoutoutputredirections", "callee": "extractOutputRedirections", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L85"}, {"caller_nid": "parsedcommand_regexparsedcommand_deprecated_getoutputredirections", "callee": "extractOutputRedirections", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L92"}, {"caller_nid": "parsedcommand_visitnodes", "callee": "visitor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L107"}, {"caller_nid": "parsedcommand_extractpipepositions", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L128"}, {"caller_nid": "parsedcommand_treesitterparsedcommand_constructor", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L171"}, {"caller_nid": "parsedcommand_treesitterparsedcommand_getpipesegments", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L190"}, {"caller_nid": "parsedcommand_treesitterparsedcommand_getpipesegments", "callee": "subarray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L190"}, {"caller_nid": "parsedcommand_treesitterparsedcommand_getpipesegments", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L195"}, {"caller_nid": "parsedcommand_treesitterparsedcommand_getpipesegments", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L200"}, {"caller_nid": "parsedcommand_treesitterparsedcommand_getpipesegments", "callee": "subarray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L200"}, {"caller_nid": "parsedcommand_treesitterparsedcommand_getpipesegments", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L205"}, {"caller_nid": "parsedcommand_treesitterparsedcommand_withoutoutputredirections", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L214"}, {"caller_nid": "parsedcommand_treesitterparsedcommand_withoutoutputredirections", "callee": "concat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L220"}, {"caller_nid": "parsedcommand_treesitterparsedcommand_withoutoutputredirections", "callee": "subarray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L221"}, {"caller_nid": "parsedcommand_treesitterparsedcommand_withoutoutputredirections", "callee": "subarray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L222"}, {"caller_nid": "parsedcommand_treesitterparsedcommand_withoutoutputredirections", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L225"}, {"caller_nid": "parsedcommand_treesitterparsedcommand_withoutoutputredirections", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L225"}, {"caller_nid": "parsedcommand_treesitterparsedcommand_getoutputredirections", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L229"}, {"caller_nid": "parsedcommand_buildparsedcommandfromroot", "callee": "analyzeCommand", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L261"}, {"caller_nid": "parsedcommand_doparse", "callee": "getTreeSitterAvailable", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L273"}, {"caller_nid": "parsedcommand_doparse", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L276"}, {"caller_nid": "parsedcommand_doparse", "callee": "parseCommand", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts", "source_location": "L277"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts",
+      "label": "ParsedCommand.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "parsedcommand_regexparsedcommand_deprecated",
+      "label": "RegexParsedCommand_DEPRECATED",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L42"
+    },
+    {
+      "id": "parsedcommand_regexparsedcommand_deprecated_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L45"
+    },
+    {
+      "id": "parsedcommand_regexparsedcommand_deprecated_tostring",
+      "label": ".toString()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L49"
+    },
+    {
+      "id": "parsedcommand_regexparsedcommand_deprecated_getpipesegments",
+      "label": ".getPipeSegments()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L53"
+    },
+    {
+      "id": "parsedcommand_regexparsedcommand_deprecated_withoutoutputredirections",
+      "label": ".withoutOutputRedirections()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L80"
+    },
+    {
+      "id": "parsedcommand_regexparsedcommand_deprecated_getoutputredirections",
+      "label": ".getOutputRedirections()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L91"
+    },
+    {
+      "id": "parsedcommand_regexparsedcommand_deprecated_gettreesitteranalysis",
+      "label": ".getTreeSitterAnalysis()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L96"
+    },
+    {
+      "id": "parsedcommand_visitnodes",
+      "label": "visitNodes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L106"
+    },
+    {
+      "id": "parsedcommand_extractpipepositions",
+      "label": "extractPipePositions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L113"
+    },
+    {
+      "id": "parsedcommand_extractredirectionnodes",
+      "label": "extractRedirectionNodes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L131"
+    },
+    {
+      "id": "parsedcommand_treesitterparsedcommand",
+      "label": "TreeSitterParsedCommand",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L151"
+    },
+    {
+      "id": "parsedcommand_treesitterparsedcommand_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L164"
+    },
+    {
+      "id": "parsedcommand_treesitterparsedcommand_tostring",
+      "label": ".toString()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L177"
+    },
+    {
+      "id": "parsedcommand_treesitterparsedcommand_getpipesegments",
+      "label": ".getPipeSegments()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L181"
+    },
+    {
+      "id": "parsedcommand_treesitterparsedcommand_withoutoutputredirections",
+      "label": ".withoutOutputRedirections()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L211"
+    },
+    {
+      "id": "parsedcommand_treesitterparsedcommand_getoutputredirections",
+      "label": ".getOutputRedirections()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L228"
+    },
+    {
+      "id": "parsedcommand_treesitterparsedcommand_gettreesitteranalysis",
+      "label": ".getTreeSitterAnalysis()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L235"
+    },
+    {
+      "id": "parsedcommand_buildparsedcommandfromroot",
+      "label": "buildParsedCommandFromRoot()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L255"
+    },
+    {
+      "id": "parsedcommand_doparse",
+      "label": "doParse()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L270"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts",
+      "target": "memoize_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_commands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_parser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_bash_treesitteranalysis_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts",
+      "target": "parsedcommand_regexparsedcommand_deprecated",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_regexparsedcommand_deprecated",
+      "target": "parsedcommand_regexparsedcommand_deprecated_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_regexparsedcommand_deprecated",
+      "target": "parsedcommand_regexparsedcommand_deprecated_tostring",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_regexparsedcommand_deprecated",
+      "target": "parsedcommand_regexparsedcommand_deprecated_getpipesegments",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_regexparsedcommand_deprecated",
+      "target": "parsedcommand_regexparsedcommand_deprecated_withoutoutputredirections",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_regexparsedcommand_deprecated",
+      "target": "parsedcommand_regexparsedcommand_deprecated_getoutputredirections",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_regexparsedcommand_deprecated",
+      "target": "parsedcommand_regexparsedcommand_deprecated_gettreesitteranalysis",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts",
+      "target": "parsedcommand_visitnodes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts",
+      "target": "parsedcommand_extractpipepositions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts",
+      "target": "parsedcommand_extractredirectionnodes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L131",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts",
+      "target": "parsedcommand_treesitterparsedcommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_treesitterparsedcommand",
+      "target": "parsedcommand_treesitterparsedcommand_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_treesitterparsedcommand",
+      "target": "parsedcommand_treesitterparsedcommand_tostring",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L177",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_treesitterparsedcommand",
+      "target": "parsedcommand_treesitterparsedcommand_getpipesegments",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L181",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_treesitterparsedcommand",
+      "target": "parsedcommand_treesitterparsedcommand_withoutoutputredirections",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L211",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_treesitterparsedcommand",
+      "target": "parsedcommand_treesitterparsedcommand_getoutputredirections",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L228",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_treesitterparsedcommand",
+      "target": "parsedcommand_treesitterparsedcommand_gettreesitteranalysis",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L235",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts",
+      "target": "parsedcommand_buildparsedcommandfromroot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L255",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_parsedcommand_ts",
+      "target": "parsedcommand_doparse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L270",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_extractpipepositions",
+      "target": "parsedcommand_visitnodes",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_extractredirectionnodes",
+      "target": "parsedcommand_visitnodes",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_treesitterparsedcommand_getpipesegments",
+      "target": "parsedcommand_treesitterparsedcommand_tostring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L190",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_treesitterparsedcommand_withoutoutputredirections",
+      "target": "parsedcommand_treesitterparsedcommand_tostring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L225",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_buildparsedcommandfromroot",
+      "target": "parsedcommand_extractpipepositions",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L259",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_buildparsedcommandfromroot",
+      "target": "parsedcommand_extractredirectionnodes",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L260",
+      "weight": 1.0
+    },
+    {
+      "source": "parsedcommand_doparse",
+      "target": "parsedcommand_buildparsedcommandfromroot",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L281",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "parsedcommand_regexparsedcommand_deprecated_getpipesegments",
+      "callee": "splitCommandWithOperators",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "parsedcommand_regexparsedcommand_deprecated_getpipesegments",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "parsedcommand_regexparsedcommand_deprecated_getpipesegments",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "parsedcommand_regexparsedcommand_deprecated_getpipesegments",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "parsedcommand_regexparsedcommand_deprecated_getpipesegments",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "parsedcommand_regexparsedcommand_deprecated_getpipesegments",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "parsedcommand_regexparsedcommand_deprecated_withoutoutputredirections",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "parsedcommand_regexparsedcommand_deprecated_withoutoutputredirections",
+      "callee": "extractOutputRedirections",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "parsedcommand_regexparsedcommand_deprecated_getoutputredirections",
+      "callee": "extractOutputRedirections",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "parsedcommand_visitnodes",
+      "callee": "visitor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "parsedcommand_extractpipepositions",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "parsedcommand_treesitterparsedcommand_constructor",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L171"
+    },
+    {
+      "caller_nid": "parsedcommand_treesitterparsedcommand_getpipesegments",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L190"
+    },
+    {
+      "caller_nid": "parsedcommand_treesitterparsedcommand_getpipesegments",
+      "callee": "subarray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L190"
+    },
+    {
+      "caller_nid": "parsedcommand_treesitterparsedcommand_getpipesegments",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L195"
+    },
+    {
+      "caller_nid": "parsedcommand_treesitterparsedcommand_getpipesegments",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "parsedcommand_treesitterparsedcommand_getpipesegments",
+      "callee": "subarray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "parsedcommand_treesitterparsedcommand_getpipesegments",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L205"
+    },
+    {
+      "caller_nid": "parsedcommand_treesitterparsedcommand_withoutoutputredirections",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L214"
+    },
+    {
+      "caller_nid": "parsedcommand_treesitterparsedcommand_withoutoutputredirections",
+      "callee": "concat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L220"
+    },
+    {
+      "caller_nid": "parsedcommand_treesitterparsedcommand_withoutoutputredirections",
+      "callee": "subarray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L221"
+    },
+    {
+      "caller_nid": "parsedcommand_treesitterparsedcommand_withoutoutputredirections",
+      "callee": "subarray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L222"
+    },
+    {
+      "caller_nid": "parsedcommand_treesitterparsedcommand_withoutoutputredirections",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L225"
+    },
+    {
+      "caller_nid": "parsedcommand_treesitterparsedcommand_withoutoutputredirections",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L225"
+    },
+    {
+      "caller_nid": "parsedcommand_treesitterparsedcommand_getoutputredirections",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L229"
+    },
+    {
+      "caller_nid": "parsedcommand_buildparsedcommandfromroot",
+      "callee": "analyzeCommand",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L261"
+    },
+    {
+      "caller_nid": "parsedcommand_doparse",
+      "callee": "getTreeSitterAvailable",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L273"
+    },
+    {
+      "caller_nid": "parsedcommand_doparse",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L276"
+    },
+    {
+      "caller_nid": "parsedcommand_doparse",
+      "callee": "parseCommand",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\ParsedCommand.ts",
+      "source_location": "L277"
+    }
+  ]
+}

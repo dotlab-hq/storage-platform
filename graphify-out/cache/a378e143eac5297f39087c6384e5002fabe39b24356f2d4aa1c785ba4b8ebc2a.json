@@ -1,1 +1,46 @@
-{"nodes": [{"id": "f_storage_platform_src_components_app_profiler_boundary_tsx", "label": "profiler-boundary.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\app\\profiler-boundary.tsx", "source_location": "L1"}, {"id": "profiler_boundary_profilerboundary", "label": "ProfilerBoundary()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\app\\profiler-boundary.tsx", "source_location": "L10"}], "edges": [{"source": "f_storage_platform_src_components_app_profiler_boundary_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\app\\profiler-boundary.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_components_app_profiler_boundary_tsx", "target": "profiler_boundary_profilerboundary", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\app\\profiler-boundary.tsx", "source_location": "L10", "weight": 1.0}], "raw_calls": [{"caller_nid": "profiler_boundary_profilerboundary", "callee": "useEffectEvent", "source_file": "F:\\storage-platform\\src\\components\\app\\profiler-boundary.tsx", "source_location": "L11"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_components_app_profiler_boundary_tsx",
+      "label": "profiler-boundary.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\app\\profiler-boundary.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "profiler_boundary_profilerboundary",
+      "label": "ProfilerBoundary()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\app\\profiler-boundary.tsx",
+      "source_location": "L10"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_components_app_profiler_boundary_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\app\\profiler-boundary.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_app_profiler_boundary_tsx",
+      "target": "profiler_boundary_profilerboundary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\app\\profiler-boundary.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "profiler_boundary_profilerboundary",
+      "callee": "useEffectEvent",
+      "source_file": "F:\\storage-platform\\src\\components\\app\\profiler-boundary.tsx",
+      "source_location": "L11"
+    }
+  ]
+}

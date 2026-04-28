@@ -1,1 +1,184 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_process_ts", "label": "process.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L1"}, {"id": "process_handleepipe", "label": "handleEPIPE()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L1"}, {"id": "process_registerprocessoutputerrorhandlers", "label": "registerProcessOutputErrorHandlers()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L12"}, {"id": "process_writeout", "label": "writeOut()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L17"}, {"id": "process_writetostdout", "label": "writeToStdout()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L28"}, {"id": "process_writetostderr", "label": "writeToStderr()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L32"}, {"id": "process_exitwitherror", "label": "exitWithError()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L38"}, {"id": "process_peekforstdindata", "label": "peekForStdinData()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L50"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_process_ts", "target": "process_handleepipe", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_process_ts", "target": "process_registerprocessoutputerrorhandlers", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_process_ts", "target": "process_writeout", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_process_ts", "target": "process_writetostdout", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_process_ts", "target": "process_writetostderr", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_process_ts", "target": "process_exitwitherror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L38", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_process_ts", "target": "process_peekforstdindata", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L50", "weight": 1.0}, {"source": "process_registerprocessoutputerrorhandlers", "target": "process_handleepipe", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L13", "weight": 1.0}, {"source": "process_writetostdout", "target": "process_writeout", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L29", "weight": 1.0}, {"source": "process_writetostderr", "target": "process_writeout", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L33", "weight": 1.0}], "raw_calls": [{"caller_nid": "process_registerprocessoutputerrorhandlers", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L13"}, {"caller_nid": "process_registerprocessoutputerrorhandlers", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L14"}, {"caller_nid": "process_writeout", "callee": "write", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L25"}, {"caller_nid": "process_exitwitherror", "callee": "error", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L40"}, {"caller_nid": "process_exitwitherror", "callee": "exit", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts", "source_location": "L42"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_process_ts",
+      "label": "process.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "process_handleepipe",
+      "label": "handleEPIPE()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "process_registerprocessoutputerrorhandlers",
+      "label": "registerProcessOutputErrorHandlers()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L12"
+    },
+    {
+      "id": "process_writeout",
+      "label": "writeOut()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L17"
+    },
+    {
+      "id": "process_writetostdout",
+      "label": "writeToStdout()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L28"
+    },
+    {
+      "id": "process_writetostderr",
+      "label": "writeToStderr()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "process_exitwitherror",
+      "label": "exitWithError()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L38"
+    },
+    {
+      "id": "process_peekforstdindata",
+      "label": "peekForStdinData()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L50"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_process_ts",
+      "target": "process_handleepipe",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_process_ts",
+      "target": "process_registerprocessoutputerrorhandlers",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_process_ts",
+      "target": "process_writeout",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_process_ts",
+      "target": "process_writetostdout",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_process_ts",
+      "target": "process_writetostderr",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_process_ts",
+      "target": "process_exitwitherror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_process_ts",
+      "target": "process_peekforstdindata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "process_registerprocessoutputerrorhandlers",
+      "target": "process_handleepipe",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "process_writetostdout",
+      "target": "process_writeout",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "process_writetostderr",
+      "target": "process_writeout",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "process_registerprocessoutputerrorhandlers",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L13"
+    },
+    {
+      "caller_nid": "process_registerprocessoutputerrorhandlers",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L14"
+    },
+    {
+      "caller_nid": "process_writeout",
+      "callee": "write",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "process_exitwitherror",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "process_exitwitherror",
+      "callee": "exit",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\process.ts",
+      "source_location": "L42"
+    }
+  ]
+}

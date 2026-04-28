@@ -1,1 +1,359 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts", "label": "authFileDescriptor.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L1"}, {"id": "authfiledescriptor_maybepersisttokenforsubprocesses", "label": "maybePersistTokenForSubprocesses()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L30"}, {"id": "authfiledescriptor_readtokenfromwellknownfile", "label": "readTokenFromWellKnownFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L57"}, {"id": "authfiledescriptor_getcredentialfromfd", "label": "getCredentialFromFd()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L97"}, {"id": "authfiledescriptor_getoauthtokenfromfiledescriptor", "label": "getOAuthTokenFromFileDescriptor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L173"}, {"id": "authfiledescriptor_getapikeyfromfiledescriptor", "label": "getApiKeyFromFileDescriptor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L188"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts", "target": "fs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts", "target": "authfiledescriptor_maybepersisttokenforsubprocesses", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts", "target": "authfiledescriptor_readtokenfromwellknownfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L57", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts", "target": "authfiledescriptor_getcredentialfromfd", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L97", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts", "target": "authfiledescriptor_getoauthtokenfromfiledescriptor", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L173", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts", "target": "authfiledescriptor_getapikeyfromfiledescriptor", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L188", "weight": 1.0}, {"source": "authfiledescriptor_getcredentialfromfd", "target": "authfiledescriptor_readtokenfromwellknownfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L119", "weight": 1.0}, {"source": "authfiledescriptor_getcredentialfromfd", "target": "authfiledescriptor_maybepersisttokenforsubprocesses", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L153", "weight": 1.0}, {"source": "authfiledescriptor_getoauthtokenfromfiledescriptor", "target": "authfiledescriptor_getcredentialfromfd", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L174", "weight": 1.0}, {"source": "authfiledescriptor_getapikeyfromfiledescriptor", "target": "authfiledescriptor_getcredentialfromfd", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L189", "weight": 1.0}], "raw_calls": [{"caller_nid": "authfiledescriptor_maybepersisttokenforsubprocesses", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L35"}, {"caller_nid": "authfiledescriptor_maybepersisttokenforsubprocesses", "callee": "mkdirSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L40"}, {"caller_nid": "authfiledescriptor_maybepersisttokenforsubprocesses", "callee": "writeFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L42"}, {"caller_nid": "authfiledescriptor_maybepersisttokenforsubprocesses", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L43"}, {"caller_nid": "authfiledescriptor_maybepersisttokenforsubprocesses", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L45"}, {"caller_nid": "authfiledescriptor_maybepersisttokenforsubprocesses", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L46"}, {"caller_nid": "authfiledescriptor_readtokenfromwellknownfile", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L62"}, {"caller_nid": "authfiledescriptor_readtokenfromwellknownfile", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L64"}, {"caller_nid": "authfiledescriptor_readtokenfromwellknownfile", "callee": "readFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L64"}, {"caller_nid": "authfiledescriptor_readtokenfromwellknownfile", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L68"}, {"caller_nid": "authfiledescriptor_readtokenfromwellknownfile", "callee": "isENOENT", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L74"}, {"caller_nid": "authfiledescriptor_readtokenfromwellknownfile", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L75"}, {"caller_nid": "authfiledescriptor_readtokenfromwellknownfile", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L76"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "getCached", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L110"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "setCached", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L120"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L124"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "isNaN", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L125"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L126"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "setCached", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L130"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L136"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L143"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "readFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L143"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L145"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "setCached", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L148"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L151"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "setCached", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L152"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L156"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L157"}, {"caller_nid": "authfiledescriptor_getcredentialfromfd", "callee": "setCached", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts", "source_location": "L163"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts",
+      "label": "authFileDescriptor.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "authfiledescriptor_maybepersisttokenforsubprocesses",
+      "label": "maybePersistTokenForSubprocesses()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L30"
+    },
+    {
+      "id": "authfiledescriptor_readtokenfromwellknownfile",
+      "label": "readTokenFromWellKnownFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L57"
+    },
+    {
+      "id": "authfiledescriptor_getcredentialfromfd",
+      "label": "getCredentialFromFd()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L97"
+    },
+    {
+      "id": "authfiledescriptor_getoauthtokenfromfiledescriptor",
+      "label": "getOAuthTokenFromFileDescriptor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L173"
+    },
+    {
+      "id": "authfiledescriptor_getapikeyfromfiledescriptor",
+      "label": "getApiKeyFromFileDescriptor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L188"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts",
+      "target": "fs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts",
+      "target": "authfiledescriptor_maybepersisttokenforsubprocesses",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts",
+      "target": "authfiledescriptor_readtokenfromwellknownfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts",
+      "target": "authfiledescriptor_getcredentialfromfd",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts",
+      "target": "authfiledescriptor_getoauthtokenfromfiledescriptor",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L173",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_authfiledescriptor_ts",
+      "target": "authfiledescriptor_getapikeyfromfiledescriptor",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L188",
+      "weight": 1.0
+    },
+    {
+      "source": "authfiledescriptor_getcredentialfromfd",
+      "target": "authfiledescriptor_readtokenfromwellknownfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "authfiledescriptor_getcredentialfromfd",
+      "target": "authfiledescriptor_maybepersisttokenforsubprocesses",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "authfiledescriptor_getoauthtokenfromfiledescriptor",
+      "target": "authfiledescriptor_getcredentialfromfd",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L174",
+      "weight": 1.0
+    },
+    {
+      "source": "authfiledescriptor_getapikeyfromfiledescriptor",
+      "target": "authfiledescriptor_getcredentialfromfd",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L189",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "authfiledescriptor_maybepersisttokenforsubprocesses",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "authfiledescriptor_maybepersisttokenforsubprocesses",
+      "callee": "mkdirSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "authfiledescriptor_maybepersisttokenforsubprocesses",
+      "callee": "writeFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "authfiledescriptor_maybepersisttokenforsubprocesses",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "authfiledescriptor_maybepersisttokenforsubprocesses",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "authfiledescriptor_maybepersisttokenforsubprocesses",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "authfiledescriptor_readtokenfromwellknownfile",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "authfiledescriptor_readtokenfromwellknownfile",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "authfiledescriptor_readtokenfromwellknownfile",
+      "callee": "readFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "authfiledescriptor_readtokenfromwellknownfile",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "authfiledescriptor_readtokenfromwellknownfile",
+      "callee": "isENOENT",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "authfiledescriptor_readtokenfromwellknownfile",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "authfiledescriptor_readtokenfromwellknownfile",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "getCached",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "setCached",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "isNaN",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "setCached",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L136"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "readFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "setCached",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "setCached",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L157"
+    },
+    {
+      "caller_nid": "authfiledescriptor_getcredentialfromfd",
+      "callee": "setCached",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\authFileDescriptor.ts",
+      "source_location": "L163"
+    }
+  ]
+}

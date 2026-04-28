@@ -1,1 +1,111 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_enterplanmodetool_prompt_ts", "label": "prompt.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts", "source_location": "L1"}, {"id": "prompt_getenterplanmodetoolpromptexternal", "label": "getEnterPlanModeToolPromptExternal()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts", "source_location": "L16"}, {"id": "prompt_getenterplanmodetoolpromptant", "label": "getEnterPlanModeToolPromptAnt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts", "source_location": "L101"}, {"id": "prompt_getenterplanmodetoolprompt", "label": "getEnterPlanModeToolPrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts", "source_location": "L166"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_enterplanmodetool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_planmodev2_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_enterplanmodetool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_askuserquestiontool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_enterplanmodetool_prompt_ts", "target": "prompt_getenterplanmodetoolpromptexternal", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_enterplanmodetool_prompt_ts", "target": "prompt_getenterplanmodetoolpromptant", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts", "source_location": "L101", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_enterplanmodetool_prompt_ts", "target": "prompt_getenterplanmodetoolprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts", "source_location": "L166", "weight": 1.0}, {"source": "prompt_getenterplanmodetoolprompt", "target": "prompt_getenterplanmodetoolpromptant", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts", "source_location": "L168", "weight": 1.0}, {"source": "prompt_getenterplanmodetoolprompt", "target": "prompt_getenterplanmodetoolpromptexternal", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts", "source_location": "L169", "weight": 1.0}], "raw_calls": [{"caller_nid": "prompt_getenterplanmodetoolpromptexternal", "callee": "isPlanModeInterviewPhaseEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts", "source_location": "L19"}, {"caller_nid": "prompt_getenterplanmodetoolpromptant", "callee": "isPlanModeInterviewPhaseEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts", "source_location": "L104"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_enterplanmodetool_prompt_ts",
+      "label": "prompt.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "prompt_getenterplanmodetoolpromptexternal",
+      "label": "getEnterPlanModeToolPromptExternal()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "prompt_getenterplanmodetoolpromptant",
+      "label": "getEnterPlanModeToolPromptAnt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts",
+      "source_location": "L101"
+    },
+    {
+      "id": "prompt_getenterplanmodetoolprompt",
+      "label": "getEnterPlanModeToolPrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts",
+      "source_location": "L166"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_enterplanmodetool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_planmodev2_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_enterplanmodetool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_askuserquestiontool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_enterplanmodetool_prompt_ts",
+      "target": "prompt_getenterplanmodetoolpromptexternal",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_enterplanmodetool_prompt_ts",
+      "target": "prompt_getenterplanmodetoolpromptant",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_enterplanmodetool_prompt_ts",
+      "target": "prompt_getenterplanmodetoolprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "prompt_getenterplanmodetoolprompt",
+      "target": "prompt_getenterplanmodetoolpromptant",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "prompt_getenterplanmodetoolprompt",
+      "target": "prompt_getenterplanmodetoolpromptexternal",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts",
+      "source_location": "L169",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "prompt_getenterplanmodetoolpromptexternal",
+      "callee": "isPlanModeInterviewPhaseEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "prompt_getenterplanmodetoolpromptant",
+      "callee": "isPlanModeInterviewPhaseEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\EnterPlanModeTool\\prompt.ts",
+      "source_location": "L104"
+    }
+  ]
+}

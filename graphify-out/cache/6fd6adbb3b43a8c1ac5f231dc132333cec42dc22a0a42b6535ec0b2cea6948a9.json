@@ -1,1 +1,61 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_hooks_usememoryusage_ts", "label": "useMemoryUsage.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMemoryUsage.ts", "source_location": "L1"}, {"id": "usememoryusage_usememoryusage", "label": "useMemoryUsage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMemoryUsage.ts", "source_location": "L18"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_hooks_usememoryusage_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMemoryUsage.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usememoryusage_ts", "target": "usehooks_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMemoryUsage.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usememoryusage_ts", "target": "usememoryusage_usememoryusage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMemoryUsage.ts", "source_location": "L18", "weight": 1.0}], "raw_calls": [{"caller_nid": "usememoryusage_usememoryusage", "callee": "useState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMemoryUsage.ts", "source_location": "L19"}, {"caller_nid": "usememoryusage_usememoryusage", "callee": "useInterval", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMemoryUsage.ts", "source_location": "L21"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_hooks_usememoryusage_ts",
+      "label": "useMemoryUsage.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMemoryUsage.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "usememoryusage_usememoryusage",
+      "label": "useMemoryUsage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMemoryUsage.ts",
+      "source_location": "L18"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usememoryusage_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMemoryUsage.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usememoryusage_ts",
+      "target": "usehooks_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMemoryUsage.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usememoryusage_ts",
+      "target": "usememoryusage_usememoryusage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMemoryUsage.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "usememoryusage_usememoryusage",
+      "callee": "useState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMemoryUsage.ts",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "usememoryusage_usememoryusage",
+      "callee": "useInterval",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useMemoryUsage.ts",
+      "source_location": "L21"
+    }
+  ]
+}

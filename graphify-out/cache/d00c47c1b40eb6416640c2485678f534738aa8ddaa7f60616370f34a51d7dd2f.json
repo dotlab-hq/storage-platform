@@ -1,1 +1,789 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "label": "plans.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L1"}, {"id": "plans_getplanslug", "label": "getPlanSlug()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L32"}, {"id": "plans_setplanslug", "label": "setPlanSlug()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L54"}, {"id": "plans_clearplanslug", "label": "clearPlanSlug()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L62"}, {"id": "plans_clearallplanslugs", "label": "clearAllPlanSlugs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L71"}, {"id": "plans_getplanfilepath", "label": "getPlanFilePath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L119"}, {"id": "plans_getplan", "label": "getPlan()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L135"}, {"id": "plans_getslugfromlog", "label": "getSlugFromLog()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L149"}, {"id": "plans_copyplanforresume", "label": "copyPlanForResume()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L164"}, {"id": "plans_copyplanforfork", "label": "copyPlanForFork()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L239"}, {"id": "plans_recoverplanfrommessages", "label": "recoverPlanFromMessages()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L279"}, {"id": "plans_findfilesnapshotentry", "label": "findFileSnapshotEntry()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L332"}, {"id": "plans_persistfilesnapshotifremote", "label": "persistFileSnapshotIfRemote()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L360"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "memoize_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "ids_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "logs_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "message_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_exitplanmodetool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_words_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "plans_getplanslug", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "plans_setplanslug", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L54", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "plans_clearplanslug", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L62", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "plans_clearallplanslugs", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L71", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "plans_getplanfilepath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L119", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "plans_getplan", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L135", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "plans_getslugfromlog", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L149", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "plans_copyplanforresume", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L164", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "plans_copyplanforfork", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L239", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "plans_recoverplanfrommessages", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L279", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "plans_findfilesnapshotentry", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L332", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts", "target": "plans_persistfilesnapshotifremote", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L360", "weight": 1.0}, {"source": "plans_getplanfilepath", "target": "plans_getplanslug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L120", "weight": 1.0}, {"source": "plans_getplan", "target": "plans_getplanfilepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L136", "weight": 1.0}, {"source": "plans_copyplanforresume", "target": "plans_getslugfromlog", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L168", "weight": 1.0}, {"source": "plans_copyplanforresume", "target": "plans_setplanslug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L175", "weight": 1.0}, {"source": "plans_copyplanforresume", "target": "plans_findfilesnapshotentry", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L198", "weight": 1.0}, {"source": "plans_copyplanforresume", "target": "plans_recoverplanfrommessages", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L208", "weight": 1.0}, {"source": "plans_copyplanforfork", "target": "plans_getslugfromlog", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L243", "weight": 1.0}, {"source": "plans_copyplanforfork", "target": "plans_getplanslug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L252", "weight": 1.0}, {"source": "plans_persistfilesnapshotifremote", "target": "plans_getplan", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L368", "weight": 1.0}, {"source": "plans_persistfilesnapshotifremote", "target": "plans_getplanfilepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L372", "weight": 1.0}], "raw_calls": [{"caller_nid": "plans_getplanslug", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L33"}, {"caller_nid": "plans_getplanslug", "callee": "getPlanSlugCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L34"}, {"caller_nid": "plans_getplanslug", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L35"}, {"caller_nid": "plans_getplanslug", "callee": "getPlansDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L37"}, {"caller_nid": "plans_getplanslug", "callee": "generateWordSlug", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L40"}, {"caller_nid": "plans_getplanslug", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L41"}, {"caller_nid": "plans_getplanslug", "callee": "existsSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L42"}, {"caller_nid": "plans_getplanslug", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L42"}, {"caller_nid": "plans_getplanslug", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L46"}, {"caller_nid": "plans_setplanslug", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L55"}, {"caller_nid": "plans_setplanslug", "callee": "getPlanSlugCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L55"}, {"caller_nid": "plans_clearplanslug", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L63"}, {"caller_nid": "plans_clearplanslug", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L64"}, {"caller_nid": "plans_clearplanslug", "callee": "getPlanSlugCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L64"}, {"caller_nid": "plans_clearallplanslugs", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L72"}, {"caller_nid": "plans_clearallplanslugs", "callee": "getPlanSlugCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L72"}, {"caller_nid": "plans_getplanfilepath", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L120"}, {"caller_nid": "plans_getplanfilepath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L124"}, {"caller_nid": "plans_getplanfilepath", "callee": "getPlansDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L124"}, {"caller_nid": "plans_getplanfilepath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L128"}, {"caller_nid": "plans_getplanfilepath", "callee": "getPlansDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L128"}, {"caller_nid": "plans_getplan", "callee": "readFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L138"}, {"caller_nid": "plans_getplan", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L138"}, {"caller_nid": "plans_getplan", "callee": "isENOENT", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L140"}, {"caller_nid": "plans_getplan", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L141"}, {"caller_nid": "plans_getslugfromlog", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L150"}, {"caller_nid": "plans_copyplanforresume", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L174"}, {"caller_nid": "plans_copyplanforresume", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L178"}, {"caller_nid": "plans_copyplanforresume", "callee": "getPlansDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L178"}, {"caller_nid": "plans_copyplanforresume", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L180"}, {"caller_nid": "plans_copyplanforresume", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L180"}, {"caller_nid": "plans_copyplanforresume", "callee": "isENOENT", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L183"}, {"caller_nid": "plans_copyplanforresume", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L185"}, {"caller_nid": "plans_copyplanforresume", "callee": "getEnvironmentKind", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L189"}, {"caller_nid": "plans_copyplanforresume", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L193"}, {"caller_nid": "plans_copyplanforresume", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L202"}, {"caller_nid": "plans_copyplanforresume", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L210"}, {"caller_nid": "plans_copyplanforresume", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L219"}, {"caller_nid": "plans_copyplanforresume", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L222"}, {"caller_nid": "plans_copyplanforresume", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L226"}, {"caller_nid": "plans_copyplanforfork", "callee": "getPlansDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L248"}, {"caller_nid": "plans_copyplanforfork", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L249"}, {"caller_nid": "plans_copyplanforfork", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L253"}, {"caller_nid": "plans_copyplanforfork", "callee": "copyFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L255"}, {"caller_nid": "plans_copyplanforfork", "callee": "isENOENT", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L258"}, {"caller_nid": "plans_copyplanforfork", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L261"}, {"caller_nid": "plans_recoverplanfrommessages", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L288"}, {"caller_nid": "plans_findfilesnapshotentry", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L349"}, {"caller_nid": "plans_persistfilesnapshotifremote", "callee": "getEnvironmentKind", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L361"}, {"caller_nid": "plans_persistfilesnapshotifremote", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L370"}, {"caller_nid": "plans_persistfilesnapshotifremote", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L387"}, {"caller_nid": "plans_persistfilesnapshotifremote", "callee": "randomUUID", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L388"}, {"caller_nid": "plans_persistfilesnapshotifremote", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L392"}, {"caller_nid": "plans_persistfilesnapshotifremote", "callee": "recordTranscript", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L393"}, {"caller_nid": "plans_persistfilesnapshotifremote", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts", "source_location": "L395"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "label": "plans.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "plans_getplanslug",
+      "label": "getPlanSlug()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "plans_setplanslug",
+      "label": "setPlanSlug()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L54"
+    },
+    {
+      "id": "plans_clearplanslug",
+      "label": "clearPlanSlug()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L62"
+    },
+    {
+      "id": "plans_clearallplanslugs",
+      "label": "clearAllPlanSlugs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L71"
+    },
+    {
+      "id": "plans_getplanfilepath",
+      "label": "getPlanFilePath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L119"
+    },
+    {
+      "id": "plans_getplan",
+      "label": "getPlan()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L135"
+    },
+    {
+      "id": "plans_getslugfromlog",
+      "label": "getSlugFromLog()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L149"
+    },
+    {
+      "id": "plans_copyplanforresume",
+      "label": "copyPlanForResume()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L164"
+    },
+    {
+      "id": "plans_copyplanforfork",
+      "label": "copyPlanForFork()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L239"
+    },
+    {
+      "id": "plans_recoverplanfrommessages",
+      "label": "recoverPlanFromMessages()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L279"
+    },
+    {
+      "id": "plans_findfilesnapshotentry",
+      "label": "findFileSnapshotEntry()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L332"
+    },
+    {
+      "id": "plans_persistfilesnapshotifremote",
+      "label": "persistFileSnapshotIfRemote()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L360"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "memoize_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "ids_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "logs_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "message_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_exitplanmodetool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_filepersistence_outputsscanner_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_words_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "plans_getplanslug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "plans_setplanslug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "plans_clearplanslug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "plans_clearallplanslugs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "plans_getplanfilepath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "plans_getplan",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L135",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "plans_getslugfromlog",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "plans_copyplanforresume",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "plans_copyplanforfork",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L239",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "plans_recoverplanfrommessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L279",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "plans_findfilesnapshotentry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L332",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plans_ts",
+      "target": "plans_persistfilesnapshotifremote",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L360",
+      "weight": 1.0
+    },
+    {
+      "source": "plans_getplanfilepath",
+      "target": "plans_getplanslug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L120",
+      "weight": 1.0
+    },
+    {
+      "source": "plans_getplan",
+      "target": "plans_getplanfilepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "plans_copyplanforresume",
+      "target": "plans_getslugfromlog",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "plans_copyplanforresume",
+      "target": "plans_setplanslug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L175",
+      "weight": 1.0
+    },
+    {
+      "source": "plans_copyplanforresume",
+      "target": "plans_findfilesnapshotentry",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L198",
+      "weight": 1.0
+    },
+    {
+      "source": "plans_copyplanforresume",
+      "target": "plans_recoverplanfrommessages",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L208",
+      "weight": 1.0
+    },
+    {
+      "source": "plans_copyplanforfork",
+      "target": "plans_getslugfromlog",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L243",
+      "weight": 1.0
+    },
+    {
+      "source": "plans_copyplanforfork",
+      "target": "plans_getplanslug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L252",
+      "weight": 1.0
+    },
+    {
+      "source": "plans_persistfilesnapshotifremote",
+      "target": "plans_getplan",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L368",
+      "weight": 1.0
+    },
+    {
+      "source": "plans_persistfilesnapshotifremote",
+      "target": "plans_getplanfilepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L372",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "plans_getplanslug",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "plans_getplanslug",
+      "callee": "getPlanSlugCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "plans_getplanslug",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "plans_getplanslug",
+      "callee": "getPlansDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "plans_getplanslug",
+      "callee": "generateWordSlug",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "plans_getplanslug",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "plans_getplanslug",
+      "callee": "existsSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "plans_getplanslug",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "plans_getplanslug",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "plans_setplanslug",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "plans_setplanslug",
+      "callee": "getPlanSlugCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "plans_clearplanslug",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "plans_clearplanslug",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "plans_clearplanslug",
+      "callee": "getPlanSlugCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "plans_clearallplanslugs",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "plans_clearallplanslugs",
+      "callee": "getPlanSlugCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "plans_getplanfilepath",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "plans_getplanfilepath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "plans_getplanfilepath",
+      "callee": "getPlansDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "plans_getplanfilepath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "plans_getplanfilepath",
+      "callee": "getPlansDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "plans_getplan",
+      "callee": "readFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "plans_getplan",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "plans_getplan",
+      "callee": "isENOENT",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L140"
+    },
+    {
+      "caller_nid": "plans_getplan",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "plans_getslugfromlog",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "plans_copyplanforresume",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L174"
+    },
+    {
+      "caller_nid": "plans_copyplanforresume",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "plans_copyplanforresume",
+      "callee": "getPlansDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "plans_copyplanforresume",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L180"
+    },
+    {
+      "caller_nid": "plans_copyplanforresume",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L180"
+    },
+    {
+      "caller_nid": "plans_copyplanforresume",
+      "callee": "isENOENT",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L183"
+    },
+    {
+      "caller_nid": "plans_copyplanforresume",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "plans_copyplanforresume",
+      "callee": "getEnvironmentKind",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L189"
+    },
+    {
+      "caller_nid": "plans_copyplanforresume",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L193"
+    },
+    {
+      "caller_nid": "plans_copyplanforresume",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "plans_copyplanforresume",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L210"
+    },
+    {
+      "caller_nid": "plans_copyplanforresume",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L219"
+    },
+    {
+      "caller_nid": "plans_copyplanforresume",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L222"
+    },
+    {
+      "caller_nid": "plans_copyplanforresume",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L226"
+    },
+    {
+      "caller_nid": "plans_copyplanforfork",
+      "callee": "getPlansDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L248"
+    },
+    {
+      "caller_nid": "plans_copyplanforfork",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L249"
+    },
+    {
+      "caller_nid": "plans_copyplanforfork",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L253"
+    },
+    {
+      "caller_nid": "plans_copyplanforfork",
+      "callee": "copyFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L255"
+    },
+    {
+      "caller_nid": "plans_copyplanforfork",
+      "callee": "isENOENT",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L258"
+    },
+    {
+      "caller_nid": "plans_copyplanforfork",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L261"
+    },
+    {
+      "caller_nid": "plans_recoverplanfrommessages",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "plans_findfilesnapshotentry",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L349"
+    },
+    {
+      "caller_nid": "plans_persistfilesnapshotifremote",
+      "callee": "getEnvironmentKind",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L361"
+    },
+    {
+      "caller_nid": "plans_persistfilesnapshotifremote",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L370"
+    },
+    {
+      "caller_nid": "plans_persistfilesnapshotifremote",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L387"
+    },
+    {
+      "caller_nid": "plans_persistfilesnapshotifremote",
+      "callee": "randomUUID",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L388"
+    },
+    {
+      "caller_nid": "plans_persistfilesnapshotifremote",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L392"
+    },
+    {
+      "caller_nid": "plans_persistfilesnapshotifremote",
+      "callee": "recordTranscript",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L393"
+    },
+    {
+      "caller_nid": "plans_persistfilesnapshotifremote",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plans.ts",
+      "source_location": "L395"
+    }
+  ]
+}

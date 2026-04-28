@@ -1,1 +1,399 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_storage_btree_index_ts", "label": "index.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L1"}, {"id": "index_getnodepath", "label": "getNodePath()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L23"}, {"id": "index_upsertfoldernode", "label": "upsertFolderNode()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L39"}, {"id": "index_upsertfilenode", "label": "upsertFileNode()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L80"}, {"id": "index_markfoldersubtreedeleted", "label": "markFolderSubtreeDeleted()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L121"}, {"id": "index_deletenodebyentity", "label": "deleteNodeByEntity()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L149"}, {"id": "index_resolvefolderpath", "label": "resolveFolderPath()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L165"}], "edges": [{"source": "f_storage_platform_src_lib_storage_btree_index_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_btree_index_ts", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_btree_index_ts", "target": "storage_btree", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_btree_index_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_btree_index_ts", "target": "index_getnodepath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_btree_index_ts", "target": "index_upsertfoldernode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_btree_index_ts", "target": "index_upsertfilenode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L80", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_btree_index_ts", "target": "index_markfoldersubtreedeleted", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L121", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_btree_index_ts", "target": "index_deletenodebyentity", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L149", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_btree_index_ts", "target": "index_resolvefolderpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L165", "weight": 1.0}, {"source": "index_upsertfoldernode", "target": "index_getnodepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L47", "weight": 1.0}, {"source": "index_upsertfilenode", "target": "index_getnodepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L82", "weight": 1.0}, {"source": "index_markfoldersubtreedeleted", "target": "index_getnodepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L126", "weight": 1.0}, {"source": "index_resolvefolderpath", "target": "index_getnodepath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L169", "weight": 1.0}], "raw_calls": [{"caller_nid": "index_getnodepath", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L25"}, {"caller_nid": "index_getnodepath", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L25"}, {"caller_nid": "index_getnodepath", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L25"}, {"caller_nid": "index_getnodepath", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L25"}, {"caller_nid": "index_getnodepath", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L29"}, {"caller_nid": "index_getnodepath", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L30"}, {"caller_nid": "index_getnodepath", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L31"}, {"caller_nid": "index_getnodepath", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L32"}, {"caller_nid": "index_upsertfoldernode", "callee": "normalizePath", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L48"}, {"caller_nid": "index_upsertfoldernode", "callee": "joinPath", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L49"}, {"caller_nid": "index_upsertfoldernode", "callee": "onConflictDoUpdate", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L51"}, {"caller_nid": "index_upsertfoldernode", "callee": "values", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L51"}, {"caller_nid": "index_upsertfoldernode", "callee": "insert", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L51"}, {"caller_nid": "index_upsertfilenode", "callee": "normalizePath", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L81"}, {"caller_nid": "index_upsertfilenode", "callee": "joinPath", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L84"}, {"caller_nid": "index_upsertfilenode", "callee": "onConflictDoUpdate", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L86"}, {"caller_nid": "index_upsertfilenode", "callee": "values", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L86"}, {"caller_nid": "index_upsertfilenode", "callee": "insert", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L86"}, {"caller_nid": "index_markfoldersubtreedeleted", "callee": "descendantPrefix", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L128"}, {"caller_nid": "index_markfoldersubtreedeleted", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L130"}, {"caller_nid": "index_markfoldersubtreedeleted", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L130"}, {"caller_nid": "index_markfoldersubtreedeleted", "callee": "update", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L130"}, {"caller_nid": "index_markfoldersubtreedeleted", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L135"}, {"caller_nid": "index_markfoldersubtreedeleted", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L136"}, {"caller_nid": "index_markfoldersubtreedeleted", "callee": "or", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L137"}, {"caller_nid": "index_markfoldersubtreedeleted", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L138"}, {"caller_nid": "index_markfoldersubtreedeleted", "callee": "like", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L139"}, {"caller_nid": "index_markfoldersubtreedeleted", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L142"}, {"caller_nid": "index_markfoldersubtreedeleted", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L143"}, {"caller_nid": "index_markfoldersubtreedeleted", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L144"}, {"caller_nid": "index_deletenodebyentity", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L154"}, {"caller_nid": "index_deletenodebyentity", "callee": "delete", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L154"}, {"caller_nid": "index_deletenodebyentity", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L157"}, {"caller_nid": "index_deletenodebyentity", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L158"}, {"caller_nid": "index_deletenodebyentity", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L159"}, {"caller_nid": "index_deletenodebyentity", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts", "source_location": "L160"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_storage_btree_index_ts",
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "index_getnodepath",
+      "label": "getNodePath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L23"
+    },
+    {
+      "id": "index_upsertfoldernode",
+      "label": "upsertFolderNode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L39"
+    },
+    {
+      "id": "index_upsertfilenode",
+      "label": "upsertFileNode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L80"
+    },
+    {
+      "id": "index_markfoldersubtreedeleted",
+      "label": "markFolderSubtreeDeleted()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L121"
+    },
+    {
+      "id": "index_deletenodebyentity",
+      "label": "deleteNodeByEntity()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L149"
+    },
+    {
+      "id": "index_resolvefolderpath",
+      "label": "resolveFolderPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L165"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_storage_btree_index_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_btree_index_ts",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_btree_index_ts",
+      "target": "storage_btree",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_btree_index_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_btree_index_ts",
+      "target": "index_getnodepath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_btree_index_ts",
+      "target": "index_upsertfoldernode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_btree_index_ts",
+      "target": "index_upsertfilenode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_btree_index_ts",
+      "target": "index_markfoldersubtreedeleted",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L121",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_btree_index_ts",
+      "target": "index_deletenodebyentity",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_btree_index_ts",
+      "target": "index_resolvefolderpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L165",
+      "weight": 1.0
+    },
+    {
+      "source": "index_upsertfoldernode",
+      "target": "index_getnodepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "index_upsertfilenode",
+      "target": "index_getnodepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "index_markfoldersubtreedeleted",
+      "target": "index_getnodepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "index_resolvefolderpath",
+      "target": "index_getnodepath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L169",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "index_getnodepath",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "index_getnodepath",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "index_getnodepath",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "index_getnodepath",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "index_getnodepath",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "index_getnodepath",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L30"
+    },
+    {
+      "caller_nid": "index_getnodepath",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L31"
+    },
+    {
+      "caller_nid": "index_getnodepath",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "index_upsertfoldernode",
+      "callee": "normalizePath",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "index_upsertfoldernode",
+      "callee": "joinPath",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "index_upsertfoldernode",
+      "callee": "onConflictDoUpdate",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "index_upsertfoldernode",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "index_upsertfoldernode",
+      "callee": "insert",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "index_upsertfilenode",
+      "callee": "normalizePath",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "index_upsertfilenode",
+      "callee": "joinPath",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "index_upsertfilenode",
+      "callee": "onConflictDoUpdate",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "index_upsertfilenode",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "index_upsertfilenode",
+      "callee": "insert",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "index_markfoldersubtreedeleted",
+      "callee": "descendantPrefix",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "index_markfoldersubtreedeleted",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "index_markfoldersubtreedeleted",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "index_markfoldersubtreedeleted",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "index_markfoldersubtreedeleted",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "index_markfoldersubtreedeleted",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L136"
+    },
+    {
+      "caller_nid": "index_markfoldersubtreedeleted",
+      "callee": "or",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "index_markfoldersubtreedeleted",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "index_markfoldersubtreedeleted",
+      "callee": "like",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "index_markfoldersubtreedeleted",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "index_markfoldersubtreedeleted",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "index_markfoldersubtreedeleted",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "index_deletenodebyentity",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "index_deletenodebyentity",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "index_deletenodebyentity",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L157"
+    },
+    {
+      "caller_nid": "index_deletenodebyentity",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "index_deletenodebyentity",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "index_deletenodebyentity",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-btree\\index.ts",
+      "source_location": "L160"
+    }
+  ]
+}

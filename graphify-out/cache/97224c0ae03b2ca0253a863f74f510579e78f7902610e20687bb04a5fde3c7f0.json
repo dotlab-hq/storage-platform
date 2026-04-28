@@ -1,1 +1,652 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts", "label": "diagnosticTracking.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L1"}, {"id": "diagnostictracking_diagnosticstrackingerror", "label": "DiagnosticsTrackingError", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L10"}, {"id": "diagnostictracking_diagnostictrackingservice", "label": "DiagnosticTrackingService", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L30"}, {"id": "diagnostictracking_diagnostictrackingservice_getinstance", "label": ".getInstance()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L44"}, {"id": "diagnostictracking_diagnostictrackingservice_initialize", "label": ".initialize()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L51"}, {"id": "diagnostictracking_diagnostictrackingservice_shutdown", "label": ".shutdown()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L61"}, {"id": "diagnostictracking_diagnostictrackingservice_reset", "label": ".reset()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L72"}, {"id": "diagnostictracking_diagnostictrackingservice_normalizefileuri", "label": ".normalizeFileUri()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L78"}, {"id": "diagnostictracking_diagnostictrackingservice_ensurefileopened", "label": ".ensureFileOpened()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L103"}, {"id": "diagnostictracking_diagnostictrackingservice_beforefileedited", "label": ".beforeFileEdited()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L135"}, {"id": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "label": ".getNewDiagnostics()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L188"}, {"id": "diagnostictracking_diagnostictrackingservice_parsediagnosticresult", "label": ".parseDiagnosticResult()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L285"}, {"id": "diagnostictracking_diagnostictrackingservice_arediagnosticsequal", "label": ".areDiagnosticsEqual()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L296"}, {"id": "diagnostictracking_diagnostictrackingservice_arediagnosticarraysequal", "label": ".areDiagnosticArraysEqual()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L309"}, {"id": "diagnostictracking_diagnostictrackingservice_handlequerystart", "label": ".handleQueryStart()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L330"}, {"id": "diagnostictracking_diagnostictrackingservice_formatdiagnosticssummary", "label": ".formatDiagnosticsSummary()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L352"}, {"id": "diagnostictracking_diagnostictrackingservice_getseveritysymbol", "label": ".getSeveritySymbol()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L385"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts", "target": "figures", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts", "target": "log_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_client_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_file_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_ide_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts", "target": "diagnostictracking_diagnosticstrackingerror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts", "target": "diagnostictracking_diagnostictrackingservice", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L30", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice", "target": "diagnostictracking_diagnostictrackingservice_getinstance", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L44", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice", "target": "diagnostictracking_diagnostictrackingservice_initialize", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L51", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice", "target": "diagnostictracking_diagnostictrackingservice_shutdown", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L61", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice", "target": "diagnostictracking_diagnostictrackingservice_reset", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L72", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice", "target": "diagnostictracking_diagnostictrackingservice_normalizefileuri", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L78", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice", "target": "diagnostictracking_diagnostictrackingservice_ensurefileopened", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L103", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice", "target": "diagnostictracking_diagnostictrackingservice_beforefileedited", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L135", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice", "target": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L188", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice", "target": "diagnostictracking_diagnostictrackingservice_parsediagnosticresult", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L285", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice", "target": "diagnostictracking_diagnostictrackingservice_arediagnosticsequal", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L296", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice", "target": "diagnostictracking_diagnostictrackingservice_arediagnosticarraysequal", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L309", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice", "target": "diagnostictracking_diagnostictrackingservice_handlequerystart", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L330", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice", "target": "diagnostictracking_diagnostictrackingservice_formatdiagnosticssummary", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L352", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice", "target": "diagnostictracking_diagnostictrackingservice_getseveritysymbol", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L385", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice_beforefileedited", "target": "diagnostictracking_diagnostictrackingservice_parsediagnosticresult", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L152", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice_beforefileedited", "target": "diagnostictracking_diagnostictrackingservice_normalizefileuri", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L157", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "target": "diagnostictracking_diagnostictrackingservice_parsediagnosticresult", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L205", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "target": "diagnostictracking_diagnostictrackingservice_normalizefileuri", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L232", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "target": "diagnostictracking_diagnostictrackingservice_arediagnosticarraysequal", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L251", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice_handlequerystart", "target": "diagnostictracking_diagnostictrackingservice_initialize", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L337", "weight": 1.0}, {"source": "diagnostictracking_diagnostictrackingservice_handlequerystart", "target": "diagnostictracking_diagnostictrackingservice_reset", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L341", "weight": 1.0}], "raw_calls": [{"caller_nid": "diagnostictracking_diagnostictrackingservice_shutdown", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L63"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_shutdown", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L64"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_shutdown", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L65"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_reset", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L73"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_reset", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L74"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_reset", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L75"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_normalizefileuri", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L88"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_normalizefileuri", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L89"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_normalizefileuri", "callee": "normalizePathForComparison", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L96"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_ensurefileopened", "callee": "callIdeRpc", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L114"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_ensurefileopened", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L127"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L144"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited", "callee": "callIdeRpc", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L147"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited", "callee": "pathsEqual", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L156"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L161"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L171"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L172"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L176"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L177"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "callee": "callIdeRpc", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L200"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L210"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L210"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "callee": "forEach", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L218"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L218"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L218"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L233"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L237"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L244"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L260"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L267"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L272"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L279"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_parsediagnosticresult", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L286"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_parsediagnosticresult", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L287"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_parsediagnosticresult", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L289"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_arediagnosticarraysequal", "callee": "every", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L314"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_arediagnosticarraysequal", "callee": "every", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L317"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_handlequerystart", "callee": "getConnectedIdeClient", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L334"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_formatdiagnosticssummary", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L354"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_formatdiagnosticssummary", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L354"}, {"caller_nid": "diagnostictracking_diagnostictrackingservice_formatdiagnosticssummary", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts", "source_location": "L373"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts",
+      "label": "diagnosticTracking.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "diagnostictracking_diagnosticstrackingerror",
+      "label": "DiagnosticsTrackingError",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "diagnostictracking_diagnostictrackingservice",
+      "label": "DiagnosticTrackingService",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L30"
+    },
+    {
+      "id": "diagnostictracking_diagnostictrackingservice_getinstance",
+      "label": ".getInstance()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L44"
+    },
+    {
+      "id": "diagnostictracking_diagnostictrackingservice_initialize",
+      "label": ".initialize()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L51"
+    },
+    {
+      "id": "diagnostictracking_diagnostictrackingservice_shutdown",
+      "label": ".shutdown()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L61"
+    },
+    {
+      "id": "diagnostictracking_diagnostictrackingservice_reset",
+      "label": ".reset()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L72"
+    },
+    {
+      "id": "diagnostictracking_diagnostictrackingservice_normalizefileuri",
+      "label": ".normalizeFileUri()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L78"
+    },
+    {
+      "id": "diagnostictracking_diagnostictrackingservice_ensurefileopened",
+      "label": ".ensureFileOpened()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L103"
+    },
+    {
+      "id": "diagnostictracking_diagnostictrackingservice_beforefileedited",
+      "label": ".beforeFileEdited()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L135"
+    },
+    {
+      "id": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "label": ".getNewDiagnostics()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L188"
+    },
+    {
+      "id": "diagnostictracking_diagnostictrackingservice_parsediagnosticresult",
+      "label": ".parseDiagnosticResult()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L285"
+    },
+    {
+      "id": "diagnostictracking_diagnostictrackingservice_arediagnosticsequal",
+      "label": ".areDiagnosticsEqual()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L296"
+    },
+    {
+      "id": "diagnostictracking_diagnostictrackingservice_arediagnosticarraysequal",
+      "label": ".areDiagnosticArraysEqual()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L309"
+    },
+    {
+      "id": "diagnostictracking_diagnostictrackingservice_handlequerystart",
+      "label": ".handleQueryStart()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L330"
+    },
+    {
+      "id": "diagnostictracking_diagnostictrackingservice_formatdiagnosticssummary",
+      "label": ".formatDiagnosticsSummary()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L352"
+    },
+    {
+      "id": "diagnostictracking_diagnostictrackingservice_getseveritysymbol",
+      "label": ".getSeveritySymbol()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L385"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts",
+      "target": "figures",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts",
+      "target": "log_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_file_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_ide_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts",
+      "target": "diagnostictracking_diagnosticstrackingerror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_diagnostictracking_ts",
+      "target": "diagnostictracking_diagnostictrackingservice",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice",
+      "target": "diagnostictracking_diagnostictrackingservice_getinstance",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice",
+      "target": "diagnostictracking_diagnostictrackingservice_initialize",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice",
+      "target": "diagnostictracking_diagnostictrackingservice_shutdown",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice",
+      "target": "diagnostictracking_diagnostictrackingservice_reset",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice",
+      "target": "diagnostictracking_diagnostictrackingservice_normalizefileuri",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice",
+      "target": "diagnostictracking_diagnostictrackingservice_ensurefileopened",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice",
+      "target": "diagnostictracking_diagnostictrackingservice_beforefileedited",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L135",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice",
+      "target": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L188",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice",
+      "target": "diagnostictracking_diagnostictrackingservice_parsediagnosticresult",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L285",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice",
+      "target": "diagnostictracking_diagnostictrackingservice_arediagnosticsequal",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L296",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice",
+      "target": "diagnostictracking_diagnostictrackingservice_arediagnosticarraysequal",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L309",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice",
+      "target": "diagnostictracking_diagnostictrackingservice_handlequerystart",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L330",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice",
+      "target": "diagnostictracking_diagnostictrackingservice_formatdiagnosticssummary",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L352",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice",
+      "target": "diagnostictracking_diagnostictrackingservice_getseveritysymbol",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L385",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice_beforefileedited",
+      "target": "diagnostictracking_diagnostictrackingservice_parsediagnosticresult",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L152",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice_beforefileedited",
+      "target": "diagnostictracking_diagnostictrackingservice_normalizefileuri",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L157",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "target": "diagnostictracking_diagnostictrackingservice_parsediagnosticresult",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L205",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "target": "diagnostictracking_diagnostictrackingservice_normalizefileuri",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L232",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "target": "diagnostictracking_diagnostictrackingservice_arediagnosticarraysequal",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L251",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice_handlequerystart",
+      "target": "diagnostictracking_diagnostictrackingservice_initialize",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L337",
+      "weight": 1.0
+    },
+    {
+      "source": "diagnostictracking_diagnostictrackingservice_handlequerystart",
+      "target": "diagnostictracking_diagnostictrackingservice_reset",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L341",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_shutdown",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_shutdown",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_shutdown",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_reset",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_reset",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_reset",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_normalizefileuri",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_normalizefileuri",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_normalizefileuri",
+      "callee": "normalizePathForComparison",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_ensurefileopened",
+      "callee": "callIdeRpc",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_ensurefileopened",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited",
+      "callee": "callIdeRpc",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited",
+      "callee": "pathsEqual",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L171"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L176"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_beforefileedited",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L177"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "callee": "callIdeRpc",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L210"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L210"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L233"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L237"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L244"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L260"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L267"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L272"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_getnewdiagnostics",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L279"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_parsediagnosticresult",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L286"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_parsediagnosticresult",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L287"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_parsediagnosticresult",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L289"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_arediagnosticarraysequal",
+      "callee": "every",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L314"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_arediagnosticarraysequal",
+      "callee": "every",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L317"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_handlequerystart",
+      "callee": "getConnectedIdeClient",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L334"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_formatdiagnosticssummary",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L354"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_formatdiagnosticssummary",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L354"
+    },
+    {
+      "caller_nid": "diagnostictracking_diagnostictrackingservice_formatdiagnosticssummary",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\diagnosticTracking.ts",
+      "source_location": "L373"
+    }
+  ]
+}

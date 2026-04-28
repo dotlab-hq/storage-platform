@@ -1,1 +1,179 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx", "label": "KeybindingContext.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L1"}, {"id": "keybindingcontext_keybindingprovider", "label": "KeybindingProvider()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L59"}, {"id": "keybindingcontext_temp", "label": "_temp()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L183"}, {"id": "keybindingcontext_usekeybindingcontext", "label": "useKeybindingContext()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L184"}, {"id": "keybindingcontext_useoptionalkeybindingcontext", "label": "useOptionalKeybindingContext()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L196"}, {"id": "keybindingcontext_useregisterkeybindingcontext", "label": "useRegisterKeybindingContext()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L215"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx", "target": "compiler_runtime", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx", "target": "f_storage_platform_claude_code_source_main_src_ink_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx", "target": "f_storage_platform_claude_code_source_main_src_keybindings_resolver_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx", "target": "f_storage_platform_claude_code_source_main_src_keybindings_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx", "target": "keybindingcontext_keybindingprovider", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L59", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx", "target": "keybindingcontext_temp", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L183", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx", "target": "keybindingcontext_usekeybindingcontext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L184", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx", "target": "keybindingcontext_useoptionalkeybindingcontext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L196", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx", "target": "keybindingcontext_useregisterkeybindingcontext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L215", "weight": 1.0}, {"source": "keybindingcontext_useregisterkeybindingcontext", "target": "keybindingcontext_useoptionalkeybindingcontext", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L218", "weight": 1.0}], "raw_calls": [{"caller_nid": "keybindingcontext_keybindingprovider", "callee": "_c", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L60"}, {"caller_nid": "keybindingcontext_usekeybindingcontext", "callee": "useContext", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L185"}, {"caller_nid": "keybindingcontext_useoptionalkeybindingcontext", "callee": "useContext", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L197"}, {"caller_nid": "keybindingcontext_useregisterkeybindingcontext", "callee": "_c", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L216"}, {"caller_nid": "keybindingcontext_useregisterkeybindingcontext", "callee": "useLayoutEffect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx", "source_location": "L241"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx",
+      "label": "KeybindingContext.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "keybindingcontext_keybindingprovider",
+      "label": "KeybindingProvider()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L59"
+    },
+    {
+      "id": "keybindingcontext_temp",
+      "label": "_temp()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L183"
+    },
+    {
+      "id": "keybindingcontext_usekeybindingcontext",
+      "label": "useKeybindingContext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L184"
+    },
+    {
+      "id": "keybindingcontext_useoptionalkeybindingcontext",
+      "label": "useOptionalKeybindingContext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L196"
+    },
+    {
+      "id": "keybindingcontext_useregisterkeybindingcontext",
+      "label": "useRegisterKeybindingContext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L215"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx",
+      "target": "compiler_runtime",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_resolver_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx",
+      "target": "keybindingcontext_keybindingprovider",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx",
+      "target": "keybindingcontext_temp",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L183",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx",
+      "target": "keybindingcontext_usekeybindingcontext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L184",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx",
+      "target": "keybindingcontext_useoptionalkeybindingcontext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L196",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_tsx",
+      "target": "keybindingcontext_useregisterkeybindingcontext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L215",
+      "weight": 1.0
+    },
+    {
+      "source": "keybindingcontext_useregisterkeybindingcontext",
+      "target": "keybindingcontext_useoptionalkeybindingcontext",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L218",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "keybindingcontext_keybindingprovider",
+      "callee": "_c",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "keybindingcontext_usekeybindingcontext",
+      "callee": "useContext",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "keybindingcontext_useoptionalkeybindingcontext",
+      "callee": "useContext",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "keybindingcontext_useregisterkeybindingcontext",
+      "callee": "_c",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L216"
+    },
+    {
+      "caller_nid": "keybindingcontext_useregisterkeybindingcontext",
+      "callee": "useLayoutEffect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\KeybindingContext.tsx",
+      "source_location": "L241"
+    }
+  ]
+}

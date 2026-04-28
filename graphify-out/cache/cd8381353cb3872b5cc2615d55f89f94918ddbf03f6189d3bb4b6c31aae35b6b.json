@@ -1,1 +1,211 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_vim_motions_ts", "label": "motions.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L1"}, {"id": "motions_resolvemotion", "label": "resolveMotion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L13"}, {"id": "motions_applysinglemotion", "label": "applySingleMotion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L30"}, {"id": "motions_isinclusivemotion", "label": "isInclusiveMotion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L72"}, {"id": "motions_islinewisemotion", "label": "isLinewiseMotion()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L80"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_vim_motions_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cursor_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_motions_ts", "target": "motions_resolvemotion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_motions_ts", "target": "motions_applysinglemotion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_motions_ts", "target": "motions_isinclusivemotion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L72", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_vim_motions_ts", "target": "motions_islinewisemotion", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L80", "weight": 1.0}, {"source": "motions_resolvemotion", "target": "motions_applysinglemotion", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L20", "weight": 1.0}], "raw_calls": [{"caller_nid": "motions_resolvemotion", "callee": "equals", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L21"}, {"caller_nid": "motions_applysinglemotion", "callee": "left", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L33"}, {"caller_nid": "motions_applysinglemotion", "callee": "right", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L35"}, {"caller_nid": "motions_applysinglemotion", "callee": "downLogicalLine", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L37"}, {"caller_nid": "motions_applysinglemotion", "callee": "upLogicalLine", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L39"}, {"caller_nid": "motions_applysinglemotion", "callee": "down", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L41"}, {"caller_nid": "motions_applysinglemotion", "callee": "up", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L43"}, {"caller_nid": "motions_applysinglemotion", "callee": "nextVimWord", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L45"}, {"caller_nid": "motions_applysinglemotion", "callee": "prevVimWord", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L47"}, {"caller_nid": "motions_applysinglemotion", "callee": "endOfVimWord", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L49"}, {"caller_nid": "motions_applysinglemotion", "callee": "nextWORD", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L51"}, {"caller_nid": "motions_applysinglemotion", "callee": "prevWORD", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L53"}, {"caller_nid": "motions_applysinglemotion", "callee": "endOfWORD", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L55"}, {"caller_nid": "motions_applysinglemotion", "callee": "startOfLogicalLine", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L57"}, {"caller_nid": "motions_applysinglemotion", "callee": "firstNonBlankInLogicalLine", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L59"}, {"caller_nid": "motions_applysinglemotion", "callee": "endOfLogicalLine", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L61"}, {"caller_nid": "motions_applysinglemotion", "callee": "startOfLastLine", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L63"}, {"caller_nid": "motions_isinclusivemotion", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L73"}, {"caller_nid": "motions_islinewisemotion", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts", "source_location": "L81"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_vim_motions_ts",
+      "label": "motions.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "motions_resolvemotion",
+      "label": "resolveMotion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L13"
+    },
+    {
+      "id": "motions_applysinglemotion",
+      "label": "applySingleMotion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L30"
+    },
+    {
+      "id": "motions_isinclusivemotion",
+      "label": "isInclusiveMotion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L72"
+    },
+    {
+      "id": "motions_islinewisemotion",
+      "label": "isLinewiseMotion()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L80"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_motions_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cursor_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_motions_ts",
+      "target": "motions_resolvemotion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_motions_ts",
+      "target": "motions_applysinglemotion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_motions_ts",
+      "target": "motions_isinclusivemotion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_vim_motions_ts",
+      "target": "motions_islinewisemotion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "motions_resolvemotion",
+      "target": "motions_applysinglemotion",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "motions_resolvemotion",
+      "callee": "equals",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "left",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "right",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "downLogicalLine",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "upLogicalLine",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "down",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "up",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "nextVimWord",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "prevVimWord",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "endOfVimWord",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "nextWORD",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "prevWORD",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "endOfWORD",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "startOfLogicalLine",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "firstNonBlankInLogicalLine",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "endOfLogicalLine",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "motions_applysinglemotion",
+      "callee": "startOfLastLine",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "motions_isinclusivemotion",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "motions_islinewisemotion",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\vim\\motions.ts",
+      "source_location": "L81"
+    }
+  ]
+}

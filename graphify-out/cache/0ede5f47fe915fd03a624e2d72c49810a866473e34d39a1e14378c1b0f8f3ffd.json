@@ -1,1 +1,226 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts", "label": "systemTheme.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L1"}, {"id": "systemtheme_getsystemthemename", "label": "getSystemThemeName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L24"}, {"id": "systemtheme_setcachedsystemtheme", "label": "setCachedSystemTheme()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L35"}, {"id": "systemtheme_resolvethemesetting", "label": "resolveThemeSetting()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L42"}, {"id": "systemtheme_themefromosccolor", "label": "themeFromOscColor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L60"}, {"id": "systemtheme_parseoscrgb", "label": "parseOscRgb()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L70"}, {"id": "systemtheme_hexcomponent", "label": "hexComponent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L97"}, {"id": "systemtheme_detectfromcolorfgbg", "label": "detectFromColorFgBg()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L109"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_theme_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts", "target": "systemtheme_getsystemthemename", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts", "target": "systemtheme_setcachedsystemtheme", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts", "target": "systemtheme_resolvethemesetting", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts", "target": "systemtheme_themefromosccolor", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L60", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts", "target": "systemtheme_parseoscrgb", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L70", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts", "target": "systemtheme_hexcomponent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L97", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts", "target": "systemtheme_detectfromcolorfgbg", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L109", "weight": 1.0}, {"source": "systemtheme_getsystemthemename", "target": "systemtheme_detectfromcolorfgbg", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L26", "weight": 1.0}, {"source": "systemtheme_resolvethemesetting", "target": "systemtheme_getsystemthemename", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L44", "weight": 1.0}, {"source": "systemtheme_themefromosccolor", "target": "systemtheme_parseoscrgb", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L61", "weight": 1.0}, {"source": "systemtheme_parseoscrgb", "target": "systemtheme_hexcomponent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L77", "weight": 1.0}], "raw_calls": [{"caller_nid": "systemtheme_parseoscrgb", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L74"}, {"caller_nid": "systemtheme_parseoscrgb", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L83"}, {"caller_nid": "systemtheme_parseoscrgb", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L88"}, {"caller_nid": "systemtheme_parseoscrgb", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L89"}, {"caller_nid": "systemtheme_parseoscrgb", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L90"}, {"caller_nid": "systemtheme_hexcomponent", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L99"}, {"caller_nid": "systemtheme_detectfromcolorfgbg", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L112"}, {"caller_nid": "systemtheme_detectfromcolorfgbg", "callee": "Number", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L115"}, {"caller_nid": "systemtheme_detectfromcolorfgbg", "callee": "isInteger", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts", "source_location": "L116"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts",
+      "label": "systemTheme.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "systemtheme_getsystemthemename",
+      "label": "getSystemThemeName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L24"
+    },
+    {
+      "id": "systemtheme_setcachedsystemtheme",
+      "label": "setCachedSystemTheme()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L35"
+    },
+    {
+      "id": "systemtheme_resolvethemesetting",
+      "label": "resolveThemeSetting()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L42"
+    },
+    {
+      "id": "systemtheme_themefromosccolor",
+      "label": "themeFromOscColor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L60"
+    },
+    {
+      "id": "systemtheme_parseoscrgb",
+      "label": "parseOscRgb()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L70"
+    },
+    {
+      "id": "systemtheme_hexcomponent",
+      "label": "hexComponent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L97"
+    },
+    {
+      "id": "systemtheme_detectfromcolorfgbg",
+      "label": "detectFromColorFgBg()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L109"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_theme_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts",
+      "target": "systemtheme_getsystemthemename",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts",
+      "target": "systemtheme_setcachedsystemtheme",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts",
+      "target": "systemtheme_resolvethemesetting",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts",
+      "target": "systemtheme_themefromosccolor",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts",
+      "target": "systemtheme_parseoscrgb",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts",
+      "target": "systemtheme_hexcomponent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_systemtheme_ts",
+      "target": "systemtheme_detectfromcolorfgbg",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "systemtheme_getsystemthemename",
+      "target": "systemtheme_detectfromcolorfgbg",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "systemtheme_resolvethemesetting",
+      "target": "systemtheme_getsystemthemename",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "systemtheme_themefromosccolor",
+      "target": "systemtheme_parseoscrgb",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "systemtheme_parseoscrgb",
+      "target": "systemtheme_hexcomponent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L77",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "systemtheme_parseoscrgb",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "systemtheme_parseoscrgb",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "systemtheme_parseoscrgb",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "systemtheme_parseoscrgb",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "systemtheme_parseoscrgb",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "systemtheme_hexcomponent",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "systemtheme_detectfromcolorfgbg",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "systemtheme_detectfromcolorfgbg",
+      "callee": "Number",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "systemtheme_detectfromcolorfgbg",
+      "callee": "isInteger",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\systemTheme.ts",
+      "source_location": "L116"
+    }
+  ]
+}

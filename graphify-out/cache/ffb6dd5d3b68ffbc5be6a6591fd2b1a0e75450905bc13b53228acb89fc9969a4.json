@@ -1,1 +1,92 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_task_outputformatting_ts", "label": "outputFormatting.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts", "source_location": "L1"}, {"id": "outputformatting_getmaxtaskoutputlength", "label": "getMaxTaskOutputLength()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts", "source_location": "L7"}, {"id": "outputformatting_formattaskoutput", "label": "formatTaskOutput()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts", "source_location": "L22"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_task_outputformatting_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envvalidation_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_outputformatting_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_task_diskoutput_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_outputformatting_ts", "target": "outputformatting_getmaxtaskoutputlength", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_task_outputformatting_ts", "target": "outputformatting_formattaskoutput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts", "source_location": "L22", "weight": 1.0}, {"source": "outputformatting_formattaskoutput", "target": "outputformatting_getmaxtaskoutputlength", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts", "source_location": "L26", "weight": 1.0}], "raw_calls": [{"caller_nid": "outputformatting_getmaxtaskoutputlength", "callee": "validateBoundedIntEnvVar", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts", "source_location": "L8"}, {"caller_nid": "outputformatting_formattaskoutput", "callee": "getTaskOutputPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts", "source_location": "L32"}, {"caller_nid": "outputformatting_formattaskoutput", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts", "source_location": "L35"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_task_outputformatting_ts",
+      "label": "outputFormatting.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "outputformatting_getmaxtaskoutputlength",
+      "label": "getMaxTaskOutputLength()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "outputformatting_formattaskoutput",
+      "label": "formatTaskOutput()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts",
+      "source_location": "L22"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_outputformatting_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envvalidation_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_outputformatting_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_task_diskoutput_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_outputformatting_ts",
+      "target": "outputformatting_getmaxtaskoutputlength",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_task_outputformatting_ts",
+      "target": "outputformatting_formattaskoutput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "outputformatting_formattaskoutput",
+      "target": "outputformatting_getmaxtaskoutputlength",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "outputformatting_getmaxtaskoutputlength",
+      "callee": "validateBoundedIntEnvVar",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts",
+      "source_location": "L8"
+    },
+    {
+      "caller_nid": "outputformatting_formattaskoutput",
+      "callee": "getTaskOutputPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "outputformatting_formattaskoutput",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\task\\outputFormatting.ts",
+      "source_location": "L35"
+    }
+  ]
+}

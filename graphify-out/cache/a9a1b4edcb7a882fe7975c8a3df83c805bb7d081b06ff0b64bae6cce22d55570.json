@@ -1,1 +1,650 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "label": "s3-bucket-controls.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L1"}, {"id": "s3_bucket_controls_etagfor", "label": "etagFor()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L33"}, {"id": "s3_bucket_controls_getbucketlocation", "label": "getBucketLocation()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L37"}, {"id": "s3_bucket_controls_getbucketversioning", "label": "getBucketVersioning()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L46"}, {"id": "s3_bucket_controls_setbucketversioning", "label": "setBucketVersioning()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L55"}, {"id": "s3_bucket_controls_getbucketpolicy", "label": "getBucketPolicy()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L65"}, {"id": "s3_bucket_controls_putbucketpolicy", "label": "putBucketPolicy()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L76"}, {"id": "s3_bucket_controls_deletebucketpolicy", "label": "deleteBucketPolicy()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L98"}, {"id": "s3_bucket_controls_getbucketcors", "label": "getBucketCors()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L102"}, {"id": "s3_bucket_controls_replacebucketcors", "label": "replaceBucketCors()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L130"}, {"id": "s3_bucket_controls_listmultipartuploads", "label": "listMultipartUploads()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L155"}, {"id": "s3_bucket_controls_listmultipartparts", "label": "listMultipartParts()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L182"}], "edges": [{"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "node_crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "s3_controls", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "s3_gateway", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "s3_context", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "s3_bucket_controls_etagfor", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L33", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "s3_bucket_controls_getbucketlocation", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "s3_bucket_controls_getbucketversioning", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L46", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "s3_bucket_controls_setbucketversioning", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L55", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "s3_bucket_controls_getbucketpolicy", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L65", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "s3_bucket_controls_putbucketpolicy", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L76", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "s3_bucket_controls_deletebucketpolicy", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L98", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "s3_bucket_controls_getbucketcors", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L102", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "s3_bucket_controls_replacebucketcors", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L130", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "s3_bucket_controls_listmultipartuploads", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L155", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts", "target": "s3_bucket_controls_listmultipartparts", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L182", "weight": 1.0}, {"source": "s3_bucket_controls_putbucketpolicy", "target": "s3_bucket_controls_etagfor", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L80", "weight": 1.0}], "raw_calls": [{"caller_nid": "s3_bucket_controls_etagfor", "callee": "digest", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L34"}, {"caller_nid": "s3_bucket_controls_etagfor", "callee": "update", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L34"}, {"caller_nid": "s3_bucket_controls_etagfor", "callee": "createHash", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L34"}, {"caller_nid": "s3_bucket_controls_getbucketlocation", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L38"}, {"caller_nid": "s3_bucket_controls_getbucketlocation", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L38"}, {"caller_nid": "s3_bucket_controls_getbucketlocation", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L38"}, {"caller_nid": "s3_bucket_controls_getbucketlocation", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L38"}, {"caller_nid": "s3_bucket_controls_getbucketlocation", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L41"}, {"caller_nid": "s3_bucket_controls_getbucketversioning", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L47"}, {"caller_nid": "s3_bucket_controls_getbucketversioning", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L47"}, {"caller_nid": "s3_bucket_controls_getbucketversioning", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L47"}, {"caller_nid": "s3_bucket_controls_getbucketversioning", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L47"}, {"caller_nid": "s3_bucket_controls_getbucketversioning", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L50"}, {"caller_nid": "s3_bucket_controls_setbucketversioning", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L59"}, {"caller_nid": "s3_bucket_controls_setbucketversioning", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L59"}, {"caller_nid": "s3_bucket_controls_setbucketversioning", "callee": "update", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L59"}, {"caller_nid": "s3_bucket_controls_setbucketversioning", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L62"}, {"caller_nid": "s3_bucket_controls_getbucketpolicy", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L68"}, {"caller_nid": "s3_bucket_controls_getbucketpolicy", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L68"}, {"caller_nid": "s3_bucket_controls_getbucketpolicy", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L68"}, {"caller_nid": "s3_bucket_controls_getbucketpolicy", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L68"}, {"caller_nid": "s3_bucket_controls_getbucketpolicy", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L71"}, {"caller_nid": "s3_bucket_controls_putbucketpolicy", "callee": "onConflictDoUpdate", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L81"}, {"caller_nid": "s3_bucket_controls_putbucketpolicy", "callee": "values", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L81"}, {"caller_nid": "s3_bucket_controls_putbucketpolicy", "callee": "insert", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L81"}, {"caller_nid": "s3_bucket_controls_deletebucketpolicy", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L99"}, {"caller_nid": "s3_bucket_controls_deletebucketpolicy", "callee": "delete", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L99"}, {"caller_nid": "s3_bucket_controls_deletebucketpolicy", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L99"}, {"caller_nid": "s3_bucket_controls_getbucketcors", "callee": "orderBy", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L105"}, {"caller_nid": "s3_bucket_controls_getbucketcors", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L105"}, {"caller_nid": "s3_bucket_controls_getbucketcors", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L105"}, {"caller_nid": "s3_bucket_controls_getbucketcors", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L105"}, {"caller_nid": "s3_bucket_controls_getbucketcors", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L114"}, {"caller_nid": "s3_bucket_controls_getbucketcors", "callee": "asc", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L115"}, {"caller_nid": "s3_bucket_controls_getbucketcors", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L117"}, {"caller_nid": "s3_bucket_controls_replacebucketcors", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L134"}, {"caller_nid": "s3_bucket_controls_replacebucketcors", "callee": "delete", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L134"}, {"caller_nid": "s3_bucket_controls_replacebucketcors", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L134"}, {"caller_nid": "s3_bucket_controls_replacebucketcors", "callee": "onConflictDoNothing", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L139"}, {"caller_nid": "s3_bucket_controls_replacebucketcors", "callee": "values", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L139"}, {"caller_nid": "s3_bucket_controls_replacebucketcors", "callee": "insert", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L139"}, {"caller_nid": "s3_bucket_controls_replacebucketcors", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L142"}, {"caller_nid": "s3_bucket_controls_listmultipartuploads", "callee": "orderBy", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L158"}, {"caller_nid": "s3_bucket_controls_listmultipartuploads", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L158"}, {"caller_nid": "s3_bucket_controls_listmultipartuploads", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L158"}, {"caller_nid": "s3_bucket_controls_listmultipartuploads", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L158"}, {"caller_nid": "s3_bucket_controls_listmultipartuploads", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L167"}, {"caller_nid": "s3_bucket_controls_listmultipartuploads", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L168"}, {"caller_nid": "s3_bucket_controls_listmultipartuploads", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L169"}, {"caller_nid": "s3_bucket_controls_listmultipartuploads", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L170"}, {"caller_nid": "s3_bucket_controls_listmultipartuploads", "callee": "asc", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L173"}, {"caller_nid": "s3_bucket_controls_listmultipartuploads", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L175"}, {"caller_nid": "s3_bucket_controls_listmultipartparts", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L186"}, {"caller_nid": "s3_bucket_controls_listmultipartparts", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L186"}, {"caller_nid": "s3_bucket_controls_listmultipartparts", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L186"}, {"caller_nid": "s3_bucket_controls_listmultipartparts", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L186"}, {"caller_nid": "s3_bucket_controls_listmultipartparts", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L190"}, {"caller_nid": "s3_bucket_controls_listmultipartparts", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L191"}, {"caller_nid": "s3_bucket_controls_listmultipartparts", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L192"}, {"caller_nid": "s3_bucket_controls_listmultipartparts", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L193"}, {"caller_nid": "s3_bucket_controls_listmultipartparts", "callee": "orderBy", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L202"}, {"caller_nid": "s3_bucket_controls_listmultipartparts", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L202"}, {"caller_nid": "s3_bucket_controls_listmultipartparts", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L202"}, {"caller_nid": "s3_bucket_controls_listmultipartparts", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L202"}, {"caller_nid": "s3_bucket_controls_listmultipartparts", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L210"}, {"caller_nid": "s3_bucket_controls_listmultipartparts", "callee": "asc", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts", "source_location": "L211"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "label": "s3-bucket-controls.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "s3_bucket_controls_etagfor",
+      "label": "etagFor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L33"
+    },
+    {
+      "id": "s3_bucket_controls_getbucketlocation",
+      "label": "getBucketLocation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L37"
+    },
+    {
+      "id": "s3_bucket_controls_getbucketversioning",
+      "label": "getBucketVersioning()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L46"
+    },
+    {
+      "id": "s3_bucket_controls_setbucketversioning",
+      "label": "setBucketVersioning()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L55"
+    },
+    {
+      "id": "s3_bucket_controls_getbucketpolicy",
+      "label": "getBucketPolicy()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L65"
+    },
+    {
+      "id": "s3_bucket_controls_putbucketpolicy",
+      "label": "putBucketPolicy()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L76"
+    },
+    {
+      "id": "s3_bucket_controls_deletebucketpolicy",
+      "label": "deleteBucketPolicy()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L98"
+    },
+    {
+      "id": "s3_bucket_controls_getbucketcors",
+      "label": "getBucketCors()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L102"
+    },
+    {
+      "id": "s3_bucket_controls_replacebucketcors",
+      "label": "replaceBucketCors()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L130"
+    },
+    {
+      "id": "s3_bucket_controls_listmultipartuploads",
+      "label": "listMultipartUploads()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L155"
+    },
+    {
+      "id": "s3_bucket_controls_listmultipartparts",
+      "label": "listMultipartParts()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L182"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "node_crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "s3_controls",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "s3_gateway",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "s3_context",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "s3_bucket_controls_etagfor",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "s3_bucket_controls_getbucketlocation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "s3_bucket_controls_getbucketversioning",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "s3_bucket_controls_setbucketversioning",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "s3_bucket_controls_getbucketpolicy",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "s3_bucket_controls_putbucketpolicy",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "s3_bucket_controls_deletebucketpolicy",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "s3_bucket_controls_getbucketcors",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "s3_bucket_controls_replacebucketcors",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "s3_bucket_controls_listmultipartuploads",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L155",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_bucket_controls_ts",
+      "target": "s3_bucket_controls_listmultipartparts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L182",
+      "weight": 1.0
+    },
+    {
+      "source": "s3_bucket_controls_putbucketpolicy",
+      "target": "s3_bucket_controls_etagfor",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L80",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "s3_bucket_controls_etagfor",
+      "callee": "digest",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_etagfor",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_etagfor",
+      "callee": "createHash",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketlocation",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketlocation",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketlocation",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketlocation",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketlocation",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketversioning",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketversioning",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketversioning",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketversioning",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketversioning",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_setbucketversioning",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_setbucketversioning",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_setbucketversioning",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_setbucketversioning",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketpolicy",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketpolicy",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketpolicy",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketpolicy",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketpolicy",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_putbucketpolicy",
+      "callee": "onConflictDoUpdate",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_putbucketpolicy",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_putbucketpolicy",
+      "callee": "insert",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_deletebucketpolicy",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_deletebucketpolicy",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_deletebucketpolicy",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketcors",
+      "callee": "orderBy",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketcors",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketcors",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketcors",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketcors",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketcors",
+      "callee": "asc",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_getbucketcors",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_replacebucketcors",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_replacebucketcors",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_replacebucketcors",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_replacebucketcors",
+      "callee": "onConflictDoNothing",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_replacebucketcors",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_replacebucketcors",
+      "callee": "insert",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_replacebucketcors",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartuploads",
+      "callee": "orderBy",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartuploads",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartuploads",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartuploads",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartuploads",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L167"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartuploads",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartuploads",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L169"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartuploads",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L170"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartuploads",
+      "callee": "asc",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartuploads",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartparts",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L186"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartparts",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L186"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartparts",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L186"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartparts",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L186"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartparts",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L190"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartparts",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L191"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartparts",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartparts",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L193"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartparts",
+      "callee": "orderBy",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartparts",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartparts",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartparts",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L202"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartparts",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L210"
+    },
+    {
+      "caller_nid": "s3_bucket_controls_listmultipartparts",
+      "callee": "asc",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-bucket-controls.ts",
+      "source_location": "L211"
+    }
+  ]
+}

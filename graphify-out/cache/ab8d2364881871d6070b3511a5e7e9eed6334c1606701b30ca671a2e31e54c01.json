@@ -1,1 +1,141 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx", "label": "bucket-items.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L1"}, {"id": "bucket_items_errortomessage", "label": "errorToMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L14"}, {"id": "bucket_items_tofolderentry", "label": "toFolderEntry()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L24"}, {"id": "bucket_items_tofileentry", "label": "toFileEntry()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L30"}], "edges": [{"source": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx", "target": "zod", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx", "target": "server_auth", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx", "target": "virtual_buckets", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx", "target": "client_s3", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx", "target": "bucket_items_errortomessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx", "target": "bucket_items_tofolderentry", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx", "target": "bucket_items_tofileentry", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L30", "weight": 1.0}], "raw_calls": [{"caller_nid": "bucket_items_tofolderentry", "callee": "endsWith", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L25"}, {"caller_nid": "bucket_items_tofolderentry", "callee": "slice", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L25"}, {"caller_nid": "bucket_items_tofolderentry", "callee": "at", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L26"}, {"caller_nid": "bucket_items_tofolderentry", "callee": "split", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L26"}, {"caller_nid": "bucket_items_tofileentry", "callee": "at", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L44"}, {"caller_nid": "bucket_items_tofileentry", "callee": "split", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L44"}, {"caller_nid": "bucket_items_tofileentry", "callee": "toISOString", "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx", "source_location": "L47"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx",
+      "label": "bucket-items.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "bucket_items_errortomessage",
+      "label": "errorToMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L14"
+    },
+    {
+      "id": "bucket_items_tofolderentry",
+      "label": "toFolderEntry()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L24"
+    },
+    {
+      "id": "bucket_items_tofileentry",
+      "label": "toFileEntry()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L30"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx",
+      "target": "zod",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx",
+      "target": "server_auth",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx",
+      "target": "virtual_buckets",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx",
+      "target": "client_s3",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx",
+      "target": "bucket_items_errortomessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx",
+      "target": "bucket_items_tofolderentry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_storage_s3_bucket_items_tsx",
+      "target": "bucket_items_tofileentry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L30",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "bucket_items_tofolderentry",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "bucket_items_tofolderentry",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "bucket_items_tofolderentry",
+      "callee": "at",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "bucket_items_tofolderentry",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "bucket_items_tofileentry",
+      "callee": "at",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "bucket_items_tofileentry",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "bucket_items_tofileentry",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\storage\\s3\\bucket-items.tsx",
+      "source_location": "L47"
+    }
+  ]
+}

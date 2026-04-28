@@ -1,1 +1,2255 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "label": "worktree.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1"}, {"id": "worktree_validateworktreeslug", "label": "validateWorktreeSlug()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L66"}, {"id": "worktree_mkdirrecursive", "label": "mkdirRecursive()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L90"}, {"id": "worktree_symlinkdirectories", "label": "symlinkDirectories()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L102"}, {"id": "worktree_getcurrentworktreesession", "label": "getCurrentWorktreeSession()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L158"}, {"id": "worktree_restoreworktreesession", "label": "restoreWorktreeSession()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L167"}, {"id": "worktree_generatetmuxsessionname", "label": "generateTmuxSessionName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L171"}, {"id": "worktree_worktreesdir", "label": "worktreesDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L204"}, {"id": "worktree_flattenslug", "label": "flattenSlug()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L217"}, {"id": "worktree_worktreebranchname", "label": "worktreeBranchName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L221"}, {"id": "worktree_worktreepathfor", "label": "worktreePathFor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L225"}, {"id": "worktree_getorcreateworktree", "label": "getOrCreateWorktree()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L235"}, {"id": "worktree_copyworktreeincludefiles", "label": "copyWorktreeIncludeFiles()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L391"}, {"id": "worktree_performpostcreationsetup", "label": "performPostCreationSetup()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L510"}, {"id": "worktree_parseprreference", "label": "parsePRReference()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L633"}, {"id": "worktree_istmuxavailable", "label": "isTmuxAvailable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L653"}, {"id": "worktree_gettmuxinstallinstructions", "label": "getTmuxInstallInstructions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L658"}, {"id": "worktree_createtmuxsessionforworktree", "label": "createTmuxSessionForWorktree()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L673"}, {"id": "worktree_killtmuxsession", "label": "killTmuxSession()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L693"}, {"id": "worktree_createworktreeforsession", "label": "createWorktreeForSession()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L702"}, {"id": "worktree_keepworktree", "label": "keepWorktree()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L780"}, {"id": "worktree_cleanupworktree", "label": "cleanupWorktree()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L813"}, {"id": "worktree_createagentworktree", "label": "createAgentWorktree()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L902"}, {"id": "worktree_removeagentworktree", "label": "removeAgentWorktree()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L961"}, {"id": "worktree_cleanupstaleagentworktrees", "label": "cleanupStaleAgentWorktrees()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1058"}, {"id": "worktree_hasworktreechanges", "label": "hasWorktreeChanges()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1144"}, {"id": "worktree_execintotmuxworktree", "label": "execIntoTmuxWorktree()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1180"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "chalk", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "child_process", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "ignore", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_git_gitconfigparser_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_git_gitfilesystem_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L34", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_path_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L40", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L41", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sleep_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L45", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L46", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_validateworktreeslug", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L66", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_mkdirrecursive", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L90", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_symlinkdirectories", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L102", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_getcurrentworktreesession", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L158", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_restoreworktreesession", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L167", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_generatetmuxsessionname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L171", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_worktreesdir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L204", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_flattenslug", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L217", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_worktreebranchname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L221", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_worktreepathfor", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L225", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_getorcreateworktree", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L235", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_copyworktreeincludefiles", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L391", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_performpostcreationsetup", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L510", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_parseprreference", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L633", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_istmuxavailable", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L653", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_gettmuxinstallinstructions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L658", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_createtmuxsessionforworktree", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L673", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_killtmuxsession", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L693", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_createworktreeforsession", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L702", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_keepworktree", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L780", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_cleanupworktree", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L813", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_createagentworktree", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L902", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_removeagentworktree", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L961", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_cleanupstaleagentworktrees", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1058", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_hasworktreechanges", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1144", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts", "target": "worktree_execintotmuxworktree", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1180", "weight": 1.0}, {"source": "worktree_worktreebranchname", "target": "worktree_flattenslug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L222", "weight": 1.0}, {"source": "worktree_worktreepathfor", "target": "worktree_worktreesdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L226", "weight": 1.0}, {"source": "worktree_worktreepathfor", "target": "worktree_flattenslug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L226", "weight": 1.0}, {"source": "worktree_getorcreateworktree", "target": "worktree_worktreepathfor", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L240", "weight": 1.0}, {"source": "worktree_getorcreateworktree", "target": "worktree_worktreebranchname", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L241", "weight": 1.0}, {"source": "worktree_getorcreateworktree", "target": "worktree_worktreesdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L258", "weight": 1.0}, {"source": "worktree_performpostcreationsetup", "target": "worktree_mkdirrecursive", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L521", "weight": 1.0}, {"source": "worktree_performpostcreationsetup", "target": "worktree_symlinkdirectories", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L584", "weight": 1.0}, {"source": "worktree_performpostcreationsetup", "target": "worktree_copyworktreeincludefiles", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L588", "weight": 1.0}, {"source": "worktree_createworktreeforsession", "target": "worktree_validateworktreeslug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L710", "weight": 1.0}, {"source": "worktree_createworktreeforsession", "target": "worktree_getorcreateworktree", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L743", "weight": 1.0}, {"source": "worktree_createworktreeforsession", "target": "worktree_performpostcreationsetup", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L752", "weight": 1.0}, {"source": "worktree_createagentworktree", "target": "worktree_validateworktreeslug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L909", "weight": 1.0}, {"source": "worktree_createagentworktree", "target": "worktree_getorcreateworktree", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L935", "weight": 1.0}, {"source": "worktree_createagentworktree", "target": "worktree_performpostcreationsetup", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L941", "weight": 1.0}, {"source": "worktree_cleanupstaleagentworktrees", "target": "worktree_worktreesdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1066", "weight": 1.0}, {"source": "worktree_cleanupstaleagentworktrees", "target": "worktree_removeagentworktree", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1121", "weight": 1.0}, {"source": "worktree_cleanupstaleagentworktrees", "target": "worktree_worktreebranchname", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1121", "weight": 1.0}, {"source": "worktree_execintotmuxworktree", "target": "worktree_parseprreference", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1227", "weight": 1.0}, {"source": "worktree_execintotmuxworktree", "target": "worktree_validateworktreeslug", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1247", "weight": 1.0}, {"source": "worktree_execintotmuxworktree", "target": "worktree_worktreepathfor", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1284", "weight": 1.0}, {"source": "worktree_execintotmuxworktree", "target": "worktree_getorcreateworktree", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1288", "weight": 1.0}, {"source": "worktree_execintotmuxworktree", "target": "worktree_performpostcreationsetup", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1298", "weight": 1.0}, {"source": "worktree_execintotmuxworktree", "target": "worktree_worktreebranchname", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1310", "weight": 1.0}], "raw_calls": [{"caller_nid": "worktree_validateworktreeslug", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L75"}, {"caller_nid": "worktree_validateworktreeslug", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L81"}, {"caller_nid": "worktree_mkdirrecursive", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L91"}, {"caller_nid": "worktree_symlinkdirectories", "callee": "containsPathTraversal", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L109"}, {"caller_nid": "worktree_symlinkdirectories", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L110"}, {"caller_nid": "worktree_symlinkdirectories", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L117"}, {"caller_nid": "worktree_symlinkdirectories", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L118"}, {"caller_nid": "worktree_symlinkdirectories", "callee": "symlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L121"}, {"caller_nid": "worktree_symlinkdirectories", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L122"}, {"caller_nid": "worktree_symlinkdirectories", "callee": "getErrnoCode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L126"}, {"caller_nid": "worktree_symlinkdirectories", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L131"}, {"caller_nid": "worktree_symlinkdirectories", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L132"}, {"caller_nid": "worktree_generatetmuxsessionname", "callee": "basename", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L175"}, {"caller_nid": "worktree_generatetmuxsessionname", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L177"}, {"caller_nid": "worktree_worktreesdir", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L205"}, {"caller_nid": "worktree_flattenslug", "callee": "replaceAll", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L218"}, {"caller_nid": "worktree_worktreepathfor", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L226"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "readWorktreeHeadSha", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L247"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L258"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L266"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L267"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L273"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L284"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "getDefaultBranch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L285"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "resolveGitDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L286"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "resolveRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L290"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L296"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L297"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L308"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L309"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L318"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "getInitialSettings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L321"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L324"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L328"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L331"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L331"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L350"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L351"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "tearDown", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L356"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L358"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L359"}, {"caller_nid": "worktree_getorcreateworktree", "callee": "tearDown", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L364"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L397"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L397"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L402"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L402"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L402"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L413"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L414"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L418"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L422"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L422"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L422"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L423"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "ignore", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L423"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L427"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L428"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L439"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L460"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L461"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L472"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L473"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L473"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L473"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "ignores", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L474"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L475"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L483"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L484"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L486"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "dirname", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L486"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "copyFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L487"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L488"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L490"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L498"}, {"caller_nid": "worktree_copyworktreeincludefiles", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L499"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "getRelativeSettingsFilePathForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L517"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L518"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L520"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "dirname", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L521"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "copyFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L522"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L523"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "getErrnoCode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L527"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L529"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L538"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L539"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "stat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L543"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "isDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L544"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "resolveGitDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L556"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "getCommonDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L557"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "parseGitConfigValue", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L559"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L563"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L564"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L569"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L573"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "getInitialSettings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L581"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L603"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L605"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L606"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "then", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L606"}, {"caller_nid": "worktree_performpostcreationsetup", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L606"}, {"caller_nid": "worktree_parseprreference", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L637"}, {"caller_nid": "worktree_parseprreference", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L641"}, {"caller_nid": "worktree_parseprreference", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L645"}, {"caller_nid": "worktree_parseprreference", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L647"}, {"caller_nid": "worktree_istmuxavailable", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L654"}, {"caller_nid": "worktree_gettmuxinstallinstructions", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L659"}, {"caller_nid": "worktree_createtmuxsessionforworktree", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L677"}, {"caller_nid": "worktree_killtmuxsession", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L694"}, {"caller_nid": "worktree_createworktreeforsession", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L712"}, {"caller_nid": "worktree_createworktreeforsession", "callee": "hasWorktreeCreateHook", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L715"}, {"caller_nid": "worktree_createworktreeforsession", "callee": "executeWorktreeCreateHook", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L716"}, {"caller_nid": "worktree_createworktreeforsession", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L717"}, {"caller_nid": "worktree_createworktreeforsession", "callee": "findGitRoot", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L731"}, {"caller_nid": "worktree_createworktreeforsession", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L731"}, {"caller_nid": "worktree_createworktreeforsession", "callee": "getBranch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L739"}, {"caller_nid": "worktree_createworktreeforsession", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L741"}, {"caller_nid": "worktree_createworktreeforsession", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L747"}, {"caller_nid": "worktree_createworktreeforsession", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L749"}, {"caller_nid": "worktree_createworktreeforsession", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L753"}, {"caller_nid": "worktree_createworktreeforsession", "callee": "getInitialSettings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L767"}, {"caller_nid": "worktree_createworktreeforsession", "callee": "saveCurrentProjectConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L772"}, {"caller_nid": "worktree_keepworktree", "callee": "chdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L789"}, {"caller_nid": "worktree_keepworktree", "callee": "saveCurrentProjectConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L795"}, {"caller_nid": "worktree_keepworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L800"}, {"caller_nid": "worktree_keepworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L803"}, {"caller_nid": "worktree_keepworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L807"}, {"caller_nid": "worktree_cleanupworktree", "callee": "chdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L823"}, {"caller_nid": "worktree_cleanupworktree", "callee": "executeWorktreeRemoveHook", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L827"}, {"caller_nid": "worktree_cleanupworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L829"}, {"caller_nid": "worktree_cleanupworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L831"}, {"caller_nid": "worktree_cleanupworktree", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L842"}, {"caller_nid": "worktree_cleanupworktree", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L843"}, {"caller_nid": "worktree_cleanupworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L849"}, {"caller_nid": "worktree_cleanupworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L853"}, {"caller_nid": "worktree_cleanupworktree", "callee": "saveCurrentProjectConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L861"}, {"caller_nid": "worktree_cleanupworktree", "callee": "sleep", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L869"}, {"caller_nid": "worktree_cleanupworktree", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L872"}, {"caller_nid": "worktree_cleanupworktree", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L873"}, {"caller_nid": "worktree_cleanupworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L879"}, {"caller_nid": "worktree_cleanupworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L884"}, {"caller_nid": "worktree_cleanupworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L888"}, {"caller_nid": "worktree_cleanupworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L890"}, {"caller_nid": "worktree_createagentworktree", "callee": "hasWorktreeCreateHook", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L912"}, {"caller_nid": "worktree_createagentworktree", "callee": "executeWorktreeCreateHook", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L913"}, {"caller_nid": "worktree_createagentworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L914"}, {"caller_nid": "worktree_createagentworktree", "callee": "findCanonicalGitRoot", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L926"}, {"caller_nid": "worktree_createagentworktree", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L926"}, {"caller_nid": "worktree_createagentworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L938"}, {"caller_nid": "worktree_createagentworktree", "callee": "utimes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L947"}, {"caller_nid": "worktree_createagentworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L948"}, {"caller_nid": "worktree_removeagentworktree", "callee": "executeWorktreeRemoveHook", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L968"}, {"caller_nid": "worktree_removeagentworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L970"}, {"caller_nid": "worktree_removeagentworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L972"}, {"caller_nid": "worktree_removeagentworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L981"}, {"caller_nid": "worktree_removeagentworktree", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L989"}, {"caller_nid": "worktree_removeagentworktree", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L990"}, {"caller_nid": "worktree_removeagentworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L996"}, {"caller_nid": "worktree_removeagentworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1001"}, {"caller_nid": "worktree_removeagentworktree", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1009"}, {"caller_nid": "worktree_removeagentworktree", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1009"}, {"caller_nid": "worktree_removeagentworktree", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1014"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "findCanonicalGitRoot", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1061"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1061"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1069"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "getTime", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1074"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1079"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1083"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "stat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1090"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1101"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1102"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1103"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1107"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1108"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1113"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1116"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1128"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1128"}, {"caller_nid": "worktree_cleanupstaleagentworktrees", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1131"}, {"caller_nid": "worktree_hasworktreechanges", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1149"}, {"caller_nid": "worktree_hasworktreechanges", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1149"}, {"caller_nid": "worktree_hasworktreechanges", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1155"}, {"caller_nid": "worktree_hasworktreechanges", "callee": "execFileNoThrowWithCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1160"}, {"caller_nid": "worktree_hasworktreechanges", "callee": "gitExe", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1161"}, {"caller_nid": "worktree_hasworktreechanges", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1168"}, {"caller_nid": "worktree_hasworktreechanges", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1168"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1193"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1214"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1217"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1218"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "floor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1237"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "random", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1237"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "floor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1238"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "random", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1238"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1239"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1239"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "random", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1239"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "hasWorktreeCreateHook", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1260"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "executeWorktreeCreateHook", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1262"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1267"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "basename", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1270"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "findCanonicalGitRoot", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1270"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1270"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1270"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1272"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "findCanonicalGitRoot", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1275"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "getCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1275"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "basename", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1283"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1295"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1303"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1310"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1321"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1326"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1327"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1332"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1336"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1355"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1366"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "Boolean", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1374"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "isInITerm2", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1380"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1387"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "y", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1388"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "y", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1389"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "y", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1389"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "y", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1390"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "y", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1390"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "y", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1391"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1402"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1419"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1424"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1431"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1436"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1441"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1448"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1453"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1469"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1474"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1491"}, {"caller_nid": "worktree_execintotmuxworktree", "callee": "spawnSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts", "source_location": "L1510"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "label": "worktree.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "worktree_validateworktreeslug",
+      "label": "validateWorktreeSlug()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L66"
+    },
+    {
+      "id": "worktree_mkdirrecursive",
+      "label": "mkdirRecursive()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L90"
+    },
+    {
+      "id": "worktree_symlinkdirectories",
+      "label": "symlinkDirectories()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L102"
+    },
+    {
+      "id": "worktree_getcurrentworktreesession",
+      "label": "getCurrentWorktreeSession()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L158"
+    },
+    {
+      "id": "worktree_restoreworktreesession",
+      "label": "restoreWorktreeSession()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L167"
+    },
+    {
+      "id": "worktree_generatetmuxsessionname",
+      "label": "generateTmuxSessionName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L171"
+    },
+    {
+      "id": "worktree_worktreesdir",
+      "label": "worktreesDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L204"
+    },
+    {
+      "id": "worktree_flattenslug",
+      "label": "flattenSlug()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L217"
+    },
+    {
+      "id": "worktree_worktreebranchname",
+      "label": "worktreeBranchName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L221"
+    },
+    {
+      "id": "worktree_worktreepathfor",
+      "label": "worktreePathFor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L225"
+    },
+    {
+      "id": "worktree_getorcreateworktree",
+      "label": "getOrCreateWorktree()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L235"
+    },
+    {
+      "id": "worktree_copyworktreeincludefiles",
+      "label": "copyWorktreeIncludeFiles()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L391"
+    },
+    {
+      "id": "worktree_performpostcreationsetup",
+      "label": "performPostCreationSetup()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L510"
+    },
+    {
+      "id": "worktree_parseprreference",
+      "label": "parsePRReference()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L633"
+    },
+    {
+      "id": "worktree_istmuxavailable",
+      "label": "isTmuxAvailable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L653"
+    },
+    {
+      "id": "worktree_gettmuxinstallinstructions",
+      "label": "getTmuxInstallInstructions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L658"
+    },
+    {
+      "id": "worktree_createtmuxsessionforworktree",
+      "label": "createTmuxSessionForWorktree()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L673"
+    },
+    {
+      "id": "worktree_killtmuxsession",
+      "label": "killTmuxSession()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L693"
+    },
+    {
+      "id": "worktree_createworktreeforsession",
+      "label": "createWorktreeForSession()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L702"
+    },
+    {
+      "id": "worktree_keepworktree",
+      "label": "keepWorktree()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L780"
+    },
+    {
+      "id": "worktree_cleanupworktree",
+      "label": "cleanupWorktree()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L813"
+    },
+    {
+      "id": "worktree_createagentworktree",
+      "label": "createAgentWorktree()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L902"
+    },
+    {
+      "id": "worktree_removeagentworktree",
+      "label": "removeAgentWorktree()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L961"
+    },
+    {
+      "id": "worktree_cleanupstaleagentworktrees",
+      "label": "cleanupStaleAgentWorktrees()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1058"
+    },
+    {
+      "id": "worktree_hasworktreechanges",
+      "label": "hasWorktreeChanges()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1144"
+    },
+    {
+      "id": "worktree_execintotmuxworktree",
+      "label": "execIntoTmuxWorktree()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1180"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "chalk",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "child_process",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "ignore",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_git_gitconfigparser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_git_gitfilesystem_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_path_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sleep_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_validateworktreeslug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_mkdirrecursive",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_symlinkdirectories",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_getcurrentworktreesession",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L158",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_restoreworktreesession",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L167",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_generatetmuxsessionname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_worktreesdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L204",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_flattenslug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L217",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_worktreebranchname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L221",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_worktreepathfor",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L225",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_getorcreateworktree",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L235",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_copyworktreeincludefiles",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L391",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_performpostcreationsetup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L510",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_parseprreference",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L633",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_istmuxavailable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L653",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_gettmuxinstallinstructions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L658",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_createtmuxsessionforworktree",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L673",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_killtmuxsession",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L693",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_createworktreeforsession",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L702",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_keepworktree",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L780",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_cleanupworktree",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L813",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_createagentworktree",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L902",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_removeagentworktree",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L961",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_cleanupstaleagentworktrees",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1058",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_hasworktreechanges",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1144",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_worktree_ts",
+      "target": "worktree_execintotmuxworktree",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1180",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_worktreebranchname",
+      "target": "worktree_flattenslug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L222",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_worktreepathfor",
+      "target": "worktree_worktreesdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L226",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_worktreepathfor",
+      "target": "worktree_flattenslug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L226",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_getorcreateworktree",
+      "target": "worktree_worktreepathfor",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L240",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_getorcreateworktree",
+      "target": "worktree_worktreebranchname",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L241",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_getorcreateworktree",
+      "target": "worktree_worktreesdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L258",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_performpostcreationsetup",
+      "target": "worktree_mkdirrecursive",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L521",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_performpostcreationsetup",
+      "target": "worktree_symlinkdirectories",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L584",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_performpostcreationsetup",
+      "target": "worktree_copyworktreeincludefiles",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L588",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_createworktreeforsession",
+      "target": "worktree_validateworktreeslug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L710",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_createworktreeforsession",
+      "target": "worktree_getorcreateworktree",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L743",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_createworktreeforsession",
+      "target": "worktree_performpostcreationsetup",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L752",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_createagentworktree",
+      "target": "worktree_validateworktreeslug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L909",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_createagentworktree",
+      "target": "worktree_getorcreateworktree",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L935",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_createagentworktree",
+      "target": "worktree_performpostcreationsetup",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L941",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_cleanupstaleagentworktrees",
+      "target": "worktree_worktreesdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1066",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_cleanupstaleagentworktrees",
+      "target": "worktree_removeagentworktree",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1121",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_cleanupstaleagentworktrees",
+      "target": "worktree_worktreebranchname",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1121",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_execintotmuxworktree",
+      "target": "worktree_parseprreference",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1227",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_execintotmuxworktree",
+      "target": "worktree_validateworktreeslug",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1247",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_execintotmuxworktree",
+      "target": "worktree_worktreepathfor",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1284",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_execintotmuxworktree",
+      "target": "worktree_getorcreateworktree",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1288",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_execintotmuxworktree",
+      "target": "worktree_performpostcreationsetup",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1298",
+      "weight": 1.0
+    },
+    {
+      "source": "worktree_execintotmuxworktree",
+      "target": "worktree_worktreebranchname",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1310",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "worktree_validateworktreeslug",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "worktree_validateworktreeslug",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "worktree_mkdirrecursive",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L91"
+    },
+    {
+      "caller_nid": "worktree_symlinkdirectories",
+      "callee": "containsPathTraversal",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "worktree_symlinkdirectories",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "worktree_symlinkdirectories",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "worktree_symlinkdirectories",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "worktree_symlinkdirectories",
+      "callee": "symlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L121"
+    },
+    {
+      "caller_nid": "worktree_symlinkdirectories",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "worktree_symlinkdirectories",
+      "callee": "getErrnoCode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "worktree_symlinkdirectories",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "worktree_symlinkdirectories",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "worktree_generatetmuxsessionname",
+      "callee": "basename",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "worktree_generatetmuxsessionname",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L177"
+    },
+    {
+      "caller_nid": "worktree_worktreesdir",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L205"
+    },
+    {
+      "caller_nid": "worktree_flattenslug",
+      "callee": "replaceAll",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "worktree_worktreepathfor",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L226"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "readWorktreeHeadSha",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L247"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L258"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L266"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L267"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L273"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L284"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "getDefaultBranch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L285"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "resolveGitDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L286"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "resolveRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L290"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L296"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L297"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L308"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L309"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L318"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "getInitialSettings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L321"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L324"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L328"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L331"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L331"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L350"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L351"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "tearDown",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L356"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L358"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L359"
+    },
+    {
+      "caller_nid": "worktree_getorcreateworktree",
+      "callee": "tearDown",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L364"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L397"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L397"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L402"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L402"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L402"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L413"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L414"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L418"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L422"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L422"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L422"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L423"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "ignore",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L423"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L427"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L428"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L439"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L460"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L461"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L472"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L473"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L473"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L473"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "ignores",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L474"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L475"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L483"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L484"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L486"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "dirname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L486"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "copyFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L487"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L488"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L490"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L498"
+    },
+    {
+      "caller_nid": "worktree_copyworktreeincludefiles",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L499"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "getRelativeSettingsFilePathForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L517"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L518"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L520"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "dirname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L521"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "copyFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L522"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L523"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "getErrnoCode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L527"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L529"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L538"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L539"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "stat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L543"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "isDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L544"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "resolveGitDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L556"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "getCommonDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L557"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "parseGitConfigValue",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L559"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L563"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L564"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L569"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L573"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "getInitialSettings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L581"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L603"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L605"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L606"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "then",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L606"
+    },
+    {
+      "caller_nid": "worktree_performpostcreationsetup",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L606"
+    },
+    {
+      "caller_nid": "worktree_parseprreference",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L637"
+    },
+    {
+      "caller_nid": "worktree_parseprreference",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L641"
+    },
+    {
+      "caller_nid": "worktree_parseprreference",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L645"
+    },
+    {
+      "caller_nid": "worktree_parseprreference",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L647"
+    },
+    {
+      "caller_nid": "worktree_istmuxavailable",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L654"
+    },
+    {
+      "caller_nid": "worktree_gettmuxinstallinstructions",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L659"
+    },
+    {
+      "caller_nid": "worktree_createtmuxsessionforworktree",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L677"
+    },
+    {
+      "caller_nid": "worktree_killtmuxsession",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L694"
+    },
+    {
+      "caller_nid": "worktree_createworktreeforsession",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L712"
+    },
+    {
+      "caller_nid": "worktree_createworktreeforsession",
+      "callee": "hasWorktreeCreateHook",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L715"
+    },
+    {
+      "caller_nid": "worktree_createworktreeforsession",
+      "callee": "executeWorktreeCreateHook",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L716"
+    },
+    {
+      "caller_nid": "worktree_createworktreeforsession",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L717"
+    },
+    {
+      "caller_nid": "worktree_createworktreeforsession",
+      "callee": "findGitRoot",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L731"
+    },
+    {
+      "caller_nid": "worktree_createworktreeforsession",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L731"
+    },
+    {
+      "caller_nid": "worktree_createworktreeforsession",
+      "callee": "getBranch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L739"
+    },
+    {
+      "caller_nid": "worktree_createworktreeforsession",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L741"
+    },
+    {
+      "caller_nid": "worktree_createworktreeforsession",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L747"
+    },
+    {
+      "caller_nid": "worktree_createworktreeforsession",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L749"
+    },
+    {
+      "caller_nid": "worktree_createworktreeforsession",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L753"
+    },
+    {
+      "caller_nid": "worktree_createworktreeforsession",
+      "callee": "getInitialSettings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L767"
+    },
+    {
+      "caller_nid": "worktree_createworktreeforsession",
+      "callee": "saveCurrentProjectConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L772"
+    },
+    {
+      "caller_nid": "worktree_keepworktree",
+      "callee": "chdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L789"
+    },
+    {
+      "caller_nid": "worktree_keepworktree",
+      "callee": "saveCurrentProjectConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L795"
+    },
+    {
+      "caller_nid": "worktree_keepworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L800"
+    },
+    {
+      "caller_nid": "worktree_keepworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L803"
+    },
+    {
+      "caller_nid": "worktree_keepworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L807"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "chdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L823"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "executeWorktreeRemoveHook",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L827"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L829"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L831"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L842"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L843"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L849"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L853"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "saveCurrentProjectConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L861"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "sleep",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L869"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L872"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L873"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L879"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L884"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L888"
+    },
+    {
+      "caller_nid": "worktree_cleanupworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L890"
+    },
+    {
+      "caller_nid": "worktree_createagentworktree",
+      "callee": "hasWorktreeCreateHook",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L912"
+    },
+    {
+      "caller_nid": "worktree_createagentworktree",
+      "callee": "executeWorktreeCreateHook",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L913"
+    },
+    {
+      "caller_nid": "worktree_createagentworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L914"
+    },
+    {
+      "caller_nid": "worktree_createagentworktree",
+      "callee": "findCanonicalGitRoot",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L926"
+    },
+    {
+      "caller_nid": "worktree_createagentworktree",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L926"
+    },
+    {
+      "caller_nid": "worktree_createagentworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L938"
+    },
+    {
+      "caller_nid": "worktree_createagentworktree",
+      "callee": "utimes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L947"
+    },
+    {
+      "caller_nid": "worktree_createagentworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L948"
+    },
+    {
+      "caller_nid": "worktree_removeagentworktree",
+      "callee": "executeWorktreeRemoveHook",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L968"
+    },
+    {
+      "caller_nid": "worktree_removeagentworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L970"
+    },
+    {
+      "caller_nid": "worktree_removeagentworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L972"
+    },
+    {
+      "caller_nid": "worktree_removeagentworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L981"
+    },
+    {
+      "caller_nid": "worktree_removeagentworktree",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L989"
+    },
+    {
+      "caller_nid": "worktree_removeagentworktree",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L990"
+    },
+    {
+      "caller_nid": "worktree_removeagentworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L996"
+    },
+    {
+      "caller_nid": "worktree_removeagentworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1001"
+    },
+    {
+      "caller_nid": "worktree_removeagentworktree",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1009"
+    },
+    {
+      "caller_nid": "worktree_removeagentworktree",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1009"
+    },
+    {
+      "caller_nid": "worktree_removeagentworktree",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1014"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "findCanonicalGitRoot",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1061"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1061"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1069"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "getTime",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1074"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1079"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1083"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "stat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1090"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1101"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1102"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1103"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1107"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1108"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1113"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1116"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1128"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1128"
+    },
+    {
+      "caller_nid": "worktree_cleanupstaleagentworktrees",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1131"
+    },
+    {
+      "caller_nid": "worktree_hasworktreechanges",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1149"
+    },
+    {
+      "caller_nid": "worktree_hasworktreechanges",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1149"
+    },
+    {
+      "caller_nid": "worktree_hasworktreechanges",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1155"
+    },
+    {
+      "caller_nid": "worktree_hasworktreechanges",
+      "callee": "execFileNoThrowWithCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1160"
+    },
+    {
+      "caller_nid": "worktree_hasworktreechanges",
+      "callee": "gitExe",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1161"
+    },
+    {
+      "caller_nid": "worktree_hasworktreechanges",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1168"
+    },
+    {
+      "caller_nid": "worktree_hasworktreechanges",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1168"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1193"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1214"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1217"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1218"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "floor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1237"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "random",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1237"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "floor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1238"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "random",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1238"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1239"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1239"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "random",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1239"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "hasWorktreeCreateHook",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1260"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "executeWorktreeCreateHook",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1262"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1267"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "basename",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1270"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "findCanonicalGitRoot",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1270"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1270"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1270"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1272"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "findCanonicalGitRoot",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1275"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "getCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1275"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "basename",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1283"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1295"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1303"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1310"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1321"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1326"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1327"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1332"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1336"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1355"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1366"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "Boolean",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1374"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "isInITerm2",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1380"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1387"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "y",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1388"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "y",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1389"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "y",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1389"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "y",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1390"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "y",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1390"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "y",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1391"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1402"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1419"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1424"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1431"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1436"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1441"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1448"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1453"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1469"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1474"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1491"
+    },
+    {
+      "caller_nid": "worktree_execintotmuxworktree",
+      "callee": "spawnSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\worktree.ts",
+      "source_location": "L1510"
+    }
+  ]
+}

@@ -1,1 +1,588 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "label": "utils.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L1"}, {"id": "utils_hashooks", "label": "hasHooks()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L8"}, {"id": "utils_gethookssources", "label": "getHooksSources()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L29"}, {"id": "utils_hasbashpermission", "label": "hasBashPermission()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L45"}, {"id": "utils_getbashpermissionsources", "label": "getBashPermissionSources()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L58"}, {"id": "utils_formatlistwithand", "label": "formatListWithAnd()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L79"}, {"id": "utils_hasotelheadershelper", "label": "hasOtelHeadersHelper()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L109"}, {"id": "utils_getotelheadershelpersources", "label": "getOtelHeadersHelperSources()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L117"}, {"id": "utils_hasapikeyhelper", "label": "hasApiKeyHelper()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L136"}, {"id": "utils_getapikeyhelpersources", "label": "getApiKeyHelperSources()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L144"}, {"id": "utils_hasawscommands", "label": "hasAwsCommands()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L163"}, {"id": "utils_getawscommandssources", "label": "getAwsCommandsSources()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L171"}, {"id": "utils_hasgcpcommands", "label": "hasGcpCommands()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L190"}, {"id": "utils_getgcpcommandssources", "label": "getGcpCommandsSources()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L198"}, {"id": "utils_hasdangerousenvvars", "label": "hasDangerousEnvVars()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L218"}, {"id": "utils_getdangerousenvvarssources", "label": "getDangerousEnvVarsSources()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L231"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "permissionrule_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "settings_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "types_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_toolname_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_managedenvconstants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionsloader_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "utils_hashooks", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "utils_gethookssources", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "utils_hasbashpermission", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L45", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "utils_getbashpermissionsources", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L58", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "utils_formatlistwithand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L79", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "utils_hasotelheadershelper", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L109", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "utils_getotelheadershelpersources", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L117", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "utils_hasapikeyhelper", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L136", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "utils_getapikeyhelpersources", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L144", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "utils_hasawscommands", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L163", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "utils_getawscommandssources", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L171", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "utils_hasgcpcommands", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L190", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "utils_getgcpcommandssources", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L198", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "utils_hasdangerousenvvars", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L218", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts", "target": "utils_getdangerousenvvarssources", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L231", "weight": 1.0}, {"source": "utils_gethookssources", "target": "utils_hashooks", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L33", "weight": 1.0}, {"source": "utils_getbashpermissionsources", "target": "utils_hasbashpermission", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L62", "weight": 1.0}, {"source": "utils_getotelheadershelpersources", "target": "utils_hasotelheadershelper", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L121", "weight": 1.0}, {"source": "utils_getapikeyhelpersources", "target": "utils_hasapikeyhelper", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L148", "weight": 1.0}, {"source": "utils_getawscommandssources", "target": "utils_hasawscommands", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L175", "weight": 1.0}, {"source": "utils_getgcpcommandssources", "target": "utils_hasgcpcommands", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L202", "weight": 1.0}, {"source": "utils_getdangerousenvvarssources", "target": "utils_hasdangerousenvvars", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L235", "weight": 1.0}], "raw_calls": [{"caller_nid": "utils_hashooks", "callee": "values", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L21"}, {"caller_nid": "utils_gethookssources", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L32"}, {"caller_nid": "utils_gethookssources", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L34"}, {"caller_nid": "utils_gethookssources", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L37"}, {"caller_nid": "utils_gethookssources", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L39"}, {"caller_nid": "utils_hasbashpermission", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L46"}, {"caller_nid": "utils_getbashpermissionsources", "callee": "getPermissionRulesForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L61"}, {"caller_nid": "utils_getbashpermissionsources", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L63"}, {"caller_nid": "utils_getbashpermissionsources", "callee": "getPermissionRulesForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L66"}, {"caller_nid": "utils_getbashpermissionsources", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L68"}, {"caller_nid": "utils_formatlistwithand", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L91"}, {"caller_nid": "utils_formatlistwithand", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L92"}, {"caller_nid": "utils_formatlistwithand", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L96"}, {"caller_nid": "utils_formatlistwithand", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L103"}, {"caller_nid": "utils_getotelheadershelpersources", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L120"}, {"caller_nid": "utils_getotelheadershelpersources", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L122"}, {"caller_nid": "utils_getotelheadershelpersources", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L125"}, {"caller_nid": "utils_getotelheadershelpersources", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L127"}, {"caller_nid": "utils_getapikeyhelpersources", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L147"}, {"caller_nid": "utils_getapikeyhelpersources", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L149"}, {"caller_nid": "utils_getapikeyhelpersources", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L152"}, {"caller_nid": "utils_getapikeyhelpersources", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L154"}, {"caller_nid": "utils_getawscommandssources", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L174"}, {"caller_nid": "utils_getawscommandssources", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L176"}, {"caller_nid": "utils_getawscommandssources", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L179"}, {"caller_nid": "utils_getawscommandssources", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L181"}, {"caller_nid": "utils_getgcpcommandssources", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L201"}, {"caller_nid": "utils_getgcpcommandssources", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L203"}, {"caller_nid": "utils_getgcpcommandssources", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L206"}, {"caller_nid": "utils_getgcpcommandssources", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L208"}, {"caller_nid": "utils_hasdangerousenvvars", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L222"}, {"caller_nid": "utils_hasdangerousenvvars", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L222"}, {"caller_nid": "utils_getdangerousenvvarssources", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L234"}, {"caller_nid": "utils_getdangerousenvvarssources", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L236"}, {"caller_nid": "utils_getdangerousenvvarssources", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L239"}, {"caller_nid": "utils_getdangerousenvvarssources", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts", "source_location": "L241"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "label": "utils.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "utils_hashooks",
+      "label": "hasHooks()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L8"
+    },
+    {
+      "id": "utils_gethookssources",
+      "label": "getHooksSources()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L29"
+    },
+    {
+      "id": "utils_hasbashpermission",
+      "label": "hasBashPermission()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L45"
+    },
+    {
+      "id": "utils_getbashpermissionsources",
+      "label": "getBashPermissionSources()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L58"
+    },
+    {
+      "id": "utils_formatlistwithand",
+      "label": "formatListWithAnd()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L79"
+    },
+    {
+      "id": "utils_hasotelheadershelper",
+      "label": "hasOtelHeadersHelper()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L109"
+    },
+    {
+      "id": "utils_getotelheadershelpersources",
+      "label": "getOtelHeadersHelperSources()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L117"
+    },
+    {
+      "id": "utils_hasapikeyhelper",
+      "label": "hasApiKeyHelper()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L136"
+    },
+    {
+      "id": "utils_getapikeyhelpersources",
+      "label": "getApiKeyHelperSources()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L144"
+    },
+    {
+      "id": "utils_hasawscommands",
+      "label": "hasAwsCommands()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L163"
+    },
+    {
+      "id": "utils_getawscommandssources",
+      "label": "getAwsCommandsSources()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L171"
+    },
+    {
+      "id": "utils_hasgcpcommands",
+      "label": "hasGcpCommands()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L190"
+    },
+    {
+      "id": "utils_getgcpcommandssources",
+      "label": "getGcpCommandsSources()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L198"
+    },
+    {
+      "id": "utils_hasdangerousenvvars",
+      "label": "hasDangerousEnvVars()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L218"
+    },
+    {
+      "id": "utils_getdangerousenvvarssources",
+      "label": "getDangerousEnvVarsSources()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L231"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "permissionrule_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "settings_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "types_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_toolname_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_managedenvconstants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionsloader_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "utils_hashooks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "utils_gethookssources",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "utils_hasbashpermission",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "utils_getbashpermissionsources",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "utils_formatlistwithand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "utils_hasotelheadershelper",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "utils_getotelheadershelpersources",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "utils_hasapikeyhelper",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "utils_getapikeyhelpersources",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "utils_hasawscommands",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "utils_getawscommandssources",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "utils_hasgcpcommands",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L190",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "utils_getgcpcommandssources",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L198",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "utils_hasdangerousenvvars",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_trustdialog_utils_ts",
+      "target": "utils_getdangerousenvvarssources",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L231",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_gethookssources",
+      "target": "utils_hashooks",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_getbashpermissionsources",
+      "target": "utils_hasbashpermission",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_getotelheadershelpersources",
+      "target": "utils_hasotelheadershelper",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L121",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_getapikeyhelpersources",
+      "target": "utils_hasapikeyhelper",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_getawscommandssources",
+      "target": "utils_hasawscommands",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L175",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_getgcpcommandssources",
+      "target": "utils_hasgcpcommands",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L202",
+      "weight": 1.0
+    },
+    {
+      "source": "utils_getdangerousenvvarssources",
+      "target": "utils_hasdangerousenvvars",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L235",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "utils_hashooks",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "utils_gethookssources",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "utils_gethookssources",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "utils_gethookssources",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "utils_gethookssources",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "utils_hasbashpermission",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "utils_getbashpermissionsources",
+      "callee": "getPermissionRulesForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "utils_getbashpermissionsources",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "utils_getbashpermissionsources",
+      "callee": "getPermissionRulesForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "utils_getbashpermissionsources",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "utils_formatlistwithand",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L91"
+    },
+    {
+      "caller_nid": "utils_formatlistwithand",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "utils_formatlistwithand",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "utils_formatlistwithand",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L103"
+    },
+    {
+      "caller_nid": "utils_getotelheadershelpersources",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "utils_getotelheadershelpersources",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "utils_getotelheadershelpersources",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "utils_getotelheadershelpersources",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L127"
+    },
+    {
+      "caller_nid": "utils_getapikeyhelpersources",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "utils_getapikeyhelpersources",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "utils_getapikeyhelpersources",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "utils_getapikeyhelpersources",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "utils_getawscommandssources",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L174"
+    },
+    {
+      "caller_nid": "utils_getawscommandssources",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L176"
+    },
+    {
+      "caller_nid": "utils_getawscommandssources",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "utils_getawscommandssources",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L181"
+    },
+    {
+      "caller_nid": "utils_getgcpcommandssources",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L201"
+    },
+    {
+      "caller_nid": "utils_getgcpcommandssources",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "utils_getgcpcommandssources",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L206"
+    },
+    {
+      "caller_nid": "utils_getgcpcommandssources",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L208"
+    },
+    {
+      "caller_nid": "utils_hasdangerousenvvars",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L222"
+    },
+    {
+      "caller_nid": "utils_hasdangerousenvvars",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L222"
+    },
+    {
+      "caller_nid": "utils_getdangerousenvvarssources",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L234"
+    },
+    {
+      "caller_nid": "utils_getdangerousenvvarssources",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L236"
+    },
+    {
+      "caller_nid": "utils_getdangerousenvvarssources",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L239"
+    },
+    {
+      "caller_nid": "utils_getdangerousenvvarssources",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\TrustDialog\\utils.ts",
+      "source_location": "L241"
+    }
+  ]
+}

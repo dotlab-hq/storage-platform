@@ -1,1 +1,262 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_folder_upload_core_ts", "label": "folder-upload-core.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L1"}, {"id": "folder_upload_core_computefilehash", "label": "computeFileHash()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L10"}, {"id": "folder_upload_core_computefolderhashes", "label": "computeFolderHashes()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L17"}, {"id": "folder_upload_core_computefileshashes", "label": "computeFilesHashes()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L51"}, {"id": "folder_upload_core_getfoldernamefromentry", "label": "getFolderNameFromEntry()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L62"}, {"id": "folder_upload_core_flattenfilemap", "label": "flattenFileMap()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L70"}, {"id": "folder_upload_core_uploadsinglefilewithprogress", "label": "uploadSingleFileWithProgress()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L81"}, {"id": "folder_upload_core_resolveuserid", "label": "resolveUserId()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L152"}], "edges": [{"source": "f_storage_platform_src_lib_folder_upload_core_ts", "target": "auth_client", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_upload_core_ts", "target": "upload_proxy_client", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_upload_core_ts", "target": "upload_target_server", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_upload_core_ts", "target": "storage", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_upload_core_ts", "target": "folder_upload_core_computefilehash", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_upload_core_ts", "target": "folder_upload_core_computefolderhashes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_upload_core_ts", "target": "folder_upload_core_computefileshashes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L51", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_upload_core_ts", "target": "folder_upload_core_getfoldernamefromentry", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L62", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_upload_core_ts", "target": "folder_upload_core_flattenfilemap", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L70", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_upload_core_ts", "target": "folder_upload_core_uploadsinglefilewithprogress", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L81", "weight": 1.0}, {"source": "f_storage_platform_src_lib_folder_upload_core_ts", "target": "folder_upload_core_resolveuserid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L152", "weight": 1.0}, {"source": "folder_upload_core_computefileshashes", "target": "folder_upload_core_computefilehash", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L56", "weight": 1.0}], "raw_calls": [{"caller_nid": "folder_upload_core_computefilehash", "callee": "arrayBuffer", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L11"}, {"caller_nid": "folder_upload_core_computefilehash", "callee": "digest", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L12"}, {"caller_nid": "folder_upload_core_computefilehash", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L13"}, {"caller_nid": "folder_upload_core_computefilehash", "callee": "join", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L14"}, {"caller_nid": "folder_upload_core_computefilehash", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L14"}, {"caller_nid": "folder_upload_core_computefolderhashes", "callee": "processEntry", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L45"}, {"caller_nid": "folder_upload_core_computefileshashes", "callee": "set", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L57"}, {"caller_nid": "folder_upload_core_getfoldernamefromentry", "callee": "split", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L66"}, {"caller_nid": "folder_upload_core_flattenfilemap", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L73"}, {"caller_nid": "folder_upload_core_flattenfilemap", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L73"}, {"caller_nid": "folder_upload_core_flattenfilemap", "callee": "entries", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L73"}, {"caller_nid": "folder_upload_core_uploadsinglefilewithprogress", "callee": "prepareUploadTarget", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L95"}, {"caller_nid": "folder_upload_core_uploadsinglefilewithprogress", "callee": "uploadFileViaProxy", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L104"}, {"caller_nid": "folder_upload_core_uploadsinglefilewithprogress", "callee": "toErrorMessage", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L140"}, {"caller_nid": "folder_upload_core_resolveuserid", "callee": "getSession", "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts", "source_location": "L156"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_folder_upload_core_ts",
+      "label": "folder-upload-core.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "folder_upload_core_computefilehash",
+      "label": "computeFileHash()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "folder_upload_core_computefolderhashes",
+      "label": "computeFolderHashes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L17"
+    },
+    {
+      "id": "folder_upload_core_computefileshashes",
+      "label": "computeFilesHashes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L51"
+    },
+    {
+      "id": "folder_upload_core_getfoldernamefromentry",
+      "label": "getFolderNameFromEntry()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L62"
+    },
+    {
+      "id": "folder_upload_core_flattenfilemap",
+      "label": "flattenFileMap()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L70"
+    },
+    {
+      "id": "folder_upload_core_uploadsinglefilewithprogress",
+      "label": "uploadSingleFileWithProgress()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L81"
+    },
+    {
+      "id": "folder_upload_core_resolveuserid",
+      "label": "resolveUserId()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L152"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_core_ts",
+      "target": "auth_client",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_core_ts",
+      "target": "upload_proxy_client",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_core_ts",
+      "target": "upload_target_server",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_core_ts",
+      "target": "storage",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_core_ts",
+      "target": "folder_upload_core_computefilehash",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_core_ts",
+      "target": "folder_upload_core_computefolderhashes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_core_ts",
+      "target": "folder_upload_core_computefileshashes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_core_ts",
+      "target": "folder_upload_core_getfoldernamefromentry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_core_ts",
+      "target": "folder_upload_core_flattenfilemap",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_core_ts",
+      "target": "folder_upload_core_uploadsinglefilewithprogress",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_folder_upload_core_ts",
+      "target": "folder_upload_core_resolveuserid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L152",
+      "weight": 1.0
+    },
+    {
+      "source": "folder_upload_core_computefileshashes",
+      "target": "folder_upload_core_computefilehash",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "folder_upload_core_computefilehash",
+      "callee": "arrayBuffer",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L11"
+    },
+    {
+      "caller_nid": "folder_upload_core_computefilehash",
+      "callee": "digest",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L12"
+    },
+    {
+      "caller_nid": "folder_upload_core_computefilehash",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L13"
+    },
+    {
+      "caller_nid": "folder_upload_core_computefilehash",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L14"
+    },
+    {
+      "caller_nid": "folder_upload_core_computefilehash",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L14"
+    },
+    {
+      "caller_nid": "folder_upload_core_computefolderhashes",
+      "callee": "processEntry",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "folder_upload_core_computefileshashes",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "folder_upload_core_getfoldernamefromentry",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "folder_upload_core_flattenfilemap",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "folder_upload_core_flattenfilemap",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "folder_upload_core_flattenfilemap",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "folder_upload_core_uploadsinglefilewithprogress",
+      "callee": "prepareUploadTarget",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "folder_upload_core_uploadsinglefilewithprogress",
+      "callee": "uploadFileViaProxy",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "folder_upload_core_uploadsinglefilewithprogress",
+      "callee": "toErrorMessage",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L140"
+    },
+    {
+      "caller_nid": "folder_upload_core_resolveuserid",
+      "callee": "getSession",
+      "source_file": "F:\\storage-platform\\src\\lib\\folder-upload-core.ts",
+      "source_location": "L156"
+    }
+  ]
+}

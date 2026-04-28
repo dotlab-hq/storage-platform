@@ -1,1 +1,152 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_idepathconversion_ts", "label": "idePathConversion.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L1"}, {"id": "idepathconversion_windowstowslconverter", "label": "WindowsToWSLConverter", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L25"}, {"id": "idepathconversion_windowstowslconverter_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L26"}, {"id": "idepathconversion_windowstowslconverter_tolocalpath", "label": ".toLocalPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L28"}, {"id": "idepathconversion_windowstowslconverter_toidepath", "label": ".toIDEPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L58"}, {"id": "idepathconversion_checkwsldistromatch", "label": "checkWSLDistroMatch()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L79"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_idepathconversion_ts", "target": "child_process", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_idepathconversion_ts", "target": "idepathconversion_windowstowslconverter", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L25", "weight": 1.0}, {"source": "idepathconversion_windowstowslconverter", "target": "idepathconversion_windowstowslconverter_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L26", "weight": 1.0}, {"source": "idepathconversion_windowstowslconverter", "target": "idepathconversion_windowstowslconverter_tolocalpath", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L28", "weight": 1.0}, {"source": "idepathconversion_windowstowslconverter", "target": "idepathconversion_windowstowslconverter_toidepath", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L58", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_idepathconversion_ts", "target": "idepathconversion_checkwsldistromatch", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L79", "weight": 1.0}], "raw_calls": [{"caller_nid": "idepathconversion_windowstowslconverter_tolocalpath", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L33"}, {"caller_nid": "idepathconversion_windowstowslconverter_tolocalpath", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L44"}, {"caller_nid": "idepathconversion_windowstowslconverter_tolocalpath", "callee": "execFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L44"}, {"caller_nid": "idepathconversion_windowstowslconverter_tolocalpath", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L52"}, {"caller_nid": "idepathconversion_windowstowslconverter_tolocalpath", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L52"}, {"caller_nid": "idepathconversion_windowstowslconverter_toidepath", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L63"}, {"caller_nid": "idepathconversion_windowstowslconverter_toidepath", "callee": "execFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L63"}, {"caller_nid": "idepathconversion_checkwsldistromatch", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts", "source_location": "L83"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_idepathconversion_ts",
+      "label": "idePathConversion.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "idepathconversion_windowstowslconverter",
+      "label": "WindowsToWSLConverter",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L25"
+    },
+    {
+      "id": "idepathconversion_windowstowslconverter_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L26"
+    },
+    {
+      "id": "idepathconversion_windowstowslconverter_tolocalpath",
+      "label": ".toLocalPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L28"
+    },
+    {
+      "id": "idepathconversion_windowstowslconverter_toidepath",
+      "label": ".toIDEPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L58"
+    },
+    {
+      "id": "idepathconversion_checkwsldistromatch",
+      "label": "checkWSLDistroMatch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L79"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_idepathconversion_ts",
+      "target": "child_process",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_idepathconversion_ts",
+      "target": "idepathconversion_windowstowslconverter",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "idepathconversion_windowstowslconverter",
+      "target": "idepathconversion_windowstowslconverter_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "idepathconversion_windowstowslconverter",
+      "target": "idepathconversion_windowstowslconverter_tolocalpath",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "idepathconversion_windowstowslconverter",
+      "target": "idepathconversion_windowstowslconverter_toidepath",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_idepathconversion_ts",
+      "target": "idepathconversion_checkwsldistromatch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L79",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "idepathconversion_windowstowslconverter_tolocalpath",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "idepathconversion_windowstowslconverter_tolocalpath",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "idepathconversion_windowstowslconverter_tolocalpath",
+      "callee": "execFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "idepathconversion_windowstowslconverter_tolocalpath",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "idepathconversion_windowstowslconverter_tolocalpath",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "idepathconversion_windowstowslconverter_toidepath",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "idepathconversion_windowstowslconverter_toidepath",
+      "callee": "execFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "idepathconversion_checkwsldistromatch",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\idePathConversion.ts",
+      "source_location": "L83"
+    }
+  ]
+}

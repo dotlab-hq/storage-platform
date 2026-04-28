@@ -1,1 +1,1761 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "label": "tasks.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L1"}, {"id": "tasks_setleaderteamname", "label": "setLeaderTeamName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L31"}, {"id": "tasks_clearleaderteamname", "label": "clearLeaderTeamName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L43"}, {"id": "tasks_notifytasksupdated", "label": "notifyTasksUpdated()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L61"}, {"id": "tasks_gethighwatermarkpath", "label": "getHighWaterMarkPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L110"}, {"id": "tasks_readhighwatermark", "label": "readHighWaterMark()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L114"}, {"id": "tasks_writehighwatermark", "label": "writeHighWaterMark()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L125"}, {"id": "tasks_istodov2enabled", "label": "isTodoV2Enabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L133"}, {"id": "tasks_resettasklist", "label": "resetTaskList()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L147"}, {"id": "tasks_gettasklistid", "label": "getTaskListId()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L199"}, {"id": "tasks_sanitizepathcomponent", "label": "sanitizePathComponent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L217"}, {"id": "tasks_gettasksdir", "label": "getTasksDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L221"}, {"id": "tasks_gettaskpath", "label": "getTaskPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L229"}, {"id": "tasks_ensuretasksdir", "label": "ensureTasksDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L233"}, {"id": "tasks_findhighesttaskidfromfiles", "label": "findHighestTaskIdFromFiles()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L246"}, {"id": "tasks_findhighesttaskid", "label": "findHighestTaskId()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L271"}, {"id": "tasks_createtask", "label": "createTask()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L284"}, {"id": "tasks_gettask", "label": "getTask()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L310"}, {"id": "tasks_updatetaskunsafe", "label": "updateTaskUnsafe()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L354"}, {"id": "tasks_updatetask", "label": "updateTask()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L370"}, {"id": "tasks_deletetask", "label": "deleteTask()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L393"}, {"id": "tasks_listtasks", "label": "listTasks()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L443"}, {"id": "tasks_blocktask", "label": "blockTask()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L458"}, {"id": "tasks_gettasklistlockpath", "label": "getTaskListLockPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L504"}, {"id": "tasks_ensuretasklistlockfile", "label": "ensureTaskListLockFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L511"}, {"id": "tasks_claimtask", "label": "claimTask()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L541"}, {"id": "tasks_claimtaskwithbusycheck", "label": "claimTaskWithBusyCheck()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L618"}, {"id": "tasks_sanitizename", "label": "sanitizeName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L717"}, {"id": "tasks_readteammembers", "label": "readTeamMembers()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L724"}, {"id": "tasks_getagentstatuses", "label": "getAgentStatuses()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L763"}, {"id": "tasks_unassignteammatetasks", "label": "unassignTeammateTasks()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L818"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "v4", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_array_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_lockfile_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_signal_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_teammate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_teammatecontext_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_setleaderteamname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_clearleaderteamname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_notifytasksupdated", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L61", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_gethighwatermarkpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L110", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_readhighwatermark", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L114", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_writehighwatermark", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L125", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_istodov2enabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L133", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_resettasklist", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L147", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_gettasklistid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L199", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_sanitizepathcomponent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L217", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_gettasksdir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L221", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_gettaskpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L229", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_ensuretasksdir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L233", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_findhighesttaskidfromfiles", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L246", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_findhighesttaskid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L271", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_createtask", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L284", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_gettask", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L310", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_updatetaskunsafe", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L354", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_updatetask", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L370", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_deletetask", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L393", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_listtasks", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L443", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_blocktask", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L458", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_gettasklistlockpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L504", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_ensuretasklistlockfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L511", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_claimtask", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L541", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_claimtaskwithbusycheck", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L618", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_sanitizename", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L717", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_readteammembers", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L724", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_getagentstatuses", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L763", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "target": "tasks_unassignteammatetasks", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L818", "weight": 1.0}, {"source": "tasks_setleaderteamname", "target": "tasks_notifytasksupdated", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L36", "weight": 1.0}, {"source": "tasks_clearleaderteamname", "target": "tasks_notifytasksupdated", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L46", "weight": 1.0}, {"source": "tasks_gethighwatermarkpath", "target": "tasks_gettasksdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L111", "weight": 1.0}, {"source": "tasks_readhighwatermark", "target": "tasks_gethighwatermarkpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L115", "weight": 1.0}, {"source": "tasks_writehighwatermark", "target": "tasks_gethighwatermarkpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L129", "weight": 1.0}, {"source": "tasks_resettasklist", "target": "tasks_gettasksdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L148", "weight": 1.0}, {"source": "tasks_resettasklist", "target": "tasks_ensuretasklistlockfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L149", "weight": 1.0}, {"source": "tasks_resettasklist", "target": "tasks_findhighesttaskidfromfiles", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L157", "weight": 1.0}, {"source": "tasks_resettasklist", "target": "tasks_readhighwatermark", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L159", "weight": 1.0}, {"source": "tasks_resettasklist", "target": "tasks_writehighwatermark", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L161", "weight": 1.0}, {"source": "tasks_resettasklist", "target": "tasks_notifytasksupdated", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L182", "weight": 1.0}, {"source": "tasks_gettasksdir", "target": "tasks_sanitizepathcomponent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L225", "weight": 1.0}, {"source": "tasks_gettaskpath", "target": "tasks_gettasksdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L230", "weight": 1.0}, {"source": "tasks_gettaskpath", "target": "tasks_sanitizepathcomponent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L230", "weight": 1.0}, {"source": "tasks_ensuretasksdir", "target": "tasks_gettasksdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L234", "weight": 1.0}, {"source": "tasks_findhighesttaskidfromfiles", "target": "tasks_gettasksdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L247", "weight": 1.0}, {"source": "tasks_findhighesttaskid", "target": "tasks_findhighesttaskidfromfiles", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L273", "weight": 1.0}, {"source": "tasks_findhighesttaskid", "target": "tasks_readhighwatermark", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L274", "weight": 1.0}, {"source": "tasks_createtask", "target": "tasks_ensuretasklistlockfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L288", "weight": 1.0}, {"source": "tasks_createtask", "target": "tasks_findhighesttaskid", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L296", "weight": 1.0}, {"source": "tasks_createtask", "target": "tasks_gettaskpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L299", "weight": 1.0}, {"source": "tasks_createtask", "target": "tasks_notifytasksupdated", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L301", "weight": 1.0}, {"source": "tasks_gettask", "target": "tasks_gettaskpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L314", "weight": 1.0}, {"source": "tasks_updatetaskunsafe", "target": "tasks_gettask", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L359", "weight": 1.0}, {"source": "tasks_updatetaskunsafe", "target": "tasks_gettaskpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L364", "weight": 1.0}, {"source": "tasks_updatetaskunsafe", "target": "tasks_notifytasksupdated", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L366", "weight": 1.0}, {"source": "tasks_updatetask", "target": "tasks_gettaskpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L375", "weight": 1.0}, {"source": "tasks_updatetask", "target": "tasks_gettask", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L379", "weight": 1.0}, {"source": "tasks_updatetask", "target": "tasks_updatetaskunsafe", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L387", "weight": 1.0}, {"source": "tasks_deletetask", "target": "tasks_gettaskpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L397", "weight": 1.0}, {"source": "tasks_deletetask", "target": "tasks_readhighwatermark", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L403", "weight": 1.0}, {"source": "tasks_deletetask", "target": "tasks_writehighwatermark", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L405", "weight": 1.0}, {"source": "tasks_deletetask", "target": "tasks_listtasks", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L421", "weight": 1.0}, {"source": "tasks_deletetask", "target": "tasks_updatetask", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L429", "weight": 1.0}, {"source": "tasks_deletetask", "target": "tasks_notifytasksupdated", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L436", "weight": 1.0}, {"source": "tasks_listtasks", "target": "tasks_gettasksdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L444", "weight": 1.0}, {"source": "tasks_blocktask", "target": "tasks_gettask", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L464", "weight": 1.0}, {"source": "tasks_blocktask", "target": "tasks_updatetask", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L473", "weight": 1.0}, {"source": "tasks_gettasklistlockpath", "target": "tasks_gettasksdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L505", "weight": 1.0}, {"source": "tasks_ensuretasklistlockfile", "target": "tasks_ensuretasksdir", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L512", "weight": 1.0}, {"source": "tasks_ensuretasklistlockfile", "target": "tasks_gettasklistlockpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L513", "weight": 1.0}, {"source": "tasks_claimtask", "target": "tasks_gettaskpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L547", "weight": 1.0}, {"source": "tasks_claimtask", "target": "tasks_gettask", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L551", "weight": 1.0}, {"source": "tasks_claimtask", "target": "tasks_claimtaskwithbusycheck", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L559", "weight": 1.0}, {"source": "tasks_claimtask", "target": "tasks_listtasks", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L585", "weight": 1.0}, {"source": "tasks_claimtask", "target": "tasks_updatetaskunsafe", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L597", "weight": 1.0}, {"source": "tasks_claimtaskwithbusycheck", "target": "tasks_ensuretasklistlockfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L623", "weight": 1.0}, {"source": "tasks_claimtaskwithbusycheck", "target": "tasks_listtasks", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L631", "weight": 1.0}, {"source": "tasks_claimtaskwithbusycheck", "target": "tasks_updatetask", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L677", "weight": 1.0}, {"source": "tasks_readteammembers", "target": "tasks_sanitizename", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L728", "weight": 1.0}, {"source": "tasks_getagentstatuses", "target": "tasks_readteammembers", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L766", "weight": 1.0}, {"source": "tasks_getagentstatuses", "target": "tasks_sanitizename", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L771", "weight": 1.0}, {"source": "tasks_getagentstatuses", "target": "tasks_listtasks", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L772", "weight": 1.0}, {"source": "tasks_unassignteammatetasks", "target": "tasks_listtasks", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L824", "weight": 1.0}, {"source": "tasks_unassignteammatetasks", "target": "tasks_updatetask", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L833", "weight": 1.0}], "raw_calls": [{"caller_nid": "tasks_notifytasksupdated", "callee": "emit", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L63"}, {"caller_nid": "tasks_gethighwatermarkpath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L111"}, {"caller_nid": "tasks_readhighwatermark", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L117"}, {"caller_nid": "tasks_readhighwatermark", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L117"}, {"caller_nid": "tasks_readhighwatermark", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L118"}, {"caller_nid": "tasks_readhighwatermark", "callee": "isNaN", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L119"}, {"caller_nid": "tasks_writehighwatermark", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L130"}, {"caller_nid": "tasks_writehighwatermark", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L130"}, {"caller_nid": "tasks_istodov2enabled", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L135"}, {"caller_nid": "tasks_istodov2enabled", "callee": "getIsNonInteractiveSession", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L138"}, {"caller_nid": "tasks_resettasklist", "callee": "lock", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L154"}, {"caller_nid": "tasks_resettasklist", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L168"}, {"caller_nid": "tasks_resettasklist", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L173"}, {"caller_nid": "tasks_resettasklist", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L173"}, {"caller_nid": "tasks_resettasklist", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L174"}, {"caller_nid": "tasks_resettasklist", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L176"}, {"caller_nid": "tasks_resettasklist", "callee": "release", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L185"}, {"caller_nid": "tasks_gettasklistid", "callee": "getTeammateContext", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L205"}, {"caller_nid": "tasks_gettasklistid", "callee": "getTeamName", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L209"}, {"caller_nid": "tasks_gettasklistid", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L209"}, {"caller_nid": "tasks_sanitizepathcomponent", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L218"}, {"caller_nid": "tasks_gettasksdir", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L222"}, {"caller_nid": "tasks_gettasksdir", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L223"}, {"caller_nid": "tasks_gettaskpath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L230"}, {"caller_nid": "tasks_ensuretasksdir", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L236"}, {"caller_nid": "tasks_findhighesttaskidfromfiles", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L250"}, {"caller_nid": "tasks_findhighesttaskidfromfiles", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L256"}, {"caller_nid": "tasks_findhighesttaskidfromfiles", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L259"}, {"caller_nid": "tasks_findhighesttaskidfromfiles", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L259"}, {"caller_nid": "tasks_findhighesttaskidfromfiles", "callee": "isNaN", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L260"}, {"caller_nid": "tasks_findhighesttaskid", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L272"}, {"caller_nid": "tasks_findhighesttaskid", "callee": "max", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L276"}, {"caller_nid": "tasks_createtask", "callee": "lock", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L293"}, {"caller_nid": "tasks_createtask", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L297"}, {"caller_nid": "tasks_createtask", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L300"}, {"caller_nid": "tasks_createtask", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L300"}, {"caller_nid": "tasks_createtask", "callee": "release", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L305"}, {"caller_nid": "tasks_gettask", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L316"}, {"caller_nid": "tasks_gettask", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L317"}, {"caller_nid": "tasks_gettask", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L326"}, {"caller_nid": "tasks_gettask", "callee": "safeParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L333"}, {"caller_nid": "tasks_gettask", "callee": "TaskSchema", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L333"}, {"caller_nid": "tasks_gettask", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L335"}, {"caller_nid": "tasks_gettask", "callee": "getErrnoCode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L342"}, {"caller_nid": "tasks_gettask", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L346"}, {"caller_nid": "tasks_gettask", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L346"}, {"caller_nid": "tasks_gettask", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L347"}, {"caller_nid": "tasks_updatetaskunsafe", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L365"}, {"caller_nid": "tasks_updatetaskunsafe", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L365"}, {"caller_nid": "tasks_updatetask", "callee": "lock", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L386"}, {"caller_nid": "tasks_updatetask", "callee": "release", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L389"}, {"caller_nid": "tasks_deletetask", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L401"}, {"caller_nid": "tasks_deletetask", "callee": "isNaN", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L402"}, {"caller_nid": "tasks_deletetask", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L411"}, {"caller_nid": "tasks_deletetask", "callee": "getErrnoCode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L413"}, {"caller_nid": "tasks_deletetask", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L423"}, {"caller_nid": "tasks_deletetask", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L424"}, {"caller_nid": "tasks_listtasks", "callee": "readdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L447"}, {"caller_nid": "tasks_listtasks", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L451"}, {"caller_nid": "tasks_listtasks", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L451"}, {"caller_nid": "tasks_listtasks", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L454"}, {"caller_nid": "tasks_listtasks", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L454"}, {"caller_nid": "tasks_listtasks", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L455"}, {"caller_nid": "tasks_blocktask", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L463"}, {"caller_nid": "tasks_blocktask", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L472"}, {"caller_nid": "tasks_blocktask", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L479"}, {"caller_nid": "tasks_gettasklistlockpath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L505"}, {"caller_nid": "tasks_ensuretasklistlockfile", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L518"}, {"caller_nid": "tasks_claimtask", "callee": "lock", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L566"}, {"caller_nid": "tasks_claimtask", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L587"}, {"caller_nid": "tasks_claimtask", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L587"}, {"caller_nid": "tasks_claimtask", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L589"}, {"caller_nid": "tasks_claimtask", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L602"}, {"caller_nid": "tasks_claimtask", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L603"}, {"caller_nid": "tasks_claimtask", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L605"}, {"caller_nid": "tasks_claimtask", "callee": "release", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L609"}, {"caller_nid": "tasks_claimtaskwithbusycheck", "callee": "lock", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L628"}, {"caller_nid": "tasks_claimtaskwithbusycheck", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L634"}, {"caller_nid": "tasks_claimtaskwithbusycheck", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L651"}, {"caller_nid": "tasks_claimtaskwithbusycheck", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L651"}, {"caller_nid": "tasks_claimtaskwithbusycheck", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L653"}, {"caller_nid": "tasks_claimtaskwithbusycheck", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L661"}, {"caller_nid": "tasks_claimtaskwithbusycheck", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L672"}, {"caller_nid": "tasks_claimtaskwithbusycheck", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L682"}, {"caller_nid": "tasks_claimtaskwithbusycheck", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L683"}, {"caller_nid": "tasks_claimtaskwithbusycheck", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L685"}, {"caller_nid": "tasks_claimtaskwithbusycheck", "callee": "release", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L689"}, {"caller_nid": "tasks_sanitizename", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L718"}, {"caller_nid": "tasks_sanitizename", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L718"}, {"caller_nid": "tasks_readteammembers", "callee": "getTeamsDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L727"}, {"caller_nid": "tasks_readteammembers", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L728"}, {"caller_nid": "tasks_readteammembers", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L730"}, {"caller_nid": "tasks_readteammembers", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L731"}, {"caller_nid": "tasks_readteammembers", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L737"}, {"caller_nid": "tasks_readteammembers", "callee": "getErrnoCode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L744"}, {"caller_nid": "tasks_readteammembers", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L748"}, {"caller_nid": "tasks_readteammembers", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L749"}, {"caller_nid": "tasks_getagentstatuses", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L778"}, {"caller_nid": "tasks_getagentstatuses", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L779"}, {"caller_nid": "tasks_getagentstatuses", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L780"}, {"caller_nid": "tasks_getagentstatuses", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L785"}, {"caller_nid": "tasks_unassignteammatetasks", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L825"}, {"caller_nid": "tasks_unassignteammatetasks", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L837"}, {"caller_nid": "tasks_unassignteammatetasks", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L847"}, {"caller_nid": "tasks_unassignteammatetasks", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L847"}, {"caller_nid": "tasks_unassignteammatetasks", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts", "source_location": "L854"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "label": "tasks.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "tasks_setleaderteamname",
+      "label": "setLeaderTeamName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L31"
+    },
+    {
+      "id": "tasks_clearleaderteamname",
+      "label": "clearLeaderTeamName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "tasks_notifytasksupdated",
+      "label": "notifyTasksUpdated()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L61"
+    },
+    {
+      "id": "tasks_gethighwatermarkpath",
+      "label": "getHighWaterMarkPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L110"
+    },
+    {
+      "id": "tasks_readhighwatermark",
+      "label": "readHighWaterMark()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L114"
+    },
+    {
+      "id": "tasks_writehighwatermark",
+      "label": "writeHighWaterMark()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L125"
+    },
+    {
+      "id": "tasks_istodov2enabled",
+      "label": "isTodoV2Enabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L133"
+    },
+    {
+      "id": "tasks_resettasklist",
+      "label": "resetTaskList()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L147"
+    },
+    {
+      "id": "tasks_gettasklistid",
+      "label": "getTaskListId()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L199"
+    },
+    {
+      "id": "tasks_sanitizepathcomponent",
+      "label": "sanitizePathComponent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L217"
+    },
+    {
+      "id": "tasks_gettasksdir",
+      "label": "getTasksDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L221"
+    },
+    {
+      "id": "tasks_gettaskpath",
+      "label": "getTaskPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L229"
+    },
+    {
+      "id": "tasks_ensuretasksdir",
+      "label": "ensureTasksDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L233"
+    },
+    {
+      "id": "tasks_findhighesttaskidfromfiles",
+      "label": "findHighestTaskIdFromFiles()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L246"
+    },
+    {
+      "id": "tasks_findhighesttaskid",
+      "label": "findHighestTaskId()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L271"
+    },
+    {
+      "id": "tasks_createtask",
+      "label": "createTask()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L284"
+    },
+    {
+      "id": "tasks_gettask",
+      "label": "getTask()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L310"
+    },
+    {
+      "id": "tasks_updatetaskunsafe",
+      "label": "updateTaskUnsafe()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L354"
+    },
+    {
+      "id": "tasks_updatetask",
+      "label": "updateTask()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L370"
+    },
+    {
+      "id": "tasks_deletetask",
+      "label": "deleteTask()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L393"
+    },
+    {
+      "id": "tasks_listtasks",
+      "label": "listTasks()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L443"
+    },
+    {
+      "id": "tasks_blocktask",
+      "label": "blockTask()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L458"
+    },
+    {
+      "id": "tasks_gettasklistlockpath",
+      "label": "getTaskListLockPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L504"
+    },
+    {
+      "id": "tasks_ensuretasklistlockfile",
+      "label": "ensureTaskListLockFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L511"
+    },
+    {
+      "id": "tasks_claimtask",
+      "label": "claimTask()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L541"
+    },
+    {
+      "id": "tasks_claimtaskwithbusycheck",
+      "label": "claimTaskWithBusyCheck()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L618"
+    },
+    {
+      "id": "tasks_sanitizename",
+      "label": "sanitizeName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L717"
+    },
+    {
+      "id": "tasks_readteammembers",
+      "label": "readTeamMembers()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L724"
+    },
+    {
+      "id": "tasks_getagentstatuses",
+      "label": "getAgentStatuses()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L763"
+    },
+    {
+      "id": "tasks_unassignteammatetasks",
+      "label": "unassignTeammateTasks()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L818"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "v4",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_array_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_lockfile_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_signal_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teammate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teammatecontext_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_setleaderteamname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_clearleaderteamname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_notifytasksupdated",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_gethighwatermarkpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_readhighwatermark",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_writehighwatermark",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_istodov2enabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_resettasklist",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L147",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_gettasklistid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L199",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_sanitizepathcomponent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L217",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_gettasksdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L221",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_gettaskpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L229",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_ensuretasksdir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L233",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_findhighesttaskidfromfiles",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L246",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_findhighesttaskid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L271",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_createtask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L284",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_gettask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L310",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_updatetaskunsafe",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L354",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_updatetask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L370",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_deletetask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L393",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_listtasks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L443",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_blocktask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L458",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_gettasklistlockpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L504",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_ensuretasklistlockfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L511",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_claimtask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L541",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_claimtaskwithbusycheck",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L618",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_sanitizename",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L717",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_readteammembers",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L724",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_getagentstatuses",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L763",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "target": "tasks_unassignteammatetasks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L818",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_setleaderteamname",
+      "target": "tasks_notifytasksupdated",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_clearleaderteamname",
+      "target": "tasks_notifytasksupdated",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_gethighwatermarkpath",
+      "target": "tasks_gettasksdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_readhighwatermark",
+      "target": "tasks_gethighwatermarkpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_writehighwatermark",
+      "target": "tasks_gethighwatermarkpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_resettasklist",
+      "target": "tasks_gettasksdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_resettasklist",
+      "target": "tasks_ensuretasklistlockfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_resettasklist",
+      "target": "tasks_findhighesttaskidfromfiles",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L157",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_resettasklist",
+      "target": "tasks_readhighwatermark",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_resettasklist",
+      "target": "tasks_writehighwatermark",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L161",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_resettasklist",
+      "target": "tasks_notifytasksupdated",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L182",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_gettasksdir",
+      "target": "tasks_sanitizepathcomponent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L225",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_gettaskpath",
+      "target": "tasks_gettasksdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L230",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_gettaskpath",
+      "target": "tasks_sanitizepathcomponent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L230",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_ensuretasksdir",
+      "target": "tasks_gettasksdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L234",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_findhighesttaskidfromfiles",
+      "target": "tasks_gettasksdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L247",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_findhighesttaskid",
+      "target": "tasks_findhighesttaskidfromfiles",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L273",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_findhighesttaskid",
+      "target": "tasks_readhighwatermark",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L274",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_createtask",
+      "target": "tasks_ensuretasklistlockfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L288",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_createtask",
+      "target": "tasks_findhighesttaskid",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L296",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_createtask",
+      "target": "tasks_gettaskpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L299",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_createtask",
+      "target": "tasks_notifytasksupdated",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L301",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_gettask",
+      "target": "tasks_gettaskpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L314",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_updatetaskunsafe",
+      "target": "tasks_gettask",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L359",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_updatetaskunsafe",
+      "target": "tasks_gettaskpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L364",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_updatetaskunsafe",
+      "target": "tasks_notifytasksupdated",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L366",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_updatetask",
+      "target": "tasks_gettaskpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L375",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_updatetask",
+      "target": "tasks_gettask",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L379",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_updatetask",
+      "target": "tasks_updatetaskunsafe",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L387",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_deletetask",
+      "target": "tasks_gettaskpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L397",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_deletetask",
+      "target": "tasks_readhighwatermark",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L403",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_deletetask",
+      "target": "tasks_writehighwatermark",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L405",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_deletetask",
+      "target": "tasks_listtasks",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L421",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_deletetask",
+      "target": "tasks_updatetask",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L429",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_deletetask",
+      "target": "tasks_notifytasksupdated",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L436",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_listtasks",
+      "target": "tasks_gettasksdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L444",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_blocktask",
+      "target": "tasks_gettask",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L464",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_blocktask",
+      "target": "tasks_updatetask",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L473",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_gettasklistlockpath",
+      "target": "tasks_gettasksdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L505",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_ensuretasklistlockfile",
+      "target": "tasks_ensuretasksdir",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L512",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_ensuretasklistlockfile",
+      "target": "tasks_gettasklistlockpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L513",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_claimtask",
+      "target": "tasks_gettaskpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L547",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_claimtask",
+      "target": "tasks_gettask",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L551",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_claimtask",
+      "target": "tasks_claimtaskwithbusycheck",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L559",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_claimtask",
+      "target": "tasks_listtasks",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L585",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_claimtask",
+      "target": "tasks_updatetaskunsafe",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L597",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_claimtaskwithbusycheck",
+      "target": "tasks_ensuretasklistlockfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L623",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_claimtaskwithbusycheck",
+      "target": "tasks_listtasks",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L631",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_claimtaskwithbusycheck",
+      "target": "tasks_updatetask",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L677",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_readteammembers",
+      "target": "tasks_sanitizename",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L728",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_getagentstatuses",
+      "target": "tasks_readteammembers",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L766",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_getagentstatuses",
+      "target": "tasks_sanitizename",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L771",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_getagentstatuses",
+      "target": "tasks_listtasks",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L772",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_unassignteammatetasks",
+      "target": "tasks_listtasks",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L824",
+      "weight": 1.0
+    },
+    {
+      "source": "tasks_unassignteammatetasks",
+      "target": "tasks_updatetask",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L833",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "tasks_notifytasksupdated",
+      "callee": "emit",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "tasks_gethighwatermarkpath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "tasks_readhighwatermark",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "tasks_readhighwatermark",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "tasks_readhighwatermark",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L118"
+    },
+    {
+      "caller_nid": "tasks_readhighwatermark",
+      "callee": "isNaN",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "tasks_writehighwatermark",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "tasks_writehighwatermark",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "tasks_istodov2enabled",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "tasks_istodov2enabled",
+      "callee": "getIsNonInteractiveSession",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "tasks_resettasklist",
+      "callee": "lock",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "tasks_resettasklist",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "tasks_resettasklist",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "tasks_resettasklist",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "tasks_resettasklist",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L174"
+    },
+    {
+      "caller_nid": "tasks_resettasklist",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L176"
+    },
+    {
+      "caller_nid": "tasks_resettasklist",
+      "callee": "release",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "tasks_gettasklistid",
+      "callee": "getTeammateContext",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L205"
+    },
+    {
+      "caller_nid": "tasks_gettasklistid",
+      "callee": "getTeamName",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L209"
+    },
+    {
+      "caller_nid": "tasks_gettasklistid",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L209"
+    },
+    {
+      "caller_nid": "tasks_sanitizepathcomponent",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "tasks_gettasksdir",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L222"
+    },
+    {
+      "caller_nid": "tasks_gettasksdir",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L223"
+    },
+    {
+      "caller_nid": "tasks_gettaskpath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L230"
+    },
+    {
+      "caller_nid": "tasks_ensuretasksdir",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L236"
+    },
+    {
+      "caller_nid": "tasks_findhighesttaskidfromfiles",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L250"
+    },
+    {
+      "caller_nid": "tasks_findhighesttaskidfromfiles",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L256"
+    },
+    {
+      "caller_nid": "tasks_findhighesttaskidfromfiles",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L259"
+    },
+    {
+      "caller_nid": "tasks_findhighesttaskidfromfiles",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L259"
+    },
+    {
+      "caller_nid": "tasks_findhighesttaskidfromfiles",
+      "callee": "isNaN",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L260"
+    },
+    {
+      "caller_nid": "tasks_findhighesttaskid",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L272"
+    },
+    {
+      "caller_nid": "tasks_findhighesttaskid",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L276"
+    },
+    {
+      "caller_nid": "tasks_createtask",
+      "callee": "lock",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L293"
+    },
+    {
+      "caller_nid": "tasks_createtask",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L297"
+    },
+    {
+      "caller_nid": "tasks_createtask",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L300"
+    },
+    {
+      "caller_nid": "tasks_createtask",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L300"
+    },
+    {
+      "caller_nid": "tasks_createtask",
+      "callee": "release",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L305"
+    },
+    {
+      "caller_nid": "tasks_gettask",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L316"
+    },
+    {
+      "caller_nid": "tasks_gettask",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L317"
+    },
+    {
+      "caller_nid": "tasks_gettask",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L326"
+    },
+    {
+      "caller_nid": "tasks_gettask",
+      "callee": "safeParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L333"
+    },
+    {
+      "caller_nid": "tasks_gettask",
+      "callee": "TaskSchema",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L333"
+    },
+    {
+      "caller_nid": "tasks_gettask",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L335"
+    },
+    {
+      "caller_nid": "tasks_gettask",
+      "callee": "getErrnoCode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L342"
+    },
+    {
+      "caller_nid": "tasks_gettask",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L346"
+    },
+    {
+      "caller_nid": "tasks_gettask",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L346"
+    },
+    {
+      "caller_nid": "tasks_gettask",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L347"
+    },
+    {
+      "caller_nid": "tasks_updatetaskunsafe",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L365"
+    },
+    {
+      "caller_nid": "tasks_updatetaskunsafe",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L365"
+    },
+    {
+      "caller_nid": "tasks_updatetask",
+      "callee": "lock",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L386"
+    },
+    {
+      "caller_nid": "tasks_updatetask",
+      "callee": "release",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L389"
+    },
+    {
+      "caller_nid": "tasks_deletetask",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L401"
+    },
+    {
+      "caller_nid": "tasks_deletetask",
+      "callee": "isNaN",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L402"
+    },
+    {
+      "caller_nid": "tasks_deletetask",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L411"
+    },
+    {
+      "caller_nid": "tasks_deletetask",
+      "callee": "getErrnoCode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L413"
+    },
+    {
+      "caller_nid": "tasks_deletetask",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L423"
+    },
+    {
+      "caller_nid": "tasks_deletetask",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L424"
+    },
+    {
+      "caller_nid": "tasks_listtasks",
+      "callee": "readdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L447"
+    },
+    {
+      "caller_nid": "tasks_listtasks",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L451"
+    },
+    {
+      "caller_nid": "tasks_listtasks",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L451"
+    },
+    {
+      "caller_nid": "tasks_listtasks",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L454"
+    },
+    {
+      "caller_nid": "tasks_listtasks",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L454"
+    },
+    {
+      "caller_nid": "tasks_listtasks",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L455"
+    },
+    {
+      "caller_nid": "tasks_blocktask",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L463"
+    },
+    {
+      "caller_nid": "tasks_blocktask",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L472"
+    },
+    {
+      "caller_nid": "tasks_blocktask",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L479"
+    },
+    {
+      "caller_nid": "tasks_gettasklistlockpath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L505"
+    },
+    {
+      "caller_nid": "tasks_ensuretasklistlockfile",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L518"
+    },
+    {
+      "caller_nid": "tasks_claimtask",
+      "callee": "lock",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L566"
+    },
+    {
+      "caller_nid": "tasks_claimtask",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L587"
+    },
+    {
+      "caller_nid": "tasks_claimtask",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L587"
+    },
+    {
+      "caller_nid": "tasks_claimtask",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L589"
+    },
+    {
+      "caller_nid": "tasks_claimtask",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L602"
+    },
+    {
+      "caller_nid": "tasks_claimtask",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L603"
+    },
+    {
+      "caller_nid": "tasks_claimtask",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L605"
+    },
+    {
+      "caller_nid": "tasks_claimtask",
+      "callee": "release",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L609"
+    },
+    {
+      "caller_nid": "tasks_claimtaskwithbusycheck",
+      "callee": "lock",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L628"
+    },
+    {
+      "caller_nid": "tasks_claimtaskwithbusycheck",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L634"
+    },
+    {
+      "caller_nid": "tasks_claimtaskwithbusycheck",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L651"
+    },
+    {
+      "caller_nid": "tasks_claimtaskwithbusycheck",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L651"
+    },
+    {
+      "caller_nid": "tasks_claimtaskwithbusycheck",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L653"
+    },
+    {
+      "caller_nid": "tasks_claimtaskwithbusycheck",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L661"
+    },
+    {
+      "caller_nid": "tasks_claimtaskwithbusycheck",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L672"
+    },
+    {
+      "caller_nid": "tasks_claimtaskwithbusycheck",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L682"
+    },
+    {
+      "caller_nid": "tasks_claimtaskwithbusycheck",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L683"
+    },
+    {
+      "caller_nid": "tasks_claimtaskwithbusycheck",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L685"
+    },
+    {
+      "caller_nid": "tasks_claimtaskwithbusycheck",
+      "callee": "release",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L689"
+    },
+    {
+      "caller_nid": "tasks_sanitizename",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L718"
+    },
+    {
+      "caller_nid": "tasks_sanitizename",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L718"
+    },
+    {
+      "caller_nid": "tasks_readteammembers",
+      "callee": "getTeamsDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L727"
+    },
+    {
+      "caller_nid": "tasks_readteammembers",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L728"
+    },
+    {
+      "caller_nid": "tasks_readteammembers",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L730"
+    },
+    {
+      "caller_nid": "tasks_readteammembers",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L731"
+    },
+    {
+      "caller_nid": "tasks_readteammembers",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L737"
+    },
+    {
+      "caller_nid": "tasks_readteammembers",
+      "callee": "getErrnoCode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L744"
+    },
+    {
+      "caller_nid": "tasks_readteammembers",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L748"
+    },
+    {
+      "caller_nid": "tasks_readteammembers",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L749"
+    },
+    {
+      "caller_nid": "tasks_getagentstatuses",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L778"
+    },
+    {
+      "caller_nid": "tasks_getagentstatuses",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L779"
+    },
+    {
+      "caller_nid": "tasks_getagentstatuses",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L780"
+    },
+    {
+      "caller_nid": "tasks_getagentstatuses",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L785"
+    },
+    {
+      "caller_nid": "tasks_unassignteammatetasks",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L825"
+    },
+    {
+      "caller_nid": "tasks_unassignteammatetasks",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L837"
+    },
+    {
+      "caller_nid": "tasks_unassignteammatetasks",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L847"
+    },
+    {
+      "caller_nid": "tasks_unassignteammatetasks",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L847"
+    },
+    {
+      "caller_nid": "tasks_unassignteammatetasks",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tasks.ts",
+      "source_location": "L854"
+    }
+  ]
+}

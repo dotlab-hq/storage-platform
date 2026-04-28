@@ -22,9 +22,7 @@ export function hasChatCompletionsScope(permissions: string | null): boolean {
   }
 }
 
-export async function getUserFromApiKey(
-  headers: Headers,
-): Promise<{
+export async function getUserFromApiKey(headers: Headers): Promise<{
   id: string
   email: string
   name: string

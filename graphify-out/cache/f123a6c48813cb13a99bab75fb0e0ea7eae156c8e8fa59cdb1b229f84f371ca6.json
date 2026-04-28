@@ -1,1 +1,228 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx", "label": "exportRenderer.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L1"}, {"id": "exportrenderer_statickeybindingprovider", "label": "StaticKeybindingProvider()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L17"}, {"id": "exportrenderer_streamrenderedmessages", "label": "streamRenderedMessages()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L55"}, {"id": "exportrenderer_rendermessagestoplaintext", "label": "renderMessagesToPlainText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L91"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx", "target": "strip_ansi", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx", "target": "f_storage_platform_claude_code_source_main_src_components_messages_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx", "target": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx", "target": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx", "target": "f_storage_platform_claude_code_source_main_src_keybindings_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx", "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx", "target": "f_storage_platform_claude_code_source_main_src_types_message_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_staticrender_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx", "target": "exportrenderer_statickeybindingprovider", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx", "target": "exportrenderer_streamrenderedmessages", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L55", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx", "target": "exportrenderer_rendermessagestoplaintext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L91", "weight": 1.0}, {"source": "exportrenderer_rendermessagestoplaintext", "target": "exportrenderer_streamrenderedmessages", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L93", "weight": 1.0}], "raw_calls": [{"caller_nid": "exportrenderer_statickeybindingprovider", "callee": "loadKeybindingsSyncWithWarnings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L24"}, {"caller_nid": "exportrenderer_statickeybindingprovider", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L25"}, {"caller_nid": "exportrenderer_statickeybindingprovider", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L26"}, {"caller_nid": "exportrenderer_statickeybindingprovider", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L27"}, {"caller_nid": "exportrenderer_streamrenderedmessages", "callee": "normalizedUpperBound", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L78"}, {"caller_nid": "exportrenderer_streamrenderedmessages", "callee": "renderChunk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L80"}, {"caller_nid": "exportrenderer_streamrenderedmessages", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L81"}, {"caller_nid": "exportrenderer_streamrenderedmessages", "callee": "stripAnsi", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L81"}, {"caller_nid": "exportrenderer_streamrenderedmessages", "callee": "sink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L82"}, {"caller_nid": "exportrenderer_streamrenderedmessages", "callee": "onProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L83"}, {"caller_nid": "exportrenderer_rendermessagestoplaintext", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx", "source_location": "L96"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx",
+      "label": "exportRenderer.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "exportrenderer_statickeybindingprovider",
+      "label": "StaticKeybindingProvider()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L17"
+    },
+    {
+      "id": "exportrenderer_streamrenderedmessages",
+      "label": "streamRenderedMessages()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L55"
+    },
+    {
+      "id": "exportrenderer_rendermessagestoplaintext",
+      "label": "renderMessagesToPlainText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L91"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx",
+      "target": "strip_ansi",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_components_messages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_keybindingcontext_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_types_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_staticrender_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx",
+      "target": "exportrenderer_statickeybindingprovider",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx",
+      "target": "exportrenderer_streamrenderedmessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_exportrenderer_tsx",
+      "target": "exportrenderer_rendermessagestoplaintext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "exportrenderer_rendermessagestoplaintext",
+      "target": "exportrenderer_streamrenderedmessages",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L93",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "exportrenderer_statickeybindingprovider",
+      "callee": "loadKeybindingsSyncWithWarnings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L24"
+    },
+    {
+      "caller_nid": "exportrenderer_statickeybindingprovider",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "exportrenderer_statickeybindingprovider",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "exportrenderer_statickeybindingprovider",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "exportrenderer_streamrenderedmessages",
+      "callee": "normalizedUpperBound",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "exportrenderer_streamrenderedmessages",
+      "callee": "renderChunk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L80"
+    },
+    {
+      "caller_nid": "exportrenderer_streamrenderedmessages",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "exportrenderer_streamrenderedmessages",
+      "callee": "stripAnsi",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "exportrenderer_streamrenderedmessages",
+      "callee": "sink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "exportrenderer_streamrenderedmessages",
+      "callee": "onProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "exportrenderer_rendermessagestoplaintext",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\exportRenderer.tsx",
+      "source_location": "L96"
+    }
+  ]
+}

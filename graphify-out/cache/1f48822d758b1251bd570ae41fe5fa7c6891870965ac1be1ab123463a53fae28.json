@@ -1,1 +1,926 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_storage_queries_ts", "label": "storage-queries.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L1"}, {"id": "storage_queries_listfolderitems", "label": "listFolderItems()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L12"}, {"id": "storage_queries_searchitems", "label": "searchItems()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L91"}, {"id": "storage_queries_getfolderbreadcrumbs", "label": "getFolderBreadcrumbs()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L145"}, {"id": "storage_queries_getallfolders", "label": "getAllFolders()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L238"}, {"id": "storage_queries_getrecentitems", "label": "getRecentItems()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L264"}], "edges": [{"source": "f_storage_platform_src_lib_storage_queries_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_queries_ts", "target": "storage_queries_listfolderitems", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_queries_ts", "target": "storage_queries_searchitems", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L91", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_queries_ts", "target": "storage_queries_getfolderbreadcrumbs", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L145", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_queries_ts", "target": "storage_queries_getallfolders", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L238", "weight": 1.0}, {"source": "f_storage_platform_src_lib_storage_queries_ts", "target": "storage_queries_getrecentitems", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L264", "weight": 1.0}], "raw_calls": [{"caller_nid": "storage_queries_listfolderitems", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L18"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L19"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L20"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L24"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L25"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L26"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L27"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L28"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "isNull", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L29"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L32"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L33"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "isNull", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L34"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L35"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L36"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "isNull", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L37"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L42"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L43"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L44"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L45"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L46"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L48"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L49"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "isNull", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L50"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L51"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L52"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L57"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "offset", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L58"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L58"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "orderBy", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L58"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L58"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L58"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L58"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "offset", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L71"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L71"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "orderBy", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L71"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L71"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L71"}, {"caller_nid": "storage_queries_listfolderitems", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L71"}, {"caller_nid": "storage_queries_searchitems", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L92"}, {"caller_nid": "storage_queries_searchitems", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L93"}, {"caller_nid": "storage_queries_searchitems", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L94"}, {"caller_nid": "storage_queries_searchitems", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L99"}, {"caller_nid": "storage_queries_searchitems", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L100"}, {"caller_nid": "storage_queries_searchitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L100"}, {"caller_nid": "storage_queries_searchitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L100"}, {"caller_nid": "storage_queries_searchitems", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L100"}, {"caller_nid": "storage_queries_searchitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L110"}, {"caller_nid": "storage_queries_searchitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L111"}, {"caller_nid": "storage_queries_searchitems", "callee": "ilike", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L112"}, {"caller_nid": "storage_queries_searchitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L113"}, {"caller_nid": "storage_queries_searchitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L114"}, {"caller_nid": "storage_queries_searchitems", "callee": "isNull", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L115"}, {"caller_nid": "storage_queries_searchitems", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L120"}, {"caller_nid": "storage_queries_searchitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L120"}, {"caller_nid": "storage_queries_searchitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L120"}, {"caller_nid": "storage_queries_searchitems", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L120"}, {"caller_nid": "storage_queries_searchitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L132"}, {"caller_nid": "storage_queries_searchitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L133"}, {"caller_nid": "storage_queries_searchitems", "callee": "ilike", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L134"}, {"caller_nid": "storage_queries_searchitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L135"}, {"caller_nid": "storage_queries_searchitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L136"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L146"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L147"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L148"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L149"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L152"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L152"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L152"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L152"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L156"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L157"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L158"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L159"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "filter", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L166"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "split", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L166"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L175"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L175"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L175"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L175"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L179"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L180"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L181"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L182"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L183"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "push", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L188"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L196"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "seedNodeById", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L197"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L205"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "add", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L210"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L213"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L213"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L213"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L213"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L220"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L220"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L220"}, {"caller_nid": "storage_queries_getfolderbreadcrumbs", "callee": "unshift", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L226"}, {"caller_nid": "storage_queries_getallfolders", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L239"}, {"caller_nid": "storage_queries_getallfolders", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L240"}, {"caller_nid": "storage_queries_getallfolders", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L241"}, {"caller_nid": "storage_queries_getallfolders", "callee": "orderBy", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L244"}, {"caller_nid": "storage_queries_getallfolders", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L244"}, {"caller_nid": "storage_queries_getallfolders", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L244"}, {"caller_nid": "storage_queries_getallfolders", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L244"}, {"caller_nid": "storage_queries_getallfolders", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L253"}, {"caller_nid": "storage_queries_getallfolders", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L254"}, {"caller_nid": "storage_queries_getallfolders", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L255"}, {"caller_nid": "storage_queries_getallfolders", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L256"}, {"caller_nid": "storage_queries_getallfolders", "callee": "isNull", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L257"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L265"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L266"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L267"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "now", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L270"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L272"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L273"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "orderBy", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L273"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L273"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L273"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L273"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L284"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L285"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L286"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L287"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "isNull", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L288"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "gte", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L290"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "desc", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L293"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L295"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "orderBy", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L295"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L295"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L295"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L295"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L307"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L308"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L309"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L310"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "gte", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L311"}, {"caller_nid": "storage_queries_getrecentitems", "callee": "desc", "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts", "source_location": "L314"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_storage_queries_ts",
+      "label": "storage-queries.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "storage_queries_listfolderitems",
+      "label": "listFolderItems()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L12"
+    },
+    {
+      "id": "storage_queries_searchitems",
+      "label": "searchItems()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L91"
+    },
+    {
+      "id": "storage_queries_getfolderbreadcrumbs",
+      "label": "getFolderBreadcrumbs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L145"
+    },
+    {
+      "id": "storage_queries_getallfolders",
+      "label": "getAllFolders()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L238"
+    },
+    {
+      "id": "storage_queries_getrecentitems",
+      "label": "getRecentItems()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L264"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_storage_queries_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_queries_ts",
+      "target": "storage_queries_listfolderitems",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_queries_ts",
+      "target": "storage_queries_searchitems",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_queries_ts",
+      "target": "storage_queries_getfolderbreadcrumbs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L145",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_queries_ts",
+      "target": "storage_queries_getallfolders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L238",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_storage_queries_ts",
+      "target": "storage_queries_getrecentitems",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L264",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L20"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L24"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "isNull",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "isNull",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "isNull",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "isNull",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "offset",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "orderBy",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "offset",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "orderBy",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "storage_queries_listfolderitems",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L94"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "ilike",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "isNull",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L115"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "ilike",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "storage_queries_searchitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L136"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L157"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L166"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L166"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L180"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L181"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L182"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L183"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L188"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L196"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "seedNodeById",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L205"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L210"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L213"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L213"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L213"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L213"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L220"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L220"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L220"
+    },
+    {
+      "caller_nid": "storage_queries_getfolderbreadcrumbs",
+      "callee": "unshift",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L226"
+    },
+    {
+      "caller_nid": "storage_queries_getallfolders",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L239"
+    },
+    {
+      "caller_nid": "storage_queries_getallfolders",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L240"
+    },
+    {
+      "caller_nid": "storage_queries_getallfolders",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L241"
+    },
+    {
+      "caller_nid": "storage_queries_getallfolders",
+      "callee": "orderBy",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L244"
+    },
+    {
+      "caller_nid": "storage_queries_getallfolders",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L244"
+    },
+    {
+      "caller_nid": "storage_queries_getallfolders",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L244"
+    },
+    {
+      "caller_nid": "storage_queries_getallfolders",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L244"
+    },
+    {
+      "caller_nid": "storage_queries_getallfolders",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L253"
+    },
+    {
+      "caller_nid": "storage_queries_getallfolders",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L254"
+    },
+    {
+      "caller_nid": "storage_queries_getallfolders",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L255"
+    },
+    {
+      "caller_nid": "storage_queries_getallfolders",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L256"
+    },
+    {
+      "caller_nid": "storage_queries_getallfolders",
+      "callee": "isNull",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L257"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L265"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L266"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L267"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L270"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L272"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L273"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "orderBy",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L273"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L273"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L273"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L273"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L284"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L285"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L286"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L287"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "isNull",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L288"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "gte",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L290"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "desc",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L293"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L295"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "orderBy",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L295"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L295"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L295"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L295"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L307"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L308"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L309"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L310"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "gte",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L311"
+    },
+    {
+      "caller_nid": "storage_queries_getrecentitems",
+      "callee": "desc",
+      "source_file": "F:\\storage-platform\\src\\lib\\storage-queries.ts",
+      "source_location": "L314"
+    }
+  ]
+}

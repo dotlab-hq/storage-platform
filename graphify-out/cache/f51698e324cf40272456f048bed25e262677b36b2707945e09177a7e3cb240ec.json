@@ -1,1 +1,157 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_app_buckets_bucketname_tsx", "label": "$bucketName.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L1"}, {"id": "bucketname_normalizeprefix", "label": "normalizePrefix()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L19"}], "edges": [{"source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx", "target": "react_router", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx", "target": "react_start", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx", "target": "zod", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx", "target": "lucide_react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx", "target": "s3_bucket_viewer", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx", "target": "button", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx", "target": "page_skeleton", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx", "target": "separator", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx", "target": "sidebar", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx", "target": "list_bucket_items_server", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx", "target": "server_auth_server", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx", "target": "isauthenticated", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx", "target": "bucketname_normalizeprefix", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L19", "weight": 1.0}], "raw_calls": [{"caller_nid": "bucketname_normalizeprefix", "callee": "trim", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L21"}, {"caller_nid": "bucketname_normalizeprefix", "callee": "decodeURIComponent", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L23"}, {"caller_nid": "bucketname_normalizeprefix", "callee": "endsWith", "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx", "source_location": "L24"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_app_buckets_bucketname_tsx",
+      "label": "$bucketName.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "bucketname_normalizeprefix",
+      "label": "normalizePrefix()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L19"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx",
+      "target": "react_router",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx",
+      "target": "react_start",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx",
+      "target": "zod",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx",
+      "target": "lucide_react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx",
+      "target": "s3_bucket_viewer",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx",
+      "target": "button",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx",
+      "target": "page_skeleton",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx",
+      "target": "separator",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx",
+      "target": "sidebar",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx",
+      "target": "list_bucket_items_server",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx",
+      "target": "server_auth_server",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx",
+      "target": "isauthenticated",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_buckets_bucketname_tsx",
+      "target": "bucketname_normalizeprefix",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L19",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "bucketname_normalizeprefix",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "bucketname_normalizeprefix",
+      "callee": "decodeURIComponent",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "bucketname_normalizeprefix",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\buckets\\$bucketName.tsx",
+      "source_location": "L24"
+    }
+  ]
+}

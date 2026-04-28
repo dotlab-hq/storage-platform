@@ -1,1 +1,67 @@
-{"nodes": [{"id": "f_storage_platform_src_workers_trash_queue_consumer_ts", "label": "trash-queue-consumer.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts", "source_location": "L1"}, {"id": "trash_queue_consumer_queue", "label": "queue()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts", "source_location": "L1"}], "edges": [{"source": "f_storage_platform_src_workers_trash_queue_consumer_ts", "target": "trash_queue_consumer_queue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts", "source_location": "L1", "weight": 1.0}], "raw_calls": [{"caller_nid": "trash_queue_consumer_queue", "callee": "json", "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts", "source_location": "L10"}, {"caller_nid": "trash_queue_consumer_queue", "callee": "push", "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts", "source_location": "L11"}, {"caller_nid": "trash_queue_consumer_queue", "callee": "error", "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts", "source_location": "L13"}, {"caller_nid": "trash_queue_consumer_queue", "callee": "slice", "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts", "source_location": "L23"}, {"caller_nid": "trash_queue_consumer_queue", "callee": "create", "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts", "source_location": "L25"}, {"caller_nid": "trash_queue_consumer_queue", "callee": "error", "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts", "source_location": "L29"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_workers_trash_queue_consumer_ts",
+      "label": "trash-queue-consumer.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "trash_queue_consumer_queue",
+      "label": "queue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts",
+      "source_location": "L1"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_workers_trash_queue_consumer_ts",
+      "target": "trash_queue_consumer_queue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "trash_queue_consumer_queue",
+      "callee": "json",
+      "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts",
+      "source_location": "L10"
+    },
+    {
+      "caller_nid": "trash_queue_consumer_queue",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts",
+      "source_location": "L11"
+    },
+    {
+      "caller_nid": "trash_queue_consumer_queue",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts",
+      "source_location": "L13"
+    },
+    {
+      "caller_nid": "trash_queue_consumer_queue",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "trash_queue_consumer_queue",
+      "callee": "create",
+      "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "trash_queue_consumer_queue",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\src\\workers\\trash-queue-consumer.ts",
+      "source_location": "L29"
+    }
+  ]
+}

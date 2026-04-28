@@ -1,1 +1,177 @@
-{"nodes": [{"id": "f_storage_platform_src_components_storage_file_grid_tsx", "label": "file-grid.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L1"}, {"id": "file_grid_isappendmodifierpressed", "label": "isAppendModifierPressed()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L15"}, {"id": "file_grid_handlewindowmousemove", "label": "handleWindowMouseMove()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L161"}, {"id": "file_grid_handlewindowmouseup", "label": "handleWindowMouseUp()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L165"}], "edges": [{"source": "f_storage_platform_src_components_storage_file_grid_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_file_grid_tsx", "target": "f_storage_platform_src_components_storage_file_card", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_file_grid_tsx", "target": "f_storage_platform_src_components_storage_file_context_menu", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_file_grid_tsx", "target": "f_storage_platform_src_components_storage_uploading_card", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_file_grid_tsx", "target": "f_storage_platform_src_components_storage_skeleton_card", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_file_grid_tsx", "target": "f_storage_platform_src_components_storage_file_grid_empty_state", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_file_grid_tsx", "target": "page_skeleton", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_file_grid_tsx", "target": "use_box_selection", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_file_grid_tsx", "target": "storage", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_file_grid_tsx", "target": "file_grid_isappendmodifierpressed", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_file_grid_tsx", "target": "file_grid_handlewindowmousemove", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L161", "weight": 1.0}, {"source": "f_storage_platform_src_components_storage_file_grid_tsx", "target": "file_grid_handlewindowmouseup", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L165", "weight": 1.0}, {"source": "file_grid_handlewindowmouseup", "target": "file_grid_isappendmodifierpressed", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L166", "weight": 1.0}], "raw_calls": [{"caller_nid": "file_grid_isappendmodifierpressed", "callee": "includes", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L21"}, {"caller_nid": "file_grid_isappendmodifierpressed", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L21"}, {"caller_nid": "file_grid_handlewindowmousemove", "callee": "updateSelection", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L162"}, {"caller_nid": "file_grid_handlewindowmouseup", "callee": "commitBoxSelection", "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx", "source_location": "L167"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_components_storage_file_grid_tsx",
+      "label": "file-grid.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "file_grid_isappendmodifierpressed",
+      "label": "isAppendModifierPressed()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L15"
+    },
+    {
+      "id": "file_grid_handlewindowmousemove",
+      "label": "handleWindowMouseMove()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L161"
+    },
+    {
+      "id": "file_grid_handlewindowmouseup",
+      "label": "handleWindowMouseUp()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L165"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_components_storage_file_grid_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_file_grid_tsx",
+      "target": "f_storage_platform_src_components_storage_file_card",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_file_grid_tsx",
+      "target": "f_storage_platform_src_components_storage_file_context_menu",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_file_grid_tsx",
+      "target": "f_storage_platform_src_components_storage_uploading_card",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_file_grid_tsx",
+      "target": "f_storage_platform_src_components_storage_skeleton_card",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_file_grid_tsx",
+      "target": "f_storage_platform_src_components_storage_file_grid_empty_state",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_file_grid_tsx",
+      "target": "page_skeleton",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_file_grid_tsx",
+      "target": "use_box_selection",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_file_grid_tsx",
+      "target": "storage",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_file_grid_tsx",
+      "target": "file_grid_isappendmodifierpressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_file_grid_tsx",
+      "target": "file_grid_handlewindowmousemove",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L161",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_components_storage_file_grid_tsx",
+      "target": "file_grid_handlewindowmouseup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L165",
+      "weight": 1.0
+    },
+    {
+      "source": "file_grid_handlewindowmouseup",
+      "target": "file_grid_isappendmodifierpressed",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L166",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "file_grid_isappendmodifierpressed",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "file_grid_isappendmodifierpressed",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L21"
+    },
+    {
+      "caller_nid": "file_grid_handlewindowmousemove",
+      "callee": "updateSelection",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "file_grid_handlewindowmouseup",
+      "callee": "commitBoxSelection",
+      "source_file": "F:\\storage-platform\\src\\components\\storage\\file-grid.tsx",
+      "source_location": "L167"
+    }
+  ]
+}

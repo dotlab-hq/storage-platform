@@ -1,1 +1,157 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_webrtc_transfer_utils_ts", "label": "webrtc-transfer-utils.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L1"}, {"id": "webrtc_transfer_utils_createwebrtcoffercode", "label": "createWebrtcOfferCode()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L3"}, {"id": "webrtc_transfer_utils_createwebrtcpollkey", "label": "createWebrtcPollKey()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L12"}, {"id": "webrtc_transfer_utils_buildwebrtcofferpayload", "label": "buildWebrtcOfferPayload()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L21"}, {"id": "webrtc_transfer_utils_parsewebrtcofferpayload", "label": "parseWebrtcOfferPayload()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L25"}], "edges": [{"source": "f_storage_platform_src_lib_webrtc_transfer_utils_ts", "target": "webrtc_transfer_utils_createwebrtcoffercode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_webrtc_transfer_utils_ts", "target": "webrtc_transfer_utils_createwebrtcpollkey", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_src_lib_webrtc_transfer_utils_ts", "target": "webrtc_transfer_utils_buildwebrtcofferpayload", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_src_lib_webrtc_transfer_utils_ts", "target": "webrtc_transfer_utils_parsewebrtcofferpayload", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L25", "weight": 1.0}], "raw_calls": [{"caller_nid": "webrtc_transfer_utils_createwebrtcoffercode", "callee": "getRandomValues", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L5"}, {"caller_nid": "webrtc_transfer_utils_createwebrtcoffercode", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L6"}, {"caller_nid": "webrtc_transfer_utils_createwebrtcoffercode", "callee": "join", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L6"}, {"caller_nid": "webrtc_transfer_utils_createwebrtcoffercode", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L6"}, {"caller_nid": "webrtc_transfer_utils_createwebrtcoffercode", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L6"}, {"caller_nid": "webrtc_transfer_utils_createwebrtcpollkey", "callee": "getRandomValues", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L14"}, {"caller_nid": "webrtc_transfer_utils_createwebrtcpollkey", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L15"}, {"caller_nid": "webrtc_transfer_utils_createwebrtcpollkey", "callee": "join", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L15"}, {"caller_nid": "webrtc_transfer_utils_createwebrtcpollkey", "callee": "map", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L15"}, {"caller_nid": "webrtc_transfer_utils_createwebrtcpollkey", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L15"}, {"caller_nid": "webrtc_transfer_utils_parsewebrtcofferpayload", "callee": "trim", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L26"}, {"caller_nid": "webrtc_transfer_utils_parsewebrtcofferpayload", "callee": "startsWith", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L27"}, {"caller_nid": "webrtc_transfer_utils_parsewebrtcofferpayload", "callee": "slice", "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts", "source_location": "L30"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_webrtc_transfer_utils_ts",
+      "label": "webrtc-transfer-utils.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "webrtc_transfer_utils_createwebrtcoffercode",
+      "label": "createWebrtcOfferCode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L3"
+    },
+    {
+      "id": "webrtc_transfer_utils_createwebrtcpollkey",
+      "label": "createWebrtcPollKey()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L12"
+    },
+    {
+      "id": "webrtc_transfer_utils_buildwebrtcofferpayload",
+      "label": "buildWebrtcOfferPayload()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L21"
+    },
+    {
+      "id": "webrtc_transfer_utils_parsewebrtcofferpayload",
+      "label": "parseWebrtcOfferPayload()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L25"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_webrtc_transfer_utils_ts",
+      "target": "webrtc_transfer_utils_createwebrtcoffercode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_webrtc_transfer_utils_ts",
+      "target": "webrtc_transfer_utils_createwebrtcpollkey",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_webrtc_transfer_utils_ts",
+      "target": "webrtc_transfer_utils_buildwebrtcofferpayload",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_webrtc_transfer_utils_ts",
+      "target": "webrtc_transfer_utils_parsewebrtcofferpayload",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "webrtc_transfer_utils_createwebrtcoffercode",
+      "callee": "getRandomValues",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L5"
+    },
+    {
+      "caller_nid": "webrtc_transfer_utils_createwebrtcoffercode",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L6"
+    },
+    {
+      "caller_nid": "webrtc_transfer_utils_createwebrtcoffercode",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L6"
+    },
+    {
+      "caller_nid": "webrtc_transfer_utils_createwebrtcoffercode",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L6"
+    },
+    {
+      "caller_nid": "webrtc_transfer_utils_createwebrtcoffercode",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L6"
+    },
+    {
+      "caller_nid": "webrtc_transfer_utils_createwebrtcpollkey",
+      "callee": "getRandomValues",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L14"
+    },
+    {
+      "caller_nid": "webrtc_transfer_utils_createwebrtcpollkey",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L15"
+    },
+    {
+      "caller_nid": "webrtc_transfer_utils_createwebrtcpollkey",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L15"
+    },
+    {
+      "caller_nid": "webrtc_transfer_utils_createwebrtcpollkey",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L15"
+    },
+    {
+      "caller_nid": "webrtc_transfer_utils_createwebrtcpollkey",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L15"
+    },
+    {
+      "caller_nid": "webrtc_transfer_utils_parsewebrtcofferpayload",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "webrtc_transfer_utils_parsewebrtcofferpayload",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "webrtc_transfer_utils_parsewebrtcofferpayload",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\src\\lib\\webrtc-transfer-utils.ts",
+      "source_location": "L30"
+    }
+  ]
+}

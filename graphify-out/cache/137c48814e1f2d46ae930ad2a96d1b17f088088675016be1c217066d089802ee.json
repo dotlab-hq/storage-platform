@@ -1,1 +1,179 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts", "label": "xdg.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L1"}, {"id": "xdg_resolveoptions", "label": "resolveOptions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L20"}, {"id": "xdg_getxdgstatehome", "label": "getXDGStateHome()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L32"}, {"id": "xdg_getxdgcachehome", "label": "getXDGCacheHome()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L42"}, {"id": "xdg_getxdgdatahome", "label": "getXDGDataHome()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L52"}, {"id": "xdg_getuserbindir", "label": "getUserBinDir()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L62"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts", "target": "os", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts", "target": "xdg_resolveoptions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts", "target": "xdg_getxdgstatehome", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts", "target": "xdg_getxdgcachehome", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts", "target": "xdg_getxdgdatahome", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L52", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts", "target": "xdg_getuserbindir", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L62", "weight": 1.0}, {"source": "xdg_getxdgstatehome", "target": "xdg_resolveoptions", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L33", "weight": 1.0}, {"source": "xdg_getxdgcachehome", "target": "xdg_resolveoptions", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L43", "weight": 1.0}, {"source": "xdg_getxdgdatahome", "target": "xdg_resolveoptions", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L53", "weight": 1.0}, {"source": "xdg_getuserbindir", "target": "xdg_resolveoptions", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L63", "weight": 1.0}], "raw_calls": [{"caller_nid": "xdg_resolveoptions", "callee": "osHomedir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L23"}, {"caller_nid": "xdg_getxdgstatehome", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L34"}, {"caller_nid": "xdg_getxdgcachehome", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L44"}, {"caller_nid": "xdg_getxdgdatahome", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L54"}, {"caller_nid": "xdg_getuserbindir", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts", "source_location": "L64"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts",
+      "label": "xdg.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "xdg_resolveoptions",
+      "label": "resolveOptions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L20"
+    },
+    {
+      "id": "xdg_getxdgstatehome",
+      "label": "getXDGStateHome()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "xdg_getxdgcachehome",
+      "label": "getXDGCacheHome()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L42"
+    },
+    {
+      "id": "xdg_getxdgdatahome",
+      "label": "getXDGDataHome()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L52"
+    },
+    {
+      "id": "xdg_getuserbindir",
+      "label": "getUserBinDir()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L62"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts",
+      "target": "os",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts",
+      "target": "xdg_resolveoptions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts",
+      "target": "xdg_getxdgstatehome",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts",
+      "target": "xdg_getxdgcachehome",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts",
+      "target": "xdg_getxdgdatahome",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_xdg_ts",
+      "target": "xdg_getuserbindir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "xdg_getxdgstatehome",
+      "target": "xdg_resolveoptions",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "xdg_getxdgcachehome",
+      "target": "xdg_resolveoptions",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "xdg_getxdgdatahome",
+      "target": "xdg_resolveoptions",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "xdg_getuserbindir",
+      "target": "xdg_resolveoptions",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L63",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "xdg_resolveoptions",
+      "callee": "osHomedir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "xdg_getxdgstatehome",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "xdg_getxdgcachehome",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "xdg_getxdgdatahome",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L54"
+    },
+    {
+      "caller_nid": "xdg_getuserbindir",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\xdg.ts",
+      "source_location": "L64"
+    }
+  ]
+}

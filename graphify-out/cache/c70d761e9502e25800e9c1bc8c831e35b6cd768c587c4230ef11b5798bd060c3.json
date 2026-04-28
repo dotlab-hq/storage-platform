@@ -1,1 +1,142 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts", "label": "-chat-message-send-server.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L1"}, {"id": "chat_message_send_server_getorcreatethread", "label": "getOrCreateThread()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L20"}], "edges": [{"source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts", "target": "react_start", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts", "target": "zod", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts", "target": "chat", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts", "target": "server_auth", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts", "target": "f_storage_platform_src_routes_app_chat_chat_server_utils", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts", "target": "f_storage_platform_src_routes_app_chat_chat_assistant_reply_stream", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts", "target": "f_storage_platform_src_routes_app_chat_chat_server_db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts", "target": "f_storage_platform_src_routes_app_chat_chat_types", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts", "target": "chat_message_send_server_getorcreatethread", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L20", "weight": 1.0}], "raw_calls": [{"caller_nid": "chat_message_send_server_getorcreatethread", "callee": "findOwnedThread", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L26"}, {"caller_nid": "chat_message_send_server_getorcreatethread", "callee": "returning", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L34"}, {"caller_nid": "chat_message_send_server_getorcreatethread", "callee": "values", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L34"}, {"caller_nid": "chat_message_send_server_getorcreatethread", "callee": "insert", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L34"}, {"caller_nid": "chat_message_send_server_getorcreatethread", "callee": "deriveThreadTitle", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts", "source_location": "L38"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts",
+      "label": "-chat-message-send-server.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "chat_message_send_server_getorcreatethread",
+      "label": "getOrCreateThread()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L20"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts",
+      "target": "react_start",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts",
+      "target": "zod",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts",
+      "target": "chat",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts",
+      "target": "server_auth",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts",
+      "target": "f_storage_platform_src_routes_app_chat_chat_server_utils",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts",
+      "target": "f_storage_platform_src_routes_app_chat_chat_assistant_reply_stream",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts",
+      "target": "f_storage_platform_src_routes_app_chat_chat_server_db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts",
+      "target": "f_storage_platform_src_routes_app_chat_chat_types",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_chat_message_send_server_ts",
+      "target": "chat_message_send_server_getorcreatethread",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "chat_message_send_server_getorcreatethread",
+      "callee": "findOwnedThread",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "chat_message_send_server_getorcreatethread",
+      "callee": "returning",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "chat_message_send_server_getorcreatethread",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "chat_message_send_server_getorcreatethread",
+      "callee": "insert",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "chat_message_send_server_getorcreatethread",
+      "callee": "deriveThreadTitle",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\-chat-message-send-server.ts",
+      "source_location": "L38"
+    }
+  ]
+}

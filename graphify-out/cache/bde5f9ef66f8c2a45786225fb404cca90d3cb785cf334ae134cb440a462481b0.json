@@ -1,1 +1,166 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts", "label": "detection.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L1"}, {"id": "detection_isinsidetmuxsync", "label": "isInsideTmuxSync()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L36"}, {"id": "detection_isinsidetmux", "label": "isInsideTmux()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L50"}, {"id": "detection_getleaderpaneid", "label": "getLeaderPaneId()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L66"}, {"id": "detection_istmuxavailable", "label": "isTmuxAvailable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L73"}, {"id": "detection_isiniterm2", "label": "isInITerm2()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L90"}, {"id": "detection_isit2cliavailable", "label": "isIt2CliAvailable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L117"}, {"id": "detection_resetdetectioncache", "label": "resetDetectionCache()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L125"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_env_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_swarm_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts", "target": "detection_isinsidetmuxsync", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L36", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts", "target": "detection_isinsidetmux", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L50", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts", "target": "detection_getleaderpaneid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L66", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts", "target": "detection_istmuxavailable", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L73", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts", "target": "detection_isiniterm2", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L90", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts", "target": "detection_isit2cliavailable", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L117", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts", "target": "detection_resetdetectioncache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L125", "weight": 1.0}], "raw_calls": [{"caller_nid": "detection_istmuxavailable", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L74"}, {"caller_nid": "detection_isit2cliavailable", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts", "source_location": "L118"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts",
+      "label": "detection.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "detection_isinsidetmuxsync",
+      "label": "isInsideTmuxSync()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L36"
+    },
+    {
+      "id": "detection_isinsidetmux",
+      "label": "isInsideTmux()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L50"
+    },
+    {
+      "id": "detection_getleaderpaneid",
+      "label": "getLeaderPaneId()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L66"
+    },
+    {
+      "id": "detection_istmuxavailable",
+      "label": "isTmuxAvailable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L73"
+    },
+    {
+      "id": "detection_isiniterm2",
+      "label": "isInITerm2()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L90"
+    },
+    {
+      "id": "detection_isit2cliavailable",
+      "label": "isIt2CliAvailable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L117"
+    },
+    {
+      "id": "detection_resetdetectioncache",
+      "label": "resetDetectionCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L125"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_env_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_swarm_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts",
+      "target": "detection_isinsidetmuxsync",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts",
+      "target": "detection_isinsidetmux",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts",
+      "target": "detection_getleaderpaneid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts",
+      "target": "detection_istmuxavailable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts",
+      "target": "detection_isiniterm2",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts",
+      "target": "detection_isit2cliavailable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_detection_ts",
+      "target": "detection_resetdetectioncache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L125",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "detection_istmuxavailable",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "detection_isit2cliavailable",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\detection.ts",
+      "source_location": "L118"
+    }
+  ]
+}

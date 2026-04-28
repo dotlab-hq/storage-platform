@@ -1,1 +1,85 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_commands_install_slack_app_install_slack_app_ts", "label": "install-slack-app.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts", "source_location": "L1"}, {"id": "install_slack_app_call", "label": "call()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts", "source_location": "L8"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_commands_install_slack_app_install_slack_app_ts", "target": "f_storage_platform_claude_code_source_main_src_commands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_install_slack_app_install_slack_app_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_install_slack_app_install_slack_app_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_browser_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_install_slack_app_install_slack_app_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_install_slack_app_install_slack_app_ts", "target": "install_slack_app_call", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts", "source_location": "L8", "weight": 1.0}], "raw_calls": [{"caller_nid": "install_slack_app_call", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts", "source_location": "L9"}, {"caller_nid": "install_slack_app_call", "callee": "saveGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts", "source_location": "L12"}, {"caller_nid": "install_slack_app_call", "callee": "openBrowser", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts", "source_location": "L17"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_commands_install_slack_app_install_slack_app_ts",
+      "label": "install-slack-app.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "install_slack_app_call",
+      "label": "call()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts",
+      "source_location": "L8"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_install_slack_app_install_slack_app_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_commands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_install_slack_app_install_slack_app_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_install_slack_app_install_slack_app_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_browser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_install_slack_app_install_slack_app_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_install_slack_app_install_slack_app_ts",
+      "target": "install_slack_app_call",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "install_slack_app_call",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts",
+      "source_location": "L9"
+    },
+    {
+      "caller_nid": "install_slack_app_call",
+      "callee": "saveGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts",
+      "source_location": "L12"
+    },
+    {
+      "caller_nid": "install_slack_app_call",
+      "callee": "openBrowser",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\install-slack-app\\install-slack-app.ts",
+      "source_location": "L17"
+    }
+  ]
+}

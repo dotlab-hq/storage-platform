@@ -1,1 +1,61 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_hyperlink_ts", "label": "hyperlink.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hyperlink.ts", "source_location": "L1"}, {"id": "hyperlink_createhyperlink", "label": "createHyperlink()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hyperlink.ts", "source_location": "L24"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_hyperlink_ts", "target": "chalk", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hyperlink.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hyperlink_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_supports_hyperlinks_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hyperlink.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hyperlink_ts", "target": "hyperlink_createhyperlink", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hyperlink.ts", "source_location": "L24", "weight": 1.0}], "raw_calls": [{"caller_nid": "hyperlink_createhyperlink", "callee": "supportsHyperlinks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hyperlink.ts", "source_location": "L29"}, {"caller_nid": "hyperlink_createhyperlink", "callee": "blue", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hyperlink.ts", "source_location": "L37"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_hyperlink_ts",
+      "label": "hyperlink.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hyperlink.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "hyperlink_createhyperlink",
+      "label": "createHyperlink()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hyperlink.ts",
+      "source_location": "L24"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hyperlink_ts",
+      "target": "chalk",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hyperlink.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hyperlink_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_supports_hyperlinks_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hyperlink.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hyperlink_ts",
+      "target": "hyperlink_createhyperlink",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hyperlink.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "hyperlink_createhyperlink",
+      "callee": "supportsHyperlinks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hyperlink.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "hyperlink_createhyperlink",
+      "callee": "blue",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hyperlink.ts",
+      "source_location": "L37"
+    }
+  ]
+}

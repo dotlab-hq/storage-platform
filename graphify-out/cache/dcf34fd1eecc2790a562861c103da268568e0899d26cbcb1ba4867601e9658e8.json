@@ -1,1 +1,1324 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "label": "index.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1"}, {"id": "index_createsyncstate", "label": "createSyncState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L121"}, {"id": "index_hashcontent", "label": "hashContent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L134"}, {"id": "index_iserrnoexception", "label": "isErrnoException()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L142"}, {"id": "index_isusingoauth", "label": "isUsingOAuth()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L151"}, {"id": "index_getteammemorysyncendpoint", "label": "getTeamMemorySyncEndpoint()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L163"}, {"id": "index_getauthheaders", "label": "getAuthHeaders()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L169"}, {"id": "index_fetchteammemoryonce", "label": "fetchTeamMemoryOnce()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L188"}, {"id": "index_fetchteammemoryhashes", "label": "fetchTeamMemoryHashes()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L315"}, {"id": "index_fetchteammemory", "label": "fetchTeamMemory()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L387"}, {"id": "index_batchdeltabybytes", "label": "batchDeltaByBytes()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L426"}, {"id": "index_uploadteammemory", "label": "uploadTeamMemory()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L462"}, {"id": "index_readlocalteammemory", "label": "readLocalTeamMemory()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L567"}, {"id": "index_writeremoteentriestolocal", "label": "writeRemoteEntriesToLocal()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L689"}, {"id": "index_isteammemorysyncavailable", "label": "isTeamMemorySyncAvailable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L762"}, {"id": "index_pullteammemory", "label": "pullTeamMemory()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L770"}, {"id": "index_pushteammemory", "label": "pushTeamMemory()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L889"}, {"id": "index_syncteammemory", "label": "syncTeamMemory()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1153"}, {"id": "index_logpull", "label": "logPull()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1195"}, {"id": "index_logpush", "label": "logPush()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1218"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "axios", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_memdir_teammempaths_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_array_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L47", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L48", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L49", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_providers_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L50", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sleep_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L54", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L55", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_useragent_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L56", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L57", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_metadata_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L58", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_services_api_withretry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L59", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_secretscanner_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L60", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L61", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_createsyncstate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L121", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_hashcontent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L134", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_iserrnoexception", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L142", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_isusingoauth", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L151", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_getteammemorysyncendpoint", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L163", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_getauthheaders", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L169", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_fetchteammemoryonce", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L188", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_fetchteammemoryhashes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L315", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_fetchteammemory", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L387", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_batchdeltabybytes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L426", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_uploadteammemory", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L462", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_readlocalteammemory", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L567", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_writeremoteentriestolocal", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L689", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_isteammemorysyncavailable", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L762", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_pullteammemory", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L770", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_pushteammemory", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L889", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_syncteammemory", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1153", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_logpull", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1195", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts", "target": "index_logpush", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1218", "weight": 1.0}, {"source": "index_fetchteammemoryonce", "target": "index_getauthheaders", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L196", "weight": 1.0}, {"source": "index_fetchteammemoryonce", "target": "index_getteammemorysyncendpoint", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L211", "weight": 1.0}, {"source": "index_fetchteammemoryhashes", "target": "index_getauthheaders", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L321", "weight": 1.0}, {"source": "index_fetchteammemoryhashes", "target": "index_getteammemorysyncendpoint", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L326", "weight": 1.0}, {"source": "index_fetchteammemory", "target": "index_fetchteammemoryonce", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L395", "weight": 1.0}, {"source": "index_uploadteammemory", "target": "index_getauthheaders", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L471", "weight": 1.0}, {"source": "index_uploadteammemory", "target": "index_getteammemorysyncendpoint", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L484", "weight": 1.0}, {"source": "index_isteammemorysyncavailable", "target": "index_isusingoauth", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L763", "weight": 1.0}, {"source": "index_pullteammemory", "target": "index_isusingoauth", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L784", "weight": 1.0}, {"source": "index_pullteammemory", "target": "index_logpull", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L785", "weight": 1.0}, {"source": "index_pullteammemory", "target": "index_fetchteammemory", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L806", "weight": 1.0}, {"source": "index_pullteammemory", "target": "index_writeremoteentriestolocal", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L851", "weight": 1.0}, {"source": "index_pushteammemory", "target": "index_isusingoauth", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L895", "weight": 1.0}, {"source": "index_pushteammemory", "target": "index_logpush", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L896", "weight": 1.0}, {"source": "index_pushteammemory", "target": "index_readlocalteammemory", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L921", "weight": 1.0}, {"source": "index_pushteammemory", "target": "index_hashcontent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L951", "weight": 1.0}, {"source": "index_pushteammemory", "target": "index_batchdeltabybytes", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L999", "weight": 1.0}, {"source": "index_pushteammemory", "target": "index_uploadteammemory", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1004", "weight": 1.0}, {"source": "index_pushteammemory", "target": "index_fetchteammemoryhashes", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1117", "weight": 1.0}, {"source": "index_syncteammemory", "target": "index_pullteammemory", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1160", "weight": 1.0}, {"source": "index_syncteammemory", "target": "index_pushteammemory", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1171", "weight": 1.0}], "raw_calls": [{"caller_nid": "index_hashcontent", "callee": "digest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L135"}, {"caller_nid": "index_hashcontent", "callee": "update", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L135"}, {"caller_nid": "index_hashcontent", "callee": "createHash", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L135"}, {"caller_nid": "index_isusingoauth", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L152"}, {"caller_nid": "index_isusingoauth", "callee": "isFirstPartyAnthropicBaseUrl", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L152"}, {"caller_nid": "index_isusingoauth", "callee": "getClaudeAIOAuthTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L155"}, {"caller_nid": "index_isusingoauth", "callee": "Boolean", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L156"}, {"caller_nid": "index_isusingoauth", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L158"}, {"caller_nid": "index_isusingoauth", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L159"}, {"caller_nid": "index_getteammemorysyncendpoint", "callee": "getOauthConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L165"}, {"caller_nid": "index_getteammemorysyncendpoint", "callee": "encodeURIComponent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L166"}, {"caller_nid": "index_getauthheaders", "callee": "getClaudeAIOAuthTokens", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L173"}, {"caller_nid": "index_getauthheaders", "callee": "getClaudeCodeUserAgent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L179"}, {"caller_nid": "index_fetchteammemoryonce", "callee": "checkAndRefreshOAuthTokenIfNeeded", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L194"}, {"caller_nid": "index_fetchteammemoryonce", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L208"}, {"caller_nid": "index_fetchteammemoryonce", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L212"}, {"caller_nid": "index_fetchteammemoryonce", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L220"}, {"caller_nid": "index_fetchteammemoryonce", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L227"}, {"caller_nid": "index_fetchteammemoryonce", "callee": "safeParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L234"}, {"caller_nid": "index_fetchteammemoryonce", "callee": "TeamMemoryDataSchema", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L234"}, {"caller_nid": "index_fetchteammemoryonce", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L236"}, {"caller_nid": "index_fetchteammemoryonce", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L250"}, {"caller_nid": "index_fetchteammemoryonce", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L256"}, {"caller_nid": "index_fetchteammemoryonce", "callee": "classifyAxiosError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L267"}, {"caller_nid": "index_fetchteammemoryonce", "callee": "isAxiosError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L268"}, {"caller_nid": "index_fetchteammemoryonce", "callee": "stringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L269"}, {"caller_nid": "index_fetchteammemoryonce", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L272"}, {"caller_nid": "index_fetchteammemoryhashes", "callee": "checkAndRefreshOAuthTokenIfNeeded", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L320"}, {"caller_nid": "index_fetchteammemoryhashes", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L327"}, {"caller_nid": "index_fetchteammemoryhashes", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L339"}, {"caller_nid": "index_fetchteammemoryhashes", "callee": "classifyAxiosError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L363"}, {"caller_nid": "index_fetchteammemory", "callee": "getRetryDelay", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L402"}, {"caller_nid": "index_fetchteammemory", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L403"}, {"caller_nid": "index_fetchteammemory", "callee": "sleep", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L406"}, {"caller_nid": "index_batchdeltabybytes", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L429"}, {"caller_nid": "index_batchdeltabybytes", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L429"}, {"caller_nid": "index_batchdeltabybytes", "callee": "byteLength", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L435"}, {"caller_nid": "index_batchdeltabybytes", "callee": "entryBytes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L446"}, {"caller_nid": "index_batchdeltabybytes", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L449"}, {"caller_nid": "index_batchdeltabybytes", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L451"}, {"caller_nid": "index_batchdeltabybytes", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L458"}, {"caller_nid": "index_uploadteammemory", "callee": "checkAndRefreshOAuthTokenIfNeeded", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L469"}, {"caller_nid": "index_uploadteammemory", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L481"}, {"caller_nid": "index_uploadteammemory", "callee": "put", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L485"}, {"caller_nid": "index_uploadteammemory", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L496"}, {"caller_nid": "index_uploadteammemory", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L507"}, {"caller_nid": "index_uploadteammemory", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L508"}, {"caller_nid": "index_uploadteammemory", "callee": "isAxiosError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L517"}, {"caller_nid": "index_uploadteammemory", "callee": "stringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L518"}, {"caller_nid": "index_uploadteammemory", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L520"}, {"caller_nid": "index_uploadteammemory", "callee": "classifyAxiosError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L524"}, {"caller_nid": "index_uploadteammemory", "callee": "isAxiosError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L533"}, {"caller_nid": "index_uploadteammemory", "callee": "safeParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L534"}, {"caller_nid": "index_uploadteammemory", "callee": "TeamMemoryTooManyEntriesSchema", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L534"}, {"caller_nid": "index_readlocalteammemory", "callee": "getTeamMemPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L571"}, {"caller_nid": "index_readlocalteammemory", "callee": "walkDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L635"}, {"caller_nid": "index_readlocalteammemory", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L654"}, {"caller_nid": "index_readlocalteammemory", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L654"}, {"caller_nid": "index_readlocalteammemory", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L656"}, {"caller_nid": "index_readlocalteammemory", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L657"}, {"caller_nid": "index_readlocalteammemory", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L658"}, {"caller_nid": "index_readlocalteammemory", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L661"}, {"caller_nid": "index_readlocalteammemory", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L667"}, {"caller_nid": "index_writeremoteentriestolocal", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L692"}, {"caller_nid": "index_writeremoteentriestolocal", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L693"}, {"caller_nid": "index_writeremoteentriestolocal", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L693"}, {"caller_nid": "index_writeremoteentriestolocal", "callee": "count", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L754"}, {"caller_nid": "index_pullteammemory", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L782"}, {"caller_nid": "index_pullteammemory", "callee": "getGithubRepo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L794"}, {"caller_nid": "index_pullteammemory", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L827"}, {"caller_nid": "index_pullteammemory", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L839"}, {"caller_nid": "index_pullteammemory", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L841"}, {"caller_nid": "index_pullteammemory", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L842"}, {"caller_nid": "index_pullteammemory", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L845"}, {"caller_nid": "index_pullteammemory", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L853"}, {"caller_nid": "index_pullteammemory", "callee": "clearMemoryFileCaches", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L854"}, {"caller_nid": "index_pullteammemory", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L856"}, {"caller_nid": "index_pullteammemory", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L865"}, {"caller_nid": "index_pushteammemory", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L892"}, {"caller_nid": "index_pushteammemory", "callee": "getGithubRepo", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L905"}, {"caller_nid": "index_pushteammemory", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L928"}, {"caller_nid": "index_pushteammemory", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L928"}, {"caller_nid": "index_pushteammemory", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L931"}, {"caller_nid": "index_pushteammemory", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L935"}, {"caller_nid": "index_pushteammemory", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L939"}, {"caller_nid": "index_pushteammemory", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L939"}, {"caller_nid": "index_pushteammemory", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L950"}, {"caller_nid": "index_pushteammemory", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L951"}, {"caller_nid": "index_pushteammemory", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L968"}, {"caller_nid": "index_pushteammemory", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L972"}, {"caller_nid": "index_pushteammemory", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1012"}, {"caller_nid": "index_pushteammemory", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1013"}, {"caller_nid": "index_pushteammemory", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1013"}, {"caller_nid": "index_pushteammemory", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1015"}, {"caller_nid": "index_pushteammemory", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1025"}, {"caller_nid": "index_pushteammemory", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1055"}, {"caller_nid": "index_pushteammemory", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1089"}, {"caller_nid": "index_pushteammemory", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1109"}, {"caller_nid": "index_pushteammemory", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1134"}, {"caller_nid": "index_pushteammemory", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1135"}, {"caller_nid": "index_pushteammemory", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1136"}, {"caller_nid": "index_syncteammemory", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1181"}, {"caller_nid": "index_logpull", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1205"}, {"caller_nid": "index_logpull", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1209"}, {"caller_nid": "index_logpush", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1233"}, {"caller_nid": "index_logpush", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts", "source_location": "L1238"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "index_createsyncstate",
+      "label": "createSyncState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L121"
+    },
+    {
+      "id": "index_hashcontent",
+      "label": "hashContent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L134"
+    },
+    {
+      "id": "index_iserrnoexception",
+      "label": "isErrnoException()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L142"
+    },
+    {
+      "id": "index_isusingoauth",
+      "label": "isUsingOAuth()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L151"
+    },
+    {
+      "id": "index_getteammemorysyncendpoint",
+      "label": "getTeamMemorySyncEndpoint()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L163"
+    },
+    {
+      "id": "index_getauthheaders",
+      "label": "getAuthHeaders()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L169"
+    },
+    {
+      "id": "index_fetchteammemoryonce",
+      "label": "fetchTeamMemoryOnce()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L188"
+    },
+    {
+      "id": "index_fetchteammemoryhashes",
+      "label": "fetchTeamMemoryHashes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L315"
+    },
+    {
+      "id": "index_fetchteammemory",
+      "label": "fetchTeamMemory()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L387"
+    },
+    {
+      "id": "index_batchdeltabybytes",
+      "label": "batchDeltaByBytes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L426"
+    },
+    {
+      "id": "index_uploadteammemory",
+      "label": "uploadTeamMemory()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L462"
+    },
+    {
+      "id": "index_readlocalteammemory",
+      "label": "readLocalTeamMemory()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L567"
+    },
+    {
+      "id": "index_writeremoteentriestolocal",
+      "label": "writeRemoteEntriesToLocal()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L689"
+    },
+    {
+      "id": "index_isteammemorysyncavailable",
+      "label": "isTeamMemorySyncAvailable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L762"
+    },
+    {
+      "id": "index_pullteammemory",
+      "label": "pullTeamMemory()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L770"
+    },
+    {
+      "id": "index_pushteammemory",
+      "label": "pushTeamMemory()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L889"
+    },
+    {
+      "id": "index_syncteammemory",
+      "label": "syncTeamMemory()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1153"
+    },
+    {
+      "id": "index_logpull",
+      "label": "logPull()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1195"
+    },
+    {
+      "id": "index_logpush",
+      "label": "logPush()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1218"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_constants_oauth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_memdir_teammempaths_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_array_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_providers_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sleep_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_useragent_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_metadata_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_api_withretry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_secretscanner_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_createsyncstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L121",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_hashcontent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_iserrnoexception",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L142",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_isusingoauth",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_getteammemorysyncendpoint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_getauthheaders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L169",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_fetchteammemoryonce",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L188",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_fetchteammemoryhashes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L315",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_fetchteammemory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L387",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_batchdeltabybytes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L426",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_uploadteammemory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L462",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_readlocalteammemory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L567",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_writeremoteentriestolocal",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L689",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_isteammemorysyncavailable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L762",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_pullteammemory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L770",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_pushteammemory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L889",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_syncteammemory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1153",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_logpull",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1195",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_teammemorysync_index_ts",
+      "target": "index_logpush",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1218",
+      "weight": 1.0
+    },
+    {
+      "source": "index_fetchteammemoryonce",
+      "target": "index_getauthheaders",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L196",
+      "weight": 1.0
+    },
+    {
+      "source": "index_fetchteammemoryonce",
+      "target": "index_getteammemorysyncendpoint",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L211",
+      "weight": 1.0
+    },
+    {
+      "source": "index_fetchteammemoryhashes",
+      "target": "index_getauthheaders",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L321",
+      "weight": 1.0
+    },
+    {
+      "source": "index_fetchteammemoryhashes",
+      "target": "index_getteammemorysyncendpoint",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L326",
+      "weight": 1.0
+    },
+    {
+      "source": "index_fetchteammemory",
+      "target": "index_fetchteammemoryonce",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L395",
+      "weight": 1.0
+    },
+    {
+      "source": "index_uploadteammemory",
+      "target": "index_getauthheaders",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L471",
+      "weight": 1.0
+    },
+    {
+      "source": "index_uploadteammemory",
+      "target": "index_getteammemorysyncendpoint",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L484",
+      "weight": 1.0
+    },
+    {
+      "source": "index_isteammemorysyncavailable",
+      "target": "index_isusingoauth",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L763",
+      "weight": 1.0
+    },
+    {
+      "source": "index_pullteammemory",
+      "target": "index_isusingoauth",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L784",
+      "weight": 1.0
+    },
+    {
+      "source": "index_pullteammemory",
+      "target": "index_logpull",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L785",
+      "weight": 1.0
+    },
+    {
+      "source": "index_pullteammemory",
+      "target": "index_fetchteammemory",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L806",
+      "weight": 1.0
+    },
+    {
+      "source": "index_pullteammemory",
+      "target": "index_writeremoteentriestolocal",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L851",
+      "weight": 1.0
+    },
+    {
+      "source": "index_pushteammemory",
+      "target": "index_isusingoauth",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L895",
+      "weight": 1.0
+    },
+    {
+      "source": "index_pushteammemory",
+      "target": "index_logpush",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L896",
+      "weight": 1.0
+    },
+    {
+      "source": "index_pushteammemory",
+      "target": "index_readlocalteammemory",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L921",
+      "weight": 1.0
+    },
+    {
+      "source": "index_pushteammemory",
+      "target": "index_hashcontent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L951",
+      "weight": 1.0
+    },
+    {
+      "source": "index_pushteammemory",
+      "target": "index_batchdeltabybytes",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L999",
+      "weight": 1.0
+    },
+    {
+      "source": "index_pushteammemory",
+      "target": "index_uploadteammemory",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1004",
+      "weight": 1.0
+    },
+    {
+      "source": "index_pushteammemory",
+      "target": "index_fetchteammemoryhashes",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1117",
+      "weight": 1.0
+    },
+    {
+      "source": "index_syncteammemory",
+      "target": "index_pullteammemory",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1160",
+      "weight": 1.0
+    },
+    {
+      "source": "index_syncteammemory",
+      "target": "index_pushteammemory",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1171",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "index_hashcontent",
+      "callee": "digest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "index_hashcontent",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "index_hashcontent",
+      "callee": "createHash",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L135"
+    },
+    {
+      "caller_nid": "index_isusingoauth",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "index_isusingoauth",
+      "callee": "isFirstPartyAnthropicBaseUrl",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "index_isusingoauth",
+      "callee": "getClaudeAIOAuthTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L155"
+    },
+    {
+      "caller_nid": "index_isusingoauth",
+      "callee": "Boolean",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "index_isusingoauth",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "index_isusingoauth",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "index_getteammemorysyncendpoint",
+      "callee": "getOauthConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "index_getteammemorysyncendpoint",
+      "callee": "encodeURIComponent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L166"
+    },
+    {
+      "caller_nid": "index_getauthheaders",
+      "callee": "getClaudeAIOAuthTokens",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "index_getauthheaders",
+      "callee": "getClaudeCodeUserAgent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryonce",
+      "callee": "checkAndRefreshOAuthTokenIfNeeded",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L194"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryonce",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L208"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryonce",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L212"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryonce",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L220"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryonce",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L227"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryonce",
+      "callee": "safeParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L234"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryonce",
+      "callee": "TeamMemoryDataSchema",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L234"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryonce",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L236"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryonce",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L250"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryonce",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L256"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryonce",
+      "callee": "classifyAxiosError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L267"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryonce",
+      "callee": "isAxiosError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L268"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryonce",
+      "callee": "stringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L269"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryonce",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L272"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryhashes",
+      "callee": "checkAndRefreshOAuthTokenIfNeeded",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L320"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryhashes",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L327"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryhashes",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L339"
+    },
+    {
+      "caller_nid": "index_fetchteammemoryhashes",
+      "callee": "classifyAxiosError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L363"
+    },
+    {
+      "caller_nid": "index_fetchteammemory",
+      "callee": "getRetryDelay",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L402"
+    },
+    {
+      "caller_nid": "index_fetchteammemory",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L403"
+    },
+    {
+      "caller_nid": "index_fetchteammemory",
+      "callee": "sleep",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L406"
+    },
+    {
+      "caller_nid": "index_batchdeltabybytes",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L429"
+    },
+    {
+      "caller_nid": "index_batchdeltabybytes",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L429"
+    },
+    {
+      "caller_nid": "index_batchdeltabybytes",
+      "callee": "byteLength",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L435"
+    },
+    {
+      "caller_nid": "index_batchdeltabybytes",
+      "callee": "entryBytes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L446"
+    },
+    {
+      "caller_nid": "index_batchdeltabybytes",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L449"
+    },
+    {
+      "caller_nid": "index_batchdeltabybytes",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L451"
+    },
+    {
+      "caller_nid": "index_batchdeltabybytes",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L458"
+    },
+    {
+      "caller_nid": "index_uploadteammemory",
+      "callee": "checkAndRefreshOAuthTokenIfNeeded",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L469"
+    },
+    {
+      "caller_nid": "index_uploadteammemory",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L481"
+    },
+    {
+      "caller_nid": "index_uploadteammemory",
+      "callee": "put",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L485"
+    },
+    {
+      "caller_nid": "index_uploadteammemory",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L496"
+    },
+    {
+      "caller_nid": "index_uploadteammemory",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L507"
+    },
+    {
+      "caller_nid": "index_uploadteammemory",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L508"
+    },
+    {
+      "caller_nid": "index_uploadteammemory",
+      "callee": "isAxiosError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L517"
+    },
+    {
+      "caller_nid": "index_uploadteammemory",
+      "callee": "stringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L518"
+    },
+    {
+      "caller_nid": "index_uploadteammemory",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L520"
+    },
+    {
+      "caller_nid": "index_uploadteammemory",
+      "callee": "classifyAxiosError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L524"
+    },
+    {
+      "caller_nid": "index_uploadteammemory",
+      "callee": "isAxiosError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L533"
+    },
+    {
+      "caller_nid": "index_uploadteammemory",
+      "callee": "safeParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L534"
+    },
+    {
+      "caller_nid": "index_uploadteammemory",
+      "callee": "TeamMemoryTooManyEntriesSchema",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L534"
+    },
+    {
+      "caller_nid": "index_readlocalteammemory",
+      "callee": "getTeamMemPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L571"
+    },
+    {
+      "caller_nid": "index_readlocalteammemory",
+      "callee": "walkDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L635"
+    },
+    {
+      "caller_nid": "index_readlocalteammemory",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L654"
+    },
+    {
+      "caller_nid": "index_readlocalteammemory",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L654"
+    },
+    {
+      "caller_nid": "index_readlocalteammemory",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L656"
+    },
+    {
+      "caller_nid": "index_readlocalteammemory",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L657"
+    },
+    {
+      "caller_nid": "index_readlocalteammemory",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L658"
+    },
+    {
+      "caller_nid": "index_readlocalteammemory",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L661"
+    },
+    {
+      "caller_nid": "index_readlocalteammemory",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L667"
+    },
+    {
+      "caller_nid": "index_writeremoteentriestolocal",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L692"
+    },
+    {
+      "caller_nid": "index_writeremoteentriestolocal",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L693"
+    },
+    {
+      "caller_nid": "index_writeremoteentriestolocal",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L693"
+    },
+    {
+      "caller_nid": "index_writeremoteentriestolocal",
+      "callee": "count",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L754"
+    },
+    {
+      "caller_nid": "index_pullteammemory",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L782"
+    },
+    {
+      "caller_nid": "index_pullteammemory",
+      "callee": "getGithubRepo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L794"
+    },
+    {
+      "caller_nid": "index_pullteammemory",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L827"
+    },
+    {
+      "caller_nid": "index_pullteammemory",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L839"
+    },
+    {
+      "caller_nid": "index_pullteammemory",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L841"
+    },
+    {
+      "caller_nid": "index_pullteammemory",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L842"
+    },
+    {
+      "caller_nid": "index_pullteammemory",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L845"
+    },
+    {
+      "caller_nid": "index_pullteammemory",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L853"
+    },
+    {
+      "caller_nid": "index_pullteammemory",
+      "callee": "clearMemoryFileCaches",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L854"
+    },
+    {
+      "caller_nid": "index_pullteammemory",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L856"
+    },
+    {
+      "caller_nid": "index_pullteammemory",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L865"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L892"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "getGithubRepo",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L905"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L928"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L928"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L931"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L935"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L939"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L939"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L950"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L951"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L968"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L972"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1012"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1013"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1013"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1015"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1025"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1055"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1089"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1109"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1134"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1135"
+    },
+    {
+      "caller_nid": "index_pushteammemory",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1136"
+    },
+    {
+      "caller_nid": "index_syncteammemory",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1181"
+    },
+    {
+      "caller_nid": "index_logpull",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1205"
+    },
+    {
+      "caller_nid": "index_logpull",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1209"
+    },
+    {
+      "caller_nid": "index_logpush",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1233"
+    },
+    {
+      "caller_nid": "index_logpush",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\teamMemorySync\\index.ts",
+      "source_location": "L1238"
+    }
+  ]
+}

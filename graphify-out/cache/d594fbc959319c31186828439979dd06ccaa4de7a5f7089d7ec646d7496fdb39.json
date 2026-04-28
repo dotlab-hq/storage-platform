@@ -1,1 +1,105 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_agent_agents_general_agent_ts", "label": "general-agent.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts", "source_location": "L1"}, {"id": "general_agent_generalagent", "label": "GeneralAgent", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts", "source_location": "L11"}, {"id": "general_agent_generalagent_gettools", "label": ".getTools()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts", "source_location": "L15"}, {"id": "general_agent_generalagent_createnode", "label": ".createNode()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts", "source_location": "L19"}], "edges": [{"source": "f_storage_platform_src_lib_agent_agents_general_agent_ts", "target": "tools", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_agent_agents_general_agent_ts", "target": "f_storage_platform_src_lib_agent_orchestration_graph", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_agent_agents_general_agent_ts", "target": "f_storage_platform_src_lib_agent_tools_math_tools", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_agent_agents_general_agent_ts", "target": "general_agent_generalagent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts", "source_location": "L11", "weight": 1.0}, {"source": "general_agent_generalagent", "target": "general_agent_generalagent_gettools", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts", "source_location": "L15", "weight": 1.0}, {"source": "general_agent_generalagent", "target": "general_agent_generalagent_createnode", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts", "source_location": "L19", "weight": 1.0}, {"source": "general_agent_generalagent_createnode", "target": "general_agent_generalagent_gettools", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts", "source_location": "L20", "weight": 1.0}], "raw_calls": [{"caller_nid": "general_agent_generalagent_createnode", "callee": "createWorkerNode", "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts", "source_location": "L20"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_agent_agents_general_agent_ts",
+      "label": "general-agent.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "general_agent_generalagent",
+      "label": "GeneralAgent",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts",
+      "source_location": "L11"
+    },
+    {
+      "id": "general_agent_generalagent_gettools",
+      "label": ".getTools()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts",
+      "source_location": "L15"
+    },
+    {
+      "id": "general_agent_generalagent_createnode",
+      "label": ".createNode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts",
+      "source_location": "L19"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_agent_agents_general_agent_ts",
+      "target": "tools",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_agent_agents_general_agent_ts",
+      "target": "f_storage_platform_src_lib_agent_orchestration_graph",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_agent_agents_general_agent_ts",
+      "target": "f_storage_platform_src_lib_agent_tools_math_tools",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_agent_agents_general_agent_ts",
+      "target": "general_agent_generalagent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "general_agent_generalagent",
+      "target": "general_agent_generalagent_gettools",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "general_agent_generalagent",
+      "target": "general_agent_generalagent_createnode",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "general_agent_generalagent_createnode",
+      "target": "general_agent_generalagent_gettools",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "general_agent_generalagent_createnode",
+      "callee": "createWorkerNode",
+      "source_file": "F:\\storage-platform\\src\\lib\\agent\\agents\\general-agent.ts",
+      "source_location": "L20"
+    }
+  ]
+}

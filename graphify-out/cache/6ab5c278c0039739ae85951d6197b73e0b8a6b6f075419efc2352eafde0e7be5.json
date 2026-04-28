@@ -1,1 +1,119 @@
-{"nodes": [{"id": "f_storage_platform_src_hooks_use_qr_offer_ts", "label": "use-qr-offer.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts", "source_location": "L1"}, {"id": "use_qr_offer_usecreateqroffer", "label": "useCreateQrOffer()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts", "source_location": "L14"}, {"id": "use_qr_offer_usepollqrstatus", "label": "usePollQrStatus()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts", "source_location": "L49"}], "edges": [{"source": "f_storage_platform_src_hooks_use_qr_offer_ts", "target": "react_query", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_qr_offer_ts", "target": "react_query", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_qr_offer_ts", "target": "qrcode", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_qr_offer_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_qr_offer_ts", "target": "hot_server", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_qr_offer_ts", "target": "hot_server", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_qr_offer_ts", "target": "use_qr_offer_usecreateqroffer", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_src_hooks_use_qr_offer_ts", "target": "use_qr_offer_usepollqrstatus", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts", "source_location": "L49", "weight": 1.0}], "raw_calls": [{"caller_nid": "use_qr_offer_usecreateqroffer", "callee": "useState", "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts", "source_location": "L15"}, {"caller_nid": "use_qr_offer_usecreateqroffer", "callee": "useMutation", "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts", "source_location": "L17"}, {"caller_nid": "use_qr_offer_usepollqrstatus", "callee": "useQuery", "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts", "source_location": "L53"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_hooks_use_qr_offer_ts",
+      "label": "use-qr-offer.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "use_qr_offer_usecreateqroffer",
+      "label": "useCreateQrOffer()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts",
+      "source_location": "L14"
+    },
+    {
+      "id": "use_qr_offer_usepollqrstatus",
+      "label": "usePollQrStatus()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts",
+      "source_location": "L49"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_hooks_use_qr_offer_ts",
+      "target": "react_query",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_qr_offer_ts",
+      "target": "react_query",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_qr_offer_ts",
+      "target": "qrcode",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_qr_offer_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_qr_offer_ts",
+      "target": "hot_server",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_qr_offer_ts",
+      "target": "hot_server",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_qr_offer_ts",
+      "target": "use_qr_offer_usecreateqroffer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_hooks_use_qr_offer_ts",
+      "target": "use_qr_offer_usepollqrstatus",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "use_qr_offer_usecreateqroffer",
+      "callee": "useState",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts",
+      "source_location": "L15"
+    },
+    {
+      "caller_nid": "use_qr_offer_usecreateqroffer",
+      "callee": "useMutation",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "use_qr_offer_usepollqrstatus",
+      "callee": "useQuery",
+      "source_file": "F:\\storage-platform\\src\\hooks\\use-qr-offer.ts",
+      "source_location": "L53"
+    }
+  ]
+}

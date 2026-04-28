@@ -1,1 +1,213 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_device_index_tsx", "label": "index.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L1"}, {"id": "index_verifycode", "label": "verifyCode()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L38"}, {"id": "index_handlesubmit", "label": "handleSubmit()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L60"}, {"id": "index_gotoapprove", "label": "goToApprove()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L66"}], "edges": [{"source": "f_storage_platform_src_routes_device_index_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_device_index_tsx", "target": "react_router", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_device_index_tsx", "target": "auth_client", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_routes_device_index_tsx", "target": "button", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_routes_device_index_tsx", "target": "input", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_routes_device_index_tsx", "target": "label", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_src_routes_device_index_tsx", "target": "card", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_routes_device_index_tsx", "target": "sonner", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_src_routes_device_index_tsx", "target": "lucide_react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_src_routes_device_index_tsx", "target": "index_verifycode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L38", "weight": 1.0}, {"source": "f_storage_platform_src_routes_device_index_tsx", "target": "index_handlesubmit", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L60", "weight": 1.0}, {"source": "f_storage_platform_src_routes_device_index_tsx", "target": "index_gotoapprove", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L66", "weight": 1.0}, {"source": "index_handlesubmit", "target": "index_verifycode", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L63", "weight": 1.0}], "raw_calls": [{"caller_nid": "index_verifycode", "callee": "setLoading", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L39"}, {"caller_nid": "index_verifycode", "callee": "device", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L41"}, {"caller_nid": "index_verifycode", "callee": "setCodeInfo", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L50"}, {"caller_nid": "index_verifycode", "callee": "setError", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L51"}, {"caller_nid": "index_verifycode", "callee": "setError", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L54"}, {"caller_nid": "index_verifycode", "callee": "setLoading", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L56"}, {"caller_nid": "index_handlesubmit", "callee": "preventDefault", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L61"}, {"caller_nid": "index_handlesubmit", "callee": "trim", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L62"}, {"caller_nid": "index_handlesubmit", "callee": "trim", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L63"}, {"caller_nid": "index_gotoapprove", "callee": "encodeURIComponent", "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx", "source_location": "L68"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_device_index_tsx",
+      "label": "index.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "index_verifycode",
+      "label": "verifyCode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L38"
+    },
+    {
+      "id": "index_handlesubmit",
+      "label": "handleSubmit()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L60"
+    },
+    {
+      "id": "index_gotoapprove",
+      "label": "goToApprove()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L66"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_device_index_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_device_index_tsx",
+      "target": "react_router",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_device_index_tsx",
+      "target": "auth_client",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_device_index_tsx",
+      "target": "button",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_device_index_tsx",
+      "target": "input",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_device_index_tsx",
+      "target": "label",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_device_index_tsx",
+      "target": "card",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_device_index_tsx",
+      "target": "sonner",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_device_index_tsx",
+      "target": "lucide_react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_device_index_tsx",
+      "target": "index_verifycode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_device_index_tsx",
+      "target": "index_handlesubmit",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_device_index_tsx",
+      "target": "index_gotoapprove",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "index_handlesubmit",
+      "target": "index_verifycode",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L63",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "index_verifycode",
+      "callee": "setLoading",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "index_verifycode",
+      "callee": "device",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "index_verifycode",
+      "callee": "setCodeInfo",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "index_verifycode",
+      "callee": "setError",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "index_verifycode",
+      "callee": "setError",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L54"
+    },
+    {
+      "caller_nid": "index_verifycode",
+      "callee": "setLoading",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "index_handlesubmit",
+      "callee": "preventDefault",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "index_handlesubmit",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "index_handlesubmit",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "index_gotoapprove",
+      "callee": "encodeURIComponent",
+      "source_file": "F:\\storage-platform\\src\\routes\\device\\index.tsx",
+      "source_location": "L68"
+    }
+  ]
+}

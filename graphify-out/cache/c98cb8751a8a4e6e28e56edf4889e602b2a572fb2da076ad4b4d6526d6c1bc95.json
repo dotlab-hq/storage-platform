@@ -1,1 +1,115 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_lsptool_symbolcontext_ts", "label": "symbolContext.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts", "source_location": "L1"}, {"id": "symbolcontext_getsymbolatposition", "label": "getSymbolAtPosition()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts", "source_location": "L21"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_symbolcontext_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_symbolcontext_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_format_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_symbolcontext_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_symbolcontext_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_path_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_symbolcontext_ts", "target": "symbolcontext_getsymbolatposition", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts", "source_location": "L21", "weight": 1.0}], "raw_calls": [{"caller_nid": "symbolcontext_getsymbolatposition", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts", "source_location": "L27"}, {"caller_nid": "symbolcontext_getsymbolatposition", "callee": "expandPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts", "source_location": "L28"}, {"caller_nid": "symbolcontext_getsymbolatposition", "callee": "readSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts", "source_location": "L35"}, {"caller_nid": "symbolcontext_getsymbolatposition", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts", "source_location": "L38"}, {"caller_nid": "symbolcontext_getsymbolatposition", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts", "source_location": "L39"}, {"caller_nid": "symbolcontext_getsymbolatposition", "callee": "exec", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts", "source_location": "L65"}, {"caller_nid": "symbolcontext_getsymbolatposition", "callee": "truncate", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts", "source_location": "L73"}, {"caller_nid": "symbolcontext_getsymbolatposition", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts", "source_location": "L82"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_lsptool_symbolcontext_ts",
+      "label": "symbolContext.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "symbolcontext_getsymbolatposition",
+      "label": "getSymbolAtPosition()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts",
+      "source_location": "L21"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_symbolcontext_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_symbolcontext_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_format_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_symbolcontext_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_symbolcontext_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_path_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_lsptool_symbolcontext_ts",
+      "target": "symbolcontext_getsymbolatposition",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "symbolcontext_getsymbolatposition",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "symbolcontext_getsymbolatposition",
+      "callee": "expandPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "symbolcontext_getsymbolatposition",
+      "callee": "readSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "symbolcontext_getsymbolatposition",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "symbolcontext_getsymbolatposition",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "symbolcontext_getsymbolatposition",
+      "callee": "exec",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "symbolcontext_getsymbolatposition",
+      "callee": "truncate",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "symbolcontext_getsymbolatposition",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\LSPTool\\symbolContext.ts",
+      "source_location": "L82"
+    }
+  ]
+}

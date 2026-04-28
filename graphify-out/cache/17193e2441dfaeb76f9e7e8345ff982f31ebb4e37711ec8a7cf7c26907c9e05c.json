@@ -1,1 +1,463 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts", "label": "ccrSession.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L1"}, {"id": "ccrsession_ultraplanpollerror", "label": "UltraplanPollError", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L34"}, {"id": "ccrsession_ultraplanpollerror_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L35"}, {"id": "ccrsession_exitplanmodescanner", "label": "ExitPlanModeScanner", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L80"}, {"id": "ccrsession_exitplanmodescanner_rejectcount", "label": ".rejectCount()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L88"}, {"id": "ccrsession_exitplanmodescanner_haspendingplan", "label": ".hasPendingPlan()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L96"}, {"id": "ccrsession_exitplanmodescanner_ingest", "label": ".ingest()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L101"}, {"id": "ccrsession_pollforapprovedexitplanmode", "label": "pollForApprovedExitPlanMode()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L198"}, {"id": "ccrsession_contenttotext", "label": "contentToText()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L310"}, {"id": "ccrsession_extractteleportplan", "label": "extractTeleportPlan()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L321"}, {"id": "ccrsession_extractapprovedplan", "label": "extractApprovedPlan()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L333"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts", "target": "resources", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts", "target": "f_storage_platform_claude_code_source_main_src_entrypoints_agentsdktypes_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_exitplanmodetool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sleep_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_api_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts", "target": "ccrsession_ultraplanpollerror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L34", "weight": 1.0}, {"source": "ccrsession_ultraplanpollerror", "target": "ccrsession_ultraplanpollerror_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts", "target": "ccrsession_exitplanmodescanner", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L80", "weight": 1.0}, {"source": "ccrsession_exitplanmodescanner", "target": "ccrsession_exitplanmodescanner_rejectcount", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L88", "weight": 1.0}, {"source": "ccrsession_exitplanmodescanner", "target": "ccrsession_exitplanmodescanner_haspendingplan", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L96", "weight": 1.0}, {"source": "ccrsession_exitplanmodescanner", "target": "ccrsession_exitplanmodescanner_ingest", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L101", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts", "target": "ccrsession_pollforapprovedexitplanmode", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L198", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts", "target": "ccrsession_contenttotext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L310", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts", "target": "ccrsession_extractteleportplan", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L321", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts", "target": "ccrsession_extractapprovedplan", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L333", "weight": 1.0}, {"source": "ccrsession_exitplanmodescanner_ingest", "target": "ccrsession_extractteleportplan", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L149", "weight": 1.0}, {"source": "ccrsession_exitplanmodescanner_ingest", "target": "ccrsession_extractapprovedplan", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L155", "weight": 1.0}, {"source": "ccrsession_pollforapprovedexitplanmode", "target": "ccrsession_exitplanmodescanner_ingest", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L245", "weight": 1.0}, {"source": "ccrsession_extractteleportplan", "target": "ccrsession_contenttotext", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L324", "weight": 1.0}, {"source": "ccrsession_extractapprovedplan", "target": "ccrsession_contenttotext", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L334", "weight": 1.0}], "raw_calls": [{"caller_nid": "ccrsession_ultraplanpollerror_constructor", "callee": "super", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L41"}, {"caller_nid": "ccrsession_exitplanmodescanner_haspendingplan", "callee": "findLast", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L97"}, {"caller_nid": "ccrsession_exitplanmodescanner_haspendingplan", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L98"}, {"caller_nid": "ccrsession_exitplanmodescanner_ingest", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L108"}, {"caller_nid": "ccrsession_exitplanmodescanner_ingest", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L113"}, {"caller_nid": "ccrsession_exitplanmodescanner_ingest", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L116"}, {"caller_nid": "ccrsession_exitplanmodescanner_ingest", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L144"}, {"caller_nid": "ccrsession_exitplanmodescanner_ingest", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L145"}, {"caller_nid": "ccrsession_exitplanmodescanner_ingest", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L166"}, {"caller_nid": "ccrsession_pollforapprovedexitplanmode", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L204"}, {"caller_nid": "ccrsession_pollforapprovedexitplanmode", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L210"}, {"caller_nid": "ccrsession_pollforapprovedexitplanmode", "callee": "shouldStop", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L211"}, {"caller_nid": "ccrsession_pollforapprovedexitplanmode", "callee": "pollRemoteSessionEvents", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L224"}, {"caller_nid": "ccrsession_pollforapprovedexitplanmode", "callee": "isTransientNetworkError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L230"}, {"caller_nid": "ccrsession_pollforapprovedexitplanmode", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L233"}, {"caller_nid": "ccrsession_pollforapprovedexitplanmode", "callee": "sleep", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L239"}, {"caller_nid": "ccrsession_pollforapprovedexitplanmode", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L248"}, {"caller_nid": "ccrsession_pollforapprovedexitplanmode", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L292"}, {"caller_nid": "ccrsession_pollforapprovedexitplanmode", "callee": "onPhaseChange", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L294"}, {"caller_nid": "ccrsession_pollforapprovedexitplanmode", "callee": "sleep", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L296"}, {"caller_nid": "ccrsession_contenttotext", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L313"}, {"caller_nid": "ccrsession_contenttotext", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L314"}, {"caller_nid": "ccrsession_contenttotext", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L314"}, {"caller_nid": "ccrsession_extractteleportplan", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L326"}, {"caller_nid": "ccrsession_extractteleportplan", "callee": "trimEnd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L328"}, {"caller_nid": "ccrsession_extractteleportplan", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L328"}, {"caller_nid": "ccrsession_extractapprovedplan", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L341"}, {"caller_nid": "ccrsession_extractapprovedplan", "callee": "trimEnd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L343"}, {"caller_nid": "ccrsession_extractapprovedplan", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L343"}, {"caller_nid": "ccrsession_extractapprovedplan", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts", "source_location": "L347"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts",
+      "label": "ccrSession.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "ccrsession_ultraplanpollerror",
+      "label": "UltraplanPollError",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L34"
+    },
+    {
+      "id": "ccrsession_ultraplanpollerror_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L35"
+    },
+    {
+      "id": "ccrsession_exitplanmodescanner",
+      "label": "ExitPlanModeScanner",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L80"
+    },
+    {
+      "id": "ccrsession_exitplanmodescanner_rejectcount",
+      "label": ".rejectCount()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L88"
+    },
+    {
+      "id": "ccrsession_exitplanmodescanner_haspendingplan",
+      "label": ".hasPendingPlan()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L96"
+    },
+    {
+      "id": "ccrsession_exitplanmodescanner_ingest",
+      "label": ".ingest()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L101"
+    },
+    {
+      "id": "ccrsession_pollforapprovedexitplanmode",
+      "label": "pollForApprovedExitPlanMode()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L198"
+    },
+    {
+      "id": "ccrsession_contenttotext",
+      "label": "contentToText()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L310"
+    },
+    {
+      "id": "ccrsession_extractteleportplan",
+      "label": "extractTeleportPlan()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L321"
+    },
+    {
+      "id": "ccrsession_extractapprovedplan",
+      "label": "extractApprovedPlan()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L333"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts",
+      "target": "resources",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_entrypoints_agentsdktypes_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_exitplanmodetool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sleep_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_api_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts",
+      "target": "ccrsession_ultraplanpollerror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "ccrsession_ultraplanpollerror",
+      "target": "ccrsession_ultraplanpollerror_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts",
+      "target": "ccrsession_exitplanmodescanner",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "ccrsession_exitplanmodescanner",
+      "target": "ccrsession_exitplanmodescanner_rejectcount",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "ccrsession_exitplanmodescanner",
+      "target": "ccrsession_exitplanmodescanner_haspendingplan",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "ccrsession_exitplanmodescanner",
+      "target": "ccrsession_exitplanmodescanner_ingest",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts",
+      "target": "ccrsession_pollforapprovedexitplanmode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L198",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts",
+      "target": "ccrsession_contenttotext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L310",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts",
+      "target": "ccrsession_extractteleportplan",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L321",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_ultraplan_ccrsession_ts",
+      "target": "ccrsession_extractapprovedplan",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L333",
+      "weight": 1.0
+    },
+    {
+      "source": "ccrsession_exitplanmodescanner_ingest",
+      "target": "ccrsession_extractteleportplan",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "ccrsession_exitplanmodescanner_ingest",
+      "target": "ccrsession_extractapprovedplan",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L155",
+      "weight": 1.0
+    },
+    {
+      "source": "ccrsession_pollforapprovedexitplanmode",
+      "target": "ccrsession_exitplanmodescanner_ingest",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L245",
+      "weight": 1.0
+    },
+    {
+      "source": "ccrsession_extractteleportplan",
+      "target": "ccrsession_contenttotext",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L324",
+      "weight": 1.0
+    },
+    {
+      "source": "ccrsession_extractapprovedplan",
+      "target": "ccrsession_contenttotext",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L334",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "ccrsession_ultraplanpollerror_constructor",
+      "callee": "super",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "ccrsession_exitplanmodescanner_haspendingplan",
+      "callee": "findLast",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "ccrsession_exitplanmodescanner_haspendingplan",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L98"
+    },
+    {
+      "caller_nid": "ccrsession_exitplanmodescanner_ingest",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L108"
+    },
+    {
+      "caller_nid": "ccrsession_exitplanmodescanner_ingest",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "ccrsession_exitplanmodescanner_ingest",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "ccrsession_exitplanmodescanner_ingest",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "ccrsession_exitplanmodescanner_ingest",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "ccrsession_exitplanmodescanner_ingest",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L166"
+    },
+    {
+      "caller_nid": "ccrsession_pollforapprovedexitplanmode",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L204"
+    },
+    {
+      "caller_nid": "ccrsession_pollforapprovedexitplanmode",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L210"
+    },
+    {
+      "caller_nid": "ccrsession_pollforapprovedexitplanmode",
+      "callee": "shouldStop",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L211"
+    },
+    {
+      "caller_nid": "ccrsession_pollforapprovedexitplanmode",
+      "callee": "pollRemoteSessionEvents",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L224"
+    },
+    {
+      "caller_nid": "ccrsession_pollforapprovedexitplanmode",
+      "callee": "isTransientNetworkError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L230"
+    },
+    {
+      "caller_nid": "ccrsession_pollforapprovedexitplanmode",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L233"
+    },
+    {
+      "caller_nid": "ccrsession_pollforapprovedexitplanmode",
+      "callee": "sleep",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L239"
+    },
+    {
+      "caller_nid": "ccrsession_pollforapprovedexitplanmode",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L248"
+    },
+    {
+      "caller_nid": "ccrsession_pollforapprovedexitplanmode",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L292"
+    },
+    {
+      "caller_nid": "ccrsession_pollforapprovedexitplanmode",
+      "callee": "onPhaseChange",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L294"
+    },
+    {
+      "caller_nid": "ccrsession_pollforapprovedexitplanmode",
+      "callee": "sleep",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L296"
+    },
+    {
+      "caller_nid": "ccrsession_contenttotext",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L313"
+    },
+    {
+      "caller_nid": "ccrsession_contenttotext",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L314"
+    },
+    {
+      "caller_nid": "ccrsession_contenttotext",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L314"
+    },
+    {
+      "caller_nid": "ccrsession_extractteleportplan",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L326"
+    },
+    {
+      "caller_nid": "ccrsession_extractteleportplan",
+      "callee": "trimEnd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L328"
+    },
+    {
+      "caller_nid": "ccrsession_extractteleportplan",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L328"
+    },
+    {
+      "caller_nid": "ccrsession_extractapprovedplan",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L341"
+    },
+    {
+      "caller_nid": "ccrsession_extractapprovedplan",
+      "callee": "trimEnd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L343"
+    },
+    {
+      "caller_nid": "ccrsession_extractapprovedplan",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L343"
+    },
+    {
+      "caller_nid": "ccrsession_extractapprovedplan",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\ultraplan\\ccrSession.ts",
+      "source_location": "L347"
+    }
+  ]
+}

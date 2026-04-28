@@ -1,1 +1,166 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_s3_gateway_s3_stored_object_ts", "label": "s3-stored-object.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L1"}, {"id": "s3_stored_object_findstoredobject", "label": "findStoredObject()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L18"}], "edges": [{"source": "f_storage_platform_src_lib_s3_gateway_s3_stored_object_ts", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_stored_object_ts", "target": "storage", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_stored_object_ts", "target": "s3_context", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_stored_object_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_stored_object_ts", "target": "f_storage_platform_src_lib_s3_gateway_upload_key_utils", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_stored_object_ts", "target": "s3_stored_object_findstoredobject", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L18", "weight": 1.0}], "raw_calls": [{"caller_nid": "s3_stored_object_findstoredobject", "callee": "buildUpstreamObjectKey", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L22"}, {"caller_nid": "s3_stored_object_findstoredobject", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L29"}, {"caller_nid": "s3_stored_object_findstoredobject", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L29"}, {"caller_nid": "s3_stored_object_findstoredobject", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L29"}, {"caller_nid": "s3_stored_object_findstoredobject", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L29"}, {"caller_nid": "s3_stored_object_findstoredobject", "callee": "and", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L42"}, {"caller_nid": "s3_stored_object_findstoredobject", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L43"}, {"caller_nid": "s3_stored_object_findstoredobject", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L44"}, {"caller_nid": "s3_stored_object_findstoredobject", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L45"}, {"caller_nid": "s3_stored_object_findstoredobject", "callee": "warn", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L56"}, {"caller_nid": "s3_stored_object_findstoredobject", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L61"}, {"caller_nid": "s3_stored_object_findstoredobject", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L61"}, {"caller_nid": "s3_stored_object_findstoredobject", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L61"}, {"caller_nid": "s3_stored_object_findstoredobject", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L61"}, {"caller_nid": "s3_stored_object_findstoredobject", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts", "source_location": "L69"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_s3_gateway_s3_stored_object_ts",
+      "label": "s3-stored-object.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "s3_stored_object_findstoredobject",
+      "label": "findStoredObject()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L18"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_stored_object_ts",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_stored_object_ts",
+      "target": "storage",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_stored_object_ts",
+      "target": "s3_context",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_stored_object_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_stored_object_ts",
+      "target": "f_storage_platform_src_lib_s3_gateway_upload_key_utils",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_stored_object_ts",
+      "target": "s3_stored_object_findstoredobject",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "s3_stored_object_findstoredobject",
+      "callee": "buildUpstreamObjectKey",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L22"
+    },
+    {
+      "caller_nid": "s3_stored_object_findstoredobject",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "s3_stored_object_findstoredobject",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "s3_stored_object_findstoredobject",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "s3_stored_object_findstoredobject",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "s3_stored_object_findstoredobject",
+      "callee": "and",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "s3_stored_object_findstoredobject",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "s3_stored_object_findstoredobject",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "s3_stored_object_findstoredobject",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "s3_stored_object_findstoredobject",
+      "callee": "warn",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "s3_stored_object_findstoredobject",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "s3_stored_object_findstoredobject",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "s3_stored_object_findstoredobject",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "s3_stored_object_findstoredobject",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "s3_stored_object_findstoredobject",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-stored-object.ts",
+      "source_location": "L69"
+    }
+  ]
+}

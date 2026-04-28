@@ -1,1 +1,455 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "label": "dumpPrompts.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L1"}, {"id": "dumpprompts_hashstring", "label": "hashString()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L9"}, {"id": "dumpprompts_getlastapirequests", "label": "getLastApiRequests()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L29"}, {"id": "dumpprompts_clearapirequestcache", "label": "clearApiRequestCache()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L36"}, {"id": "dumpprompts_cleardumpstate", "label": "clearDumpState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L40"}, {"id": "dumpprompts_clearalldumpstate", "label": "clearAllDumpState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L44"}, {"id": "dumpprompts_addapirequesttocache", "label": "addApiRequestToCache()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L48"}, {"id": "dumpprompts_getdumppromptspath", "label": "getDumpPromptsPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L59"}, {"id": "dumpprompts_appendtofile", "label": "appendToFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L67"}, {"id": "dumpprompts_initfingerprint", "label": "initFingerprint()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L74"}, {"id": "dumpprompts_dumprequest", "label": "dumpRequest()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L90"}, {"id": "dumpprompts_createdumppromptsfetch", "label": "createDumpPromptsFetch()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L146"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "sdk", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "fs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "state_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "dumpprompts_hashstring", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "dumpprompts_getlastapirequests", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "dumpprompts_clearapirequestcache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L36", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "dumpprompts_cleardumpstate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L40", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "dumpprompts_clearalldumpstate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L44", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "dumpprompts_addapirequesttocache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L48", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "dumpprompts_getdumppromptspath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L59", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "dumpprompts_appendtofile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L67", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "dumpprompts_initfingerprint", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L74", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "dumpprompts_dumprequest", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L90", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts", "target": "dumpprompts_createdumppromptsfetch", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L146", "weight": 1.0}, {"source": "dumpprompts_dumprequest", "target": "dumpprompts_addapirequesttocache", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L98", "weight": 1.0}, {"source": "dumpprompts_dumprequest", "target": "dumpprompts_initfingerprint", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L108", "weight": 1.0}, {"source": "dumpprompts_dumprequest", "target": "dumpprompts_hashstring", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L112", "weight": 1.0}, {"source": "dumpprompts_dumprequest", "target": "dumpprompts_appendtofile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L140", "weight": 1.0}, {"source": "dumpprompts_createdumppromptsfetch", "target": "dumpprompts_getdumppromptspath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L149", "weight": 1.0}], "raw_calls": [{"caller_nid": "dumpprompts_hashstring", "callee": "digest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L10"}, {"caller_nid": "dumpprompts_hashstring", "callee": "update", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L10"}, {"caller_nid": "dumpprompts_hashstring", "callee": "createHash", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L10"}, {"caller_nid": "dumpprompts_cleardumpstate", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L41"}, {"caller_nid": "dumpprompts_clearalldumpstate", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L45"}, {"caller_nid": "dumpprompts_addapirequesttocache", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L50"}, {"caller_nid": "dumpprompts_addapirequesttocache", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L51"}, {"caller_nid": "dumpprompts_addapirequesttocache", "callee": "shift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L55"}, {"caller_nid": "dumpprompts_getdumppromptspath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L60"}, {"caller_nid": "dumpprompts_getdumppromptspath", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L61"}, {"caller_nid": "dumpprompts_getdumppromptspath", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L63"}, {"caller_nid": "dumpprompts_appendtofile", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L69"}, {"caller_nid": "dumpprompts_appendtofile", "callee": "then", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L69"}, {"caller_nid": "dumpprompts_appendtofile", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L69"}, {"caller_nid": "dumpprompts_appendtofile", "callee": "dirname", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L69"}, {"caller_nid": "dumpprompts_initfingerprint", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L80"}, {"caller_nid": "dumpprompts_initfingerprint", "callee": "reduce", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L81"}, {"caller_nid": "dumpprompts_initfingerprint", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L86"}, {"caller_nid": "dumpprompts_initfingerprint", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L86"}, {"caller_nid": "dumpprompts_dumprequest", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L97"}, {"caller_nid": "dumpprompts_dumprequest", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L111"}, {"caller_nid": "dumpprompts_dumprequest", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L119"}, {"caller_nid": "dumpprompts_dumprequest", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L124"}, {"caller_nid": "dumpprompts_dumprequest", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L131"}, {"caller_nid": "dumpprompts_dumprequest", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L133"}, {"caller_nid": "dumpprompts_dumprequest", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts", "source_location": "L134"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "label": "dumpPrompts.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "dumpprompts_hashstring",
+      "label": "hashString()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L9"
+    },
+    {
+      "id": "dumpprompts_getlastapirequests",
+      "label": "getLastApiRequests()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L29"
+    },
+    {
+      "id": "dumpprompts_clearapirequestcache",
+      "label": "clearApiRequestCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L36"
+    },
+    {
+      "id": "dumpprompts_cleardumpstate",
+      "label": "clearDumpState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L40"
+    },
+    {
+      "id": "dumpprompts_clearalldumpstate",
+      "label": "clearAllDumpState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L44"
+    },
+    {
+      "id": "dumpprompts_addapirequesttocache",
+      "label": "addApiRequestToCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L48"
+    },
+    {
+      "id": "dumpprompts_getdumppromptspath",
+      "label": "getDumpPromptsPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L59"
+    },
+    {
+      "id": "dumpprompts_appendtofile",
+      "label": "appendToFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L67"
+    },
+    {
+      "id": "dumpprompts_initfingerprint",
+      "label": "initFingerprint()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L74"
+    },
+    {
+      "id": "dumpprompts_dumprequest",
+      "label": "dumpRequest()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L90"
+    },
+    {
+      "id": "dumpprompts_createdumppromptsfetch",
+      "label": "createDumpPromptsFetch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L146"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "sdk",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "fs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "state_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "dumpprompts_hashstring",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "dumpprompts_getlastapirequests",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "dumpprompts_clearapirequestcache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "dumpprompts_cleardumpstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "dumpprompts_clearalldumpstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "dumpprompts_addapirequesttocache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "dumpprompts_getdumppromptspath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "dumpprompts_appendtofile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "dumpprompts_initfingerprint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "dumpprompts_dumprequest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_dumpprompts_ts",
+      "target": "dumpprompts_createdumppromptsfetch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L146",
+      "weight": 1.0
+    },
+    {
+      "source": "dumpprompts_dumprequest",
+      "target": "dumpprompts_addapirequesttocache",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "dumpprompts_dumprequest",
+      "target": "dumpprompts_initfingerprint",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "dumpprompts_dumprequest",
+      "target": "dumpprompts_hashstring",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "dumpprompts_dumprequest",
+      "target": "dumpprompts_appendtofile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L140",
+      "weight": 1.0
+    },
+    {
+      "source": "dumpprompts_createdumppromptsfetch",
+      "target": "dumpprompts_getdumppromptspath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L149",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "dumpprompts_hashstring",
+      "callee": "digest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L10"
+    },
+    {
+      "caller_nid": "dumpprompts_hashstring",
+      "callee": "update",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L10"
+    },
+    {
+      "caller_nid": "dumpprompts_hashstring",
+      "callee": "createHash",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L10"
+    },
+    {
+      "caller_nid": "dumpprompts_cleardumpstate",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "dumpprompts_clearalldumpstate",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "dumpprompts_addapirequesttocache",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "dumpprompts_addapirequesttocache",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "dumpprompts_addapirequesttocache",
+      "callee": "shift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "dumpprompts_getdumppromptspath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "dumpprompts_getdumppromptspath",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "dumpprompts_getdumppromptspath",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "dumpprompts_appendtofile",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "dumpprompts_appendtofile",
+      "callee": "then",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "dumpprompts_appendtofile",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "dumpprompts_appendtofile",
+      "callee": "dirname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "dumpprompts_initfingerprint",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L80"
+    },
+    {
+      "caller_nid": "dumpprompts_initfingerprint",
+      "callee": "reduce",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "dumpprompts_initfingerprint",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "dumpprompts_initfingerprint",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "dumpprompts_dumprequest",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "dumpprompts_dumprequest",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "dumpprompts_dumprequest",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "dumpprompts_dumprequest",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "dumpprompts_dumprequest",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "dumpprompts_dumprequest",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "dumpprompts_dumprequest",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\dumpPrompts.ts",
+      "source_location": "L134"
+    }
+  ]
+}

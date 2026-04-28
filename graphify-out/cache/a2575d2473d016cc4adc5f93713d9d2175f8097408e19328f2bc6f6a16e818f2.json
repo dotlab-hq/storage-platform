@@ -1,1 +1,61 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_file_summary_ollama_client_ts", "label": "ollama-client.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\ollama-client.ts", "source_location": "L1"}, {"id": "ollama_client_createsummarymodelclient", "label": "createSummaryModelClient()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\ollama-client.ts", "source_location": "L4"}], "edges": [{"source": "f_storage_platform_src_lib_file_summary_ollama_client_ts", "target": "ollama", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\ollama-client.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_ollama_client_ts", "target": "f_storage_platform_src_lib_file_summary_config", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\ollama-client.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_file_summary_ollama_client_ts", "target": "ollama_client_createsummarymodelclient", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\ollama-client.ts", "source_location": "L4", "weight": 1.0}], "raw_calls": [{"caller_nid": "ollama_client_createsummarymodelclient", "callee": "getFileSummaryModelName", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\ollama-client.ts", "source_location": "L6"}, {"caller_nid": "ollama_client_createsummarymodelclient", "callee": "getFileSummaryOllamaBaseUrl", "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\ollama-client.ts", "source_location": "L7"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_file_summary_ollama_client_ts",
+      "label": "ollama-client.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\ollama-client.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "ollama_client_createsummarymodelclient",
+      "label": "createSummaryModelClient()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\ollama-client.ts",
+      "source_location": "L4"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_file_summary_ollama_client_ts",
+      "target": "ollama",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\ollama-client.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_ollama_client_ts",
+      "target": "f_storage_platform_src_lib_file_summary_config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\ollama-client.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_file_summary_ollama_client_ts",
+      "target": "ollama_client_createsummarymodelclient",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\ollama-client.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "ollama_client_createsummarymodelclient",
+      "callee": "getFileSummaryModelName",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\ollama-client.ts",
+      "source_location": "L6"
+    },
+    {
+      "caller_nid": "ollama_client_createsummarymodelclient",
+      "callee": "getFileSummaryOllamaBaseUrl",
+      "source_file": "F:\\storage-platform\\src\\lib\\file-summary\\ollama-client.ts",
+      "source_location": "L7"
+    }
+  ]
+}

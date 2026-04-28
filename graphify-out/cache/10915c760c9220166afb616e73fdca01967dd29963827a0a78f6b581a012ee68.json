@@ -1,1 +1,167 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_server_functions_quota_server_ts", "label": "quota.server.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L1"}, {"id": "quota_server_tononnegativebytes", "label": "toNonNegativeBytes()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L16"}, {"id": "quota_server_getuserquotasnapshotbyuserid", "label": "getUserQuotaSnapshotByUserId()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L26"}], "edges": [{"source": "f_storage_platform_src_lib_server_functions_quota_server_ts", "target": "server_only", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_server_functions_quota_server_ts", "target": "drizzle_orm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_server_functions_quota_server_ts", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_server_functions_quota_server_ts", "target": "storage", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_lib_server_functions_quota_server_ts", "target": "storage_quota_constants", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_lib_server_functions_quota_server_ts", "target": "quota_server_tononnegativebytes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_src_lib_server_functions_quota_server_ts", "target": "quota_server_getuserquotasnapshotbyuserid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L26", "weight": 1.0}, {"source": "quota_server_getuserquotasnapshotbyuserid", "target": "quota_server_tononnegativebytes", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L63", "weight": 1.0}], "raw_calls": [{"caller_nid": "quota_server_tononnegativebytes", "callee": "isFinite", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L20"}, {"caller_nid": "quota_server_tononnegativebytes", "callee": "max", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L23"}, {"caller_nid": "quota_server_getuserquotasnapshotbyuserid", "callee": "limit", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L29"}, {"caller_nid": "quota_server_getuserquotasnapshotbyuserid", "callee": "where", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L29"}, {"caller_nid": "quota_server_getuserquotasnapshotbyuserid", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L29"}, {"caller_nid": "quota_server_getuserquotasnapshotbyuserid", "callee": "select", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L29"}, {"caller_nid": "quota_server_getuserquotasnapshotbyuserid", "callee": "eq", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L36"}, {"caller_nid": "quota_server_getuserquotasnapshotbyuserid", "callee": "returning", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L40"}, {"caller_nid": "quota_server_getuserquotasnapshotbyuserid", "callee": "onConflictDoNothing", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L40"}, {"caller_nid": "quota_server_getuserquotasnapshotbyuserid", "callee": "values", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L40"}, {"caller_nid": "quota_server_getuserquotasnapshotbyuserid", "callee": "insert", "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts", "source_location": "L40"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_server_functions_quota_server_ts",
+      "label": "quota.server.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "quota_server_tononnegativebytes",
+      "label": "toNonNegativeBytes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "quota_server_getuserquotasnapshotbyuserid",
+      "label": "getUserQuotaSnapshotByUserId()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L26"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_server_functions_quota_server_ts",
+      "target": "server_only",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_server_functions_quota_server_ts",
+      "target": "drizzle_orm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_server_functions_quota_server_ts",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_server_functions_quota_server_ts",
+      "target": "storage",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_server_functions_quota_server_ts",
+      "target": "storage_quota_constants",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_server_functions_quota_server_ts",
+      "target": "quota_server_tononnegativebytes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_server_functions_quota_server_ts",
+      "target": "quota_server_getuserquotasnapshotbyuserid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "quota_server_getuserquotasnapshotbyuserid",
+      "target": "quota_server_tononnegativebytes",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L63",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "quota_server_tononnegativebytes",
+      "callee": "isFinite",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L20"
+    },
+    {
+      "caller_nid": "quota_server_tononnegativebytes",
+      "callee": "max",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "quota_server_getuserquotasnapshotbyuserid",
+      "callee": "limit",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "quota_server_getuserquotasnapshotbyuserid",
+      "callee": "where",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "quota_server_getuserquotasnapshotbyuserid",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "quota_server_getuserquotasnapshotbyuserid",
+      "callee": "select",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "quota_server_getuserquotasnapshotbyuserid",
+      "callee": "eq",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "quota_server_getuserquotasnapshotbyuserid",
+      "callee": "returning",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "quota_server_getuserquotasnapshotbyuserid",
+      "callee": "onConflictDoNothing",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "quota_server_getuserquotasnapshotbyuserid",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "quota_server_getuserquotasnapshotbyuserid",
+      "callee": "insert",
+      "source_file": "F:\\storage-platform\\src\\lib\\server-functions\\quota.server.ts",
+      "source_location": "L40"
+    }
+  ]
+}

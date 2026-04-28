@@ -1,1 +1,180 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts", "label": "diagLogs.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L1"}, {"id": "diaglogs_logfordiagnosticsnopii", "label": "logForDiagnosticsNoPII()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L27"}, {"id": "diaglogs_getdiagnosticlogfile", "label": "getDiagnosticLogFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L59"}, {"id": "diaglogs_withdiagnosticstiming", "label": "withDiagnosticsTiming()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L72"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts", "target": "diaglogs_logfordiagnosticsnopii", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts", "target": "diaglogs_getdiagnosticlogfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L59", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts", "target": "diaglogs_withdiagnosticstiming", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L72", "weight": 1.0}, {"source": "diaglogs_logfordiagnosticsnopii", "target": "diaglogs_getdiagnosticlogfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L32", "weight": 1.0}, {"source": "diaglogs_withdiagnosticstiming", "target": "diaglogs_logfordiagnosticsnopii", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L78", "weight": 1.0}], "raw_calls": [{"caller_nid": "diaglogs_logfordiagnosticsnopii", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L38"}, {"caller_nid": "diaglogs_logfordiagnosticsnopii", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L44"}, {"caller_nid": "diaglogs_logfordiagnosticsnopii", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L45"}, {"caller_nid": "diaglogs_logfordiagnosticsnopii", "callee": "appendFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L47"}, {"caller_nid": "diaglogs_logfordiagnosticsnopii", "callee": "mkdirSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L51"}, {"caller_nid": "diaglogs_logfordiagnosticsnopii", "callee": "dirname", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L51"}, {"caller_nid": "diaglogs_logfordiagnosticsnopii", "callee": "appendFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L52"}, {"caller_nid": "diaglogs_withdiagnosticstiming", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L77"}, {"caller_nid": "diaglogs_withdiagnosticstiming", "callee": "fn", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L81"}, {"caller_nid": "diaglogs_withdiagnosticstiming", "callee": "getData", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L82"}, {"caller_nid": "diaglogs_withdiagnosticstiming", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L84"}, {"caller_nid": "diaglogs_withdiagnosticstiming", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts", "source_location": "L90"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts",
+      "label": "diagLogs.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "diaglogs_logfordiagnosticsnopii",
+      "label": "logForDiagnosticsNoPII()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L27"
+    },
+    {
+      "id": "diaglogs_getdiagnosticlogfile",
+      "label": "getDiagnosticLogFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L59"
+    },
+    {
+      "id": "diaglogs_withdiagnosticstiming",
+      "label": "withDiagnosticsTiming()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L72"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts",
+      "target": "diaglogs_logfordiagnosticsnopii",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts",
+      "target": "diaglogs_getdiagnosticlogfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_diaglogs_ts",
+      "target": "diaglogs_withdiagnosticstiming",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "diaglogs_logfordiagnosticsnopii",
+      "target": "diaglogs_getdiagnosticlogfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "diaglogs_withdiagnosticstiming",
+      "target": "diaglogs_logfordiagnosticsnopii",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L78",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "diaglogs_logfordiagnosticsnopii",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "diaglogs_logfordiagnosticsnopii",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "diaglogs_logfordiagnosticsnopii",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "diaglogs_logfordiagnosticsnopii",
+      "callee": "appendFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "diaglogs_logfordiagnosticsnopii",
+      "callee": "mkdirSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "diaglogs_logfordiagnosticsnopii",
+      "callee": "dirname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "diaglogs_logfordiagnosticsnopii",
+      "callee": "appendFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "diaglogs_withdiagnosticstiming",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "diaglogs_withdiagnosticstiming",
+      "callee": "fn",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "diaglogs_withdiagnosticstiming",
+      "callee": "getData",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "diaglogs_withdiagnosticstiming",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "diaglogs_withdiagnosticstiming",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\diagLogs.ts",
+      "source_location": "L90"
+    }
+  ]
+}

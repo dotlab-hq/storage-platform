@@ -1,1 +1,162 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_telemetry_logger_ts", "label": "logger.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L1"}, {"id": "logger_claudecodediaglogger", "label": "ClaudeCodeDiagLogger", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L4"}, {"id": "logger_claudecodediaglogger_error", "label": ".error()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L5"}, {"id": "logger_claudecodediaglogger_warn", "label": ".warn()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L11"}, {"id": "logger_claudecodediaglogger_info", "label": ".info()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L17"}, {"id": "logger_claudecodediaglogger_debug", "label": ".debug()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L20"}, {"id": "logger_claudecodediaglogger_verbose", "label": ".verbose()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L23"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_logger_ts", "target": "api", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_logger_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_logger_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_logger_ts", "target": "logger_claudecodediaglogger", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L4", "weight": 1.0}, {"source": "logger_claudecodediaglogger", "target": "logger_claudecodediaglogger_error", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L5", "weight": 1.0}, {"source": "logger_claudecodediaglogger", "target": "logger_claudecodediaglogger_warn", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L11", "weight": 1.0}, {"source": "logger_claudecodediaglogger", "target": "logger_claudecodediaglogger_info", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L17", "weight": 1.0}, {"source": "logger_claudecodediaglogger", "target": "logger_claudecodediaglogger_debug", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L20", "weight": 1.0}, {"source": "logger_claudecodediaglogger", "target": "logger_claudecodediaglogger_verbose", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L23", "weight": 1.0}], "raw_calls": [{"caller_nid": "logger_claudecodediaglogger_error", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L6"}, {"caller_nid": "logger_claudecodediaglogger_error", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L7"}, {"caller_nid": "logger_claudecodediaglogger_warn", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L12"}, {"caller_nid": "logger_claudecodediaglogger_warn", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts", "source_location": "L13"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_telemetry_logger_ts",
+      "label": "logger.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "logger_claudecodediaglogger",
+      "label": "ClaudeCodeDiagLogger",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "logger_claudecodediaglogger_error",
+      "label": ".error()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L5"
+    },
+    {
+      "id": "logger_claudecodediaglogger_warn",
+      "label": ".warn()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L11"
+    },
+    {
+      "id": "logger_claudecodediaglogger_info",
+      "label": ".info()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L17"
+    },
+    {
+      "id": "logger_claudecodediaglogger_debug",
+      "label": ".debug()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L20"
+    },
+    {
+      "id": "logger_claudecodediaglogger_verbose",
+      "label": ".verbose()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L23"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_logger_ts",
+      "target": "api",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_logger_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_logger_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_logger_ts",
+      "target": "logger_claudecodediaglogger",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "logger_claudecodediaglogger",
+      "target": "logger_claudecodediaglogger_error",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "logger_claudecodediaglogger",
+      "target": "logger_claudecodediaglogger_warn",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "logger_claudecodediaglogger",
+      "target": "logger_claudecodediaglogger_info",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "logger_claudecodediaglogger",
+      "target": "logger_claudecodediaglogger_debug",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "logger_claudecodediaglogger",
+      "target": "logger_claudecodediaglogger_verbose",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "logger_claudecodediaglogger_error",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L6"
+    },
+    {
+      "caller_nid": "logger_claudecodediaglogger_error",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L7"
+    },
+    {
+      "caller_nid": "logger_claudecodediaglogger_warn",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L12"
+    },
+    {
+      "caller_nid": "logger_claudecodediaglogger_warn",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\logger.ts",
+      "source_location": "L13"
+    }
+  ]
+}

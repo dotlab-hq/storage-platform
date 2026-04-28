@@ -1,1 +1,204 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts", "label": "shellRuleMatching.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L1"}, {"id": "shellrulematching_permissionruleextractprefix", "label": "permissionRuleExtractPrefix()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L43"}, {"id": "shellrulematching_haswildcards", "label": "hasWildcards()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L54"}, {"id": "shellrulematching_matchwildcardpattern", "label": "matchWildcardPattern()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L90"}, {"id": "shellrulematching_parsepermissionrule", "label": "parsePermissionRule()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L159"}, {"id": "shellrulematching_suggestionforexactcommand", "label": "suggestionForExactCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L189"}, {"id": "shellrulematching_suggestionforprefix", "label": "suggestionForPrefix()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L211"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionupdateschema_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts", "target": "shellrulematching_permissionruleextractprefix", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts", "target": "shellrulematching_haswildcards", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L54", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts", "target": "shellrulematching_matchwildcardpattern", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L90", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts", "target": "shellrulematching_parsepermissionrule", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L159", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts", "target": "shellrulematching_suggestionforexactcommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L189", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts", "target": "shellrulematching_suggestionforprefix", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L211", "weight": 1.0}, {"source": "shellrulematching_parsepermissionrule", "target": "shellrulematching_permissionruleextractprefix", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L163", "weight": 1.0}, {"source": "shellrulematching_parsepermissionrule", "target": "shellrulematching_haswildcards", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L172", "weight": 1.0}], "raw_calls": [{"caller_nid": "shellrulematching_permissionruleextractprefix", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L46"}, {"caller_nid": "shellrulematching_haswildcards", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L56"}, {"caller_nid": "shellrulematching_matchwildcardpattern", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L96"}, {"caller_nid": "shellrulematching_matchwildcardpattern", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L126"}, {"caller_nid": "shellrulematching_matchwildcardpattern", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L129"}, {"caller_nid": "shellrulematching_matchwildcardpattern", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L132"}, {"caller_nid": "shellrulematching_matchwildcardpattern", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L132"}, {"caller_nid": "shellrulematching_matchwildcardpattern", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L142"}, {"caller_nid": "shellrulematching_matchwildcardpattern", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L143"}, {"caller_nid": "shellrulematching_matchwildcardpattern", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L144"}, {"caller_nid": "shellrulematching_matchwildcardpattern", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts", "source_location": "L153"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts",
+      "label": "shellRuleMatching.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "shellrulematching_permissionruleextractprefix",
+      "label": "permissionRuleExtractPrefix()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "shellrulematching_haswildcards",
+      "label": "hasWildcards()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L54"
+    },
+    {
+      "id": "shellrulematching_matchwildcardpattern",
+      "label": "matchWildcardPattern()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L90"
+    },
+    {
+      "id": "shellrulematching_parsepermissionrule",
+      "label": "parsePermissionRule()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L159"
+    },
+    {
+      "id": "shellrulematching_suggestionforexactcommand",
+      "label": "suggestionForExactCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L189"
+    },
+    {
+      "id": "shellrulematching_suggestionforprefix",
+      "label": "suggestionForPrefix()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L211"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionupdateschema_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts",
+      "target": "shellrulematching_permissionruleextractprefix",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts",
+      "target": "shellrulematching_haswildcards",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts",
+      "target": "shellrulematching_matchwildcardpattern",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts",
+      "target": "shellrulematching_parsepermissionrule",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts",
+      "target": "shellrulematching_suggestionforexactcommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L189",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_permissions_shellrulematching_ts",
+      "target": "shellrulematching_suggestionforprefix",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L211",
+      "weight": 1.0
+    },
+    {
+      "source": "shellrulematching_parsepermissionrule",
+      "target": "shellrulematching_permissionruleextractprefix",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "shellrulematching_parsepermissionrule",
+      "target": "shellrulematching_haswildcards",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L172",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "shellrulematching_permissionruleextractprefix",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "shellrulematching_haswildcards",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "shellrulematching_matchwildcardpattern",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "shellrulematching_matchwildcardpattern",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "shellrulematching_matchwildcardpattern",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L129"
+    },
+    {
+      "caller_nid": "shellrulematching_matchwildcardpattern",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "shellrulematching_matchwildcardpattern",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "shellrulematching_matchwildcardpattern",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "shellrulematching_matchwildcardpattern",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "shellrulematching_matchwildcardpattern",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "shellrulematching_matchwildcardpattern",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\permissions\\shellRuleMatching.ts",
+      "source_location": "L153"
+    }
+  ]
+}

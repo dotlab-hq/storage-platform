@@ -1,1 +1,193 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts", "label": "iTermBackup.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L1"}, {"id": "itermbackup_markiterm2setupcomplete", "label": "markITerm2SetupComplete()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L7"}, {"id": "itermbackup_getiterm2recoveryinfo", "label": "getIterm2RecoveryInfo()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L14"}, {"id": "itermbackup_getiterm2plistpath", "label": "getITerm2PlistPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L25"}, {"id": "itermbackup_checkandrestoreiterm2backup", "label": "checkAndRestoreITerm2Backup()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L43"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts", "target": "os", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts", "target": "itermbackup_markiterm2setupcomplete", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts", "target": "itermbackup_getiterm2recoveryinfo", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts", "target": "itermbackup_getiterm2plistpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts", "target": "itermbackup_checkandrestoreiterm2backup", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L43", "weight": 1.0}, {"source": "itermbackup_checkandrestoreiterm2backup", "target": "itermbackup_getiterm2recoveryinfo", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L44", "weight": 1.0}, {"source": "itermbackup_checkandrestoreiterm2backup", "target": "itermbackup_markiterm2setupcomplete", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L50", "weight": 1.0}, {"source": "itermbackup_checkandrestoreiterm2backup", "target": "itermbackup_getiterm2plistpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L62", "weight": 1.0}], "raw_calls": [{"caller_nid": "itermbackup_markiterm2setupcomplete", "callee": "saveGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L8"}, {"caller_nid": "itermbackup_getiterm2recoveryinfo", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L18"}, {"caller_nid": "itermbackup_getiterm2plistpath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L26"}, {"caller_nid": "itermbackup_getiterm2plistpath", "callee": "homedir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L27"}, {"caller_nid": "itermbackup_checkandrestoreiterm2backup", "callee": "stat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L55"}, {"caller_nid": "itermbackup_checkandrestoreiterm2backup", "callee": "copyFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L62"}, {"caller_nid": "itermbackup_checkandrestoreiterm2backup", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts", "source_location": "L67"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts",
+      "label": "iTermBackup.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "itermbackup_markiterm2setupcomplete",
+      "label": "markITerm2SetupComplete()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "itermbackup_getiterm2recoveryinfo",
+      "label": "getIterm2RecoveryInfo()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L14"
+    },
+    {
+      "id": "itermbackup_getiterm2plistpath",
+      "label": "getITerm2PlistPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L25"
+    },
+    {
+      "id": "itermbackup_checkandrestoreiterm2backup",
+      "label": "checkAndRestoreITerm2Backup()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L43"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts",
+      "target": "os",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts",
+      "target": "itermbackup_markiterm2setupcomplete",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts",
+      "target": "itermbackup_getiterm2recoveryinfo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts",
+      "target": "itermbackup_getiterm2plistpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_itermbackup_ts",
+      "target": "itermbackup_checkandrestoreiterm2backup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "itermbackup_checkandrestoreiterm2backup",
+      "target": "itermbackup_getiterm2recoveryinfo",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "itermbackup_checkandrestoreiterm2backup",
+      "target": "itermbackup_markiterm2setupcomplete",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "itermbackup_checkandrestoreiterm2backup",
+      "target": "itermbackup_getiterm2plistpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "itermbackup_markiterm2setupcomplete",
+      "callee": "saveGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L8"
+    },
+    {
+      "caller_nid": "itermbackup_getiterm2recoveryinfo",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "itermbackup_getiterm2plistpath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "itermbackup_getiterm2plistpath",
+      "callee": "homedir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "itermbackup_checkandrestoreiterm2backup",
+      "callee": "stat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "itermbackup_checkandrestoreiterm2backup",
+      "callee": "copyFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "itermbackup_checkandrestoreiterm2backup",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\iTermBackup.ts",
+      "source_location": "L67"
+    }
+  ]
+}

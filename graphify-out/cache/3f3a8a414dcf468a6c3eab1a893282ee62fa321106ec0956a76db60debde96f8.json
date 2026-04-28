@@ -1,1 +1,96 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts", "label": "privacyLevel.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts", "source_location": "L1"}, {"id": "privacylevel_getprivacylevel", "label": "getPrivacyLevel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts", "source_location": "L20"}, {"id": "privacylevel_isessentialtrafficonly", "label": "isEssentialTrafficOnly()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts", "source_location": "L34"}, {"id": "privacylevel_istelemetrydisabled", "label": "isTelemetryDisabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts", "source_location": "L42"}, {"id": "privacylevel_getessentialtrafficonlyreason", "label": "getEssentialTrafficOnlyReason()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts", "source_location": "L50"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts", "target": "privacylevel_getprivacylevel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts", "target": "privacylevel_isessentialtrafficonly", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts", "source_location": "L34", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts", "target": "privacylevel_istelemetrydisabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts", "target": "privacylevel_getessentialtrafficonlyreason", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts", "source_location": "L50", "weight": 1.0}, {"source": "privacylevel_isessentialtrafficonly", "target": "privacylevel_getprivacylevel", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts", "source_location": "L35", "weight": 1.0}, {"source": "privacylevel_istelemetrydisabled", "target": "privacylevel_getprivacylevel", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts", "source_location": "L43", "weight": 1.0}], "raw_calls": []}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts",
+      "label": "privacyLevel.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "privacylevel_getprivacylevel",
+      "label": "getPrivacyLevel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts",
+      "source_location": "L20"
+    },
+    {
+      "id": "privacylevel_isessentialtrafficonly",
+      "label": "isEssentialTrafficOnly()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts",
+      "source_location": "L34"
+    },
+    {
+      "id": "privacylevel_istelemetrydisabled",
+      "label": "isTelemetryDisabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts",
+      "source_location": "L42"
+    },
+    {
+      "id": "privacylevel_getessentialtrafficonlyreason",
+      "label": "getEssentialTrafficOnlyReason()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts",
+      "source_location": "L50"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts",
+      "target": "privacylevel_getprivacylevel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts",
+      "target": "privacylevel_isessentialtrafficonly",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts",
+      "target": "privacylevel_istelemetrydisabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_privacylevel_ts",
+      "target": "privacylevel_getessentialtrafficonlyreason",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "privacylevel_isessentialtrafficonly",
+      "target": "privacylevel_getprivacylevel",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "privacylevel_istelemetrydisabled",
+      "target": "privacylevel_getprivacylevel",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\privacyLevel.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": []
+}

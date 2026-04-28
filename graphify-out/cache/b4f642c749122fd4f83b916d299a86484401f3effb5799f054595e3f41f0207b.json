@@ -1,1 +1,131 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_s3_gateway_s3_audit_ts", "label": "s3-audit.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L1"}, {"id": "s3_audit_records3audit", "label": "recordS3Audit()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L18"}, {"id": "s3_audit_infers3operation", "label": "inferS3Operation()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L34"}], "edges": [{"source": "f_storage_platform_src_lib_s3_gateway_s3_audit_ts", "target": "db", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_audit_ts", "target": "s3_security", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_audit_ts", "target": "s3_audit_records3audit", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_src_lib_s3_gateway_s3_audit_ts", "target": "s3_audit_infers3operation", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L34", "weight": 1.0}], "raw_calls": [{"caller_nid": "s3_audit_records3audit", "callee": "values", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L19"}, {"caller_nid": "s3_audit_records3audit", "callee": "insert", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L19"}, {"caller_nid": "s3_audit_infers3operation", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L36"}, {"caller_nid": "s3_audit_infers3operation", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L37"}, {"caller_nid": "s3_audit_infers3operation", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L38"}, {"caller_nid": "s3_audit_infers3operation", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L46"}, {"caller_nid": "s3_audit_infers3operation", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L48"}, {"caller_nid": "s3_audit_infers3operation", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L50"}, {"caller_nid": "s3_audit_infers3operation", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L52"}, {"caller_nid": "s3_audit_infers3operation", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L54"}, {"caller_nid": "s3_audit_infers3operation", "callee": "has", "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts", "source_location": "L56"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_s3_gateway_s3_audit_ts",
+      "label": "s3-audit.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "s3_audit_records3audit",
+      "label": "recordS3Audit()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L18"
+    },
+    {
+      "id": "s3_audit_infers3operation",
+      "label": "inferS3Operation()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L34"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_audit_ts",
+      "target": "db",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_audit_ts",
+      "target": "s3_security",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_audit_ts",
+      "target": "s3_audit_records3audit",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_s3_gateway_s3_audit_ts",
+      "target": "s3_audit_infers3operation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "s3_audit_records3audit",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "s3_audit_records3audit",
+      "callee": "insert",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "s3_audit_infers3operation",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "s3_audit_infers3operation",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "s3_audit_infers3operation",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "s3_audit_infers3operation",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "s3_audit_infers3operation",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "s3_audit_infers3operation",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "s3_audit_infers3operation",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "s3_audit_infers3operation",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L54"
+    },
+    {
+      "caller_nid": "s3_audit_infers3operation",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\src\\lib\\s3-gateway\\s3-audit.ts",
+      "source_location": "L56"
+    }
+  ]
+}

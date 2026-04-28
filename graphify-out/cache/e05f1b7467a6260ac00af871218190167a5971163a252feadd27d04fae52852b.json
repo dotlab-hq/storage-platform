@@ -1,1 +1,490 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "label": "fileChangedWatcher.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L1"}, {"id": "filechangedwatcher_setenvhooknotifier", "label": "setEnvHookNotifier()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L22"}, {"id": "filechangedwatcher_initializefilechangedwatcher", "label": "initializeFileChangedWatcher()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L28"}, {"id": "filechangedwatcher_resolvewatchpaths", "label": "resolveWatchPaths()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L48"}, {"id": "filechangedwatcher_startwatching", "label": "startWatching()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L67"}, {"id": "filechangedwatcher_handlefileevent", "label": "handleFileEvent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L80"}, {"id": "filechangedwatcher_updatewatchpaths", "label": "updateWatchPaths()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L108"}, {"id": "filechangedwatcher_restartwatching", "label": "restartWatching()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L122"}, {"id": "filechangedwatcher_oncwdchangedforhooks", "label": "onCwdChangedForHooks()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L133"}, {"id": "filechangedwatcher_dispose", "label": "dispose()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L177"}, {"id": "filechangedwatcher_resetfilechangedwatcherfortesting", "label": "resetFileChangedWatcherForTesting()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L189"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "chokidar", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sessionenvironment_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_hooksconfigsnapshot_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "filechangedwatcher_setenvhooknotifier", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "filechangedwatcher_initializefilechangedwatcher", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "filechangedwatcher_resolvewatchpaths", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L48", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "filechangedwatcher_startwatching", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L67", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "filechangedwatcher_handlefileevent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L80", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "filechangedwatcher_updatewatchpaths", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L108", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "filechangedwatcher_restartwatching", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L122", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "filechangedwatcher_oncwdchangedforhooks", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L133", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "filechangedwatcher_dispose", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L177", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "target": "filechangedwatcher_resetfilechangedwatcherfortesting", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L189", "weight": 1.0}, {"source": "filechangedwatcher_initializefilechangedwatcher", "target": "filechangedwatcher_resolvewatchpaths", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L42", "weight": 1.0}, {"source": "filechangedwatcher_initializefilechangedwatcher", "target": "filechangedwatcher_startwatching", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L45", "weight": 1.0}, {"source": "filechangedwatcher_updatewatchpaths", "target": "filechangedwatcher_restartwatching", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L119", "weight": 1.0}, {"source": "filechangedwatcher_restartwatching", "target": "filechangedwatcher_resolvewatchpaths", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L127", "weight": 1.0}, {"source": "filechangedwatcher_restartwatching", "target": "filechangedwatcher_startwatching", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L129", "weight": 1.0}, {"source": "filechangedwatcher_oncwdchangedforhooks", "target": "filechangedwatcher_restartwatching", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L173", "weight": 1.0}, {"source": "filechangedwatcher_resetfilechangedwatcherfortesting", "target": "filechangedwatcher_dispose", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L190", "weight": 1.0}], "raw_calls": [{"caller_nid": "filechangedwatcher_initializefilechangedwatcher", "callee": "getHooksConfigFromSnapshot", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L33"}, {"caller_nid": "filechangedwatcher_initializefilechangedwatcher", "callee": "registerCleanup", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L39"}, {"caller_nid": "filechangedwatcher_resolvewatchpaths", "callee": "getHooksConfigFromSnapshot", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L51"}, {"caller_nid": "filechangedwatcher_resolvewatchpaths", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L57"}, {"caller_nid": "filechangedwatcher_resolvewatchpaths", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L57"}, {"caller_nid": "filechangedwatcher_resolvewatchpaths", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L59"}, {"caller_nid": "filechangedwatcher_resolvewatchpaths", "callee": "isAbsolute", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L59"}, {"caller_nid": "filechangedwatcher_resolvewatchpaths", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L59"}, {"caller_nid": "filechangedwatcher_startwatching", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L68"}, {"caller_nid": "filechangedwatcher_startwatching", "callee": "watch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L69"}, {"caller_nid": "filechangedwatcher_startwatching", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L75"}, {"caller_nid": "filechangedwatcher_startwatching", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L76"}, {"caller_nid": "filechangedwatcher_startwatching", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L77"}, {"caller_nid": "filechangedwatcher_handlefileevent", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L84"}, {"caller_nid": "filechangedwatcher_handlefileevent", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L85"}, {"caller_nid": "filechangedwatcher_handlefileevent", "callee": "then", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L85"}, {"caller_nid": "filechangedwatcher_handlefileevent", "callee": "executeFileChangedHooks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L85"}, {"caller_nid": "filechangedwatcher_updatewatchpaths", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L110"}, {"caller_nid": "filechangedwatcher_updatewatchpaths", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L110"}, {"caller_nid": "filechangedwatcher_updatewatchpaths", "callee": "every", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L113"}, {"caller_nid": "filechangedwatcher_restartwatching", "callee": "close", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L124"}, {"caller_nid": "filechangedwatcher_oncwdchangedforhooks", "callee": "getHooksConfigFromSnapshot", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L140"}, {"caller_nid": "filechangedwatcher_oncwdchangedforhooks", "callee": "clearCwdEnvFiles", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L147"}, {"caller_nid": "filechangedwatcher_oncwdchangedforhooks", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L148"}, {"caller_nid": "filechangedwatcher_oncwdchangedforhooks", "callee": "executeCwdChangedHooks", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L148"}, {"caller_nid": "filechangedwatcher_oncwdchangedforhooks", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L161"}, {"caller_nid": "filechangedwatcher_oncwdchangedforhooks", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L161"}, {"caller_nid": "filechangedwatcher_oncwdchangedforhooks", "callee": "notifyCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L163"}, {"caller_nid": "filechangedwatcher_oncwdchangedforhooks", "callee": "notifyCallback", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L167"}, {"caller_nid": "filechangedwatcher_dispose", "callee": "close", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts", "source_location": "L179"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "label": "fileChangedWatcher.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "filechangedwatcher_setenvhooknotifier",
+      "label": "setEnvHookNotifier()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "filechangedwatcher_initializefilechangedwatcher",
+      "label": "initializeFileChangedWatcher()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L28"
+    },
+    {
+      "id": "filechangedwatcher_resolvewatchpaths",
+      "label": "resolveWatchPaths()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L48"
+    },
+    {
+      "id": "filechangedwatcher_startwatching",
+      "label": "startWatching()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L67"
+    },
+    {
+      "id": "filechangedwatcher_handlefileevent",
+      "label": "handleFileEvent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L80"
+    },
+    {
+      "id": "filechangedwatcher_updatewatchpaths",
+      "label": "updateWatchPaths()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L108"
+    },
+    {
+      "id": "filechangedwatcher_restartwatching",
+      "label": "restartWatching()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L122"
+    },
+    {
+      "id": "filechangedwatcher_oncwdchangedforhooks",
+      "label": "onCwdChangedForHooks()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L133"
+    },
+    {
+      "id": "filechangedwatcher_dispose",
+      "label": "dispose()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L177"
+    },
+    {
+      "id": "filechangedwatcher_resetfilechangedwatcherfortesting",
+      "label": "resetFileChangedWatcherForTesting()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L189"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "chokidar",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sessionenvironment_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_hooksconfigsnapshot_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "filechangedwatcher_setenvhooknotifier",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "filechangedwatcher_initializefilechangedwatcher",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "filechangedwatcher_resolvewatchpaths",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "filechangedwatcher_startwatching",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "filechangedwatcher_handlefileevent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "filechangedwatcher_updatewatchpaths",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "filechangedwatcher_restartwatching",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "filechangedwatcher_oncwdchangedforhooks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "filechangedwatcher_dispose",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L177",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "target": "filechangedwatcher_resetfilechangedwatcherfortesting",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L189",
+      "weight": 1.0
+    },
+    {
+      "source": "filechangedwatcher_initializefilechangedwatcher",
+      "target": "filechangedwatcher_resolvewatchpaths",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "filechangedwatcher_initializefilechangedwatcher",
+      "target": "filechangedwatcher_startwatching",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "filechangedwatcher_updatewatchpaths",
+      "target": "filechangedwatcher_restartwatching",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "filechangedwatcher_restartwatching",
+      "target": "filechangedwatcher_resolvewatchpaths",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "filechangedwatcher_restartwatching",
+      "target": "filechangedwatcher_startwatching",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "filechangedwatcher_oncwdchangedforhooks",
+      "target": "filechangedwatcher_restartwatching",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L173",
+      "weight": 1.0
+    },
+    {
+      "source": "filechangedwatcher_resetfilechangedwatcherfortesting",
+      "target": "filechangedwatcher_dispose",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L190",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "filechangedwatcher_initializefilechangedwatcher",
+      "callee": "getHooksConfigFromSnapshot",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "filechangedwatcher_initializefilechangedwatcher",
+      "callee": "registerCleanup",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "filechangedwatcher_resolvewatchpaths",
+      "callee": "getHooksConfigFromSnapshot",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "filechangedwatcher_resolvewatchpaths",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "filechangedwatcher_resolvewatchpaths",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "filechangedwatcher_resolvewatchpaths",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "filechangedwatcher_resolvewatchpaths",
+      "callee": "isAbsolute",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "filechangedwatcher_resolvewatchpaths",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "filechangedwatcher_startwatching",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "filechangedwatcher_startwatching",
+      "callee": "watch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "filechangedwatcher_startwatching",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "filechangedwatcher_startwatching",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "filechangedwatcher_startwatching",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "filechangedwatcher_handlefileevent",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "filechangedwatcher_handlefileevent",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "filechangedwatcher_handlefileevent",
+      "callee": "then",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "filechangedwatcher_handlefileevent",
+      "callee": "executeFileChangedHooks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "filechangedwatcher_updatewatchpaths",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "filechangedwatcher_updatewatchpaths",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "filechangedwatcher_updatewatchpaths",
+      "callee": "every",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "filechangedwatcher_restartwatching",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "filechangedwatcher_oncwdchangedforhooks",
+      "callee": "getHooksConfigFromSnapshot",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L140"
+    },
+    {
+      "caller_nid": "filechangedwatcher_oncwdchangedforhooks",
+      "callee": "clearCwdEnvFiles",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "filechangedwatcher_oncwdchangedforhooks",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "filechangedwatcher_oncwdchangedforhooks",
+      "callee": "executeCwdChangedHooks",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L148"
+    },
+    {
+      "caller_nid": "filechangedwatcher_oncwdchangedforhooks",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "filechangedwatcher_oncwdchangedforhooks",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "filechangedwatcher_oncwdchangedforhooks",
+      "callee": "notifyCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L163"
+    },
+    {
+      "caller_nid": "filechangedwatcher_oncwdchangedforhooks",
+      "callee": "notifyCallback",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L167"
+    },
+    {
+      "caller_nid": "filechangedwatcher_dispose",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\hooks\\fileChangedWatcher.ts",
+      "source_location": "L179"
+    }
+  ]
+}

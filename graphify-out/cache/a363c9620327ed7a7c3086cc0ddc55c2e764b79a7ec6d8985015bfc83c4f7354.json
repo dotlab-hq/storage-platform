@@ -1,1 +1,53 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_vendor_image_processor_src_index_ts", "label": "index.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\image-processor-src\\index.ts", "source_location": "L1"}, {"id": "index_getnativemodule", "label": "getNativeModule()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\image-processor-src\\index.ts", "source_location": "L30"}, {"id": "index_sharp", "label": "sharp()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\image-processor-src\\index.ts", "source_location": "L77"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_vendor_image_processor_src_index_ts", "target": "index_getnativemodule", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\image-processor-src\\index.ts", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_vendor_image_processor_src_index_ts", "target": "index_sharp", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\image-processor-src\\index.ts", "source_location": "L77", "weight": 1.0}], "raw_calls": [{"caller_nid": "index_getnativemodule", "callee": "require", "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\image-processor-src\\index.ts", "source_location": "L35"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_vendor_image_processor_src_index_ts",
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\image-processor-src\\index.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "index_getnativemodule",
+      "label": "getNativeModule()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\image-processor-src\\index.ts",
+      "source_location": "L30"
+    },
+    {
+      "id": "index_sharp",
+      "label": "sharp()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\image-processor-src\\index.ts",
+      "source_location": "L77"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_vendor_image_processor_src_index_ts",
+      "target": "index_getnativemodule",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\image-processor-src\\index.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_vendor_image_processor_src_index_ts",
+      "target": "index_sharp",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\image-processor-src\\index.ts",
+      "source_location": "L77",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "index_getnativemodule",
+      "callee": "require",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\vendor\\image-processor-src\\index.ts",
+      "source_location": "L35"
+    }
+  ]
+}

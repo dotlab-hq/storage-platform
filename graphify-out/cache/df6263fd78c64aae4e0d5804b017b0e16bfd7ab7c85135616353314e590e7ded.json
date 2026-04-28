@@ -1,1 +1,129 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts", "label": "utils.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L1"}, {"id": "utils_isvimmodeenabled", "label": "isVimModeEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L12"}, {"id": "utils_getnewlineinstructions", "label": "getNewlineInstructions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L17"}, {"id": "utils_isnonspaceprintable", "label": "isNonSpacePrintable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L39"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_commands_terminalsetup_terminalsetup_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_ink_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_env_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts", "target": "utils_isvimmodeenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts", "target": "utils_getnewlineinstructions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts", "target": "utils_isnonspaceprintable", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L39", "weight": 1.0}], "raw_calls": [{"caller_nid": "utils_isvimmodeenabled", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L13"}, {"caller_nid": "utils_getnewlineinstructions", "callee": "isShiftEnterKeyBindingInstalled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L24"}, {"caller_nid": "utils_getnewlineinstructions", "callee": "hasUsedBackslashReturn", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L29"}, {"caller_nid": "utils_isnonspaceprintable", "callee": "test", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L59"}, {"caller_nid": "utils_isnonspaceprintable", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts", "source_location": "L59"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts",
+      "label": "utils.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "utils_isvimmodeenabled",
+      "label": "isVimModeEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L12"
+    },
+    {
+      "id": "utils_getnewlineinstructions",
+      "label": "getNewlineInstructions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L17"
+    },
+    {
+      "id": "utils_isnonspaceprintable",
+      "label": "isNonSpacePrintable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L39"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_commands_terminalsetup_terminalsetup_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_env_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts",
+      "target": "utils_isvimmodeenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts",
+      "target": "utils_getnewlineinstructions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_components_promptinput_utils_ts",
+      "target": "utils_isnonspaceprintable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "utils_isvimmodeenabled",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L13"
+    },
+    {
+      "caller_nid": "utils_getnewlineinstructions",
+      "callee": "isShiftEnterKeyBindingInstalled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L24"
+    },
+    {
+      "caller_nid": "utils_getnewlineinstructions",
+      "callee": "hasUsedBackslashReturn",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "utils_isnonspaceprintable",
+      "callee": "test",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "utils_isnonspaceprintable",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\components\\PromptInput\\utils.ts",
+      "source_location": "L59"
+    }
+  ]
+}

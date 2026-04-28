@@ -1,1 +1,165 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts", "label": "useTaskListWatcher.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L1"}, {"id": "usetasklistwatcher_usetasklistwatcher", "label": "useTaskListWatcher()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L34"}, {"id": "usetasklistwatcher_findavailabletask", "label": "findAvailableTask()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L197"}, {"id": "usetasklistwatcher_formattaskasprompt", "label": "formatTaskAsPrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L213"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts", "target": "fs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts", "target": "usetasklistwatcher_usetasklistwatcher", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L34", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts", "target": "usetasklistwatcher_findavailabletask", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L197", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts", "target": "usetasklistwatcher_formattaskasprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L213", "weight": 1.0}], "raw_calls": [{"caller_nid": "usetasklistwatcher_usetasklistwatcher", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L39"}, {"caller_nid": "usetasklistwatcher_usetasklistwatcher", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L40"}, {"caller_nid": "usetasklistwatcher_usetasklistwatcher", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L47"}, {"caller_nid": "usetasklistwatcher_usetasklistwatcher", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L49"}, {"caller_nid": "usetasklistwatcher_usetasklistwatcher", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L59"}, {"caller_nid": "usetasklistwatcher_usetasklistwatcher", "callee": "useRef", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L131"}, {"caller_nid": "usetasklistwatcher_usetasklistwatcher", "callee": "useEffect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L133"}, {"caller_nid": "usetasklistwatcher_usetasklistwatcher", "callee": "useEffect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L184"}, {"caller_nid": "usetasklistwatcher_findavailabletask", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L199"}, {"caller_nid": "usetasklistwatcher_findavailabletask", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L199"}, {"caller_nid": "usetasklistwatcher_findavailabletask", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts", "source_location": "L202"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts",
+      "label": "useTaskListWatcher.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "usetasklistwatcher_usetasklistwatcher",
+      "label": "useTaskListWatcher()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L34"
+    },
+    {
+      "id": "usetasklistwatcher_findavailabletask",
+      "label": "findAvailableTask()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L197"
+    },
+    {
+      "id": "usetasklistwatcher_formattaskasprompt",
+      "label": "formatTaskAsPrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L213"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts",
+      "target": "fs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_tasks_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts",
+      "target": "usetasklistwatcher_usetasklistwatcher",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts",
+      "target": "usetasklistwatcher_findavailabletask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L197",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_hooks_usetasklistwatcher_ts",
+      "target": "usetasklistwatcher_formattaskasprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L213",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "usetasklistwatcher_usetasklistwatcher",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "usetasklistwatcher_usetasklistwatcher",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "usetasklistwatcher_usetasklistwatcher",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "usetasklistwatcher_usetasklistwatcher",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "usetasklistwatcher_usetasklistwatcher",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "usetasklistwatcher_usetasklistwatcher",
+      "callee": "useRef",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "usetasklistwatcher_usetasklistwatcher",
+      "callee": "useEffect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "usetasklistwatcher_usetasklistwatcher",
+      "callee": "useEffect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L184"
+    },
+    {
+      "caller_nid": "usetasklistwatcher_findavailabletask",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L199"
+    },
+    {
+      "caller_nid": "usetasklistwatcher_findavailabletask",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L199"
+    },
+    {
+      "caller_nid": "usetasklistwatcher_findavailabletask",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\hooks\\useTaskListWatcher.ts",
+      "source_location": "L202"
+    }
+  ]
+}

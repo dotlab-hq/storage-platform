@@ -1,1 +1,566 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "label": "tmuxSocket.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L1"}, {"id": "tmuxsocket_exectmux", "label": "execTmux()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L44"}, {"id": "tmuxsocket_getclaudesocketname", "label": "getClaudeSocketName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L91"}, {"id": "tmuxsocket_getclaudesocketpath", "label": "getClaudeSocketPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L102"}, {"id": "tmuxsocket_setclaudesocketinfo", "label": "setClaudeSocketInfo()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L110"}, {"id": "tmuxsocket_issocketinitialized", "label": "isSocketInitialized()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L118"}, {"id": "tmuxsocket_getclaudetmuxenv", "label": "getClaudeTmuxEnv()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L135"}, {"id": "tmuxsocket_checktmuxavailable", "label": "checkTmuxAvailable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L151"}, {"id": "tmuxsocket_istmuxavailable", "label": "isTmuxAvailable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L178"}, {"id": "tmuxsocket_marktmuxtoolused", "label": "markTmuxToolUsed()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L187"}, {"id": "tmuxsocket_hastmuxtoolbeenused", "label": "hasTmuxToolBeenUsed()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L195"}, {"id": "tmuxsocket_ensuresocketinitialized", "label": "ensureSocketInitialized()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L208"}, {"id": "tmuxsocket_killtmuxserver", "label": "killTmuxServer()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L252"}, {"id": "tmuxsocket_doinitialize", "label": "doInitialize()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L268"}, {"id": "tmuxsocket_resetsocketstate", "label": "resetSocketState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L418"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "tmuxsocket_exectmux", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L44", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "tmuxsocket_getclaudesocketname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L91", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "tmuxsocket_getclaudesocketpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L102", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "tmuxsocket_setclaudesocketinfo", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L110", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "tmuxsocket_issocketinitialized", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L118", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "tmuxsocket_getclaudetmuxenv", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L135", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "tmuxsocket_checktmuxavailable", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L151", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "tmuxsocket_istmuxavailable", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L178", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "tmuxsocket_marktmuxtoolused", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L187", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "tmuxsocket_hastmuxtoolbeenused", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L195", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "tmuxsocket_ensuresocketinitialized", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L208", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "tmuxsocket_killtmuxserver", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L252", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "tmuxsocket_doinitialize", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L268", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts", "target": "tmuxsocket_resetsocketstate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L418", "weight": 1.0}, {"source": "tmuxsocket_ensuresocketinitialized", "target": "tmuxsocket_issocketinitialized", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L210", "weight": 1.0}, {"source": "tmuxsocket_ensuresocketinitialized", "target": "tmuxsocket_checktmuxavailable", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L215", "weight": 1.0}, {"source": "tmuxsocket_ensuresocketinitialized", "target": "tmuxsocket_doinitialize", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L232", "weight": 1.0}, {"source": "tmuxsocket_killtmuxserver", "target": "tmuxsocket_getclaudesocketname", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L253", "weight": 1.0}, {"source": "tmuxsocket_killtmuxserver", "target": "tmuxsocket_exectmux", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L256", "weight": 1.0}, {"source": "tmuxsocket_doinitialize", "target": "tmuxsocket_getclaudesocketname", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L269", "weight": 1.0}, {"source": "tmuxsocket_doinitialize", "target": "tmuxsocket_exectmux", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L282", "weight": 1.0}, {"source": "tmuxsocket_doinitialize", "target": "tmuxsocket_setclaudesocketinfo", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L361", "weight": 1.0}], "raw_calls": [{"caller_nid": "tmuxsocket_exectmux", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L48"}, {"caller_nid": "tmuxsocket_exectmux", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L54"}, {"caller_nid": "tmuxsocket_exectmux", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L64"}, {"caller_nid": "tmuxsocket_checktmuxavailable", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L154"}, {"caller_nid": "tmuxsocket_checktmuxavailable", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L155"}, {"caller_nid": "tmuxsocket_checktmuxavailable", "callee": "execFileNoThrow", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L159"}, {"caller_nid": "tmuxsocket_checktmuxavailable", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L164"}, {"caller_nid": "tmuxsocket_ensuresocketinitialized", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L238"}, {"caller_nid": "tmuxsocket_ensuresocketinitialized", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L239"}, {"caller_nid": "tmuxsocket_ensuresocketinitialized", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L240"}, {"caller_nid": "tmuxsocket_killtmuxserver", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L254"}, {"caller_nid": "tmuxsocket_killtmuxserver", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L259"}, {"caller_nid": "tmuxsocket_killtmuxserver", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L262"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L291"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "registerCleanup", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L314"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L336"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L357"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L357"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L359"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "isNaN", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L360"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L366"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L367"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L371"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "getuid", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L380"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L382"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L394"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L394"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "isNaN", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L395"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L396"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L403"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L404"}, {"caller_nid": "tmuxsocket_doinitialize", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts", "source_location": "L407"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "label": "tmuxSocket.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "tmuxsocket_exectmux",
+      "label": "execTmux()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L44"
+    },
+    {
+      "id": "tmuxsocket_getclaudesocketname",
+      "label": "getClaudeSocketName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L91"
+    },
+    {
+      "id": "tmuxsocket_getclaudesocketpath",
+      "label": "getClaudeSocketPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L102"
+    },
+    {
+      "id": "tmuxsocket_setclaudesocketinfo",
+      "label": "setClaudeSocketInfo()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L110"
+    },
+    {
+      "id": "tmuxsocket_issocketinitialized",
+      "label": "isSocketInitialized()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L118"
+    },
+    {
+      "id": "tmuxsocket_getclaudetmuxenv",
+      "label": "getClaudeTmuxEnv()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L135"
+    },
+    {
+      "id": "tmuxsocket_checktmuxavailable",
+      "label": "checkTmuxAvailable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L151"
+    },
+    {
+      "id": "tmuxsocket_istmuxavailable",
+      "label": "isTmuxAvailable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L178"
+    },
+    {
+      "id": "tmuxsocket_marktmuxtoolused",
+      "label": "markTmuxToolUsed()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L187"
+    },
+    {
+      "id": "tmuxsocket_hastmuxtoolbeenused",
+      "label": "hasTmuxToolBeenUsed()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L195"
+    },
+    {
+      "id": "tmuxsocket_ensuresocketinitialized",
+      "label": "ensureSocketInitialized()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L208"
+    },
+    {
+      "id": "tmuxsocket_killtmuxserver",
+      "label": "killTmuxServer()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L252"
+    },
+    {
+      "id": "tmuxsocket_doinitialize",
+      "label": "doInitialize()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L268"
+    },
+    {
+      "id": "tmuxsocket_resetsocketstate",
+      "label": "resetSocketState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L418"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_execfilenothrow_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "tmuxsocket_exectmux",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "tmuxsocket_getclaudesocketname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "tmuxsocket_getclaudesocketpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "tmuxsocket_setclaudesocketinfo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "tmuxsocket_issocketinitialized",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "tmuxsocket_getclaudetmuxenv",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L135",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "tmuxsocket_checktmuxavailable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "tmuxsocket_istmuxavailable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "tmuxsocket_marktmuxtoolused",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "tmuxsocket_hastmuxtoolbeenused",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L195",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "tmuxsocket_ensuresocketinitialized",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L208",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "tmuxsocket_killtmuxserver",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L252",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "tmuxsocket_doinitialize",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L268",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_tmuxsocket_ts",
+      "target": "tmuxsocket_resetsocketstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L418",
+      "weight": 1.0
+    },
+    {
+      "source": "tmuxsocket_ensuresocketinitialized",
+      "target": "tmuxsocket_issocketinitialized",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L210",
+      "weight": 1.0
+    },
+    {
+      "source": "tmuxsocket_ensuresocketinitialized",
+      "target": "tmuxsocket_checktmuxavailable",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L215",
+      "weight": 1.0
+    },
+    {
+      "source": "tmuxsocket_ensuresocketinitialized",
+      "target": "tmuxsocket_doinitialize",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L232",
+      "weight": 1.0
+    },
+    {
+      "source": "tmuxsocket_killtmuxserver",
+      "target": "tmuxsocket_getclaudesocketname",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L253",
+      "weight": 1.0
+    },
+    {
+      "source": "tmuxsocket_killtmuxserver",
+      "target": "tmuxsocket_exectmux",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L256",
+      "weight": 1.0
+    },
+    {
+      "source": "tmuxsocket_doinitialize",
+      "target": "tmuxsocket_getclaudesocketname",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L269",
+      "weight": 1.0
+    },
+    {
+      "source": "tmuxsocket_doinitialize",
+      "target": "tmuxsocket_exectmux",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L282",
+      "weight": 1.0
+    },
+    {
+      "source": "tmuxsocket_doinitialize",
+      "target": "tmuxsocket_setclaudesocketinfo",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L361",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "tmuxsocket_exectmux",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "tmuxsocket_exectmux",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L54"
+    },
+    {
+      "caller_nid": "tmuxsocket_exectmux",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "tmuxsocket_checktmuxavailable",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "tmuxsocket_checktmuxavailable",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L155"
+    },
+    {
+      "caller_nid": "tmuxsocket_checktmuxavailable",
+      "callee": "execFileNoThrow",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "tmuxsocket_checktmuxavailable",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "tmuxsocket_ensuresocketinitialized",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L238"
+    },
+    {
+      "caller_nid": "tmuxsocket_ensuresocketinitialized",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L239"
+    },
+    {
+      "caller_nid": "tmuxsocket_ensuresocketinitialized",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L240"
+    },
+    {
+      "caller_nid": "tmuxsocket_killtmuxserver",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L254"
+    },
+    {
+      "caller_nid": "tmuxsocket_killtmuxserver",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L259"
+    },
+    {
+      "caller_nid": "tmuxsocket_killtmuxserver",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L262"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L291"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "registerCleanup",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L314"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L336"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L357"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L357"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L359"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "isNaN",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L360"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L366"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L367"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L371"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "getuid",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L380"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L382"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L394"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L394"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "isNaN",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L395"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L396"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L403"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L404"
+    },
+    {
+      "caller_nid": "tmuxsocket_doinitialize",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\tmuxSocket.ts",
+      "source_location": "L407"
+    }
+  ]
+}

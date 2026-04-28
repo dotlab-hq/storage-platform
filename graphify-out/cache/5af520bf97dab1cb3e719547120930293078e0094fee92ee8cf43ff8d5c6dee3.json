@@ -1,1 +1,544 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "label": "prompts.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L1"}, {"id": "prompts_getdefaultupdateprompt", "label": "getDefaultUpdatePrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L43"}, {"id": "prompts_loadsessionmemorytemplate", "label": "loadSessionMemoryTemplate()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L86"}, {"id": "prompts_loadsessionmemoryprompt", "label": "loadSessionMemoryPrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L111"}, {"id": "prompts_analyzesectionsizes", "label": "analyzeSectionSizes()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L134"}, {"id": "prompts_generatesectionreminders", "label": "generateSectionReminders()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L164"}, {"id": "prompts_substitutevariables", "label": "substituteVariables()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L201"}, {"id": "prompts_issessionmemoryempty", "label": "isSessionMemoryEmpty()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L220"}, {"id": "prompts_buildsessionmemoryupdateprompt", "label": "buildSessionMemoryUpdatePrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L226"}, {"id": "prompts_truncatesessionmemoryforcompact", "label": "truncateSessionMemoryForCompact()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L256"}, {"id": "prompts_flushsessionsection", "label": "flushSessionSection()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L298"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "f_storage_platform_claude_code_source_main_src_services_tokenestimation_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "prompts_getdefaultupdateprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "prompts_loadsessionmemorytemplate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L86", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "prompts_loadsessionmemoryprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L111", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "prompts_analyzesectionsizes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L134", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "prompts_generatesectionreminders", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L164", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "prompts_substitutevariables", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L201", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "prompts_issessionmemoryempty", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L220", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "prompts_buildsessionmemoryupdateprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L226", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "prompts_truncatesessionmemoryforcompact", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L256", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts", "target": "prompts_flushsessionsection", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L298", "weight": 1.0}, {"source": "prompts_loadsessionmemoryprompt", "target": "prompts_getdefaultupdateprompt", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L124", "weight": 1.0}, {"source": "prompts_issessionmemoryempty", "target": "prompts_loadsessionmemorytemplate", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L221", "weight": 1.0}, {"source": "prompts_buildsessionmemoryupdateprompt", "target": "prompts_loadsessionmemoryprompt", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L230", "weight": 1.0}, {"source": "prompts_buildsessionmemoryupdateprompt", "target": "prompts_analyzesectionsizes", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L233", "weight": 1.0}, {"source": "prompts_buildsessionmemoryupdateprompt", "target": "prompts_generatesectionreminders", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L235", "weight": 1.0}, {"source": "prompts_buildsessionmemoryupdateprompt", "target": "prompts_substitutevariables", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L243", "weight": 1.0}, {"source": "prompts_truncatesessionmemoryforcompact", "target": "prompts_flushsessionsection", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L269", "weight": 1.0}], "raw_calls": [{"caller_nid": "prompts_loadsessionmemorytemplate", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L87"}, {"caller_nid": "prompts_loadsessionmemorytemplate", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L88"}, {"caller_nid": "prompts_loadsessionmemorytemplate", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L95"}, {"caller_nid": "prompts_loadsessionmemorytemplate", "callee": "getErrnoCode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L97"}, {"caller_nid": "prompts_loadsessionmemorytemplate", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L101"}, {"caller_nid": "prompts_loadsessionmemorytemplate", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L101"}, {"caller_nid": "prompts_loadsessionmemoryprompt", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L112"}, {"caller_nid": "prompts_loadsessionmemoryprompt", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L113"}, {"caller_nid": "prompts_loadsessionmemoryprompt", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L120"}, {"caller_nid": "prompts_loadsessionmemoryprompt", "callee": "getErrnoCode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L122"}, {"caller_nid": "prompts_loadsessionmemoryprompt", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L126"}, {"caller_nid": "prompts_loadsessionmemoryprompt", "callee": "toError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L126"}, {"caller_nid": "prompts_analyzesectionsizes", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L136"}, {"caller_nid": "prompts_analyzesectionsizes", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L141"}, {"caller_nid": "prompts_analyzesectionsizes", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L143"}, {"caller_nid": "prompts_analyzesectionsizes", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L143"}, {"caller_nid": "prompts_analyzesectionsizes", "callee": "roughTokenCountEstimation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L144"}, {"caller_nid": "prompts_analyzesectionsizes", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L149"}, {"caller_nid": "prompts_analyzesectionsizes", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L154"}, {"caller_nid": "prompts_analyzesectionsizes", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L154"}, {"caller_nid": "prompts_analyzesectionsizes", "callee": "roughTokenCountEstimation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L155"}, {"caller_nid": "prompts_generatesectionreminders", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L169"}, {"caller_nid": "prompts_generatesectionreminders", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L169"}, {"caller_nid": "prompts_generatesectionreminders", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L169"}, {"caller_nid": "prompts_generatesectionreminders", "callee": "entries", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L169"}, {"caller_nid": "prompts_generatesectionreminders", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L184"}, {"caller_nid": "prompts_generatesectionreminders", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L190"}, {"caller_nid": "prompts_generatesectionreminders", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L191"}, {"caller_nid": "prompts_generatesectionreminders", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L195"}, {"caller_nid": "prompts_substitutevariables", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L208"}, {"caller_nid": "prompts_issessionmemoryempty", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L223"}, {"caller_nid": "prompts_issessionmemoryempty", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L223"}, {"caller_nid": "prompts_buildsessionmemoryupdateprompt", "callee": "roughTokenCountEstimation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L234"}, {"caller_nid": "prompts_truncatesessionmemoryforcompact", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L260"}, {"caller_nid": "prompts_truncatesessionmemoryforcompact", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L268"}, {"caller_nid": "prompts_truncatesessionmemoryforcompact", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L274"}, {"caller_nid": "prompts_truncatesessionmemoryforcompact", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L279"}, {"caller_nid": "prompts_truncatesessionmemoryforcompact", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L289"}, {"caller_nid": "prompts_truncatesessionmemoryforcompact", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L293"}, {"caller_nid": "prompts_flushsessionsection", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L307"}, {"caller_nid": "prompts_flushsessionsection", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L319"}, {"caller_nid": "prompts_flushsessionsection", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts", "source_location": "L322"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "label": "prompts.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "prompts_getdefaultupdateprompt",
+      "label": "getDefaultUpdatePrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "prompts_loadsessionmemorytemplate",
+      "label": "loadSessionMemoryTemplate()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L86"
+    },
+    {
+      "id": "prompts_loadsessionmemoryprompt",
+      "label": "loadSessionMemoryPrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L111"
+    },
+    {
+      "id": "prompts_analyzesectionsizes",
+      "label": "analyzeSectionSizes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L134"
+    },
+    {
+      "id": "prompts_generatesectionreminders",
+      "label": "generateSectionReminders()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L164"
+    },
+    {
+      "id": "prompts_substitutevariables",
+      "label": "substituteVariables()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L201"
+    },
+    {
+      "id": "prompts_issessionmemoryempty",
+      "label": "isSessionMemoryEmpty()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L220"
+    },
+    {
+      "id": "prompts_buildsessionmemoryupdateprompt",
+      "label": "buildSessionMemoryUpdatePrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L226"
+    },
+    {
+      "id": "prompts_truncatesessionmemoryforcompact",
+      "label": "truncateSessionMemoryForCompact()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L256"
+    },
+    {
+      "id": "prompts_flushsessionsection",
+      "label": "flushSessionSection()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L298"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_tokenestimation_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "prompts_getdefaultupdateprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "prompts_loadsessionmemorytemplate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "prompts_loadsessionmemoryprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "prompts_analyzesectionsizes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "prompts_generatesectionreminders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "prompts_substitutevariables",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L201",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "prompts_issessionmemoryempty",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L220",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "prompts_buildsessionmemoryupdateprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L226",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "prompts_truncatesessionmemoryforcompact",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L256",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_sessionmemory_prompts_ts",
+      "target": "prompts_flushsessionsection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L298",
+      "weight": 1.0
+    },
+    {
+      "source": "prompts_loadsessionmemoryprompt",
+      "target": "prompts_getdefaultupdateprompt",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "prompts_issessionmemoryempty",
+      "target": "prompts_loadsessionmemorytemplate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L221",
+      "weight": 1.0
+    },
+    {
+      "source": "prompts_buildsessionmemoryupdateprompt",
+      "target": "prompts_loadsessionmemoryprompt",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L230",
+      "weight": 1.0
+    },
+    {
+      "source": "prompts_buildsessionmemoryupdateprompt",
+      "target": "prompts_analyzesectionsizes",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L233",
+      "weight": 1.0
+    },
+    {
+      "source": "prompts_buildsessionmemoryupdateprompt",
+      "target": "prompts_generatesectionreminders",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L235",
+      "weight": 1.0
+    },
+    {
+      "source": "prompts_buildsessionmemoryupdateprompt",
+      "target": "prompts_substitutevariables",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L243",
+      "weight": 1.0
+    },
+    {
+      "source": "prompts_truncatesessionmemoryforcompact",
+      "target": "prompts_flushsessionsection",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L269",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "prompts_loadsessionmemorytemplate",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "prompts_loadsessionmemorytemplate",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "prompts_loadsessionmemorytemplate",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "prompts_loadsessionmemorytemplate",
+      "callee": "getErrnoCode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "prompts_loadsessionmemorytemplate",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "prompts_loadsessionmemorytemplate",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L101"
+    },
+    {
+      "caller_nid": "prompts_loadsessionmemoryprompt",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L112"
+    },
+    {
+      "caller_nid": "prompts_loadsessionmemoryprompt",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "prompts_loadsessionmemoryprompt",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "prompts_loadsessionmemoryprompt",
+      "callee": "getErrnoCode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "prompts_loadsessionmemoryprompt",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "prompts_loadsessionmemoryprompt",
+      "callee": "toError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "prompts_analyzesectionsizes",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L136"
+    },
+    {
+      "caller_nid": "prompts_analyzesectionsizes",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "prompts_analyzesectionsizes",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "prompts_analyzesectionsizes",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "prompts_analyzesectionsizes",
+      "callee": "roughTokenCountEstimation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "prompts_analyzesectionsizes",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "prompts_analyzesectionsizes",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "prompts_analyzesectionsizes",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "prompts_analyzesectionsizes",
+      "callee": "roughTokenCountEstimation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L155"
+    },
+    {
+      "caller_nid": "prompts_generatesectionreminders",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L169"
+    },
+    {
+      "caller_nid": "prompts_generatesectionreminders",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L169"
+    },
+    {
+      "caller_nid": "prompts_generatesectionreminders",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L169"
+    },
+    {
+      "caller_nid": "prompts_generatesectionreminders",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L169"
+    },
+    {
+      "caller_nid": "prompts_generatesectionreminders",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L184"
+    },
+    {
+      "caller_nid": "prompts_generatesectionreminders",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L190"
+    },
+    {
+      "caller_nid": "prompts_generatesectionreminders",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L191"
+    },
+    {
+      "caller_nid": "prompts_generatesectionreminders",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L195"
+    },
+    {
+      "caller_nid": "prompts_substitutevariables",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L208"
+    },
+    {
+      "caller_nid": "prompts_issessionmemoryempty",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L223"
+    },
+    {
+      "caller_nid": "prompts_issessionmemoryempty",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L223"
+    },
+    {
+      "caller_nid": "prompts_buildsessionmemoryupdateprompt",
+      "callee": "roughTokenCountEstimation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L234"
+    },
+    {
+      "caller_nid": "prompts_truncatesessionmemoryforcompact",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L260"
+    },
+    {
+      "caller_nid": "prompts_truncatesessionmemoryforcompact",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L268"
+    },
+    {
+      "caller_nid": "prompts_truncatesessionmemoryforcompact",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L274"
+    },
+    {
+      "caller_nid": "prompts_truncatesessionmemoryforcompact",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L279"
+    },
+    {
+      "caller_nid": "prompts_truncatesessionmemoryforcompact",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L289"
+    },
+    {
+      "caller_nid": "prompts_truncatesessionmemoryforcompact",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L293"
+    },
+    {
+      "caller_nid": "prompts_flushsessionsection",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L307"
+    },
+    {
+      "caller_nid": "prompts_flushsessionsection",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L319"
+    },
+    {
+      "caller_nid": "prompts_flushsessionsection",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\SessionMemory\\prompts.ts",
+      "source_location": "L322"
+    }
+  ]
+}

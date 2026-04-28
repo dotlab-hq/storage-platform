@@ -1,1 +1,148 @@
-{"nodes": [{"id": "f_storage_platform_debug_s3_list_ts", "label": "debug-s3-list.ts", "file_type": "code", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L1"}, {"id": "debug_s3_list_main", "label": "main()", "file_type": "code", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L24"}], "edges": [{"source": "f_storage_platform_debug_s3_list_ts", "target": "client_s3", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_debug_s3_list_ts", "target": "debug_s3_list_main", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L24", "weight": 1.0}], "raw_calls": [{"caller_nid": "debug_s3_list_main", "callee": "log", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L25"}, {"caller_nid": "debug_s3_list_main", "callee": "send", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L27"}, {"caller_nid": "debug_s3_list_main", "callee": "log", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L30"}, {"caller_nid": "debug_s3_list_main", "callee": "error", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L32"}, {"caller_nid": "debug_s3_list_main", "callee": "log", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L35"}, {"caller_nid": "debug_s3_list_main", "callee": "send", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L37"}, {"caller_nid": "debug_s3_list_main", "callee": "log", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L45"}, {"caller_nid": "debug_s3_list_main", "callee": "log", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L46"}, {"caller_nid": "debug_s3_list_main", "callee": "log", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L47"}, {"caller_nid": "debug_s3_list_main", "callee": "log", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L48"}, {"caller_nid": "debug_s3_list_main", "callee": "log", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L49"}, {"caller_nid": "debug_s3_list_main", "callee": "log", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L51"}, {"caller_nid": "debug_s3_list_main", "callee": "error", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L54"}, {"caller_nid": "debug_s3_list_main", "callee": "error", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L56"}, {"caller_nid": "debug_s3_list_main", "callee": "error", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L57"}, {"caller_nid": "debug_s3_list_main", "callee": "error", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L59"}, {"caller_nid": "debug_s3_list_main", "callee": "error", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L62"}, {"caller_nid": "debug_s3_list_main", "callee": "error", "source_file": "F:\\storage-platform\\debug-s3-list.ts", "source_location": "L65"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_debug_s3_list_ts",
+      "label": "debug-s3-list.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "debug_s3_list_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L24"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_debug_s3_list_ts",
+      "target": "client_s3",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_debug_s3_list_ts",
+      "target": "debug_s3_list_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "send",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L30"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "send",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L54"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "debug_s3_list_main",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\debug-s3-list.ts",
+      "source_location": "L65"
+    }
+  ]
+}

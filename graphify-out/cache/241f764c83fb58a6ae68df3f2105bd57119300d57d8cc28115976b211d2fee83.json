@@ -1,1 +1,239 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts", "label": "shellQuote.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L1"}, {"id": "shellquote_tryparseshellcommand", "label": "tryParseShellCommand()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L24"}, {"id": "shellquote_tryquoteshellargs", "label": "tryQuoteShellArgs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L47"}, {"id": "shellquote_hasmalformedtokens", "label": "hasMalformedTokens()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L117"}, {"id": "shellquote_hasshellquotesinglequotebug", "label": "hasShellQuoteSingleQuoteBug()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L190"}, {"id": "shellquote_quote", "label": "quote()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L267"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts", "target": "shell_quote", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts", "target": "shellquote_tryparseshellcommand", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts", "target": "shellquote_tryquoteshellargs", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L47", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts", "target": "shellquote_hasmalformedtokens", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L117", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts", "target": "shellquote_hasshellquotesinglequotebug", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L190", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts", "target": "shellquote_quote", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L267", "weight": 1.0}, {"source": "shellquote_quote", "target": "shellquote_tryquoteshellargs", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L269", "weight": 1.0}], "raw_calls": [{"caller_nid": "shellquote_tryparseshellcommand", "callee": "shellQuoteParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L33"}, {"caller_nid": "shellquote_tryparseshellcommand", "callee": "shellQuoteParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L34"}, {"caller_nid": "shellquote_tryparseshellcommand", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L38"}, {"caller_nid": "shellquote_tryquoteshellargs", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L49"}, {"caller_nid": "shellquote_tryquoteshellargs", "callee": "shellQuoteQuote", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L84"}, {"caller_nid": "shellquote_tryquoteshellargs", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L88"}, {"caller_nid": "shellquote_hasmalformedtokens", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L149"}, {"caller_nid": "shellquote_hasmalformedtokens", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L150"}, {"caller_nid": "shellquote_hasmalformedtokens", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L154"}, {"caller_nid": "shellquote_hasmalformedtokens", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L155"}, {"caller_nid": "shellquote_hasmalformedtokens", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L159"}, {"caller_nid": "shellquote_hasmalformedtokens", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L160"}, {"caller_nid": "shellquote_hasmalformedtokens", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L167"}, {"caller_nid": "shellquote_hasmalformedtokens", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L172"}, {"caller_nid": "shellquote_hasshellquotesinglequotebug", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L255"}, {"caller_nid": "shellquote_quote", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L278"}, {"caller_nid": "shellquote_quote", "callee": "shellQuoteQuote", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L294"}, {"caller_nid": "shellquote_quote", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts", "source_location": "L300"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts",
+      "label": "shellQuote.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "shellquote_tryparseshellcommand",
+      "label": "tryParseShellCommand()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L24"
+    },
+    {
+      "id": "shellquote_tryquoteshellargs",
+      "label": "tryQuoteShellArgs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L47"
+    },
+    {
+      "id": "shellquote_hasmalformedtokens",
+      "label": "hasMalformedTokens()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L117"
+    },
+    {
+      "id": "shellquote_hasshellquotesinglequotebug",
+      "label": "hasShellQuoteSingleQuoteBug()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L190"
+    },
+    {
+      "id": "shellquote_quote",
+      "label": "quote()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L267"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts",
+      "target": "shell_quote",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts",
+      "target": "shellquote_tryparseshellcommand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts",
+      "target": "shellquote_tryquoteshellargs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts",
+      "target": "shellquote_hasmalformedtokens",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts",
+      "target": "shellquote_hasshellquotesinglequotebug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L190",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_bash_shellquote_ts",
+      "target": "shellquote_quote",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L267",
+      "weight": 1.0
+    },
+    {
+      "source": "shellquote_quote",
+      "target": "shellquote_tryquoteshellargs",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L269",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "shellquote_tryparseshellcommand",
+      "callee": "shellQuoteParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "shellquote_tryparseshellcommand",
+      "callee": "shellQuoteParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "shellquote_tryparseshellcommand",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "shellquote_tryquoteshellargs",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "shellquote_tryquoteshellargs",
+      "callee": "shellQuoteQuote",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "shellquote_tryquoteshellargs",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "shellquote_hasmalformedtokens",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "shellquote_hasmalformedtokens",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "shellquote_hasmalformedtokens",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L154"
+    },
+    {
+      "caller_nid": "shellquote_hasmalformedtokens",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L155"
+    },
+    {
+      "caller_nid": "shellquote_hasmalformedtokens",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "shellquote_hasmalformedtokens",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L160"
+    },
+    {
+      "caller_nid": "shellquote_hasmalformedtokens",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L167"
+    },
+    {
+      "caller_nid": "shellquote_hasmalformedtokens",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "shellquote_hasshellquotesinglequotebug",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L255"
+    },
+    {
+      "caller_nid": "shellquote_quote",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L278"
+    },
+    {
+      "caller_nid": "shellquote_quote",
+      "callee": "shellQuoteQuote",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L294"
+    },
+    {
+      "caller_nid": "shellquote_quote",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\bash\\shellQuote.ts",
+      "source_location": "L300"
+    }
+  ]
+}

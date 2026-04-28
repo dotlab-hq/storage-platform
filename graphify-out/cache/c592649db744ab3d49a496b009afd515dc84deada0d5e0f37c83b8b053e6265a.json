@@ -1,1 +1,149 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_upload_proxy_client_multipart_ts", "label": "upload-proxy-client-multipart.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L1"}, {"id": "upload_proxy_client_multipart_uploadproxypart", "label": "uploadProxyPart()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L7"}, {"id": "upload_proxy_client_multipart_uploadproxymultipart", "label": "uploadProxyMultipart()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L50"}], "edges": [{"source": "f_storage_platform_src_lib_upload_proxy_client_multipart_ts", "target": "upload_proxy_constants", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_upload_proxy_client_multipart_ts", "target": "upload_proxy_client_shared", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_upload_proxy_client_multipart_ts", "target": "upload_proxy_client_multipart_uploadproxypart", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_src_lib_upload_proxy_client_multipart_ts", "target": "upload_proxy_client_multipart_uploadproxymultipart", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L50", "weight": 1.0}], "raw_calls": [{"caller_nid": "upload_proxy_client_multipart_uploadproxymultipart", "callee": "computePartSize", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L60"}, {"caller_nid": "upload_proxy_client_multipart_uploadproxymultipart", "callee": "ceil", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L61"}, {"caller_nid": "upload_proxy_client_multipart_uploadproxymultipart", "callee": "fetch", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L63"}, {"caller_nid": "upload_proxy_client_multipart_uploadproxymultipart", "callee": "stringify", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L69"}, {"caller_nid": "upload_proxy_client_multipart_uploadproxymultipart", "callee": "readErrorBody", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L78"}, {"caller_nid": "upload_proxy_client_multipart_uploadproxymultipart", "callee": "json", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L84"}, {"caller_nid": "upload_proxy_client_multipart_uploadproxymultipart", "callee": "fill", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L89"}, {"caller_nid": "upload_proxy_client_multipart_uploadproxymultipart", "callee": "min", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L119"}, {"caller_nid": "upload_proxy_client_multipart_uploadproxymultipart", "callee": "all", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L120"}, {"caller_nid": "upload_proxy_client_multipart_uploadproxymultipart", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L120"}, {"caller_nid": "upload_proxy_client_multipart_uploadproxymultipart", "callee": "fetch", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L122"}, {"caller_nid": "upload_proxy_client_multipart_uploadproxymultipart", "callee": "stringify", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L128"}, {"caller_nid": "upload_proxy_client_multipart_uploadproxymultipart", "callee": "readErrorBody", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L131"}, {"caller_nid": "upload_proxy_client_multipart_uploadproxymultipart", "callee": "onProgress", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts", "source_location": "L137"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_upload_proxy_client_multipart_ts",
+      "label": "upload-proxy-client-multipart.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "upload_proxy_client_multipart_uploadproxypart",
+      "label": "uploadProxyPart()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "upload_proxy_client_multipart_uploadproxymultipart",
+      "label": "uploadProxyMultipart()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L50"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_upload_proxy_client_multipart_ts",
+      "target": "upload_proxy_constants",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_upload_proxy_client_multipart_ts",
+      "target": "upload_proxy_client_shared",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_upload_proxy_client_multipart_ts",
+      "target": "upload_proxy_client_multipart_uploadproxypart",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_upload_proxy_client_multipart_ts",
+      "target": "upload_proxy_client_multipart_uploadproxymultipart",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "upload_proxy_client_multipart_uploadproxymultipart",
+      "callee": "computePartSize",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "upload_proxy_client_multipart_uploadproxymultipart",
+      "callee": "ceil",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "upload_proxy_client_multipart_uploadproxymultipart",
+      "callee": "fetch",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "upload_proxy_client_multipart_uploadproxymultipart",
+      "callee": "stringify",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "upload_proxy_client_multipart_uploadproxymultipart",
+      "callee": "readErrorBody",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "upload_proxy_client_multipart_uploadproxymultipart",
+      "callee": "json",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "upload_proxy_client_multipart_uploadproxymultipart",
+      "callee": "fill",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "upload_proxy_client_multipart_uploadproxymultipart",
+      "callee": "min",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "upload_proxy_client_multipart_uploadproxymultipart",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "upload_proxy_client_multipart_uploadproxymultipart",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "upload_proxy_client_multipart_uploadproxymultipart",
+      "callee": "fetch",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "upload_proxy_client_multipart_uploadproxymultipart",
+      "callee": "stringify",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "upload_proxy_client_multipart_uploadproxymultipart",
+      "callee": "readErrorBody",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "upload_proxy_client_multipart_uploadproxymultipart",
+      "callee": "onProgress",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client-multipart.ts",
+      "source_location": "L137"
+    }
+  ]
+}

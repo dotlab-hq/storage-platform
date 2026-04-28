@@ -54,6 +54,5 @@ export const useUiStore = create<UiState>((set) => ({
       pendingDelete: { ids: [item.id], types: [item.type] },
       deleteOpen: true,
     }),
-  openMoveWithMode: (mode = 'move') =>
-    set({ moveMode: mode, moveOpen: true }),
+  openMoveWithMode: (mode = 'move') => set({ moveMode: mode, moveOpen: true }),
 }))

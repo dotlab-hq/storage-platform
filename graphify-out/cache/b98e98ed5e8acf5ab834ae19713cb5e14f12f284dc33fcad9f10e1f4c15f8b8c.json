@@ -1,1 +1,229 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts", "label": "errorUtils.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L1"}, {"id": "errorutils_extractconnectionerrordetails", "label": "extractConnectionErrorDetails()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L42"}, {"id": "errorutils_getsslerrorhint", "label": "getSSLErrorHint()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L94"}, {"id": "errorutils_sanitizemessagehtml", "label": "sanitizeMessageHTML()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L107"}, {"id": "errorutils_sanitizeapierror", "label": "sanitizeAPIError()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L122"}, {"id": "errorutils_hasnestederror", "label": "hasNestedError()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L151"}, {"id": "errorutils_extractnestederrormessage", "label": "extractNestedErrorMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L169"}, {"id": "errorutils_formatapierror", "label": "formatAPIError()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L200"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts", "target": "sdk", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts", "target": "errorutils_extractconnectionerrordetails", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts", "target": "errorutils_getsslerrorhint", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L94", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts", "target": "errorutils_sanitizemessagehtml", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L107", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts", "target": "errorutils_sanitizeapierror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L122", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts", "target": "errorutils_hasnestederror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L151", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts", "target": "errorutils_extractnestederrormessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L169", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts", "target": "errorutils_formatapierror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L200", "weight": 1.0}, {"source": "errorutils_getsslerrorhint", "target": "errorutils_extractconnectionerrordetails", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L95", "weight": 1.0}, {"source": "errorutils_sanitizeapierror", "target": "errorutils_sanitizemessagehtml", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L129", "weight": 1.0}, {"source": "errorutils_extractnestederrormessage", "target": "errorutils_hasnestederror", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L170", "weight": 1.0}, {"source": "errorutils_extractnestederrormessage", "target": "errorutils_sanitizemessagehtml", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L182", "weight": 1.0}, {"source": "errorutils_formatapierror", "target": "errorutils_extractconnectionerrordetails", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L202", "weight": 1.0}, {"source": "errorutils_formatapierror", "target": "errorutils_extractnestederrormessage", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L250", "weight": 1.0}, {"source": "errorutils_formatapierror", "target": "errorutils_sanitizeapierror", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L255", "weight": 1.0}], "raw_calls": [{"caller_nid": "errorutils_extractconnectionerrordetails", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L61"}, {"caller_nid": "errorutils_sanitizemessagehtml", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L108"}, {"caller_nid": "errorutils_sanitizemessagehtml", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L108"}, {"caller_nid": "errorutils_sanitizemessagehtml", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L109"}, {"caller_nid": "errorutils_sanitizemessagehtml", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts", "source_location": "L111"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts",
+      "label": "errorUtils.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "errorutils_extractconnectionerrordetails",
+      "label": "extractConnectionErrorDetails()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L42"
+    },
+    {
+      "id": "errorutils_getsslerrorhint",
+      "label": "getSSLErrorHint()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L94"
+    },
+    {
+      "id": "errorutils_sanitizemessagehtml",
+      "label": "sanitizeMessageHTML()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L107"
+    },
+    {
+      "id": "errorutils_sanitizeapierror",
+      "label": "sanitizeAPIError()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L122"
+    },
+    {
+      "id": "errorutils_hasnestederror",
+      "label": "hasNestedError()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L151"
+    },
+    {
+      "id": "errorutils_extractnestederrormessage",
+      "label": "extractNestedErrorMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L169"
+    },
+    {
+      "id": "errorutils_formatapierror",
+      "label": "formatAPIError()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L200"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts",
+      "target": "sdk",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts",
+      "target": "errorutils_extractconnectionerrordetails",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts",
+      "target": "errorutils_getsslerrorhint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts",
+      "target": "errorutils_sanitizemessagehtml",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts",
+      "target": "errorutils_sanitizeapierror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts",
+      "target": "errorutils_hasnestederror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts",
+      "target": "errorutils_extractnestederrormessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L169",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_api_errorutils_ts",
+      "target": "errorutils_formatapierror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L200",
+      "weight": 1.0
+    },
+    {
+      "source": "errorutils_getsslerrorhint",
+      "target": "errorutils_extractconnectionerrordetails",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "errorutils_sanitizeapierror",
+      "target": "errorutils_sanitizemessagehtml",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "errorutils_extractnestederrormessage",
+      "target": "errorutils_hasnestederror",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "errorutils_extractnestederrormessage",
+      "target": "errorutils_sanitizemessagehtml",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L182",
+      "weight": 1.0
+    },
+    {
+      "source": "errorutils_formatapierror",
+      "target": "errorutils_extractconnectionerrordetails",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L202",
+      "weight": 1.0
+    },
+    {
+      "source": "errorutils_formatapierror",
+      "target": "errorutils_extractnestederrormessage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L250",
+      "weight": 1.0
+    },
+    {
+      "source": "errorutils_formatapierror",
+      "target": "errorutils_sanitizeapierror",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L255",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "errorutils_extractconnectionerrordetails",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "errorutils_sanitizemessagehtml",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L108"
+    },
+    {
+      "caller_nid": "errorutils_sanitizemessagehtml",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L108"
+    },
+    {
+      "caller_nid": "errorutils_sanitizemessagehtml",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "errorutils_sanitizemessagehtml",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\api\\errorUtils.ts",
+      "source_location": "L111"
+    }
+  ]
+}

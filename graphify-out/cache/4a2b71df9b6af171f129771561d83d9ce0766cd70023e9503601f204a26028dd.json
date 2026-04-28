@@ -1,1 +1,135 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_app_index_tsx", "label": "index.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L1"}, {"id": "index_parseuploadsearchvalue", "label": "parseUploadSearchValue()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L14"}, {"id": "index_validatehomesearch", "label": "validateHomeSearch()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L23"}, {"id": "index_loadgethomesnapshotfn", "label": "loadGetHomeSnapshotFn()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L31"}], "edges": [{"source": "f_storage_platform_src_routes_app_index_tsx", "target": "react_router", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_index_tsx", "target": "isauthenticated", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_index_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_index_tsx", "target": "page_skeleton", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_index_tsx", "target": "f_storage_platform_src_routes_home_pending", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_index_tsx", "target": "index_parseuploadsearchvalue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_index_tsx", "target": "index_validatehomesearch", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_index_tsx", "target": "index_loadgethomesnapshotfn", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L31", "weight": 1.0}, {"source": "index_validatehomesearch", "target": "index_parseuploadsearchvalue", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L25", "weight": 1.0}], "raw_calls": [{"caller_nid": "index_parseuploadsearchvalue", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L17"}, {"caller_nid": "index_parseuploadsearchvalue", "callee": "trim", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L17"}, {"caller_nid": "index_loadgethomesnapshotfn", "callee": "import", "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx", "source_location": "L32"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_app_index_tsx",
+      "label": "index.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "index_parseuploadsearchvalue",
+      "label": "parseUploadSearchValue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L14"
+    },
+    {
+      "id": "index_validatehomesearch",
+      "label": "validateHomeSearch()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L23"
+    },
+    {
+      "id": "index_loadgethomesnapshotfn",
+      "label": "loadGetHomeSnapshotFn()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L31"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_app_index_tsx",
+      "target": "react_router",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_index_tsx",
+      "target": "isauthenticated",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_index_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_index_tsx",
+      "target": "page_skeleton",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_index_tsx",
+      "target": "f_storage_platform_src_routes_home_pending",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_index_tsx",
+      "target": "index_parseuploadsearchvalue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_index_tsx",
+      "target": "index_validatehomesearch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_index_tsx",
+      "target": "index_loadgethomesnapshotfn",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "index_validatehomesearch",
+      "target": "index_parseuploadsearchvalue",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L25",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "index_parseuploadsearchvalue",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "index_parseuploadsearchvalue",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L17"
+    },
+    {
+      "caller_nid": "index_loadgethomesnapshotfn",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\index.tsx",
+      "source_location": "L32"
+    }
+  ]
+}

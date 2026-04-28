@@ -1,1 +1,162 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_constants_system_ts", "label": "system.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L1"}, {"id": "system_getclisyspromptprefix", "label": "getCLISyspromptPrefix()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L30"}, {"id": "system_isattributionheaderenabled", "label": "isAttributionHeaderEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L52"}, {"id": "system_getattributionheader", "label": "getAttributionHeader()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L73"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_constants_system_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_system_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_system_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_system_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_system_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_providers_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_system_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_workloadcontext_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_system_ts", "target": "system_getclisyspromptprefix", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L30", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_system_ts", "target": "system_isattributionheaderenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L52", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_constants_system_ts", "target": "system_getattributionheader", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L73", "weight": 1.0}, {"source": "system_getattributionheader", "target": "system_isattributionheaderenabled", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L74", "weight": 1.0}], "raw_calls": [{"caller_nid": "system_getclisyspromptprefix", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L34"}, {"caller_nid": "system_isattributionheaderenabled", "callee": "isEnvDefinedFalsy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L53"}, {"caller_nid": "system_isattributionheaderenabled", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L56"}, {"caller_nid": "system_getattributionheader", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L82"}, {"caller_nid": "system_getattributionheader", "callee": "getWorkload", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L89"}, {"caller_nid": "system_getattributionheader", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts", "source_location": "L93"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_constants_system_ts",
+      "label": "system.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "system_getclisyspromptprefix",
+      "label": "getCLISyspromptPrefix()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L30"
+    },
+    {
+      "id": "system_isattributionheaderenabled",
+      "label": "isAttributionHeaderEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L52"
+    },
+    {
+      "id": "system_getattributionheader",
+      "label": "getAttributionHeader()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L73"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_system_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_system_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_system_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_system_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_system_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_providers_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_system_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_workloadcontext_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_system_ts",
+      "target": "system_getclisyspromptprefix",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_system_ts",
+      "target": "system_isattributionheaderenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_constants_system_ts",
+      "target": "system_getattributionheader",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "system_getattributionheader",
+      "target": "system_isattributionheaderenabled",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L74",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "system_getclisyspromptprefix",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "system_isattributionheaderenabled",
+      "callee": "isEnvDefinedFalsy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "system_isattributionheaderenabled",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "system_getattributionheader",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "system_getattributionheader",
+      "callee": "getWorkload",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "system_getattributionheader",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\constants\\system.ts",
+      "source_location": "L93"
+    }
+  ]
+}

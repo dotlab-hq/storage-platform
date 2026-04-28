@@ -48,10 +48,10 @@ export function useUrlImport({
 
   // Optimistic items list for instant UI feedback on import
   const currentItems = useMemo(() => (setItems ? [] : []), [setItems])
-  const [, addOptimisticItem] = useOptimistic<
-    StorageItem[],
-    StorageItem
-  >(currentItems, (current, newItem) => [...current, newItem])
+  const [, addOptimisticItem] = useOptimistic<StorageItem[], StorageItem>(
+    currentItems,
+    (current, newItem) => [...current, newItem],
+  )
 
   const reset = React.useCallback(() => {
     startTransition(() => {
@@ -225,7 +225,8 @@ export function useUrlImport({
   }, [pendingImport, validateUrl, importMutation, onImportComplete, reset])
 
   const isProcessing = useMemo(
-    () => isPending || importState === 'validating' || importState === 'importing',
+    () =>
+      isPending || importState === 'validating' || importState === 'importing',
     [isPending, importState],
   )
 

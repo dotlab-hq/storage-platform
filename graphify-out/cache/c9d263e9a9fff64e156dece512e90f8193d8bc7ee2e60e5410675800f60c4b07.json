@@ -1,1 +1,85 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_upload_proxy_client_ts", "label": "upload-proxy-client.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts", "source_location": "L1"}, {"id": "upload_proxy_client_uploadfileviaproxy", "label": "uploadFileViaProxy()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts", "source_location": "L6"}], "edges": [{"source": "f_storage_platform_src_lib_upload_proxy_client_ts", "target": "upload_proxy_constants", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_upload_proxy_client_ts", "target": "upload_proxy_client_shared", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_upload_proxy_client_ts", "target": "upload_proxy_client_multipart", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_lib_upload_proxy_client_ts", "target": "upload_proxy_client_single", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_src_lib_upload_proxy_client_ts", "target": "upload_proxy_client_uploadfileviaproxy", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts", "source_location": "L6", "weight": 1.0}], "raw_calls": [{"caller_nid": "upload_proxy_client_uploadfileviaproxy", "callee": "uploadProxyMultipart", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts", "source_location": "L16"}, {"caller_nid": "upload_proxy_client_uploadfileviaproxy", "callee": "uploadProxySingle", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts", "source_location": "L20"}, {"caller_nid": "upload_proxy_client_uploadfileviaproxy", "callee": "getErrorMessage", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts", "source_location": "L23"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_upload_proxy_client_ts",
+      "label": "upload-proxy-client.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "upload_proxy_client_uploadfileviaproxy",
+      "label": "uploadFileViaProxy()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts",
+      "source_location": "L6"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_upload_proxy_client_ts",
+      "target": "upload_proxy_constants",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_upload_proxy_client_ts",
+      "target": "upload_proxy_client_shared",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_upload_proxy_client_ts",
+      "target": "upload_proxy_client_multipart",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_upload_proxy_client_ts",
+      "target": "upload_proxy_client_single",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_upload_proxy_client_ts",
+      "target": "upload_proxy_client_uploadfileviaproxy",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "upload_proxy_client_uploadfileviaproxy",
+      "callee": "uploadProxyMultipart",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts",
+      "source_location": "L16"
+    },
+    {
+      "caller_nid": "upload_proxy_client_uploadfileviaproxy",
+      "callee": "uploadProxySingle",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts",
+      "source_location": "L20"
+    },
+    {
+      "caller_nid": "upload_proxy_client_uploadfileviaproxy",
+      "callee": "getErrorMessage",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-client.ts",
+      "source_location": "L23"
+    }
+  ]
+}

@@ -1,1 +1,133 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts", "label": "resetAutoModeOptInForDefaultOffer.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L1"}, {"id": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer", "label": "resetAutoModeOptInForDefaultOffer()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L25"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts", "target": "index_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionsetup_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts", "target": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L25", "weight": 1.0}], "raw_calls": [{"caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L26"}, {"caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L27"}, {"caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer", "callee": "getAutoModeEnabledState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L29"}, {"caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L32"}, {"caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer", "callee": "updateSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L37"}, {"caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L40"}, {"caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer", "callee": "saveGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L43"}, {"caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts", "source_location": "L48"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts",
+      "label": "resetAutoModeOptInForDefaultOffer.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer",
+      "label": "resetAutoModeOptInForDefaultOffer()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L25"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts",
+      "target": "index_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionsetup_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_resetautomodeoptinfordefaultoffer_ts",
+      "target": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer",
+      "callee": "getAutoModeEnabledState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L29"
+    },
+    {
+      "caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer",
+      "callee": "updateSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer",
+      "callee": "saveGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "resetautomodeoptinfordefaultoffer_resetautomodeoptinfordefaultoffer",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\resetAutoModeOptInForDefaultOffer.ts",
+      "source_location": "L48"
+    }
+  ]
+}

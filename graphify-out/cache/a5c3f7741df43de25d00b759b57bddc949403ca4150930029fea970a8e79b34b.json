@@ -1,1 +1,106 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_teammatecontext_ts", "label": "teammateContext.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts", "source_location": "L1"}, {"id": "teammatecontext_getteammatecontext", "label": "getTeammateContext()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts", "source_location": "L47"}, {"id": "teammatecontext_runwithteammatecontext", "label": "runWithTeammateContext()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts", "source_location": "L59"}, {"id": "teammatecontext_isinprocessteammate", "label": "isInProcessTeammate()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts", "source_location": "L70"}, {"id": "teammatecontext_createteammatecontext", "label": "createTeammateContext()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts", "source_location": "L83"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_teammatecontext_ts", "target": "async_hooks", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teammatecontext_ts", "target": "teammatecontext_getteammatecontext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts", "source_location": "L47", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teammatecontext_ts", "target": "teammatecontext_runwithteammatecontext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts", "source_location": "L59", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teammatecontext_ts", "target": "teammatecontext_isinprocessteammate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts", "source_location": "L70", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_teammatecontext_ts", "target": "teammatecontext_createteammatecontext", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts", "source_location": "L83", "weight": 1.0}], "raw_calls": [{"caller_nid": "teammatecontext_getteammatecontext", "callee": "getStore", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts", "source_location": "L48"}, {"caller_nid": "teammatecontext_runwithteammatecontext", "callee": "run", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts", "source_location": "L63"}, {"caller_nid": "teammatecontext_isinprocessteammate", "callee": "getStore", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts", "source_location": "L71"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_teammatecontext_ts",
+      "label": "teammateContext.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "teammatecontext_getteammatecontext",
+      "label": "getTeammateContext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts",
+      "source_location": "L47"
+    },
+    {
+      "id": "teammatecontext_runwithteammatecontext",
+      "label": "runWithTeammateContext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts",
+      "source_location": "L59"
+    },
+    {
+      "id": "teammatecontext_isinprocessteammate",
+      "label": "isInProcessTeammate()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts",
+      "source_location": "L70"
+    },
+    {
+      "id": "teammatecontext_createteammatecontext",
+      "label": "createTeammateContext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts",
+      "source_location": "L83"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teammatecontext_ts",
+      "target": "async_hooks",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teammatecontext_ts",
+      "target": "teammatecontext_getteammatecontext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teammatecontext_ts",
+      "target": "teammatecontext_runwithteammatecontext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teammatecontext_ts",
+      "target": "teammatecontext_isinprocessteammate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_teammatecontext_ts",
+      "target": "teammatecontext_createteammatecontext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts",
+      "source_location": "L83",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "teammatecontext_getteammatecontext",
+      "callee": "getStore",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "teammatecontext_runwithteammatecontext",
+      "callee": "run",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "teammatecontext_isinprocessteammate",
+      "callee": "getStore",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\teammateContext.ts",
+      "source_location": "L71"
+    }
+  ]
+}

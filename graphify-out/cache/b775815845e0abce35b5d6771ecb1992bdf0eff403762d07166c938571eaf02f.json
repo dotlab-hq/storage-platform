@@ -1,1 +1,605 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "label": "proxy.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L1"}, {"id": "proxy_disablekeepalive", "label": "disableKeepAlive()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L29"}, {"id": "proxy_resetkeepalivefortesting", "label": "_resetKeepAliveForTesting()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L33"}, {"id": "proxy_getaddressfamily", "label": "getAddressFamily()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L41"}, {"id": "proxy_getproxyurl", "label": "getProxyUrl()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L64"}, {"id": "proxy_getnoproxy", "label": "getNoProxy()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L73"}, {"id": "proxy_shouldbypassproxy", "label": "shouldBypassProxy()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L88"}, {"id": "proxy_createhttpsproxyagent", "label": "createHttpsProxyAgent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L135"}, {"id": "proxy_createaxiosinstance", "label": "createAxiosInstance()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L168"}, {"id": "proxy_getwebsocketproxyagent", "label": "getWebSocketProxyAgent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L243"}, {"id": "proxy_getwebsocketproxyurl", "label": "getWebSocketProxyUrl()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L263"}, {"id": "proxy_getproxyfetchoptions", "label": "getProxyFetchOptions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L288"}, {"id": "proxy_configureglobalagents", "label": "configureGlobalAgents()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L327"}, {"id": "proxy_getawsclientproxyconfig", "label": "getAWSClientProxyConfig()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L394"}, {"id": "proxy_clearproxycache", "label": "clearProxyCache()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L423"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "axios", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "dns", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "http", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "https_proxy_agent", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "memoize_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "undici", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cacerts_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_mtls_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "proxy_disablekeepalive", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "proxy_resetkeepalivefortesting", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L33", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "proxy_getaddressfamily", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L41", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "proxy_getproxyurl", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L64", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "proxy_getnoproxy", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L73", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "proxy_shouldbypassproxy", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L88", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "proxy_createhttpsproxyagent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L135", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "proxy_createaxiosinstance", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L168", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "proxy_getwebsocketproxyagent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L243", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "proxy_getwebsocketproxyurl", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L263", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "proxy_getproxyfetchoptions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L288", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "proxy_configureglobalagents", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L327", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "proxy_getawsclientproxyconfig", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L394", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "target": "proxy_clearproxycache", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L423", "weight": 1.0}, {"source": "proxy_createaxiosinstance", "target": "proxy_getproxyurl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L171", "weight": 1.0}, {"source": "proxy_createaxiosinstance", "target": "proxy_createhttpsproxyagent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L180", "weight": 1.0}, {"source": "proxy_getwebsocketproxyagent", "target": "proxy_getproxyurl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L244", "weight": 1.0}, {"source": "proxy_getwebsocketproxyagent", "target": "proxy_shouldbypassproxy", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L251", "weight": 1.0}, {"source": "proxy_getwebsocketproxyagent", "target": "proxy_createhttpsproxyagent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L255", "weight": 1.0}, {"source": "proxy_getwebsocketproxyurl", "target": "proxy_getproxyurl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L264", "weight": 1.0}, {"source": "proxy_getwebsocketproxyurl", "target": "proxy_shouldbypassproxy", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L270", "weight": 1.0}, {"source": "proxy_getproxyfetchoptions", "target": "proxy_getproxyurl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L307", "weight": 1.0}, {"source": "proxy_configureglobalagents", "target": "proxy_getproxyurl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L328", "weight": 1.0}, {"source": "proxy_configureglobalagents", "target": "proxy_createhttpsproxyagent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L347", "weight": 1.0}, {"source": "proxy_getawsclientproxyconfig", "target": "proxy_getproxyurl", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L395", "weight": 1.0}, {"source": "proxy_getawsclientproxyconfig", "target": "proxy_createhttpsproxyagent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L406", "weight": 1.0}], "raw_calls": [{"caller_nid": "proxy_shouldbypassproxy", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L99"}, {"caller_nid": "proxy_shouldbypassproxy", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L104"}, {"caller_nid": "proxy_shouldbypassproxy", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L104"}, {"caller_nid": "proxy_shouldbypassproxy", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L106"}, {"caller_nid": "proxy_createhttpsproxyagent", "callee": "getMTLSConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L139"}, {"caller_nid": "proxy_createhttpsproxyagent", "callee": "getCACertificates", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L140"}, {"caller_nid": "proxy_createhttpsproxyagent", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L151"}, {"caller_nid": "proxy_createaxiosinstance", "callee": "getMTLSAgent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L172"}, {"caller_nid": "proxy_createaxiosinstance", "callee": "create", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L173"}, {"caller_nid": "proxy_createaxiosinstance", "callee": "use", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L181"}, {"caller_nid": "proxy_getproxyfetchoptions", "callee": "getTLSFetchOptions", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L312"}, {"caller_nid": "proxy_getproxyfetchoptions", "callee": "getProxyAgent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L314"}, {"caller_nid": "proxy_getproxyfetchoptions", "callee": "getTLSFetchOptions", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L318"}, {"caller_nid": "proxy_configureglobalagents", "callee": "getMTLSAgent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L329"}, {"caller_nid": "proxy_configureglobalagents", "callee": "eject", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L333"}, {"caller_nid": "proxy_configureglobalagents", "callee": "use", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L350"}, {"caller_nid": "proxy_configureglobalagents", "callee": "setGlobalDispatcher", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L372"}, {"caller_nid": "proxy_configureglobalagents", "callee": "require", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L372"}, {"caller_nid": "proxy_configureglobalagents", "callee": "getProxyAgent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L373"}, {"caller_nid": "proxy_configureglobalagents", "callee": "getTLSFetchOptions", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L380"}, {"caller_nid": "proxy_configureglobalagents", "callee": "setGlobalDispatcher", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L383"}, {"caller_nid": "proxy_configureglobalagents", "callee": "require", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L383"}, {"caller_nid": "proxy_getawsclientproxyconfig", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L401"}, {"caller_nid": "proxy_getawsclientproxyconfig", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L402"}, {"caller_nid": "proxy_getawsclientproxyconfig", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L403"}, {"caller_nid": "proxy_getawsclientproxyconfig", "callee": "defaultProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L414"}, {"caller_nid": "proxy_clearproxycache", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L424"}, {"caller_nid": "proxy_clearproxycache", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts", "source_location": "L425"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "label": "proxy.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "proxy_disablekeepalive",
+      "label": "disableKeepAlive()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L29"
+    },
+    {
+      "id": "proxy_resetkeepalivefortesting",
+      "label": "_resetKeepAliveForTesting()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L33"
+    },
+    {
+      "id": "proxy_getaddressfamily",
+      "label": "getAddressFamily()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L41"
+    },
+    {
+      "id": "proxy_getproxyurl",
+      "label": "getProxyUrl()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L64"
+    },
+    {
+      "id": "proxy_getnoproxy",
+      "label": "getNoProxy()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L73"
+    },
+    {
+      "id": "proxy_shouldbypassproxy",
+      "label": "shouldBypassProxy()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L88"
+    },
+    {
+      "id": "proxy_createhttpsproxyagent",
+      "label": "createHttpsProxyAgent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L135"
+    },
+    {
+      "id": "proxy_createaxiosinstance",
+      "label": "createAxiosInstance()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L168"
+    },
+    {
+      "id": "proxy_getwebsocketproxyagent",
+      "label": "getWebSocketProxyAgent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L243"
+    },
+    {
+      "id": "proxy_getwebsocketproxyurl",
+      "label": "getWebSocketProxyUrl()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L263"
+    },
+    {
+      "id": "proxy_getproxyfetchoptions",
+      "label": "getProxyFetchOptions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L288"
+    },
+    {
+      "id": "proxy_configureglobalagents",
+      "label": "configureGlobalAgents()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L327"
+    },
+    {
+      "id": "proxy_getawsclientproxyconfig",
+      "label": "getAWSClientProxyConfig()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L394"
+    },
+    {
+      "id": "proxy_clearproxycache",
+      "label": "clearProxyCache()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L423"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "dns",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "http",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "https_proxy_agent",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "memoize_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "undici",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cacerts_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_mtls_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "proxy_disablekeepalive",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "proxy_resetkeepalivefortesting",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "proxy_getaddressfamily",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "proxy_getproxyurl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "proxy_getnoproxy",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "proxy_shouldbypassproxy",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "proxy_createhttpsproxyagent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L135",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "proxy_createaxiosinstance",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "proxy_getwebsocketproxyagent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L243",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "proxy_getwebsocketproxyurl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L263",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "proxy_getproxyfetchoptions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L288",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "proxy_configureglobalagents",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L327",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "proxy_getawsclientproxyconfig",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L394",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "target": "proxy_clearproxycache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L423",
+      "weight": 1.0
+    },
+    {
+      "source": "proxy_createaxiosinstance",
+      "target": "proxy_getproxyurl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "proxy_createaxiosinstance",
+      "target": "proxy_createhttpsproxyagent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L180",
+      "weight": 1.0
+    },
+    {
+      "source": "proxy_getwebsocketproxyagent",
+      "target": "proxy_getproxyurl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L244",
+      "weight": 1.0
+    },
+    {
+      "source": "proxy_getwebsocketproxyagent",
+      "target": "proxy_shouldbypassproxy",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L251",
+      "weight": 1.0
+    },
+    {
+      "source": "proxy_getwebsocketproxyagent",
+      "target": "proxy_createhttpsproxyagent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L255",
+      "weight": 1.0
+    },
+    {
+      "source": "proxy_getwebsocketproxyurl",
+      "target": "proxy_getproxyurl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L264",
+      "weight": 1.0
+    },
+    {
+      "source": "proxy_getwebsocketproxyurl",
+      "target": "proxy_shouldbypassproxy",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L270",
+      "weight": 1.0
+    },
+    {
+      "source": "proxy_getproxyfetchoptions",
+      "target": "proxy_getproxyurl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L307",
+      "weight": 1.0
+    },
+    {
+      "source": "proxy_configureglobalagents",
+      "target": "proxy_getproxyurl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L328",
+      "weight": 1.0
+    },
+    {
+      "source": "proxy_configureglobalagents",
+      "target": "proxy_createhttpsproxyagent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L347",
+      "weight": 1.0
+    },
+    {
+      "source": "proxy_getawsclientproxyconfig",
+      "target": "proxy_getproxyurl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L395",
+      "weight": 1.0
+    },
+    {
+      "source": "proxy_getawsclientproxyconfig",
+      "target": "proxy_createhttpsproxyagent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L406",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "proxy_shouldbypassproxy",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "proxy_shouldbypassproxy",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "proxy_shouldbypassproxy",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "proxy_shouldbypassproxy",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L106"
+    },
+    {
+      "caller_nid": "proxy_createhttpsproxyagent",
+      "callee": "getMTLSConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "proxy_createhttpsproxyagent",
+      "callee": "getCACertificates",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L140"
+    },
+    {
+      "caller_nid": "proxy_createhttpsproxyagent",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L151"
+    },
+    {
+      "caller_nid": "proxy_createaxiosinstance",
+      "callee": "getMTLSAgent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "proxy_createaxiosinstance",
+      "callee": "create",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L173"
+    },
+    {
+      "caller_nid": "proxy_createaxiosinstance",
+      "callee": "use",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L181"
+    },
+    {
+      "caller_nid": "proxy_getproxyfetchoptions",
+      "callee": "getTLSFetchOptions",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L312"
+    },
+    {
+      "caller_nid": "proxy_getproxyfetchoptions",
+      "callee": "getProxyAgent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L314"
+    },
+    {
+      "caller_nid": "proxy_getproxyfetchoptions",
+      "callee": "getTLSFetchOptions",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L318"
+    },
+    {
+      "caller_nid": "proxy_configureglobalagents",
+      "callee": "getMTLSAgent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L329"
+    },
+    {
+      "caller_nid": "proxy_configureglobalagents",
+      "callee": "eject",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L333"
+    },
+    {
+      "caller_nid": "proxy_configureglobalagents",
+      "callee": "use",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L350"
+    },
+    {
+      "caller_nid": "proxy_configureglobalagents",
+      "callee": "setGlobalDispatcher",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L372"
+    },
+    {
+      "caller_nid": "proxy_configureglobalagents",
+      "callee": "require",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L372"
+    },
+    {
+      "caller_nid": "proxy_configureglobalagents",
+      "callee": "getProxyAgent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L373"
+    },
+    {
+      "caller_nid": "proxy_configureglobalagents",
+      "callee": "getTLSFetchOptions",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L380"
+    },
+    {
+      "caller_nid": "proxy_configureglobalagents",
+      "callee": "setGlobalDispatcher",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L383"
+    },
+    {
+      "caller_nid": "proxy_configureglobalagents",
+      "callee": "require",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L383"
+    },
+    {
+      "caller_nid": "proxy_getawsclientproxyconfig",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L401"
+    },
+    {
+      "caller_nid": "proxy_getawsclientproxyconfig",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L402"
+    },
+    {
+      "caller_nid": "proxy_getawsclientproxyconfig",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L403"
+    },
+    {
+      "caller_nid": "proxy_getawsclientproxyconfig",
+      "callee": "defaultProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L414"
+    },
+    {
+      "caller_nid": "proxy_clearproxycache",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L424"
+    },
+    {
+      "caller_nid": "proxy_clearproxycache",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\proxy.ts",
+      "source_location": "L425"
+    }
+  ]
+}

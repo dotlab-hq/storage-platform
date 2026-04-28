@@ -1,1 +1,354 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "label": "magicDocs.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L1"}, {"id": "magicdocs_cleartrackedmagicdocs", "label": "clearTrackedMagicDocs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L44"}, {"id": "magicdocs_detectmagicdocheader", "label": "detectMagicDocHeader()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L52"}, {"id": "magicdocs_registermagicdoc", "label": "registerMagicDoc()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L87"}, {"id": "magicdocs_getmagicdocsagent", "label": "getMagicDocsAgent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L99"}, {"id": "magicdocs_updatemagicdoc", "label": "updateMagicDoc()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L114"}, {"id": "magicdocs_initmagicdocs", "label": "initMagicDocs()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L242"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_loadagentsdir_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_runagent_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_fileedittool_constants_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_filereadtool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_filestatecache_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_postsamplinghooks_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sequential_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "f_storage_platform_claude_code_source_main_src_services_magicdocs_prompts_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "magicdocs_cleartrackedmagicdocs", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L44", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "magicdocs_detectmagicdocheader", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L52", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "magicdocs_registermagicdoc", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L87", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "magicdocs_getmagicdocsagent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L99", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "magicdocs_updatemagicdoc", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L114", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts", "target": "magicdocs_initmagicdocs", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L242", "weight": 1.0}, {"source": "magicdocs_updatemagicdoc", "target": "magicdocs_detectmagicdocheader", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L156", "weight": 1.0}, {"source": "magicdocs_updatemagicdoc", "target": "magicdocs_getmagicdocsagent", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L196", "weight": 1.0}], "raw_calls": [{"caller_nid": "magicdocs_cleartrackedmagicdocs", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L45"}, {"caller_nid": "magicdocs_detectmagicdocheader", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L55"}, {"caller_nid": "magicdocs_detectmagicdocheader", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L60"}, {"caller_nid": "magicdocs_detectmagicdocheader", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L64"}, {"caller_nid": "magicdocs_detectmagicdocheader", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L66"}, {"caller_nid": "magicdocs_detectmagicdocheader", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L70"}, {"caller_nid": "magicdocs_detectmagicdocheader", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L72"}, {"caller_nid": "magicdocs_registermagicdoc", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L89"}, {"caller_nid": "magicdocs_registermagicdoc", "callee": "set", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L90"}, {"caller_nid": "magicdocs_updatemagicdoc", "callee": "cloneFileStateCache", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L124"}, {"caller_nid": "magicdocs_updatemagicdoc", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L125"}, {"caller_nid": "magicdocs_updatemagicdoc", "callee": "call", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L134"}, {"caller_nid": "magicdocs_updatemagicdoc", "callee": "isFsInaccessible", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L146"}, {"caller_nid": "magicdocs_updatemagicdoc", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L147"}, {"caller_nid": "magicdocs_updatemagicdoc", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L149"}, {"caller_nid": "magicdocs_updatemagicdoc", "callee": "delete", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L159"}, {"caller_nid": "magicdocs_updatemagicdoc", "callee": "buildMagicDocsUpdatePrompt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L164"}, {"caller_nid": "magicdocs_updatemagicdoc", "callee": "runAgent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L195"}, {"caller_nid": "magicdocs_updatemagicdoc", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L197"}, {"caller_nid": "magicdocs_initmagicdocs", "callee": "registerFileReadListener", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L245"}, {"caller_nid": "magicdocs_initmagicdocs", "callee": "registerPostSamplingHook", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts", "source_location": "L252"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "label": "magicDocs.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "magicdocs_cleartrackedmagicdocs",
+      "label": "clearTrackedMagicDocs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L44"
+    },
+    {
+      "id": "magicdocs_detectmagicdocheader",
+      "label": "detectMagicDocHeader()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L52"
+    },
+    {
+      "id": "magicdocs_registermagicdoc",
+      "label": "registerMagicDoc()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L87"
+    },
+    {
+      "id": "magicdocs_getmagicdocsagent",
+      "label": "getMagicDocsAgent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L99"
+    },
+    {
+      "id": "magicdocs_updatemagicdoc",
+      "label": "updateMagicDoc()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L114"
+    },
+    {
+      "id": "magicdocs_initmagicdocs",
+      "label": "initMagicDocs()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L242"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_loadagentsdir_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_runagent_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_fileedittool_constants_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_filereadtool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_filestatecache_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_postsamplinghooks_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_messages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sequential_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_magicdocs_prompts_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "magicdocs_cleartrackedmagicdocs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "magicdocs_detectmagicdocheader",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "magicdocs_registermagicdoc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "magicdocs_getmagicdocsagent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "magicdocs_updatemagicdoc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_magicdocs_magicdocs_ts",
+      "target": "magicdocs_initmagicdocs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L242",
+      "weight": 1.0
+    },
+    {
+      "source": "magicdocs_updatemagicdoc",
+      "target": "magicdocs_detectmagicdocheader",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L156",
+      "weight": 1.0
+    },
+    {
+      "source": "magicdocs_updatemagicdoc",
+      "target": "magicdocs_getmagicdocsagent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L196",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "magicdocs_cleartrackedmagicdocs",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "magicdocs_detectmagicdocheader",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "magicdocs_detectmagicdocheader",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "magicdocs_detectmagicdocheader",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "magicdocs_detectmagicdocheader",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "magicdocs_detectmagicdocheader",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "magicdocs_detectmagicdocheader",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "magicdocs_registermagicdoc",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "magicdocs_registermagicdoc",
+      "callee": "set",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "magicdocs_updatemagicdoc",
+      "callee": "cloneFileStateCache",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "magicdocs_updatemagicdoc",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "magicdocs_updatemagicdoc",
+      "callee": "call",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "magicdocs_updatemagicdoc",
+      "callee": "isFsInaccessible",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L146"
+    },
+    {
+      "caller_nid": "magicdocs_updatemagicdoc",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "magicdocs_updatemagicdoc",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "magicdocs_updatemagicdoc",
+      "callee": "delete",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L159"
+    },
+    {
+      "caller_nid": "magicdocs_updatemagicdoc",
+      "callee": "buildMagicDocsUpdatePrompt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "magicdocs_updatemagicdoc",
+      "callee": "runAgent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L195"
+    },
+    {
+      "caller_nid": "magicdocs_updatemagicdoc",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "magicdocs_initmagicdocs",
+      "callee": "registerFileReadListener",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L245"
+    },
+    {
+      "caller_nid": "magicdocs_initmagicdocs",
+      "callee": "registerPostSamplingHook",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\MagicDocs\\magicDocs.ts",
+      "source_location": "L252"
+    }
+  ]
+}

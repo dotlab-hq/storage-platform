@@ -1,1 +1,121 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_permissions_scopes_ts", "label": "scopes.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L1"}, {"id": "scopes_hasscope", "label": "hasScope()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L61"}, {"id": "scopes_hasallscopes", "label": "hasAllScopes()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L77"}, {"id": "scopes_getallscopes", "label": "getAllScopes()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L96"}, {"id": "scopes_getscopedisplayname", "label": "getScopeDisplayName()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L103"}], "edges": [{"source": "f_storage_platform_src_lib_permissions_scopes_ts", "target": "scopes_hasscope", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L61", "weight": 1.0}, {"source": "f_storage_platform_src_lib_permissions_scopes_ts", "target": "scopes_hasallscopes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L77", "weight": 1.0}, {"source": "f_storage_platform_src_lib_permissions_scopes_ts", "target": "scopes_getallscopes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L96", "weight": 1.0}, {"source": "f_storage_platform_src_lib_permissions_scopes_ts", "target": "scopes_getscopedisplayname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L103", "weight": 1.0}], "raw_calls": [{"caller_nid": "scopes_hasscope", "callee": "parse", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L67"}, {"caller_nid": "scopes_hasscope", "callee": "isArray", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L68"}, {"caller_nid": "scopes_hasscope", "callee": "includes", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L68"}, {"caller_nid": "scopes_hasallscopes", "callee": "parse", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L83"}, {"caller_nid": "scopes_hasallscopes", "callee": "isArray", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L85"}, {"caller_nid": "scopes_hasallscopes", "callee": "every", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L86"}, {"caller_nid": "scopes_getallscopes", "callee": "values", "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts", "source_location": "L97"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_permissions_scopes_ts",
+      "label": "scopes.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "scopes_hasscope",
+      "label": "hasScope()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L61"
+    },
+    {
+      "id": "scopes_hasallscopes",
+      "label": "hasAllScopes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L77"
+    },
+    {
+      "id": "scopes_getallscopes",
+      "label": "getAllScopes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L96"
+    },
+    {
+      "id": "scopes_getscopedisplayname",
+      "label": "getScopeDisplayName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L103"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_permissions_scopes_ts",
+      "target": "scopes_hasscope",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_permissions_scopes_ts",
+      "target": "scopes_hasallscopes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_permissions_scopes_ts",
+      "target": "scopes_getallscopes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_permissions_scopes_ts",
+      "target": "scopes_getscopedisplayname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L103",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "scopes_hasscope",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "scopes_hasscope",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "scopes_hasscope",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "scopes_hasallscopes",
+      "callee": "parse",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "scopes_hasallscopes",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "scopes_hasallscopes",
+      "callee": "every",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "scopes_getallscopes",
+      "callee": "values",
+      "source_file": "F:\\storage-platform\\src\\lib\\permissions\\scopes.ts",
+      "source_location": "L97"
+    }
+  ]
+}

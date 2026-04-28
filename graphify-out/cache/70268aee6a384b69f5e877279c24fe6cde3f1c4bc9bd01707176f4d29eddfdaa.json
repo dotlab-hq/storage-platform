@@ -1,1 +1,112 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_migrations_migratelegacyopustocurrent_ts", "label": "migrateLegacyOpusToCurrent.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts", "source_location": "L1"}, {"id": "migratelegacyopustocurrent_migratelegacyopustocurrent", "label": "migrateLegacyOpusToCurrent()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts", "source_location": "L29"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_migrations_migratelegacyopustocurrent_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_migrations_migratelegacyopustocurrent_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_migrations_migratelegacyopustocurrent_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_migrations_migratelegacyopustocurrent_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_providers_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_migrations_migratelegacyopustocurrent_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_migrations_migratelegacyopustocurrent_ts", "target": "migratelegacyopustocurrent_migratelegacyopustocurrent", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts", "source_location": "L29", "weight": 1.0}], "raw_calls": [{"caller_nid": "migratelegacyopustocurrent_migratelegacyopustocurrent", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts", "source_location": "L30"}, {"caller_nid": "migratelegacyopustocurrent_migratelegacyopustocurrent", "callee": "isLegacyModelRemapEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts", "source_location": "L34"}, {"caller_nid": "migratelegacyopustocurrent_migratelegacyopustocurrent", "callee": "getSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts", "source_location": "L38"}, {"caller_nid": "migratelegacyopustocurrent_migratelegacyopustocurrent", "callee": "updateSettingsForSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts", "source_location": "L48"}, {"caller_nid": "migratelegacyopustocurrent_migratelegacyopustocurrent", "callee": "saveGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts", "source_location": "L49"}, {"caller_nid": "migratelegacyopustocurrent_migratelegacyopustocurrent", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts", "source_location": "L53"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_migrations_migratelegacyopustocurrent_ts",
+      "label": "migrateLegacyOpusToCurrent.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "migratelegacyopustocurrent_migratelegacyopustocurrent",
+      "label": "migrateLegacyOpusToCurrent()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts",
+      "source_location": "L29"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_migratelegacyopustocurrent_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_migratelegacyopustocurrent_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_migratelegacyopustocurrent_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_model_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_migratelegacyopustocurrent_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_providers_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_migratelegacyopustocurrent_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_migrations_migratelegacyopustocurrent_ts",
+      "target": "migratelegacyopustocurrent_migratelegacyopustocurrent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "migratelegacyopustocurrent_migratelegacyopustocurrent",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts",
+      "source_location": "L30"
+    },
+    {
+      "caller_nid": "migratelegacyopustocurrent_migratelegacyopustocurrent",
+      "callee": "isLegacyModelRemapEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "migratelegacyopustocurrent_migratelegacyopustocurrent",
+      "callee": "getSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "migratelegacyopustocurrent_migratelegacyopustocurrent",
+      "callee": "updateSettingsForSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "migratelegacyopustocurrent_migratelegacyopustocurrent",
+      "callee": "saveGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "migratelegacyopustocurrent_migratelegacyopustocurrent",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\migrations\\migrateLegacyOpusToCurrent.ts",
+      "source_location": "L53"
+    }
+  ]
+}

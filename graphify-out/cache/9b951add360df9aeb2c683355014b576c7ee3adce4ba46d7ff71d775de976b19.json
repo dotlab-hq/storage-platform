@@ -1,1 +1,76 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_api_chat_stream_ts", "label": "stream.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts", "source_location": "L1"}, {"id": "stream_post", "label": "POST()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts", "source_location": "L13"}], "edges": [{"source": "f_storage_platform_src_routes_api_chat_stream_ts", "target": "react_router", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_chat_stream_ts", "target": "react_start", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_chat_stream_ts", "target": "streaming_handler", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_routes_api_chat_stream_ts", "target": "stream_post", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts", "source_location": "L13", "weight": 1.0}], "raw_calls": [{"caller_nid": "stream_post", "callee": "handleStreamingResponse", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts", "source_location": "L16"}, {"caller_nid": "stream_post", "callee": "error", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts", "source_location": "L23"}, {"caller_nid": "stream_post", "callee": "json", "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts", "source_location": "L24"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_api_chat_stream_ts",
+      "label": "stream.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "stream_post",
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts",
+      "source_location": "L13"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_api_chat_stream_ts",
+      "target": "react_router",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_chat_stream_ts",
+      "target": "react_start",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_chat_stream_ts",
+      "target": "streaming_handler",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_api_chat_stream_ts",
+      "target": "stream_post",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "stream_post",
+      "callee": "handleStreamingResponse",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts",
+      "source_location": "L16"
+    },
+    {
+      "caller_nid": "stream_post",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "stream_post",
+      "callee": "json",
+      "source_file": "F:\\storage-platform\\src\\routes\\api\\chat\\stream.ts",
+      "source_location": "L24"
+    }
+  ]
+}

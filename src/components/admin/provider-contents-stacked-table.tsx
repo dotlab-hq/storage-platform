@@ -86,7 +86,9 @@ export function ProviderContentsStackedTable({
           <h3 className="text-sm font-semibold">Folders ({folders.length})</h3>
         </div>
         {folders.length === 0 ? (
-          <div className="p-4 text-sm text-muted-foreground">No folders in this prefix.</div>
+          <div className="p-4 text-sm text-muted-foreground">
+            No folders in this prefix.
+          </div>
         ) : (
           <Table>
             <TableHeader>
@@ -136,7 +138,9 @@ export function ProviderContentsStackedTable({
           <h3 className="text-sm font-semibold">Files ({files.length})</h3>
         </div>
         {files.length === 0 ? (
-          <div className="p-4 text-sm text-muted-foreground">No files in this prefix.</div>
+          <div className="p-4 text-sm text-muted-foreground">
+            No files in this prefix.
+          </div>
         ) : (
           <Table>
             <TableHeader>
@@ -180,7 +184,12 @@ export function ProviderContentsStackedTable({
               Loading more results...
             </div>
           ) : hasNextPage ? (
-            <Button type="button" variant="outline" size="sm" onClick={onLoadMore}>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={onLoadMore}
+            >
               Load more
             </Button>
           ) : (

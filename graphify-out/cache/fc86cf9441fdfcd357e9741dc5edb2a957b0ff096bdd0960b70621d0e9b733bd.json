@@ -1,1 +1,140 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts", "label": "addDirPluginSettings.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L1"}, {"id": "adddirpluginsettings_getadddirenabledplugins", "label": "getAddDirEnabledPlugins()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L34"}, {"id": "adddirpluginsettings_getadddirextramarketplaces", "label": "getAddDirExtraMarketplaces()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L56"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts", "target": "v4", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts", "target": "adddirpluginsettings_getadddirenabledplugins", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L34", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts", "target": "adddirpluginsettings_getadddirextramarketplaces", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L56", "weight": 1.0}], "raw_calls": [{"caller_nid": "adddirpluginsettings_getadddirenabledplugins", "callee": "getAdditionalDirectoriesForClaudeMd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L38"}, {"caller_nid": "adddirpluginsettings_getadddirenabledplugins", "callee": "parseSettingsFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L40"}, {"caller_nid": "adddirpluginsettings_getadddirenabledplugins", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L40"}, {"caller_nid": "adddirpluginsettings_getadddirenabledplugins", "callee": "assign", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L44"}, {"caller_nid": "adddirpluginsettings_getadddirextramarketplaces", "callee": "getAdditionalDirectoriesForClaudeMd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L61"}, {"caller_nid": "adddirpluginsettings_getadddirextramarketplaces", "callee": "parseSettingsFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L63"}, {"caller_nid": "adddirpluginsettings_getadddirextramarketplaces", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L63"}, {"caller_nid": "adddirpluginsettings_getadddirextramarketplaces", "callee": "assign", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts", "source_location": "L67"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts",
+      "label": "addDirPluginSettings.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "adddirpluginsettings_getadddirenabledplugins",
+      "label": "getAddDirEnabledPlugins()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L34"
+    },
+    {
+      "id": "adddirpluginsettings_getadddirextramarketplaces",
+      "label": "getAddDirExtraMarketplaces()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L56"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts",
+      "target": "v4",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts",
+      "target": "adddirpluginsettings_getadddirenabledplugins",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_plugins_adddirpluginsettings_ts",
+      "target": "adddirpluginsettings_getadddirextramarketplaces",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "adddirpluginsettings_getadddirenabledplugins",
+      "callee": "getAdditionalDirectoriesForClaudeMd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "adddirpluginsettings_getadddirenabledplugins",
+      "callee": "parseSettingsFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "adddirpluginsettings_getadddirenabledplugins",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "adddirpluginsettings_getadddirenabledplugins",
+      "callee": "assign",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L44"
+    },
+    {
+      "caller_nid": "adddirpluginsettings_getadddirextramarketplaces",
+      "callee": "getAdditionalDirectoriesForClaudeMd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "adddirpluginsettings_getadddirextramarketplaces",
+      "callee": "parseSettingsFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "adddirpluginsettings_getadddirextramarketplaces",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "adddirpluginsettings_getadddirextramarketplaces",
+      "callee": "assign",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\plugins\\addDirPluginSettings.ts",
+      "source_location": "L67"
+    }
+  ]
+}

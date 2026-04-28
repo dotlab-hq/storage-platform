@@ -1,1 +1,701 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts", "label": "StreamingToolExecutor.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L1"}, {"id": "streamingtoolexecutor_streamingtoolexecutor", "label": "StreamingToolExecutor", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L40"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_constructor", "label": ".constructor()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L53"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_discard", "label": ".discard()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L69"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_addtool", "label": ".addTool()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L76"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_canexecutetool", "label": ".canExecuteTool()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L129"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_processqueue", "label": ".processQueue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L140"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_createsyntheticerrormessage", "label": ".createSyntheticErrorMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L153"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_getabortreason", "label": ".getAbortReason()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L210"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_gettoolinterruptbehavior", "label": ".getToolInterruptBehavior()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L233"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_gettooldescription", "label": ".getToolDescription()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L243"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_updateinterruptiblestate", "label": ".updateInterruptibleState()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L254"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_executetool", "label": ".executeTool()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L265"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_getcompletedresults", "label": ".getCompletedResults()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L412"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_haspendingprogress", "label": ".hasPendingProgress()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L445"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults", "label": ".getRemainingResults()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L453"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_hascompletedresults", "label": ".hasCompletedResults()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L495"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_hasexecutingtools", "label": ".hasExecutingTools()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L502"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_hasunfinishedtools", "label": ".hasUnfinishedTools()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L509"}, {"id": "streamingtoolexecutor_streamingtoolexecutor_getupdatedcontext", "label": ".getUpdatedContext()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L516"}, {"id": "streamingtoolexecutor_marktooluseascomplete", "label": "markToolUseAsComplete()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L521"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts", "target": "index_mjs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts", "target": "messages_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts", "target": "f_storage_platform_claude_code_source_main_src_hooks_usecanusetool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_toolname_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts", "target": "f_storage_platform_claude_code_source_main_src_types_message_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts", "target": "f_storage_platform_claude_code_source_main_src_services_tools_toolexecution_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts", "target": "streamingtoolexecutor_streamingtoolexecutor", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L40", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_constructor", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L53", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_discard", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L69", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_addtool", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L76", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_canexecutetool", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L129", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_processqueue", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L140", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_createsyntheticerrormessage", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L153", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_getabortreason", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L210", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_gettoolinterruptbehavior", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L233", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_gettooldescription", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L243", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_updateinterruptiblestate", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L254", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_executetool", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L265", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_getcompletedresults", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L412", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_haspendingprogress", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L445", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L453", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_hascompletedresults", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L495", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_hasexecutingtools", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L502", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_hasunfinishedtools", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L509", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor", "target": "streamingtoolexecutor_streamingtoolexecutor_getupdatedcontext", "relation": "method", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L516", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts", "target": "streamingtoolexecutor_marktooluseascomplete", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L521", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor_addtool", "target": "streamingtoolexecutor_streamingtoolexecutor_processqueue", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L123", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor_processqueue", "target": "streamingtoolexecutor_streamingtoolexecutor_canexecutetool", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L144", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor_processqueue", "target": "streamingtoolexecutor_streamingtoolexecutor_executetool", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L145", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor_getabortreason", "target": "streamingtoolexecutor_streamingtoolexecutor_gettoolinterruptbehavior", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L224", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor_executetool", "target": "streamingtoolexecutor_streamingtoolexecutor_updateinterruptiblestate", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L270", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor_getcompletedresults", "target": "streamingtoolexecutor_marktooluseascomplete", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L435", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults", "target": "streamingtoolexecutor_streamingtoolexecutor_hasunfinishedtools", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L458", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults", "target": "streamingtoolexecutor_streamingtoolexecutor_processqueue", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L459", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults", "target": "streamingtoolexecutor_streamingtoolexecutor_getcompletedresults", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L461", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults", "target": "streamingtoolexecutor_streamingtoolexecutor_hasexecutingtools", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L468", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults", "target": "streamingtoolexecutor_streamingtoolexecutor_hascompletedresults", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L469", "weight": 1.0}, {"source": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults", "target": "streamingtoolexecutor_streamingtoolexecutor_haspendingprogress", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L470", "weight": 1.0}], "raw_calls": [{"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_constructor", "callee": "createChildAbortController", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L59"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_addtool", "callee": "findToolByName", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L77"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_addtool", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L79"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_addtool", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L87"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_addtool", "callee": "safeParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L104"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_addtool", "callee": "(() => {\n          try {\n            return Boolean(toolDefinition.isConcurrencySafe(parsedInput.data))\n          } catch {\n            return false\n          }\n        })", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L106"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_addtool", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L114"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_canexecutetool", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L130"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_canexecutetool", "callee": "every", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L133"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_createsyntheticerrormessage", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L161"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_createsyntheticerrormessage", "callee": "withMemoryCorrectionHint", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L165"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_createsyntheticerrormessage", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L175"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_createsyntheticerrormessage", "callee": "createUserMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L193"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_gettoolinterruptbehavior", "callee": "findToolByName", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L234"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_gettoolinterruptbehavior", "callee": "interruptBehavior", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L237"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_gettooldescription", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L248"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_updateinterruptiblestate", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L255"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_updateinterruptiblestate", "callee": "setHasInterruptibleToolInProgress", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L256"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_updateinterruptiblestate", "callee": "every", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L258"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_executetool", "callee": "setInProgressToolUseIDs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L267"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_executetool", "callee": "collectResults", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L398"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_executetool", "callee": "finally", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L402"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_getcompletedresults", "callee": "shift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L420"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_haspendingprogress", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L446"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L472"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L472"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults", "callee": "race", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L482"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_hascompletedresults", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L496"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_hasexecutingtools", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L503"}, {"caller_nid": "streamingtoolexecutor_streamingtoolexecutor_hasunfinishedtools", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L510"}, {"caller_nid": "streamingtoolexecutor_marktooluseascomplete", "callee": "setInProgressToolUseIDs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts", "source_location": "L525"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts",
+      "label": "StreamingToolExecutor.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor",
+      "label": "StreamingToolExecutor",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L40"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L53"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_discard",
+      "label": ".discard()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L69"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_addtool",
+      "label": ".addTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L76"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_canexecutetool",
+      "label": ".canExecuteTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L129"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_processqueue",
+      "label": ".processQueue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L140"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_createsyntheticerrormessage",
+      "label": ".createSyntheticErrorMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L153"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_getabortreason",
+      "label": ".getAbortReason()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L210"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_gettoolinterruptbehavior",
+      "label": ".getToolInterruptBehavior()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L233"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_gettooldescription",
+      "label": ".getToolDescription()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L243"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_updateinterruptiblestate",
+      "label": ".updateInterruptibleState()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L254"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_executetool",
+      "label": ".executeTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L265"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_getcompletedresults",
+      "label": ".getCompletedResults()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L412"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_haspendingprogress",
+      "label": ".hasPendingProgress()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L445"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults",
+      "label": ".getRemainingResults()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L453"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_hascompletedresults",
+      "label": ".hasCompletedResults()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L495"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_hasexecutingtools",
+      "label": ".hasExecutingTools()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L502"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_hasunfinishedtools",
+      "label": ".hasUnfinishedTools()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L509"
+    },
+    {
+      "id": "streamingtoolexecutor_streamingtoolexecutor_getupdatedcontext",
+      "label": ".getUpdatedContext()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L516"
+    },
+    {
+      "id": "streamingtoolexecutor_marktooluseascomplete",
+      "label": "markToolUseAsComplete()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L521"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts",
+      "target": "index_mjs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts",
+      "target": "messages_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_hooks_usecanusetool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_toolname_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_abortcontroller_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_tools_toolexecution_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts",
+      "target": "streamingtoolexecutor_streamingtoolexecutor",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_discard",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_addtool",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_canexecutetool",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_processqueue",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L140",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_createsyntheticerrormessage",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_getabortreason",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L210",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_gettoolinterruptbehavior",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L233",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_gettooldescription",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L243",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_updateinterruptiblestate",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L254",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_executetool",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L265",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_getcompletedresults",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L412",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_haspendingprogress",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L445",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L453",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_hascompletedresults",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L495",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_hasexecutingtools",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L502",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_hasunfinishedtools",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L509",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_getupdatedcontext",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L516",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_tools_streamingtoolexecutor_ts",
+      "target": "streamingtoolexecutor_marktooluseascomplete",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L521",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor_addtool",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_processqueue",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor_processqueue",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_canexecutetool",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor_processqueue",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_executetool",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L145",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor_getabortreason",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_gettoolinterruptbehavior",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L224",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor_executetool",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_updateinterruptiblestate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L270",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor_getcompletedresults",
+      "target": "streamingtoolexecutor_marktooluseascomplete",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L435",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_hasunfinishedtools",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L458",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_processqueue",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L459",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_getcompletedresults",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L461",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_hasexecutingtools",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L468",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_hascompletedresults",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L469",
+      "weight": 1.0
+    },
+    {
+      "source": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults",
+      "target": "streamingtoolexecutor_streamingtoolexecutor_haspendingprogress",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L470",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_constructor",
+      "callee": "createChildAbortController",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_addtool",
+      "callee": "findToolByName",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_addtool",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_addtool",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_addtool",
+      "callee": "safeParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_addtool",
+      "callee": "(() => {\n          try {\n            return Boolean(toolDefinition.isConcurrencySafe(parsedInput.data))\n          } catch {\n            return false\n          }\n        })",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L106"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_addtool",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_canexecutetool",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_canexecutetool",
+      "callee": "every",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_createsyntheticerrormessage",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_createsyntheticerrormessage",
+      "callee": "withMemoryCorrectionHint",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_createsyntheticerrormessage",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_createsyntheticerrormessage",
+      "callee": "createUserMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L193"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_gettoolinterruptbehavior",
+      "callee": "findToolByName",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L234"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_gettoolinterruptbehavior",
+      "callee": "interruptBehavior",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L237"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_gettooldescription",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L248"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_updateinterruptiblestate",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L255"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_updateinterruptiblestate",
+      "callee": "setHasInterruptibleToolInProgress",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L256"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_updateinterruptiblestate",
+      "callee": "every",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L258"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_executetool",
+      "callee": "setInProgressToolUseIDs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L267"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_executetool",
+      "callee": "collectResults",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L398"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_executetool",
+      "callee": "finally",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L402"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_getcompletedresults",
+      "callee": "shift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L420"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_haspendingprogress",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L446"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L472"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L472"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_getremainingresults",
+      "callee": "race",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L482"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_hascompletedresults",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L496"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_hasexecutingtools",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L503"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_streamingtoolexecutor_hasunfinishedtools",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L510"
+    },
+    {
+      "caller_nid": "streamingtoolexecutor_marktooluseascomplete",
+      "callee": "setInProgressToolUseIDs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\tools\\StreamingToolExecutor.ts",
+      "source_location": "L525"
+    }
+  ]
+}

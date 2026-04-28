@@ -1,1 +1,37 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_auth_loader_ts", "label": "auth-loader.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\auth-loader.ts", "source_location": "L1"}, {"id": "auth_loader_loadauth", "label": "loadAuth()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\auth-loader.ts", "source_location": "L3"}], "edges": [{"source": "f_storage_platform_src_lib_auth_loader_ts", "target": "auth_loader_loadauth", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\auth-loader.ts", "source_location": "L3", "weight": 1.0}], "raw_calls": [{"caller_nid": "auth_loader_loadauth", "callee": "import", "source_file": "F:\\storage-platform\\src\\lib\\auth-loader.ts", "source_location": "L4"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_auth_loader_ts",
+      "label": "auth-loader.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\auth-loader.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "auth_loader_loadauth",
+      "label": "loadAuth()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\auth-loader.ts",
+      "source_location": "L3"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_auth_loader_ts",
+      "target": "auth_loader_loadauth",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\auth-loader.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "auth_loader_loadauth",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\src\\lib\\auth-loader.ts",
+      "source_location": "L4"
+    }
+  ]
+}

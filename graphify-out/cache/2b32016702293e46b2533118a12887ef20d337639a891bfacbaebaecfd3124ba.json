@@ -1,1 +1,1552 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "label": "plugins.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L1"}, {"id": "plugins_handlemarketplaceerror", "label": "handleMarketplaceError()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L68"}, {"id": "plugins_printvalidationresult", "label": "printValidationResult()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L73"}, {"id": "plugins_pluginvalidatehandler", "label": "pluginValidateHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L101"}, {"id": "plugins_pluginlisthandler", "label": "pluginListHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L157"}, {"id": "plugins_marketplaceaddhandler", "label": "marketplaceAddHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L447"}, {"id": "plugins_marketplacelisthandler", "label": "marketplaceListHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L527"}, {"id": "plugins_marketplaceremovehandler", "label": "marketplaceRemoveHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L595"}, {"id": "plugins_marketplaceupdatehandler", "label": "marketplaceUpdateHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L616"}, {"id": "plugins_plugininstallhandler", "label": "pluginInstallHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L668"}, {"id": "plugins_pluginuninstallhandler", "label": "pluginUninstallHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L704"}, {"id": "plugins_pluginenablehandler", "label": "pluginEnableHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L740"}, {"id": "plugins_plugindisablehandler", "label": "pluginDisableHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L782"}, {"id": "plugins_pluginupdatehandler", "label": "pluginUpdateHandler()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L846"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "figures", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_services_plugins_pluginclicommands_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_types_plugin_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_cacheutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_installcounts_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L28", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L33", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacemanager_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_mcppluginintegration_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L45", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_parsemarketplaceinput_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L46", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginidentifier_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L47", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginloader_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L51", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_schemas_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L52", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_validateplugin_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L53", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L58", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L59", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "f_storage_platform_claude_code_source_main_src_cli_exit_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L60", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "plugins_handlemarketplaceerror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L68", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "plugins_printvalidationresult", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L73", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "plugins_pluginvalidatehandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L101", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "plugins_pluginlisthandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L157", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "plugins_marketplaceaddhandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L447", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "plugins_marketplacelisthandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L527", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "plugins_marketplaceremovehandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L595", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "plugins_marketplaceupdatehandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L616", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "plugins_plugininstallhandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L668", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "plugins_pluginuninstallhandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L704", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "plugins_pluginenablehandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L740", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "plugins_plugindisablehandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L782", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts", "target": "plugins_pluginupdatehandler", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L846", "weight": 1.0}, {"source": "plugins_pluginvalidatehandler", "target": "plugins_printvalidationresult", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L111", "weight": 1.0}, {"source": "plugins_marketplaceaddhandler", "target": "plugins_handlemarketplaceerror", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L522", "weight": 1.0}, {"source": "plugins_marketplacelisthandler", "target": "plugins_handlemarketplaceerror", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L590", "weight": 1.0}, {"source": "plugins_marketplaceremovehandler", "target": "plugins_handlemarketplaceerror", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L611", "weight": 1.0}, {"source": "plugins_marketplaceupdatehandler", "target": "plugins_handlemarketplaceerror", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L663", "weight": 1.0}], "raw_calls": [{"caller_nid": "plugins_handlemarketplaceerror", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L69"}, {"caller_nid": "plugins_handlemarketplaceerror", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L70"}, {"caller_nid": "plugins_handlemarketplaceerror", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L70"}, {"caller_nid": "plugins_printvalidationresult", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L76"}, {"caller_nid": "plugins_printvalidationresult", "callee": "plural", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L77"}, {"caller_nid": "plugins_printvalidationresult", "callee": "forEach", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L79"}, {"caller_nid": "plugins_printvalidationresult", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L84"}, {"caller_nid": "plugins_printvalidationresult", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L88"}, {"caller_nid": "plugins_printvalidationresult", "callee": "plural", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L89"}, {"caller_nid": "plugins_printvalidationresult", "callee": "forEach", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L91"}, {"caller_nid": "plugins_printvalidationresult", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L96"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "setUseCoworkPlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L105"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "validateManifest", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L107"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L110"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "dirname", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L119"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "basename", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L120"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "validatePluginContents", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L121"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "dirname", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L121"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L124"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "every", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L130"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L133"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "cliOk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L136"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L143"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "exit", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L144"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L147"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "error", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L149"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L150"}, {"caller_nid": "plugins_pluginvalidatehandler", "callee": "exit", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L152"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "setUseCoworkPlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L162"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L163"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "loadInstalledPluginsV2", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L165"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L166"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "getPluginEditableScopes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L169"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L171"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "loadAllPlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L182"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L184"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L191"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L197"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L212"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "parsePluginIdentifier", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L217"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L218"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L218"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L227"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "loadPluginMcpServers", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L234"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L235"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L240"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L244"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "loadPluginMcpServers", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L264"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L265"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L265"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L270"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L277"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L284"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L287"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "getPluginErrorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L293"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L310"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "loadKnownMarketplacesConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L311"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "getInstallCounts", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L312"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "loadMarketplacesWithGracefulDegradation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L315"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "createPluginId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L323"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "isPluginInstalled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L325"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L326"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "get", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L333"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "cliOk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L343"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L343"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "cliOk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L345"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L345"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "cliOk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L354"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L362"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L365"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "parsePluginIdentifier", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L370"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L371"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "has", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L376"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L387"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L389"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L391"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L393"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L396"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "getPluginErrorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L396"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L399"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L405"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L409"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L417"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L419"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L421"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L423"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L426"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "getPluginErrorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L426"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L429"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L433"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L437"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "getPluginErrorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L438"}, {"caller_nid": "plugins_pluginlisthandler", "callee": "cliOk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L443"}, {"caller_nid": "plugins_marketplaceaddhandler", "callee": "setUseCoworkPlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L451"}, {"caller_nid": "plugins_marketplaceaddhandler", "callee": "parseMarketplaceInput", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L453"}, {"caller_nid": "plugins_marketplaceaddhandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L456"}, {"caller_nid": "plugins_marketplaceaddhandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L462"}, {"caller_nid": "plugins_marketplaceaddhandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L468"}, {"caller_nid": "plugins_marketplaceaddhandler", "callee": "scopeToSettingSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L472"}, {"caller_nid": "plugins_marketplaceaddhandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L486"}, {"caller_nid": "plugins_marketplaceaddhandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L493"}, {"caller_nid": "plugins_marketplaceaddhandler", "callee": "addMarketplaceSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L496"}, {"caller_nid": "plugins_marketplaceaddhandler", "callee": "saveMarketplaceToSettings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L502"}, {"caller_nid": "plugins_marketplaceaddhandler", "callee": "clearAllCaches", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L504"}, {"caller_nid": "plugins_marketplaceaddhandler", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L511"}, {"caller_nid": "plugins_marketplaceaddhandler", "callee": "cliOk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L516"}, {"caller_nid": "plugins_marketplacelisthandler", "callee": "setUseCoworkPlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L531"}, {"caller_nid": "plugins_marketplacelisthandler", "callee": "loadKnownMarketplacesConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L533"}, {"caller_nid": "plugins_marketplacelisthandler", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L534"}, {"caller_nid": "plugins_marketplacelisthandler", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L537"}, {"caller_nid": "plugins_marketplacelisthandler", "callee": "sort", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L537"}, {"caller_nid": "plugins_marketplacelisthandler", "callee": "cliOk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L551"}, {"caller_nid": "plugins_marketplacelisthandler", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L551"}, {"caller_nid": "plugins_marketplacelisthandler", "callee": "cliOk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L555"}, {"caller_nid": "plugins_marketplacelisthandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L559"}, {"caller_nid": "plugins_marketplacelisthandler", "callee": "forEach", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L560"}, {"caller_nid": "plugins_marketplacelisthandler", "callee": "cliOk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L588"}, {"caller_nid": "plugins_marketplaceremovehandler", "callee": "setUseCoworkPlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L599"}, {"caller_nid": "plugins_marketplaceremovehandler", "callee": "removeMarketplaceSource", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L601"}, {"caller_nid": "plugins_marketplaceremovehandler", "callee": "clearAllCaches", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L602"}, {"caller_nid": "plugins_marketplaceremovehandler", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L604"}, {"caller_nid": "plugins_marketplaceremovehandler", "callee": "cliOk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L609"}, {"caller_nid": "plugins_marketplaceupdatehandler", "callee": "setUseCoworkPlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L620"}, {"caller_nid": "plugins_marketplaceupdatehandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L624"}, {"caller_nid": "plugins_marketplaceupdatehandler", "callee": "refreshMarketplace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L626"}, {"caller_nid": "plugins_marketplaceupdatehandler", "callee": "clearAllCaches", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L631"}, {"caller_nid": "plugins_marketplaceupdatehandler", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L633"}, {"caller_nid": "plugins_marketplaceupdatehandler", "callee": "cliOk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L638"}, {"caller_nid": "plugins_marketplaceupdatehandler", "callee": "loadKnownMarketplacesConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L640"}, {"caller_nid": "plugins_marketplaceupdatehandler", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L641"}, {"caller_nid": "plugins_marketplaceupdatehandler", "callee": "cliOk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L644"}, {"caller_nid": "plugins_marketplaceupdatehandler", "callee": "log", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L648"}, {"caller_nid": "plugins_marketplaceupdatehandler", "callee": "refreshAllMarketplaces", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L650"}, {"caller_nid": "plugins_marketplaceupdatehandler", "callee": "clearAllCaches", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L651"}, {"caller_nid": "plugins_marketplaceupdatehandler", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L653"}, {"caller_nid": "plugins_marketplaceupdatehandler", "callee": "cliOk", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L658"}, {"caller_nid": "plugins_plugininstallhandler", "callee": "setUseCoworkPlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L672"}, {"caller_nid": "plugins_plugininstallhandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L675"}, {"caller_nid": "plugins_plugininstallhandler", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L678"}, {"caller_nid": "plugins_plugininstallhandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L682"}, {"caller_nid": "plugins_plugininstallhandler", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L683"}, {"caller_nid": "plugins_plugininstallhandler", "callee": "parsePluginIdentifier", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L690"}, {"caller_nid": "plugins_plugininstallhandler", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L691"}, {"caller_nid": "plugins_plugininstallhandler", "callee": "installPlugin", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L700"}, {"caller_nid": "plugins_pluginuninstallhandler", "callee": "setUseCoworkPlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L708"}, {"caller_nid": "plugins_pluginuninstallhandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L711"}, {"caller_nid": "plugins_pluginuninstallhandler", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L714"}, {"caller_nid": "plugins_pluginuninstallhandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L718"}, {"caller_nid": "plugins_pluginuninstallhandler", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L719"}, {"caller_nid": "plugins_pluginuninstallhandler", "callee": "parsePluginIdentifier", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L722"}, {"caller_nid": "plugins_pluginuninstallhandler", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L723"}, {"caller_nid": "plugins_pluginuninstallhandler", "callee": "uninstallPlugin", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L732"}, {"caller_nid": "plugins_pluginenablehandler", "callee": "setUseCoworkPlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L744"}, {"caller_nid": "plugins_pluginenablehandler", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L748"}, {"caller_nid": "plugins_pluginenablehandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L752"}, {"caller_nid": "plugins_pluginenablehandler", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L753"}, {"caller_nid": "plugins_pluginenablehandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L759"}, {"caller_nid": "plugins_pluginenablehandler", "callee": "parsePluginIdentifier", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L767"}, {"caller_nid": "plugins_pluginenablehandler", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L768"}, {"caller_nid": "plugins_pluginenablehandler", "callee": "enablePlugin", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L778"}, {"caller_nid": "plugins_plugindisablehandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L787"}, {"caller_nid": "plugins_plugindisablehandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L791"}, {"caller_nid": "plugins_plugindisablehandler", "callee": "setUseCoworkPlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L794"}, {"caller_nid": "plugins_plugindisablehandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L798"}, {"caller_nid": "plugins_plugindisablehandler", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L803"}, {"caller_nid": "plugins_plugindisablehandler", "callee": "disableAllPlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L805"}, {"caller_nid": "plugins_plugindisablehandler", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L812"}, {"caller_nid": "plugins_plugindisablehandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L816"}, {"caller_nid": "plugins_plugindisablehandler", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L817"}, {"caller_nid": "plugins_plugindisablehandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L823"}, {"caller_nid": "plugins_plugindisablehandler", "callee": "parsePluginIdentifier", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L831"}, {"caller_nid": "plugins_plugindisablehandler", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L832"}, {"caller_nid": "plugins_plugindisablehandler", "callee": "disablePlugin", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L842"}, {"caller_nid": "plugins_pluginupdatehandler", "callee": "setUseCoworkPlugins", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L850"}, {"caller_nid": "plugins_pluginupdatehandler", "callee": "parsePluginIdentifier", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L851"}, {"caller_nid": "plugins_pluginupdatehandler", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L852"}, {"caller_nid": "plugins_pluginupdatehandler", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L863"}, {"caller_nid": "plugins_pluginupdatehandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L867"}, {"caller_nid": "plugins_pluginupdatehandler", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L868"}, {"caller_nid": "plugins_pluginupdatehandler", "callee": "cliError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L874"}, {"caller_nid": "plugins_pluginupdatehandler", "callee": "updatePluginCli", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts", "source_location": "L877"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "label": "plugins.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "plugins_handlemarketplaceerror",
+      "label": "handleMarketplaceError()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L68"
+    },
+    {
+      "id": "plugins_printvalidationresult",
+      "label": "printValidationResult()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L73"
+    },
+    {
+      "id": "plugins_pluginvalidatehandler",
+      "label": "pluginValidateHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L101"
+    },
+    {
+      "id": "plugins_pluginlisthandler",
+      "label": "pluginListHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L157"
+    },
+    {
+      "id": "plugins_marketplaceaddhandler",
+      "label": "marketplaceAddHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L447"
+    },
+    {
+      "id": "plugins_marketplacelisthandler",
+      "label": "marketplaceListHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L527"
+    },
+    {
+      "id": "plugins_marketplaceremovehandler",
+      "label": "marketplaceRemoveHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L595"
+    },
+    {
+      "id": "plugins_marketplaceupdatehandler",
+      "label": "marketplaceUpdateHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L616"
+    },
+    {
+      "id": "plugins_plugininstallhandler",
+      "label": "pluginInstallHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L668"
+    },
+    {
+      "id": "plugins_pluginuninstallhandler",
+      "label": "pluginUninstallHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L704"
+    },
+    {
+      "id": "plugins_pluginenablehandler",
+      "label": "pluginEnableHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L740"
+    },
+    {
+      "id": "plugins_plugindisablehandler",
+      "label": "pluginDisableHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L782"
+    },
+    {
+      "id": "plugins_pluginupdatehandler",
+      "label": "pluginUpdateHandler()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L846"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "figures",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_plugins_pluginclicommands_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_plugin_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_cacheutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_installcounts_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_installedpluginsmanager_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacehelpers_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_marketplacemanager_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_mcppluginintegration_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_parsemarketplaceinput_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginidentifier_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_pluginloader_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_schemas_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_validateplugin_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_cli_exit_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "plugins_handlemarketplaceerror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "plugins_printvalidationresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "plugins_pluginvalidatehandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "plugins_pluginlisthandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L157",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "plugins_marketplaceaddhandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L447",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "plugins_marketplacelisthandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L527",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "plugins_marketplaceremovehandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L595",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "plugins_marketplaceupdatehandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L616",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "plugins_plugininstallhandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L668",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "plugins_pluginuninstallhandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L704",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "plugins_pluginenablehandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L740",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "plugins_plugindisablehandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L782",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_cli_handlers_plugins_ts",
+      "target": "plugins_pluginupdatehandler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L846",
+      "weight": 1.0
+    },
+    {
+      "source": "plugins_pluginvalidatehandler",
+      "target": "plugins_printvalidationresult",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "plugins_marketplaceaddhandler",
+      "target": "plugins_handlemarketplaceerror",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L522",
+      "weight": 1.0
+    },
+    {
+      "source": "plugins_marketplacelisthandler",
+      "target": "plugins_handlemarketplaceerror",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L590",
+      "weight": 1.0
+    },
+    {
+      "source": "plugins_marketplaceremovehandler",
+      "target": "plugins_handlemarketplaceerror",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L611",
+      "weight": 1.0
+    },
+    {
+      "source": "plugins_marketplaceupdatehandler",
+      "target": "plugins_handlemarketplaceerror",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L663",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "plugins_handlemarketplaceerror",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L69"
+    },
+    {
+      "caller_nid": "plugins_handlemarketplaceerror",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "plugins_handlemarketplaceerror",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "plugins_printvalidationresult",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "plugins_printvalidationresult",
+      "callee": "plural",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "plugins_printvalidationresult",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "plugins_printvalidationresult",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "plugins_printvalidationresult",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "plugins_printvalidationresult",
+      "callee": "plural",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "plugins_printvalidationresult",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L91"
+    },
+    {
+      "caller_nid": "plugins_printvalidationresult",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "setUseCoworkPlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L105"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "validateManifest",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "dirname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "basename",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "validatePluginContents",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L121"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "dirname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L121"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "every",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L130"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L133"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "cliOk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L136"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "exit",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "error",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "plugins_pluginvalidatehandler",
+      "callee": "exit",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L152"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "setUseCoworkPlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L163"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "loadInstalledPluginsV2",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L166"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "getPluginEditableScopes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L169"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L171"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "loadAllPlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L182"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L184"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L191"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L212"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "parsePluginIdentifier",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L217"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L227"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "loadPluginMcpServers",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L234"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L235"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L240"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L244"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "loadPluginMcpServers",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L264"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L265"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L265"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L270"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L277"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L284"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L287"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "getPluginErrorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L293"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L310"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "loadKnownMarketplacesConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L311"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "getInstallCounts",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L312"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "loadMarketplacesWithGracefulDegradation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L315"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "createPluginId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L323"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "isPluginInstalled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L325"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L326"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L333"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "cliOk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L343"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L343"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "cliOk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L345"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L345"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "cliOk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L354"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L362"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L365"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "parsePluginIdentifier",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L370"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L371"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "has",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L376"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L387"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L389"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L391"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L393"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L396"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "getPluginErrorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L396"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L399"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L405"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L409"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L417"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L419"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L421"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L423"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L426"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "getPluginErrorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L426"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L429"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L433"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L437"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "getPluginErrorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L438"
+    },
+    {
+      "caller_nid": "plugins_pluginlisthandler",
+      "callee": "cliOk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L443"
+    },
+    {
+      "caller_nid": "plugins_marketplaceaddhandler",
+      "callee": "setUseCoworkPlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L451"
+    },
+    {
+      "caller_nid": "plugins_marketplaceaddhandler",
+      "callee": "parseMarketplaceInput",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L453"
+    },
+    {
+      "caller_nid": "plugins_marketplaceaddhandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L456"
+    },
+    {
+      "caller_nid": "plugins_marketplaceaddhandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L462"
+    },
+    {
+      "caller_nid": "plugins_marketplaceaddhandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L468"
+    },
+    {
+      "caller_nid": "plugins_marketplaceaddhandler",
+      "callee": "scopeToSettingSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L472"
+    },
+    {
+      "caller_nid": "plugins_marketplaceaddhandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L486"
+    },
+    {
+      "caller_nid": "plugins_marketplaceaddhandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L493"
+    },
+    {
+      "caller_nid": "plugins_marketplaceaddhandler",
+      "callee": "addMarketplaceSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L496"
+    },
+    {
+      "caller_nid": "plugins_marketplaceaddhandler",
+      "callee": "saveMarketplaceToSettings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L502"
+    },
+    {
+      "caller_nid": "plugins_marketplaceaddhandler",
+      "callee": "clearAllCaches",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L504"
+    },
+    {
+      "caller_nid": "plugins_marketplaceaddhandler",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L511"
+    },
+    {
+      "caller_nid": "plugins_marketplaceaddhandler",
+      "callee": "cliOk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L516"
+    },
+    {
+      "caller_nid": "plugins_marketplacelisthandler",
+      "callee": "setUseCoworkPlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L531"
+    },
+    {
+      "caller_nid": "plugins_marketplacelisthandler",
+      "callee": "loadKnownMarketplacesConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L533"
+    },
+    {
+      "caller_nid": "plugins_marketplacelisthandler",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L534"
+    },
+    {
+      "caller_nid": "plugins_marketplacelisthandler",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L537"
+    },
+    {
+      "caller_nid": "plugins_marketplacelisthandler",
+      "callee": "sort",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L537"
+    },
+    {
+      "caller_nid": "plugins_marketplacelisthandler",
+      "callee": "cliOk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L551"
+    },
+    {
+      "caller_nid": "plugins_marketplacelisthandler",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L551"
+    },
+    {
+      "caller_nid": "plugins_marketplacelisthandler",
+      "callee": "cliOk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L555"
+    },
+    {
+      "caller_nid": "plugins_marketplacelisthandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L559"
+    },
+    {
+      "caller_nid": "plugins_marketplacelisthandler",
+      "callee": "forEach",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L560"
+    },
+    {
+      "caller_nid": "plugins_marketplacelisthandler",
+      "callee": "cliOk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L588"
+    },
+    {
+      "caller_nid": "plugins_marketplaceremovehandler",
+      "callee": "setUseCoworkPlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L599"
+    },
+    {
+      "caller_nid": "plugins_marketplaceremovehandler",
+      "callee": "removeMarketplaceSource",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L601"
+    },
+    {
+      "caller_nid": "plugins_marketplaceremovehandler",
+      "callee": "clearAllCaches",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L602"
+    },
+    {
+      "caller_nid": "plugins_marketplaceremovehandler",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L604"
+    },
+    {
+      "caller_nid": "plugins_marketplaceremovehandler",
+      "callee": "cliOk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L609"
+    },
+    {
+      "caller_nid": "plugins_marketplaceupdatehandler",
+      "callee": "setUseCoworkPlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L620"
+    },
+    {
+      "caller_nid": "plugins_marketplaceupdatehandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L624"
+    },
+    {
+      "caller_nid": "plugins_marketplaceupdatehandler",
+      "callee": "refreshMarketplace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L626"
+    },
+    {
+      "caller_nid": "plugins_marketplaceupdatehandler",
+      "callee": "clearAllCaches",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L631"
+    },
+    {
+      "caller_nid": "plugins_marketplaceupdatehandler",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L633"
+    },
+    {
+      "caller_nid": "plugins_marketplaceupdatehandler",
+      "callee": "cliOk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L638"
+    },
+    {
+      "caller_nid": "plugins_marketplaceupdatehandler",
+      "callee": "loadKnownMarketplacesConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L640"
+    },
+    {
+      "caller_nid": "plugins_marketplaceupdatehandler",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L641"
+    },
+    {
+      "caller_nid": "plugins_marketplaceupdatehandler",
+      "callee": "cliOk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L644"
+    },
+    {
+      "caller_nid": "plugins_marketplaceupdatehandler",
+      "callee": "log",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L648"
+    },
+    {
+      "caller_nid": "plugins_marketplaceupdatehandler",
+      "callee": "refreshAllMarketplaces",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L650"
+    },
+    {
+      "caller_nid": "plugins_marketplaceupdatehandler",
+      "callee": "clearAllCaches",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L651"
+    },
+    {
+      "caller_nid": "plugins_marketplaceupdatehandler",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L653"
+    },
+    {
+      "caller_nid": "plugins_marketplaceupdatehandler",
+      "callee": "cliOk",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L658"
+    },
+    {
+      "caller_nid": "plugins_plugininstallhandler",
+      "callee": "setUseCoworkPlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L672"
+    },
+    {
+      "caller_nid": "plugins_plugininstallhandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L675"
+    },
+    {
+      "caller_nid": "plugins_plugininstallhandler",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L678"
+    },
+    {
+      "caller_nid": "plugins_plugininstallhandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L682"
+    },
+    {
+      "caller_nid": "plugins_plugininstallhandler",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L683"
+    },
+    {
+      "caller_nid": "plugins_plugininstallhandler",
+      "callee": "parsePluginIdentifier",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L690"
+    },
+    {
+      "caller_nid": "plugins_plugininstallhandler",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L691"
+    },
+    {
+      "caller_nid": "plugins_plugininstallhandler",
+      "callee": "installPlugin",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L700"
+    },
+    {
+      "caller_nid": "plugins_pluginuninstallhandler",
+      "callee": "setUseCoworkPlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L708"
+    },
+    {
+      "caller_nid": "plugins_pluginuninstallhandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L711"
+    },
+    {
+      "caller_nid": "plugins_pluginuninstallhandler",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L714"
+    },
+    {
+      "caller_nid": "plugins_pluginuninstallhandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L718"
+    },
+    {
+      "caller_nid": "plugins_pluginuninstallhandler",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L719"
+    },
+    {
+      "caller_nid": "plugins_pluginuninstallhandler",
+      "callee": "parsePluginIdentifier",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L722"
+    },
+    {
+      "caller_nid": "plugins_pluginuninstallhandler",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L723"
+    },
+    {
+      "caller_nid": "plugins_pluginuninstallhandler",
+      "callee": "uninstallPlugin",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L732"
+    },
+    {
+      "caller_nid": "plugins_pluginenablehandler",
+      "callee": "setUseCoworkPlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L744"
+    },
+    {
+      "caller_nid": "plugins_pluginenablehandler",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L748"
+    },
+    {
+      "caller_nid": "plugins_pluginenablehandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L752"
+    },
+    {
+      "caller_nid": "plugins_pluginenablehandler",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L753"
+    },
+    {
+      "caller_nid": "plugins_pluginenablehandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L759"
+    },
+    {
+      "caller_nid": "plugins_pluginenablehandler",
+      "callee": "parsePluginIdentifier",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L767"
+    },
+    {
+      "caller_nid": "plugins_pluginenablehandler",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L768"
+    },
+    {
+      "caller_nid": "plugins_pluginenablehandler",
+      "callee": "enablePlugin",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L778"
+    },
+    {
+      "caller_nid": "plugins_plugindisablehandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L787"
+    },
+    {
+      "caller_nid": "plugins_plugindisablehandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L791"
+    },
+    {
+      "caller_nid": "plugins_plugindisablehandler",
+      "callee": "setUseCoworkPlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L794"
+    },
+    {
+      "caller_nid": "plugins_plugindisablehandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L798"
+    },
+    {
+      "caller_nid": "plugins_plugindisablehandler",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L803"
+    },
+    {
+      "caller_nid": "plugins_plugindisablehandler",
+      "callee": "disableAllPlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L805"
+    },
+    {
+      "caller_nid": "plugins_plugindisablehandler",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L812"
+    },
+    {
+      "caller_nid": "plugins_plugindisablehandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L816"
+    },
+    {
+      "caller_nid": "plugins_plugindisablehandler",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L817"
+    },
+    {
+      "caller_nid": "plugins_plugindisablehandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L823"
+    },
+    {
+      "caller_nid": "plugins_plugindisablehandler",
+      "callee": "parsePluginIdentifier",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L831"
+    },
+    {
+      "caller_nid": "plugins_plugindisablehandler",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L832"
+    },
+    {
+      "caller_nid": "plugins_plugindisablehandler",
+      "callee": "disablePlugin",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L842"
+    },
+    {
+      "caller_nid": "plugins_pluginupdatehandler",
+      "callee": "setUseCoworkPlugins",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L850"
+    },
+    {
+      "caller_nid": "plugins_pluginupdatehandler",
+      "callee": "parsePluginIdentifier",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L851"
+    },
+    {
+      "caller_nid": "plugins_pluginupdatehandler",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L852"
+    },
+    {
+      "caller_nid": "plugins_pluginupdatehandler",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L863"
+    },
+    {
+      "caller_nid": "plugins_pluginupdatehandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L867"
+    },
+    {
+      "caller_nid": "plugins_pluginupdatehandler",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L868"
+    },
+    {
+      "caller_nid": "plugins_pluginupdatehandler",
+      "callee": "cliError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L874"
+    },
+    {
+      "caller_nid": "plugins_pluginupdatehandler",
+      "callee": "updatePluginCli",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\cli\\handlers\\plugins.ts",
+      "source_location": "L877"
+    }
+  ]
+}

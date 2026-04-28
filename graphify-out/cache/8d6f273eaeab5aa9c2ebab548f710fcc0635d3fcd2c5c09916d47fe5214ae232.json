@@ -1,1 +1,55 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_prompt_ts", "label": "prompt.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\FileReadTool\\prompt.ts", "source_location": "L1"}, {"id": "prompt_renderprompttemplate", "label": "renderPromptTemplate()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\FileReadTool\\prompt.ts", "source_location": "L27"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_pdfutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\FileReadTool\\prompt.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_toolname_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\FileReadTool\\prompt.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_prompt_ts", "target": "prompt_renderprompttemplate", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\FileReadTool\\prompt.ts", "source_location": "L27", "weight": 1.0}], "raw_calls": [{"caller_nid": "prompt_renderprompttemplate", "callee": "isPDFSupported", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\FileReadTool\\prompt.ts", "source_location": "L41"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_prompt_ts",
+      "label": "prompt.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\FileReadTool\\prompt.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "prompt_renderprompttemplate",
+      "label": "renderPromptTemplate()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\FileReadTool\\prompt.ts",
+      "source_location": "L27"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_pdfutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\FileReadTool\\prompt.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_bashtool_toolname_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\FileReadTool\\prompt.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_tools_filereadtool_prompt_ts",
+      "target": "prompt_renderprompttemplate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\FileReadTool\\prompt.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "prompt_renderprompttemplate",
+      "callee": "isPDFSupported",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\tools\\FileReadTool\\prompt.ts",
+      "source_location": "L41"
+    }
+  ]
+}

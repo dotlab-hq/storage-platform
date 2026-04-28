@@ -1,1 +1,283 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts", "label": "permissionValidation.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L1"}, {"id": "permissionvalidation_isescaped", "label": "isEscaped()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L15"}, {"id": "permissionvalidation_countunescapedchar", "label": "countUnescapedChar()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L29"}, {"id": "permissionvalidation_hasunescapedemptyparens", "label": "hasUnescapedEmptyParens()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L43"}, {"id": "permissionvalidation_validatepermissionrule", "label": "validatePermissionRule()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L58"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts", "target": "v4", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_mcpstringutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionruleparser_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_toolvalidationconfig_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts", "target": "permissionvalidation_isescaped", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts", "target": "permissionvalidation_countunescapedchar", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts", "target": "permissionvalidation_hasunescapedemptyparens", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts", "target": "permissionvalidation_validatepermissionrule", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L58", "weight": 1.0}, {"source": "permissionvalidation_countunescapedchar", "target": "permissionvalidation_isescaped", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L32", "weight": 1.0}, {"source": "permissionvalidation_hasunescapedemptyparens", "target": "permissionvalidation_isescaped", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L47", "weight": 1.0}, {"source": "permissionvalidation_validatepermissionrule", "target": "permissionvalidation_countunescapedchar", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L70", "weight": 1.0}, {"source": "permissionvalidation_validatepermissionrule", "target": "permissionvalidation_hasunescapedemptyparens", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L82", "weight": 1.0}], "raw_calls": [{"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L65"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "substring", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L83"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L83"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "permissionRuleValueFromString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L100"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "mcpInfoFromString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L103"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L119"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "toUpperCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L138"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "capitalize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L142"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L142"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "getCustomValidation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L147"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "customValidation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L149"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "isBashPrefixTool", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L156"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L160"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L160"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "isFilePatternTool", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L200"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L204"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L219"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L220"}, {"caller_nid": "permissionvalidation_validatepermissionrule", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts", "source_location": "L221"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts",
+      "label": "permissionValidation.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "permissionvalidation_isescaped",
+      "label": "isEscaped()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L15"
+    },
+    {
+      "id": "permissionvalidation_countunescapedchar",
+      "label": "countUnescapedChar()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L29"
+    },
+    {
+      "id": "permissionvalidation_hasunescapedemptyparens",
+      "label": "hasUnescapedEmptyParens()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "permissionvalidation_validatepermissionrule",
+      "label": "validatePermissionRule()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L58"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts",
+      "target": "v4",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_mcpstringutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_lazyschema_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_permissionruleparser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_stringutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_toolvalidationconfig_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts",
+      "target": "permissionvalidation_isescaped",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts",
+      "target": "permissionvalidation_countunescapedchar",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts",
+      "target": "permissionvalidation_hasunescapedemptyparens",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_permissionvalidation_ts",
+      "target": "permissionvalidation_validatepermissionrule",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "permissionvalidation_countunescapedchar",
+      "target": "permissionvalidation_isescaped",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "permissionvalidation_hasunescapedemptyparens",
+      "target": "permissionvalidation_isescaped",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "permissionvalidation_validatepermissionrule",
+      "target": "permissionvalidation_countunescapedchar",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "permissionvalidation_validatepermissionrule",
+      "target": "permissionvalidation_hasunescapedemptyparens",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L82",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "substring",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "permissionRuleValueFromString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "mcpInfoFromString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L103"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "toUpperCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "capitalize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "getCustomValidation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "customValidation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "isBashPrefixTool",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L160"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L160"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "isFilePatternTool",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L204"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L219"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L220"
+    },
+    {
+      "caller_nid": "permissionvalidation_validatepermissionrule",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\permissionValidation.ts",
+      "source_location": "L221"
+    }
+  ]
+}

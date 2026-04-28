@@ -1,1 +1,161 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts", "label": "teammateModeSnapshot.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L1"}, {"id": "teammatemodesnapshot_setcliteammatemodeoverride", "label": "setCliTeammateModeOverride()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L25"}, {"id": "teammatemodesnapshot_getcliteammatemodeoverride", "label": "getCliTeammateModeOverride()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L33"}, {"id": "teammatemodesnapshot_clearcliteammatemodeoverride", "label": "clearCliTeammateModeOverride()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L43"}, {"id": "teammatemodesnapshot_captureteammatemodesnapshot", "label": "captureTeammateModeSnapshot()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L56"}, {"id": "teammatemodesnapshot_getteammatemodefromsnapshot", "label": "getTeammateModeFromSnapshot()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L75"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts", "target": "teammatemodesnapshot_setcliteammatemodeoverride", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts", "target": "teammatemodesnapshot_getcliteammatemodeoverride", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L33", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts", "target": "teammatemodesnapshot_clearcliteammatemodeoverride", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L43", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts", "target": "teammatemodesnapshot_captureteammatemodesnapshot", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L56", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts", "target": "teammatemodesnapshot_getteammatemodefromsnapshot", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L75", "weight": 1.0}, {"source": "teammatemodesnapshot_getteammatemodefromsnapshot", "target": "teammatemodesnapshot_captureteammatemodesnapshot", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L83", "weight": 1.0}], "raw_calls": [{"caller_nid": "teammatemodesnapshot_clearcliteammatemodeoverride", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L46"}, {"caller_nid": "teammatemodesnapshot_captureteammatemodesnapshot", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L59"}, {"caller_nid": "teammatemodesnapshot_captureteammatemodesnapshot", "callee": "getGlobalConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L63"}, {"caller_nid": "teammatemodesnapshot_captureteammatemodesnapshot", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L65"}, {"caller_nid": "teammatemodesnapshot_getteammatemodefromsnapshot", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts", "source_location": "L78"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts",
+      "label": "teammateModeSnapshot.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "teammatemodesnapshot_setcliteammatemodeoverride",
+      "label": "setCliTeammateModeOverride()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L25"
+    },
+    {
+      "id": "teammatemodesnapshot_getcliteammatemodeoverride",
+      "label": "getCliTeammateModeOverride()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L33"
+    },
+    {
+      "id": "teammatemodesnapshot_clearcliteammatemodeoverride",
+      "label": "clearCliTeammateModeOverride()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "teammatemodesnapshot_captureteammatemodesnapshot",
+      "label": "captureTeammateModeSnapshot()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L56"
+    },
+    {
+      "id": "teammatemodesnapshot_getteammatemodefromsnapshot",
+      "label": "getTeammateModeFromSnapshot()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L75"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_config_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts",
+      "target": "teammatemodesnapshot_setcliteammatemodeoverride",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts",
+      "target": "teammatemodesnapshot_getcliteammatemodeoverride",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts",
+      "target": "teammatemodesnapshot_clearcliteammatemodeoverride",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts",
+      "target": "teammatemodesnapshot_captureteammatemodesnapshot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_swarm_backends_teammatemodesnapshot_ts",
+      "target": "teammatemodesnapshot_getteammatemodefromsnapshot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "teammatemodesnapshot_getteammatemodefromsnapshot",
+      "target": "teammatemodesnapshot_captureteammatemodesnapshot",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L83",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "teammatemodesnapshot_clearcliteammatemodeoverride",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "teammatemodesnapshot_captureteammatemodesnapshot",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "teammatemodesnapshot_captureteammatemodesnapshot",
+      "callee": "getGlobalConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "teammatemodesnapshot_captureteammatemodesnapshot",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "teammatemodesnapshot_getteammatemodefromsnapshot",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\swarm\\backends\\teammateModeSnapshot.ts",
+      "source_location": "L78"
+    }
+  ]
+}

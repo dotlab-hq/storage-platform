@@ -1,1 +1,205 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts", "label": "constants.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L1"}, {"id": "constants_getsettingsourcename", "label": "getSettingSourceName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L26"}, {"id": "constants_getsourcedisplayname", "label": "getSourceDisplayName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L46"}, {"id": "constants_getsettingsourcedisplaynamelowercase", "label": "getSettingSourceDisplayNameLowercase()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L72"}, {"id": "constants_getsettingsourcedisplaynamecapitalized", "label": "getSettingSourceDisplayNameCapitalized()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L100"}, {"id": "constants_parsesettingsourcesflag", "label": "parseSettingSourcesFlag()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L128"}, {"id": "constants_getenabledsettingsources", "label": "getEnabledSettingSources()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L159"}, {"id": "constants_issettingsourceenabled", "label": "isSettingSourceEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L174"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts", "target": "constants_getsettingsourcename", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts", "target": "constants_getsourcedisplayname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L46", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts", "target": "constants_getsettingsourcedisplaynamelowercase", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L72", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts", "target": "constants_getsettingsourcedisplaynamecapitalized", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L100", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts", "target": "constants_parsesettingsourcesflag", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L128", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts", "target": "constants_getenabledsettingsources", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L159", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts", "target": "constants_issettingsourceenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L174", "weight": 1.0}, {"source": "constants_issettingsourceenabled", "target": "constants_getenabledsettingsources", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L175", "weight": 1.0}], "raw_calls": [{"caller_nid": "constants_parsesettingsourcesflag", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L131"}, {"caller_nid": "constants_parsesettingsourcesflag", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L131"}, {"caller_nid": "constants_parsesettingsourcesflag", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L137"}, {"caller_nid": "constants_parsesettingsourcesflag", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L140"}, {"caller_nid": "constants_parsesettingsourcesflag", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L143"}, {"caller_nid": "constants_getenabledsettingsources", "callee": "getAllowedSettingSources", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L160"}, {"caller_nid": "constants_getenabledsettingsources", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L164"}, {"caller_nid": "constants_getenabledsettingsources", "callee": "add", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L165"}, {"caller_nid": "constants_getenabledsettingsources", "callee": "from", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L166"}, {"caller_nid": "constants_issettingsourceenabled", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts", "source_location": "L176"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts",
+      "label": "constants.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "constants_getsettingsourcename",
+      "label": "getSettingSourceName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L26"
+    },
+    {
+      "id": "constants_getsourcedisplayname",
+      "label": "getSourceDisplayName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L46"
+    },
+    {
+      "id": "constants_getsettingsourcedisplaynamelowercase",
+      "label": "getSettingSourceDisplayNameLowercase()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L72"
+    },
+    {
+      "id": "constants_getsettingsourcedisplaynamecapitalized",
+      "label": "getSettingSourceDisplayNameCapitalized()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L100"
+    },
+    {
+      "id": "constants_parsesettingsourcesflag",
+      "label": "parseSettingSourcesFlag()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L128"
+    },
+    {
+      "id": "constants_getenabledsettingsources",
+      "label": "getEnabledSettingSources()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L159"
+    },
+    {
+      "id": "constants_issettingsourceenabled",
+      "label": "isSettingSourceEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L174"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts",
+      "target": "constants_getsettingsourcename",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts",
+      "target": "constants_getsourcedisplayname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts",
+      "target": "constants_getsettingsourcedisplaynamelowercase",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts",
+      "target": "constants_getsettingsourcedisplaynamecapitalized",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts",
+      "target": "constants_parsesettingsourcesflag",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L128",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts",
+      "target": "constants_getenabledsettingsources",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_settings_constants_ts",
+      "target": "constants_issettingsourceenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L174",
+      "weight": 1.0
+    },
+    {
+      "source": "constants_issettingsourceenabled",
+      "target": "constants_getenabledsettingsources",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L175",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "constants_parsesettingsourcesflag",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "constants_parsesettingsourcesflag",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L131"
+    },
+    {
+      "caller_nid": "constants_parsesettingsourcesflag",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "constants_parsesettingsourcesflag",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L140"
+    },
+    {
+      "caller_nid": "constants_parsesettingsourcesflag",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L143"
+    },
+    {
+      "caller_nid": "constants_getenabledsettingsources",
+      "callee": "getAllowedSettingSources",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L160"
+    },
+    {
+      "caller_nid": "constants_getenabledsettingsources",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "constants_getenabledsettingsources",
+      "callee": "add",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L165"
+    },
+    {
+      "caller_nid": "constants_getenabledsettingsources",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L166"
+    },
+    {
+      "caller_nid": "constants_issettingsourceenabled",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\settings\\constants.ts",
+      "source_location": "L176"
+    }
+  ]
+}

@@ -1,1 +1,864 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "label": "loadUserBindings.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L1"}, {"id": "loaduserbindings_iskeybindingcustomizationenabled", "label": "isKeybindingCustomizationEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L41"}, {"id": "loaduserbindings_logcustombindingsloadedonceperday", "label": "logCustomBindingsLoadedOncePerDay()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L83"}, {"id": "loaduserbindings_iskeybindingblock", "label": "isKeybindingBlock()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L95"}, {"id": "loaduserbindings_iskeybindingblockarray", "label": "isKeybindingBlockArray()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L108"}, {"id": "loaduserbindings_getkeybindingspath", "label": "getKeybindingsPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L115"}, {"id": "loaduserbindings_getdefaultparsedbindings", "label": "getDefaultParsedBindings()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L122"}, {"id": "loaduserbindings_loadkeybindings", "label": "loadKeybindings()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L133"}, {"id": "loaduserbindings_loadkeybindingssync", "label": "loadKeybindingsSync()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L243"}, {"id": "loaduserbindings_loadkeybindingssyncwithwarnings", "label": "loadKeybindingsSyncWithWarnings()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L259"}, {"id": "loaduserbindings_initializekeybindingwatcher", "label": "initializeKeybindingWatcher()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L353"}, {"id": "loaduserbindings_disposekeybindingwatcher", "label": "disposeKeybindingWatcher()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L409"}, {"id": "loaduserbindings_handlechange", "label": "handleChange()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L424"}, {"id": "loaduserbindings_handledelete", "label": "handleDelete()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L439"}, {"id": "loaduserbindings_getcachedkeybindingwarnings", "label": "getCachedKeybindingWarnings()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L454"}, {"id": "loaduserbindings_resetkeybindingloaderfortesting", "label": "resetKeybindingLoaderForTesting()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L461"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "chokidar", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "fs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L20", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_signal_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "f_storage_platform_claude_code_source_main_src_keybindings_defaultbindings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L24", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "f_storage_platform_claude_code_source_main_src_keybindings_parser_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "f_storage_platform_claude_code_source_main_src_keybindings_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "f_storage_platform_claude_code_source_main_src_keybindings_validate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "loaduserbindings_iskeybindingcustomizationenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L41", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "loaduserbindings_logcustombindingsloadedonceperday", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L83", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "loaduserbindings_iskeybindingblock", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L95", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "loaduserbindings_iskeybindingblockarray", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L108", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "loaduserbindings_getkeybindingspath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L115", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "loaduserbindings_getdefaultparsedbindings", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L122", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "loaduserbindings_loadkeybindings", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L133", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "loaduserbindings_loadkeybindingssync", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L243", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "loaduserbindings_loadkeybindingssyncwithwarnings", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L259", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "loaduserbindings_initializekeybindingwatcher", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L353", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "loaduserbindings_disposekeybindingwatcher", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L409", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "loaduserbindings_handlechange", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L424", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "loaduserbindings_handledelete", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L439", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "loaduserbindings_getcachedkeybindingwarnings", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L454", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts", "target": "loaduserbindings_resetkeybindingloaderfortesting", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L461", "weight": 1.0}, {"source": "loaduserbindings_loadkeybindings", "target": "loaduserbindings_getdefaultparsedbindings", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L134", "weight": 1.0}, {"source": "loaduserbindings_loadkeybindings", "target": "loaduserbindings_iskeybindingcustomizationenabled", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L137", "weight": 1.0}, {"source": "loaduserbindings_loadkeybindings", "target": "loaduserbindings_getkeybindingspath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L141", "weight": 1.0}, {"source": "loaduserbindings_loadkeybindings", "target": "loaduserbindings_iskeybindingblockarray", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L170", "weight": 1.0}, {"source": "loaduserbindings_loadkeybindings", "target": "loaduserbindings_logcustombindingsloadedonceperday", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L199", "weight": 1.0}, {"source": "loaduserbindings_loadkeybindingssync", "target": "loaduserbindings_loadkeybindingssyncwithwarnings", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L248", "weight": 1.0}, {"source": "loaduserbindings_loadkeybindingssyncwithwarnings", "target": "loaduserbindings_getdefaultparsedbindings", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L264", "weight": 1.0}, {"source": "loaduserbindings_loadkeybindingssyncwithwarnings", "target": "loaduserbindings_iskeybindingcustomizationenabled", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L267", "weight": 1.0}, {"source": "loaduserbindings_loadkeybindingssyncwithwarnings", "target": "loaduserbindings_getkeybindingspath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L273", "weight": 1.0}, {"source": "loaduserbindings_loadkeybindingssyncwithwarnings", "target": "loaduserbindings_iskeybindingblockarray", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L299", "weight": 1.0}, {"source": "loaduserbindings_loadkeybindingssyncwithwarnings", "target": "loaduserbindings_logcustombindingsloadedonceperday", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L324", "weight": 1.0}, {"source": "loaduserbindings_initializekeybindingwatcher", "target": "loaduserbindings_iskeybindingcustomizationenabled", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L357", "weight": 1.0}, {"source": "loaduserbindings_initializekeybindingwatcher", "target": "loaduserbindings_getkeybindingspath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L364", "weight": 1.0}, {"source": "loaduserbindings_handlechange", "target": "loaduserbindings_loadkeybindings", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L428", "weight": 1.0}, {"source": "loaduserbindings_handledelete", "target": "loaduserbindings_getdefaultparsedbindings", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L443", "weight": 1.0}], "raw_calls": [{"caller_nid": "loaduserbindings_iskeybindingcustomizationenabled", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L42"}, {"caller_nid": "loaduserbindings_logcustombindingsloadedonceperday", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L84"}, {"caller_nid": "loaduserbindings_logcustombindingsloadedonceperday", "callee": "toISOString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L84"}, {"caller_nid": "loaduserbindings_logcustombindingsloadedonceperday", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L87"}, {"caller_nid": "loaduserbindings_iskeybindingblockarray", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L109"}, {"caller_nid": "loaduserbindings_iskeybindingblockarray", "callee": "every", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L109"}, {"caller_nid": "loaduserbindings_getkeybindingspath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L116"}, {"caller_nid": "loaduserbindings_getkeybindingspath", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L116"}, {"caller_nid": "loaduserbindings_getdefaultparsedbindings", "callee": "parseBindings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L123"}, {"caller_nid": "loaduserbindings_loadkeybindings", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L144"}, {"caller_nid": "loaduserbindings_loadkeybindings", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L145"}, {"caller_nid": "loaduserbindings_loadkeybindings", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L155"}, {"caller_nid": "loaduserbindings_loadkeybindings", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L171"}, {"caller_nid": "loaduserbindings_loadkeybindings", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L174"}, {"caller_nid": "loaduserbindings_loadkeybindings", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L177"}, {"caller_nid": "loaduserbindings_loadkeybindings", "callee": "parseBindings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L191"}, {"caller_nid": "loaduserbindings_loadkeybindings", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L192"}, {"caller_nid": "loaduserbindings_loadkeybindings", "callee": "checkDuplicateKeysInJson", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L203"}, {"caller_nid": "loaduserbindings_loadkeybindings", "callee": "validateBindings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L206"}, {"caller_nid": "loaduserbindings_loadkeybindings", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L210"}, {"caller_nid": "loaduserbindings_loadkeybindings", "callee": "isENOENT", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L218"}, {"caller_nid": "loaduserbindings_loadkeybindings", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L223"}, {"caller_nid": "loaduserbindings_loadkeybindings", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L224"}, {"caller_nid": "loaduserbindings_loadkeybindings", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L232"}, {"caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings", "callee": "readFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L277"}, {"caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L278"}, {"caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L300"}, {"caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings", "callee": "isArray", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L303"}, {"caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings", "callee": "parseBindings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L318"}, {"caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L319"}, {"caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings", "callee": "checkDuplicateKeysInJson", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L327"}, {"caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings", "callee": "validateBindings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L330"}, {"caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L333"}, {"caller_nid": "loaduserbindings_initializekeybindingwatcher", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L358"}, {"caller_nid": "loaduserbindings_initializekeybindingwatcher", "callee": "dirname", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L365"}, {"caller_nid": "loaduserbindings_initializekeybindingwatcher", "callee": "stat", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L369"}, {"caller_nid": "loaduserbindings_initializekeybindingwatcher", "callee": "isDirectory", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L370"}, {"caller_nid": "loaduserbindings_initializekeybindingwatcher", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L371"}, {"caller_nid": "loaduserbindings_initializekeybindingwatcher", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L377"}, {"caller_nid": "loaduserbindings_initializekeybindingwatcher", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L384"}, {"caller_nid": "loaduserbindings_initializekeybindingwatcher", "callee": "watch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L386"}, {"caller_nid": "loaduserbindings_initializekeybindingwatcher", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L398"}, {"caller_nid": "loaduserbindings_initializekeybindingwatcher", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L399"}, {"caller_nid": "loaduserbindings_initializekeybindingwatcher", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L400"}, {"caller_nid": "loaduserbindings_initializekeybindingwatcher", "callee": "registerCleanup", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L403"}, {"caller_nid": "loaduserbindings_disposekeybindingwatcher", "callee": "close", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L412"}, {"caller_nid": "loaduserbindings_disposekeybindingwatcher", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L415"}, {"caller_nid": "loaduserbindings_handlechange", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L425"}, {"caller_nid": "loaduserbindings_handlechange", "callee": "emit", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L433"}, {"caller_nid": "loaduserbindings_handlechange", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L435"}, {"caller_nid": "loaduserbindings_handlechange", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L435"}, {"caller_nid": "loaduserbindings_handledelete", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L440"}, {"caller_nid": "loaduserbindings_handledelete", "callee": "emit", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L447"}, {"caller_nid": "loaduserbindings_resetkeybindingloaderfortesting", "callee": "close", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L468"}, {"caller_nid": "loaduserbindings_resetkeybindingloaderfortesting", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts", "source_location": "L471"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "label": "loadUserBindings.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "loaduserbindings_iskeybindingcustomizationenabled",
+      "label": "isKeybindingCustomizationEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L41"
+    },
+    {
+      "id": "loaduserbindings_logcustombindingsloadedonceperday",
+      "label": "logCustomBindingsLoadedOncePerDay()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L83"
+    },
+    {
+      "id": "loaduserbindings_iskeybindingblock",
+      "label": "isKeybindingBlock()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L95"
+    },
+    {
+      "id": "loaduserbindings_iskeybindingblockarray",
+      "label": "isKeybindingBlockArray()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L108"
+    },
+    {
+      "id": "loaduserbindings_getkeybindingspath",
+      "label": "getKeybindingsPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L115"
+    },
+    {
+      "id": "loaduserbindings_getdefaultparsedbindings",
+      "label": "getDefaultParsedBindings()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L122"
+    },
+    {
+      "id": "loaduserbindings_loadkeybindings",
+      "label": "loadKeybindings()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L133"
+    },
+    {
+      "id": "loaduserbindings_loadkeybindingssync",
+      "label": "loadKeybindingsSync()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L243"
+    },
+    {
+      "id": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "label": "loadKeybindingsSyncWithWarnings()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L259"
+    },
+    {
+      "id": "loaduserbindings_initializekeybindingwatcher",
+      "label": "initializeKeybindingWatcher()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L353"
+    },
+    {
+      "id": "loaduserbindings_disposekeybindingwatcher",
+      "label": "disposeKeybindingWatcher()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L409"
+    },
+    {
+      "id": "loaduserbindings_handlechange",
+      "label": "handleChange()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L424"
+    },
+    {
+      "id": "loaduserbindings_handledelete",
+      "label": "handleDelete()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L439"
+    },
+    {
+      "id": "loaduserbindings_getcachedkeybindingwarnings",
+      "label": "getCachedKeybindingWarnings()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L454"
+    },
+    {
+      "id": "loaduserbindings_resetkeybindingloaderfortesting",
+      "label": "resetKeybindingLoaderForTesting()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L461"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "chokidar",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "fs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_signal_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_defaultbindings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_parser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_keybindings_validate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "loaduserbindings_iskeybindingcustomizationenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "loaduserbindings_logcustombindingsloadedonceperday",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "loaduserbindings_iskeybindingblock",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "loaduserbindings_iskeybindingblockarray",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "loaduserbindings_getkeybindingspath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "loaduserbindings_getdefaultparsedbindings",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "loaduserbindings_loadkeybindings",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "loaduserbindings_loadkeybindingssync",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L243",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L259",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "loaduserbindings_initializekeybindingwatcher",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L353",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "loaduserbindings_disposekeybindingwatcher",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L409",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "loaduserbindings_handlechange",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L424",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "loaduserbindings_handledelete",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L439",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "loaduserbindings_getcachedkeybindingwarnings",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L454",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_keybindings_loaduserbindings_ts",
+      "target": "loaduserbindings_resetkeybindingloaderfortesting",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L461",
+      "weight": 1.0
+    },
+    {
+      "source": "loaduserbindings_loadkeybindings",
+      "target": "loaduserbindings_getdefaultparsedbindings",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "loaduserbindings_loadkeybindings",
+      "target": "loaduserbindings_iskeybindingcustomizationenabled",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "loaduserbindings_loadkeybindings",
+      "target": "loaduserbindings_getkeybindingspath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L141",
+      "weight": 1.0
+    },
+    {
+      "source": "loaduserbindings_loadkeybindings",
+      "target": "loaduserbindings_iskeybindingblockarray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "loaduserbindings_loadkeybindings",
+      "target": "loaduserbindings_logcustombindingsloadedonceperday",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L199",
+      "weight": 1.0
+    },
+    {
+      "source": "loaduserbindings_loadkeybindingssync",
+      "target": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "target": "loaduserbindings_getdefaultparsedbindings",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L264",
+      "weight": 1.0
+    },
+    {
+      "source": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "target": "loaduserbindings_iskeybindingcustomizationenabled",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L267",
+      "weight": 1.0
+    },
+    {
+      "source": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "target": "loaduserbindings_getkeybindingspath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L273",
+      "weight": 1.0
+    },
+    {
+      "source": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "target": "loaduserbindings_iskeybindingblockarray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L299",
+      "weight": 1.0
+    },
+    {
+      "source": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "target": "loaduserbindings_logcustombindingsloadedonceperday",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L324",
+      "weight": 1.0
+    },
+    {
+      "source": "loaduserbindings_initializekeybindingwatcher",
+      "target": "loaduserbindings_iskeybindingcustomizationenabled",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L357",
+      "weight": 1.0
+    },
+    {
+      "source": "loaduserbindings_initializekeybindingwatcher",
+      "target": "loaduserbindings_getkeybindingspath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L364",
+      "weight": 1.0
+    },
+    {
+      "source": "loaduserbindings_handlechange",
+      "target": "loaduserbindings_loadkeybindings",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L428",
+      "weight": 1.0
+    },
+    {
+      "source": "loaduserbindings_handledelete",
+      "target": "loaduserbindings_getdefaultparsedbindings",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L443",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "loaduserbindings_iskeybindingcustomizationenabled",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "loaduserbindings_logcustombindingsloadedonceperday",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "loaduserbindings_logcustombindingsloadedonceperday",
+      "callee": "toISOString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "loaduserbindings_logcustombindingsloadedonceperday",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "loaduserbindings_iskeybindingblockarray",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "loaduserbindings_iskeybindingblockarray",
+      "callee": "every",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "loaduserbindings_getkeybindingspath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "loaduserbindings_getkeybindingspath",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "loaduserbindings_getdefaultparsedbindings",
+      "callee": "parseBindings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L123"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindings",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L144"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindings",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L145"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindings",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L155"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindings",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L171"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindings",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L174"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindings",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L177"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindings",
+      "callee": "parseBindings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L191"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindings",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindings",
+      "callee": "checkDuplicateKeysInJson",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindings",
+      "callee": "validateBindings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L206"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindings",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L210"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindings",
+      "callee": "isENOENT",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindings",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L223"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindings",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L224"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindings",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L232"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "callee": "readFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L277"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L278"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L300"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "callee": "isArray",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L303"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "callee": "parseBindings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L318"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L319"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "callee": "checkDuplicateKeysInJson",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L327"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "callee": "validateBindings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L330"
+    },
+    {
+      "caller_nid": "loaduserbindings_loadkeybindingssyncwithwarnings",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L333"
+    },
+    {
+      "caller_nid": "loaduserbindings_initializekeybindingwatcher",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L358"
+    },
+    {
+      "caller_nid": "loaduserbindings_initializekeybindingwatcher",
+      "callee": "dirname",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L365"
+    },
+    {
+      "caller_nid": "loaduserbindings_initializekeybindingwatcher",
+      "callee": "stat",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L369"
+    },
+    {
+      "caller_nid": "loaduserbindings_initializekeybindingwatcher",
+      "callee": "isDirectory",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L370"
+    },
+    {
+      "caller_nid": "loaduserbindings_initializekeybindingwatcher",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L371"
+    },
+    {
+      "caller_nid": "loaduserbindings_initializekeybindingwatcher",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L377"
+    },
+    {
+      "caller_nid": "loaduserbindings_initializekeybindingwatcher",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L384"
+    },
+    {
+      "caller_nid": "loaduserbindings_initializekeybindingwatcher",
+      "callee": "watch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L386"
+    },
+    {
+      "caller_nid": "loaduserbindings_initializekeybindingwatcher",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L398"
+    },
+    {
+      "caller_nid": "loaduserbindings_initializekeybindingwatcher",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L399"
+    },
+    {
+      "caller_nid": "loaduserbindings_initializekeybindingwatcher",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L400"
+    },
+    {
+      "caller_nid": "loaduserbindings_initializekeybindingwatcher",
+      "callee": "registerCleanup",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L403"
+    },
+    {
+      "caller_nid": "loaduserbindings_disposekeybindingwatcher",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L412"
+    },
+    {
+      "caller_nid": "loaduserbindings_disposekeybindingwatcher",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L415"
+    },
+    {
+      "caller_nid": "loaduserbindings_handlechange",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L425"
+    },
+    {
+      "caller_nid": "loaduserbindings_handlechange",
+      "callee": "emit",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L433"
+    },
+    {
+      "caller_nid": "loaduserbindings_handlechange",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L435"
+    },
+    {
+      "caller_nid": "loaduserbindings_handlechange",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L435"
+    },
+    {
+      "caller_nid": "loaduserbindings_handledelete",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L440"
+    },
+    {
+      "caller_nid": "loaduserbindings_handledelete",
+      "callee": "emit",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L447"
+    },
+    {
+      "caller_nid": "loaduserbindings_resetkeybindingloaderfortesting",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L468"
+    },
+    {
+      "caller_nid": "loaduserbindings_resetkeybindingloaderfortesting",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\keybindings\\loadUserBindings.ts",
+      "source_location": "L471"
+    }
+  ]
+}

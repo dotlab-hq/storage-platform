@@ -1,1 +1,526 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "label": "computerUseLock.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L1"}, {"id": "computeruselock_iscomputeruselock", "label": "isComputerUseLock()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L34"}, {"id": "computeruselock_getlockpath", "label": "getLockPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L44"}, {"id": "computeruselock_readlock", "label": "readLock()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L48"}, {"id": "computeruselock_isprocessrunning", "label": "isProcessRunning()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L65"}, {"id": "computeruselock_trycreateexclusive", "label": "tryCreateExclusive()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L79"}, {"id": "computeruselock_registerlockcleanup", "label": "registerLockCleanup()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L94"}, {"id": "computeruselock_checkcomputeruselock", "label": "checkComputerUseLock()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L110"}, {"id": "computeruselock_islockheldlocally", "label": "isLockHeldLocally()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L130"}, {"id": "computeruselock_tryacquirecomputeruselock", "label": "tryAcquireComputerUseLock()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L148"}, {"id": "computeruselock_releasecomputeruselock", "label": "releaseComputerUseLock()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L202"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "computeruselock_iscomputeruselock", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L34", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "computeruselock_getlockpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L44", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "computeruselock_readlock", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L48", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "computeruselock_isprocessrunning", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L65", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "computeruselock_trycreateexclusive", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L79", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "computeruselock_registerlockcleanup", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L94", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "computeruselock_checkcomputeruselock", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L110", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "computeruselock_islockheldlocally", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L130", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "computeruselock_tryacquirecomputeruselock", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L148", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts", "target": "computeruselock_releasecomputeruselock", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L202", "weight": 1.0}, {"source": "computeruselock_readlock", "target": "computeruselock_getlockpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L50", "weight": 1.0}, {"source": "computeruselock_readlock", "target": "computeruselock_iscomputeruselock", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L52", "weight": 1.0}, {"source": "computeruselock_trycreateexclusive", "target": "computeruselock_getlockpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L81", "weight": 1.0}, {"source": "computeruselock_checkcomputeruselock", "target": "computeruselock_readlock", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L111", "weight": 1.0}, {"source": "computeruselock_checkcomputeruselock", "target": "computeruselock_isprocessrunning", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L114", "weight": 1.0}, {"source": "computeruselock_checkcomputeruselock", "target": "computeruselock_getlockpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L120", "weight": 1.0}, {"source": "computeruselock_tryacquirecomputeruselock", "target": "computeruselock_trycreateexclusive", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L159", "weight": 1.0}, {"source": "computeruselock_tryacquirecomputeruselock", "target": "computeruselock_registerlockcleanup", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L160", "weight": 1.0}, {"source": "computeruselock_tryacquirecomputeruselock", "target": "computeruselock_readlock", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L164", "weight": 1.0}, {"source": "computeruselock_tryacquirecomputeruselock", "target": "computeruselock_getlockpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L168", "weight": 1.0}, {"source": "computeruselock_tryacquirecomputeruselock", "target": "computeruselock_isprocessrunning", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L180", "weight": 1.0}, {"source": "computeruselock_releasecomputeruselock", "target": "computeruselock_readlock", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L206", "weight": 1.0}, {"source": "computeruselock_releasecomputeruselock", "target": "computeruselock_getlockpath", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L209", "weight": 1.0}], "raw_calls": [{"caller_nid": "computeruselock_getlockpath", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L45"}, {"caller_nid": "computeruselock_getlockpath", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L45"}, {"caller_nid": "computeruselock_readlock", "callee": "readFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L50"}, {"caller_nid": "computeruselock_readlock", "callee": "jsonParse", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L51"}, {"caller_nid": "computeruselock_isprocessrunning", "callee": "kill", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L67"}, {"caller_nid": "computeruselock_trycreateexclusive", "callee": "writeFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L81"}, {"caller_nid": "computeruselock_trycreateexclusive", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L81"}, {"caller_nid": "computeruselock_trycreateexclusive", "callee": "getErrnoCode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L84"}, {"caller_nid": "computeruselock_registerlockcleanup", "callee": "unregisterCleanup", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L95"}, {"caller_nid": "computeruselock_registerlockcleanup", "callee": "registerCleanup", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L96"}, {"caller_nid": "computeruselock_checkcomputeruselock", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L113"}, {"caller_nid": "computeruselock_checkcomputeruselock", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L117"}, {"caller_nid": "computeruselock_checkcomputeruselock", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L120"}, {"caller_nid": "computeruselock_checkcomputeruselock", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L120"}, {"caller_nid": "computeruselock_tryacquirecomputeruselock", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L149"}, {"caller_nid": "computeruselock_tryacquirecomputeruselock", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L153"}, {"caller_nid": "computeruselock_tryacquirecomputeruselock", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L156"}, {"caller_nid": "computeruselock_tryacquirecomputeruselock", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L156"}, {"caller_nid": "computeruselock_tryacquirecomputeruselock", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L168"}, {"caller_nid": "computeruselock_tryacquirecomputeruselock", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L168"}, {"caller_nid": "computeruselock_tryacquirecomputeruselock", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L186"}, {"caller_nid": "computeruselock_tryacquirecomputeruselock", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L189"}, {"caller_nid": "computeruselock_tryacquirecomputeruselock", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L189"}, {"caller_nid": "computeruselock_releasecomputeruselock", "callee": "unregisterCleanup", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L203"}, {"caller_nid": "computeruselock_releasecomputeruselock", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L207"}, {"caller_nid": "computeruselock_releasecomputeruselock", "callee": "unlink", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L209"}, {"caller_nid": "computeruselock_releasecomputeruselock", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts", "source_location": "L210"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "label": "computerUseLock.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "computeruselock_iscomputeruselock",
+      "label": "isComputerUseLock()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L34"
+    },
+    {
+      "id": "computeruselock_getlockpath",
+      "label": "getLockPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L44"
+    },
+    {
+      "id": "computeruselock_readlock",
+      "label": "readLock()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L48"
+    },
+    {
+      "id": "computeruselock_isprocessrunning",
+      "label": "isProcessRunning()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L65"
+    },
+    {
+      "id": "computeruselock_trycreateexclusive",
+      "label": "tryCreateExclusive()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L79"
+    },
+    {
+      "id": "computeruselock_registerlockcleanup",
+      "label": "registerLockCleanup()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L94"
+    },
+    {
+      "id": "computeruselock_checkcomputeruselock",
+      "label": "checkComputerUseLock()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L110"
+    },
+    {
+      "id": "computeruselock_islockheldlocally",
+      "label": "isLockHeldLocally()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L130"
+    },
+    {
+      "id": "computeruselock_tryacquirecomputeruselock",
+      "label": "tryAcquireComputerUseLock()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L148"
+    },
+    {
+      "id": "computeruselock_releasecomputeruselock",
+      "label": "releaseComputerUseLock()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L202"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "computeruselock_iscomputeruselock",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "computeruselock_getlockpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "computeruselock_readlock",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "computeruselock_isprocessrunning",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "computeruselock_trycreateexclusive",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "computeruselock_registerlockcleanup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "computeruselock_checkcomputeruselock",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "computeruselock_islockheldlocally",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "computeruselock_tryacquirecomputeruselock",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_computeruse_computeruselock_ts",
+      "target": "computeruselock_releasecomputeruselock",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L202",
+      "weight": 1.0
+    },
+    {
+      "source": "computeruselock_readlock",
+      "target": "computeruselock_getlockpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "computeruselock_readlock",
+      "target": "computeruselock_iscomputeruselock",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "computeruselock_trycreateexclusive",
+      "target": "computeruselock_getlockpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "computeruselock_checkcomputeruselock",
+      "target": "computeruselock_readlock",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "computeruselock_checkcomputeruselock",
+      "target": "computeruselock_isprocessrunning",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "computeruselock_checkcomputeruselock",
+      "target": "computeruselock_getlockpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L120",
+      "weight": 1.0
+    },
+    {
+      "source": "computeruselock_tryacquirecomputeruselock",
+      "target": "computeruselock_trycreateexclusive",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "computeruselock_tryacquirecomputeruselock",
+      "target": "computeruselock_registerlockcleanup",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "computeruselock_tryacquirecomputeruselock",
+      "target": "computeruselock_readlock",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "computeruselock_tryacquirecomputeruselock",
+      "target": "computeruselock_getlockpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "computeruselock_tryacquirecomputeruselock",
+      "target": "computeruselock_isprocessrunning",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L180",
+      "weight": 1.0
+    },
+    {
+      "source": "computeruselock_releasecomputeruselock",
+      "target": "computeruselock_readlock",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L206",
+      "weight": 1.0
+    },
+    {
+      "source": "computeruselock_releasecomputeruselock",
+      "target": "computeruselock_getlockpath",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L209",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "computeruselock_getlockpath",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "computeruselock_getlockpath",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "computeruselock_readlock",
+      "callee": "readFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "computeruselock_readlock",
+      "callee": "jsonParse",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "computeruselock_isprocessrunning",
+      "callee": "kill",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L67"
+    },
+    {
+      "caller_nid": "computeruselock_trycreateexclusive",
+      "callee": "writeFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "computeruselock_trycreateexclusive",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "computeruselock_trycreateexclusive",
+      "callee": "getErrnoCode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "computeruselock_registerlockcleanup",
+      "callee": "unregisterCleanup",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "computeruselock_registerlockcleanup",
+      "callee": "registerCleanup",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "computeruselock_checkcomputeruselock",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "computeruselock_checkcomputeruselock",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "computeruselock_checkcomputeruselock",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "computeruselock_checkcomputeruselock",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "computeruselock_tryacquirecomputeruselock",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L149"
+    },
+    {
+      "caller_nid": "computeruselock_tryacquirecomputeruselock",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L153"
+    },
+    {
+      "caller_nid": "computeruselock_tryacquirecomputeruselock",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "computeruselock_tryacquirecomputeruselock",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "computeruselock_tryacquirecomputeruselock",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "computeruselock_tryacquirecomputeruselock",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L168"
+    },
+    {
+      "caller_nid": "computeruselock_tryacquirecomputeruselock",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L186"
+    },
+    {
+      "caller_nid": "computeruselock_tryacquirecomputeruselock",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L189"
+    },
+    {
+      "caller_nid": "computeruselock_tryacquirecomputeruselock",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L189"
+    },
+    {
+      "caller_nid": "computeruselock_releasecomputeruselock",
+      "callee": "unregisterCleanup",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "computeruselock_releasecomputeruselock",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L207"
+    },
+    {
+      "caller_nid": "computeruselock_releasecomputeruselock",
+      "callee": "unlink",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L209"
+    },
+    {
+      "caller_nid": "computeruselock_releasecomputeruselock",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\computerUse\\computerUseLock.ts",
+      "source_location": "L210"
+    }
+  ]
+}

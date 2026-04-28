@@ -1,1 +1,452 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "label": "scheduleRemoteAgents.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L1"}, {"id": "scheduleremoteagents_taggedidtouuid", "label": "taggedIdToUUID()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L35"}, {"id": "scheduleremoteagents_getconnectedclaudeaiconnectors", "label": "getConnectedClaudeAIConnectors()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L65"}, {"id": "scheduleremoteagents_sanitizeconnectorname", "label": "sanitizeConnectorName()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L89"}, {"id": "scheduleremoteagents_formatconnectorsinfo", "label": "formatConnectorsInfo()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L97"}, {"id": "scheduleremoteagents_formatsetupnotes", "label": "formatSetupNotes()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L118"}, {"id": "scheduleremoteagents_getcurrentrepohttpsurl", "label": "getCurrentRepoHttpsUrl()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L123"}, {"id": "scheduleremoteagents_buildprompt", "label": "buildPrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L135"}, {"id": "scheduleremoteagents_registerscheduleremoteagentsskill", "label": "registerScheduleRemoteAgentsSkill()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L324"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "f_storage_platform_claude_code_source_main_src_services_mcp_types_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "f_storage_platform_claude_code_source_main_src_services_policylimits_index_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "f_storage_platform_claude_code_source_main_src_tool_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_askuserquestiontool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_remotetriggertool_prompt_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_background_remote_preconditions_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_environments_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "f_storage_platform_claude_code_source_main_src_skills_bundledskills_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L21", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "scheduleremoteagents_taggedidtouuid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "scheduleremoteagents_getconnectedclaudeaiconnectors", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L65", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "scheduleremoteagents_sanitizeconnectorname", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L89", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "scheduleremoteagents_formatconnectorsinfo", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L97", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "scheduleremoteagents_formatsetupnotes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L118", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "scheduleremoteagents_getcurrentrepohttpsurl", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L123", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "scheduleremoteagents_buildprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L135", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts", "target": "scheduleremoteagents_registerscheduleremoteagentsskill", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L324", "weight": 1.0}, {"source": "scheduleremoteagents_getconnectedclaudeaiconnectors", "target": "scheduleremoteagents_taggedidtouuid", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L76", "weight": 1.0}, {"source": "scheduleremoteagents_formatconnectorsinfo", "target": "scheduleremoteagents_sanitizeconnectorname", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L103", "weight": 1.0}, {"source": "scheduleremoteagents_buildprompt", "target": "scheduleremoteagents_formatsetupnotes", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L160", "weight": 1.0}], "raw_calls": [{"caller_nid": "scheduleremoteagents_taggedidtouuid", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L37"}, {"caller_nid": "scheduleremoteagents_taggedidtouuid", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L40"}, {"caller_nid": "scheduleremoteagents_taggedidtouuid", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L42"}, {"caller_nid": "scheduleremoteagents_taggedidtouuid", "callee": "indexOf", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L47"}, {"caller_nid": "scheduleremoteagents_taggedidtouuid", "callee": "BigInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L51"}, {"caller_nid": "scheduleremoteagents_taggedidtouuid", "callee": "padStart", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L55"}, {"caller_nid": "scheduleremoteagents_taggedidtouuid", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L55"}, {"caller_nid": "scheduleremoteagents_taggedidtouuid", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L56"}, {"caller_nid": "scheduleremoteagents_taggedidtouuid", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L56"}, {"caller_nid": "scheduleremoteagents_taggedidtouuid", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L56"}, {"caller_nid": "scheduleremoteagents_taggedidtouuid", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L56"}, {"caller_nid": "scheduleremoteagents_taggedidtouuid", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L56"}, {"caller_nid": "scheduleremoteagents_getconnectedclaudeaiconnectors", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L80"}, {"caller_nid": "scheduleremoteagents_sanitizeconnectorname", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L90"}, {"caller_nid": "scheduleremoteagents_sanitizeconnectorname", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L90"}, {"caller_nid": "scheduleremoteagents_sanitizeconnectorname", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L90"}, {"caller_nid": "scheduleremoteagents_sanitizeconnectorname", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L90"}, {"caller_nid": "scheduleremoteagents_formatconnectorsinfo", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L104"}, {"caller_nid": "scheduleremoteagents_formatconnectorsinfo", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L108"}, {"caller_nid": "scheduleremoteagents_formatsetupnotes", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L119"}, {"caller_nid": "scheduleremoteagents_formatsetupnotes", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L119"}, {"caller_nid": "scheduleremoteagents_getcurrentrepohttpsurl", "callee": "getRemoteUrl", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L124"}, {"caller_nid": "scheduleremoteagents_getcurrentrepohttpsurl", "callee": "parseGitRemote", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L128"}, {"caller_nid": "scheduleremoteagents_buildprompt", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L170"}, {"caller_nid": "scheduleremoteagents_buildprompt", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L320"}, {"caller_nid": "scheduleremoteagents_registerscheduleremoteagentsskill", "callee": "registerBundledSkill", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts", "source_location": "L325"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "label": "scheduleRemoteAgents.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "scheduleremoteagents_taggedidtouuid",
+      "label": "taggedIdToUUID()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L35"
+    },
+    {
+      "id": "scheduleremoteagents_getconnectedclaudeaiconnectors",
+      "label": "getConnectedClaudeAIConnectors()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L65"
+    },
+    {
+      "id": "scheduleremoteagents_sanitizeconnectorname",
+      "label": "sanitizeConnectorName()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L89"
+    },
+    {
+      "id": "scheduleremoteagents_formatconnectorsinfo",
+      "label": "formatConnectorsInfo()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L97"
+    },
+    {
+      "id": "scheduleremoteagents_formatsetupnotes",
+      "label": "formatSetupNotes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L118"
+    },
+    {
+      "id": "scheduleremoteagents_getcurrentrepohttpsurl",
+      "label": "getCurrentRepoHttpsUrl()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L123"
+    },
+    {
+      "id": "scheduleremoteagents_buildprompt",
+      "label": "buildPrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L135"
+    },
+    {
+      "id": "scheduleremoteagents_registerscheduleremoteagentsskill",
+      "label": "registerScheduleRemoteAgentsSkill()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L324"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_analytics_growthbook_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_mcp_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_services_policylimits_index_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tool_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_askuserquestiontool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_remotetriggertool_prompt_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_background_remote_preconditions_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_detectrepository_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_git_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_teleport_environments_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_skills_bundledskills_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "scheduleremoteagents_taggedidtouuid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "scheduleremoteagents_getconnectedclaudeaiconnectors",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "scheduleremoteagents_sanitizeconnectorname",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "scheduleremoteagents_formatconnectorsinfo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "scheduleremoteagents_formatsetupnotes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "scheduleremoteagents_getcurrentrepohttpsurl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "scheduleremoteagents_buildprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L135",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_skills_bundled_scheduleremoteagents_ts",
+      "target": "scheduleremoteagents_registerscheduleremoteagentsskill",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L324",
+      "weight": 1.0
+    },
+    {
+      "source": "scheduleremoteagents_getconnectedclaudeaiconnectors",
+      "target": "scheduleremoteagents_taggedidtouuid",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "scheduleremoteagents_formatconnectorsinfo",
+      "target": "scheduleremoteagents_sanitizeconnectorname",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "scheduleremoteagents_buildprompt",
+      "target": "scheduleremoteagents_formatsetupnotes",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L160",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "scheduleremoteagents_taggedidtouuid",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_taggedidtouuid",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_taggedidtouuid",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_taggedidtouuid",
+      "callee": "indexOf",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_taggedidtouuid",
+      "callee": "BigInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L51"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_taggedidtouuid",
+      "callee": "padStart",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_taggedidtouuid",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_taggedidtouuid",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_taggedidtouuid",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_taggedidtouuid",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_taggedidtouuid",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_taggedidtouuid",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_getconnectedclaudeaiconnectors",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L80"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_sanitizeconnectorname",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_sanitizeconnectorname",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_sanitizeconnectorname",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_sanitizeconnectorname",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L90"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_formatconnectorsinfo",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_formatconnectorsinfo",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L108"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_formatsetupnotes",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_formatsetupnotes",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L119"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_getcurrentrepohttpsurl",
+      "callee": "getRemoteUrl",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L124"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_getcurrentrepohttpsurl",
+      "callee": "parseGitRemote",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_buildprompt",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L170"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_buildprompt",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L320"
+    },
+    {
+      "caller_nid": "scheduleremoteagents_registerscheduleremoteagentsskill",
+      "callee": "registerBundledSkill",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\skills\\bundled\\scheduleRemoteAgents.ts",
+      "source_location": "L325"
+    }
+  ]
+}

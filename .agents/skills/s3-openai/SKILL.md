@@ -1,17 +1,17 @@
-
-
 # OpenAPI definitions of the sample API as an Amazon S3 proxy
+
 <a name="api-as-s3-proxy-export-swagger-with-extensions"></a>
 
 The following OpenAPI definitions describes an API that works as an Amazon S3 proxy. This API contains more Amazon S3 operations than the API you created in the tutorial. The following methods are exposed in the OpenAPI definitions:
-+ Expose GET on the API's root resource to [list all of the Amazon S3 buckets of a caller](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html).
-+ Expose GET on a Folder resource to [view a list of all of the objects in an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html).
-+ Expose PUT on a Folder resource to [add a bucket to Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html).
-+ Expose DELETE on a Folder resource to [remove a bucket from Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html).
-+ Expose GET on a Folder/Item resource to [view or download an object from an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html).
-+ Expose PUT on a Folder/Item resource to [upload an object to an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html).
-+ Expose HEAD on a Folder/Item resource to [get object metadata in an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html).
-+ Expose DELETE on a Folder/Item resource to [remove an object from an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html).
+
+- Expose GET on the API's root resource to [list all of the Amazon S3 buckets of a caller](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html).
+- Expose GET on a Folder resource to [view a list of all of the objects in an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html).
+- Expose PUT on a Folder resource to [add a bucket to Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html).
+- Expose DELETE on a Folder resource to [remove a bucket from Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html).
+- Expose GET on a Folder/Item resource to [view or download an object from an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html).
+- Expose PUT on a Folder/Item resource to [upload an object to an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html).
+- Expose HEAD on a Folder/Item resource to [get object metadata in an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html).
+- Expose DELETE on a Folder/Item resource to [remove an object from an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html).
 
 For instructions on how to import an API using the OpenAPI definition, see [Develop REST APIs using OpenAPI in API Gateway](api-gateway-import-api.md).
 
@@ -19,7 +19,8 @@ For instructions on how to create a similar API, see [Tutorial: Create a REST AP
 
 To learn how to invoke this API using [Postman](https://www.postman.com/), which supports the AWS IAM authorization, see [Call the API using a REST API client](api-as-s3-proxy-test-using-postman.md).
 
-------
+---
+
 #### [ OpenAPI 2.0 ]
 
 ```
@@ -614,7 +615,8 @@ To learn how to invoke this API using [Postman](https://www.postman.com/), which
 }
 ```
 
-------
+---
+
 #### [ OpenAPI 3.0 ]
 
 ```
@@ -1230,4 +1232,4 @@ To learn how to invoke this API using [Postman](https://www.postman.com/), which
 }
 ```
 
-------
+---

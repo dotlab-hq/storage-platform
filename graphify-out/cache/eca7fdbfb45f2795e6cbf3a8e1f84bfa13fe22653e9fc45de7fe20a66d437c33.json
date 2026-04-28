@@ -1,1 +1,1395 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "label": "instrumentation.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L1"}, {"id": "instrumentation_telemetrytimeouterror", "label": "TelemetryTimeoutError", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L73"}, {"id": "instrumentation_telemetrytimeout", "label": "telemetryTimeout()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L75"}, {"id": "instrumentation_bootstraptelemetry", "label": "bootstrapTelemetry()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L87"}, {"id": "instrumentation_parseexportertypes", "label": "parseExporterTypes()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L121"}, {"id": "instrumentation_getotlpreaders", "label": "getOtlpReaders()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L130"}, {"id": "instrumentation_getotlplogexporters", "label": "getOtlpLogExporters()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L217"}, {"id": "instrumentation_getotlptraceexporters", "label": "getOtlpTraceExporters()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L273"}, {"id": "instrumentation_istelemetryenabled", "label": "isTelemetryEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L324"}, {"id": "instrumentation_getbigqueryexportingreader", "label": "getBigQueryExportingReader()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L328"}, {"id": "instrumentation_isbigquerymetricsenabled", "label": "isBigQueryMetricsEnabled()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L336"}, {"id": "instrumentation_initializebetatracing", "label": "initializeBetaTracing()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L353"}, {"id": "instrumentation_initializetelemetry", "label": "initializeTelemetry()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L421"}, {"id": "instrumentation_flushtelemetry", "label": "flushTelemetry()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L707"}, {"id": "instrumentation_parseotelheadersenvvar", "label": "parseOtelHeadersEnvVar()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L749"}, {"id": "instrumentation_getotlpexporterconfig", "label": "getOTLPExporterConfig()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L768"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "api", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "api_logs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "resources", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "sdk_logs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "sdk_metrics", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "sdk_trace_base", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L22", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "semantic_conventions", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "https_proxy_agent", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "state_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L33", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "auth_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "platform_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L48", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cacerts_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L50", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L51", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L52", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L53", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L54", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_mtls_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L55", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L56", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L57", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L58", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_startupprofiler_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L59", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_telemetry_betasessiontracing_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L60", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_telemetry_bigqueryexporter_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L61", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_telemetry_logger_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L62", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_telemetry_perfettotracing_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L63", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_telemetry_sessiontracing_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L64", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "instrumentation_telemetrytimeouterror", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L73", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "instrumentation_telemetrytimeout", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L75", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "instrumentation_bootstraptelemetry", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L87", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "instrumentation_parseexportertypes", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L121", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "instrumentation_getotlpreaders", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L130", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "instrumentation_getotlplogexporters", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L217", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "instrumentation_getotlptraceexporters", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L273", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "instrumentation_istelemetryenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L324", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "instrumentation_getbigqueryexportingreader", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L328", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "instrumentation_isbigquerymetricsenabled", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L336", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "instrumentation_initializebetatracing", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L353", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "instrumentation_initializetelemetry", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L421", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "instrumentation_flushtelemetry", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L707", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "instrumentation_parseotelheadersenvvar", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L749", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts", "target": "instrumentation_getotlpexporterconfig", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L768", "weight": 1.0}, {"source": "instrumentation_getotlpreaders", "target": "instrumentation_parseexportertypes", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L131", "weight": 1.0}, {"source": "instrumentation_getotlpreaders", "target": "instrumentation_getotlpexporterconfig", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L163", "weight": 1.0}, {"source": "instrumentation_getotlplogexporters", "target": "instrumentation_parseexportertypes", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L218", "weight": 1.0}, {"source": "instrumentation_getotlplogexporters", "target": "instrumentation_getotlpexporterconfig", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L234", "weight": 1.0}, {"source": "instrumentation_getotlptraceexporters", "target": "instrumentation_parseexportertypes", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L274", "weight": 1.0}, {"source": "instrumentation_getotlptraceexporters", "target": "instrumentation_getotlpexporterconfig", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L285", "weight": 1.0}, {"source": "instrumentation_initializetelemetry", "target": "instrumentation_bootstraptelemetry", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L423", "weight": 1.0}, {"source": "instrumentation_initializetelemetry", "target": "instrumentation_istelemetryenabled", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L458", "weight": 1.0}, {"source": "instrumentation_initializetelemetry", "target": "instrumentation_getotlpreaders", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L463", "weight": 1.0}, {"source": "instrumentation_initializetelemetry", "target": "instrumentation_isbigquerymetricsenabled", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L467", "weight": 1.0}, {"source": "instrumentation_initializetelemetry", "target": "instrumentation_getbigqueryexportingreader", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L468", "weight": 1.0}, {"source": "instrumentation_initializetelemetry", "target": "instrumentation_initializebetatracing", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L515", "weight": 1.0}, {"source": "instrumentation_initializetelemetry", "target": "instrumentation_getotlplogexporters", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L577", "weight": 1.0}, {"source": "instrumentation_initializetelemetry", "target": "instrumentation_getotlptraceexporters", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L629", "weight": 1.0}, {"source": "instrumentation_flushtelemetry", "target": "instrumentation_telemetrytimeout", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L730", "weight": 1.0}, {"source": "instrumentation_getotlpexporterconfig", "target": "instrumentation_parseotelheadersenvvar", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L777", "weight": 1.0}], "raw_calls": [{"caller_nid": "instrumentation_parseexportertypes", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L122"}, {"caller_nid": "instrumentation_parseexportertypes", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L122"}, {"caller_nid": "instrumentation_parseexportertypes", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L122"}, {"caller_nid": "instrumentation_parseexportertypes", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L122"}, {"caller_nid": "instrumentation_parseexportertypes", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L122"}, {"caller_nid": "instrumentation_getotlpreaders", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L132"}, {"caller_nid": "instrumentation_getotlpreaders", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L134"}, {"caller_nid": "instrumentation_getotlpreaders", "callee": "bind", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L142"}, {"caller_nid": "instrumentation_getotlpreaders", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L157"}, {"caller_nid": "instrumentation_getotlpreaders", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L160"}, {"caller_nid": "instrumentation_getotlpreaders", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L161"}, {"caller_nid": "instrumentation_getotlpreaders", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L169"}, {"caller_nid": "instrumentation_getotlpreaders", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L172"}, {"caller_nid": "instrumentation_getotlpreaders", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L176"}, {"caller_nid": "instrumentation_getotlpreaders", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L179"}, {"caller_nid": "instrumentation_getotlpreaders", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L183"}, {"caller_nid": "instrumentation_getotlpreaders", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L186"}, {"caller_nid": "instrumentation_getotlpreaders", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L195"}, {"caller_nid": "instrumentation_getotlpreaders", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L198"}, {"caller_nid": "instrumentation_getotlpreaders", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L206"}, {"caller_nid": "instrumentation_getotlplogexporters", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L221"}, {"caller_nid": "instrumentation_getotlplogexporters", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L222"}, {"caller_nid": "instrumentation_getotlplogexporters", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L225"}, {"caller_nid": "instrumentation_getotlplogexporters", "callee": "jsonStringify", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L226"}, {"caller_nid": "instrumentation_getotlplogexporters", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L232"}, {"caller_nid": "instrumentation_getotlplogexporters", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L238"}, {"caller_nid": "instrumentation_getotlplogexporters", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L241"}, {"caller_nid": "instrumentation_getotlplogexporters", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L245"}, {"caller_nid": "instrumentation_getotlplogexporters", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L248"}, {"caller_nid": "instrumentation_getotlplogexporters", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L252"}, {"caller_nid": "instrumentation_getotlplogexporters", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L255"}, {"caller_nid": "instrumentation_getotlptraceexporters", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L279"}, {"caller_nid": "instrumentation_getotlptraceexporters", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L282"}, {"caller_nid": "instrumentation_getotlptraceexporters", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L283"}, {"caller_nid": "instrumentation_getotlptraceexporters", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L289"}, {"caller_nid": "instrumentation_getotlptraceexporters", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L292"}, {"caller_nid": "instrumentation_getotlptraceexporters", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L296"}, {"caller_nid": "instrumentation_getotlptraceexporters", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L299"}, {"caller_nid": "instrumentation_getotlptraceexporters", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L303"}, {"caller_nid": "instrumentation_getotlptraceexporters", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L306"}, {"caller_nid": "instrumentation_istelemetryenabled", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L325"}, {"caller_nid": "instrumentation_isbigquerymetricsenabled", "callee": "getSubscriptionType", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L341"}, {"caller_nid": "instrumentation_isbigquerymetricsenabled", "callee": "isClaudeAISubscriber", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L343"}, {"caller_nid": "instrumentation_isbigquerymetricsenabled", "callee": "is1PApiCustomer", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L346"}, {"caller_nid": "instrumentation_initializebetatracing", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L361"}, {"caller_nid": "instrumentation_initializebetatracing", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L362"}, {"caller_nid": "instrumentation_initializebetatracing", "callee": "import", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L363"}, {"caller_nid": "instrumentation_initializebetatracing", "callee": "setGlobalTracerProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L385"}, {"caller_nid": "instrumentation_initializebetatracing", "callee": "setTracerProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L386"}, {"caller_nid": "instrumentation_initializebetatracing", "callee": "setGlobalLoggerProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L399"}, {"caller_nid": "instrumentation_initializebetatracing", "callee": "setLoggerProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L400"}, {"caller_nid": "instrumentation_initializebetatracing", "callee": "getLogger", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L403"}, {"caller_nid": "instrumentation_initializebetatracing", "callee": "setEventLogger", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L407"}, {"caller_nid": "instrumentation_initializebetatracing", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L410"}, {"caller_nid": "instrumentation_initializebetatracing", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L415"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "profileCheckpoint", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L422"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "getHasFormattedOutput", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L432"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L439"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L440"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L440"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L440"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L440"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "setLogger", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L449"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "initializePerfettoTracing", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L453"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L459"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L463"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L468"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L472"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "getWslVersion", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L480"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "resourceFromAttributes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L486"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "resourceFromAttributes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L489"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "detect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L490"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "detect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L494"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "resourceFromAttributes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L500"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "resourceFromAttributes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L502"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "detect", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L503"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "merge", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L507"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "merge", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L507"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "merge", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L507"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "isBetaTracingEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L514"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "catch", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L515"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "setMeterProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L524"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "registerCleanup", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L561"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "getMeter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L563"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "setMeterProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L573"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L578"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L586"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "setGlobalLoggerProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L598"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "setLoggerProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L599"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "getLogger", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L602"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "setEventLogger", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L606"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L607"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L612"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L619"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "isEnhancedTelemetryEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L628"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "map", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L632"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "setGlobalTracerProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L648"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "setTracerProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L649"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "registerCleanup", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L698"}, {"caller_nid": "instrumentation_initializetelemetry", "callee": "getMeter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L700"}, {"caller_nid": "instrumentation_flushtelemetry", "callee": "getMeterProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L708"}, {"caller_nid": "instrumentation_flushtelemetry", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L713"}, {"caller_nid": "instrumentation_flushtelemetry", "callee": "forceFlush", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L718"}, {"caller_nid": "instrumentation_flushtelemetry", "callee": "getLoggerProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L719"}, {"caller_nid": "instrumentation_flushtelemetry", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L721"}, {"caller_nid": "instrumentation_flushtelemetry", "callee": "forceFlush", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L721"}, {"caller_nid": "instrumentation_flushtelemetry", "callee": "getTracerProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L723"}, {"caller_nid": "instrumentation_flushtelemetry", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L725"}, {"caller_nid": "instrumentation_flushtelemetry", "callee": "forceFlush", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L725"}, {"caller_nid": "instrumentation_flushtelemetry", "callee": "race", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L728"}, {"caller_nid": "instrumentation_flushtelemetry", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L729"}, {"caller_nid": "instrumentation_flushtelemetry", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L733"}, {"caller_nid": "instrumentation_flushtelemetry", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L736"}, {"caller_nid": "instrumentation_flushtelemetry", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L741"}, {"caller_nid": "instrumentation_flushtelemetry", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L741"}, {"caller_nid": "instrumentation_parseotelheadersenvvar", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L753"}, {"caller_nid": "instrumentation_parseotelheadersenvvar", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L754"}, {"caller_nid": "instrumentation_parseotelheadersenvvar", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L756"}, {"caller_nid": "instrumentation_parseotelheadersenvvar", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L756"}, {"caller_nid": "instrumentation_parseotelheadersenvvar", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L756"}, {"caller_nid": "instrumentation_getotlpexporterconfig", "callee": "getProxyUrl", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L769"}, {"caller_nid": "instrumentation_getotlpexporterconfig", "callee": "getMTLSConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L770"}, {"caller_nid": "instrumentation_getotlpexporterconfig", "callee": "getSettings_DEPRECATED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L771"}, {"caller_nid": "instrumentation_getotlpexporterconfig", "callee": "keys", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L786"}, {"caller_nid": "instrumentation_getotlpexporterconfig", "callee": "shouldBypassProxy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L792"}, {"caller_nid": "instrumentation_getotlpexporterconfig", "callee": "getCACertificates", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L794"}, {"caller_nid": "instrumentation_getotlpexporterconfig", "callee": "getCACertificates", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts", "source_location": "L805"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "label": "instrumentation.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "instrumentation_telemetrytimeouterror",
+      "label": "TelemetryTimeoutError",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L73"
+    },
+    {
+      "id": "instrumentation_telemetrytimeout",
+      "label": "telemetryTimeout()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L75"
+    },
+    {
+      "id": "instrumentation_bootstraptelemetry",
+      "label": "bootstrapTelemetry()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L87"
+    },
+    {
+      "id": "instrumentation_parseexportertypes",
+      "label": "parseExporterTypes()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L121"
+    },
+    {
+      "id": "instrumentation_getotlpreaders",
+      "label": "getOtlpReaders()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L130"
+    },
+    {
+      "id": "instrumentation_getotlplogexporters",
+      "label": "getOtlpLogExporters()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L217"
+    },
+    {
+      "id": "instrumentation_getotlptraceexporters",
+      "label": "getOtlpTraceExporters()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L273"
+    },
+    {
+      "id": "instrumentation_istelemetryenabled",
+      "label": "isTelemetryEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L324"
+    },
+    {
+      "id": "instrumentation_getbigqueryexportingreader",
+      "label": "getBigQueryExportingReader()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L328"
+    },
+    {
+      "id": "instrumentation_isbigquerymetricsenabled",
+      "label": "isBigQueryMetricsEnabled()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L336"
+    },
+    {
+      "id": "instrumentation_initializebetatracing",
+      "label": "initializeBetaTracing()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L353"
+    },
+    {
+      "id": "instrumentation_initializetelemetry",
+      "label": "initializeTelemetry()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L421"
+    },
+    {
+      "id": "instrumentation_flushtelemetry",
+      "label": "flushTelemetry()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L707"
+    },
+    {
+      "id": "instrumentation_parseotelheadersenvvar",
+      "label": "parseOtelHeadersEnvVar()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L749"
+    },
+    {
+      "id": "instrumentation_getotlpexporterconfig",
+      "label": "getOTLPExporterConfig()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L768"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "api",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "api_logs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "resources",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "sdk_logs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "sdk_metrics",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "sdk_trace_base",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "semantic_conventions",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "https_proxy_agent",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "state_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "auth_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "platform_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cacerts_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cleanupregistry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_mtls_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_proxy_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_slowoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_startupprofiler_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_telemetry_betasessiontracing_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_telemetry_bigqueryexporter_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_telemetry_logger_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_telemetry_perfettotracing_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_telemetry_sessiontracing_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "instrumentation_telemetrytimeouterror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "instrumentation_telemetrytimeout",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "instrumentation_bootstraptelemetry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "instrumentation_parseexportertypes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L121",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "instrumentation_getotlpreaders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "instrumentation_getotlplogexporters",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L217",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "instrumentation_getotlptraceexporters",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L273",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "instrumentation_istelemetryenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L324",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "instrumentation_getbigqueryexportingreader",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L328",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "instrumentation_isbigquerymetricsenabled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L336",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "instrumentation_initializebetatracing",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L353",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "instrumentation_initializetelemetry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L421",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "instrumentation_flushtelemetry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L707",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "instrumentation_parseotelheadersenvvar",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L749",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_telemetry_instrumentation_ts",
+      "target": "instrumentation_getotlpexporterconfig",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L768",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_getotlpreaders",
+      "target": "instrumentation_parseexportertypes",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L131",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_getotlpreaders",
+      "target": "instrumentation_getotlpexporterconfig",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_getotlplogexporters",
+      "target": "instrumentation_parseexportertypes",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_getotlplogexporters",
+      "target": "instrumentation_getotlpexporterconfig",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L234",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_getotlptraceexporters",
+      "target": "instrumentation_parseexportertypes",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L274",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_getotlptraceexporters",
+      "target": "instrumentation_getotlpexporterconfig",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L285",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_initializetelemetry",
+      "target": "instrumentation_bootstraptelemetry",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L423",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_initializetelemetry",
+      "target": "instrumentation_istelemetryenabled",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L458",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_initializetelemetry",
+      "target": "instrumentation_getotlpreaders",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L463",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_initializetelemetry",
+      "target": "instrumentation_isbigquerymetricsenabled",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L467",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_initializetelemetry",
+      "target": "instrumentation_getbigqueryexportingreader",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L468",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_initializetelemetry",
+      "target": "instrumentation_initializebetatracing",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L515",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_initializetelemetry",
+      "target": "instrumentation_getotlplogexporters",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L577",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_initializetelemetry",
+      "target": "instrumentation_getotlptraceexporters",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L629",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_flushtelemetry",
+      "target": "instrumentation_telemetrytimeout",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L730",
+      "weight": 1.0
+    },
+    {
+      "source": "instrumentation_getotlpexporterconfig",
+      "target": "instrumentation_parseotelheadersenvvar",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L777",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "instrumentation_parseexportertypes",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "instrumentation_parseexportertypes",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "instrumentation_parseexportertypes",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "instrumentation_parseexportertypes",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "instrumentation_parseexportertypes",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpreaders",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpreaders",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpreaders",
+      "callee": "bind",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L142"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpreaders",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L157"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpreaders",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L160"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpreaders",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L161"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpreaders",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L169"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpreaders",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L172"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpreaders",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L176"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpreaders",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpreaders",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L183"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpreaders",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L186"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpreaders",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L195"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpreaders",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L198"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpreaders",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L206"
+    },
+    {
+      "caller_nid": "instrumentation_getotlplogexporters",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L221"
+    },
+    {
+      "caller_nid": "instrumentation_getotlplogexporters",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L222"
+    },
+    {
+      "caller_nid": "instrumentation_getotlplogexporters",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L225"
+    },
+    {
+      "caller_nid": "instrumentation_getotlplogexporters",
+      "callee": "jsonStringify",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L226"
+    },
+    {
+      "caller_nid": "instrumentation_getotlplogexporters",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L232"
+    },
+    {
+      "caller_nid": "instrumentation_getotlplogexporters",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L238"
+    },
+    {
+      "caller_nid": "instrumentation_getotlplogexporters",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L241"
+    },
+    {
+      "caller_nid": "instrumentation_getotlplogexporters",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L245"
+    },
+    {
+      "caller_nid": "instrumentation_getotlplogexporters",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L248"
+    },
+    {
+      "caller_nid": "instrumentation_getotlplogexporters",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L252"
+    },
+    {
+      "caller_nid": "instrumentation_getotlplogexporters",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L255"
+    },
+    {
+      "caller_nid": "instrumentation_getotlptraceexporters",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L279"
+    },
+    {
+      "caller_nid": "instrumentation_getotlptraceexporters",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L282"
+    },
+    {
+      "caller_nid": "instrumentation_getotlptraceexporters",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L283"
+    },
+    {
+      "caller_nid": "instrumentation_getotlptraceexporters",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L289"
+    },
+    {
+      "caller_nid": "instrumentation_getotlptraceexporters",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L292"
+    },
+    {
+      "caller_nid": "instrumentation_getotlptraceexporters",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L296"
+    },
+    {
+      "caller_nid": "instrumentation_getotlptraceexporters",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L299"
+    },
+    {
+      "caller_nid": "instrumentation_getotlptraceexporters",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L303"
+    },
+    {
+      "caller_nid": "instrumentation_getotlptraceexporters",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L306"
+    },
+    {
+      "caller_nid": "instrumentation_istelemetryenabled",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L325"
+    },
+    {
+      "caller_nid": "instrumentation_isbigquerymetricsenabled",
+      "callee": "getSubscriptionType",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L341"
+    },
+    {
+      "caller_nid": "instrumentation_isbigquerymetricsenabled",
+      "callee": "isClaudeAISubscriber",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L343"
+    },
+    {
+      "caller_nid": "instrumentation_isbigquerymetricsenabled",
+      "callee": "is1PApiCustomer",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L346"
+    },
+    {
+      "caller_nid": "instrumentation_initializebetatracing",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L361"
+    },
+    {
+      "caller_nid": "instrumentation_initializebetatracing",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L362"
+    },
+    {
+      "caller_nid": "instrumentation_initializebetatracing",
+      "callee": "import",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L363"
+    },
+    {
+      "caller_nid": "instrumentation_initializebetatracing",
+      "callee": "setGlobalTracerProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L385"
+    },
+    {
+      "caller_nid": "instrumentation_initializebetatracing",
+      "callee": "setTracerProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L386"
+    },
+    {
+      "caller_nid": "instrumentation_initializebetatracing",
+      "callee": "setGlobalLoggerProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L399"
+    },
+    {
+      "caller_nid": "instrumentation_initializebetatracing",
+      "callee": "setLoggerProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L400"
+    },
+    {
+      "caller_nid": "instrumentation_initializebetatracing",
+      "callee": "getLogger",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L403"
+    },
+    {
+      "caller_nid": "instrumentation_initializebetatracing",
+      "callee": "setEventLogger",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L407"
+    },
+    {
+      "caller_nid": "instrumentation_initializebetatracing",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L410"
+    },
+    {
+      "caller_nid": "instrumentation_initializebetatracing",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L415"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "profileCheckpoint",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L422"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "getHasFormattedOutput",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L432"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L439"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L440"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L440"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L440"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L440"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "setLogger",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L449"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "initializePerfettoTracing",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L453"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L459"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L463"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L468"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L472"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "getWslVersion",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L480"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "resourceFromAttributes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L486"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "resourceFromAttributes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L489"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "detect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L490"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "detect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L494"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "resourceFromAttributes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L500"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "resourceFromAttributes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L502"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "detect",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L503"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "merge",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L507"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "merge",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L507"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "merge",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L507"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "isBetaTracingEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L514"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "catch",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L515"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "setMeterProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L524"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "registerCleanup",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L561"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "getMeter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L563"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "setMeterProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L573"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L578"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L586"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "setGlobalLoggerProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L598"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "setLoggerProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L599"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "getLogger",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L602"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "setEventLogger",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L606"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L607"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L612"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L619"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "isEnhancedTelemetryEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L628"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L632"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "setGlobalTracerProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L648"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "setTracerProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L649"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "registerCleanup",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L698"
+    },
+    {
+      "caller_nid": "instrumentation_initializetelemetry",
+      "callee": "getMeter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L700"
+    },
+    {
+      "caller_nid": "instrumentation_flushtelemetry",
+      "callee": "getMeterProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L708"
+    },
+    {
+      "caller_nid": "instrumentation_flushtelemetry",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L713"
+    },
+    {
+      "caller_nid": "instrumentation_flushtelemetry",
+      "callee": "forceFlush",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L718"
+    },
+    {
+      "caller_nid": "instrumentation_flushtelemetry",
+      "callee": "getLoggerProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L719"
+    },
+    {
+      "caller_nid": "instrumentation_flushtelemetry",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L721"
+    },
+    {
+      "caller_nid": "instrumentation_flushtelemetry",
+      "callee": "forceFlush",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L721"
+    },
+    {
+      "caller_nid": "instrumentation_flushtelemetry",
+      "callee": "getTracerProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L723"
+    },
+    {
+      "caller_nid": "instrumentation_flushtelemetry",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L725"
+    },
+    {
+      "caller_nid": "instrumentation_flushtelemetry",
+      "callee": "forceFlush",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L725"
+    },
+    {
+      "caller_nid": "instrumentation_flushtelemetry",
+      "callee": "race",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L728"
+    },
+    {
+      "caller_nid": "instrumentation_flushtelemetry",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L729"
+    },
+    {
+      "caller_nid": "instrumentation_flushtelemetry",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L733"
+    },
+    {
+      "caller_nid": "instrumentation_flushtelemetry",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L736"
+    },
+    {
+      "caller_nid": "instrumentation_flushtelemetry",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L741"
+    },
+    {
+      "caller_nid": "instrumentation_flushtelemetry",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L741"
+    },
+    {
+      "caller_nid": "instrumentation_parseotelheadersenvvar",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L753"
+    },
+    {
+      "caller_nid": "instrumentation_parseotelheadersenvvar",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L754"
+    },
+    {
+      "caller_nid": "instrumentation_parseotelheadersenvvar",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L756"
+    },
+    {
+      "caller_nid": "instrumentation_parseotelheadersenvvar",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L756"
+    },
+    {
+      "caller_nid": "instrumentation_parseotelheadersenvvar",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L756"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpexporterconfig",
+      "callee": "getProxyUrl",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L769"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpexporterconfig",
+      "callee": "getMTLSConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L770"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpexporterconfig",
+      "callee": "getSettings_DEPRECATED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L771"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpexporterconfig",
+      "callee": "keys",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L786"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpexporterconfig",
+      "callee": "shouldBypassProxy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L792"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpexporterconfig",
+      "callee": "getCACertificates",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L794"
+    },
+    {
+      "caller_nid": "instrumentation_getotlpexporterconfig",
+      "callee": "getCACertificates",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\telemetry\\instrumentation.ts",
+      "source_location": "L805"
+    }
+  ]
+}

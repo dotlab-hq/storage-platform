@@ -1,1 +1,698 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "label": "memoryFileDetection.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L1"}, {"id": "memoryfiledetection_toposix", "label": "toPosix()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L25"}, {"id": "memoryfiledetection_tocomparable", "label": "toComparable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L31"}, {"id": "memoryfiledetection_detectsessionfiletype", "label": "detectSessionFileType()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L40"}, {"id": "memoryfiledetection_detectsessionpatterntype", "label": "detectSessionPatternType()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L65"}, {"id": "memoryfiledetection_isautomemfile", "label": "isAutoMemFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L87"}, {"id": "memoryfiledetection_memoryscopeforpath", "label": "memoryScopeForPath()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L106"}, {"id": "memoryfiledetection_isagentmemfile", "label": "isAgentMemFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L119"}, {"id": "memoryfiledetection_isautomanagedmemoryfile", "label": "isAutoManagedMemoryFile()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L133"}, {"id": "memoryfiledetection_ismemorydirectory", "label": "isMemoryDirectory()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L152"}, {"id": "memoryfiledetection_isshellcommandtargetingmemory", "label": "isShellCommandTargetingMemory()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L215"}, {"id": "memoryfiledetection_isautomanagedmemorypattern", "label": "isAutoManagedMemoryPattern()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L277"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "f_storage_platform_claude_code_source_main_src_memdir_paths_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemory_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_windowspaths_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "memoryfiledetection_toposix", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "memoryfiledetection_tocomparable", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "memoryfiledetection_detectsessionfiletype", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L40", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "memoryfiledetection_detectsessionpatterntype", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L65", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "memoryfiledetection_isautomemfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L87", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "memoryfiledetection_memoryscopeforpath", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L106", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "memoryfiledetection_isagentmemfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L119", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "memoryfiledetection_isautomanagedmemoryfile", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L133", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "memoryfiledetection_ismemorydirectory", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L152", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "memoryfiledetection_isshellcommandtargetingmemory", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L215", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts", "target": "memoryfiledetection_isautomanagedmemorypattern", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L277", "weight": 1.0}, {"source": "memoryfiledetection_tocomparable", "target": "memoryfiledetection_toposix", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L32", "weight": 1.0}, {"source": "memoryfiledetection_detectsessionfiletype", "target": "memoryfiledetection_tocomparable", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L47", "weight": 1.0}, {"source": "memoryfiledetection_memoryscopeforpath", "target": "memoryfiledetection_isautomemfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L110", "weight": 1.0}, {"source": "memoryfiledetection_isautomanagedmemoryfile", "target": "memoryfiledetection_isautomemfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L134", "weight": 1.0}, {"source": "memoryfiledetection_isautomanagedmemoryfile", "target": "memoryfiledetection_detectsessionfiletype", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L140", "weight": 1.0}, {"source": "memoryfiledetection_isautomanagedmemoryfile", "target": "memoryfiledetection_isagentmemfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L143", "weight": 1.0}, {"source": "memoryfiledetection_ismemorydirectory", "target": "memoryfiledetection_tocomparable", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L159", "weight": 1.0}, {"source": "memoryfiledetection_isshellcommandtargetingmemory", "target": "memoryfiledetection_tocomparable", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L229", "weight": 1.0}, {"source": "memoryfiledetection_isshellcommandtargetingmemory", "target": "memoryfiledetection_isautomanagedmemoryfile", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L265", "weight": 1.0}, {"source": "memoryfiledetection_isshellcommandtargetingmemory", "target": "memoryfiledetection_ismemorydirectory", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L265", "weight": 1.0}, {"source": "memoryfiledetection_isautomanagedmemorypattern", "target": "memoryfiledetection_detectsessionpatterntype", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L278", "weight": 1.0}], "raw_calls": [{"caller_nid": "memoryfiledetection_toposix", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L26"}, {"caller_nid": "memoryfiledetection_toposix", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L26"}, {"caller_nid": "memoryfiledetection_tocomparable", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L33"}, {"caller_nid": "memoryfiledetection_detectsessionfiletype", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L43"}, {"caller_nid": "memoryfiledetection_detectsessionfiletype", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L49"}, {"caller_nid": "memoryfiledetection_detectsessionfiletype", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L52"}, {"caller_nid": "memoryfiledetection_detectsessionfiletype", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L52"}, {"caller_nid": "memoryfiledetection_detectsessionfiletype", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L55"}, {"caller_nid": "memoryfiledetection_detectsessionfiletype", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L55"}, {"caller_nid": "memoryfiledetection_detectsessionpatterntype", "callee": "join", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L68"}, {"caller_nid": "memoryfiledetection_detectsessionpatterntype", "callee": "split", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L68"}, {"caller_nid": "memoryfiledetection_detectsessionpatterntype", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L70"}, {"caller_nid": "memoryfiledetection_detectsessionpatterntype", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L71"}, {"caller_nid": "memoryfiledetection_detectsessionpatterntype", "callee": "endsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L71"}, {"caller_nid": "memoryfiledetection_detectsessionpatterntype", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L76"}, {"caller_nid": "memoryfiledetection_detectsessionpatterntype", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L77"}, {"caller_nid": "memoryfiledetection_detectsessionpatterntype", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L77"}, {"caller_nid": "memoryfiledetection_isautomemfile", "callee": "isAutoMemoryEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L88"}, {"caller_nid": "memoryfiledetection_isautomemfile", "callee": "isAutoMemPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L89"}, {"caller_nid": "memoryfiledetection_memoryscopeforpath", "callee": "isTeamMemFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L107"}, {"caller_nid": "memoryfiledetection_memoryscopeforpath", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L107"}, {"caller_nid": "memoryfiledetection_isagentmemfile", "callee": "isAutoMemoryEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L120"}, {"caller_nid": "memoryfiledetection_isagentmemfile", "callee": "isAgentMemoryPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L121"}, {"caller_nid": "memoryfiledetection_isautomanagedmemoryfile", "callee": "isTeamMemFile", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L137"}, {"caller_nid": "memoryfiledetection_isautomanagedmemoryfile", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L137"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "normalize", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L158"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "isAutoMemoryEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L162"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L163"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L164"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "isTeamMemPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L170"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "isTeamMemoryEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L170"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L170"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "isAutoMemoryEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L177"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "getAutoMemPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L178"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L179"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L183"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L189"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "getMemoryBaseDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L190"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L191"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "startsWith", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L192"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L197"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L200"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "isAutoMemoryEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L203"}, {"caller_nid": "memoryfiledetection_ismemorydirectory", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L203"}, {"caller_nid": "memoryfiledetection_isshellcommandtargetingmemory", "callee": "getClaudeConfigHomeDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L216"}, {"caller_nid": "memoryfiledetection_isshellcommandtargetingmemory", "callee": "getMemoryBaseDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L217"}, {"caller_nid": "memoryfiledetection_isshellcommandtargetingmemory", "callee": "isAutoMemoryEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L218"}, {"caller_nid": "memoryfiledetection_isshellcommandtargetingmemory", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L219"}, {"caller_nid": "memoryfiledetection_isshellcommandtargetingmemory", "callee": "getAutoMemPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L219"}, {"caller_nid": "memoryfiledetection_isshellcommandtargetingmemory", "callee": "filter", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L230"}, {"caller_nid": "memoryfiledetection_isshellcommandtargetingmemory", "callee": "some", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L231"}, {"caller_nid": "memoryfiledetection_isshellcommandtargetingmemory", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L249"}, {"caller_nid": "memoryfiledetection_isshellcommandtargetingmemory", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L256"}, {"caller_nid": "memoryfiledetection_isshellcommandtargetingmemory", "callee": "posixPathToWindowsPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L263"}, {"caller_nid": "memoryfiledetection_isautomanagedmemorypattern", "callee": "isAutoMemoryEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L282"}, {"caller_nid": "memoryfiledetection_isautomanagedmemorypattern", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L283"}, {"caller_nid": "memoryfiledetection_isautomanagedmemorypattern", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L283"}, {"caller_nid": "memoryfiledetection_isautomanagedmemorypattern", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L284"}, {"caller_nid": "memoryfiledetection_isautomanagedmemorypattern", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts", "source_location": "L284"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "label": "memoryFileDetection.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "memoryfiledetection_toposix",
+      "label": "toPosix()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L25"
+    },
+    {
+      "id": "memoryfiledetection_tocomparable",
+      "label": "toComparable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L31"
+    },
+    {
+      "id": "memoryfiledetection_detectsessionfiletype",
+      "label": "detectSessionFileType()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L40"
+    },
+    {
+      "id": "memoryfiledetection_detectsessionpatterntype",
+      "label": "detectSessionPatternType()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L65"
+    },
+    {
+      "id": "memoryfiledetection_isautomemfile",
+      "label": "isAutoMemFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L87"
+    },
+    {
+      "id": "memoryfiledetection_memoryscopeforpath",
+      "label": "memoryScopeForPath()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L106"
+    },
+    {
+      "id": "memoryfiledetection_isagentmemfile",
+      "label": "isAgentMemFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L119"
+    },
+    {
+      "id": "memoryfiledetection_isautomanagedmemoryfile",
+      "label": "isAutoManagedMemoryFile()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L133"
+    },
+    {
+      "id": "memoryfiledetection_ismemorydirectory",
+      "label": "isMemoryDirectory()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L152"
+    },
+    {
+      "id": "memoryfiledetection_isshellcommandtargetingmemory",
+      "label": "isShellCommandTargetingMemory()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L215"
+    },
+    {
+      "id": "memoryfiledetection_isautomanagedmemorypattern",
+      "label": "isAutoManagedMemoryPattern()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L277"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_memdir_paths_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_tools_agenttool_agentmemory_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_windowspaths_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "memoryfiledetection_toposix",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "memoryfiledetection_tocomparable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "memoryfiledetection_detectsessionfiletype",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "memoryfiledetection_detectsessionpatterntype",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "memoryfiledetection_isautomemfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "memoryfiledetection_memoryscopeforpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "memoryfiledetection_isagentmemfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "memoryfiledetection_isautomanagedmemoryfile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "memoryfiledetection_ismemorydirectory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L152",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "memoryfiledetection_isshellcommandtargetingmemory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L215",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_memoryfiledetection_ts",
+      "target": "memoryfiledetection_isautomanagedmemorypattern",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L277",
+      "weight": 1.0
+    },
+    {
+      "source": "memoryfiledetection_tocomparable",
+      "target": "memoryfiledetection_toposix",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "memoryfiledetection_detectsessionfiletype",
+      "target": "memoryfiledetection_tocomparable",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "memoryfiledetection_memoryscopeforpath",
+      "target": "memoryfiledetection_isautomemfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "memoryfiledetection_isautomanagedmemoryfile",
+      "target": "memoryfiledetection_isautomemfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "memoryfiledetection_isautomanagedmemoryfile",
+      "target": "memoryfiledetection_detectsessionfiletype",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L140",
+      "weight": 1.0
+    },
+    {
+      "source": "memoryfiledetection_isautomanagedmemoryfile",
+      "target": "memoryfiledetection_isagentmemfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L143",
+      "weight": 1.0
+    },
+    {
+      "source": "memoryfiledetection_ismemorydirectory",
+      "target": "memoryfiledetection_tocomparable",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "memoryfiledetection_isshellcommandtargetingmemory",
+      "target": "memoryfiledetection_tocomparable",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L229",
+      "weight": 1.0
+    },
+    {
+      "source": "memoryfiledetection_isshellcommandtargetingmemory",
+      "target": "memoryfiledetection_isautomanagedmemoryfile",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L265",
+      "weight": 1.0
+    },
+    {
+      "source": "memoryfiledetection_isshellcommandtargetingmemory",
+      "target": "memoryfiledetection_ismemorydirectory",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L265",
+      "weight": 1.0
+    },
+    {
+      "source": "memoryfiledetection_isautomanagedmemorypattern",
+      "target": "memoryfiledetection_detectsessionpatterntype",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L278",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "memoryfiledetection_toposix",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "memoryfiledetection_toposix",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "memoryfiledetection_tocomparable",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "memoryfiledetection_detectsessionfiletype",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "memoryfiledetection_detectsessionfiletype",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "memoryfiledetection_detectsessionfiletype",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "memoryfiledetection_detectsessionfiletype",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "memoryfiledetection_detectsessionfiletype",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "memoryfiledetection_detectsessionfiletype",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L55"
+    },
+    {
+      "caller_nid": "memoryfiledetection_detectsessionpatterntype",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "memoryfiledetection_detectsessionpatterntype",
+      "callee": "split",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "memoryfiledetection_detectsessionpatterntype",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L70"
+    },
+    {
+      "caller_nid": "memoryfiledetection_detectsessionpatterntype",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "memoryfiledetection_detectsessionpatterntype",
+      "callee": "endsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "memoryfiledetection_detectsessionpatterntype",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "memoryfiledetection_detectsessionpatterntype",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "memoryfiledetection_detectsessionpatterntype",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isautomemfile",
+      "callee": "isAutoMemoryEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L88"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isautomemfile",
+      "callee": "isAutoMemPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "memoryfiledetection_memoryscopeforpath",
+      "callee": "isTeamMemFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "memoryfiledetection_memoryscopeforpath",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isagentmemfile",
+      "callee": "isAutoMemoryEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isagentmemfile",
+      "callee": "isAgentMemoryPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L121"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isautomanagedmemoryfile",
+      "callee": "isTeamMemFile",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isautomanagedmemoryfile",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L137"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "normalize",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L158"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "isAutoMemoryEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L163"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L164"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "isTeamMemPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L170"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "isTeamMemoryEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L170"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L170"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "isAutoMemoryEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L177"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "getAutoMemPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L178"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L179"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L183"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L189"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "getMemoryBaseDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L190"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L191"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "startsWith",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L200"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "isAutoMemoryEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "memoryfiledetection_ismemorydirectory",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L203"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isshellcommandtargetingmemory",
+      "callee": "getClaudeConfigHomeDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L216"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isshellcommandtargetingmemory",
+      "callee": "getMemoryBaseDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L217"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isshellcommandtargetingmemory",
+      "callee": "isAutoMemoryEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isshellcommandtargetingmemory",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L219"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isshellcommandtargetingmemory",
+      "callee": "getAutoMemPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L219"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isshellcommandtargetingmemory",
+      "callee": "filter",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L230"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isshellcommandtargetingmemory",
+      "callee": "some",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L231"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isshellcommandtargetingmemory",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L249"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isshellcommandtargetingmemory",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L256"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isshellcommandtargetingmemory",
+      "callee": "posixPathToWindowsPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L263"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isautomanagedmemorypattern",
+      "callee": "isAutoMemoryEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L282"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isautomanagedmemorypattern",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L283"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isautomanagedmemorypattern",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L283"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isautomanagedmemorypattern",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L284"
+    },
+    {
+      "caller_nid": "memoryfiledetection_isautomanagedmemorypattern",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\memoryFileDetection.ts",
+      "source_location": "L284"
+    }
+  ]
+}

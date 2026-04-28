@@ -1,1 +1,244 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts", "label": "earlyInput.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L1"}, {"id": "earlyinput_startcapturingearlyinput", "label": "startCapturingEarlyInput()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L29"}, {"id": "earlyinput_processchunk", "label": "processChunk()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L72"}, {"id": "earlyinput_stopcapturingearlyinput", "label": "stopCapturingEarlyInput()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L142"}, {"id": "earlyinput_consumeearlyinput", "label": "consumeEarlyInput()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L164"}, {"id": "earlyinput_hasearlyinput", "label": "hasEarlyInput()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L174"}, {"id": "earlyinput_seedearlyinput", "label": "seedEarlyInput()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L182"}, {"id": "earlyinput_iscapturingearlyinput", "label": "isCapturingEarlyInput()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L189"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_intl_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts", "target": "earlyinput_startcapturingearlyinput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L29", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts", "target": "earlyinput_processchunk", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L72", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts", "target": "earlyinput_stopcapturingearlyinput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L142", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts", "target": "earlyinput_consumeearlyinput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L164", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts", "target": "earlyinput_hasearlyinput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L174", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts", "target": "earlyinput_seedearlyinput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L182", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts", "target": "earlyinput_iscapturingearlyinput", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L189", "weight": 1.0}, {"source": "earlyinput_processchunk", "target": "earlyinput_stopcapturingearlyinput", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L82", "weight": 1.0}, {"source": "earlyinput_consumeearlyinput", "target": "earlyinput_stopcapturingearlyinput", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L165", "weight": 1.0}], "raw_calls": [{"caller_nid": "earlyinput_startcapturingearlyinput", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L36"}, {"caller_nid": "earlyinput_startcapturingearlyinput", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L37"}, {"caller_nid": "earlyinput_startcapturingearlyinput", "callee": "setEncoding", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L48"}, {"caller_nid": "earlyinput_startcapturingearlyinput", "callee": "setRawMode", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L49"}, {"caller_nid": "earlyinput_startcapturingearlyinput", "callee": "ref", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L50"}, {"caller_nid": "earlyinput_startcapturingearlyinput", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L62"}, {"caller_nid": "earlyinput_processchunk", "callee": "charCodeAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L76"}, {"caller_nid": "earlyinput_processchunk", "callee": "exit", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L84"}, {"caller_nid": "earlyinput_processchunk", "callee": "lastGrapheme", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L97"}, {"caller_nid": "earlyinput_processchunk", "callee": "slice", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L98"}, {"caller_nid": "earlyinput_processchunk", "callee": "charCodeAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L111"}, {"caller_nid": "earlyinput_processchunk", "callee": "charCodeAt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L111"}, {"caller_nid": "earlyinput_stopcapturingearlyinput", "callee": "removeListener", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L150"}, {"caller_nid": "earlyinput_consumeearlyinput", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L166"}, {"caller_nid": "earlyinput_hasearlyinput", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts", "source_location": "L175"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts",
+      "label": "earlyInput.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "earlyinput_startcapturingearlyinput",
+      "label": "startCapturingEarlyInput()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L29"
+    },
+    {
+      "id": "earlyinput_processchunk",
+      "label": "processChunk()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L72"
+    },
+    {
+      "id": "earlyinput_stopcapturingearlyinput",
+      "label": "stopCapturingEarlyInput()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L142"
+    },
+    {
+      "id": "earlyinput_consumeearlyinput",
+      "label": "consumeEarlyInput()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L164"
+    },
+    {
+      "id": "earlyinput_hasearlyinput",
+      "label": "hasEarlyInput()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L174"
+    },
+    {
+      "id": "earlyinput_seedearlyinput",
+      "label": "seedEarlyInput()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L182"
+    },
+    {
+      "id": "earlyinput_iscapturingearlyinput",
+      "label": "isCapturingEarlyInput()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L189"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_intl_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts",
+      "target": "earlyinput_startcapturingearlyinput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts",
+      "target": "earlyinput_processchunk",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts",
+      "target": "earlyinput_stopcapturingearlyinput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L142",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts",
+      "target": "earlyinput_consumeearlyinput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts",
+      "target": "earlyinput_hasearlyinput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L174",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts",
+      "target": "earlyinput_seedearlyinput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L182",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_earlyinput_ts",
+      "target": "earlyinput_iscapturingearlyinput",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L189",
+      "weight": 1.0
+    },
+    {
+      "source": "earlyinput_processchunk",
+      "target": "earlyinput_stopcapturingearlyinput",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "earlyinput_consumeearlyinput",
+      "target": "earlyinput_stopcapturingearlyinput",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L165",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "earlyinput_startcapturingearlyinput",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "earlyinput_startcapturingearlyinput",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "earlyinput_startcapturingearlyinput",
+      "callee": "setEncoding",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "earlyinput_startcapturingearlyinput",
+      "callee": "setRawMode",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "earlyinput_startcapturingearlyinput",
+      "callee": "ref",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "earlyinput_startcapturingearlyinput",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L62"
+    },
+    {
+      "caller_nid": "earlyinput_processchunk",
+      "callee": "charCodeAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "earlyinput_processchunk",
+      "callee": "exit",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "earlyinput_processchunk",
+      "callee": "lastGrapheme",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "earlyinput_processchunk",
+      "callee": "slice",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L98"
+    },
+    {
+      "caller_nid": "earlyinput_processchunk",
+      "callee": "charCodeAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "earlyinput_processchunk",
+      "callee": "charCodeAt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L111"
+    },
+    {
+      "caller_nid": "earlyinput_stopcapturingearlyinput",
+      "callee": "removeListener",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "earlyinput_consumeearlyinput",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L166"
+    },
+    {
+      "caller_nid": "earlyinput_hasearlyinput",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\earlyInput.ts",
+      "source_location": "L175"
+    }
+  ]
+}

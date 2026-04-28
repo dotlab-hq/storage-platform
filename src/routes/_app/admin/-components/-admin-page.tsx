@@ -18,35 +18,35 @@ import {
   saveStorageProviderFn,
 } from '@/routes/_app/admin/-components/-admin-server'
 
-const MetricCard = lazy( () =>
-  import( '@/components/admin/dashboard-panels' ).then( ( m ) => ( {
+const MetricCard = lazy(() =>
+  import('@/components/admin/dashboard-panels').then((m) => ({
     default: m.MetricCard,
-  } ) ),
+  })),
 )
-const ProvidersPanel = lazy( () =>
-  import( '@/components/admin/dashboard-panels' ).then( ( m ) => ( {
+const ProvidersPanel = lazy(() =>
+  import('@/components/admin/dashboard-panels').then((m) => ({
     default: m.ProvidersPanel,
-  } ) ),
+  })),
 )
-const UsersPanel = lazy( () =>
-  import( '@/components/admin/dashboard-panels' ).then( ( m ) => ( {
+const UsersPanel = lazy(() =>
+  import('@/components/admin/dashboard-panels').then((m) => ({
     default: m.UsersPanel,
-  } ) ),
+  })),
 )
-const ProviderEditorCard = lazy( () =>
-  import( '@/components/admin/provider-editor-card' ).then( ( m ) => ( {
+const ProviderEditorCard = lazy(() =>
+  import('@/components/admin/provider-editor-card').then((m) => ({
     default: m.ProviderEditorCard,
-  } ) ),
+  })),
 )
-const ProviderContentsModal = lazy( () =>
-  import( '@/components/admin/provider-contents-modal' ).then( ( m ) => ( {
+const ProviderContentsModal = lazy(() =>
+  import('@/components/admin/provider-contents-modal').then((m) => ({
     default: m.ProviderContentsModal,
-  } ) ),
+  })),
 )
-const UserFilesModal = lazy( () =>
-  import( '@/components/admin/user-files-modal' ).then( ( m ) => ( {
+const UserFilesModal = lazy(() =>
+  import('@/components/admin/user-files-modal').then((m) => ({
     default: m.UserFilesModal,
-  } ) ),
+  })),
 )
 
 export type AdminDashboardData = {
@@ -94,7 +94,7 @@ type ProviderTextField =
   | 'accessKeyId'
   | 'secretAccessKey'
 
-export function AdminDashboardPage( { initial }: AdminDashboardPageProps ) {
+export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
   const queryClient = useQueryClient()
 
   const [providers, setProviders] = useState<AdminProvider[]>(
@@ -107,100 +107,100 @@ export function AdminDashboardPage( { initial }: AdminDashboardPageProps ) {
       totalUsedStorageBytes: 0,
     },
   )
-  const [isSaving, setIsSaving] = useState( false )
+  const [isSaving, setIsSaving] = useState(false)
 
-  const [form, setForm] = useState( emptyProviderForm )
+  const [form, setForm] = useState(emptyProviderForm)
   const [editingProviderId, setEditingProviderId] = useState<string | null>(
     null,
   )
   const [storageLimitInput, setStorageLimitInput] = useState(
-    String( emptyProviderForm.storageLimitBytes ),
+    String(emptyProviderForm.storageLimitBytes),
   )
   const [fileSizeLimitInput, setFileSizeLimitInput] = useState(
-    String( emptyProviderForm.fileSizeLimitBytes ),
+    String(emptyProviderForm.fileSizeLimitBytes),
   )
-  const [isProviderViewerOpen, setIsProviderViewerOpen] = useState( false )
+  const [isProviderViewerOpen, setIsProviderViewerOpen] = useState(false)
   const [selectedProvider, setSelectedProvider] =
-    useState<AdminProvider | null>( null )
-  const [isUserFilesModalOpen, setIsUserFilesModalOpen] = useState( false )
-  const [selectedUser, setSelectedUser] = useState<AdminUser | null>( null )
-  const [activeTab, setActiveTab] = useState( 'overview' )
+    useState<AdminProvider | null>(null)
+  const [isUserFilesModalOpen, setIsUserFilesModalOpen] = useState(false)
+  const [selectedUser, setSelectedUser] = useState<AdminUser | null>(null)
+  const [activeTab, setActiveTab] = useState('overview')
 
-  const setProviderField = ( field: ProviderTextField, value: string ) => {
-    setForm( ( prev ) => ( { ...prev, [field]: value } ) )
+  const setProviderField = (field: ProviderTextField, value: string) => {
+    setForm((prev) => ({ ...prev, [field]: value }))
   }
 
-  const { data: usersData = [] } = useAdminUsers( initial?.users )
+  const { data: usersData = [] } = useAdminUsers(initial?.users)
 
   const submitProvider = async () => {
-    const parsedLimit = Number( storageLimitInput )
-    const parsedFileSizeLimit = Number( fileSizeLimitInput )
-    if ( !Number.isFinite( parsedLimit ) || parsedLimit <= 0 ) {
-      toast.error( 'Storage limit must be a positive number' )
+    const parsedLimit = Number(storageLimitInput)
+    const parsedFileSizeLimit = Number(fileSizeLimitInput)
+    if (!Number.isFinite(parsedLimit) || parsedLimit <= 0) {
+      toast.error('Storage limit must be a positive number')
       return
     }
-    if ( !Number.isFinite( parsedFileSizeLimit ) || parsedFileSizeLimit <= 0 ) {
-      toast.error( 'File-size limit must be a positive number' )
+    if (!Number.isFinite(parsedFileSizeLimit) || parsedFileSizeLimit <= 0) {
+      toast.error('File-size limit must be a positive number')
       return
     }
-    if ( parsedFileSizeLimit > parsedLimit ) {
-      toast.error( 'File-size limit cannot exceed storage limit' )
+    if (parsedFileSizeLimit > parsedLimit) {
+      toast.error('File-size limit cannot exceed storage limit')
       return
     }
-    if ( !form.name.trim() ) {
-      toast.error( 'Provider name is required' )
+    if (!form.name.trim()) {
+      toast.error('Provider name is required')
       return
     }
 
-    setIsSaving( true )
+    setIsSaving(true)
 
     const optimisticProviderCount = editingProviderId
       ? providers.length
       : providers.length + 1
 
-    setSummary( ( prev ) => ( {
+    setSummary((prev) => ({
       ...prev,
       providerCount: optimisticProviderCount,
-    } ) )
+    }))
 
     const optimisticProviders = editingProviderId
-      ? providers.map( ( provider ) =>
-        provider.id === editingProviderId
-          ? {
-            ...provider,
-            name: form.name,
+      ? providers.map((provider) =>
+          provider.id === editingProviderId
+            ? {
+                ...provider,
+                name: form.name,
+                region: form.region || 'pending',
+                endpoint: form.endpoint || 'pending',
+                bucketName: form.bucketName || 'pending',
+                storageLimitBytes: parsedLimit,
+                fileSizeLimitBytes: parsedFileSizeLimit,
+                proxyUploadsEnabled: form.proxyUploadsEnabled,
+                availableStorageBytes: parsedLimit - provider.usedStorageBytes,
+              }
+            : provider,
+        )
+      : [
+          ...providers,
+          {
+            id: `optimistic-${Date.now()}`,
+            name: form.name || 'New Provider',
             region: form.region || 'pending',
             endpoint: form.endpoint || 'pending',
             bucketName: form.bucketName || 'pending',
             storageLimitBytes: parsedLimit,
             fileSizeLimitBytes: parsedFileSizeLimit,
             proxyUploadsEnabled: form.proxyUploadsEnabled,
-            availableStorageBytes: parsedLimit - provider.usedStorageBytes,
-          }
-          : provider,
-      )
-      : [
-        ...providers,
-        {
-          id: `optimistic-${Date.now()}`,
-          name: form.name || 'New Provider',
-          region: form.region || 'pending',
-          endpoint: form.endpoint || 'pending',
-          bucketName: form.bucketName || 'pending',
-          storageLimitBytes: parsedLimit,
-          fileSizeLimitBytes: parsedFileSizeLimit,
-          proxyUploadsEnabled: form.proxyUploadsEnabled,
-          isActive: true,
-          createdAt: new Date(),
-          usedStorageBytes: 0,
-          availableStorageBytes: parsedLimit,
-        },
-      ]
+            isActive: true,
+            createdAt: new Date(),
+            usedStorageBytes: 0,
+            availableStorageBytes: parsedLimit,
+          },
+        ]
 
-    setProviders( optimisticProviders )
+    setProviders(optimisticProviders)
 
     try {
-      const result = await saveStorageProviderFn( {
+      const result = await saveStorageProviderFn({
         data: {
           providerId: editingProviderId ?? undefined,
           ...form,
@@ -209,40 +209,40 @@ export function AdminDashboardPage( { initial }: AdminDashboardPageProps ) {
           proxyUploadsEnabled: form.proxyUploadsEnabled,
           isActive: true,
         },
-      } )
-      const [refreshedProviders, refreshedSummary] = await Promise.all( [
+      })
+      const [refreshedProviders, refreshedSummary] = await Promise.all([
         getAdminProvidersFn(),
         getAdminSummaryFn(),
-      ] )
-      setProviders( refreshedProviders )
-      setSummary( refreshedSummary )
-      setForm( emptyProviderForm )
-      setEditingProviderId( null )
-      setStorageLimitInput( String( emptyProviderForm.storageLimitBytes ) )
-      setFileSizeLimitInput( String( emptyProviderForm.fileSizeLimitBytes ) )
+      ])
+      setProviders(refreshedProviders)
+      setSummary(refreshedSummary)
+      setForm(emptyProviderForm)
+      setEditingProviderId(null)
+      setStorageLimitInput(String(emptyProviderForm.storageLimitBytes))
+      setFileSizeLimitInput(String(emptyProviderForm.fileSizeLimitBytes))
       toast.success(
         result.operation === 'updated'
           ? 'Storage provider updated'
           : 'Storage provider added',
       )
-    } catch ( error ) {
-      const [refreshedProviders, refreshedSummary] = await Promise.all( [
+    } catch (error) {
+      const [refreshedProviders, refreshedSummary] = await Promise.all([
         getAdminProvidersFn(),
         getAdminSummaryFn(),
-      ] )
-      setProviders( refreshedProviders )
-      setSummary( refreshedSummary )
+      ])
+      setProviders(refreshedProviders)
+      setSummary(refreshedSummary)
       const message =
         error instanceof Error ? error.message : 'Failed to create provider'
-      toast.error( message )
+      toast.error(message)
     } finally {
-      setIsSaving( false )
+      setIsSaving(false)
     }
   }
 
-  const startEditingProvider = ( provider: AdminProvider ) => {
-    setEditingProviderId( provider.id )
-    setForm( {
+  const startEditingProvider = (provider: AdminProvider) => {
+    setEditingProviderId(provider.id)
+    setForm({
       name: provider.name,
       endpoint: provider.endpoint,
       region: provider.region,
@@ -253,18 +253,18 @@ export function AdminDashboardPage( { initial }: AdminDashboardPageProps ) {
       fileSizeLimitBytes: provider.fileSizeLimitBytes,
       proxyUploadsEnabled: provider.proxyUploadsEnabled,
       isActive: provider.isActive,
-    } )
-    setStorageLimitInput( String( provider.storageLimitBytes ) )
-    setFileSizeLimitInput( String( provider.fileSizeLimitBytes ) )
-    setActiveTab( 'add' )
+    })
+    setStorageLimitInput(String(provider.storageLimitBytes))
+    setFileSizeLimitInput(String(provider.fileSizeLimitBytes))
+    setActiveTab('add')
   }
 
   const resetProviderForm = () => {
-    setEditingProviderId( null )
-    setForm( emptyProviderForm )
-    setStorageLimitInput( String( emptyProviderForm.storageLimitBytes ) )
-    setFileSizeLimitInput( String( emptyProviderForm.fileSizeLimitBytes ) )
-    setActiveTab( 'providers' )
+    setEditingProviderId(null)
+    setForm(emptyProviderForm)
+    setStorageLimitInput(String(emptyProviderForm.storageLimitBytes))
+    setFileSizeLimitInput(String(emptyProviderForm.fileSizeLimitBytes))
+    setActiveTab('providers')
   }
 
   const toggleProviderAvailability = async (
@@ -272,47 +272,47 @@ export function AdminDashboardPage( { initial }: AdminDashboardPageProps ) {
     isActive: boolean,
   ) => {
     const previousProviders = providers
-    setProviders( ( prev ) =>
-      prev.map( ( provider ) =>
+    setProviders((prev) =>
+      prev.map((provider) =>
         provider.id === providerId ? { ...provider, isActive } : provider,
       ),
     )
     try {
-      await setStorageProviderAvailabilityFn( { data: { providerId, isActive } } )
+      await setStorageProviderAvailabilityFn({ data: { providerId, isActive } })
       toast.success(
         `Provider marked as ${isActive ? `available` : `unavailable`}`,
       )
-    } catch ( error ) {
-      setProviders( previousProviders )
+    } catch (error) {
+      setProviders(previousProviders)
       const refreshed = await getAdminProvidersFn()
-      setProviders( refreshed )
+      setProviders(refreshed)
       const message =
         error instanceof Error
           ? error.message
           : 'Failed to update provider availability'
-      toast.error( message )
+      toast.error(message)
     }
   }
 
-  const deleteProvider = async ( providerId: string ) => {
+  const deleteProvider = async (providerId: string) => {
     try {
-      await deleteStorageProviderFn( { data: { providerId } } )
-      const [refreshedProviders, refreshedSummary] = await Promise.all( [
+      await deleteStorageProviderFn({ data: { providerId } })
+      const [refreshedProviders, refreshedSummary] = await Promise.all([
         getAdminProvidersFn(),
         getAdminSummaryFn(),
-      ] )
-      setProviders( refreshedProviders )
-      setSummary( refreshedSummary )
-      toast.success( 'Storage provider deleted' )
-    } catch ( error ) {
+      ])
+      setProviders(refreshedProviders)
+      setSummary(refreshedSummary)
+      toast.success('Storage provider deleted')
+    } catch (error) {
       const message =
         error instanceof Error ? error.message : 'Failed to delete provider'
-      toast.error( message )
+      toast.error(message)
     }
   }
 
   const handleUserUpdate = async () => {
-    queryClient.invalidateQueries( { queryKey: ['admin-users'] } )
+    queryClient.invalidateQueries({ queryKey: ['admin-users'] })
   }
 
   return (
@@ -344,7 +344,7 @@ export function AdminDashboardPage( { initial }: AdminDashboardPageProps ) {
               <Suspense fallback={<PageSkeleton className="h-24 w-full" />}>
                 <MetricCard
                   title="Total Used"
-                  value={formatBytes( summary.totalUsedStorageBytes )}
+                  value={formatBytes(summary.totalUsedStorageBytes)}
                 />
               </Suspense>
             </div>
@@ -356,9 +356,9 @@ export function AdminDashboardPage( { initial }: AdminDashboardPageProps ) {
                 onToggleAvailability={toggleProviderAvailability}
                 onDelete={deleteProvider}
                 onEdit={startEditingProvider}
-                onViewContents={( provider ) => {
-                  setSelectedProvider( provider )
-                  setIsProviderViewerOpen( true )
+                onViewContents={(provider) => {
+                  setSelectedProvider(provider)
+                  setIsProviderViewerOpen(true)
                 }}
               />
             </Suspense>
@@ -368,9 +368,9 @@ export function AdminDashboardPage( { initial }: AdminDashboardPageProps ) {
               <UsersPanel
                 users={usersData}
                 onUserUpdate={handleUserUpdate}
-                onViewUserFiles={( user ) => {
-                  setSelectedUser( user )
-                  setIsUserFilesModalOpen( true )
+                onViewUserFiles={(user) => {
+                  setSelectedUser(user)
+                  setIsUserFilesModalOpen(true)
                 }}
               />
             </Suspense>
@@ -379,15 +379,15 @@ export function AdminDashboardPage( { initial }: AdminDashboardPageProps ) {
             <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
               <ProviderEditorCard
                 form={form}
-                isEditing={Boolean( editingProviderId )}
+                isEditing={Boolean(editingProviderId)}
                 isSaving={isSaving}
                 storageLimitInput={storageLimitInput}
                 fileSizeLimitInput={fileSizeLimitInput}
                 onChange={setProviderField}
                 onStorageLimitChange={setStorageLimitInput}
                 onFileSizeLimitChange={setFileSizeLimitInput}
-                onProxyUploadsEnabledChange={( value ) => {
-                  setForm( ( prev ) => ( { ...prev, proxyUploadsEnabled: value } ) )
+                onProxyUploadsEnabledChange={(value) => {
+                  setForm((prev) => ({ ...prev, proxyUploadsEnabled: value }))
                 }}
                 onSubmit={() => {
                   void submitProvider()
@@ -401,10 +401,10 @@ export function AdminDashboardPage( { initial }: AdminDashboardPageProps ) {
       <Suspense fallback={null}>
         <ProviderContentsModal
           open={isProviderViewerOpen}
-          onOpenChange={( open ) => {
-            setIsProviderViewerOpen( open )
-            if ( !open ) {
-              setSelectedProvider( null )
+          onOpenChange={(open) => {
+            setIsProviderViewerOpen(open)
+            if (!open) {
+              setSelectedProvider(null)
             }
           }}
           provider={selectedProvider}
@@ -414,10 +414,10 @@ export function AdminDashboardPage( { initial }: AdminDashboardPageProps ) {
         {selectedUser && (
           <UserFilesModal
             open={isUserFilesModalOpen}
-            onOpenChange={( open ) => {
-              setIsUserFilesModalOpen( open )
-              if ( !open ) {
-                setSelectedUser( null )
+            onOpenChange={(open) => {
+              setIsUserFilesModalOpen(open)
+              if (!open) {
+                setSelectedUser(null)
               }
             }}
             user={selectedUser}

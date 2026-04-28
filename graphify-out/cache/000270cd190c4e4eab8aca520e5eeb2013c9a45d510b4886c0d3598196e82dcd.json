@@ -1,1 +1,809 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "label": "Shell.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L1"}, {"id": "shell_isexecutable", "label": "isExecutable()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L50"}, {"id": "shell_findsuitableshell", "label": "findSuitableShell()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L73"}, {"id": "shell_getshellconfigimpl", "label": "getShellConfigImpl()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L139"}, {"id": "shell_exec", "label": "exec()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L181"}, {"id": "shell_setcwd", "label": "setCwd()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L447"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "child_process", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "fs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "promises", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "memoize_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "path", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "posix", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "index_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_task_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L13", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L14", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L15", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L16", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L17", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L18", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_shellcommand_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L19", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_task_diskoutput_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L25", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L26", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_which_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "fs", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L31", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L32", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_filesystem_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L33", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L34", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sandbox_sandbox_adapter_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_sessionenvironment_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L36", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_shell_bashprovider_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L37", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_shell_powershelldetection_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L38", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_shell_powershellprovider_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L39", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_shell_shellprovider_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L40", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_subprocessenv_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L41", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_windowspaths_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L42", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "shell_isexecutable", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L50", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "shell_findsuitableshell", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L73", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "shell_getshellconfigimpl", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L139", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "shell_exec", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L181", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts", "target": "shell_setcwd", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L447", "weight": 1.0}, {"source": "shell_findsuitableshell", "target": "shell_isexecutable", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L80", "weight": 1.0}, {"source": "shell_getshellconfigimpl", "target": "shell_findsuitableshell", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L140", "weight": 1.0}], "raw_calls": [{"caller_nid": "shell_isexecutable", "callee": "accessSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L52"}, {"caller_nid": "shell_isexecutable", "callee": "execFileSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L59"}, {"caller_nid": "shell_findsuitableshell", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L79"}, {"caller_nid": "shell_findsuitableshell", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L79"}, {"caller_nid": "shell_findsuitableshell", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L81"}, {"caller_nid": "shell_findsuitableshell", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L85"}, {"caller_nid": "shell_findsuitableshell", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L95"}, {"caller_nid": "shell_findsuitableshell", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L95"}, {"caller_nid": "shell_findsuitableshell", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L96"}, {"caller_nid": "shell_findsuitableshell", "callee": "all", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L99"}, {"caller_nid": "shell_findsuitableshell", "callee": "which", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L99"}, {"caller_nid": "shell_findsuitableshell", "callee": "which", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L99"}, {"caller_nid": "shell_findsuitableshell", "callee": "flatMap", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L106"}, {"caller_nid": "shell_findsuitableshell", "callee": "unshift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L113"}, {"caller_nid": "shell_findsuitableshell", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L114"}, {"caller_nid": "shell_findsuitableshell", "callee": "unshift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L116"}, {"caller_nid": "shell_findsuitableshell", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L117"}, {"caller_nid": "shell_findsuitableshell", "callee": "unshift", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L122"}, {"caller_nid": "shell_findsuitableshell", "callee": "find", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L125"}, {"caller_nid": "shell_findsuitableshell", "callee": "logError", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L132"}, {"caller_nid": "shell_getshellconfigimpl", "callee": "createBashShellProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L141"}, {"caller_nid": "shell_exec", "callee": "resolveProvider[shellType]", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L197"}, {"caller_nid": "shell_exec", "callee": "padStart", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L199"}, {"caller_nid": "shell_exec", "callee": "toString", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L199"}, {"caller_nid": "shell_exec", "callee": "floor", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L199"}, {"caller_nid": "shell_exec", "callee": "random", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L199"}, {"caller_nid": "shell_exec", "callee": "posixJoin", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L204"}, {"caller_nid": "shell_exec", "callee": "getClaudeTempDirName", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L206"}, {"caller_nid": "shell_exec", "callee": "buildExecCommand", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L210"}, {"caller_nid": "shell_exec", "callee": "pwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L218"}, {"caller_nid": "shell_exec", "callee": "realpath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L223"}, {"caller_nid": "shell_exec", "callee": "getOriginalCwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L225"}, {"caller_nid": "shell_exec", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L226"}, {"caller_nid": "shell_exec", "callee": "realpath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L230"}, {"caller_nid": "shell_exec", "callee": "setCwdState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L231"}, {"caller_nid": "shell_exec", "callee": "createFailedCommand", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L234"}, {"caller_nid": "shell_exec", "callee": "createAbortedCommand", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L242"}, {"caller_nid": "shell_exec", "callee": "wrapWithSandbox", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L260"}, {"caller_nid": "shell_exec", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L268"}, {"caller_nid": "shell_exec", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L269"}, {"caller_nid": "shell_exec", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L271"}, {"caller_nid": "shell_exec", "callee": "getSpawnArgs", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L278"}, {"caller_nid": "shell_exec", "callee": "getEnvironmentOverrides", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L279"}, {"caller_nid": "shell_exec", "callee": "generateTaskId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L285"}, {"caller_nid": "shell_exec", "callee": "mkdir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L287"}, {"caller_nid": "shell_exec", "callee": "getTaskOutputDir", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L287"}, {"caller_nid": "shell_exec", "callee": "open", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L304"}, {"caller_nid": "shell_exec", "callee": "spawn", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L316"}, {"caller_nid": "shell_exec", "callee": "subprocessEnv", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L318"}, {"caller_nid": "shell_exec", "callee": "getSessionId", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L325"}, {"caller_nid": "shell_exec", "callee": "wrapSpawn", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L339"}, {"caller_nid": "shell_exec", "callee": "close", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L354"}, {"caller_nid": "shell_exec", "callee": "on", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L365"}, {"caller_nid": "shell_exec", "callee": "getPlatform", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L381"}, {"caller_nid": "shell_exec", "callee": "posixPathToWindowsPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L382"}, {"caller_nid": "shell_exec", "callee": "then", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L385"}, {"caller_nid": "shell_exec", "callee": "close", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L428"}, {"caller_nid": "shell_exec", "callee": "clear", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L433"}, {"caller_nid": "shell_exec", "callee": "logForDebugging", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L435"}, {"caller_nid": "shell_exec", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L435"}, {"caller_nid": "shell_exec", "callee": "createAbortedCommand", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L437"}, {"caller_nid": "shell_exec", "callee": "errorMessage", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L439"}, {"caller_nid": "shell_setcwd", "callee": "isAbsolute", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L448"}, {"caller_nid": "shell_setcwd", "callee": "resolve", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L450"}, {"caller_nid": "shell_setcwd", "callee": "cwd", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L450"}, {"caller_nid": "shell_setcwd", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L450"}, {"caller_nid": "shell_setcwd", "callee": "realpathSync", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L456"}, {"caller_nid": "shell_setcwd", "callee": "getFsImplementation", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L456"}, {"caller_nid": "shell_setcwd", "callee": "isENOENT", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L458"}, {"caller_nid": "shell_setcwd", "callee": "setCwdState", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L464"}, {"caller_nid": "shell_setcwd", "callee": "logEvent", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts", "source_location": "L467"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "label": "Shell.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "shell_isexecutable",
+      "label": "isExecutable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L50"
+    },
+    {
+      "id": "shell_findsuitableshell",
+      "label": "findSuitableShell()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L73"
+    },
+    {
+      "id": "shell_getshellconfigimpl",
+      "label": "getShellConfigImpl()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L139"
+    },
+    {
+      "id": "shell_exec",
+      "label": "exec()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L181"
+    },
+    {
+      "id": "shell_setcwd",
+      "label": "setCwd()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L447"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "child_process",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "fs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "memoize_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "posix",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "index_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_bootstrap_state_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_task_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_cwd_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_debug_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_errors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_fsoperations_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_log_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_shellcommand_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_task_diskoutput_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_task_taskoutput_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_which_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "fs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_hooks_filechangedwatcher_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_permissions_filesystem_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_platform_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sandbox_sandbox_adapter_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_sessionenvironment_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_shell_bashprovider_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_shell_powershelldetection_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_shell_powershellprovider_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_shell_shellprovider_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_subprocessenv_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_windowspaths_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "shell_isexecutable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "shell_findsuitableshell",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "shell_getshellconfigimpl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "shell_exec",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L181",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_shell_ts",
+      "target": "shell_setcwd",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L447",
+      "weight": 1.0
+    },
+    {
+      "source": "shell_findsuitableshell",
+      "target": "shell_isexecutable",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "shell_getshellconfigimpl",
+      "target": "shell_findsuitableshell",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L140",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "shell_isexecutable",
+      "callee": "accessSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L52"
+    },
+    {
+      "caller_nid": "shell_isexecutable",
+      "callee": "execFileSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L85"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L95"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "all",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "which",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "which",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "flatMap",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L106"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "unshift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L113"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L114"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "unshift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L116"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "unshift",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L122"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "find",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L125"
+    },
+    {
+      "caller_nid": "shell_findsuitableshell",
+      "callee": "logError",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L132"
+    },
+    {
+      "caller_nid": "shell_getshellconfigimpl",
+      "callee": "createBashShellProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L141"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "resolveProvider[shellType]",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L197"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "padStart",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L199"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "toString",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L199"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "floor",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L199"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "random",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L199"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "posixJoin",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L204"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "getClaudeTempDirName",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L206"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "buildExecCommand",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L210"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "pwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L218"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "realpath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L223"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "getOriginalCwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L225"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L226"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "realpath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L230"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "setCwdState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L231"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "createFailedCommand",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L234"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "createAbortedCommand",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L242"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "wrapWithSandbox",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L260"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L268"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L269"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L271"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "getSpawnArgs",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L278"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "getEnvironmentOverrides",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L279"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "generateTaskId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L285"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "mkdir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L287"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "getTaskOutputDir",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L287"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "open",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L304"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "spawn",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L316"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "subprocessEnv",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L318"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "getSessionId",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L325"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "wrapSpawn",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L339"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L354"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "on",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L365"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "getPlatform",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L381"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "posixPathToWindowsPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L382"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "then",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L385"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "close",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L428"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "clear",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L433"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "logForDebugging",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L435"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L435"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "createAbortedCommand",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L437"
+    },
+    {
+      "caller_nid": "shell_exec",
+      "callee": "errorMessage",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L439"
+    },
+    {
+      "caller_nid": "shell_setcwd",
+      "callee": "isAbsolute",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L448"
+    },
+    {
+      "caller_nid": "shell_setcwd",
+      "callee": "resolve",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L450"
+    },
+    {
+      "caller_nid": "shell_setcwd",
+      "callee": "cwd",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L450"
+    },
+    {
+      "caller_nid": "shell_setcwd",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L450"
+    },
+    {
+      "caller_nid": "shell_setcwd",
+      "callee": "realpathSync",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L456"
+    },
+    {
+      "caller_nid": "shell_setcwd",
+      "callee": "getFsImplementation",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L456"
+    },
+    {
+      "caller_nid": "shell_setcwd",
+      "callee": "isENOENT",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L458"
+    },
+    {
+      "caller_nid": "shell_setcwd",
+      "callee": "setCwdState",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L464"
+    },
+    {
+      "caller_nid": "shell_setcwd",
+      "callee": "logEvent",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\Shell.ts",
+      "source_location": "L467"
+    }
+  ]
+}

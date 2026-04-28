@@ -1,1 +1,213 @@
-{"nodes": [{"id": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts", "label": "-base-enhanced-tool.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L1"}, {"id": "base_enhanced_tool_getfulldescription", "label": "getFullDescription()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L85"}, {"id": "base_enhanced_tool_call", "label": "_call()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L116"}, {"id": "base_enhanced_tool_toenhancedtool", "label": "toEnhancedTool()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L143"}, {"id": "base_enhanced_tool_enhancetool", "label": "enhanceTool()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L155"}, {"id": "base_enhanced_tool_enhancetoolifneeded", "label": "enhanceToolIfNeeded()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L196"}, {"id": "base_enhanced_tool_enhancedtool", "label": "EnhancedTool()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L220"}], "edges": [{"source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts", "target": "tools", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts", "target": "zod", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts", "target": "f_storage_platform_src_routes_app_chat_tools_tool_types", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts", "target": "base_enhanced_tool_getfulldescription", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L85", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts", "target": "base_enhanced_tool_call", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L116", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts", "target": "base_enhanced_tool_toenhancedtool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L143", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts", "target": "base_enhanced_tool_enhancetool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L155", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts", "target": "base_enhanced_tool_enhancetoolifneeded", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L196", "weight": 1.0}, {"source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts", "target": "base_enhanced_tool_enhancedtool", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L220", "weight": 1.0}, {"source": "base_enhanced_tool_enhancetoolifneeded", "target": "base_enhanced_tool_enhancetool", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L201", "weight": 1.0}], "raw_calls": [{"caller_nid": "base_enhanced_tool_getfulldescription", "callee": "join", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L89"}, {"caller_nid": "base_enhanced_tool_getfulldescription", "callee": "map", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L89"}, {"caller_nid": "base_enhanced_tool_getfulldescription", "callee": "join", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L93"}, {"caller_nid": "base_enhanced_tool_getfulldescription", "callee": "map", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L93"}, {"caller_nid": "base_enhanced_tool_getfulldescription", "callee": "stringify", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L99"}, {"caller_nid": "base_enhanced_tool_getfulldescription", "callee": "join", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L104"}, {"caller_nid": "base_enhanced_tool_getfulldescription", "callee": "map", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L104"}, {"caller_nid": "base_enhanced_tool_getfulldescription", "callee": "entries", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L104"}, {"caller_nid": "base_enhanced_tool_call", "callee": "execute", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L128"}, {"caller_nid": "base_enhanced_tool_call", "callee": "stringify", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L134"}, {"caller_nid": "base_enhanced_tool_enhancetool", "callee": "unknown", "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts", "source_location": "L186"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts",
+      "label": "-base-enhanced-tool.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "base_enhanced_tool_getfulldescription",
+      "label": "getFullDescription()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L85"
+    },
+    {
+      "id": "base_enhanced_tool_call",
+      "label": "_call()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L116"
+    },
+    {
+      "id": "base_enhanced_tool_toenhancedtool",
+      "label": "toEnhancedTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L143"
+    },
+    {
+      "id": "base_enhanced_tool_enhancetool",
+      "label": "enhanceTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L155"
+    },
+    {
+      "id": "base_enhanced_tool_enhancetoolifneeded",
+      "label": "enhanceToolIfNeeded()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L196"
+    },
+    {
+      "id": "base_enhanced_tool_enhancedtool",
+      "label": "EnhancedTool()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L220"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts",
+      "target": "tools",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts",
+      "target": "zod",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts",
+      "target": "f_storage_platform_src_routes_app_chat_tools_tool_types",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts",
+      "target": "base_enhanced_tool_getfulldescription",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts",
+      "target": "base_enhanced_tool_call",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts",
+      "target": "base_enhanced_tool_toenhancedtool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L143",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts",
+      "target": "base_enhanced_tool_enhancetool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L155",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts",
+      "target": "base_enhanced_tool_enhancetoolifneeded",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L196",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_routes_app_chat_tools_base_enhanced_tool_ts",
+      "target": "base_enhanced_tool_enhancedtool",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L220",
+      "weight": 1.0
+    },
+    {
+      "source": "base_enhanced_tool_enhancetoolifneeded",
+      "target": "base_enhanced_tool_enhancetool",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L201",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "base_enhanced_tool_getfulldescription",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "base_enhanced_tool_getfulldescription",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L89"
+    },
+    {
+      "caller_nid": "base_enhanced_tool_getfulldescription",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "base_enhanced_tool_getfulldescription",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "base_enhanced_tool_getfulldescription",
+      "callee": "stringify",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L99"
+    },
+    {
+      "caller_nid": "base_enhanced_tool_getfulldescription",
+      "callee": "join",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "base_enhanced_tool_getfulldescription",
+      "callee": "map",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "base_enhanced_tool_getfulldescription",
+      "callee": "entries",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L104"
+    },
+    {
+      "caller_nid": "base_enhanced_tool_call",
+      "callee": "execute",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L128"
+    },
+    {
+      "caller_nid": "base_enhanced_tool_call",
+      "callee": "stringify",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L134"
+    },
+    {
+      "caller_nid": "base_enhanced_tool_enhancetool",
+      "callee": "unknown",
+      "source_file": "F:\\storage-platform\\src\\routes\\_app\\chat\\tools\\-base-enhanced-tool.ts",
+      "source_location": "L186"
+    }
+  ]
+}

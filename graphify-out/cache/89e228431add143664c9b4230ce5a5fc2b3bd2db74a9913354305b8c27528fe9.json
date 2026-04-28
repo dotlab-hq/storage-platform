@@ -1,1 +1,64 @@
-{"nodes": [{"id": "f_storage_platform_tests_s3_s3_access_isolation_spec_ts", "label": "s3-access-isolation.spec.ts", "file_type": "code", "source_file": "F:\\storage-platform\\tests\\s3\\s3-access-isolation.spec.ts", "source_location": "L1"}, {"id": "s3_access_isolation_spec_readoptionalenv", "label": "readOptionalEnv()", "file_type": "code", "source_file": "F:\\storage-platform\\tests\\s3\\s3-access-isolation.spec.ts", "source_location": "L9"}], "edges": [{"source": "f_storage_platform_tests_s3_s3_access_isolation_spec_ts", "target": "test", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\tests\\s3\\s3-access-isolation.spec.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_tests_s3_s3_access_isolation_spec_ts", "target": "client_s3", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\tests\\s3\\s3-access-isolation.spec.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_tests_s3_s3_access_isolation_spec_ts", "target": "f_storage_platform_tests_s3_helpers_s3_test_utils", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\tests\\s3\\s3-access-isolation.spec.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_tests_s3_s3_access_isolation_spec_ts", "target": "s3_access_isolation_spec_readoptionalenv", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\tests\\s3\\s3-access-isolation.spec.ts", "source_location": "L9", "weight": 1.0}], "raw_calls": [{"caller_nid": "s3_access_isolation_spec_readoptionalenv", "callee": "trim", "source_file": "F:\\storage-platform\\tests\\s3\\s3-access-isolation.spec.ts", "source_location": "L11"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_tests_s3_s3_access_isolation_spec_ts",
+      "label": "s3-access-isolation.spec.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\tests\\s3\\s3-access-isolation.spec.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "s3_access_isolation_spec_readoptionalenv",
+      "label": "readOptionalEnv()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\tests\\s3\\s3-access-isolation.spec.ts",
+      "source_location": "L9"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_tests_s3_s3_access_isolation_spec_ts",
+      "target": "test",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\tests\\s3\\s3-access-isolation.spec.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_tests_s3_s3_access_isolation_spec_ts",
+      "target": "client_s3",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\tests\\s3\\s3-access-isolation.spec.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_tests_s3_s3_access_isolation_spec_ts",
+      "target": "f_storage_platform_tests_s3_helpers_s3_test_utils",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\tests\\s3\\s3-access-isolation.spec.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_tests_s3_s3_access_isolation_spec_ts",
+      "target": "s3_access_isolation_spec_readoptionalenv",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\tests\\s3\\s3-access-isolation.spec.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "s3_access_isolation_spec_readoptionalenv",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\tests\\s3\\s3-access-isolation.spec.ts",
+      "source_location": "L11"
+    }
+  ]
+}

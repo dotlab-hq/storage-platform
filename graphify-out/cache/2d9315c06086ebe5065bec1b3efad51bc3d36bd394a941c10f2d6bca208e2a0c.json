@@ -1,1 +1,119 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx", "label": "pluginDetailsHelpers.tsx", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx", "source_location": "L1"}, {"id": "plugindetailshelpers_extractgithubrepo", "label": "extractGitHubRepo()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx", "source_location": "L35"}, {"id": "plugindetailshelpers_buildplugindetailsmenuoptions", "label": "buildPluginDetailsMenuOptions()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx", "source_location": "L46"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx", "target": "compiler_runtime", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx", "target": "react", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx", "target": "f_storage_platform_claude_code_source_main_src_components_configurableshortcuthint_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx", "target": "f_storage_platform_claude_code_source_main_src_components_design_system_byline_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx", "source_location": "L10", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx", "target": "f_storage_platform_claude_code_source_main_src_ink_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx", "source_location": "L11", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx", "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_schemas_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx", "source_location": "L12", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx", "target": "plugindetailshelpers_extractgithubrepo", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx", "source_location": "L35", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx", "target": "plugindetailshelpers_buildplugindetailsmenuoptions", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx", "source_location": "L46", "weight": 1.0}], "raw_calls": [{"caller_nid": "plugindetailshelpers_buildplugindetailsmenuoptions", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx", "source_location": "L58"}, {"caller_nid": "plugindetailshelpers_buildplugindetailsmenuoptions", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx", "source_location": "L64"}, {"caller_nid": "plugindetailshelpers_buildplugindetailsmenuoptions", "callee": "push", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx", "source_location": "L69"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx",
+      "label": "pluginDetailsHelpers.tsx",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "plugindetailshelpers_extractgithubrepo",
+      "label": "extractGitHubRepo()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx",
+      "source_location": "L35"
+    },
+    {
+      "id": "plugindetailshelpers_buildplugindetailsmenuoptions",
+      "label": "buildPluginDetailsMenuOptions()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx",
+      "source_location": "L46"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx",
+      "target": "compiler_runtime",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_components_configurableshortcuthint_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_components_design_system_byline_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_ink_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_plugins_schemas_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx",
+      "target": "plugindetailshelpers_extractgithubrepo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_commands_plugin_plugindetailshelpers_tsx",
+      "target": "plugindetailshelpers_buildplugindetailsmenuoptions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx",
+      "source_location": "L46",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "plugindetailshelpers_buildplugindetailsmenuoptions",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "plugindetailshelpers_buildplugindetailsmenuoptions",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx",
+      "source_location": "L64"
+    },
+    {
+      "caller_nid": "plugindetailshelpers_buildplugindetailsmenuoptions",
+      "callee": "push",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\commands\\plugin\\pluginDetailsHelpers.tsx",
+      "source_location": "L69"
+    }
+  ]
+}

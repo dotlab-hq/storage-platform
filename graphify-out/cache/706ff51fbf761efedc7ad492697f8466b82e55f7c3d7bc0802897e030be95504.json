@@ -1,1 +1,692 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "label": "effort.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L1"}, {"id": "effort_modelsupportseffort", "label": "modelSupportsEffort()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L23"}, {"id": "effort_modelsupportsmaxeffort", "label": "modelSupportsMaxEffort()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L53"}, {"id": "effort_iseffortlevel", "label": "isEffortLevel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L67"}, {"id": "effort_parseeffortvalue", "label": "parseEffortValue()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L71"}, {"id": "effort_topersistableeffort", "label": "toPersistableEffort()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L95"}, {"id": "effort_getinitialeffortsetting", "label": "getInitialEffortSetting()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L107"}, {"id": "effort_resolvepickereffortpersistence", "label": "resolvePickerEffortPersistence()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L126"}, {"id": "effort_geteffortenvoverride", "label": "getEffortEnvOverride()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L136"}, {"id": "effort_resolveappliedeffort", "label": "resolveAppliedEffort()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L152"}, {"id": "effort_getdisplayedeffortlevel", "label": "getDisplayedEffortLevel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L174"}, {"id": "effort_geteffortsuffix", "label": "getEffortSuffix()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L188"}, {"id": "effort_isvalidnumericeffort", "label": "isValidNumericEffort()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L198"}, {"id": "effort_converteffortvaluetolevel", "label": "convertEffortValueToLevel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L202"}, {"id": "effort_geteffortleveldescription", "label": "getEffortLevelDescription()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L224"}, {"id": "effort_geteffortvaluedescription", "label": "getEffortValueDescription()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L243"}, {"id": "effort_getopusdefaulteffortconfig", "label": "getOpusDefaultEffortConfig()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L267"}, {"id": "effort_getdefaulteffortformodel", "label": "getDefaultEffortForModel()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L279"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_thinking_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "growthbook_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L5", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_providers_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L6", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_model_modelsupportoverrides_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L7", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L8", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "runtimetypes_js", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L9", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_modelsupportseffort", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L23", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_modelsupportsmaxeffort", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L53", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_iseffortlevel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L67", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_parseeffortvalue", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L71", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_topersistableeffort", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L95", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_getinitialeffortsetting", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L107", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_resolvepickereffortpersistence", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L126", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_geteffortenvoverride", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L136", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_resolveappliedeffort", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L152", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_getdisplayedeffortlevel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L174", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_geteffortsuffix", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L188", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_isvalidnumericeffort", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L198", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_converteffortvaluetolevel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L202", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_geteffortleveldescription", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L224", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_geteffortvaluedescription", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L243", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_getopusdefaulteffortconfig", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L267", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts", "target": "effort_getdefaulteffortformodel", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L279", "weight": 1.0}, {"source": "effort_parseeffortvalue", "target": "effort_isvalidnumericeffort", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L75", "weight": 1.0}, {"source": "effort_parseeffortvalue", "target": "effort_iseffortlevel", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L79", "weight": 1.0}, {"source": "effort_getinitialeffortsetting", "target": "effort_topersistableeffort", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L110", "weight": 1.0}, {"source": "effort_geteffortenvoverride", "target": "effort_parseeffortvalue", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L141", "weight": 1.0}, {"source": "effort_resolveappliedeffort", "target": "effort_geteffortenvoverride", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L156", "weight": 1.0}, {"source": "effort_resolveappliedeffort", "target": "effort_getdefaulteffortformodel", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L161", "weight": 1.0}, {"source": "effort_resolveappliedeffort", "target": "effort_modelsupportsmaxeffort", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L163", "weight": 1.0}, {"source": "effort_getdisplayedeffortlevel", "target": "effort_resolveappliedeffort", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L178", "weight": 1.0}, {"source": "effort_getdisplayedeffortlevel", "target": "effort_converteffortvaluetolevel", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L179", "weight": 1.0}, {"source": "effort_geteffortsuffix", "target": "effort_resolveappliedeffort", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L193", "weight": 1.0}, {"source": "effort_geteffortsuffix", "target": "effort_converteffortvaluetolevel", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L195", "weight": 1.0}, {"source": "effort_converteffortvaluetolevel", "target": "effort_iseffortlevel", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L207", "weight": 1.0}, {"source": "effort_geteffortvaluedescription", "target": "effort_geteffortleveldescription", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L249", "weight": 1.0}, {"source": "effort_getdefaulteffortformodel", "target": "effort_getopusdefaulteffortconfig", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L314", "weight": 1.0}, {"source": "effort_getdefaulteffortformodel", "target": "effort_modelsupportseffort", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L322", "weight": 1.0}], "raw_calls": [{"caller_nid": "effort_modelsupportseffort", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L24"}, {"caller_nid": "effort_modelsupportseffort", "callee": "isEnvTruthy", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L25"}, {"caller_nid": "effort_modelsupportseffort", "callee": "get3PModelCapabilityOverride", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L28"}, {"caller_nid": "effort_modelsupportseffort", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L33"}, {"caller_nid": "effort_modelsupportseffort", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L33"}, {"caller_nid": "effort_modelsupportseffort", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L37"}, {"caller_nid": "effort_modelsupportseffort", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L37"}, {"caller_nid": "effort_modelsupportseffort", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L37"}, {"caller_nid": "effort_modelsupportseffort", "callee": "getAPIProvider", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L48"}, {"caller_nid": "effort_modelsupportsmaxeffort", "callee": "get3PModelCapabilityOverride", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L54"}, {"caller_nid": "effort_modelsupportsmaxeffort", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L58"}, {"caller_nid": "effort_modelsupportsmaxeffort", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L58"}, {"caller_nid": "effort_modelsupportsmaxeffort", "callee": "resolveAntModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L61"}, {"caller_nid": "effort_iseffortlevel", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L68"}, {"caller_nid": "effort_parseeffortvalue", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L78"}, {"caller_nid": "effort_parseeffortvalue", "callee": "String", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L78"}, {"caller_nid": "effort_parseeffortvalue", "callee": "parseInt", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L82"}, {"caller_nid": "effort_parseeffortvalue", "callee": "isNaN", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L83"}, {"caller_nid": "effort_getinitialeffortsetting", "callee": "getInitialSettings", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L110"}, {"caller_nid": "effort_geteffortenvoverride", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L138"}, {"caller_nid": "effort_geteffortenvoverride", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L139"}, {"caller_nid": "effort_isvalidnumericeffort", "callee": "isInteger", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L199"}, {"caller_nid": "effort_getopusdefaulteffortconfig", "callee": "getFeatureValue_CACHED_MAY_BE_STALE", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L268"}, {"caller_nid": "effort_getdefaulteffortformodel", "callee": "getAntModelOverrideConfig", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L283"}, {"caller_nid": "effort_getdefaulteffortformodel", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L286"}, {"caller_nid": "effort_getdefaulteffortformodel", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L286"}, {"caller_nid": "effort_getdefaulteffortformodel", "callee": "resolveAntModel", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L290"}, {"caller_nid": "effort_getdefaulteffortformodel", "callee": "includes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L309"}, {"caller_nid": "effort_getdefaulteffortformodel", "callee": "toLowerCase", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L309"}, {"caller_nid": "effort_getdefaulteffortformodel", "callee": "isProSubscriber", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L310"}, {"caller_nid": "effort_getdefaulteffortformodel", "callee": "isMaxSubscriber", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L315"}, {"caller_nid": "effort_getdefaulteffortformodel", "callee": "isTeamSubscriber", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L315"}, {"caller_nid": "effort_getdefaulteffortformodel", "callee": "isUltrathinkEnabled", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts", "source_location": "L322"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "label": "effort.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "effort_modelsupportseffort",
+      "label": "modelSupportsEffort()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L23"
+    },
+    {
+      "id": "effort_modelsupportsmaxeffort",
+      "label": "modelSupportsMaxEffort()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L53"
+    },
+    {
+      "id": "effort_iseffortlevel",
+      "label": "isEffortLevel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L67"
+    },
+    {
+      "id": "effort_parseeffortvalue",
+      "label": "parseEffortValue()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L71"
+    },
+    {
+      "id": "effort_topersistableeffort",
+      "label": "toPersistableEffort()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L95"
+    },
+    {
+      "id": "effort_getinitialeffortsetting",
+      "label": "getInitialEffortSetting()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L107"
+    },
+    {
+      "id": "effort_resolvepickereffortpersistence",
+      "label": "resolvePickerEffortPersistence()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L126"
+    },
+    {
+      "id": "effort_geteffortenvoverride",
+      "label": "getEffortEnvOverride()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L136"
+    },
+    {
+      "id": "effort_resolveappliedeffort",
+      "label": "resolveAppliedEffort()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L152"
+    },
+    {
+      "id": "effort_getdisplayedeffortlevel",
+      "label": "getDisplayedEffortLevel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L174"
+    },
+    {
+      "id": "effort_geteffortsuffix",
+      "label": "getEffortSuffix()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L188"
+    },
+    {
+      "id": "effort_isvalidnumericeffort",
+      "label": "isValidNumericEffort()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L198"
+    },
+    {
+      "id": "effort_converteffortvaluetolevel",
+      "label": "convertEffortValueToLevel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L202"
+    },
+    {
+      "id": "effort_geteffortleveldescription",
+      "label": "getEffortLevelDescription()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L224"
+    },
+    {
+      "id": "effort_geteffortvaluedescription",
+      "label": "getEffortValueDescription()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L243"
+    },
+    {
+      "id": "effort_getopusdefaulteffortconfig",
+      "label": "getOpusDefaultEffortConfig()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L267"
+    },
+    {
+      "id": "effort_getdefaulteffortformodel",
+      "label": "getDefaultEffortForModel()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L279"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_thinking_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_settings_settings_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "growthbook_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_providers_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_model_modelsupportoverrides_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_envutils_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "runtimetypes_js",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_modelsupportseffort",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_modelsupportsmaxeffort",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_iseffortlevel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_parseeffortvalue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_topersistableeffort",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_getinitialeffortsetting",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_resolvepickereffortpersistence",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_geteffortenvoverride",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_resolveappliedeffort",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L152",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_getdisplayedeffortlevel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L174",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_geteffortsuffix",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L188",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_isvalidnumericeffort",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L198",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_converteffortvaluetolevel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L202",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_geteffortleveldescription",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L224",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_geteffortvaluedescription",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L243",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_getopusdefaulteffortconfig",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L267",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_utils_effort_ts",
+      "target": "effort_getdefaulteffortformodel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L279",
+      "weight": 1.0
+    },
+    {
+      "source": "effort_parseeffortvalue",
+      "target": "effort_isvalidnumericeffort",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "effort_parseeffortvalue",
+      "target": "effort_iseffortlevel",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "effort_getinitialeffortsetting",
+      "target": "effort_topersistableeffort",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "effort_geteffortenvoverride",
+      "target": "effort_parseeffortvalue",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L141",
+      "weight": 1.0
+    },
+    {
+      "source": "effort_resolveappliedeffort",
+      "target": "effort_geteffortenvoverride",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L156",
+      "weight": 1.0
+    },
+    {
+      "source": "effort_resolveappliedeffort",
+      "target": "effort_getdefaulteffortformodel",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L161",
+      "weight": 1.0
+    },
+    {
+      "source": "effort_resolveappliedeffort",
+      "target": "effort_modelsupportsmaxeffort",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "effort_getdisplayedeffortlevel",
+      "target": "effort_resolveappliedeffort",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "effort_getdisplayedeffortlevel",
+      "target": "effort_converteffortvaluetolevel",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "effort_geteffortsuffix",
+      "target": "effort_resolveappliedeffort",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L193",
+      "weight": 1.0
+    },
+    {
+      "source": "effort_geteffortsuffix",
+      "target": "effort_converteffortvaluetolevel",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L195",
+      "weight": 1.0
+    },
+    {
+      "source": "effort_converteffortvaluetolevel",
+      "target": "effort_iseffortlevel",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L207",
+      "weight": 1.0
+    },
+    {
+      "source": "effort_geteffortvaluedescription",
+      "target": "effort_geteffortleveldescription",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L249",
+      "weight": 1.0
+    },
+    {
+      "source": "effort_getdefaulteffortformodel",
+      "target": "effort_getopusdefaulteffortconfig",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L314",
+      "weight": 1.0
+    },
+    {
+      "source": "effort_getdefaulteffortformodel",
+      "target": "effort_modelsupportseffort",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L322",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "effort_modelsupportseffort",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L24"
+    },
+    {
+      "caller_nid": "effort_modelsupportseffort",
+      "callee": "isEnvTruthy",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "effort_modelsupportseffort",
+      "callee": "get3PModelCapabilityOverride",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "effort_modelsupportseffort",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "effort_modelsupportseffort",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L33"
+    },
+    {
+      "caller_nid": "effort_modelsupportseffort",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "effort_modelsupportseffort",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "effort_modelsupportseffort",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "effort_modelsupportseffort",
+      "callee": "getAPIProvider",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L48"
+    },
+    {
+      "caller_nid": "effort_modelsupportsmaxeffort",
+      "callee": "get3PModelCapabilityOverride",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L54"
+    },
+    {
+      "caller_nid": "effort_modelsupportsmaxeffort",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "effort_modelsupportsmaxeffort",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "effort_modelsupportsmaxeffort",
+      "callee": "resolveAntModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "effort_iseffortlevel",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L68"
+    },
+    {
+      "caller_nid": "effort_parseeffortvalue",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "effort_parseeffortvalue",
+      "callee": "String",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "effort_parseeffortvalue",
+      "callee": "parseInt",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "effort_parseeffortvalue",
+      "callee": "isNaN",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "effort_getinitialeffortsetting",
+      "callee": "getInitialSettings",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L110"
+    },
+    {
+      "caller_nid": "effort_geteffortenvoverride",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "effort_geteffortenvoverride",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "effort_isvalidnumericeffort",
+      "callee": "isInteger",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L199"
+    },
+    {
+      "caller_nid": "effort_getopusdefaulteffortconfig",
+      "callee": "getFeatureValue_CACHED_MAY_BE_STALE",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L268"
+    },
+    {
+      "caller_nid": "effort_getdefaulteffortformodel",
+      "callee": "getAntModelOverrideConfig",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L283"
+    },
+    {
+      "caller_nid": "effort_getdefaulteffortformodel",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L286"
+    },
+    {
+      "caller_nid": "effort_getdefaulteffortformodel",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L286"
+    },
+    {
+      "caller_nid": "effort_getdefaulteffortformodel",
+      "callee": "resolveAntModel",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L290"
+    },
+    {
+      "caller_nid": "effort_getdefaulteffortformodel",
+      "callee": "includes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L309"
+    },
+    {
+      "caller_nid": "effort_getdefaulteffortformodel",
+      "callee": "toLowerCase",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L309"
+    },
+    {
+      "caller_nid": "effort_getdefaulteffortformodel",
+      "callee": "isProSubscriber",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L310"
+    },
+    {
+      "caller_nid": "effort_getdefaulteffortformodel",
+      "callee": "isMaxSubscriber",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L315"
+    },
+    {
+      "caller_nid": "effort_getdefaulteffortformodel",
+      "callee": "isTeamSubscriber",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L315"
+    },
+    {
+      "caller_nid": "effort_getdefaulteffortformodel",
+      "callee": "isUltrathinkEnabled",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\utils\\effort.ts",
+      "source_location": "L322"
+    }
+  ]
+}

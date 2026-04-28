@@ -1,1 +1,142 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_task_ts", "label": "Task.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L1"}, {"id": "task_isterminaltaskstatus", "label": "isTerminalTaskStatus()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L27"}, {"id": "task_gettaskidprefix", "label": "getTaskIdPrefix()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L90"}, {"id": "task_generatetaskid", "label": "generateTaskId()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L98"}, {"id": "task_createtaskstatebase", "label": "createTaskStateBase()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L108"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_task_ts", "target": "crypto", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_task_ts", "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_task_ts", "target": "f_storage_platform_claude_code_source_main_src_types_ids_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L3", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_task_ts", "target": "f_storage_platform_claude_code_source_main_src_utils_task_diskoutput_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L4", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_task_ts", "target": "task_isterminaltaskstatus", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L27", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_task_ts", "target": "task_gettaskidprefix", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L90", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_task_ts", "target": "task_generatetaskid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L98", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_task_ts", "target": "task_createtaskstatebase", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L108", "weight": 1.0}, {"source": "task_generatetaskid", "target": "task_gettaskidprefix", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L99", "weight": 1.0}], "raw_calls": [{"caller_nid": "task_generatetaskid", "callee": "randomBytes", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L100"}, {"caller_nid": "task_createtaskstatebase", "callee": "now", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L120"}, {"caller_nid": "task_createtaskstatebase", "callee": "getTaskOutputPath", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts", "source_location": "L121"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_task_ts",
+      "label": "Task.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "task_isterminaltaskstatus",
+      "label": "isTerminalTaskStatus()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L27"
+    },
+    {
+      "id": "task_gettaskidprefix",
+      "label": "getTaskIdPrefix()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L90"
+    },
+    {
+      "id": "task_generatetaskid",
+      "label": "generateTaskId()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L98"
+    },
+    {
+      "id": "task_createtaskstatebase",
+      "label": "createTaskStateBase()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L108"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_task_ts",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_task_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_state_appstate_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_task_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_ids_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_task_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_utils_task_diskoutput_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_task_ts",
+      "target": "task_isterminaltaskstatus",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_task_ts",
+      "target": "task_gettaskidprefix",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_task_ts",
+      "target": "task_generatetaskid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_task_ts",
+      "target": "task_createtaskstatebase",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "task_generatetaskid",
+      "target": "task_gettaskidprefix",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L99",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "task_generatetaskid",
+      "callee": "randomBytes",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "task_createtaskstatebase",
+      "callee": "now",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "task_createtaskstatebase",
+      "callee": "getTaskOutputPath",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\Task.ts",
+      "source_location": "L121"
+    }
+  ]
+}

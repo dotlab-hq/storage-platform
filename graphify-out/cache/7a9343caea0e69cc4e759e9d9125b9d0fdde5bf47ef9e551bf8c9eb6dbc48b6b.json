@@ -1,1 +1,172 @@
-{"nodes": [{"id": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts", "label": "prompt.ts", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L1"}, {"id": "prompt_getpartialcompactprompt", "label": "getPartialCompactPrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L274"}, {"id": "prompt_getcompactprompt", "label": "getCompactPrompt()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L293"}, {"id": "prompt_formatcompactsummary", "label": "formatCompactSummary()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L311"}, {"id": "prompt_getcompactusersummarymessage", "label": "getCompactUserSummaryMessage()", "file_type": "code", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L337"}], "edges": [{"source": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts", "target": "bun_bundle", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts", "target": "f_storage_platform_claude_code_source_main_src_types_message_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts", "target": "prompt_getpartialcompactprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L274", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts", "target": "prompt_getcompactprompt", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L293", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts", "target": "prompt_formatcompactsummary", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L311", "weight": 1.0}, {"source": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts", "target": "prompt_getcompactusersummarymessage", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L337", "weight": 1.0}, {"source": "prompt_getcompactusersummarymessage", "target": "prompt_formatcompactsummary", "relation": "calls", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L343", "weight": 1.0}], "raw_calls": [{"caller_nid": "prompt_getpartialcompactprompt", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L284"}, {"caller_nid": "prompt_getcompactprompt", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L296"}, {"caller_nid": "prompt_formatcompactsummary", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L316"}, {"caller_nid": "prompt_formatcompactsummary", "callee": "match", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L322"}, {"caller_nid": "prompt_formatcompactsummary", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L325"}, {"caller_nid": "prompt_formatcompactsummary", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L327"}, {"caller_nid": "prompt_formatcompactsummary", "callee": "replace", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L332"}, {"caller_nid": "prompt_formatcompactsummary", "callee": "trim", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L334"}, {"caller_nid": "prompt_getcompactusersummarymessage", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L362"}, {"caller_nid": "prompt_getcompactusersummarymessage", "callee": "feature", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L362"}, {"caller_nid": "prompt_getcompactusersummarymessage", "callee": "isProactiveActive", "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts", "source_location": "L363"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts",
+      "label": "prompt.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "prompt_getpartialcompactprompt",
+      "label": "getPartialCompactPrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L274"
+    },
+    {
+      "id": "prompt_getcompactprompt",
+      "label": "getCompactPrompt()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L293"
+    },
+    {
+      "id": "prompt_formatcompactsummary",
+      "label": "formatCompactSummary()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L311"
+    },
+    {
+      "id": "prompt_getcompactusersummarymessage",
+      "label": "getCompactUserSummaryMessage()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L337"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts",
+      "target": "bun_bundle",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts",
+      "target": "f_storage_platform_claude_code_source_main_src_types_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts",
+      "target": "prompt_getpartialcompactprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L274",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts",
+      "target": "prompt_getcompactprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L293",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts",
+      "target": "prompt_formatcompactsummary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L311",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_claude_code_source_main_src_services_compact_prompt_ts",
+      "target": "prompt_getcompactusersummarymessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L337",
+      "weight": 1.0
+    },
+    {
+      "source": "prompt_getcompactusersummarymessage",
+      "target": "prompt_formatcompactsummary",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L343",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "prompt_getpartialcompactprompt",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L284"
+    },
+    {
+      "caller_nid": "prompt_getcompactprompt",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L296"
+    },
+    {
+      "caller_nid": "prompt_formatcompactsummary",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L316"
+    },
+    {
+      "caller_nid": "prompt_formatcompactsummary",
+      "callee": "match",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L322"
+    },
+    {
+      "caller_nid": "prompt_formatcompactsummary",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L325"
+    },
+    {
+      "caller_nid": "prompt_formatcompactsummary",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L327"
+    },
+    {
+      "caller_nid": "prompt_formatcompactsummary",
+      "callee": "replace",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L332"
+    },
+    {
+      "caller_nid": "prompt_formatcompactsummary",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L334"
+    },
+    {
+      "caller_nid": "prompt_getcompactusersummarymessage",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L362"
+    },
+    {
+      "caller_nid": "prompt_getcompactusersummarymessage",
+      "callee": "feature",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L362"
+    },
+    {
+      "caller_nid": "prompt_getcompactusersummarymessage",
+      "callee": "isProactiveActive",
+      "source_file": "F:\\storage-platform\\claude-code-source-main\\src\\services\\compact\\prompt.ts",
+      "source_location": "L363"
+    }
+  ]
+}

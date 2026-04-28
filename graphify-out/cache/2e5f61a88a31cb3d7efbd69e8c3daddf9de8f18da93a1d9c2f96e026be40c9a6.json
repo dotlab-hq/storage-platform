@@ -1,1 +1,111 @@
-{"nodes": [{"id": "f_storage_platform_src_lib_upload_proxy_utils_ts", "label": "upload-proxy-utils.ts", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts", "source_location": "L1"}, {"id": "upload_proxy_utils_tonodereadable", "label": "toNodeReadable()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts", "source_location": "L60"}, {"id": "upload_proxy_utils_parseproviderid", "label": "parseProviderId()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts", "source_location": "L64"}, {"id": "upload_proxy_utils_parsemultipartaction", "label": "parseMultipartAction()", "file_type": "code", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts", "source_location": "L70"}], "edges": [{"source": "f_storage_platform_src_lib_upload_proxy_utils_ts", "target": "node_stream", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts", "source_location": "L1", "weight": 1.0}, {"source": "f_storage_platform_src_lib_upload_proxy_utils_ts", "target": "zod", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts", "source_location": "L2", "weight": 1.0}, {"source": "f_storage_platform_src_lib_upload_proxy_utils_ts", "target": "upload_proxy_utils_tonodereadable", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts", "source_location": "L60", "weight": 1.0}, {"source": "f_storage_platform_src_lib_upload_proxy_utils_ts", "target": "upload_proxy_utils_parseproviderid", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts", "source_location": "L64", "weight": 1.0}, {"source": "f_storage_platform_src_lib_upload_proxy_utils_ts", "target": "upload_proxy_utils_parsemultipartaction", "relation": "contains", "confidence": "EXTRACTED", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts", "source_location": "L70", "weight": 1.0}], "raw_calls": [{"caller_nid": "upload_proxy_utils_tonodereadable", "callee": "from", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts", "source_location": "L61"}, {"caller_nid": "upload_proxy_utils_tonodereadable", "callee": "streamWebChunks", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts", "source_location": "L61"}, {"caller_nid": "upload_proxy_utils_parseproviderid", "callee": "trim", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts", "source_location": "L66"}, {"caller_nid": "upload_proxy_utils_parsemultipartaction", "callee": "trim", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts", "source_location": "L73"}, {"caller_nid": "upload_proxy_utils_parsemultipartaction", "callee": "get", "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts", "source_location": "L73"}]}
+{
+  "nodes": [
+    {
+      "id": "f_storage_platform_src_lib_upload_proxy_utils_ts",
+      "label": "upload-proxy-utils.ts",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "upload_proxy_utils_tonodereadable",
+      "label": "toNodeReadable()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts",
+      "source_location": "L60"
+    },
+    {
+      "id": "upload_proxy_utils_parseproviderid",
+      "label": "parseProviderId()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts",
+      "source_location": "L64"
+    },
+    {
+      "id": "upload_proxy_utils_parsemultipartaction",
+      "label": "parseMultipartAction()",
+      "file_type": "code",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts",
+      "source_location": "L70"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f_storage_platform_src_lib_upload_proxy_utils_ts",
+      "target": "node_stream",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_upload_proxy_utils_ts",
+      "target": "zod",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_upload_proxy_utils_ts",
+      "target": "upload_proxy_utils_tonodereadable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_upload_proxy_utils_ts",
+      "target": "upload_proxy_utils_parseproviderid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "f_storage_platform_src_lib_upload_proxy_utils_ts",
+      "target": "upload_proxy_utils_parsemultipartaction",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts",
+      "source_location": "L70",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "upload_proxy_utils_tonodereadable",
+      "callee": "from",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "upload_proxy_utils_tonodereadable",
+      "callee": "streamWebChunks",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts",
+      "source_location": "L61"
+    },
+    {
+      "caller_nid": "upload_proxy_utils_parseproviderid",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "upload_proxy_utils_parsemultipartaction",
+      "callee": "trim",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "upload_proxy_utils_parsemultipartaction",
+      "callee": "get",
+      "source_file": "F:\\storage-platform\\src\\lib\\upload-proxy-utils.ts",
+      "source_location": "L73"
+    }
+  ]
+}
