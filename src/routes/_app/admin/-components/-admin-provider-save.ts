@@ -12,8 +12,8 @@ const SaveProviderSchema = z
     providerId: z.string().min(1).optional(),
     name: z.string().min(2),
     endpoint: z.string().min(1),
-    region: z.string().default('auto'),
-    bucketName: z.string().default('auto'),
+    region: z.string().default('us-east-1'),
+    bucketName: z.string().default('us-east-1'),
     accessKeyId: z
       .string()
       .optional()
@@ -91,9 +91,9 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
           throw new Error('Storage provider not found')
         }
 
-        const nextEndpoint = endpoint || existing.endpoint || 'auto'
-        const nextRegion = region || existing.region || 'auto'
-        const nextBucketName = bucketName || existing.bucketName || 'auto'
+        const nextEndpoint = endpoint || existing.endpoint || ''
+        const nextRegion = region || existing.region || ''
+        const nextBucketName = bucketName || existing.bucketName || ''
         const nextAccessKeyIdEncrypted = accessKeyId
           ? encryptProviderSecret(accessKeyId)
           : existing.accessKeyIdEncrypted
@@ -120,9 +120,11 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
 
         provider = updatedProvider[0]
       } else {
-        const nextEndpoint = endpoint || 'auto'
-        const nextRegion = region || 'auto'
-        const nextBucketName = bucketName || 'auto'
+        const nextEndpoint = endpoint || ''
+
+        const nextRegion = region || ''
+
+        const nextBucketName = bucketName || ''
         const nextAccessKeyIdEncrypted = encryptProviderSecret(accessKeyId)
         const nextSecretAccessKeyEncrypted =
           encryptProviderSecret(secretAccessKey)

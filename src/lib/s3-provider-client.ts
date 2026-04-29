@@ -18,7 +18,7 @@ type ProviderRow = typeof storageProvider.$inferSelect
 
 const DEFAULT_PROVIDER_NAME = 'default provider'
 const MAIN_PROVIDER_NAME = 'main'
-const DEFAULT_S3_REGION = 'auto'
+const DEFAULT_S3_REGION = 'us-east-1'
 const INVALID_REGION_SENTINELS = new Set([
   '',
   UNDETERMINED_PROVIDER_VALUE,
