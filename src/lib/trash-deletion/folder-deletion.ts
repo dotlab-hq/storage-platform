@@ -163,6 +163,7 @@ export async function checkAndDeleteCompletedFolders(
   try {
     const trashDO = await getTrashDeletionDO(env)
     const completedFolders = await trashDO.getPendingFolderCompletions()
+    console.log('[Deletion] Folders ready for completion:', completedFolders)
 
     for (const folderId of completedFolders) {
       const folderRows = await db

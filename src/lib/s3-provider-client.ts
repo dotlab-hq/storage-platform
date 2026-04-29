@@ -169,10 +169,15 @@ function fromProviderRow(row: ProviderRow): ProviderClientConfig {
 export async function getProviderClientById(
   providerId: string | null,
 ): Promise<ProviderClientConfig> {
+  console.log('[ProviderClient] Getting client for providerId:', providerId)
   const db = await loadDb()
   if (!providerId) {
     const defaultProvider = await getDefaultActiveProvider()
     if (defaultProvider) {
+      console.log(
+        '[ProviderClient] Using default provider:',
+        defaultProvider.id,
+      )
       return fromProviderRow(defaultProvider)
     }
     throw new Error(
@@ -188,6 +193,7 @@ export async function getProviderClientById(
     throw new Error('Storage provider not found')
   }
   const provider = providerRows[0]
+  console.log('[ProviderClient] Found provider:', provider.id, provider.name)
   return fromProviderRow(provider)
 }
 
