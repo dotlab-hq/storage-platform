@@ -13,6 +13,7 @@ import {
   listProvidersWithUsage,
 } from '@/lib/storage-provider-queries'
 import { logActivity } from '@/lib/activity'
+import { env } from 'cloudflare:workers'
 
 const ProviderIdSchema = z.object({
   providerId: z.string().min(1),
@@ -162,3 +163,58 @@ export const deleteStorageProviderFn = createServerFn({ method: 'POST' })
       throw error
     }
   })
+
+export const triggerTrashCronFn = createServerFn({ method: 'POST' }).handler(
+  async () => {
+    const adminUser = await requireAdminUser()
+    console.log('[Manual Cron Trigger] Admin user:', adminUser.id)
+
+    const queue = env.TRASH_DELETION_QUEUE
+
+    const { getDeletableItems, buildAndClaimDeletionBatch } =
+      await import('@/lib/trash-deletion/enqueue')
+
+    const topLevelItems = await getDeletableItems(100)
+
+    console.log(
+      '[Manual Cron Trigger] Top-level candidates found:',
+      topLevelItems.length,
+    )
+    if (topLevelItems.length > 0) {
+      console.log(
+        '[Manual Cron Trigger] First 3 top-level items:',
+        topLevelItems.slice(0, 3),
+      )
+    }
+
+    if (topLevelItems.length === 0) {
+      return {
+        triggered: false,
+        message: 'No items ready for deletion',
+      }
+    }
+
+    const fullBatch = await buildAndClaimDeletionBatch(topLevelItems, 75)
+
+    if (fullBatch.length === 0) {
+      return {
+        triggered: false,
+        message: 'No items to enqueue after batch build',
+      }
+    }
+
+    await queue.sendBatch(
+      fullBatch.map((item) => ({ body: JSON.stringify(item) })),
+    )
+
+    console.log(
+      `[Manual Cron Trigger] Enqueued ${fullBatch.length} items (including all descendants)`,
+    )
+
+    return {
+      triggered: true,
+      enqueuedCount: fullBatch.length,
+      message: `Successfully enqueued ${fullBatch.length} items for deletion`,
+    }
+  },
+)

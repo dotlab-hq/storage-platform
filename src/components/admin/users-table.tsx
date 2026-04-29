@@ -20,6 +20,10 @@ interface UsersTableProps {
   onBan?: (userId: string, banned: boolean) => Promise<void>
   onDelete?: (userId: string) => Promise<void>
   onUpdateStorage?: (userId: string, storageLimitBytes: number) => Promise<void>
+  onUpdateFileSizeLimit?: (
+    userId: string,
+    fileSizeLimitBytes: number,
+  ) => Promise<void>
   selectedUsers?: string[]
   onSelectionChange?: (selectedIds: string[]) => void
   onViewUserFiles?: (user: AdminUser) => void
@@ -31,6 +35,7 @@ export function UsersTable({
   onBan,
   onDelete,
   onUpdateStorage,
+  onUpdateFileSizeLimit,
   selectedUsers = [],
   onSelectionChange,
   onViewUserFiles,
@@ -116,6 +121,23 @@ export function UsersTable({
     [onUpdateStorage],
   )
 
+  const handleUpdateFileSizeLimit = useCallback(
+    async (userId: string, fileSizeLimitBytes: number) => {
+      if (!onUpdateFileSizeLimit) return
+      setUpdatingUsers((prev) => new Set([...prev, userId]))
+      try {
+        await onUpdateFileSizeLimit(userId, fileSizeLimitBytes)
+      } finally {
+        setUpdatingUsers((prev) => {
+          const next = new Set(prev)
+          next.delete(userId)
+          return next
+        })
+      }
+    },
+    [onUpdateFileSizeLimit],
+  )
+
   const columns = useMemo(
     () =>
       getColumns({
@@ -123,6 +145,7 @@ export function UsersTable({
         onBan: handleBan,
         onDelete: handleDelete,
         onUpdateStorage: handleUpdateStorage,
+        onUpdateFileSizeLimit: handleUpdateFileSizeLimit,
         onViewUserFiles,
         updatingUsers,
       }),
@@ -131,6 +154,7 @@ export function UsersTable({
       handleBan,
       handleDelete,
       handleUpdateStorage,
+      handleUpdateFileSizeLimit,
       onViewUserFiles,
       updatingUsers,
     ],

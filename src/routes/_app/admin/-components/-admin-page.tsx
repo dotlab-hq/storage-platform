@@ -16,6 +16,7 @@ import {
   getAdminProvidersFn,
   getAdminSummaryFn,
   saveStorageProviderFn,
+  triggerTrashCronFn,
 } from '@/routes/_app/admin/-components/-admin-server'
 
 const MetricCard = lazy(() =>
@@ -317,16 +318,8 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
   const triggerTrashCron = async () => {
     setIsCronTriggering(true)
     try {
-      const response = await fetch('/api/admin/trigger-cron', {
-        method: 'POST',
-      })
+      const result = await triggerTrashCronFn()
 
-      if (!response.ok) {
-        const error = await response.json()
-        throw new Error(error.error || 'Failed to trigger cron')
-      }
-
-      const result = await response.json()
       toast.success(
         result.message || 'Trash deletion cron triggered successfully',
       )

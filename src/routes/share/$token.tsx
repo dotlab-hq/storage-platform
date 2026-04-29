@@ -12,18 +12,12 @@ import {
 import { toast } from '@/components/ui/sonner'
 import { ShareFolderTree } from '@/components/storage/share-folder-tree'
 import { ShareQrDialog } from '@/components/storage/share-qr-dialog'
-import type { SharePagePayload } from './-share-access-server'
-
-// Dynamically load server functions
-async function loadGetSharePageDataFn() {
-  const mod = await import('./-share-access-server')
-  return mod.getSharePageDataFn
-}
-
-async function loadGetShareDownloadUrlFn() {
-  const mod = await import('./-share-access-server')
-  return mod.getShareDownloadUrlFn
-}
+import {
+  getSharePageDataFn,
+  getShareDownloadUrlFn
+  
+} from './-share-access-server'
+import type {SharePagePayload} from './-share-access-server';
 
 type FileShareData = {
   type: 'file'
@@ -67,8 +61,7 @@ export const Route = createFileRoute('/share/$token')({
   component: ShareAccessPage,
   loader: async ({ params }): Promise<ShareLoaderData> => {
     try {
-      const fn = await loadGetSharePageDataFn()
-      const data = await fn({ data: { token: params.token } })
+      const data = await getSharePageDataFn({ data: { token: params.token } })
       return { data, error: null }
     } catch (error) {
       return {
@@ -91,8 +84,7 @@ function ShareAccessPage() {
   const handleDownload = async () => {
     setDownloading(true)
     try {
-      const fn = await loadGetShareDownloadUrlFn()
-      const { url } = await fn({ data: { token } })
+      const { url } = await getShareDownloadUrlFn({ data: { token } })
       const a = document.createElement('a')
       a.href = url
       document.body.appendChild(a)

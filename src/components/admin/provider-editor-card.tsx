@@ -57,7 +57,7 @@ export function ProviderEditorCard({
   const parsedFileSizeLimit = Number(fileSizeLimitInput)
 
   return (
-    <div className="rounded-lg border bg-card p-4">
+    <div className="rounded-lg bg-card p-4">
       <div className="mb-4">
         <h2 className="text-base font-semibold">
           {isEditing ? 'Update Storage Provider' : 'Add Storage Provider'}
@@ -110,7 +110,7 @@ export function ProviderEditorCard({
           value={fileSizeLimitInput}
           onChange={onFileSizeLimitChange}
         />
-        <div className="col-span-full rounded-md border px-3">
+        <div className="col-span-full rounded-md px-3">
           <Accordion type="single" collapsible>
             <AccordionItem value="server-s3-advanced" className="border-b-0">
               <AccordionTrigger className="py-3 hover:no-underline">
@@ -122,7 +122,7 @@ export function ProviderEditorCard({
                 </div>
               </AccordionTrigger>
               <AccordionContent className="space-y-3">
-                <div className="flex items-start justify-between gap-4 rounded-md border p-3">
+                <div className="flex items-start justify-between gap-4 rounded-md p-3">
                   <div className="space-y-1">
                     <Label htmlFor="proxy-uploads-enabled">
                       Proxy uploads through server

@@ -54,15 +54,21 @@ export type SharePagePayload =
 export const getShareAccessFn = createServerFn({ method: 'GET' })
   .inputValidator(z.object({ token: z.string() }))
   .handler(async ({ data }) => {
-    const result = await getShareByToken(data.token)
+    const result = await getShareByToken({
+      data: { token: data.token },
+    })
     if (!result) throw new Error('Share link not found, expired, or inactive')
 
     if (result.type === 'file') {
       const fileItem = result.item as FileItem
       const presignedUrl = await getSharedFilePresignedUrl(
-        fileItem.objectKey,
-        fileItem.name,
-        fileItem.providerId,
+       {
+        data:{
+          objectKey: fileItem.objectKey,
+          fileName: fileItem.name,
+          providerId: fileItem.providerId,
+        }
+       }
       )
       return {
         type: 'file' as const,
@@ -84,11 +90,15 @@ export const getShareAccessFn = createServerFn({ method: 'GET' })
 export const getFolderTreeAccessFn = createServerFn({ method: 'GET' })
   .inputValidator(z.object({ token: z.string() }))
   .handler(async ({ data }) => {
-    const result = await getShareByToken(data.token)
+    const result = await getShareByToken({
+      data: { token: data.token },
+    })
     if (!result) throw new Error('Share link not found, expired, or inactive')
     if (result.type !== 'folder') throw new Error('Share link is not a folder')
     const folderItem = result.item as FolderItem
-    const tree = await getSharedFolderTreeByToken(data.token)
+    const tree = await getSharedFolderTreeByToken({
+      data: { token: data.token }
+    })
     return {
       type: 'folder' as const,
       name: folderItem.name,
@@ -100,14 +110,20 @@ export const getFolderTreeAccessFn = createServerFn({ method: 'GET' })
 export const getShareDownloadUrlFn = createServerFn({ method: 'GET' })
   .inputValidator(z.object({ token: z.string() }))
   .handler(async ({ data }) => {
-    const result = await getShareByToken(data.token)
+    const result = await getShareByToken({
+      data: { token: data.token }
+    } )
     if (!result) throw new Error('Share link not found, expired, or inactive')
     if (result.type !== 'file') throw new Error('Share link is not a file')
     const fileItem = result.item as FileItem
     const url = await getSharedFileDownloadUrl(
-      fileItem.objectKey,
-      fileItem.name,
-      fileItem.providerId,
+      {
+        data:{
+          objectKey: fileItem.objectKey,
+          fileName: fileItem.name,
+          providerId: fileItem.providerId,
+        }
+      }
     )
     return { url, name: fileItem.name }
   })
@@ -115,17 +131,25 @@ export const getShareDownloadUrlFn = createServerFn({ method: 'GET' })
 export const getSharePageDataFn = createServerFn({ method: 'GET' })
   .inputValidator(z.object({ token: z.string() }))
   .handler(async ({ data }) => {
-    const result = await getShareByToken(data.token)
+    const result = await getShareByToken({
+      data: { token: data.token }
+    })
     if (!result) {
       throw new Error('Share link not found, expired, or inactive')
     }
 
+    console.log('Share result:', result)
+
     if (result.type === 'file') {
       const fileItem = result.item as FileItem
       const presignedUrl = await getSharedFilePresignedUrl(
-        fileItem.objectKey,
-        fileItem.name,
-        fileItem.providerId,
+        {
+          data: {
+            objectKey: fileItem.objectKey,
+            fileName: fileItem.name,
+            providerId: fileItem.providerId,
+          }
+        }
       )
       return {
         type: 'file',
@@ -137,7 +161,9 @@ export const getSharePageDataFn = createServerFn({ method: 'GET' })
     }
 
     const folderItem = result.item as FolderItem
-    const tree = await getSharedFolderTreeByToken(data.token)
+    const tree = await getSharedFolderTreeByToken({
+      data: { token: data.token }
+    })
     return {
       type: 'folder',
       name: folderItem.name,

@@ -2,7 +2,10 @@ import { user } from '@/db/schema/auth-schema'
 import { file, userStorage } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
 import { count, eq, sql, sum, and, isNotNull, isNull } from 'drizzle-orm'
-import { DEFAULT_ALLOCATED_STORAGE_BYTES } from '@/lib/storage-quota-constants'
+import {
+  DEFAULT_ALLOCATED_STORAGE_BYTES,
+  DEFAULT_FILE_SIZE_LIMIT_BYTES,
+} from '@/lib/storage-quota-constants'
 
 async function loadDb() {
   const { db } = await import('@/db')
@@ -174,6 +177,7 @@ export async function getUsersWithUsage() {
     banned: boolean
     usedStorage: number | string | null
     allocatedStorage: number | string | null
+    fileSizeLimit: number | string | null
     createdAt: number
   }>(sql`
         SELECT 
@@ -185,6 +189,7 @@ export async function getUsersWithUsage() {
           u.banned,
           COALESCE(us.used_storage, 0) AS "usedStorage",
           COALESCE(us.allocated_storage, ${DEFAULT_ALLOCATED_STORAGE_BYTES}) AS "allocatedStorage",
+          COALESCE(us.file_size_limit, ${DEFAULT_FILE_SIZE_LIMIT_BYTES}) AS "fileSizeLimit",
           u.created_at AS "createdAt"
         FROM "user" u
         LEFT JOIN "user_storage" us ON us.user_id = u.id
@@ -194,5 +199,6 @@ export async function getUsersWithUsage() {
     ...row,
     usedStorage: toNonNegativeBytes(row.usedStorage),
     storageLimitBytes: toNonNegativeBytes(row.allocatedStorage),
+    fileSizeLimitBytes: toNonNegativeBytes(row.fileSizeLimit),
   }))
 }

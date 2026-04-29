@@ -19,6 +19,7 @@ type AdminFloatingActionBarProps = {
   onBan: (banned: boolean) => Promise<void>
   onDelete: () => Promise<void>
   onUpdateStorage: (storageLimitBytes: number) => Promise<void>
+  onUpdateFileSizeLimit?: (fileSizeLimitBytes: number) => Promise<void>
   onMakeAdmin?: () => Promise<void>
   onMakeUser?: () => Promise<void>
   isLoading?: boolean
@@ -30,12 +31,15 @@ export function AdminFloatingActionBar({
   onBan,
   onDelete,
   onUpdateStorage,
+  onUpdateFileSizeLimit,
   onMakeAdmin,
   onMakeUser,
   isLoading,
 }: AdminFloatingActionBarProps) {
   const [showStorageModal, setShowStorageModal] = useState(false)
+  const [showFileSizeModal, setShowFileSizeModal] = useState(false)
   const [storageInput, setStorageInput] = useState('')
+  const [fileSizeInput, setFileSizeInput] = useState('')
 
   if (selectedCount === 0) return null
 
@@ -48,6 +52,19 @@ export function AdminFloatingActionBar({
     await onUpdateStorage(bytes)
     setShowStorageModal(false)
     setStorageInput('')
+  }
+
+  const handleFileSizeSubmit = async () => {
+    const bytes = Number(fileSizeInput)
+    if (!Number.isFinite(bytes) || bytes <= 0) {
+      toast.error('Please enter a valid file size limit')
+      return
+    }
+    if (onUpdateFileSizeLimit) {
+      await onUpdateFileSizeLimit(bytes)
+    }
+    setShowFileSizeModal(false)
+    setFileSizeInput('')
   }
 
   return (
@@ -121,6 +138,17 @@ export function AdminFloatingActionBar({
             <HardDrive className="mr-1 h-4 w-4" />
             Update Storage
           </Button>
+          {onUpdateFileSizeLimit && (
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => setShowFileSizeModal(true)}
+              disabled={isLoading}
+            >
+              <HardDrive className="mr-1 h-4 w-4" />
+              Update File Size
+            </Button>
+          )}
           <Button
             size="sm"
             variant="ghost"
@@ -172,6 +200,44 @@ export function AdminFloatingActionBar({
                 Cancel
               </Button>
               <Button onClick={handleStorageSubmit} disabled={isLoading}>
+                {isLoading ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  'Update'
+                )}
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showFileSizeModal && onUpdateFileSizeLimit && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="w-full max-w-md rounded-lg bg-card p-6 shadow-lg">
+            <h3 className="mb-4 text-lg font-semibold">
+              Update File Size Limit
+            </h3>
+            <p className="mb-4 text-sm text-muted-foreground">
+              Set the maximum file size allowed for the selected user(s).
+            </p>
+            <Input
+              type="number"
+              placeholder="Enter file size limit in bytes"
+              value={fileSizeInput}
+              onChange={(e) => setFileSizeInput(e.target.value)}
+              className="mb-4"
+            />
+            <div className="flex justify-end gap-2">
+              <Button
+                variant="outline"
+                onClick={() => {
+                  setShowFileSizeModal(false)
+                  setFileSizeInput('')
+                }}
+              >
+                Cancel
+              </Button>
+              <Button onClick={handleFileSizeSubmit} disabled={isLoading}>
                 {isLoading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (

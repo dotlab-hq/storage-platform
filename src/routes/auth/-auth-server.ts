@@ -7,6 +7,7 @@ import { db } from '@/db'
 import { user } from '@/db/schema/auth-schema'
 import { eq } from 'drizzle-orm'
 import { logActivity } from '@/lib/activity'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 
 async function loadAuth() {
   const module = await import('@/lib/auth')
@@ -189,15 +190,13 @@ export const resetPasswordFn = createServerFn({ method: 'POST' })
 
       // Log password reset completion
       try {
-        const session = await auth.api.getSession({ headers: request.headers })
-        if (session?.user?.id) {
-          await logActivity({
-            userId: session.user.id,
-            eventType: 'password_reset',
-            tags: ['Auth'],
-            meta: { success: true },
-          })
-        }
+        const currentUser = await getAuthenticatedUser()
+        await logActivity({
+          userId: currentUser.id,
+          eventType: 'password_reset',
+          tags: ['Auth'],
+          meta: { success: true },
+        })
       } catch (logErr) {
         console.error('[Activity] Failed to log password reset:', logErr)
       }

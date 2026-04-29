@@ -31,7 +31,6 @@ import { Route as ApiStorageFileLinkRouteImport } from './routes/api/storage/fil
 import { Route as ApiChatStreamRouteImport } from './routes/api/chat/stream'
 import { Route as ApiChatCompletionsRouteImport } from './routes/api/chat/completions'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
-import { Route as ApiAdminTriggerCronRouteImport } from './routes/api/admin/trigger-cron'
 import { Route as AppBucketsBucketNameRouteImport } from './routes/_app/buckets/$bucketName'
 import { Route as ApiStorageS3IndexRouteImport } from './routes/api/storage/s3/index'
 import { Route as ApiV1ChatCompletionsRouteImport } from './routes/api/v1/chat/completions'
@@ -161,11 +160,6 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiAdminTriggerCronRoute = ApiAdminTriggerCronRouteImport.update({
-  id: '/api/admin/trigger-cron',
-  path: '/api/admin/trigger-cron',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AppBucketsBucketNameRoute = AppBucketsBucketNameRouteImport.update({
   id: '/buckets/$bucketName',
   path: '/buckets/$bucketName',
@@ -280,7 +274,6 @@ export interface FileRoutesByFullPath {
   '/auth/': typeof AuthIndexRoute
   '/device/': typeof DeviceIndexRoute
   '/buckets/$bucketName': typeof AppBucketsBucketNameRoute
-  '/api/admin/trigger-cron': typeof ApiAdminTriggerCronRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/chat/completions': typeof ApiChatCompletionsRoute
   '/api/chat/stream': typeof ApiChatStreamRoute
@@ -323,7 +316,6 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthIndexRoute
   '/device': typeof DeviceIndexRoute
   '/buckets/$bucketName': typeof AppBucketsBucketNameRoute
-  '/api/admin/trigger-cron': typeof ApiAdminTriggerCronRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/chat/completions': typeof ApiChatCompletionsRoute
   '/api/chat/stream': typeof ApiChatStreamRoute
@@ -367,7 +359,6 @@ export interface FileRoutesById {
   '/auth/': typeof AuthIndexRoute
   '/device/': typeof DeviceIndexRoute
   '/_app/buckets/$bucketName': typeof AppBucketsBucketNameRoute
-  '/api/admin/trigger-cron': typeof ApiAdminTriggerCronRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/chat/completions': typeof ApiChatCompletionsRoute
   '/api/chat/stream': typeof ApiChatStreamRoute
@@ -412,7 +403,6 @@ export interface FileRouteTypes {
     | '/auth/'
     | '/device/'
     | '/buckets/$bucketName'
-    | '/api/admin/trigger-cron'
     | '/api/auth/$'
     | '/api/chat/completions'
     | '/api/chat/stream'
@@ -455,7 +445,6 @@ export interface FileRouteTypes {
     | '/auth'
     | '/device'
     | '/buckets/$bucketName'
-    | '/api/admin/trigger-cron'
     | '/api/auth/$'
     | '/api/chat/completions'
     | '/api/chat/stream'
@@ -498,7 +487,6 @@ export interface FileRouteTypes {
     | '/auth/'
     | '/device/'
     | '/_app/buckets/$bucketName'
-    | '/api/admin/trigger-cron'
     | '/api/auth/$'
     | '/api/chat/completions'
     | '/api/chat/stream'
@@ -541,7 +529,6 @@ export interface RootRouteChildren {
   ShareTokenRoute: typeof ShareTokenRoute
   AuthIndexRoute: typeof AuthIndexRoute
   DeviceIndexRoute: typeof DeviceIndexRoute
-  ApiAdminTriggerCronRoute: typeof ApiAdminTriggerCronRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiChatCompletionsRoute: typeof ApiChatCompletionsRoute
   ApiChatStreamRoute: typeof ApiChatStreamRoute
@@ -710,13 +697,6 @@ declare module '@tanstack/react-router' {
       path: '/api/auth/$'
       fullPath: '/api/auth/$'
       preLoaderRoute: typeof ApiAuthSplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/admin/trigger-cron': {
-      id: '/api/admin/trigger-cron'
-      path: '/api/admin/trigger-cron'
-      fullPath: '/api/admin/trigger-cron'
-      preLoaderRoute: typeof ApiAdminTriggerCronRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_app/buckets/$bucketName': {
@@ -926,7 +906,6 @@ const rootRouteChildren: RootRouteChildren = {
   ShareTokenRoute: ShareTokenRoute,
   AuthIndexRoute: AuthIndexRoute,
   DeviceIndexRoute: DeviceIndexRoute,
-  ApiAdminTriggerCronRoute: ApiAdminTriggerCronRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiChatCompletionsRoute: ApiChatCompletionsRoute,
   ApiChatStreamRoute: ApiChatStreamRoute,

@@ -7,6 +7,7 @@ import {
 } from '@/lib/s3-provider-client'
 import { DEFAULT_FILE_SIZE_LIMIT_BYTES } from '@/lib/storage-quota-constants'
 import { logActivity } from '@/lib/activity'
+import { getUserFileSizeLimit } from './upload-target-db.server'
 
 const PROXY_UPLOAD_URL = '/api/storage/upload/proxy'
 
@@ -18,23 +19,7 @@ const PrepareUploadTargetSchema = z.object({
   fileSize: z.number().nonnegative(),
 })
 
-async function getUserFileSizeLimit(userId: string): Promise<number> {
-  const [{ db }, { userStorage }, { eq }] = await Promise.all([
-    import('@/db'),
-    import('@/db/schema/storage'),
-    import('drizzle-orm'),
-  ])
-
-  const storageRows = await db
-    .select({ fileSizeLimit: userStorage.fileSizeLimit })
-    .from(userStorage)
-    .where(eq(userStorage.userId, userId))
-    .limit(1)
-
-  return storageRows[0]?.fileSizeLimit ?? DEFAULT_FILE_SIZE_LIMIT_BYTES
-}
-
-export async function assertFileSizeWithinLimit(
+async function assertFileSizeWithinLimit(
   userId: string,
   fileSize: number,
 ): Promise<void> {
@@ -70,7 +55,7 @@ export const prepareUploadTarget = createServerFn({ method: 'POST' })
 
       result = {
         uploadMethod: 'proxy',
-        providerId: provider.providerId,
+        providerId: provider.providerId!,
         uploadUrl: PROXY_UPLOAD_URL,
       }
     } else {
@@ -89,14 +74,14 @@ export const prepareUploadTarget = createServerFn({ method: 'POST' })
 
       result = {
         uploadMethod: 'direct',
-        providerId: directProvider.providerId,
+        providerId: directProvider.providerId!,
         presignedUrl,
       }
     }
 
     await logActivity({
       userId: authUser.id,
-      eventType: 'upload_prepare',
+      eventType: 'file_upload',
       tags: ['API', 'Upload'],
       meta: {
         objectKey: data.objectKey,

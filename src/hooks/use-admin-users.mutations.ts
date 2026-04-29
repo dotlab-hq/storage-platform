@@ -7,6 +7,7 @@ import {
   banUsersFn,
   deleteUsersFn,
   updateUserStorageLimitFn,
+  updateUserFileSizeLimitFn,
 } from '@/routes/_app/admin/-components/-admin-server'
 
 const ADMIN_USERS_QUERY_KEY = ['admin-users'] as const
@@ -158,10 +159,49 @@ export function useAdminUsersMutations() {
     },
   })
 
+  const updateFileSizeLimitMutation = useMutation({
+    mutationFn: async ({
+      userId,
+      fileSizeLimitBytes,
+    }: {
+      userId: string
+      fileSizeLimitBytes: number
+    }) => {
+      const result = await updateUserFileSizeLimitFn({
+        data: { userId, fileSizeLimitBytes },
+      })
+      return result
+    },
+    onMutate: async ({ userId, fileSizeLimitBytes }) => {
+      await queryClient.cancelQueries({ queryKey: ADMIN_USERS_QUERY_KEY })
+      const previousUsers = queryClient.getQueryData<AdminUser[]>(
+        ADMIN_USERS_QUERY_KEY,
+      )
+
+      queryClient.setQueryData<AdminUser[]>(ADMIN_USERS_QUERY_KEY, (old) => {
+        if (!old) return old
+        return old.map((user) =>
+          user.id === userId ? { ...user, fileSizeLimitBytes } : user,
+        )
+      })
+
+      return { previousUsers }
+    },
+    onError: (err, variables, context) => {
+      if (context?.previousUsers) {
+        queryClient.setQueryData(ADMIN_USERS_QUERY_KEY, context.previousUsers)
+      }
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ADMIN_USERS_QUERY_KEY })
+    },
+  })
+
   return {
     updateRoleMutation,
     banUsersMutation,
     deleteUsersMutation,
     updateStorageLimitMutation,
+    updateFileSizeLimitMutation,
   }
 }

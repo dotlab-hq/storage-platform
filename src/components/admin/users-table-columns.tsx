@@ -22,6 +22,10 @@ interface ColumnCallbacks {
   onBan?: (userId: string, banned: boolean) => Promise<void>
   onDelete?: (userId: string) => Promise<void>
   onUpdateStorage?: (userId: string, storageLimitBytes: number) => Promise<void>
+  onUpdateFileSizeLimit?: (
+    userId: string,
+    fileSizeLimitBytes: number,
+  ) => Promise<void>
   onViewUserFiles?: (user: UserTableRow) => void
   updatingUsers?: Set<string>
 }
@@ -31,6 +35,7 @@ export const getColumns = ({
   onBan,
   onDelete,
   onUpdateStorage,
+  onUpdateFileSizeLimit,
   onViewUserFiles,
   updatingUsers = new Set(),
 }: ColumnCallbacks): ColumnDef<UserTableRow>[] => [
@@ -119,6 +124,15 @@ export const getColumns = ({
       </div>
     ),
   }) as ColumnDef<UserTableRow>,
+  columnHelper.accessor('fileSizeLimitBytes', {
+    header: 'File Limit',
+    size: 120,
+    cell: (info) => (
+      <div className="text-sm text-muted-foreground">
+        {formatBytes(info.getValue())}
+      </div>
+    ),
+  }) as ColumnDef<UserTableRow>,
   columnHelper.accessor('banned', {
     header: 'Status',
     size: 100,
@@ -170,6 +184,11 @@ export const getColumns = ({
             onUpdateStorage={
               onUpdateStorage
                 ? (bytes) => onUpdateStorage(user.id, bytes)
+                : undefined
+            }
+            onUpdateFileSizeLimit={
+              onUpdateFileSizeLimit
+                ? (bytes) => onUpdateFileSizeLimit(user.id, bytes)
                 : undefined
             }
           />

@@ -19,7 +19,7 @@ const AdminDashboardPage = lazy(() =>
 )
 
 function AdminRouteComponent() {
-  const initial = Route.useLoaderData() as AdminDashboardData | undefined
+  const initial = Route.useLoaderData()
   return (
     <Suspense fallback={<PageSkeleton className="h-full" />}>
       <AdminDashboardPage initial={initial} />

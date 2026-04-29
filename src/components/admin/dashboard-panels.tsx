@@ -174,6 +174,7 @@ export function UsersPanel({
     banUsersMutation,
     deleteUsersMutation,
     updateStorageLimitMutation,
+    updateFileSizeLimitMutation,
   } = useAdminUsersMutations()
 
   const clearSelection = useCallback(() => {
@@ -244,6 +245,25 @@ export function UsersPanel({
       }
     },
     [updateStorageLimitMutation, onUserUpdate],
+  )
+
+  const handleUpdateFileSizeLimitUser = useCallback(
+    async (userId: string, fileSizeLimitBytes: number) => {
+      try {
+        await updateFileSizeLimitMutation.mutateAsync({
+          userId,
+          fileSizeLimitBytes,
+        })
+        onUserUpdate?.()
+      } catch (error) {
+        const message =
+          error instanceof Error
+            ? error.message
+            : 'Failed to update file size limit'
+        toast.error(message)
+      }
+    },
+    [updateFileSizeLimitMutation, onUserUpdate],
   )
 
   // Bulk actions (for floating action bar)
@@ -321,6 +341,72 @@ export function UsersPanel({
     [selectedUserIds, updateStorageLimitMutation, clearSelection, onUserUpdate],
   )
 
+  const handleUpdateFileSizeLimit = useCallback(
+    async (fileSizeLimitBytes: number) => {
+      if (selectedUserIds.length === 0) return
+
+      setIsLoading(true)
+      try {
+        for (const userId of selectedUserIds) {
+          await updateFileSizeLimitMutation.mutateAsync({
+            userId,
+            fileSizeLimitBytes,
+          })
+        }
+        toast.success('File size limit updated')
+        clearSelection()
+        onUserUpdate?.()
+      } catch (error) {
+        const message =
+          error instanceof Error
+            ? error.message
+            : 'Failed to update file size limit'
+        toast.error(message)
+      } finally {
+        setIsLoading(false)
+      }
+    },
+    [
+      selectedUserIds,
+      updateFileSizeLimitMutation,
+      clearSelection,
+      onUserUpdate,
+    ],
+  )
+
+  const handleUpdateFileSizeLimit = useCallback(
+    async (fileSizeLimitBytes: number) => {
+      if (selectedUserIds.length === 0) return
+
+      setIsLoading(true)
+      try {
+        for (const userId of selectedUserIds) {
+          await updateFileSizeLimitMutation.mutateAsync({
+            userId,
+            fileSizeLimitBytes,
+          })
+        }
+        toast.success('File size limit updated')
+        clearSelection()
+        onUserUpdate?.()
+      } catch (error) {
+        const message =
+          error instanceof Error
+            ? error.message
+            : 'Failed to update file size limit'
+        toast.error(message)
+      } finally {
+        setIsLoading(false)
+      }
+    },
+    [
+      selectedUserIds,
+      updateFileSizeLimitMutation,
+      clearSelection,
+      onUserUpdate,
+    ],
+  )
+
   const handleBulkRoleChange = useCallback(
     async (isAdmin: boolean) => {
       if (selectedUserIds.length === 0) return
@@ -361,6 +447,7 @@ export function UsersPanel({
         onBan={handleBanUser}
         onDelete={handleDeleteUser}
         onUpdateStorage={handleUpdateStorageUser}
+        onUpdateFileSizeLimit={handleUpdateFileSizeLimitUser}
       />
       <AdminFloatingActionBar
         selectedCount={selectedUserIds.length}
@@ -368,6 +455,7 @@ export function UsersPanel({
         onBan={handleBan}
         onDelete={handleDelete}
         onUpdateStorage={handleUpdateStorage}
+        onUpdateFileSizeLimit={handleUpdateFileSizeLimit}
         onMakeAdmin={() => handleBulkRoleChange(true)}
         onMakeUser={() => handleBulkRoleChange(false)}
         isLoading={isLoading}

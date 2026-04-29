@@ -39,6 +39,7 @@ type UserRowActionsDropdownProps = {
   onBan?: (banned: boolean) => Promise<void>
   onDelete?: () => Promise<void>
   onUpdateStorage?: (storageLimitBytes: number) => Promise<void>
+  onUpdateFileSizeLimit?: (fileSizeLimitBytes: number) => Promise<void>
 }
 
 export function UserRowActionsDropdown({
@@ -50,8 +51,12 @@ export function UserRowActionsDropdown({
   onUpdateStorage,
 }: UserRowActionsDropdownProps) {
   const [showStorageDialog, setShowStorageDialog] = useState(false)
+  const [showFileSizeDialog, setShowFileSizeDialog] = useState(false)
   const [storageInput, setStorageInput] = useState(
     String(user.storageLimitBytes),
+  )
+  const [fileSizeInput, setFileSizeInput] = useState(
+    String(user.fileSizeLimitBytes),
   )
   const [isUpdating, setIsUpdating] = useState(false)
 
@@ -84,6 +89,29 @@ export function UserRowActionsDropdown({
     } catch (error) {
       const message =
         error instanceof Error ? error.message : 'Failed to update storage'
+      toast.error(message)
+    } finally {
+      setIsUpdating(false)
+    }
+  }
+
+  const handleFileSizeUpdate = async () => {
+    const bytes = Number(fileSizeInput)
+    if (!Number.isFinite(bytes) || bytes <= 0) {
+      toast.error('Please enter a valid file size limit')
+      return
+    }
+    if (!onUpdateFileSizeLimit) return
+    setIsUpdating(true)
+    try {
+      await onUpdateFileSizeLimit(bytes)
+      toast.success('File size limit updated')
+      setShowFileSizeDialog(false)
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : 'Failed to update file size limit'
       toast.error(message)
     } finally {
       setIsUpdating(false)
@@ -180,6 +208,10 @@ export function UserRowActionsDropdown({
             <HardDrive className="mr-2 h-4 w-4" />
             Storage Limit
           </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => setShowFileSizeDialog(true)}>
+            <HardDrive className="mr-2 h-4 w-4" />
+            File Size Limit
+          </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={handleImpersonate}>
             <Shield className="mr-2 h-4 w-4" />
@@ -220,6 +252,41 @@ export function UserRowActionsDropdown({
                 Cancel
               </Button>
               <Button onClick={handleStorageUpdate} disabled={isUpdating}>
+                {isUpdating ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  'Update'
+                )}
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* File Size Limit Dialog */}
+      <Dialog open={showFileSizeDialog} onOpenChange={setShowFileSizeDialog}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle>Update File Size Limit</DialogTitle>
+            <DialogDescription>
+              Set a new maximum file size for {user.name}.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <Input
+              type="number"
+              placeholder={`Current: ${user.fileSizeLimitBytes} bytes`}
+              value={fileSizeInput}
+              onChange={(e) => setFileSizeInput(e.target.value)}
+            />
+            <div className="flex justify-end gap-2">
+              <Button
+                variant="outline"
+                onClick={() => setShowFileSizeDialog(false)}
+              >
+                Cancel
+              </Button>
+              <Button onClick={handleFileSizeUpdate} disabled={isUpdating}>
                 {isUpdating ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (

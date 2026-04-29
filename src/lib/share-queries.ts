@@ -1,4 +1,6 @@
-import { eq, sql } from 'drizzle-orm'
+import { createServerFn } from '@tanstack/react-start'
+import { z } from 'zod'
+import { eq, and, sql } from 'drizzle-orm'
 import { getProviderClientById } from '@/lib/s3-provider-client'
 
 function normalizeShareToken(token: string): string {
@@ -22,125 +24,139 @@ function normalizeShareToken(token: string): string {
   }
 }
 
-async function findShareLinkByToken(token: string) {
-  const [{ db }, { shareLink }] = await Promise.all([
-    import('@/db'),
-    import('@/db/schema/storage'),
-  ])
+const GetShareByTokenSchema = z.object({
+  token: z.string().min(1),
+})
 
-  const normalizedToken = normalizeShareToken(token)
-  if (!normalizedToken) return null
+export const getShareByToken = createServerFn({ method: 'POST' })
+  .inputValidator(GetShareByTokenSchema)
+  .handler(async ({ data }) => {
+    const { db } = await import('@/db')
+    const {
+      shareLink,
+      file: storageFile,
+      folder,
+    } = await import('@/db/schema/storage')
 
-  const candidates = [normalizedToken, normalizedToken.toLowerCase()]
+    const normalizedToken = normalizeShareToken(data.token)
+    if (!normalizedToken) return null
 
-  for (const candidate of candidates) {
-    const rows = await db
-      .select()
-      .from(shareLink)
-      .where(eq(shareLink.shareToken, candidate))
-      .limit(1)
-    if (rows.length > 0) {
-      return rows[0]
+    const candidates = [normalizedToken, normalizedToken.toLowerCase()]
+
+    let linkRow = null
+    for (const candidate of candidates) {
+      const rows = await db
+        .select()
+        .from(shareLink)
+        .where(eq(shareLink.shareToken, candidate))
+        .limit(1)
+      if (rows.length > 0) {
+        linkRow = rows[0]
+        break
+      }
     }
-  }
 
-  // Legacy fallback in case old links were shared using the row id.
-  const byIdRows = await db
-    .select()
-    .from(shareLink)
-    .where(eq(shareLink.id, normalizedToken))
-    .limit(1)
+    if (!linkRow) {
+      const byIdRows = await db
+        .select()
+        .from(shareLink)
+        .where(eq(shareLink.id, normalizedToken))
+        .limit(1)
+      linkRow = byIdRows[0] ?? null
+    }
 
-  return byIdRows.length > 0 ? byIdRows[0] : null
-}
+    if (!linkRow) return null
+    if (!linkRow.isActive) return null
 
-async function buildPresignedUrl(
-  objectKey: string,
-  fileName: string,
-  providerId: string | null,
-  disposition: 'inline' | 'attachment',
-) {
-  const { GetObjectCommand } = await import('@aws-sdk/client-s3')
-  const { getSignedUrl } = await import('@aws-sdk/s3-request-presigner')
-  const provider = await getProviderClientById(providerId)
+    if (linkRow.expiresAt && linkRow.expiresAt < new Date()) return null
 
-  const command = new GetObjectCommand({
-    Bucket: provider.bucketName,
-    Key: objectKey,
-    ResponseContentDisposition: `${disposition}; filename="${fileName}"`,
+    if (linkRow.fileId) {
+      const fileRows = await db
+        .select({
+          id: storageFile.id,
+          name: storageFile.name,
+          mimeType: storageFile.mimeType,
+          sizeInBytes: storageFile.sizeInBytes,
+          objectKey: storageFile.objectKey,
+          providerId: storageFile.providerId,
+          isPrivatelyLocked: storageFile.isPrivatelyLocked,
+        })
+        .from(storageFile)
+        .where(
+          and(
+            eq(storageFile.id, linkRow.fileId),
+            eq(storageFile.isTrashed, false),
+          ),
+        )
+        .limit(1)
+      if (fileRows.length === 0) return null
+      const fileRow = fileRows[0]
+      if (fileRow.isPrivatelyLocked && !linkRow.consentedPrivatelyUnlock) {
+        throw new Error('File is privately locked')
+      }
+      return { type: 'file' as const, link: linkRow, item: fileRow }
+    }
+
+    if (linkRow.folderId) {
+      const folderRows = await db
+        .select({
+          id: folder.id,
+          name: folder.name,
+        })
+        .from(folder)
+        .where(
+          and(eq(folder.id, linkRow.folderId), eq(folder.isTrashed, false)),
+        )
+        .limit(1)
+      if (folderRows.length === 0) return null
+      const folderRow = folderRows[0]
+      return { type: 'folder' as const, link: linkRow, item: folderRow }
+    }
+
+    return null
   })
 
-  return getSignedUrl(provider.client, command, { expiresIn: 3600 })
-}
+const GetSharedFilePresignedUrlSchema = z.object({
+  objectKey: z.string().min(1),
+  fileName: z.string().min(1),
+  providerId: z.string().nullable(),
+})
 
-export async function getShareByToken(token: string) {
-  const [{ db }, { file: storageFile, folder }] = await Promise.all([
-    import('@/db'),
-    import('@/db/schema/storage'),
-  ])
+export const getSharedFilePresignedUrl = createServerFn({ method: 'POST' })
+  .inputValidator(GetSharedFilePresignedUrlSchema)
+  .handler(async ({ data }) => {
+    const { GetObjectCommand } = await import('@aws-sdk/client-s3')
+    const { getSignedUrl } = await import('@aws-sdk/s3-request-presigner')
+    const provider = await getProviderClientById(data.providerId)
 
-  const link = await findShareLinkByToken(token)
-  if (!link) return null
-  if (!link.isActive) return null
+    const command = new GetObjectCommand({
+      Bucket: provider.bucketName,
+      Key: data.objectKey,
+      ResponseContentDisposition: `inline; filename="${data.fileName}"`,
+    })
 
-  if (link.expiresAt && link.expiresAt < new Date()) return null
+    return getSignedUrl(provider.client, command, { expiresIn: 3600 })
+  })
 
-  if (link.fileId) {
-    const fileRows = await db
-      .select({
-        id: storageFile.id,
-        name: storageFile.name,
-        mimeType: storageFile.mimeType,
-        sizeInBytes: storageFile.sizeInBytes,
-        objectKey: storageFile.objectKey,
-        providerId: storageFile.providerId,
-        isPrivatelyLocked: storageFile.isPrivatelyLocked,
-      })
-      .from(storageFile)
-      .where(
-        and(eq(storageFile.id, link.fileId), eq(storageFile.isTrashed, false)),
-      )
-      .limit(1)
-    if (fileRows.length === 0) return null
-    const fileRow = fileRows[0]
-    if (fileRow.isPrivatelyLocked && !link.consentedPrivatelyUnlock) {
-      throw new Error('File is privately locked')
-    }
-    return { type: 'file' as const, link, item: fileRow }
-  }
+export const getSharedFileDownloadUrl = createServerFn({ method: 'POST' })
+  .inputValidator(GetSharedFilePresignedUrlSchema)
+  .handler(async ({ data }) => {
+    const { GetObjectCommand } = await import('@aws-sdk/client-s3')
+    const { getSignedUrl } = await import('@aws-sdk/s3-request-presigner')
+    const provider = await getProviderClientById(data.providerId)
 
-  if (link.folderId) {
-    const folderRows = await db
-      .select({
-        id: folder.id,
-        name: folder.name,
-      })
-      .from(folder)
-      .where(and(eq(folder.id, link.folderId), eq(folder.isTrashed, false)))
-      .limit(1)
-    if (folderRows.length === 0) return null
-    const folderRow = folderRows[0]
-    return { type: 'folder' as const, link, item: folderRow }
-  }
+    const command = new GetObjectCommand({
+      Bucket: provider.bucketName,
+      Key: data.objectKey,
+      ResponseContentDisposition: `attachment; filename="${data.fileName}"`,
+    })
 
-  return null
-}
+    return getSignedUrl(provider.client, command, { expiresIn: 3600 })
+  })
 
-export async function getSharedFilePresignedUrl(
-  objectKey: string,
-  fileName: string,
-  providerId: string | null,
-) {
-  return buildPresignedUrl(objectKey, fileName, providerId, 'inline')
-}
-
-export async function getSharedFileDownloadUrl(
-  objectKey: string,
-  fileName: string,
-  providerId: string | null,
-) {
-  return buildPresignedUrl(objectKey, fileName, providerId, 'attachment')
-}
+const GetSharedFolderTreeSchema = z.object({
+  token: z.string().min(1),
+})
 
 type SharedFolderNode = {
   id: string
@@ -158,15 +174,18 @@ type SharedFolderFile = {
   isPrivatelyLocked: boolean
 }
 
-export async function getSharedFolderTreeByToken(token: string) {
-  const share = await getShareByToken(token)
-  if (!share || share.type !== 'folder' || !share.link.folderId) return null
+export const getSharedFolderTreeByToken = createServerFn({ method: 'POST' })
+  .inputValidator(GetSharedFolderTreeSchema)
+  .handler(async ({ data }) => {
+    const { db } = await import('@/db')
 
-  const [{ db }] = await Promise.all([import('@/db')])
-  const ownerId = share.link.sharedByUserId
-  const rootFolderId = share.link.folderId
+    const share = await getShareByToken({ data: { token: data.token } })
+    if (!share || share.type !== 'folder' || !share.link.folderId) return null
 
-  const folderRows = await db.all<SharedFolderNode>(sql`
+    const ownerId = share.link.sharedByUserId
+    const rootFolderId = share.link.folderId
+
+    const folderRows = await db.all<SharedFolderNode>(sql`
         WITH RECURSIVE folder_tree AS (
                         SELECT f.id, f.name, f.parent_folder_id AS "parentFolderId", CAST(0 AS INTEGER) AS depth
                         FROM "folder" f
@@ -187,7 +206,7 @@ export async function getSharedFolderTreeByToken(token: string) {
         ORDER BY depth ASC, name ASC
     `)
 
-  const fileRows = await db.all<SharedFolderFile>(sql`
+    const fileRows = await db.all<SharedFolderFile>(sql`
         WITH RECURSIVE folder_tree AS (
             SELECT f.id
                         FROM "folder" f
@@ -214,15 +233,15 @@ export async function getSharedFolderTreeByToken(token: string) {
         ORDER BY fl.name ASC
     `)
 
-  const root = folderRows.find((row) => row.depth === 0) ?? null
-  if (!root) {
-    throw new Error('Shared folder root is missing')
-  }
+    const root = folderRows.find((row) => row.depth === 0) ?? null
+    if (!root) {
+      throw new Error('Shared folder root is missing')
+    }
 
-  return {
-    rootFolderId,
-    rootFolderName: root.name,
-    folders: folderRows,
-    files: fileRows,
-  }
-}
+    return {
+      rootFolderId,
+      rootFolderName: root.name,
+      folders: folderRows,
+      files: fileRows,
+    }
+  })
