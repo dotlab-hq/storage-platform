@@ -9,11 +9,6 @@ import { db } from '@/db'
 import { folder, file as storageFile } from '@/db/schema/storage'
 import { withActivityLogging } from '@/lib/activity-logging'
 import { seedNodeById } from '@/lib/storage-btree/seed'
-import { getTrashDeletionQueueFromRequestContext } from '@/lib/trash-deletion/request-context'
-import {
-  enqueueTrashDeletionItems,
-  markItemsDeleted,
-} from '@/lib/trash-deletion/producer'
 
 const DeleteItemsSchema = z.object({
   itemIds: z.array(z.string().min(1)),
@@ -56,10 +51,18 @@ export const deleteItemsFn = createServerFn({ method: 'POST' })
             .where(inArray(storageFile.id, fileIds))
           files.forEach((f) => distinctParents.add(f.folderId))
 
-          await markItemsDeleted(
-            userId,
-            fileIds.map((id) => ({ userId, itemId: id, itemType: 'file' as const })),
-          )
+          // Move to trash: set isTrashed = true, isDeleted = false
+          await db
+            .update(storageFile)
+            .set({ isTrashed: true, isDeleted: false })
+            .where(
+              and(
+                inArray(storageFile.id, fileIds),
+                eq(storageFile.userId, userId),
+                eq(storageFile.isTrashed, false),
+                eq(storageFile.isDeleted, false),
+              ),
+            )
 
           await Promise.all(
             fileIds.map((id) => seedNodeById(userId, 'file', id)),
@@ -76,24 +79,25 @@ export const deleteItemsFn = createServerFn({ method: 'POST' })
             )
           folders.forEach((f) => distinctParents.add(f.parentFolderId))
 
-          await markItemsDeleted(
-            userId,
-            folderIds.map((id) => ({
-              userId,
-              itemId: id,
-              itemType: 'folder' as const,
-            })),
-          )
+          // Move to trash: set isTrashed = true, isDeleted = false
+          await db
+            .update(folder)
+            .set({ isTrashed: true, isDeleted: false })
+            .where(
+              and(
+                inArray(folder.id, folderIds),
+                eq(folder.userId, userId),
+                eq(folder.isTrashed, false),
+                eq(folder.isDeleted, false),
+              ),
+            )
 
           await Promise.all(
             folderIds.map((id) => seedNodeById(userId, 'folder', id)),
           )
         }
 
-        const { patchFolderCache, invalidateQuotaCache } =
-          await import('@/lib/cache-invalidation')
-        await invalidateQuotaCache(userId)
-
+        const { patchFolderCache } = await import('@/lib/cache-invalidation')
         for (const parentId of Array.from(distinctParents)) {
           await patchFolderCache(userId, parentId, {
             removeFolderIds: folderIds,
@@ -101,20 +105,9 @@ export const deleteItemsFn = createServerFn({ method: 'POST' })
           })
         }
 
-        const queue = getTrashDeletionQueueFromRequestContext()
-        const queued = await enqueueTrashDeletionItems(queue, [
-          ...fileIds.map((id) => ({ userId, itemId: id, itemType: 'file' as const })),
-          ...folderIds.map((id) => ({
-            userId,
-            itemId: id,
-            itemType: 'folder' as const,
-          })),
-        ])
-
         return {
-          deletedFiles: fileIds.length,
-          deletedFolders: folderIds.length,
-          queuedItems: queued,
+          trashedFiles: fileIds.length,
+          trashedFolders: folderIds.length,
         }
       },
     )

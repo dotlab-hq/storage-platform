@@ -161,7 +161,7 @@ export async function buildAndClaimDeletionBatch(
         ? fileStateMap.get(item.itemId)
         : folderStateMap.get(item.itemId)
 
-    // Skip if missing, already claimed, or not deleted (e.g., restored)
+    // Skip if missing, already claimed, or not marked for deletion (e.g., restored)
     if (!state) continue
     if (state.deletionQueuedAt !== null) continue
     if (!state.isDeleted) continue

@@ -23,7 +23,7 @@ export async function listTrashItems(
   const limit = options?.limit ?? 100
   const offset = options?.offset ?? 0
 
-  const [deletedFiles, deletedFolders] = await Promise.all([
+  const [trashedFiles, trashedFolders] = await Promise.all([
     db
       .select({
         id: storageFile.id,
@@ -33,7 +33,13 @@ export async function listTrashItems(
         mimeType: storageFile.mimeType,
       })
       .from(storageFile)
-      .where(and(eq(storageFile.userId, userId), eq(storageFile.isDeleted, true)))
+      .where(
+        and(
+          eq(storageFile.userId, userId),
+          eq(storageFile.isTrashed, true),
+          eq(storageFile.isDeleted, false),
+        ),
+      )
       .orderBy(desc(storageFile.deletedAt))
       .limit(limit)
       .offset(offset),
@@ -44,20 +50,26 @@ export async function listTrashItems(
         deletedAt: folder.deletedAt,
       })
       .from(folder)
-      .where(and(eq(folder.userId, userId), eq(folder.isDeleted, true)))
+      .where(
+        and(
+          eq(folder.userId, userId),
+          eq(folder.isTrashed, true),
+          eq(folder.isDeleted, false),
+        ),
+      )
       .orderBy(desc(folder.deletedAt))
       .limit(limit)
       .offset(offset),
   ])
 
   const items: TrashItem[] = [
-    ...deletedFolders.map((f) => ({
+    ...trashedFolders.map((f) => ({
       id: f.id,
       name: f.name,
       type: 'folder' as const,
       deletedAt: f.deletedAt?.toISOString() ?? null,
     })),
-    ...deletedFiles.map((f) => ({
+    ...trashedFiles.map((f) => ({
       id: f.id,
       name: f.name,
       type: 'file' as const,
@@ -86,8 +98,8 @@ export async function listTrashFolderContents(
     import('@/db/schema/storage'),
   ])
 
-  // Fetch all deleted folders
-  const allDeletedFolders = await db
+  // Fetch all trashed folders
+  const allTrashedFolders = await db
     .select({
       id: folder.id,
       name: folder.name,
@@ -95,11 +107,17 @@ export async function listTrashFolderContents(
       parentFolderId: folder.parentFolderId,
     })
     .from(folder)
-    .where(and(eq(folder.userId, userId), eq(folder.isDeleted, true)))
+    .where(
+      and(
+        eq(folder.userId, userId),
+        eq(folder.isTrashed, true),
+        eq(folder.isDeleted, false),
+      ),
+    )
     .orderBy(desc(folder.deletedAt))
 
-  // Fetch all deleted files
-  const allDeletedFiles = await db
+  // Fetch all trashed files
+  const allTrashedFiles = await db
     .select({
       id: storageFile.id,
       name: storageFile.name,
@@ -109,24 +127,30 @@ export async function listTrashFolderContents(
       folderId: storageFile.folderId,
     })
     .from(storageFile)
-    .where(and(eq(storageFile.userId, userId), eq(storageFile.isDeleted, true)))
+    .where(
+      and(
+        eq(storageFile.userId, userId),
+        eq(storageFile.isTrashed, true),
+        eq(storageFile.isDeleted, false),
+      ),
+    )
     .orderBy(desc(storageFile.deletedAt))
 
-  const deletedFolderIds = new Set(allDeletedFolders.map((f) => f.id))
+  const trashedFolderIds = new Set(allTrashedFolders.map((f) => f.id))
 
   // Folders: those with parentFolderId === parentFolderId
-  const folders = allDeletedFolders.filter(
+  const folders = allTrashedFolders.filter(
     (f) => f.parentFolderId === parentFolderId,
   )
 
   // Files: depends on context
-  let files = allDeletedFiles
+  let files = allTrashedFiles
   if (parentFolderId === null) {
-    files = allDeletedFiles.filter(
-      (f) => f.folderId === null || !deletedFolderIds.has(f.folderId),
+    files = allTrashedFiles.filter(
+      (f) => f.folderId === null || !trashedFolderIds.has(f.folderId),
     )
   } else {
-    files = allDeletedFiles.filter((f) => f.folderId === parentFolderId)
+    files = allTrashedFiles.filter((f) => f.folderId === parentFolderId)
   }
 
   const items: TrashItem[] = [

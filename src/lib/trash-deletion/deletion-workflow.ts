@@ -2,7 +2,6 @@ import type { WorkflowEvent, WorkflowStep } from 'cloudflare:workers'
 import { WorkflowEntrypoint } from 'cloudflare:workers'
 import { processDeletionBatch } from './deletion-processor'
 import type { DeletionWorkflowParams } from './params'
-import type { QueueClient } from './do-client'
 
 export class TrashDeletionWorkflow extends WorkflowEntrypoint<
   Env,
@@ -16,8 +15,7 @@ export class TrashDeletionWorkflow extends WorkflowEntrypoint<
     if (!items || items.length === 0) return
 
     const env = this.env as Env
-    const queue = env.TRASH_DELETION_QUEUE as unknown as QueueClient
 
-    await processDeletionBatch(items, env, queue)
+    await processDeletionBatch(items, env)
   }
 }

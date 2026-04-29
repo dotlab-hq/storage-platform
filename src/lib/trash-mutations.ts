@@ -25,37 +25,134 @@ export async function restoreItems(
 
   const CHUNK_SIZE = 500
 
+  // Restore folders first (so children can check updated parent state)
+  if (folderIds.length > 0) {
+    for (let i = 0; i < folderIds.length; i += CHUNK_SIZE) {
+      const chunk = folderIds.slice(i, i + CHUNK_SIZE)
+
+      // Fetch folders to get parent folder info
+      const folders = await db
+        .select({
+          id: folder.id,
+          parentFolderId: folder.parentFolderId,
+        })
+        .from(folder)
+        .where(and(eq(folder.userId, userId), inArray(folder.id, chunk)))
+
+      // Collect non-null parent folder IDs
+      const parentFolderIds = [
+        ...new Set(
+          folders
+            .map((f) => f.parentFolderId)
+            .filter((id): id is string => id != null),
+        ),
+      ]
+
+      // Determine which parent folders are deleted
+      const deletedParentIds = new Set<string>()
+      if (parentFolderIds.length > 0) {
+        const parentFolders = await db
+          .select({
+            id: folder.id,
+            isDeleted: folder.isDeleted,
+          })
+          .from(folder)
+          .where(
+            and(eq(folder.userId, userId), inArray(folder.id, parentFolderIds)),
+          )
+        for (const p of parentFolders) {
+          if (p.isDeleted) deletedParentIds.add(p.id)
+        }
+      }
+
+      // Restore all folders: clear trash and deleted flags
+      await db
+        .update(folder)
+        .set({ isTrashed: false, isDeleted: false })
+        .where(and(eq(folder.userId, userId), inArray(folder.id, chunk)))
+
+      // Orphan folders whose parent folder is deleted
+      const orphanedIds = folders
+        .filter(
+          (f) => f.parentFolderId && deletedParentIds.has(f.parentFolderId),
+        )
+        .map((f) => f.id)
+
+      if (orphanedIds.length > 0) {
+        await db
+          .update(folder)
+          .set({ parentFolderId: null })
+          .where(
+            and(eq(folder.userId, userId), inArray(folder.id, orphanedIds)),
+          )
+      }
+    }
+  }
+
   // Restore files (only the explicitly selected files)
   if (fileIds.length > 0) {
     for (let i = 0; i < fileIds.length; i += CHUNK_SIZE) {
       const chunk = fileIds.slice(i, i + CHUNK_SIZE)
-      await db
-        .update(storageFile)
-        .set({
-          isDeleted: false,
-          isTrashed: false,
-          deletedAt: null,
-          deletionQueuedAt: null,
+
+      // Fetch files to get parent folder info
+      const files = await db
+        .select({
+          id: storageFile.id,
+          folderId: storageFile.folderId,
         })
+        .from(storageFile)
         .where(
           and(eq(storageFile.userId, userId), inArray(storageFile.id, chunk)),
         )
-    }
-  }
 
-  // Restore folders (only the explicitly selected folders)
-  if (folderIds.length > 0) {
-    for (let i = 0; i < folderIds.length; i += CHUNK_SIZE) {
-      const chunk = folderIds.slice(i, i + CHUNK_SIZE)
+      // Collect non-null parent folder IDs
+      const parentFolderIds = [
+        ...new Set(
+          files.map((f) => f.folderId).filter((id): id is string => id != null),
+        ),
+      ]
+
+      // Determine which parent folders are deleted (after folder restores above)
+      const deletedParentIds = new Set<string>()
+      if (parentFolderIds.length > 0) {
+        const parentFolders = await db
+          .select({
+            id: folder.id,
+            isDeleted: folder.isDeleted,
+          })
+          .from(folder)
+          .where(
+            and(eq(folder.userId, userId), inArray(folder.id, parentFolderIds)),
+          )
+        for (const p of parentFolders) {
+          if (p.isDeleted) deletedParentIds.add(p.id)
+        }
+      }
+
+      // Restore all files: clear trash and deleted flags
       await db
-        .update(folder)
-        .set({
-          isDeleted: false,
-          isTrashed: false,
-          deletedAt: null,
-          deletionQueuedAt: null,
-        })
-        .where(and(eq(folder.userId, userId), inArray(folder.id, chunk)))
+        .update(storageFile)
+        .set({ isTrashed: false, isDeleted: false })
+        .where(
+          and(eq(storageFile.userId, userId), inArray(storageFile.id, chunk)),
+        )
+
+      // Orphan files whose parent folder is deleted
+      const orphanedIds = files
+        .filter((f) => f.folderId && deletedParentIds.has(f.folderId))
+        .map((f) => f.id)
+
+      if (orphanedIds.length > 0) {
+        await db
+          .update(storageFile)
+          .set({ folderId: null })
+          .where(
+            and(
+              eq(storageFile.userId, userId),
+              inArray(storageFile.id, orphanedIds),
+            ),
+          )
+      }
     }
   }
 
@@ -87,7 +184,11 @@ export async function permanentDeleteItems(
 
   const items = [
     ...fileIds.map((id) => ({ userId, itemId: id, itemType: 'file' as const })),
-    ...folderIds.map((id) => ({ userId, itemId: id, itemType: 'folder' as const })),
+    ...folderIds.map((id) => ({
+      userId,
+      itemId: id,
+      itemType: 'folder' as const,
+    })),
   ]
   await markItemsDeleted(userId, items)
   const queue = getTrashDeletionQueueFromRequestContext()
@@ -110,18 +211,28 @@ export async function restoreAllTrash(userId: string) {
     import('@/db/schema/storage'),
   ])
 
-  // Fetch all deleted file IDs and folder IDs
+  // Fetch all trashed file IDs and folder IDs
   const [fileRows, folderRows] = await Promise.all([
     db
       .select({ id: storageFile.id })
       .from(storageFile)
       .where(
-        and(eq(storageFile.userId, userId), eq(storageFile.isDeleted, true)),
+        and(
+          eq(storageFile.userId, userId),
+          eq(storageFile.isTrashed, true),
+          eq(storageFile.isDeleted, false),
+        ),
       ),
     db
       .select({ id: folder.id })
       .from(folder)
-      .where(and(eq(folder.userId, userId), eq(folder.isDeleted, true))),
+      .where(
+        and(
+          eq(folder.userId, userId),
+          eq(folder.isTrashed, true),
+          eq(folder.isDeleted, false),
+        ),
+      ),
   ])
 
   const itemIds = [...fileRows.map((r) => r.id), ...folderRows.map((r) => r.id)]
@@ -139,18 +250,28 @@ export async function emptyAllTrash(userId: string) {
     import('@/db/schema/storage'),
   ])
 
-  // Fetch all deleted file IDs and folder IDs in two queries
+  // Fetch all trashed file IDs and folder IDs in two queries
   const [fileRows, folderRows] = await Promise.all([
     db
       .select({ id: storageFile.id })
       .from(storageFile)
       .where(
-        and(eq(storageFile.userId, userId), eq(storageFile.isDeleted, true)),
+        and(
+          eq(storageFile.userId, userId),
+          eq(storageFile.isTrashed, true),
+          eq(storageFile.isDeleted, false),
+        ),
       ),
     db
       .select({ id: folder.id })
       .from(folder)
-      .where(and(eq(folder.userId, userId), eq(folder.isDeleted, true))),
+      .where(
+        and(
+          eq(folder.userId, userId),
+          eq(folder.isTrashed, true),
+          eq(folder.isDeleted, false),
+        ),
+      ),
   ])
 
   const fileIds = fileRows.map((r) => r.id)
@@ -158,7 +279,11 @@ export async function emptyAllTrash(userId: string) {
 
   const items = [
     ...fileIds.map((id) => ({ userId, itemId: id, itemType: 'file' as const })),
-    ...folderIds.map((id) => ({ userId, itemId: id, itemType: 'folder' as const })),
+    ...folderIds.map((id) => ({
+      userId,
+      itemId: id,
+      itemType: 'folder' as const,
+    })),
   ]
   await markItemsDeleted(userId, items)
   const queue = getTrashDeletionQueueFromRequestContext()

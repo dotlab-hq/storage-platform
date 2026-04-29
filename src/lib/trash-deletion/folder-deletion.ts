@@ -1,4 +1,4 @@
-import { and, eq, isNull } from 'drizzle-orm'
+import { and, eq } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
 import { deleteNodeByEntity } from '@/lib/storage-btree/index'
@@ -7,7 +7,7 @@ import {
   invalidateQuotaCache,
 } from '@/lib/cache-invalidation'
 import type { TrashDeletionItem } from './params'
-import { getTrashDeletionDO, type QueueClient } from './do-client'
+import { getTrashDeletionDO } from './do-client'
 
 export async function processFolderChildren(
   env: Env,
@@ -46,71 +46,82 @@ export async function processFolderChildren(
 }
 
 export async function enqueueFolderChildren(
-  queue: QueueClient,
   userId: string,
   childFileIds: string[],
   childFolderIds: string[],
 ): Promise<number> {
-  let enqueued = 0
+  let marked = 0
   const now = new Date()
 
   for (const fileId of childFileIds) {
-    await db
+    const result = await db
       .update(file)
-      .set({
-        isDeleted: true,
-        isTrashed: false,
-        deletedAt: now,
-        deletionQueuedAt: now,
-        updatedAt: now,
-      })
+      .set({ isDeleted: true, isTrashed: false, updatedAt: now })
       .where(
         and(
           eq(file.id, fileId),
           eq(file.userId, userId),
-          isNull(file.deletionQueuedAt),
+          eq(file.isDeleted, false),
         ),
       )
-
-    await queue.send(
-      JSON.stringify({ userId, itemId: fileId, itemType: 'file' }),
-    )
-    enqueued++
+    marked += (result as any).changes ?? 0
   }
 
   for (const childFolderId of childFolderIds) {
-    await db
+    const result = await db
       .update(folder)
-      .set({
-        isDeleted: true,
-        isTrashed: false,
-        deletedAt: now,
-        deletionQueuedAt: now,
-        updatedAt: now,
-      })
+      .set({ isDeleted: true, isTrashed: false, updatedAt: now })
       .where(
         and(
           eq(folder.id, childFolderId),
           eq(folder.userId, userId),
-          isNull(folder.deletionQueuedAt),
+          eq(folder.isDeleted, false),
         ),
       )
-
-    await queue.send(
-      JSON.stringify({ userId, itemId: childFolderId, itemType: 'folder' }),
-    )
-    enqueued++
+    marked += (result as any).changes ?? 0
   }
 
-  return enqueued
+  return marked
 }
 
 export async function deleteFolder(
   env: Env,
   item: TrashDeletionItem,
-  queue: QueueClient,
 ): Promise<void> {
   const { itemId: folderId, userId } = item
+
+  // Check if folder is still marked for deletion (skip if restored)
+  const initialCheck = await db
+    .select({
+      isDeleted: folder.isDeleted,
+      parentFolderId: folder.parentFolderId,
+    })
+    .from(folder)
+    .where(eq(folder.id, folderId))
+    .limit(1)
+
+  if (initialCheck.length === 0 || !initialCheck[0].isDeleted) {
+    console.log(
+      `[Deletion] Skipping folder ${folderId}: not marked for deletion (restored?)`,
+    )
+    // Still mark as processed for parent tracking
+    if (initialCheck.length > 0) {
+      try {
+        const trashDO = await getTrashDeletionDO(env)
+        await trashDO.markChildProcessed(
+          initialCheck[0].parentFolderId ?? null,
+          folderId,
+        )
+      } catch (error) {
+        console.error(
+          '[Deletion] Failed to mark restored folder as processed:',
+          error,
+        )
+      }
+    }
+    return
+  }
+
   const { fileIds, folderIds } = await processFolderChildren(
     env,
     userId,
@@ -118,24 +129,47 @@ export async function deleteFolder(
   )
 
   if (fileIds.length > 0 || folderIds.length > 0) {
-    const enqueuedCount = await enqueueFolderChildren(
-      queue,
-      userId,
-      fileIds,
-      folderIds,
-    )
+    const markedCount = await enqueueFolderChildren(userId, fileIds, folderIds)
     console.log(
-      `[Deletion] Folder ${folderId}: enqueued ${enqueuedCount} children (${fileIds.length} files, ${folderIds.length} subfolders)`,
+      `[Deletion] Folder ${folderId}: marked ${markedCount} children for deletion (${fileIds.length} files, ${folderIds.length} subfolders)`,
     )
     return
   }
 
   console.log(`[Deletion] Folder ${folderId} is empty, deleting permanently`)
-  const parentRows = await db
-    .select({ parentFolderId: folder.parentFolderId })
+  // Fetch folder info including parent and isDeleted (re-check)
+  const folderInfo = await db
+    .select({
+      parentFolderId: folder.parentFolderId,
+      isDeleted: folder.isDeleted,
+    })
     .from(folder)
     .where(eq(folder.id, folderId))
     .limit(1)
+
+  if (folderInfo.length === 0 || !folderInfo[0].isDeleted) {
+    console.log(
+      `[Deletion] Skipping folder ${folderId}: not marked for deletion (restored?)`,
+    )
+    // Ensure parent knows this child is done
+    if (folderInfo.length > 0) {
+      try {
+        const trashDO = await getTrashDeletionDO(env)
+        await trashDO.markChildProcessed(
+          folderInfo[0].parentFolderId ?? null,
+          folderId,
+        )
+      } catch (error) {
+        console.error(
+          '[Deletion] Failed to mark restored folder as processed:',
+          error,
+        )
+      }
+    }
+    return
+  }
+
+  const parentRows = folderInfo
 
   await db.delete(folder).where(eq(folder.id, folderId))
   await deleteNodeByEntity(userId, 'folder', folderId)
@@ -170,12 +204,22 @@ export async function checkAndDeleteCompletedFolders(
         .select({
           userId: folder.userId,
           parentFolderId: folder.parentFolderId,
+          isDeleted: folder.isDeleted,
         })
         .from(folder)
         .where(eq(folder.id, folderId))
         .limit(1)
 
       if (folderRows.length === 0) {
+        await trashDO.clearFolderState(folderId)
+        continue
+      }
+
+      // Skip if folder was restored (no longer marked for deletion)
+      if (!folderRows[0].isDeleted) {
+        console.log(
+          `[Deletion] Folder ${folderId} restored before deletion, skipping`,
+        )
         await trashDO.clearFolderState(folderId)
         continue
       }
