@@ -89,6 +89,71 @@ export async function restoreItems(
     }
   }
 
+  // Restore folders first (so children can check updated parent state)
+  if (folderIds.length > 0) {
+    for (let i = 0; i < folderIds.length; i += CHUNK_SIZE) {
+      const chunk = folderIds.slice(i, i + CHUNK_SIZE)
+
+      // Fetch folders to get parent folder info
+      const folders = await db
+        .select({
+          id: folder.id,
+          parentFolderId: folder.parentFolderId,
+        })
+        .from(folder)
+        .where(and(eq(folder.userId, userId), inArray(folder.id, chunk)))
+
+      // Collect non-null parent folder IDs
+      const parentFolderIds = [
+        ...new Set(
+          folders
+            .map((f) => f.parentFolderId)
+            .filter((id): id is string => id != null),
+        ),
+      ]
+
+      // Determine which parent folders are unavailable (trashed or deleted)
+      const unavailableParentIds = new Set<string>()
+      if (parentFolderIds.length > 0) {
+        const parentFolders = await db
+          .select({
+            id: folder.id,
+            isTrashed: folder.isTrashed,
+            isDeleted: folder.isDeleted,
+          })
+          .from(folder)
+          .where(
+            and(eq(folder.userId, userId), inArray(folder.id, parentFolderIds)),
+          )
+        for (const p of parentFolders) {
+          if (p.isTrashed || p.isDeleted) unavailableParentIds.add(p.id)
+        }
+      }
+
+      // Restore all folders: clear trash and deleted flags
+      await db
+        .update(folder)
+        .set({ isTrashed: false, isDeleted: false })
+        .where(and(eq(folder.userId, userId), inArray(folder.id, chunk)))
+
+      // Orphan folders whose parent folder is unavailable
+      const orphanedIds = folders
+        .filter(
+          (f) => f.parentFolderId && unavailableParentIds.has(f.parentFolderId),
+        )
+        .map((f) => f.id)
+
+      if (orphanedIds.length > 0) {
+        await db
+          .update(folder)
+          .set({ parentFolderId: null })
+          .where(
+            and(eq(folder.userId, userId), inArray(folder.id, orphanedIds)),
+          )
+      }
+    }
+  }
+
   // Restore files (only the explicitly selected files)
   if (fileIds.length > 0) {
     for (let i = 0; i < fileIds.length; i += CHUNK_SIZE) {
@@ -112,12 +177,13 @@ export async function restoreItems(
         ),
       ]
 
-      // Determine which parent folders are deleted (after folder restores above)
-      const deletedParentIds = new Set<string>()
+      // Determine which parent folders are unavailable (trashed or deleted)
+      const unavailableParentIds = new Set<string>()
       if (parentFolderIds.length > 0) {
         const parentFolders = await db
           .select({
             id: folder.id,
+            isTrashed: folder.isTrashed,
             isDeleted: folder.isDeleted,
           })
           .from(folder)
@@ -125,8 +191,36 @@ export async function restoreItems(
             and(eq(folder.userId, userId), inArray(folder.id, parentFolderIds)),
           )
         for (const p of parentFolders) {
-          if (p.isDeleted) deletedParentIds.add(p.id)
+          if (p.isTrashed || p.isDeleted) unavailableParentIds.add(p.id)
         }
+      }
+
+      // Restore all files: clear trash and deleted flags
+      await db
+        .update(storageFile)
+        .set({ isTrashed: false, isDeleted: false })
+        .where(
+          and(eq(storageFile.userId, userId), inArray(storageFile.id, chunk)),
+        )
+
+      // Orphan files whose parent folder is unavailable
+      const orphanedIds = files
+        .filter((f) => f.folderId && unavailableParentIds.has(f.folderId))
+        .map((f) => f.id)
+
+      if (orphanedIds.length > 0) {
+        await db
+          .update(storageFile)
+          .set({ folderId: null })
+          .where(
+            and(
+              eq(storageFile.userId, userId),
+              inArray(storageFile.id, orphanedIds),
+            ),
+          )
+      }
+    }
+  }
       }
 
       // Restore all files: clear trash and deleted flags

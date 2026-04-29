@@ -14,15 +14,28 @@ export async function processFolderChildren(
   userId: string,
   folderId: string,
 ): Promise<{ fileIds: string[]; folderIds: string[] }> {
+  // Only fetch children that are NOT already marked for deletion
   const childFolders = await db
     .select({ id: folder.id })
     .from(folder)
-    .where(and(eq(folder.parentFolderId, folderId), eq(folder.userId, userId)))
+    .where(
+      and(
+        eq(folder.parentFolderId, folderId),
+        eq(folder.userId, userId),
+        eq(folder.isDeleted, false),
+      ),
+    )
 
   const childFiles = await db
     .select({ id: file.id })
     .from(file)
-    .where(and(eq(file.folderId, folderId), eq(file.userId, userId)))
+    .where(
+      and(
+        eq(file.folderId, folderId),
+        eq(file.userId, userId),
+        eq(file.isDeleted, false),
+      ),
+    )
 
   const childFolderIds = childFolders.map((childFolder) => childFolder.id)
   const childFileIds = childFiles.map((childFile) => childFile.id)
@@ -46,17 +59,18 @@ export async function processFolderChildren(
 }
 
 export async function enqueueFolderChildren(
+  queue: QueueClient,
   userId: string,
   childFileIds: string[],
   childFolderIds: string[],
 ): Promise<number> {
-  let marked = 0
+  let enqueued = 0
   const now = new Date()
 
   for (const fileId of childFileIds) {
     const result = await db
       .update(file)
-      .set({ isDeleted: true, isTrashed: false, updatedAt: now })
+      .set({ isDeleted: true, isTrashed: false, deletionQueuedAt: now, updatedAt: now })
       .where(
         and(
           eq(file.id, fileId),
@@ -64,7 +78,28 @@ export async function enqueueFolderChildren(
           eq(file.isDeleted, false),
         ),
       )
-    marked += (result as any).changes ?? 0
+    if ((result as any).changes > 0) {
+      await queue.send(JSON.stringify({ userId, itemId: fileId, itemType: 'file' }))
+      enqueued++
+    }
+  }
+
+  for (const childFolderId of childFolderIds) {
+    const result = await db
+      .update(folder)
+      .set({ isDeleted: true, isTrashed: false, deletionQueuedAt: now, updatedAt: now })
+      .where(
+        and(
+          eq(folder.id, childFolderId),
+          eq(folder.userId, userId),
+          eq(folder.isDeleted, false),
+        ),
+      )
+    if ((result as any).changes > 0) {
+      await queue.send(JSON.stringify({ userId, itemId: childFolderId, itemType: 'folder' }))
+      enqueued++
+    }
+  }
   }
 
   for (const childFolderId of childFolderIds) {
@@ -78,10 +113,15 @@ export async function enqueueFolderChildren(
           eq(folder.isDeleted, false),
         ),
       )
-    marked += (result as any).changes ?? 0
+    if ((result as any).changes > 0) {
+      await queue.send(
+        JSON.stringify({ userId, itemId: childFolderId, itemType: 'folder' }),
+      )
+      enqueued++
+    }
   }
 
-  return marked
+  return enqueued
 }
 
 export async function deleteFolder(
@@ -129,9 +169,16 @@ export async function deleteFolder(
   )
 
   if (fileIds.length > 0 || folderIds.length > 0) {
-    const markedCount = await enqueueFolderChildren(userId, fileIds, folderIds)
+    // Get queue from environment and enqueue children
+    const queue = env.TRASH_DELETION_QUEUE as unknown as QueueClient
+    const enqueuedCount = await enqueueFolderChildren(
+      queue,
+      userId,
+      fileIds,
+      folderIds,
+    )
     console.log(
-      `[Deletion] Folder ${folderId}: marked ${markedCount} children for deletion (${fileIds.length} files, ${folderIds.length} subfolders)`,
+      `[Deletion] Folder ${folderId}: enqueued ${enqueuedCount} children (${fileIds.length} files, ${folderIds.length} subfolders)`,
     )
     return
   }

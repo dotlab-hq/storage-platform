@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Eye } from 'lucide-react'
+import { Eye, Play } from 'lucide-react'
 import { toast } from '@/components/ui/sonner'
 import { DEFAULT_PROVIDER_ID } from '@/lib/storage-provider-constants'
 import type { AdminProvider, AdminUser } from '@/lib/storage-provider-queries'
@@ -36,22 +36,40 @@ export function ProvidersPanel({
   onDelete,
   onEdit,
   onViewContents,
+  onTriggerCron,
+  isCronTriggering,
 }: {
   providers: AdminProvider[]
   onToggleAvailability: (providerId: string, isActive: boolean) => Promise<void>
   onDelete: (providerId: string) => Promise<void>
   onEdit: (provider: AdminProvider) => void
   onViewContents: (provider: AdminProvider) => void
+  onTriggerCron: () => Promise<void>
+  isCronTriggering: boolean
 }) {
   return (
     <div className="space-y-4">
       <div className="space-y-2">
-        <h2 className="text-lg font-semibold text-foreground">
-          Storage Providers
-        </h2>
-        <p className="text-sm text-muted-foreground">
-          Manage your storage providers and their configurations
-        </p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-lg font-semibold text-foreground">
+              Storage Providers
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              Manage your storage providers and their configurations
+            </p>
+          </div>
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={onTriggerCron}
+            disabled={isCronTriggering}
+          >
+            <Play className="mr-2 h-4 w-4" />
+            {isCronTriggering ? 'Triggering...' : 'Trigger Trash Deletion'}
+          </Button>
+        </div>
       </div>
       <div className="space-y-3">
         {providers.map((provider) => (
