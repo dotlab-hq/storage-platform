@@ -24,7 +24,6 @@ export async function processFolderChildren(
         eq(folder.isDeleted, false),
       ),
     )
-    .limit(100)
 
   const childFiles = await db
     .select({ id: file.id })
@@ -36,7 +35,6 @@ export async function processFolderChildren(
         eq(file.isDeleted, false),
       ),
     )
-    .limit(100)
 
   const childFolderIds = childFolders.map((childFolder) => childFolder.id)
   const childFileIds = childFiles.map((childFile) => childFile.id)

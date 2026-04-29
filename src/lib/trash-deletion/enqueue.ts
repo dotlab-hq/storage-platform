@@ -105,56 +105,27 @@ export async function getAllDescendants(
 }
 
 /**
- * Build a deletion batch from top-level items.
- * For each top-level folder, expands all its descendants and claims them.
- * Respects maxBatchSize by including whole subtrees only if they fit.
- * Returns the list of items to enqueue (all claimed).
+ * Build a batch of top-level items to enqueue.
+ * Respects maxBatchSize by counting each item as 1 slot.
+ * Claims items (sets deletionQueuedAt) and returns the claimed items.
+ * Does NOT expand folders — workflow handles recursive expansion.
  */
 export async function buildAndClaimDeletionBatch(
   topLevelItems: TrashDeletionItem[],
   maxBatchSize: number = 75,
 ): Promise<TrashDeletionItem[]> {
-  let slotsUsed = 0
-  const candidateItems: TrashDeletionItem[] = []
-  const candidateFileIds: string[] = []
-  const candidateFolderIds: string[] = []
+  // Take up to maxBatchSize top-level items
+  const itemsToClaim = topLevelItems.slice(0, maxBatchSize)
+  if (itemsToClaim.length === 0) return []
 
-  // First pass: decide which subtrees to include based on raw size
-  for (const item of topLevelItems) {
-    if (slotsUsed >= maxBatchSize) break
+  const fileItems = itemsToClaim.filter((i) => i.itemType === 'file')
+  const folderItems = itemsToClaim.filter((i) => i.itemType === 'folder')
+  const fileIds = fileItems.map((i) => i.itemId)
+  const folderIds = folderItems.map((i) => i.itemId)
 
-    if (item.itemType === 'file') {
-      candidateItems.push(item)
-      candidateFileIds.push(item.itemId)
-      slotsUsed++
-    } else {
-      // Folder: get all descendants
-      const descendants = await getAllDescendants(item.itemId, item.userId)
-      const needed = 1 + descendants.length // folder itself + descendants
-      if (slotsUsed + needed > maxBatchSize) {
-        console.log(
-          `[Enqueue] Skipping folder ${item.itemId} - subtree size ${needed} exceeds remaining capacity ${maxBatchSize - slotsUsed}`,
-        )
-        continue
-      }
-      // Add descendants first (children/subfolders)
-      for (const desc of descendants) {
-        candidateItems.push(desc)
-        if (desc.itemType === 'file') candidateFileIds.push(desc.itemId)
-        else candidateFolderIds.push(desc.itemId)
-      }
-      // Then add the folder itself (ensures children appear before parent)
-      candidateItems.push(item)
-      candidateFolderIds.push(item.itemId)
-      slotsUsed += needed
-    }
-  }
-
-  if (candidateItems.length === 0) return []
-
-  // Fetch current DB state for candidate IDs
+  // Fetch current DB state for these items
   const [fileRows, folderRows] = await Promise.all([
-    candidateFileIds.length > 0
+    fileIds.length > 0
       ? db
           .select({
             id: file.id,
@@ -162,9 +133,9 @@ export async function buildAndClaimDeletionBatch(
             deletionQueuedAt: file.deletionQueuedAt,
           })
           .from(file)
-          .where(inArray(file.id, candidateFileIds))
+          .where(inArray(file.id, fileIds))
       : Promise.resolve([] as any[]),
-    candidateFolderIds.length > 0
+    folderIds.length > 0
       ? db
           .select({
             id: folder.id,
@@ -172,7 +143,7 @@ export async function buildAndClaimDeletionBatch(
             deletionQueuedAt: folder.deletionQueuedAt,
           })
           .from(folder)
-          .where(inArray(folder.id, candidateFolderIds))
+          .where(inArray(folder.id, folderIds))
       : Promise.resolve([] as any[]),
   ])
 
@@ -181,58 +152,26 @@ export async function buildAndClaimDeletionBatch(
 
   const now = new Date()
   const finalBatch: TrashDeletionItem[] = []
-  const filesToSoftDelete: string[] = []
   const filesToClaim: string[] = []
-  const foldersToSoftDelete: string[] = []
   const foldersToClaim: string[] = []
 
-  for (const item of candidateItems) {
+  for (const item of itemsToClaim) {
     const state =
       item.itemType === 'file'
         ? fileStateMap.get(item.itemId)
         : folderStateMap.get(item.itemId)
-    if (!state) continue // already gone
 
-    // Skip if already claimed
+    // Skip if missing, already claimed, or not deleted (e.g., restored)
+    if (!state) continue
     if (state.deletionQueuedAt !== null) continue
+    if (!state.isDeleted) continue
 
     finalBatch.push(item)
-
-    if (item.itemType === 'file') {
-      if (state.isDeleted) {
-        filesToClaim.push(item.itemId)
-      } else {
-        filesToSoftDelete.push(item.itemId)
-      }
-    } else {
-      if (state.isDeleted) {
-        foldersToClaim.push(item.itemId)
-      } else {
-        foldersToSoftDelete.push(item.itemId)
-      }
-    }
+    if (item.itemType === 'file') filesToClaim.push(item.itemId)
+    else foldersToClaim.push(item.itemId)
   }
 
-  // Perform batched updates with conditions to avoid race conditions
-  if (filesToSoftDelete.length > 0) {
-    await db
-      .update(file)
-      .set({
-        isDeleted: true,
-        isTrashed: false,
-        deletedAt: now,
-        deletionQueuedAt: now,
-        updatedAt: now,
-      })
-      .where(
-        and(
-          inArray(file.id, filesToSoftDelete),
-          eq(file.isDeleted, false),
-          isNull(file.deletionQueuedAt),
-        ),
-      )
-  }
-
+  // Claim files (set deletionQueuedAt)
   if (filesToClaim.length > 0) {
     await db
       .update(file)
@@ -246,25 +185,7 @@ export async function buildAndClaimDeletionBatch(
       )
   }
 
-  if (foldersToSoftDelete.length > 0) {
-    await db
-      .update(folder)
-      .set({
-        isDeleted: true,
-        isTrashed: false,
-        deletedAt: now,
-        deletionQueuedAt: now,
-        updatedAt: now,
-      })
-      .where(
-        and(
-          inArray(folder.id, foldersToSoftDelete),
-          eq(folder.isDeleted, false),
-          isNull(folder.deletionQueuedAt),
-        ),
-      )
-  }
-
+  // Claim folders
   if (foldersToClaim.length > 0) {
     await db
       .update(folder)
