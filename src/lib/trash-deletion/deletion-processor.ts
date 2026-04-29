@@ -36,18 +36,33 @@ export async function deleteFile(
 
   const fileRow = fileRows[0]
 
-  if (fileRow.providerId) {
+  console.log('[Deletion] Attempting S3 delete:', {
+    fileId,
+    providerId: fileRow.providerId,
+    objectKey: fileRow.objectKey,
+  })
+
+  if (fileRow.providerId && fileRow.objectKey) {
     try {
       const provider = await getProviderClientById(fileRow.providerId)
+      console.log('[Deletion] Provider client retrieved:', provider.providerId)
       await provider.client.send(
         new DeleteObjectCommand({
           Bucket: provider.bucketName,
           Key: fileRow.objectKey,
         }),
       )
+      console.log('[Deletion] S3 delete successful')
     } catch (err) {
       console.error(`[Deletion] S3 delete failed for file ${fileId}:`, err)
+      throw new Error(
+        `Failed to delete file object from provider before DB cleanup: ${fileId}`,
+      )
     }
+  } else {
+    console.log(
+      '[Deletion] Skipping S3 delete: missing providerId or objectKey',
+    )
   }
 
   await db.delete(file).where(eq(file.id, fileId))
