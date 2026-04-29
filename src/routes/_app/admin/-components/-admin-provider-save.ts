@@ -5,22 +5,47 @@ import { encryptProviderSecret } from '@/lib/provider-crypto'
 import { requireAdminUser } from '@/lib/server-auth.server'
 import { eq, isNull, and } from 'drizzle-orm'
 import { z } from 'zod'
-import { UNDETERMINED_PROVIDER_VALUE } from '@/lib/storage-provider-constants'
 import { logActivity } from '@/lib/activity'
 
-const SaveProviderSchema = z.object({
-  providerId: z.string().min(1).optional(),
-  name: z.string().min(2),
-  endpoint: z.string().min(1),
-  region: z.string().default('auto'),
-  bucketName: z.string().default('auto'),
-  accessKeyId: z.string().min(1),
-  secretAccessKey: z.string().min(1),
-  storageLimitBytes: z.number().int().positive(),
-  fileSizeLimitBytes: z.number().int().positive(),
-  proxyUploadsEnabled: z.boolean().default(false),
-  isActive: z.boolean().default(true),
-})
+const SaveProviderSchema = z
+  .object({
+    providerId: z.string().min(1).optional(),
+    name: z.string().min(2),
+    endpoint: z.string().min(1),
+    region: z.string().default('auto'),
+    bucketName: z.string().default('auto'),
+    accessKeyId: z
+      .string()
+      .optional()
+      .transform((val) => (val === '' ? undefined : val)),
+    secretAccessKey: z
+      .string()
+      .optional()
+      .transform((val) => (val === '' ? undefined : val)),
+    storageLimitBytes: z.number().int().positive(),
+    fileSizeLimitBytes: z.number().int().positive(),
+    proxyUploadsEnabled: z.boolean().default(false),
+    isActive: z.boolean().default(true),
+  })
+  .superRefine((data, ctx) => {
+    // Credentials required only when creating (no providerId)
+    if (!data.providerId) {
+      if (!data.accessKeyId) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Access Key ID is required',
+          path: ['accessKeyId'],
+        })
+      }
+      if (!data.secretAccessKey) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Secret Access Key is required',
+          path: ['secretAccessKey'],
+        })
+      }
+    }
+  })
 
 export const saveStorageProviderFn = createServerFn({ method: 'POST' })
   .inputValidator(SaveProviderSchema)
@@ -39,12 +64,12 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
       const endpoint = data.endpoint.trim()
       const region = data.region.trim()
       const bucketName = data.bucketName.trim()
-      const accessKeyId = data.accessKeyId.trim()
-      const secretAccessKey = data.secretAccessKey.trim()
+      const accessKeyId = data.accessKeyId?.trim()
+      const secretAccessKey = data.secretAccessKey?.trim()
 
-      if (!accessKeyId || !secretAccessKey || !endpoint) {
+      if (!data.providerId && (!accessKeyId || !secretAccessKey)) {
         throw new Error(
-          'Access key ID, secret access key, and endpoint are required',
+          'Access key ID and secret access key are required when creating a provider',
         )
       }
 

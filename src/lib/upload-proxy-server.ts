@@ -2,8 +2,8 @@ import {
   handleCompleteUpload,
   handleInitiateUpload,
   handleUploadPart,
-} from '@/lib/upload-proxy-multipart'
-import { handleSingleUpload } from '@/lib/upload-proxy-single'
+} from '@/lib/upload-proxy-multipart.server'
+import { handleSingleUpload } from '@/lib/upload-proxy-single.server'
 import { parseMultipartAction } from '@/lib/upload-proxy-utils'
 
 export async function handleProxyUploadRequest(

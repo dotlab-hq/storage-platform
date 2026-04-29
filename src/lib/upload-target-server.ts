@@ -7,7 +7,6 @@ import {
 } from '@/lib/s3-provider-client'
 import { DEFAULT_FILE_SIZE_LIMIT_BYTES } from '@/lib/storage-quota-constants'
 import { logActivity } from '@/lib/activity'
-import { getUserFileSizeLimit } from './upload-target-db.server'
 
 const PROXY_UPLOAD_URL = '/api/storage/upload/proxy'
 
@@ -19,10 +18,11 @@ const PrepareUploadTargetSchema = z.object({
   fileSize: z.number().nonnegative(),
 })
 
-async function assertFileSizeWithinLimit(
+export async function assertFileSizeWithinLimit(
   userId: string,
   fileSize: number,
 ): Promise<void> {
+  const { getUserFileSizeLimit } = await import('./upload-target-db.server')
   const fileSizeLimit = await getUserFileSizeLimit(userId)
   if (fileSize > fileSizeLimit) {
     throw new Error(
