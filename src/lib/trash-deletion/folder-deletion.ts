@@ -1,4 +1,4 @@
-import { and, eq } from 'drizzle-orm'
+import { and, eq, isNull } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
 import { deleteNodeByEntity } from '@/lib/storage-btree/index'
@@ -17,7 +17,7 @@ export async function processFolderChildren(
 ): Promise<{ fileIds: string[]; folderIds: string[] }> {
   console.log('[Workflow Step] processFolderChildren for folder:', folderId)
 
-  // Only fetch children that are NOT already marked for deletion
+  // Fetch children that are marked for deletion but not yet queued
   const childFolders = await db
     .select({ id: folder.id })
     .from(folder)
@@ -25,7 +25,8 @@ export async function processFolderChildren(
       and(
         eq(folder.parentFolderId, folderId),
         eq(folder.userId, userId),
-        eq(folder.isDeleted, false),
+        eq(folder.isDeleted, true),
+        isNull(folder.deletionQueuedAt),
       ),
     )
 
@@ -36,7 +37,8 @@ export async function processFolderChildren(
       and(
         eq(file.folderId, folderId),
         eq(file.userId, userId),
-        eq(file.isDeleted, false),
+        eq(file.isDeleted, true),
+        isNull(file.deletionQueuedAt),
       ),
     )
 
@@ -155,7 +157,6 @@ export async function deleteFolder(
     console.log(
       `[Workflow Step] Skipping folder ${folderId}: not marked for deletion (restored?)`,
     )
-    // Still mark as processed for parent tracking
     if (initialCheck.length > 0) {
       try {
         const trashDO = await getTrashDeletionDO(env)
@@ -173,29 +174,10 @@ export async function deleteFolder(
     return
   }
 
-  const { fileIds, folderIds } = await processFolderChildren(
-    env,
-    userId,
-    folderId,
-  )
-
-  if (fileIds.length > 0 || folderIds.length > 0) {
-    // Get queue from environment and enqueue children
-    const queue = env.TRASH_DELETION_QUEUE as unknown as QueueClient
-    const enqueuedCount = await enqueueFolderChildren(
-      queue,
-      userId,
-      fileIds,
-      folderIds,
-    )
-    console.log(
-      `[Workflow Step] Folder ${folderId}: enqueued ${enqueuedCount} children (${fileIds.length} files, ${folderIds.length} subfolders)`,
-    )
-    return
-  }
-
+  // Children are already marked as deleted when user emptied trash
+  // Just delete the folder directly
   console.log(
-    `[Workflow Step] Folder ${folderId} is empty, deleting permanently`,
+    `[Workflow Step] Folder ${folderId} is marked for deletion, deleting permanently`,
   )
 
   const folderInfo = await db

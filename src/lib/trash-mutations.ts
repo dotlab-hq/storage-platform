@@ -389,6 +389,62 @@ export async function emptyAllTrash(userId: string) {
         updatedAt: deletedAt,
       })
       .where(and(eq(folder.userId, userId), inArray(folder.id, folderIds)))
+
+    // Mark direct children (1 level) as deleted too
+    const childFileRows = await db
+      .select({ id: storageFile.id })
+      .from(storageFile)
+      .where(
+        and(
+          inArray(storageFile.folderId, folderIds),
+          eq(storageFile.userId, userId),
+          eq(storageFile.isDeleted, false),
+        ),
+      )
+    const childFileIds = childFileRows.map((r) => r.id)
+
+    const childFolderRows = await db
+      .select({ id: folder.id })
+      .from(folder)
+      .where(
+        and(
+          inArray(folder.parentFolderId, folderIds),
+          eq(folder.userId, userId),
+          eq(folder.isDeleted, false),
+        ),
+      )
+    const childFolderIds = childFolderRows.map((r) => r.id)
+
+    if (childFileIds.length > 0) {
+      await db
+        .update(storageFile)
+        .set({
+          isDeleted: true,
+          isTrashed: false,
+          deletedAt,
+          updatedAt: deletedAt,
+        })
+        .where(
+          and(
+            inArray(storageFile.id, childFileIds),
+            eq(storageFile.userId, userId),
+          ),
+        )
+    }
+
+    if (childFolderIds.length > 0) {
+      await db
+        .update(folder)
+        .set({
+          isDeleted: true,
+          isTrashed: false,
+          deletedAt,
+          updatedAt: deletedAt,
+        })
+        .where(
+          and(inArray(folder.id, childFolderIds), eq(folder.userId, userId)),
+        )
+    }
   }
 
   const { invalidateFolderCache, invalidateQuotaCache } =
@@ -397,7 +453,9 @@ export async function emptyAllTrash(userId: string) {
   await invalidateFolderCache(userId, null)
 
   return {
-    deletedFiles: fileIds.length,
-    deletedFolders: folderIds.length,
+    deletedFiles:
+      fileIds.length + (folderIds.length > 0 ? childFileIds.length : 0),
+    deletedFolders:
+      folderIds.length + (folderIds.length > 0 ? childFolderIds.length : 0),
   }
 }

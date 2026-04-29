@@ -171,10 +171,13 @@ export const triggerTrashCronFn = createServerFn({ method: 'POST' }).handler(
 
     const queue = env.TRASH_DELETION_QUEUE
 
-    const { getDeletableItems, buildAndClaimDeletionBatch } =
-      await import('@/lib/trash-deletion/enqueue')
+    const {
+      getDeletableItems,
+      getDeletableItemsForManualCron,
+      buildAndClaimDeletionBatch,
+    } = await import('@/lib/trash-deletion/enqueue')
 
-    const topLevelItems = await getDeletableItems(100)
+    const topLevelItems = await getDeletableItemsForManualCron(100)
 
     console.log(
       '[Manual Cron Trigger] Top-level candidates found:',

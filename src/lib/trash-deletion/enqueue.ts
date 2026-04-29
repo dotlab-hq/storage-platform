@@ -1,19 +1,165 @@
-import { eq, and, inArray, isNull } from 'drizzle-orm'
+import { eq, and, inArray, isNull, isNotNull, gt, lt } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
 import type { TrashDeletionItem } from './params'
 import { enqueueTrashDeletionItems, type QueueBinding } from './producer'
 
+const ONE_DAY_AGO = new Date(Date.now() - 24 * 60 * 60 * 1000)
+
 /**
- * Get top-level deleted items not yet queued.
- * Returns only items whose parent (if any) is NOT in trash.
- * These are the entry points for deletion.
+ * Get items ready for deletion for automated cron (respects 24h wait).
+ * 1. New candidates: marked > 24h ago, not yet queued
+ * 2. Stuck items: already queued but still exist in DB (workflow failed to delete)
  */
 export async function getDeletableItems(
   limit: number = 1000,
 ): Promise<TrashDeletionItem[]> {
   const items: TrashDeletionItem[] = []
 
+  // New candidates: deletionQueuedAt IS NULL AND deleted > 24h ago
+  const candidateFolders = await db
+    .select({
+      id: folder.id,
+      userId: folder.userId,
+      parentFolderId: folder.parentFolderId,
+      deletedAt: folder.deletedAt,
+    })
+    .from(folder)
+    .where(
+      and(
+        eq(folder.isDeleted, true),
+        isNull(folder.deletionQueuedAt),
+        gt(folder.deletedAt, ONE_DAY_AGO),
+      ),
+    )
+    .limit(limit)
+
+  for (const f of candidateFolders) {
+    if (!f.parentFolderId) {
+      items.push({ userId: f.userId, itemId: f.id, itemType: 'folder' })
+      continue
+    }
+    const parent = await db
+      .select({ id: folder.id, isDeleted: folder.isDeleted })
+      .from(folder)
+      .where(eq(folder.id, f.parentFolderId))
+      .limit(1)
+    if (parent.length === 0 || !parent[0].isDeleted) {
+      items.push({ userId: f.userId, itemId: f.id, itemType: 'folder' })
+    }
+  }
+
+  const candidateFiles = await db
+    .select({
+      id: file.id,
+      userId: file.userId,
+      folderId: file.folderId,
+      deletedAt: file.deletedAt,
+    })
+    .from(file)
+    .where(
+      and(
+        eq(file.isDeleted, true),
+        isNull(file.deletionQueuedAt),
+        gt(file.deletedAt, ONE_DAY_AGO),
+      ),
+    )
+    .limit(limit)
+
+  for (const f of candidateFiles) {
+    if (!f.folderId) {
+      items.push({ userId: f.userId, itemId: f.id, itemType: 'file' })
+      continue
+    }
+    const parent = await db
+      .select({ id: folder.id, isDeleted: folder.isDeleted })
+      .from(folder)
+      .where(eq(folder.id, f.folderId))
+      .limit(1)
+    if (parent.length === 0 || !parent[0].isDeleted) {
+      items.push({ userId: f.userId, itemId: f.id, itemType: 'file' })
+    }
+  }
+
+  // Stuck items: already queued but still exist (deletionQueuedAt set but not deleted)
+  // Only include items queued > 2 hours ago (give time for workflow to complete)
+  const TWO_HOURS_AGO = new Date(Date.now() - 2 * 60 * 60 * 1000)
+
+  const stuckFolders = await db
+    .select({
+      id: folder.id,
+      userId: folder.userId,
+      parentFolderId: folder.parentFolderId,
+    })
+    .from(folder)
+    .where(
+      and(
+        eq(folder.isDeleted, true),
+        isNotNull(folder.deletionQueuedAt),
+        lt(folder.deletionQueuedAt, TWO_HOURS_AGO),
+      ),
+    )
+    .limit(limit)
+
+  for (const f of stuckFolders) {
+    if (!f.parentFolderId) {
+      items.push({ userId: f.userId, itemId: f.id, itemType: 'folder' })
+      continue
+    }
+    const parent = await db
+      .select({ id: folder.id, isDeleted: folder.isDeleted })
+      .from(folder)
+      .where(eq(folder.id, f.parentFolderId))
+      .limit(1)
+    if (parent.length === 0 || !parent[0].isDeleted) {
+      items.push({ userId: f.userId, itemId: f.id, itemType: 'folder' })
+    }
+  }
+
+  const stuckFiles = await db
+    .select({
+      id: file.id,
+      userId: file.userId,
+      folderId: file.folderId,
+    })
+    .from(file)
+    .where(
+      and(
+        eq(file.isDeleted, true),
+        isNotNull(file.deletionQueuedAt),
+        lt(file.deletionQueuedAt, TWO_HOURS_AGO),
+      ),
+    )
+    .limit(limit)
+
+  for (const f of stuckFiles) {
+    if (!f.folderId) {
+      items.push({ userId: f.userId, itemId: f.id, itemType: 'file' })
+      continue
+    }
+    const parent = await db
+      .select({ id: folder.id, isDeleted: folder.isDeleted })
+      .from(folder)
+      .where(eq(folder.id, f.folderId))
+      .limit(1)
+    if (parent.length === 0 || !parent[0].isDeleted) {
+      items.push({ userId: f.userId, itemId: f.id, itemType: 'file' })
+    }
+  }
+
+  return items
+}
+
+/**
+ * Get all deletable items for manual cron (bypasses 24h wait).
+ * Also includes stuck items.
+ */
+export async function getDeletableItemsForManualCron(
+  limit: number = 1000,
+): Promise<TrashDeletionItem[]> {
+  const items: TrashDeletionItem[] = []
+
+  // All folders marked for deletion (no 24h wait)
   const candidateFolders = await db
     .select({
       id: folder.id,
@@ -21,7 +167,7 @@ export async function getDeletableItems(
       parentFolderId: folder.parentFolderId,
     })
     .from(folder)
-    .where(and(eq(folder.isDeleted, true), isNull(folder.deletionQueuedAt)))
+    .where(eq(folder.isDeleted, true))
     .limit(limit)
 
   for (const f of candidateFolders) {
@@ -46,7 +192,7 @@ export async function getDeletableItems(
       folderId: file.folderId,
     })
     .from(file)
-    .where(and(eq(file.isDeleted, true), isNull(file.deletionQueuedAt)))
+    .where(eq(file.isDeleted, true))
     .limit(limit)
 
   for (const f of candidateFiles) {
