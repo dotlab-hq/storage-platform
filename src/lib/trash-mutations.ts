@@ -221,34 +221,8 @@ export async function restoreItems(
       }
     }
   }
-      }
 
-      // Restore all files: clear trash and deleted flags
-      await db
-        .update(storageFile)
-        .set({ isTrashed: false, isDeleted: false })
-        .where(
-          and(eq(storageFile.userId, userId), inArray(storageFile.id, chunk)),
-        )
-
-      // Orphan files whose parent folder is deleted
-      const orphanedIds = files
-        .filter((f) => f.folderId && deletedParentIds.has(f.folderId))
-        .map((f) => f.id)
-
-      if (orphanedIds.length > 0) {
-        await db
-          .update(storageFile)
-          .set({ folderId: null })
-          .where(
-            and(
-              eq(storageFile.userId, userId),
-              inArray(storageFile.id, orphanedIds),
-            ),
-          )
-      }
-    }
-  }
+  // Seed btree nodes for restored items (will sync isDeleted flag based on isTrashed/isDeleted)
 
   // Seed btree nodes for restored items (will sync isDeleted flag based on isTrashed/isDeleted)
   await Promise.all([
