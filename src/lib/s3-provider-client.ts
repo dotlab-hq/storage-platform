@@ -16,7 +16,6 @@ type ProviderClientConfig = {
 
 type ProviderRow = typeof storageProvider.$inferSelect
 
-
 const DEFAULT_S3_REGION = 'auto'
 const INVALID_REGION_SENTINELS = new Set([
   '',
@@ -36,8 +35,6 @@ function safeTrim(value: string | null | undefined): string {
   return (value ?? '').replace(/^["']|["']$/g, '').trim()
 }
 
-
-
 function fromProviderRow(row: ProviderRow): ProviderClientConfig {
   // Access Key ID: must be in DB
   const accessKeyId = safeTrim(decryptProviderSecret(row.accessKeyIdEncrypted))
@@ -47,20 +44,26 @@ function fromProviderRow(row: ProviderRow): ProviderClientConfig {
     decryptProviderSecret(row.secretAccessKeyEncrypted),
   )
 
-  // Region: if row.region is empty/undetermined, use default
+  // Region: if row.region is empty/undetermined, throw error
   const rawRegion = safeTrim(row.region)
   console.log(
     '[fromProviderRow] Raw region from DB:',
     JSON.stringify(rawRegion),
   )
-  let region = DEFAULT_S3_REGION
+
   if (
-    rawRegion &&
-    rawRegion.length > 0 &&
-    !INVALID_REGION_SENTINELS.has(rawRegion.toLowerCase())
+    !rawRegion ||
+    rawRegion.length === 0 ||
+    INVALID_REGION_SENTINELS.has(rawRegion.toLowerCase())
   ) {
-    region = rawRegion
+    throw new Error(
+      `Storage provider "${row.name}" has an invalid or missing region. ` +
+        `Please configure a valid AWS region (e.g., us-east-1, eu-west-1, ap-south-1). ` +
+        `Current value: ${JSON.stringify(rawRegion)}`,
+    )
   }
+
+  const region = rawRegion
   console.log('[fromProviderRow] Resolved region:', region)
 
   // Endpoint: must be in DB
@@ -72,7 +75,7 @@ function fromProviderRow(row: ProviderRow): ProviderClientConfig {
     if (!secretAccessKey) missing.push('secretAccessKey')
     if (!endpoint) missing.push('endpoint')
     throw new Error(
-      `Storage provider "${row.name}" is missing required credentials: ${missing}`,
+      `Storage provider "${row.name}" is missing required credentials: ${missing.join(', ')}`,
     )
   }
 
@@ -84,13 +87,9 @@ function fromProviderRow(row: ProviderRow): ProviderClientConfig {
     endpoint,
   })
 
-  return {
-    providerId: row.id,
-    providerName: row.name,
-    bucketName: row.bucketName,
-    endpoint,
-    proxyUploadsEnabled: row.proxyUploadsEnabled,
-    client: new S3Client({
+  let client: S3Client
+  try {
+    client = new S3Client({
       region,
       endpoint,
       forcePathStyle: true,
@@ -101,7 +100,22 @@ function fromProviderRow(row: ProviderRow): ProviderClientConfig {
         accessKeyId,
         secretAccessKey,
       },
-    }),
+    })
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Unknown error'
+    throw new Error(
+      `Failed to create S3 client for provider "${row.name}": ${message}. ` +
+        `Check region (${region}) and endpoint (${endpoint}) configuration.`,
+    )
+  }
+
+  return {
+    providerId: row.id,
+    providerName: row.name,
+    bucketName: row.bucketName,
+    endpoint,
+    proxyUploadsEnabled: row.proxyUploadsEnabled,
+    client,
   }
 }
 
@@ -153,24 +167,23 @@ export async function resolveProviderId(
     throw new Error('Provider ID is required')
   }
 
-    const providerRows = await db
-      .select({ id: storageProvider.id })
-      .from(storageProvider)
-      .where(
-        and(
-          eq(storageProvider.id, providerId),
-          isNull(storageProvider.userId),
-          eq(storageProvider.isActive, true),
-        ),
-      )
-      .limit(1)
+  const providerRows = await db
+    .select({ id: storageProvider.id })
+    .from(storageProvider)
+    .where(
+      and(
+        eq(storageProvider.id, providerId),
+        isNull(storageProvider.userId),
+        eq(storageProvider.isActive, true),
+      ),
+    )
+    .limit(1)
 
-    if (providerRows.length === 0) {
-      throw new Error('Only active system providers can be used for uploads')
-    }
+  if (providerRows.length === 0) {
+    throw new Error('Only active system providers can be used for uploads')
+  }
 
-    return providerId
-
+  return providerId
 }
 
 export async function selectProviderForUpload(

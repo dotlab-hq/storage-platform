@@ -92,7 +92,9 @@ export async function getViewerClient(
   // Defensive: credentials must have a valid region
   if (!credentials.region || !credentials.region.trim()) {
     throw new Error(
-      `S3 region is missing for bucket ${bucketName}. Check bucket configuration.`,
+      `S3 region is missing for bucket "${bucketName}". ` +
+        `Provider region: ${JSON.stringify(credentials.region)}. ` +
+        `Check virtual bucket configuration and ensure region is set correctly.`,
     )
   }
 
@@ -269,15 +271,31 @@ export const uploadS3ViewerObjectFn = createServerFn({ method: 'POST' })
 export const createS3ViewerPresignUrlFn = createServerFn({ method: 'POST' })
   .inputValidator(PresignSchema)
   .handler(async ({ data }) => {
-    const { client } = await getViewerClient(data.bucketName)
-    const url = await getSignedUrl(
-      client,
-      new GetObjectCommand({
-        Bucket: data.bucketName,
-        Key: data.objectKey,
-      }),
-      { expiresIn: data.expiresInSeconds },
-    )
+    try {
+      const { client } = await getViewerClient(data.bucketName)
+      const url = await getSignedUrl(
+        client,
+        new GetObjectCommand({
+          Bucket: data.bucketName,
+          Key: data.objectKey,
+        }),
+        { expiresIn: data.expiresInSeconds },
+      )
 
-    return { url }
+      return { url }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unknown error'
+      console.error(
+        '[createS3ViewerPresignUrlFn] Failed to generate presigned URL:',
+        {
+          bucketName: data.bucketName,
+          objectKey: data.objectKey,
+          error: message,
+        },
+      )
+      throw new Error(
+        `Failed to generate presigned URL: ${message}. ` +
+          `Verify bucket exists and the region is correctly configured.`,
+      )
+    }
   })

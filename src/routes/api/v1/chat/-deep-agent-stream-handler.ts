@@ -292,7 +292,6 @@ export async function handleDeepAgentStream(params: StreamingHandlerParams) {
   return new Response(stream, {
     headers: {
       'Content-Type': 'text/event-stream',
-      'Cache-Control': 'no-cache',
       Connection: 'keep-alive',
       'Access-Control-Allow-Origin': '*',
       'X-Thread-Id': params.threadId,

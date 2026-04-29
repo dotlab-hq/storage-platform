@@ -72,21 +72,37 @@ export const Route = createFileRoute('/api/storage/file-link')({
             return new Response('File configuration invalid', { status: 500 })
           }
 
-          const { client } = await getProviderClientById(fileData.providerId)
-          const objectKey = fileData.objectKey
+          let presignedUrl: string
+          try {
+            const { client } = await getProviderClientById(fileData.providerId)
+            const objectKey = fileData.objectKey
 
-          // Generate presigned URL
-          const presignedUrl = await getSignedUrl(
-            client,
-            new GetObjectCommand({
-              Bucket: fileData.bucketName,
-              Key: objectKey,
-              ResponseContentDisposition: `inline; filename="${fileData.name}"`,
-              ResponseContentType:
-                fileData.mimeType || 'application/octet-stream',
-            }),
-            { expiresIn: 3600 },
-          )
+            presignedUrl = await getSignedUrl(
+              client,
+              new GetObjectCommand({
+                Bucket: fileData.bucketName,
+                Key: objectKey,
+                ResponseContentDisposition: `inline; filename="${fileData.name}"`,
+                ResponseContentType:
+                  fileData.mimeType || 'application/octet-stream',
+              }),
+              { expiresIn: 3600 },
+            )
+          } catch (error) {
+            const message =
+              error instanceof Error ? error.message : 'Unknown error'
+            console.error('[file-link GET] Failed to generate presigned URL:', {
+              fileId,
+              providerId: fileData.providerId,
+              bucketName: fileData.bucketName,
+              error: message,
+              errorName: error instanceof Error ? error.name : undefined,
+            })
+            return new Response(
+              `Failed to generate download URL: ${message}. Check storage provider configuration.`,
+              { status: 500 },
+            )
+          }
 
           // Redirect to presigned URL
           return new Response(null, {

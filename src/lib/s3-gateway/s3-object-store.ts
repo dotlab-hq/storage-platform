@@ -8,15 +8,10 @@ import {
 import { Readable } from 'node:stream'
 import type { BucketContext } from '@/lib/s3-gateway/s3-context'
 import {
-  buildCacheHeaders,
   isStatusMetadataError,
   normalizeETag,
   shouldReturnNotModified,
 } from '@/lib/s3-gateway/s3-conditional-cache'
-import {
-  deleteCachedS3Object,
-  getS3ObjectCacheKey,
-} from '@/lib/s3-gateway/s3-get-object-cache'
 import { findStoredObject } from '@/lib/s3-gateway/s3-stored-object'
 import type { ObjectConditionalHeaders } from '@/lib/s3-gateway/s3-conditional-cache'
 import {
@@ -261,8 +256,6 @@ export async function putObject(
     metadata: Record<string, string>
   },
 ): Promise<string | null> {
-  const cacheKey = getS3ObjectCacheKey(bucket.bucketId, objectKey)
-  deleteCachedS3Object(cacheKey)
   const { folderPath, fileName, isDirectory } = splitObjectKey(objectKey)
 
   // Resolve the destination folder ID
@@ -480,12 +473,7 @@ export async function getObject(
   if (should304) {
     return new Response(null, {
       status: 304,
-      headers: buildCacheHeaders({
-        eTag: stored.etag,
-        lastModified: effectiveLastModified,
-        cacheControl: stored.cacheControl,
-        includeDefaultCacheControl: false,
-      }),
+      headers: new Headers(),
     })
   }
 
@@ -537,11 +525,7 @@ export async function getObject(
     }
     throw error
   }
-  const headers = buildCacheHeaders({
-    eTag: stored.etag,
-    lastModified: effectiveLastModified,
-    cacheControl: stored.cacheControl,
-  })
+  const headers = new Headers()
   if (upstream.Metadata) {
     for (const [key, value] of Object.entries(upstream.Metadata)) {
       if (typeof value === 'string') {
@@ -586,11 +570,7 @@ async function streamLargeObjectViaProxy(
   // The proxy endpoint will fetch from S3 and stream to the client
   const proxyDownloadUrl = `/api/storage/download/proxy?key=${encodeURIComponent(stored.objectKey)}`
 
-  const headers = buildCacheHeaders({
-    eTag: stored.etag,
-    lastModified: effectiveLastModified,
-    cacheControl: stored.cacheControl,
-  })
+  const headers = new Headers()
   headers.set('Content-Type', stored.mimeType ?? 'application/octet-stream')
   headers.set('Content-Length', String(stored.sizeInBytes))
   headers.set('X-Proxy-Provider-Id', stored.providerId)
@@ -629,12 +609,7 @@ export async function headObject(
   if (should304) {
     return new Response(null, {
       status: 304,
-      headers: buildCacheHeaders({
-        eTag: stored.etag,
-        lastModified: effectiveLastModified,
-        cacheControl: stored.cacheControl,
-        includeDefaultCacheControl: false,
-      }),
+      headers: new Headers(),
     })
   }
 
@@ -671,11 +646,7 @@ export async function headObject(
     throw error
   }
 
-  const headers = buildCacheHeaders({
-    eTag: resolvePersistedETag(upstreamHead.ETag, stored.etag ?? undefined),
-    lastModified: upstreamHead.LastModified ?? effectiveLastModified,
-    cacheControl: upstreamHead.CacheControl ?? stored.cacheControl,
-  })
+  const headers = new Headers()
   headers.set(
     'Content-Type',
     upstreamHead.ContentType ?? stored.mimeType ?? 'application/octet-stream',
@@ -702,7 +673,6 @@ export async function deleteObject(
   bucket: BucketContext,
   objectKey: string,
 ): Promise<void> {
-  const cacheKey = getS3ObjectCacheKey(bucket.bucketId, objectKey)
   const upstreamKey = upstreamKeyFor(bucket, objectKey)
   const stored = await findStoredObject(bucket, objectKey)
   if (!stored) {
@@ -710,7 +680,6 @@ export async function deleteObject(
       userId: bucket.userId,
       upstreamObjectKey: upstreamKey,
     })
-    deleteCachedS3Object(cacheKey)
     return
   }
 
@@ -804,8 +773,6 @@ export async function deleteObject(
       message,
     )
   }
-
-  deleteCachedS3Object(cacheKey)
 }
 
 export async function copyObject(
@@ -814,11 +781,6 @@ export async function copyObject(
   destinationBucket: BucketContext,
   destinationObjectKey: string,
 ): Promise<{ eTag: string | null; lastModified: Date }> {
-  const destinationCacheKey = getS3ObjectCacheKey(
-    destinationBucket.bucketId,
-    destinationObjectKey,
-  )
-  deleteCachedS3Object(destinationCacheKey)
   const sourceStored = await findStoredObject(sourceBucket, sourceObjectKey)
   const sourceUpstreamKey =
     sourceStored?.objectKey ?? upstreamKeyFor(sourceBucket, sourceObjectKey)

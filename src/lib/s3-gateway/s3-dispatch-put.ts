@@ -252,7 +252,6 @@ export async function handlePut(
       copyObjectXml(copied.eTag ?? '', copied.lastModified, copyVersionId),
       200,
       {
-        ETag: copied.eTag ?? '',
         ...(copyVersionId ? { 'x-amz-version-id': copyVersionId } : {}),
       },
     )
@@ -327,7 +326,7 @@ export async function handlePut(
     parsed.objectKey,
     request.headers.get('x-amz-server-side-encryption'),
   )
-  const headers = new Headers({ ETag: eTag ?? '' })
+  const headers = new Headers()
   if (responseVersionId) {
     headers.set('x-amz-version-id', responseVersionId)
   }

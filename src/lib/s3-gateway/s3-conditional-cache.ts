@@ -61,19 +61,8 @@ export function buildCacheHeaders(input: {
   cacheControl: string | null | undefined
   includeDefaultCacheControl?: boolean
 }): Headers {
-  const headers = new Headers()
-  if (input.eTag) {
-    headers.set('ETag', `"${normalizeETag(input.eTag)}"`)
-  }
-  if (input.cacheControl) {
-    headers.set('Cache-Control', input.cacheControl)
-  } else if (input.includeDefaultCacheControl !== false) {
-    headers.set('Cache-Control', 'public, max-age=31536000, immutable')
-  }
-  if (input.lastModified) {
-    headers.set('Last-Modified', input.lastModified.toUTCString())
-  }
-  return headers
+  // Cache headers removed - return empty headers
+  return new Headers()
 }
 
 export function parseHttpDate(value: string | null): Date | undefined {

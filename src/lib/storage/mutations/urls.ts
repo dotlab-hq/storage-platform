@@ -63,19 +63,39 @@ export const getFilePresignedUrlFn = createServerFn({ method: 'GET' })
           throw new Error('Storage provider missing bucket name')
         }
 
-        const { client } = await getProviderClientById(fileData.providerId)
-        const objectKey = fileData.objectKey
-        const url = await getSignedUrl(
-          client,
-          new GetObjectCommand({
-            Bucket: fileData.bucketName,
-            Key: objectKey,
-            ResponseContentDisposition: `inline; filename="${fileData.name}"`,
-          }),
-          { expiresIn: 3600 },
-        )
+        let presignedUrl: string
+        try {
+          const { client } = await getProviderClientById(fileData.providerId)
+          const objectKey = fileData.objectKey
+          presignedUrl = await getSignedUrl(
+            client,
+            new GetObjectCommand({
+              Bucket: fileData.bucketName,
+              Key: objectKey,
+              ResponseContentDisposition: `inline; filename="${fileData.name}"`,
+            }),
+            { expiresIn: 3600 },
+          )
+        } catch (error) {
+          const message =
+            error instanceof Error ? error.message : 'Unknown error'
+          console.error(
+            '[getFilePresignedUrlFn] Failed to generate presigned URL:',
+            {
+              fileId,
+              providerId: fileData.providerId,
+              bucketName: fileData.bucketName,
+              error: message,
+              errorName: error instanceof Error ? error.name : undefined,
+            },
+          )
+          throw new Error(
+            `Failed to generate download URL: ${message}. ` +
+              `This may indicate a configuration issue with the storage provider or region mismatch.`,
+          )
+        }
 
-        return { url }
+        return { url: presignedUrl }
       },
     )
   })
@@ -129,20 +149,39 @@ export const getOwnedFileRedirectUrlFn = createServerFn({ method: 'GET' })
           throw new Error('File configuration invalid')
         }
 
-        const { client } = await getProviderClientById(fileData.providerId)
+        let viewUrl: string
+        try {
+          const { client } = await getProviderClientById(fileData.providerId)
 
-        const objectKey = fileData.objectKey
-        const viewUrl = await getSignedUrl(
-          client,
-          new GetObjectCommand({
-            Bucket: fileData.bucketName,
-            Key: objectKey,
-            ResponseContentDisposition: `inline; filename="${fileData.name}"`,
-            ResponseContentType:
-              fileData.mimeType || 'application/octet-stream',
-          }),
-          { expiresIn: 3600 },
-        )
+          const objectKey = fileData.objectKey
+          viewUrl = await getSignedUrl(
+            client,
+            new GetObjectCommand({
+              Bucket: fileData.bucketName,
+              Key: objectKey,
+              ResponseContentDisposition: `inline; filename="${fileData.name}"`,
+              ResponseContentType:
+                fileData.mimeType || 'application/octet-stream',
+            }),
+            { expiresIn: 3600 },
+          )
+        } catch (error) {
+          const message =
+            error instanceof Error ? error.message : 'Unknown error'
+          console.error(
+            '[getOwnedFileRedirectUrlFn] Failed to generate presigned URL:',
+            {
+              fileId,
+              providerId: fileData.providerId,
+              bucketName: fileData.bucketName,
+              error: message,
+            },
+          )
+          throw new Error(
+            `Failed to generate view URL: ${message}. ` +
+              `The storage provider may be misconfigured or have region mismatch.`,
+          )
+        }
 
         return { url: viewUrl }
       },

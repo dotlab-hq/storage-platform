@@ -19,42 +19,6 @@ import {
   parseAccessKeyId,
 } from '@/lib/s3-gateway/s3-context'
 import {
-  buildCacheHeaders,
-  parseHttpDate,
-  shouldReturnNotModified,
-} from '@/lib/s3-gateway/s3-conditional-cache'
-import {
-  getBucketCors,
-  getBucketLocation,
-  getBucketPolicy,
-  getBucketVersioning,
-  listMultipartParts,
-  listMultipartUploads,
-} from '@/lib/s3-gateway/s3-bucket-controls'
-import {
-  bucketCorsXml,
-  bucketLocationXml,
-  bucketVersioningXml,
-  listMultipartUploadsXml,
-  listPartsXml,
-} from '@/lib/s3-gateway/s3-control-xml'
-import { listObjectVersionsXml } from '@/lib/s3-gateway/s3-versioning-xml'
-import type { S3ObjectItem } from '@/lib/s3-gateway/s3-xml'
-import {
-  listBucketsXml,
-  listObjectsV2Xml,
-  listObjectsXml,
-  s3ErrorResponse,
-  xmlResponse,
-} from '@/lib/s3-gateway/s3-xml'
-import { listVirtualBuckets } from '@/lib/s3-gateway/virtual-buckets.server'
-import {
-  cacheS3ObjectFromStream,
-  getCachedS3Object,
-  getS3ObjectCacheKey,
-  resolveShortObjectCacheControl,
-} from '@/lib/s3-gateway/s3-get-object-cache'
-import {
   listDelimiter,
   listPrefix,
   listTypeIsV2,
@@ -94,12 +58,6 @@ function applyDelimiterProjection(
     objects,
     commonPrefixes: Array.from(commonPrefixes).sort(),
   }
-}
-
-function parsePositiveContentLength(value: string | null): number | null {
-  if (!value) return null
-  const parsed = Number.parseInt(value, 10)
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : null
 }
 
 function parseMaxKeys(url: URL): number {
@@ -434,59 +392,6 @@ export async function handleGet(
       `/${resolvedBucket.bucketName}/${parsed.objectKey}`,
     )
 
-  const cacheKey = getS3ObjectCacheKey(
-    resolvedBucket.bucketId,
-    parsed.objectKey,
-  )
-  const cached = getCachedS3Object(cacheKey)
-  if (cached) {
-    const notModified = shouldReturnNotModified({
-      eTag: cached.eTag,
-      lastModified: cached.lastModified,
-      ifNoneMatch: request.headers.get('if-none-match'),
-      ifModifiedSince: request.headers.get('if-modified-since'),
-    })
-    if (notModified) {
-      return new Response(null, {
-        status: 304,
-        headers: buildCacheHeaders({
-          eTag: cached.eTag,
-          lastModified: cached.lastModified ?? undefined,
-          cacheControl: cached.cacheControl,
-          includeDefaultCacheControl: false,
-        }),
-      })
-    }
-
-    const cachedHeaders = buildCacheHeaders({
-      eTag: cached.eTag,
-      lastModified: cached.lastModified ?? undefined,
-      cacheControl: cached.cacheControl,
-      includeDefaultCacheControl: false,
-    })
-    const responseVersionId = await getResponseVersionIdForCurrentObject(
-      resolvedBucket,
-      parsed.objectKey,
-    )
-    if (responseVersionId) {
-      cachedHeaders.set('x-amz-version-id', responseVersionId)
-    }
-    cachedHeaders.set('Content-Type', cached.contentType)
-    cachedHeaders.set('Content-Length', String(cached.contentLength))
-    const queryResponseType = query.get('response-content-type')
-    if (queryResponseType) {
-      cachedHeaders.set('Content-Type', queryResponseType)
-    }
-    const queryDisposition = query.get('response-content-disposition')
-    if (queryDisposition) {
-      cachedHeaders.set('Content-Disposition', queryDisposition)
-    }
-    return new Response(new Uint8Array(cached.body), {
-      status: 200,
-      headers: cachedHeaders,
-    })
-  }
-
   const object = await getObject(resolvedBucket, parsed.objectKey, {
     ifNoneMatch: request.headers.get('if-none-match'),
     ifModifiedSince: request.headers.get('if-modified-since'),
@@ -500,9 +405,7 @@ export async function handleGet(
     )
   if (object.status !== 200 || !object.body) return object
 
-  const shortCacheControl = resolveShortObjectCacheControl()
   const responseHeaders = new Headers(object.headers)
-  responseHeaders.set('Cache-Control', shortCacheControl)
   const responseVersionId = await getResponseVersionIdForCurrentObject(
     resolvedBucket,
     parsed.objectKey,
@@ -520,35 +423,7 @@ export async function handleGet(
     responseHeaders.set('Content-Disposition', queryDisposition)
   }
 
-  const contentLength = parsePositiveContentLength(
-    responseHeaders.get('content-length'),
-  )
-  if (!contentLength) {
-    return new Response(object.body, {
-      status: object.status,
-      headers: responseHeaders,
-    })
-  }
-
-  const [clientBody, cacheBody] = object.body.tee()
-  const lastModified =
-    parseHttpDate(responseHeaders.get('last-modified')) ?? null
-  const contentType =
-    responseHeaders.get('content-type') ?? 'application/octet-stream'
-  const eTag = responseHeaders.get('etag')
-  void cacheS3ObjectFromStream({
-    cacheKey,
-    stream: cacheBody,
-    meta: {
-      contentType,
-      contentLength,
-      eTag,
-      lastModified,
-      cacheControl: shortCacheControl,
-    },
-  })
-
-  return new Response(clientBody, {
+  return new Response(object.body, {
     status: object.status,
     headers: responseHeaders,
   })

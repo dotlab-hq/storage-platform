@@ -480,7 +480,6 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
   return new Response(stream, {
     headers: {
       'Content-Type': 'text/event-stream',
-      'Cache-Control': 'no-cache',
       Connection: 'keep-alive',
       'Access-Control-Allow-Origin': '*',
     },

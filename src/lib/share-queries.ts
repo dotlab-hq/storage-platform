@@ -125,33 +125,73 @@ const GetSharedFilePresignedUrlSchema = z.object({
 export const getSharedFilePresignedUrl = createServerFn({ method: 'POST' })
   .inputValidator(GetSharedFilePresignedUrlSchema)
   .handler(async ({ data }) => {
-    const { GetObjectCommand } = await import('@aws-sdk/client-s3')
-    const { getSignedUrl } = await import('@aws-sdk/s3-request-presigner')
-    const provider = await getProviderClientById(data.providerId)
+    try {
+      const { GetObjectCommand } = await import('@aws-sdk/client-s3')
+      const { getSignedUrl } = await import('@aws-sdk/s3-request-presigner')
+      const provider = await getProviderClientById(data.providerId)
 
-    const command = new GetObjectCommand({
-      Bucket: provider.bucketName,
-      Key: data.objectKey,
-      ResponseContentDisposition: `inline; filename="${data.fileName}"`,
-    })
+      const command = new GetObjectCommand({
+        Bucket: provider.bucketName,
+        Key: data.objectKey,
+        ResponseContentDisposition: `inline; filename="${data.fileName}"`,
+      })
 
-    return getSignedUrl(provider.client, command, { expiresIn: 3600 })
+      const presignedUrl = await getSignedUrl(provider.client, command, {
+        expiresIn: 3600,
+      })
+      return { presignedUrl }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unknown error'
+      console.error(
+        '[getSharedFilePresignedUrl] Failed to generate presigned URL:',
+        {
+          providerId: data.providerId,
+          objectKey: data.objectKey,
+          bucketName: data.bucketName,
+          error: message,
+          errorName: error instanceof Error ? error.name : undefined,
+        },
+      )
+      throw new Error(
+        `Failed to generate shared file download URL: ${message}. ` +
+          `Check that the storage provider is properly configured and the region matches the bucket's region.`,
+      )
+    }
   })
 
 export const getSharedFileDownloadUrl = createServerFn({ method: 'POST' })
   .inputValidator(GetSharedFilePresignedUrlSchema)
   .handler(async ({ data }) => {
-    const { GetObjectCommand } = await import('@aws-sdk/client-s3')
-    const { getSignedUrl } = await import('@aws-sdk/s3-request-presigner')
-    const provider = await getProviderClientById(data.providerId)
+    try {
+      const { GetObjectCommand } = await import('@aws-sdk/client-s3')
+      const { getSignedUrl } = await import('@aws-sdk/s3-request-presigner')
+      const provider = await getProviderClientById(data.providerId)
 
-    const command = new GetObjectCommand({
-      Bucket: provider.bucketName,
-      Key: data.objectKey,
-      ResponseContentDisposition: `attachment; filename="${data.fileName}"`,
-    })
+      const command = new GetObjectCommand({
+        Bucket: provider.bucketName,
+        Key: data.objectKey,
+        ResponseContentDisposition: `attachment; filename="${data.fileName}"`,
+      })
 
-    return getSignedUrl(provider.client, command, { expiresIn: 3600 })
+      const presignedUrl = await getSignedUrl(provider.client, command, {
+        expiresIn: 3600,
+      })
+      return { presignedUrl }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unknown error'
+      console.error(
+        '[getSharedFileDownloadUrl] Failed to generate presigned URL:',
+        {
+          providerId: data.providerId,
+          objectKey: data.objectKey,
+          error: message,
+        },
+      )
+      throw new Error(
+        `Failed to generate download URL: ${message}. ` +
+          `Verify the storage provider credentials and region configuration.`,
+      )
+    }
   })
 
 const GetSharedFolderTreeSchema = z.object({

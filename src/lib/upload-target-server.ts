@@ -46,6 +46,7 @@ export const prepareUploadTarget = createServerFn({ method: 'POST' })
       uploadUrl?: string
       presignedUrl?: string
     }
+
     if (provider.proxyUploadsEnabled) {
       if (data.fileSize > MAX_PROXY_STREAM_UPLOAD_BYTES) {
         throw new Error(
@@ -61,20 +62,41 @@ export const prepareUploadTarget = createServerFn({ method: 'POST' })
     } else {
       const { PutObjectCommand } = await import('@aws-sdk/client-s3')
       const { getSignedUrl } = await import('@aws-sdk/s3-request-presigner')
-      const directProvider = await getProviderClientById(provider.providerId)
-      const command = new PutObjectCommand({
-        Bucket: directProvider.bucketName,
-        Key: data.objectKey,
-        ContentType: data.contentType,
-      })
 
-      const presignedUrl = await getSignedUrl(directProvider.client, command, {
-        expiresIn: 3600,
-      })
+      let presignedUrl: string
+      try {
+        const directProvider = await getProviderClientById(provider.providerId)
+        const command = new PutObjectCommand({
+          Bucket: directProvider.bucketName,
+          Key: data.objectKey,
+          ContentType: data.contentType,
+        })
+
+        presignedUrl = await getSignedUrl(directProvider.client, command, {
+          expiresIn: 3600,
+        })
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Unknown error'
+        console.error(
+          '[prepareUploadTarget] Failed to generate presigned URL:',
+          {
+            providerId: provider.providerId,
+            bucketName: provider.bucketName,
+            objectKey: data.objectKey,
+            error: message,
+            errorName: error instanceof Error ? error.name : undefined,
+          },
+        )
+        throw new Error(
+          `Failed to generate upload URL: ${message}. ` +
+            `Check that the storage provider (${provider.providerName}) is properly configured, ` +
+            `has valid credentials, and the region matches the bucket's location.`,
+        )
+      }
 
       result = {
         uploadMethod: 'direct',
-        providerId: directProvider.providerId!,
+        providerId: provider.providerId!,
         presignedUrl,
       }
     }
