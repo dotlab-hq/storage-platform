@@ -66,7 +66,7 @@ export const Route = createFileRoute('/api/admin/trigger-cron')({
         })
       } catch (error) {
         console.error('[Manual Cron Trigger] Error:', error)
-        if (error instanceof Response) throw error
+        if (error instanceof Response) return error
         return json(
           { error: error instanceof Error ? error.message : 'Unknown error' },
           { status: 500 },
