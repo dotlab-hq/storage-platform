@@ -1,4 +1,4 @@
-import { eq, and, sql } from 'drizzle-orm'
+import { eq, and } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, userStorage } from '@/db/schema/storage'
 import { getProviderClientById } from '@/lib/s3-provider-client'
@@ -53,18 +53,31 @@ export async function deleteFile(
   await db.delete(file).where(eq(file.id, fileId))
   await deleteNodeByEntity(userId, 'file', fileId)
 
+  // Update user storage quota
+  if (fileRow.sizeInBytes && fileRow.sizeInBytes > 0) {
+    const storageRow = await db
+      .select({ usedStorage: userStorage.usedStorage })
+      .from(userStorage)
+      .where(eq(userStorage.userId, userId))
+      .limit(1)
+
+    if (storageRow.length > 0) {
+      const newUsed = Math.max(
+        0,
+        storageRow[0].usedStorage - fileRow.sizeInBytes,
+      )
+      await db
+        .update(userStorage)
+        .set({ usedStorage: newUsed })
+        .where(eq(userStorage.userId, userId))
+    }
+  }
+
   try {
     const trashDO = await getTrashDeletionDO(env)
     await trashDO.markChildProcessed(fileRow.folderId, fileId)
   } catch (error) {
     console.error('[Deletion] Failed to mark file as processed:', error)
-  }
-
-  if (fileRow.sizeInBytes && fileRow.sizeInBytes > 0) {
-    await db
-      .update(userStorage)
-      .set({ usedStorage: sql`MAX(0, usedStorage - ${fileRow.sizeInBytes})` })
-      .where(eq(userStorage.userId, userId))
   }
 
   await invalidateQuotaCache(userId)
