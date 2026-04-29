@@ -12,5 +12,5 @@ export function getTrashDeletionQueueFromRequestContext(): QueueBinding {
     throw new Error('Missing TRASH_DELETION_QUEUE binding.')
   }
 
-  return queue
+  return queue as unknown as QueueBinding
 }

@@ -1,4 +1,4 @@
-import type { DurableObject } from 'cloudflare:workers'
+import { DurableObject } from 'cloudflare:workers'
 
 export interface TrashDeletionState {
   processedChildren: Record<string, string[]> // folderId -> array of processed child IDs
@@ -6,12 +6,11 @@ export interface TrashDeletionState {
   pendingFolderCompletion: string[] // folderIds that are waiting for children to be processed
 }
 
-export class TrashDeletionStateDO implements DurableObject {
-  state: DurableObjectState
+export class TrashDeletionStateDO extends DurableObject {
   storage: DurableObjectStorage
 
-  constructor(state: DurableObjectState, _env: Env) {
-    this.state = state
+  constructor(state: DurableObjectState, env: Env) {
+    super(state, env)
     this.storage = state.storage
   }
 

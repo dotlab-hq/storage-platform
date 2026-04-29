@@ -1,6 +1,6 @@
 import { eq, and, sql } from 'drizzle-orm'
 import { db } from '@/db'
-import { file } from '@/db/schema/storage'
+import { file, userStorage } from '@/db/schema/storage'
 import { getProviderClientById } from '@/lib/s3-provider-client'
 import { DeleteObjectCommand } from '@aws-sdk/client-s3'
 import { deleteNodeByEntity } from '@/lib/storage-btree/index'
@@ -62,9 +62,9 @@ export async function deleteFile(
 
   if (fileRow.sizeInBytes && fileRow.sizeInBytes > 0) {
     await db
-      .update('user_storage')
+      .update(userStorage)
       .set({ usedStorage: sql`MAX(0, usedStorage - ${fileRow.sizeInBytes})` })
-      .where(eq('user_id', userId))
+      .where(eq(userStorage.userId, userId))
   }
 
   await invalidateQuotaCache(userId)

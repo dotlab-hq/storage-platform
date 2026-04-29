@@ -1,4 +1,4 @@
-import { and, eq } from 'drizzle-orm'
+import { and, eq, isNull } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
 import { deleteNodeByEntity } from '@/lib/storage-btree/index'
@@ -47,7 +47,11 @@ export async function processFolderChildren(
 
   try {
     const trashDO = await getTrashDeletionDO(env)
-    await trashDO.enqueueChildrenForFolder(folderId, childFileIds, childFolderIds)
+    await trashDO.enqueueChildrenForFolder(
+      folderId,
+      childFileIds,
+      childFolderIds,
+    )
   } catch (error) {
     console.error('[Deletion] Failed to track folder children in DO:', error)
   }
@@ -65,7 +69,7 @@ export async function enqueueFolderChildren(
   const now = new Date()
 
   for (const fileId of childFileIds) {
-    const result = await db
+    await db
       .update(file)
       .set({
         isDeleted: true,
@@ -79,17 +83,16 @@ export async function enqueueFolderChildren(
           eq(file.id, fileId),
           eq(file.userId, userId),
           eq(file.isDeleted, false),
+          isNull(file.deletionQueuedAt),
         ),
       )
 
-    if (result.changes && result.changes > 0) {
-      await queue.send({ userId, itemId: fileId, itemType: 'file' })
-      enqueued++
-    }
+    await queue.send({ userId, itemId: fileId, itemType: 'file' })
+    enqueued++
   }
 
   for (const childFolderId of childFolderIds) {
-    const result = await db
+    await db
       .update(folder)
       .set({
         isDeleted: true,
@@ -103,13 +106,12 @@ export async function enqueueFolderChildren(
           eq(folder.id, childFolderId),
           eq(folder.userId, userId),
           eq(folder.isDeleted, false),
+          isNull(folder.deletionQueuedAt),
         ),
       )
 
-    if (result.changes && result.changes > 0) {
-      await queue.send({ userId, itemId: childFolderId, itemType: 'folder' })
-      enqueued++
-    }
+    await queue.send({ userId, itemId: childFolderId, itemType: 'folder' })
+    enqueued++
   }
 
   return enqueued
@@ -121,7 +123,11 @@ export async function deleteFolder(
   queue: QueueClient,
 ): Promise<void> {
   const { itemId: folderId, userId } = item
-  const { fileIds, folderIds } = await processFolderChildren(env, userId, folderId)
+  const { fileIds, folderIds } = await processFolderChildren(
+    env,
+    userId,
+    folderId,
+  )
 
   if (fileIds.length > 0 || folderIds.length > 0) {
     const enqueuedCount = await enqueueFolderChildren(
@@ -147,7 +153,10 @@ export async function deleteFolder(
 
   try {
     const trashDO = await getTrashDeletionDO(env)
-    await trashDO.markChildProcessed(parentRows[0]?.parentFolderId ?? null, folderId)
+    await trashDO.markChildProcessed(
+      parentRows[0]?.parentFolderId ?? null,
+      folderId,
+    )
     await trashDO.clearFolderState(folderId)
   } catch (error) {
     console.error('[Deletion] Failed to clear folder state:', error)
@@ -191,7 +200,9 @@ export async function checkAndDeleteCompletedFolders(
       await invalidateFolderCache(folderRows[0].userId, null)
       await invalidateQuotaCache(folderRows[0].userId)
       deleted++
-      console.log(`[Deletion] Folder ${folderId} deleted (all children processed)`)
+      console.log(
+        `[Deletion] Folder ${folderId} deleted (all children processed)`,
+      )
     }
   } catch (error) {
     console.error('[Deletion] Error checking completed folders:', error)
