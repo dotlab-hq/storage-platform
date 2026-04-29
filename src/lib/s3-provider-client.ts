@@ -16,9 +16,8 @@ type ProviderClientConfig = {
 
 type ProviderRow = typeof storageProvider.$inferSelect
 
-const DEFAULT_PROVIDER_NAME = 'default provider'
-const MAIN_PROVIDER_NAME = 'main'
-const DEFAULT_S3_REGION = 'us-east-1'
+
+const DEFAULT_S3_REGION = 'auto'
 const INVALID_REGION_SENTINELS = new Set([
   '',
   UNDETERMINED_PROVIDER_VALUE,
@@ -33,77 +32,11 @@ async function loadDb() {
   return db
 }
 
-async function getDefaultActiveProvider(): Promise<ProviderRow | null> {
-  const db = await loadDb()
-  const providerRows = await db
-    .select()
-    .from(storageProvider)
-    .where(
-      and(eq(storageProvider.isActive, true), isNull(storageProvider.userId)),
-    )
-    .orderBy(
-      sql`CASE
-                WHEN lower(${storageProvider.name}) = ${DEFAULT_PROVIDER_NAME} THEN 0
-                WHEN lower(${storageProvider.name}) = ${MAIN_PROVIDER_NAME} THEN 1
-                ELSE 2
-            END`,
-      storageProvider.createdAt,
-      storageProvider.id,
-    )
-    .limit(1)
-
-  if (providerRows.length === 0) {
-    return null
-  }
-
-  return providerRows[0]
-}
-
 function safeTrim(value: string | null | undefined): string {
   return (value ?? '').replace(/^["']|["']$/g, '').trim()
 }
 
-function resolveRegion(rawRegion?: string | null): string {
-  const normalizedRegion = safeTrim(rawRegion).toLowerCase()
-  if (!INVALID_REGION_SENTINELS.has(normalizedRegion)) {
-    return safeTrim(rawRegion)
-  }
-  // No env fallback - pure hardcoded default
-  return DEFAULT_S3_REGION
-}
 
-function fromEnvironment(): ProviderClientConfig {
-  // Only used when no provider configured - use hardcoded defaults, no env
-  const accessKeyId = safeTrim(process.env.S3_ACCESS_KEY_ID)
-  const secretAccessKey = safeTrim(process.env.S3_SECRET_ACCESS_KEY)
-  const region = DEFAULT_S3_REGION
-  const endpoint = safeTrim(process.env.S3_ENDPOINT)
-  if (!accessKeyId || !secretAccessKey || !endpoint) {
-    throw new Error('No storage provider exists for uploads')
-  }
-
-  console.log('[fromEnvironment] Creating S3 client:', {
-    region,
-    endpoint,
-  })
-
-  return {
-    providerId: null,
-    providerName: 'Default Provider',
-    bucketName: process.env.S3_BUCKET_NAME ?? 'dot-storage',
-    endpoint,
-    proxyUploadsEnabled: false,
-    client: new S3Client({
-      region,
-      endpoint,
-      forcePathStyle: true,
-      bucketEndpoint: false,
-      requestChecksumCalculation: 'WHEN_REQUIRED',
-      responseChecksumValidation: 'WHEN_REQUIRED',
-      credentials: { accessKeyId, secretAccessKey },
-    }),
-  }
-}
 
 function fromProviderRow(row: ProviderRow): ProviderClientConfig {
   // Access Key ID: must be in DB
@@ -178,17 +111,7 @@ export async function getProviderClientById(
   console.log('[ProviderClient] Getting client for providerId:', providerId)
   const db = await loadDb()
   if (!providerId) {
-    const defaultProvider = await getDefaultActiveProvider()
-    if (defaultProvider) {
-      console.log(
-        '[ProviderClient] Using default provider:',
-        defaultProvider.id,
-      )
-      return fromProviderRow(defaultProvider)
-    }
-    throw new Error(
-      'No storage provider found. Please add one in the admin settings.',
-    )
+    throw new Error('Provider ID is required')
   }
   const providerRows = await db
     .select()
@@ -226,8 +149,10 @@ export async function resolveProviderId(
   providerId: string | null | undefined,
 ): Promise<string | null> {
   const db = await loadDb()
+  if (!providerId) {
+    throw new Error('Provider ID is required')
+  }
 
-  if (providerId) {
     const providerRows = await db
       .select({ id: storageProvider.id })
       .from(storageProvider)
@@ -245,14 +170,7 @@ export async function resolveProviderId(
     }
 
     return providerId
-  }
 
-  const defaultProvider = await getDefaultActiveProvider()
-  if (!defaultProvider) {
-    return null
-  }
-
-  return defaultProvider.id
 }
 
 export async function selectProviderForUpload(
