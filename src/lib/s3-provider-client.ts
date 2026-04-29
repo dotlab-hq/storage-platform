@@ -25,6 +25,7 @@ const INVALID_REGION_SENTINELS = new Set([
   'pending',
   'null',
   'undefined',
+  'bucket',
 ])
 
 async function loadDb() {
@@ -115,7 +116,11 @@ function fromProviderRow(row: ProviderRow): ProviderClientConfig {
 
   // Region: if row.region is empty/undetermined, use default
   const rawRegion = safeTrim(row.region)
-  let region = DEFAULT_S3_REGION // Default to "auto"
+  console.log(
+    '[fromProviderRow] Raw region from DB:',
+    JSON.stringify(rawRegion),
+  )
+  let region = DEFAULT_S3_REGION
   if (
     rawRegion &&
     rawRegion.length > 0 &&
@@ -123,6 +128,7 @@ function fromProviderRow(row: ProviderRow): ProviderClientConfig {
   ) {
     region = rawRegion
   }
+  console.log('[fromProviderRow] Resolved region:', region)
 
   // Endpoint: must be in DB
   const endpoint = safeTrim(row.endpoint)
