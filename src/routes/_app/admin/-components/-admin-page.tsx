@@ -307,7 +307,9 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
       toast.success('Storage provider deleted')
     } catch (error) {
       const message =
-        error instanceof Error ? error.message : 'Failed to delete storage provider'
+        error instanceof Error
+          ? error.message
+          : 'Failed to delete storage provider'
       toast.error(message)
     }
   }
@@ -317,8 +319,6 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
     try {
       const response = await fetch('/api/admin/trigger-cron', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({}), // no auth needed beyond admin session
       })
 
       if (!response.ok) {
@@ -327,7 +327,9 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
       }
 
       const result = await response.json()
-      toast.success(result.message || 'Trash deletion cron triggered successfully')
+      toast.success(
+        result.message || 'Trash deletion cron triggered successfully',
+      )
     } catch (error) {
       const message =
         error instanceof Error ? error.message : 'Failed to trigger cron'
@@ -335,42 +337,6 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
     } finally {
       setIsCronTriggering(false)
     }
-  }
-
-  const handleUserUpdate = async () => {
-    queryClient.invalidateQueries({ queryKey: ['admin-users'] })
-  }
-  }
-
-  const triggerTrashCron = async () => {
-    setIsCronTriggering(true)
-    try {
-      // The CRON_PASS is hardcoded in the request body as per the requirement
-      const response = await fetch('/api/admin/trigger-cron', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ pass: 'its-me-boi' }),
-      })
-
-      if (!response.ok) {
-        const error = await response.json()
-        throw new Error(error.error || 'Failed to trigger cron')
-      }
-
-      const result = await response.json()
-      toast.success(result.message || 'Trash deletion cron triggered successfully')
-    } catch (error) {
-      const message =
-        error instanceof Error ? error.message : 'Failed to trigger cron'
-      toast.error(message)
-    } finally {
-      setIsCronTriggering(false)
-    }
-  }
-
-  const handleUserUpdate = async () => {
-    queryClient.invalidateQueries({ queryKey: ['admin-users'] })
-  }
   }
 
   const handleUserUpdate = async () => {
@@ -412,20 +378,20 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
             </div>
           </TabsContent>
           <TabsContent value="providers">
-               <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
-                <ProvidersPanel
-                  providers={providers}
-                  onToggleAvailability={toggleProviderAvailability}
-                  onDelete={deleteProvider}
-                  onEdit={startEditingProvider}
-                  onViewContents={(provider) => {
-                    setSelectedProvider(provider)
-                    setIsProviderViewerOpen(true)
-                  }}
-                  onTriggerCron={triggerTrashCron}
-                  isCronTriggering={isCronTriggering}
-                />
-              </Suspense>
+            <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
+              <ProvidersPanel
+                providers={providers}
+                onToggleAvailability={toggleProviderAvailability}
+                onDelete={deleteProvider}
+                onEdit={startEditingProvider}
+                onViewContents={(provider) => {
+                  setSelectedProvider(provider)
+                  setIsProviderViewerOpen(true)
+                }}
+                onTriggerCron={triggerTrashCron}
+                isCronTriggering={isCronTriggering}
+              />
+            </Suspense>
           </TabsContent>
           <TabsContent value="users">
             <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>

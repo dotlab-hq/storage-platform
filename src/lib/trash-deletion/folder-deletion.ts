@@ -7,7 +7,8 @@ import {
   invalidateQuotaCache,
 } from '@/lib/cache-invalidation'
 import type { TrashDeletionItem } from './params'
-import { getTrashDeletionDO } from './do-client'
+import { getTrashDeletionDO  } from './do-client'
+import type {QueueClient} from './do-client';
 
 export async function processFolderChildren(
   env: Env,
@@ -70,7 +71,12 @@ export async function enqueueFolderChildren(
   for (const fileId of childFileIds) {
     const result = await db
       .update(file)
-      .set({ isDeleted: true, isTrashed: false, deletionQueuedAt: now, updatedAt: now })
+      .set({
+        isDeleted: true,
+        isTrashed: false,
+        deletionQueuedAt: now,
+        updatedAt: now,
+      })
       .where(
         and(
           eq(file.id, fileId),
@@ -78,8 +84,11 @@ export async function enqueueFolderChildren(
           eq(file.isDeleted, false),
         ),
       )
-    if ((result as any).changes > 0) {
-      await queue.send(JSON.stringify({ userId, itemId: fileId, itemType: 'file' }))
+    const changes = result as any
+    if (changes.changes > 0) {
+      await queue.send(
+        JSON.stringify({ userId, itemId: fileId, itemType: 'file' }),
+      )
       enqueued++
     }
   }
@@ -87,7 +96,12 @@ export async function enqueueFolderChildren(
   for (const childFolderId of childFolderIds) {
     const result = await db
       .update(folder)
-      .set({ isDeleted: true, isTrashed: false, deletionQueuedAt: now, updatedAt: now })
+      .set({
+        isDeleted: true,
+        isTrashed: false,
+        deletionQueuedAt: now,
+        updatedAt: now,
+      })
       .where(
         and(
           eq(folder.id, childFolderId),
@@ -95,25 +109,8 @@ export async function enqueueFolderChildren(
           eq(folder.isDeleted, false),
         ),
       )
-    if ((result as any).changes > 0) {
-      await queue.send(JSON.stringify({ userId, itemId: childFolderId, itemType: 'folder' }))
-      enqueued++
-    }
-  }
-  }
-
-  for (const childFolderId of childFolderIds) {
-    const result = await db
-      .update(folder)
-      .set({ isDeleted: true, isTrashed: false, updatedAt: now })
-      .where(
-        and(
-          eq(folder.id, childFolderId),
-          eq(folder.userId, userId),
-          eq(folder.isDeleted, false),
-        ),
-      )
-    if ((result as any).changes > 0) {
+    const changes = result as any
+    if (changes.changes > 0) {
       await queue.send(
         JSON.stringify({ userId, itemId: childFolderId, itemType: 'folder' }),
       )

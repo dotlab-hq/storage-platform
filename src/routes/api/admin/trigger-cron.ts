@@ -4,9 +4,9 @@ import { requireAdminUser } from '@/lib/server-auth.server'
 
 export const Route = createFileRoute('/api/admin/trigger-cron')({
   server: {
-    handler: async ({ request, context }) => {
+    handler: async ({ context }) => {
       try {
-        // Admin authentication
+        // Admin authentication only
         const adminUser = await requireAdminUser()
         console.log('[Manual Cron Trigger] Admin user:', adminUser.id)
 
@@ -66,7 +66,6 @@ export const Route = createFileRoute('/api/admin/trigger-cron')({
         })
       } catch (error) {
         console.error('[Manual Cron Trigger] Error:', error)
-        // If the error is a Response (e.g., from requireAdminUser), rethrow it
         if (error instanceof Response) throw error
         return json(
           { error: error instanceof Error ? error.message : 'Unknown error' },

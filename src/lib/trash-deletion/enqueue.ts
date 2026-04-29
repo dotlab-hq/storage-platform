@@ -235,7 +235,8 @@ export async function claimItems(items: TrashDeletionItem[]): Promise<number> {
       .update(file)
       .set({ deletionQueuedAt: now, updatedAt: now })
       .where(inArray(file.id, fileIds))
-    affected += (result as any).changes ?? 0
+    const changes = result as any
+    affected += changes.changes ?? 0
   }
 
   if (folderIds.length > 0) {
@@ -243,7 +244,8 @@ export async function claimItems(items: TrashDeletionItem[]): Promise<number> {
       .update(folder)
       .set({ deletionQueuedAt: now, updatedAt: now })
       .where(inArray(folder.id, folderIds))
-    affected += (result as any).changes ?? 0
+    const changes = result as any
+    affected += changes.changes ?? 0
   }
 
   return affected
