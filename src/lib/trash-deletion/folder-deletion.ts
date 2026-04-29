@@ -7,14 +7,16 @@ import {
   invalidateQuotaCache,
 } from '@/lib/cache-invalidation'
 import type { TrashDeletionItem } from './params'
-import { getTrashDeletionDO  } from './do-client'
-import type {QueueClient} from './do-client';
+import { getTrashDeletionDO } from './do-client'
+import type { QueueClient } from './do-client'
 
 export async function processFolderChildren(
   env: Env,
   userId: string,
   folderId: string,
 ): Promise<{ fileIds: string[]; folderIds: string[] }> {
+  console.log('[Workflow Step] processFolderChildren for folder:', folderId)
+
   // Only fetch children that are NOT already marked for deletion
   const childFolders = await db
     .select({ id: folder.id })
@@ -41,6 +43,10 @@ export async function processFolderChildren(
   const childFolderIds = childFolders.map((childFolder) => childFolder.id)
   const childFileIds = childFiles.map((childFile) => childFile.id)
 
+  console.log(
+    `[Workflow Step] Folder ${folderId} has ${childFileIds.length} child files, ${childFolderIds.length} child folders`,
+  )
+
   if (childFolderIds.length === 0 && childFileIds.length === 0) {
     return { fileIds: [], folderIds: [] }
   }
@@ -52,8 +58,12 @@ export async function processFolderChildren(
       childFileIds,
       childFolderIds,
     )
+    console.log('[Workflow Step] Tracked children in DO for folder:', folderId)
   } catch (error) {
-    console.error('[Deletion] Failed to track folder children in DO:', error)
+    console.error(
+      '[Workflow Step] Failed to track folder children in DO:',
+      error,
+    )
   }
 
   return { fileIds: childFileIds, folderIds: childFolderIds }
@@ -90,6 +100,7 @@ export async function enqueueFolderChildren(
         JSON.stringify({ userId, itemId: fileId, itemType: 'file' }),
       )
       enqueued++
+      console.log('[Workflow Step] Enqueued child file:', fileId)
     }
   }
 
@@ -115,6 +126,7 @@ export async function enqueueFolderChildren(
         JSON.stringify({ userId, itemId: childFolderId, itemType: 'folder' }),
       )
       enqueued++
+      console.log('[Workflow Step] Enqueued child folder:', childFolderId)
     }
   }
 
@@ -126,6 +138,8 @@ export async function deleteFolder(
   item: TrashDeletionItem,
 ): Promise<void> {
   const { itemId: folderId, userId } = item
+
+  console.log('[Workflow Step] deleteFolder started for:', folderId)
 
   // Check if folder is still marked for deletion (skip if restored)
   const initialCheck = await db
@@ -139,7 +153,7 @@ export async function deleteFolder(
 
   if (initialCheck.length === 0 || !initialCheck[0].isDeleted) {
     console.log(
-      `[Deletion] Skipping folder ${folderId}: not marked for deletion (restored?)`,
+      `[Workflow Step] Skipping folder ${folderId}: not marked for deletion (restored?)`,
     )
     // Still mark as processed for parent tracking
     if (initialCheck.length > 0) {
@@ -151,7 +165,7 @@ export async function deleteFolder(
         )
       } catch (error) {
         console.error(
-          '[Deletion] Failed to mark restored folder as processed:',
+          '[Workflow Step] Failed to mark restored folder as processed:',
           error,
         )
       }
@@ -175,13 +189,15 @@ export async function deleteFolder(
       folderIds,
     )
     console.log(
-      `[Deletion] Folder ${folderId}: enqueued ${enqueuedCount} children (${fileIds.length} files, ${folderIds.length} subfolders)`,
+      `[Workflow Step] Folder ${folderId}: enqueued ${enqueuedCount} children (${fileIds.length} files, ${folderIds.length} subfolders)`,
     )
     return
   }
 
-  console.log(`[Deletion] Folder ${folderId} is empty, deleting permanently`)
-  // Fetch folder info including parent and isDeleted (re-check)
+  console.log(
+    `[Workflow Step] Folder ${folderId} is empty, deleting permanently`,
+  )
+
   const folderInfo = await db
     .select({
       parentFolderId: folder.parentFolderId,
@@ -193,9 +209,8 @@ export async function deleteFolder(
 
   if (folderInfo.length === 0 || !folderInfo[0].isDeleted) {
     console.log(
-      `[Deletion] Skipping folder ${folderId}: not marked for deletion (restored?)`,
+      `[Workflow Step] Skipping folder ${folderId}: not marked for deletion (restored?)`,
     )
-    // Ensure parent knows this child is done
     if (folderInfo.length > 0) {
       try {
         const trashDO = await getTrashDeletionDO(env)
@@ -205,7 +220,7 @@ export async function deleteFolder(
         )
       } catch (error) {
         console.error(
-          '[Deletion] Failed to mark restored folder as processed:',
+          '[Workflow Step] Failed to mark restored folder as processed:',
           error,
         )
       }
@@ -215,6 +230,7 @@ export async function deleteFolder(
 
   const parentRows = folderInfo
 
+  console.log('[Workflow Step] Deleting folder from DB:', folderId)
   await db.delete(folder).where(eq(folder.id, folderId))
   await deleteNodeByEntity(userId, 'folder', folderId)
 
@@ -225,12 +241,15 @@ export async function deleteFolder(
       folderId,
     )
     await trashDO.clearFolderState(folderId)
+    console.log('[Workflow Step] Folder state cleared:', folderId)
   } catch (error) {
-    console.error('[Deletion] Failed to clear folder state:', error)
+    console.error('[Workflow Step] Failed to clear folder state:', error)
   }
 
   await invalidateFolderCache(userId, null)
   await invalidateQuotaCache(userId)
+
+  console.log('[Workflow Step] deleteFolder completed for:', folderId)
 }
 
 export async function checkAndDeleteCompletedFolders(
@@ -241,7 +260,9 @@ export async function checkAndDeleteCompletedFolders(
   try {
     const trashDO = await getTrashDeletionDO(env)
     const completedFolders = await trashDO.getPendingFolderCompletions()
-    console.log('[Deletion] Folders ready for completion:', completedFolders)
+    console.log(
+      `[Workflow Step] checkAndDeleteCompletedFolders: ${completedFolders.length} folders ready for completion`,
+    )
 
     for (const folderId of completedFolders) {
       const folderRows = await db
@@ -262,12 +283,13 @@ export async function checkAndDeleteCompletedFolders(
       // Skip if folder was restored (no longer marked for deletion)
       if (!folderRows[0].isDeleted) {
         console.log(
-          `[Deletion] Folder ${folderId} restored before deletion, skipping`,
+          `[Workflow Step] Folder ${folderId} restored before deletion, skipping`,
         )
         await trashDO.clearFolderState(folderId)
         continue
       }
 
+      console.log('[Workflow Step] Deleting completed folder:', folderId)
       await db.delete(folder).where(eq(folder.id, folderId))
       await deleteNodeByEntity(folderRows[0].userId, 'folder', folderId)
       await trashDO.markChildProcessed(
@@ -279,11 +301,11 @@ export async function checkAndDeleteCompletedFolders(
       await invalidateQuotaCache(folderRows[0].userId)
       deleted++
       console.log(
-        `[Deletion] Folder ${folderId} deleted (all children processed)`,
+        `[Workflow Step] Folder ${folderId} deleted (all children processed)`,
       )
     }
   } catch (error) {
-    console.error('[Deletion] Error checking completed folders:', error)
+    console.error('[Workflow Step] Error checking completed folders:', error)
   }
 
   return deleted

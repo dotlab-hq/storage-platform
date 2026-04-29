@@ -19,6 +19,8 @@ export async function deleteFile(
 ): Promise<void> {
   const { itemId: fileId, userId } = item
 
+  console.log('[Workflow Step] deleteFile started for:', fileId)
+
   const fileRows = await db
     .select({
       objectKey: file.objectKey,
@@ -32,6 +34,7 @@ export async function deleteFile(
     .limit(1)
 
   if (fileRows.length === 0) {
+    console.log('[Workflow Step] deleteFile: file not found, skipping:', fileId)
     return
   }
 
@@ -40,7 +43,7 @@ export async function deleteFile(
   // Skip if item is no longer marked for deletion (e.g., restored)
   if (!fileRow.isDeleted) {
     console.log(
-      `[Deletion] Skipping file ${fileId}: not marked for deletion (restored?)`,
+      `[Workflow Step] Skipping file ${fileId}: not marked for deletion (restored?)`,
     )
     // Still mark as processed for parent folder tracking
     try {
@@ -48,43 +51,46 @@ export async function deleteFile(
       await trashDO.markChildProcessed(fileRow.folderId, fileId)
     } catch (error) {
       console.error(
-        '[Deletion] Failed to mark restored file as processed:',
+        '[Workflow Step] Failed to mark restored file as processed:',
         error,
       )
     }
     return
   }
 
-  console.log('[Deletion] Attempting S3 delete:', {
+  console.log('[Workflow Step] Attempting S3 delete for file:', {
     fileId,
     providerId: fileRow.providerId,
     objectKey: fileRow.objectKey,
+    sizeInBytes: fileRow.sizeInBytes,
   })
-  // Primary deletion target
+
   let attemptedDelete = false
   if (fileRow.objectKey && fileRow.objectKey.trim() !== '') {
     attemptedDelete = true
     try {
       const provider = await getProviderClientById(fileRow.providerId)
-      console.log('[Deletion] Provider client retrieved:', provider.providerId)
+      console.log('[Workflow Step] S3 delete:', {
+        provider: provider.providerId,
+        bucket: provider.bucketName,
+        key: fileRow.objectKey,
+      })
       await provider.client.send(
         new DeleteObjectCommand({
           Bucket: provider.bucketName,
           Key: fileRow.objectKey,
         }),
       )
-      console.log('[Deletion] S3 delete successful for key:', fileRow.objectKey)
+      console.log('[Workflow Step] S3 delete successful:', fileRow.objectKey)
     } catch (err) {
-      console.error(`[Deletion] S3 delete failed for file ${fileId}:`, err)
+      console.error(`[Workflow Step] S3 delete FAILED for file ${fileId}:`, err)
       throw new Error(
         `Failed to delete file object from provider before DB cleanup: ${fileId}`,
       )
     }
   }
 
-  // Fallback: if primary objectKey missing or empty, try file_version table
-  // This handles cases where the committed file's key is stored in file_version
-  // or other migration artifacts. We attempt best-effort deletes and log results.
+  // Fallback: try file_version table
   if (!attemptedDelete) {
     try {
       const versionRows = await db
@@ -98,7 +104,7 @@ export async function deleteFile(
 
       if (versionRows.length === 0) {
         console.log(
-          '[Deletion] No alternate keys found for file, skipping S3 delete',
+          '[Workflow Step] No alternate keys found for file, skipping S3 delete',
         )
       } else {
         for (const vr of versionRows) {
@@ -112,7 +118,7 @@ export async function deleteFile(
                 vr.storageProviderId ?? fileRow.providerId,
               )
               console.log(
-                '[Deletion] Attempting fallback S3 delete for key:',
+                '[Workflow Step] Attempting fallback S3 delete for key:',
                 key,
               )
               await provider.client.send(
@@ -122,29 +128,28 @@ export async function deleteFile(
                 }),
               )
               console.log(
-                '[Deletion] Fallback S3 delete successful for key:',
+                '[Workflow Step] Fallback S3 delete successful for key:',
                 key,
               )
             } catch (err) {
               console.warn(
-                '[Deletion] Fallback S3 delete failed for key:',
+                '[Workflow Step] Fallback S3 delete failed for key:',
                 key,
                 err,
               )
-              // continue trying other keys; this is best-effort
             }
           }
         }
       }
     } catch (err) {
       console.error(
-        '[Deletion] Error while attempting fallback key deletion:',
+        '[Workflow Step] Error while attempting fallback key deletion:',
         err,
       )
-      // don't throw here; proceed to DB cleanup if possible
     }
   }
 
+  console.log('[Workflow Step] Deleting file from DB:', fileId)
   await db.delete(file).where(eq(file.id, fileId))
   await deleteNodeByEntity(userId, 'file', fileId)
 
@@ -165,18 +170,26 @@ export async function deleteFile(
         .update(userStorage)
         .set({ usedStorage: newUsed })
         .where(eq(userStorage.userId, userId))
+      console.log('[Workflow Step] Quota updated:', {
+        userId,
+        oldUsed: storageRow[0].usedStorage,
+        newUsed,
+      })
     }
   }
 
   try {
     const trashDO = await getTrashDeletionDO(env)
     await trashDO.markChildProcessed(fileRow.folderId, fileId)
+    console.log('[Workflow Step] Marked child as processed:', fileId)
   } catch (error) {
-    console.error('[Deletion] Failed to mark file as processed:', error)
+    console.error('[Workflow Step] Failed to mark file as processed:', error)
   }
 
   await invalidateQuotaCache(userId)
   await invalidateFolderCache(userId, fileRow.folderId)
+
+  console.log('[Workflow Step] deleteFile completed for:', fileId)
 }
 
 export async function processDeletionBatch(
