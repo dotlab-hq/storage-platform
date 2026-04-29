@@ -17,24 +17,12 @@ export async function processFolderChildren(
   const childFolders = await db
     .select({ id: folder.id })
     .from(folder)
-    .where(
-      and(
-        eq(folder.parentFolderId, folderId),
-        eq(folder.userId, userId),
-        eq(folder.isDeleted, false),
-      ),
-    )
+    .where(and(eq(folder.parentFolderId, folderId), eq(folder.userId, userId)))
 
   const childFiles = await db
     .select({ id: file.id })
     .from(file)
-    .where(
-      and(
-        eq(file.folderId, folderId),
-        eq(file.userId, userId),
-        eq(file.isDeleted, false),
-      ),
-    )
+    .where(and(eq(file.folderId, folderId), eq(file.userId, userId)))
 
   const childFolderIds = childFolders.map((childFolder) => childFolder.id)
   const childFileIds = childFiles.map((childFile) => childFile.id)
@@ -80,12 +68,13 @@ export async function enqueueFolderChildren(
         and(
           eq(file.id, fileId),
           eq(file.userId, userId),
-          eq(file.isDeleted, false),
           isNull(file.deletionQueuedAt),
         ),
       )
 
-    await queue.send({ userId, itemId: fileId, itemType: 'file' })
+    await queue.send(
+      JSON.stringify({ userId, itemId: fileId, itemType: 'file' }),
+    )
     enqueued++
   }
 
@@ -103,12 +92,13 @@ export async function enqueueFolderChildren(
         and(
           eq(folder.id, childFolderId),
           eq(folder.userId, userId),
-          eq(folder.isDeleted, false),
           isNull(folder.deletionQueuedAt),
         ),
       )
 
-    await queue.send({ userId, itemId: childFolderId, itemType: 'folder' })
+    await queue.send(
+      JSON.stringify({ userId, itemId: childFolderId, itemType: 'folder' }),
+    )
     enqueued++
   }
 
@@ -146,6 +136,7 @@ export async function deleteFolder(
     .from(folder)
     .where(eq(folder.id, folderId))
     .limit(1)
+
   await db.delete(folder).where(eq(folder.id, folderId))
   await deleteNodeByEntity(userId, 'folder', folderId)
 

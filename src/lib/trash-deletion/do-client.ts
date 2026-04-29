@@ -1,7 +1,5 @@
-import type { TrashDeletionItem } from './params'
-
 export interface QueueClient {
-  send: (msg: TrashDeletionItem) => Promise<unknown>
+  send: (body: string) => Promise<unknown>
 }
 
 export async function getTrashDeletionDO(env: Env) {

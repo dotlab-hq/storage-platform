@@ -2,7 +2,7 @@ import { eq, and, inArray, isNull } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
 import type { TrashDeletionItem } from './params'
-import { enqueueTrashDeletionItems } from './producer'
+import { enqueueTrashDeletionItems, type QueueBinding } from './producer'
 
 /**
  * Get top-level deleted items not yet queued.
@@ -206,7 +206,7 @@ export async function buildAndClaimDeletionBatch(
  * Enqueue items to the Cloudflare Queue (legacy; used by other callers).
  */
 export async function enqueueItems(
-  queue: { send: (msg: TrashDeletionItem) => Promise<void> },
+  queue: QueueBinding,
   items: TrashDeletionItem[],
 ): Promise<number> {
   return enqueueTrashDeletionItems(queue, items)

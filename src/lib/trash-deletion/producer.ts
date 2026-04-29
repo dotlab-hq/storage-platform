@@ -3,13 +3,15 @@ import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
 import type { TrashDeletionItem } from './params'
 
-type QueueBinding = {
-  send: (message: TrashDeletionItem) => Promise<void>
+export type QueueBinding = {
+  send: (body: string) => Promise<void>
 }
 
 function partitionItems(items: TrashDeletionItem[]) {
   return {
-    fileIds: items.filter((item) => item.itemType === 'file').map((item) => item.itemId),
+    fileIds: items
+      .filter((item) => item.itemType === 'file')
+      .map((item) => item.itemId),
     folderIds: items
       .filter((item) => item.itemType === 'folder')
       .map((item) => item.itemId),
@@ -27,7 +29,7 @@ export async function enqueueTrashDeletionItems(
 
   for (const item of items) {
     try {
-      await queue.send(item)
+      await queue.send(JSON.stringify(item))
       sentItems.push(item)
     } catch (error) {
       console.error('[Trash Producer] Failed to enqueue item:', item, error)
