@@ -9,10 +9,15 @@ function getEncryptionKey(): Buffer {
   // First try Cloudflare Workers env (if available)
   try {
     // @ts-ignore - cloudflare:workers import may not be available at build time
-    const { env } = require('cloudflare:workers') as { env: Record<string, string> }
+    const { env } = require('cloudflare:workers') as {
+      env: Record<string, string>
+    }
     if (env.STORAGE_PROVIDER_ENCRYPTION_KEY) {
       console.log('[Crypto] Using encryption key from Cloudflare env')
-      return crypto.createHash('sha256').update(env.STORAGE_PROVIDER_ENCRYPTION_KEY).digest()
+      return crypto
+        .createHash('sha256')
+        .update(env.STORAGE_PROVIDER_ENCRYPTION_KEY)
+        .digest()
     }
   } catch (e) {
     console.log('[Crypto] Not in Cloudflare context or env not available:', e)
@@ -21,33 +26,14 @@ function getEncryptionKey(): Buffer {
   // Fall back to process.env (Node.js)
   const secret = process.env.STORAGE_PROVIDER_ENCRYPTION_KEY
   if (!secret) {
-    console.error('[Crypto] Missing STORAGE_PROVIDER_ENCRYPTION_KEY in both Cloudflare and Node environments')
-    throw new Error('Missing STORAGE_PROVIDER_ENCRYPTION_KEY. Ensure it is set in your environment.')
-  }
-  console.log('[Crypto] Using encryption key from process.env')
-  const key = crypto.createHash('sha256').update(secret).digest()
-  if (key.length !== KEY_BYTES) {
-    throw new Error('Invalid encryption key size')
-  }
-  return key
-}
-    if (env.STORAGE_PROVIDER_ENCRYPTION_KEY) {
-      return crypto
-        .createHash('sha256')
-        .update(env.STORAGE_PROVIDER_ENCRYPTION_KEY)
-        .digest()
-    }
-  } catch {
-    // Not in Cloudflare context, fall through
-  }
-
-  // Fall back to process.env (Node.js)
-  const secret = process.env.STORAGE_PROVIDER_ENCRYPTION_KEY
-  if (!secret) {
+    console.error(
+      '[Crypto] Missing STORAGE_PROVIDER_ENCRYPTION_KEY in both Cloudflare and Node environments',
+    )
     throw new Error(
       'Missing STORAGE_PROVIDER_ENCRYPTION_KEY. Ensure it is set in your environment.',
     )
   }
+  console.log('[Crypto] Using encryption key from process.env')
   const key = crypto.createHash('sha256').update(secret).digest()
   if (key.length !== KEY_BYTES) {
     throw new Error('Invalid encryption key size')
