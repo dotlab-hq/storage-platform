@@ -1,14 +1,30 @@
 import { PutObjectCommand } from '@aws-sdk/client-s3'
-import {
-  assertFileSizeWithinLimit,
-  MAX_PROXY_STREAM_UPLOAD_BYTES,
-} from '@/lib/upload-target-server'
+import { MAX_PROXY_STREAM_UPLOAD_BYTES } from '@/lib/upload-target-server'
 import { requireProxyProvider } from '@/lib/upload-proxy-provider'
 import {
   ProxySingleHeadersSchema,
   parseProviderId,
   toNodeReadable,
 } from '@/lib/upload-proxy-utils'
+import { db } from '@/db'
+import { userStorage } from '@/db/schema/storage'
+import { eq } from 'drizzle-orm'
+import { DEFAULT_FILE_SIZE_LIMIT_BYTES } from '@/lib/storage-quota-constants'
+
+async function assertFileSizeWithinLimit(userId: string, fileSize: number) {
+  const storageRows = await db
+    .select({ fileSizeLimit: userStorage.fileSizeLimit })
+    .from(userStorage)
+    .where(eq(userStorage.userId, userId))
+    .limit(1)
+  const fileSizeLimit =
+    storageRows[0]?.fileSizeLimit ?? DEFAULT_FILE_SIZE_LIMIT_BYTES
+  if (fileSize > fileSizeLimit) {
+    throw new Error(
+      `File exceeds your maximum allowed size (${fileSizeLimit} bytes)`,
+    )
+  }
+}
 
 export async function handleSingleUpload(request: Request, userId: string) {
   if (!request.body) {

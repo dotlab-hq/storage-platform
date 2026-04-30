@@ -5,11 +5,10 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import svgr from 'vite-plugin-svgr'
 import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-// import { nitro } from 'nitro/vite'
 
 const config = defineConfig({
   plugins: [
-    cloudflare(),
+    cloudflare({ viteEnvironment: { name: 'ssr' } }),
     devtools(),
     tailwindcss(),
     tanstackStart(),
@@ -18,6 +17,7 @@ const config = defineConfig({
   ],
   optimizeDeps: {
     disabled: true,
+    noDiscovery: true,
   },
   build: {
     rollupOptions: {

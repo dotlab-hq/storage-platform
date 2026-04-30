@@ -7,6 +7,9 @@ import {
 } from '@/lib/s3-provider-client'
 import { DEFAULT_FILE_SIZE_LIMIT_BYTES } from '@/lib/storage-quota-constants'
 import { logActivity } from '@/lib/activity'
+import { db } from '@/db'
+import { userStorage } from '@/db/schema/storage'
+import { eq } from 'drizzle-orm'
 
 const PROXY_UPLOAD_URL = '/api/storage/upload/proxy'
 
@@ -18,36 +21,25 @@ const PrepareUploadTargetSchema = z.object({
   fileSize: z.number().nonnegative(),
 })
 
-export async function assertFileSizeWithinLimit(
-  userId: string,
-  fileSize: number,
-): Promise<void> {
-  const [{ db }, { userStorage }] = await Promise.all([
-    import('@/db'),
-    import('@/db/schema/storage'),
-  ])
-  const { eq } = await import('drizzle-orm')
-  const storageRows = await db
-    .select({ fileSizeLimit: userStorage.fileSizeLimit })
-    .from(userStorage)
-    .where(eq(userStorage.userId, userId))
-    .limit(1)
-  const fileSizeLimit =
-    storageRows[0]?.fileSizeLimit ?? DEFAULT_FILE_SIZE_LIMIT_BYTES
-  if (fileSize > fileSizeLimit) {
-    throw new Error(
-      `File exceeds your maximum allowed size (${fileSizeLimit} bytes)`,
-    )
-  }
-}
-
 export const prepareUploadTarget = createServerFn({ method: 'POST' })
   .inputValidator((data: z.infer<typeof PrepareUploadTargetSchema>) =>
     PrepareUploadTargetSchema.parse(data),
   )
   .handler(async ({ data }) => {
     const authUser = await getAuthenticatedUser()
-    await assertFileSizeWithinLimit(authUser.id, data.fileSize)
+
+    const storageRows = await db
+      .select({ fileSizeLimit: userStorage.fileSizeLimit })
+      .from(userStorage)
+      .where(eq(userStorage.userId, authUser.id))
+      .limit(1)
+    const fileSizeLimit =
+      storageRows[0]?.fileSizeLimit ?? DEFAULT_FILE_SIZE_LIMIT_BYTES
+    if (data.fileSize > fileSizeLimit) {
+      throw new Error(
+        `File exceeds your maximum allowed size (${fileSizeLimit} bytes)`,
+      )
+    }
 
     const provider = await selectProviderForUpload(data.fileSize, authUser.id)
 
