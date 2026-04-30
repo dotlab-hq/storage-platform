@@ -30,8 +30,8 @@ export const getDownloadProxyUrl = createServerFn({ method: 'POST' })
       userId: authUser.id,
       eventType: 's3_request',
       resourceType: 'file',
-      objectKey: data.objectKey,
-      metadata: {
+      resourceId: data.objectKey,
+      meta: {
         action: 'download_proxy',
         providerId: data.providerId,
       },

@@ -22,7 +22,7 @@ function webStreamFromBody(body: unknown): ReadableStream<Uint8Array> {
 
 export async function handleProxyDownloadRequest(
   request: Request,
-  userId: string,
+  _userId: string,
 ): Promise<Response> {
   // Parse object key and provider from URL or headers
   const url = new URL(request.url)
@@ -79,7 +79,7 @@ export async function handleProxyDownloadRequest(
 
 export async function handleProxyDownloadRange(
   request: Request,
-  userId: string,
+  _userId: string,
 ): Promise<Response> {
   const url = new URL(request.url)
   const objectKey = url.searchParams.get('key')
@@ -105,7 +105,7 @@ export async function handleProxyDownloadRange(
 
   if (!rangeHeader) {
     // Return full object
-    return handleProxyDownloadRequest(request, userId)
+    return handleProxyDownloadRequest(request, _userId)
   }
 
   // Parse Range header

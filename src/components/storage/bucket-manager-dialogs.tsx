@@ -46,7 +46,7 @@ export function BucketManagerDialogs(props: BucketManagerDialogsProps) {
         onCopy={props.onCopy}
         onRotate={
           props.activeCredentialsBucket
-            ? async () => props.onRotate(props.activeCredentialsBucket)
+            ? async () => props.onRotate(props.activeCredentialsBucket!)
             : undefined
         }
         onOpenChange={(open) => {

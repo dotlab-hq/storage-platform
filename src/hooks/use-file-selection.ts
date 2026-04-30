@@ -5,7 +5,6 @@ import type { StorageItem } from '@/types/storage'
 
 export function useFileSelection(items: StorageItem[]) {
   const selectedIds = useFileSelectionStore((s) => s.selectedIds)
-  const lastSelectedId = useFileSelectionStore((s) => s.lastSelectedId)
   const storeSelect = useFileSelectionStore((s) => s.select)
   const storeToggleSelect = useFileSelectionStore((s) => s.toggleSelect)
   const storeClearSelection = useFileSelectionStore((s) => s.clearSelection)

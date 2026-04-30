@@ -13,9 +13,6 @@ export function getParentPath(relativePath: string): string {
   return idx === -1 ? '' : relativePath.slice(0, idx)
 }
 
-// Track folders created during this upload session to avoid duplicates
-const pendingFolderCreates = new Map<string, Promise<string>>()
-
 export async function resolvePathFolderId(
   path: string,
   rootFolderId: string,

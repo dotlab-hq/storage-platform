@@ -11,10 +11,6 @@ export interface ProxyDownloadOptions {
   rangeEnd?: number
 }
 
-function getErrorMessage(error: unknown, fallback: string): string {
-  return error instanceof Error ? error.message : fallback
-}
-
 export async function downloadViaProxy(
   options: ProxyDownloadOptions,
 ): Promise<ReadableStream<Uint8Array>> {
@@ -72,7 +68,7 @@ function wrapStreamWithProgress(
   let loaded = 0
 
   return new ReadableStream({
-    async start(controller) {
+    async start(_controller) {
       onProgress(0, total)
     },
     async pull(controller) {

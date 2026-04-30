@@ -17,7 +17,7 @@ const GetPresignedUrlSchema = z.object({
 
 export const getFilePresignedUrlFn = createServerFn({ method: 'GET' })
   .inputValidator(GetPresignedUrlSchema)
-  .handler(async ({ data, context }) => {
+  .handler(async ({ data }) => {
     const user = await getAuthenticatedUser()
     return withActivityLogging(
       user.id,
@@ -72,6 +72,7 @@ export const getFilePresignedUrlFn = createServerFn({ method: 'GET' })
             new GetObjectCommand({
               Bucket: fileData.bucketName,
               Key: objectKey,
+
               ResponseContentDisposition: `inline; filename="${fileData.name}"`,
             }),
             { expiresIn: 3600 },
@@ -102,7 +103,7 @@ export const getFilePresignedUrlFn = createServerFn({ method: 'GET' })
 
 export const getOwnedFileRedirectUrlFn = createServerFn({ method: 'GET' })
   .inputValidator(GetPresignedUrlSchema)
-  .handler(async ({ data, context }) => {
+  .handler(async ({ data }) => {
     const user = await getAuthenticatedUser()
     return withActivityLogging(
       user.id,
@@ -151,9 +152,19 @@ export const getOwnedFileRedirectUrlFn = createServerFn({ method: 'GET' })
 
         let viewUrl: string
         try {
-          const { client } = await getProviderClientById(fileData.providerId)
+          const { client, region } = await getProviderClientById(fileData.providerId)
 
           const objectKey = fileData.objectKey
+          console.log(
+            '[getOwnedFileRedirectUrlFn] Generating view URL with region:',
+            region,
+            {
+              fileId,
+              providerId: fileData.providerId,
+              bucketName: fileData.bucketName,
+              objectKey,
+            },
+          )
           viewUrl = await getSignedUrl(
             client,
             new GetObjectCommand({

@@ -83,7 +83,7 @@ export function useDragDrop(
 
         setUploads((prev) => [...newUploads, ...prev])
 
-        const tasks = newUploads.map((u) => ({ id: u.id, file: u.file }))
+        const tasks = newUploads.map((u) => ({ id: u.id, file: u.file! }))
         const successCount = await uploadBatch(
           tasks,
           userId,

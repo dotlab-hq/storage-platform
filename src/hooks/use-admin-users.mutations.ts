@@ -46,6 +46,8 @@ export function useAdminUsersMutations() {
       return { previousUsers }
     },
     onError: (err, variables, context) => {
+      void err
+      void variables
       // If the mutation fails, revert to previous value
       if (context?.previousUsers) {
         queryClient.setQueryData(ADMIN_USERS_QUERY_KEY, context.previousUsers)
@@ -84,6 +86,8 @@ export function useAdminUsersMutations() {
       return { previousUsers }
     },
     onError: (err, variables, context) => {
+      void err
+      void variables
       if (context?.previousUsers) {
         queryClient.setQueryData(ADMIN_USERS_QUERY_KEY, context.previousUsers)
       }
@@ -112,6 +116,8 @@ export function useAdminUsersMutations() {
       return { previousUsers }
     },
     onError: (err, variables, context) => {
+      void err
+      void variables
       if (context?.previousUsers) {
         queryClient.setQueryData(ADMIN_USERS_QUERY_KEY, context.previousUsers)
       }
@@ -150,6 +156,8 @@ export function useAdminUsersMutations() {
       return { previousUsers }
     },
     onError: (err, variables, context) => {
+      void err
+      void variables
       if (context?.previousUsers) {
         queryClient.setQueryData(ADMIN_USERS_QUERY_KEY, context.previousUsers)
       }
@@ -188,6 +196,8 @@ export function useAdminUsersMutations() {
       return { previousUsers }
     },
     onError: (err, variables, context) => {
+      void err
+      void variables
       if (context?.previousUsers) {
         queryClient.setQueryData(ADMIN_USERS_QUERY_KEY, context.previousUsers)
       }

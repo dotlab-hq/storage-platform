@@ -49,6 +49,7 @@ export function UserRowActionsDropdown({
   onBan,
   onDelete,
   onUpdateStorage,
+  onUpdateFileSizeLimit,
 }: UserRowActionsDropdownProps) {
   const [showStorageDialog, setShowStorageDialog] = useState(false)
   const [showFileSizeDialog, setShowFileSizeDialog] = useState(false)

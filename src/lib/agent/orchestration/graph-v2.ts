@@ -5,8 +5,8 @@ import {
   MessagesValue,
   StateSchema,
 } from '@langchain/langgraph'
+import { ToolNode } from '@langchain/langgraph/prebuilt'
 import type { BaseMessage } from '@langchain/core/messages'
-import { ToolNode } from '@langchain/langgraph'
 import { z } from 'zod'
 
 /**
@@ -88,11 +88,13 @@ export function buildSupervisorGraph(
 
       const { AIMessage } = await import('@langchain/core/messages')
       const aiMsg = new AIMessage(response.content || '')
-      // @ts-ignore
+      // @ts-ignore - tool_calls is added by bindTools
       aiMsg.tool_calls = response.tool_calls
 
       return {
         messages: [...messages, aiMsg],
+        next: null,
+        iteration: state.iteration,
       }
     })
   })
@@ -126,7 +128,8 @@ export function buildSupervisorGraph(
   graph.addConditionalEdges('supervisor', (state: OrchestrationState) => {
     if (state.iteration >= 10) return END
     const lastMsg = state.messages[state.messages.length - 1]
-    if (lastMsg?._getType() === 'ai' && !lastMsg?.tool_calls?.length) return END
+    if (lastMsg?._getType() === 'ai' && !(lastMsg as any)?.tool_calls?.length)
+      return END
     // default: loop back to supervisor for next decision
     return 'supervisor'
   })

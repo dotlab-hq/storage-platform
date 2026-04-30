@@ -2,8 +2,6 @@ import { db } from '@/db'
 import { userActivity, activityTag } from '@/db/schema/activity'
 import { log } from '@/lib/logger'
 import { requestContext } from '@/lib/telemetry'
-import { eq } from 'drizzle-orm'
-import type { AnySQLiteColumn } from 'drizzle-orm/sqlite-core'
 
 export type ActivityEventType =
   | 'file_upload'
@@ -11,6 +9,8 @@ export type ActivityEventType =
   | 'file_delete'
   | 'file_restore'
   | 'file_move'
+  | 'file_copy'
+  | 'file_view'
   | 'file_rename'
   | 'folder_create'
   | 'folder_delete'
@@ -134,6 +134,7 @@ function isApiEvent(eventType: ActivityEventType): boolean {
 
 // Helper to extract request context from Nitro event if available
 export function getContextFromEvent(event: any): {
+  requestId?: string
   userId?: string
   ipAddress?: string
   userAgent?: string

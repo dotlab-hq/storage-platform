@@ -72,7 +72,6 @@ async function uploadFolderFiles({
       if (!fileData) break
 
       let attempt = 0
-      let lastError = 'Folder file upload failed'
       while (attempt < maxAttempts) {
         attempt += 1
         try {
@@ -97,8 +96,7 @@ async function uploadFolderFiles({
           updateFolderProgress(succeeded)
           break
         } catch (error: unknown) {
-          lastError =
-            error instanceof Error ? error.message : 'Folder file upload failed'
+          // ignore error and retry
         }
       }
     }

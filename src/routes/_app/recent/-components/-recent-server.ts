@@ -52,5 +52,8 @@ export const getRecentFileUrlFn = createServerFn({ method: 'GET' })
     const result = await getFilePresignedUrlFn({
       data: { fileId: data.fileId },
     })
+    if (!result || typeof result.url !== 'string') {
+      throw new Error('Failed to generate presigned URL')
+    }
     return { url: result.url }
   })

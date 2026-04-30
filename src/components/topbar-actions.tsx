@@ -152,14 +152,9 @@ type UploadMenuProps = Omit<TopbarActionsProps, 'onSearch' | 'isReadOnly'> & {
 
 function UploadMenu({
   onNewFile,
-  onNewFolder,
-  uploadFilesOpen,
   setUploadFilesOpen,
-  uploadFolderOpen,
   setUploadFolderOpen,
-  urlImportOpen,
   setUrlImportOpen,
-  newFolderOpen,
   setNewFolderOpen,
 }: UploadMenuProps) {
   return (

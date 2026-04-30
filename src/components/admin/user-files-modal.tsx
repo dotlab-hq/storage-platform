@@ -17,6 +17,7 @@ import { FileGrid } from '@/components/storage/file-grid'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { useUserContents } from './use-user-contents'
 import type { AdminUser } from '@/lib/storage-provider-queries'
+import type { StorageItem } from '@/types/storage'
 
 type UserFilesModalProps = {
   user: AdminUser
@@ -36,18 +37,13 @@ export function UserFilesModal({
     contents.openFolder(folderId)
   }
 
-  const handleDoubleClick = (
-    item: Parameters<typeof contents.openFolder>[0],
-  ) => {
+  const handleDoubleClick = (item: StorageItem) => {
     if (item.type === 'folder') {
       contents.openFolder(item.id)
     }
   }
 
-  const handleContextAction = (
-    _action: string,
-    _item: Parameters<typeof contents.openFolder>[0],
-  ) => {
+  const handleContextAction = (_action: string, _item: StorageItem) => {
     // Admin read-only: allow download/copy-link only if needed
     // For now, pass through or disable
   }

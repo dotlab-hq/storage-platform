@@ -12,7 +12,7 @@ export class StorageAgent {
   description = 'File storage operations: read, write, list, search, delete'
 
   getTools(): StructuredTool[] {
-    return storageTools
+    return storageTools.map((t) => t.tool)
   }
 
   createNode() {

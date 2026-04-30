@@ -99,10 +99,9 @@ export function useQuillEditor(options: {
           ],
         })
 
-        const toolbar = quillRef.current.getModule('toolbar') as Record<
-          string,
-          (callback: () => void) => void
-        >
+        const toolbar = quillRef.current.getModule('toolbar') as {
+          addHandler?: (name: string, handler: () => void) => void
+        }
         toolbar?.addHandler?.('image', () => {
           setMediaKind('image')
           mediaInputRef.current?.click()

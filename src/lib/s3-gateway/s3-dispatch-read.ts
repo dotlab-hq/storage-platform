@@ -28,6 +28,35 @@ import {
   ensureAccess,
   resolveAuthorizedBucket,
 } from '@/lib/s3-gateway/s3-dispatch-context'
+import type { S3ObjectItem } from '@/lib/s3-gateway/s3-xml'
+import {
+  xmlResponse,
+  s3ErrorResponse,
+  listBucketsXml,
+  listObjectsXml,
+  listObjectsV2Xml,
+} from '@/lib/s3-gateway/s3-xml'
+import {
+  bucketLocationXml,
+  bucketVersioningXml,
+  bucketCorsXml,
+  listMultipartUploadsXml,
+  listPartsXml,
+} from '@/lib/s3-gateway/s3-control-xml'
+import {
+  getBucketLocation,
+  getBucketVersioning,
+  getBucketPolicy,
+  getBucketCors,
+  listMultipartUploads,
+  listMultipartParts,
+} from '@/lib/s3-gateway/s3-bucket-controls'
+import { listObjectVersionsXml } from '@/lib/s3-gateway/s3-versioning-xml'
+import { listVirtualBuckets } from '@/lib/s3-gateway/virtual-buckets.queries.server'
+import {
+  decodeContinuationToken,
+  parseMaxKeys,
+} from '@/lib/s3-gateway/s3-pagination'
 
 function applyDelimiterProjection(
   items: S3ObjectItem[],

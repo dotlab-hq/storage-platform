@@ -20,7 +20,7 @@ export const abortFolderUpload = createServerFn({ method: 'POST' })
   .inputValidator((d: z.infer<typeof AbortFolderUploadSchema>) =>
     AbortFolderUploadSchema.parse(d),
   )
-  .handler(async ({ data, context }) => {
+  .handler(async ({ data }) => {
     const authUser = await getAuthenticatedUser()
     return withActivityLogging(
       authUser.id,
@@ -70,7 +70,7 @@ export const initFolderUpload = createServerFn({ method: 'POST' })
   .inputValidator((d: z.infer<typeof FolderUploadInitSchema>) =>
     FolderUploadInitSchema.parse(d),
   )
-  .handler(async ({ data, context }) => {
+  .handler(async ({ data }) => {
     const authUser = await getAuthenticatedUser()
     return withActivityLogging(
       authUser.id,
@@ -146,7 +146,7 @@ export const completeFolderUpload = createServerFn({ method: 'POST' })
   .inputValidator((d: z.infer<typeof CompleteFolderUploadSchema>) =>
     CompleteFolderUploadSchema.parse(d),
   )
-  .handler(async ({ data, context }) => {
+  .handler(async ({ data }) => {
     const authUser = await getAuthenticatedUser()
     return withActivityLogging(
       authUser.id,

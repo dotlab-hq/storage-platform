@@ -117,7 +117,6 @@ export function ShareModal({
     try {
       const data = await postShareAction({
         action: 'create',
-        userId,
         itemId: item.id,
         itemType: item.type,
         consentedPrivatelyUnlock,
@@ -141,7 +140,6 @@ export function ShareModal({
     try {
       await postShareAction({
         action: 'toggle',
-        userId,
         linkId: link.id,
         isActive: false,
       })

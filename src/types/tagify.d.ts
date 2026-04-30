@@ -7,12 +7,32 @@ declare module '@yaireo/tagify' {
       class?: string
       closeOnSelect?: boolean
     }
-    // Add other options as needed
+    templates?: {
+      dropdownItemNoMatch?: (data: { value: string }) => string
+      dropdownItem?: (data: { value: string; down?: boolean }) => string
+      tag?: (data: { value: string }) => string
+    }
+    enforceWhitelist?: boolean
+    keepInvalidTags?: boolean
+    maxTags?: number
+    editTags?: number
+    delimiters?: string | null
   }
+
+  export interface TagData {
+    value: string
+    [key: string]: unknown
+  }
+
   export class Tagify {
-    constructor(select: HTMLSelectElement, options?: TagifyOptions)
+    constructor(element: HTMLElement, options?: TagifyOptions)
     destroy(): void
-    // other methods...
+    removeAllTags(): void
+    addTags(tags: string | string[]): void
+    get value(): TagData[]
+    on(event: string, callback: (...args: unknown[]) => void): void
+    off(event: string, callback?: (...args: unknown[]) => void): void
   }
+
   export default Tagify
 }

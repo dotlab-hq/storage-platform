@@ -1,12 +1,13 @@
 import type { BaseMessage } from '@langchain/core/messages'
-import type { ToolCall } from '@langchain/core/tools'
-import {
-  HumanMessage,
-  AIMessage,
-  SystemMessage,
-  ToolMessage,
-} from '@langchain/core/messages'
+import { SystemMessage } from '@langchain/core/messages'
 import { MemoryManager } from '@/lib/agent/memory-manager'
+
+// Local ToolCall type (importing from LangChain core causes issues)
+type ToolCall = {
+  id: string
+  name: string
+  args?: Record<string, unknown>
+}
 
 /**
  * Memory context injection and management for agents

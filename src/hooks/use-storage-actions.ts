@@ -33,7 +33,7 @@ export function useStorageActions(params: UseStorageActionsParams) {
   const [, startTransition] = useTransition()
 
   // Optimistic state for items during rename
-  const [optimisticItems, addOptimisticRename] = useOptimistic<
+  const [, addOptimisticRename] = useOptimistic<
     StorageItem[],
     { itemId: string; newName: string }
   >([], (currentItems, { itemId, newName }) =>
@@ -123,10 +123,13 @@ export function useStorageActions(params: UseStorageActionsParams) {
       }
       if (!userId) return
       try {
-        const { url } = await getFilePresignedUrlFn({
+        const result = await getFilePresignedUrlFn({
           data: { fileId: item.id },
         })
-        window.open(url, '_blank')
+        if (typeof result.url !== 'string') {
+          throw new Error('Invalid response from server')
+        }
+        window.open(result.url, '_blank')
       } catch (error) {
         toast.error(
           `Failed to open file: ${getErrorMessage(error, 'Unknown error')}`,
@@ -157,7 +160,7 @@ export function useStorageActions(params: UseStorageActionsParams) {
   )
 
   const handleContextAction = useCallback(
-    (action: ContextMenuAction, item: StorageItem) => {
+    async (action: ContextMenuAction, item: StorageItem) => {
       switch (action) {
         case 'open':
           void handleDoubleClick(item)
@@ -202,12 +205,14 @@ export function useStorageActions(params: UseStorageActionsParams) {
         case 'delete':
           onDeleteOpen(item)
           return
-        case 'download':
+        case 'download': {
           if (!userId || item.type !== 'file') return
-          void getFilePresignedUrlFn({ data: { fileId: item.id } })
-            .then(({ url }) => downloadFromUrl(url, item.name))
-            .catch(() => toast.error('Download failed'))
+          const { url } = await getFilePresignedUrlFn({
+            data: { fileId: item.id },
+          })
+          downloadFromUrl(url, item.name)
           return
+        }
         case 'generate-summary':
           if (!userId || item.type !== 'file') return
           void generateFileSummaryForItem(item.id)

@@ -7,6 +7,13 @@ import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 const config = defineConfig({
+  
+  server:{
+    port: 3000
+  },
+  resolve: {
+    tsconfigPaths: true,
+  },
   plugins: [
     cloudflare({ viteEnvironment: { name: 'ssr' } }),
     devtools(),
@@ -16,8 +23,8 @@ const config = defineConfig({
     viteReact(),
   ],
   optimizeDeps: {
-    disabled: true,
     noDiscovery: true,
+    include: undefined,
   },
   build: {
     rollupOptions: {

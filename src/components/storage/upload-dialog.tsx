@@ -125,7 +125,7 @@ export function FileUploadDialog({
     setSelectedFiles([])
     onOpenChange(false)
 
-    const tasks = newUploads.map((u) => ({ id: u.id, file: u.file }))
+    const tasks = newUploads.map((u) => ({ id: u.id, file: u.file! }))
     const count = await uploadBatch(
       tasks,
       uid,

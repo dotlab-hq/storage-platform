@@ -11,15 +11,13 @@ type ProviderClientConfig = {
   bucketName: string
   endpoint: string
   proxyUploadsEnabled: boolean
+  region: string
   client: S3Client
 }
 
 type ProviderRow = typeof storageProvider.$inferSelect
 
-// Default region to use when provider configuration does not specify a concrete AWS region.
-// Some providers (e.g., Backblaze B2) use "auto" to indicate the SDK should determine the region.
-// The S3 client, however, requires a valid region string. We map "auto" to this default.
-const DEFAULT_S3_REGION = 'auto'
+
 const INVALID_REGION_SENTINELS = new Set( [
   '',
   UNDETERMINED_PROVIDER_VALUE,
@@ -48,30 +46,15 @@ function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
   )
 
   // Region: if row.region is empty/undetermined, throw error
-  const rawRegion = safeTrim( row.region )
-  console.log(
-    '[fromProviderRow] Raw region from DB:',
-    JSON.stringify( rawRegion ),
-  )
+  const region = safeTrim( row.region )
 
-  // If the region is empty or marked as a sentinel value, fall back to the default.
-  // Additionally, treat "auto" as a special case that should resolve to the default region.
-  let region: string
-  if (
-    !rawRegion ||
-    rawRegion.length === 0 ||
-    INVALID_REGION_SENTINELS.has( rawRegion.toLowerCase() )
-  ) {
-    console.warn(
-      `[fromProviderRow] Provider "${row.name}" missing region, using default ${DEFAULT_S3_REGION}`,
+  if ( INVALID_REGION_SENTINELS.has( region ) ) {
+    throw new Error(
+      `Storage provider "${row.name}" has invalid region configuration: "${row.region}". ` +
+      `Please update the provider settings with a valid region.`,
     )
-    region = DEFAULT_S3_REGION
-  } else if ( rawRegion.toLowerCase() === 'auto' ) {
-    // "auto" is a common placeholder for providers that determine region automatically.
-    region = DEFAULT_S3_REGION
-  } else {
-    region = rawRegion
   }
+
   console.log( '[fromProviderRow] Resolved region:', region )
 
   // Endpoint: must be in DB
@@ -100,6 +83,7 @@ function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
     client = new S3Client( {
       region,
       endpoint,
+
       forcePathStyle: true,
       bucketEndpoint: false,
       requestChecksumCalculation: 'WHEN_REQUIRED',
@@ -119,6 +103,7 @@ function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
 
   return {
     providerId: row.id,
+    region,
     providerName: row.name,
     bucketName: row.bucketName,
     endpoint,
@@ -163,6 +148,7 @@ export async function getSystemProviderClientById(
   if ( providerRows.length === 0 ) {
     throw new Error( 'Storage provider not found' )
   }
+
 
   return fromProviderRow( providerRows[0] )
 }

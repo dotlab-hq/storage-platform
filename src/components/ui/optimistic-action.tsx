@@ -97,7 +97,7 @@ export function ActionStatus(props: ActionStatusProps) {
   return null
 }
 
-interface InlineActionButtonProps<T> {
+interface InlineActionButtonProps {
   onClick: () => void
   isPending: boolean
   isSuccess?: boolean
@@ -109,7 +109,7 @@ interface InlineActionButtonProps<T> {
   children: React.ReactNode
 }
 
-export function InlineActionButton<T>(props: InlineActionButtonProps<T>) {
+export function InlineActionButton(props: InlineActionButtonProps) {
   const {
     onClick,
     isPending,
@@ -117,7 +117,6 @@ export function InlineActionButton<T>(props: InlineActionButtonProps<T>) {
     error = null,
     disabled = false,
     variant = 'default',
-    size = 'sm',
     className = '',
     children,
   } = props
