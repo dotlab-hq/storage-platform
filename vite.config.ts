@@ -73,6 +73,7 @@ const config = defineConfig({
   },
   plugins: [
     cloudflare({
+      
       viteEnvironment: { name: 'ssr' },
     }),
     devtools(),

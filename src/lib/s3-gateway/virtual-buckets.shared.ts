@@ -8,26 +8,26 @@ import {
   isDefaultAssetsBucketName,
 } from '@/lib/storage/assets-bucket'
 
-export function toBucketItem(row: {
+export function toBucketItem( row: {
   id: string
   name: string
   mappedFolderId: string | null
   isActive: boolean
   createdAt: Date
-}): S3BucketItem {
+} ): S3BucketItem {
   return {
     id: row.id,
     name: row.name,
     mappedFolderId: row.mappedFolderId,
     isActive: row.isActive,
-    isDefault: isDefaultAssetsBucketName(row.name),
+    isDefault: isDefaultAssetsBucketName( row.name ),
     createdAt: row.createdAt.toISOString(),
   }
 }
 
-export async function getActiveBucketRow(userId: string, bucketName: string) {
+export async function getActiveBucketRow( userId: string, bucketName: string ) {
   const rows = await db
-    .select({
+    .select( {
       userId: virtualBucket.userId,
       id: virtualBucket.id,
       name: virtualBucket.name,
@@ -37,22 +37,22 @@ export async function getActiveBucketRow(userId: string, bucketName: string) {
       region: virtualBucket.region,
       blockPublicAccess: virtualBucket.blockPublicAccess,
       createdAt: virtualBucket.createdAt,
-    })
-    .from(virtualBucket)
+    } )
+    .from( virtualBucket )
     .where(
       and(
-        eq(virtualBucket.userId, userId),
-        eq(virtualBucket.name, bucketName),
-        eq(virtualBucket.isActive, true),
+        eq( virtualBucket.userId, userId ),
+        eq( virtualBucket.name, bucketName ),
+        eq( virtualBucket.isActive, true ),
       ),
     )
-    .limit(1)
+    .limit( 1 )
 
   return rows[0] ?? null
 }
 
-export function assertMutableBucket(bucketName: string): void {
-  if (isDefaultAssetsBucketName(bucketName)) {
+export function assertMutableBucket( bucketName: string ): void {
+  if ( isDefaultAssetsBucketName( bucketName ) ) {
     throw new Error(
       `Bucket "${DEFAULT_ASSETS_BUCKET_NAME}" is reserved for attachments and cannot be deleted or emptied.`,
     )
@@ -62,23 +62,23 @@ export function assertMutableBucket(bucketName: string): void {
 function resolveCredentialSecret(): string {
   const secret =
     process.env.S3_GATEWAY_CREDENTIAL_SECRET ?? process.env.BETTER_AUTH_SECRET
-  if (!secret) {
-    throw new Error('Missing credential signing secret')
+  if ( !secret ) {
+    throw new Error( 'Missing credential signing secret' )
   }
   return secret
 }
 
-function normalizeEndpoint(rawEndpoint: string): string {
+function normalizeEndpoint( rawEndpoint: string ): string {
   const trimmed = rawEndpoint.trim()
-  if (trimmed.length === 0) {
-    throw new Error('S3 compatibility endpoint is empty')
+  if ( trimmed.length === 0 ) {
+    throw new Error( 'S3 compatibility endpoint is empty' )
   }
 
-  const withoutTrailingSlash = trimmed.endsWith('/')
-    ? trimmed.slice(0, -1)
+  const withoutTrailingSlash = trimmed.endsWith( '/' )
+    ? trimmed.slice( 0, -1 )
     : trimmed
 
-  if (withoutTrailingSlash.endsWith('/api/storage/s3')) {
+  if ( withoutTrailingSlash.endsWith( '/api/storage/s3' ) ) {
     throw new Error(
       'S3_COMPAT_ENDPOINT must be the S3 root endpoint, not /api/storage/s3',
     )
@@ -92,12 +92,12 @@ function resolveCompatEndpoint(): string {
     process.env.S3_COMPAT_ENDPOINT ??
     process.env.PUBLIC_S3_COMPAT_ENDPOINT ??
     'https://storage.wpsadi.dev'
-  return normalizeEndpoint(candidate)
+  return normalizeEndpoint( candidate )
 }
 
 function resolveCompatRegion(): string {
   // Hardcoded default - no environment variable lookup
-  return 'us-east-1'
+  return 'auto'
 }
 
 export function createBucketCredentials(
@@ -107,10 +107,10 @@ export function createBucketCredentials(
   credentialVersion: number,
   region?: string,
 ): S3BucketCredentials {
-  const digest = createHmac('sha256', resolveCredentialSecret())
-    .update(`${userId}:${bucketId}:${bucketName}:${credentialVersion}`)
-    .digest('hex')
-  const compactBucketId = bucketId.replaceAll('-', '').slice(0, 20)
+  const digest = createHmac( 'sha256', resolveCredentialSecret() )
+    .update( `${userId}:${bucketId}:${bucketName}:${credentialVersion}` )
+    .digest( 'hex' )
+  const compactBucketId = bucketId.replaceAll( '-', '' ).slice( 0, 20 )
 
   // Always ensure region is non-empty: use provided (trimmed), else fallback
   const effectiveRegion =
@@ -118,7 +118,7 @@ export function createBucketCredentials(
 
   return {
     accessKeyId: `sp_${compactBucketId}`,
-    secretAccessKey: `${digest}${digest.slice(0, 24)}`,
+    secretAccessKey: `${digest}${digest.slice( 0, 24 )}`,
     bucket: bucketName,
     endpoint: resolveCompatEndpoint(),
     region: effectiveRegion,

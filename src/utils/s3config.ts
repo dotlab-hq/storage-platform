@@ -9,8 +9,8 @@ import { requireAuthenticatedServerOnlySession } from '@/lib/server-auth.server'
 
 const BUCKET_NAME = 'dot-storage'
 
-const s3Client = new S3Client({
-  region: 'us-east-1', // hardcoded default - no env lookup
+const s3Client = new S3Client( {
+  region: 'auto', // hardcoded default - no env lookup
   endpoint: process.env.S3_ENDPOINT!,
   forcePathStyle: true,
   bucketEndpoint: false,
@@ -19,39 +19,39 @@ const s3Client = new S3Client({
     accessKeyId: process.env.S3_ACCESS_KEY_ID!,
     secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
   },
-})
+} )
 
 export const saveFileToS3 = createServerOnlyFn(
-  async (file: File, key: string) => {
+  async ( file: File, key: string ) => {
     await requireAuthenticatedServerOnlySession()
-    const command = new PutObjectCommand({
+    const command = new PutObjectCommand( {
       Bucket: BUCKET_NAME,
       Key: key,
       Body: file,
       ContentType: file.type,
-    })
+    } )
 
-    await s3Client.send(command)
+    await s3Client.send( command )
   },
 )
 
-export const getFileFromS3 = createServerOnlyFn(async (key: string) => {
+export const getFileFromS3 = createServerOnlyFn( async ( key: string ) => {
   await requireAuthenticatedServerOnlySession()
-  const command = new GetObjectCommand({
+  const command = new GetObjectCommand( {
     Bucket: BUCKET_NAME,
     Key: key,
-  })
+  } )
 
-  const response = await s3Client.send(command)
+  const response = await s3Client.send( command )
   return response.Body
-})
+} )
 
-export const deleteFileFromS3 = createServerOnlyFn(async (key: string) => {
+export const deleteFileFromS3 = createServerOnlyFn( async ( key: string ) => {
   await requireAuthenticatedServerOnlySession()
-  const command = new DeleteObjectCommand({
+  const command = new DeleteObjectCommand( {
     Bucket: BUCKET_NAME,
     Key: key,
-  })
+  } )
 
-  await s3Client.send(command)
-})
+  await s3Client.send( command )
+} )

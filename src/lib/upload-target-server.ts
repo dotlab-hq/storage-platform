@@ -22,8 +22,18 @@ export async function assertFileSizeWithinLimit(
   userId: string,
   fileSize: number,
 ): Promise<void> {
-  const { getUserFileSizeLimit } = await import('./upload-target-db.server')
-  const fileSizeLimit = await getUserFileSizeLimit(userId)
+  const [{ db }, { userStorage }] = await Promise.all([
+    import('@/db'),
+    import('@/db/schema/storage'),
+  ])
+  const { eq } = await import('drizzle-orm')
+  const storageRows = await db
+    .select({ fileSizeLimit: userStorage.fileSizeLimit })
+    .from(userStorage)
+    .where(eq(userStorage.userId, userId))
+    .limit(1)
+  const fileSizeLimit =
+    storageRows[0]?.fileSizeLimit ?? DEFAULT_FILE_SIZE_LIMIT_BYTES
   if (fileSize > fileSizeLimit) {
     throw new Error(
       `File exceeds your maximum allowed size (${fileSizeLimit} bytes)`,
@@ -40,12 +50,6 @@ export const prepareUploadTarget = createServerFn({ method: 'POST' })
     await assertFileSizeWithinLimit(authUser.id, data.fileSize)
 
     const provider = await selectProviderForUpload(data.fileSize, authUser.id)
-    let result: {
-      uploadMethod: 'proxy' | 'direct'
-      providerId: string
-      uploadUrl?: string
-      presignedUrl?: string
-    }
 
     if (provider.proxyUploadsEnabled) {
       if (data.fileSize > MAX_PROXY_STREAM_UPLOAD_BYTES) {
@@ -54,51 +58,63 @@ export const prepareUploadTarget = createServerFn({ method: 'POST' })
         )
       }
 
-      result = {
-        uploadMethod: 'proxy',
+      const result = {
+        uploadMethod: 'proxy' as const,
         providerId: provider.providerId!,
         uploadUrl: PROXY_UPLOAD_URL,
       }
-    } else {
-      const { PutObjectCommand } = await import('@aws-sdk/client-s3')
-      const { getSignedUrl } = await import('@aws-sdk/s3-request-presigner')
 
-      let presignedUrl: string
-      try {
-        const directProvider = await getProviderClientById(provider.providerId)
-        const command = new PutObjectCommand({
-          Bucket: directProvider.bucketName,
-          Key: data.objectKey,
-          ContentType: data.contentType,
-        })
+      await logActivity({
+        userId: authUser.id,
+        eventType: 'file_upload',
+        tags: ['API', 'Upload'],
+        meta: {
+          objectKey: data.objectKey,
+          fileSize: data.fileSize,
+          contentType: data.contentType,
+          providerId: result.providerId,
+          uploadMethod: result.uploadMethod,
+        },
+      })
 
-        presignedUrl = await getSignedUrl(directProvider.client, command, {
-          expiresIn: 3600,
-        })
-      } catch (error) {
-        const message = error instanceof Error ? error.message : 'Unknown error'
-        console.error(
-          '[prepareUploadTarget] Failed to generate presigned URL:',
-          {
-            providerId: provider.providerId,
-            bucketName: provider.bucketName,
-            objectKey: data.objectKey,
-            error: message,
-            errorName: error instanceof Error ? error.name : undefined,
-          },
-        )
-        throw new Error(
-          `Failed to generate upload URL: ${message}. ` +
-            `Check that the storage provider (${provider.providerName}) is properly configured, ` +
-            `has valid credentials, and the region matches the bucket's location.`,
-        )
-      }
+      return result
+    }
 
-      result = {
-        uploadMethod: 'direct',
-        providerId: provider.providerId!,
-        presignedUrl,
-      }
+    const { PutObjectCommand } = await import('@aws-sdk/client-s3')
+    const { getSignedUrl } = await import('@aws-sdk/s3-request-presigner')
+
+    let presignedUrl: string
+    try {
+      const directProvider = await getProviderClientById(provider.providerId)
+      const command = new PutObjectCommand({
+        Bucket: directProvider.bucketName,
+        Key: data.objectKey,
+        ContentType: data.contentType,
+      })
+
+      presignedUrl = await getSignedUrl(directProvider.client, command, {
+        expiresIn: 3600,
+      })
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unknown error'
+      console.error('[prepareUploadTarget] Failed to generate presigned URL:', {
+        providerId: provider.providerId,
+        bucketName: provider.bucketName,
+        objectKey: data.objectKey,
+        error: message,
+        errorName: error instanceof Error ? error.name : undefined,
+      })
+      throw new Error(
+        `Failed to generate upload URL: ${message}. ` +
+          `Check that the storage provider (${provider.providerName}) is properly configured, ` +
+          `has valid credentials, and the region matches the bucket's location.`,
+      )
+    }
+
+    const result = {
+      uploadMethod: 'direct' as const,
+      providerId: provider.providerId!,
+      presignedUrl,
     }
 
     await logActivity({
