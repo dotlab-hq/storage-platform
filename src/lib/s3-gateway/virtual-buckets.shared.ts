@@ -113,8 +113,17 @@ export function createBucketCredentials(
   const compactBucketId = bucketId.replaceAll( '-', '' ).slice( 0, 20 )
 
   // Always ensure region is non-empty: use provided (trimmed), else fallback
-  const effectiveRegion =
-    region && region.trim() ? region.trim() : resolveCompatRegion()
+  // Handle null, undefined, empty string, and whitespace
+  const trimmedRegion = region ? region.trim() : ''
+  const effectiveRegion = trimmedRegion.length > 0 ? trimmedRegion : resolveCompatRegion()
+
+  if ( !effectiveRegion || effectiveRegion.trim().length === 0 ) {
+    throw new Error(
+      `Failed to resolve S3 region for bucket "${bucketName}". ` +
+      `Provided region: "${region}", Resolved to: "${effectiveRegion}". ` +
+      `This indicates a critical configuration issue.`,
+    )
+  }
 
   return {
     accessKeyId: `sp_${compactBucketId}`,

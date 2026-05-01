@@ -91,7 +91,13 @@ export async function getViewerClient(
   const credentials = await getVirtualBucketCredentials(user.id, bucketName)
 
   // Defensive: credentials must have a valid region
-  if (!credentials.region || !credentials.region.trim()) {
+  const regionTrimmed = credentials.region?.trim() ?? ''
+  if (!regionTrimmed) {
+    console.error('[getViewerClient] Invalid region for bucket:', {
+      bucketName,
+      credentialsRegion: credentials.region,
+      regionTrimmed,
+    })
     throw new Error(
       `S3 region is missing for bucket "${bucketName}". ` +
         `Provider region: ${JSON.stringify(credentials.region)}. ` +
@@ -110,17 +116,27 @@ export async function getViewerClient(
     getRequestOrigin(),
   )
 
-  return {
-    credentials,
-    client: new S3Client({
+  try {
+    return {
+      credentials,
+      client: new S3Client({
+        region: regionTrimmed,
+        endpoint: requestScopedEndpoint,
+        forcePathStyle: true,
+        credentials: {
+          accessKeyId: credentials.accessKeyId,
+          secretAccessKey: credentials.secretAccessKey,
+        },
+      }),
+    }
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Unknown error'
+    console.error('[getViewerClient] Failed to create S3Client:', {
+      bucketName,
       region: credentials.region,
-      endpoint: requestScopedEndpoint,
-      forcePathStyle: true,
-      credentials: {
-        accessKeyId: credentials.accessKeyId,
-        secretAccessKey: credentials.secretAccessKey,
-      },
-    }),
+      error: message,
+    })
+    throw error
   }
 }
 
