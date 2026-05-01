@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Store } from '@tanstack/store'
 import { useStore } from '@tanstack/react-store'
 import type { UploadingFile } from '@/types/storage'

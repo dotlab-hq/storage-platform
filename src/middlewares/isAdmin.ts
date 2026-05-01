@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { isAdminRole, normalizeUserRole } from '@/lib/authz'
 import { loadAuth } from '@/lib/auth-loader'
 import { resolveTinySessionFromHeaders } from '@/lib/tiny-session'

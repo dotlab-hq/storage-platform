@@ -11,54 +11,54 @@ import { listBucketItems } from '@/lib/s3-gateway/list-bucket-items.server'
 import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
 
-const InitialBucketViewSchema = z.object({
-  bucketName: z.string().trim().min(1),
+const InitialBucketViewSchema = z.object( {
+  bucketName: z.string().trim().min( 1 ),
   folderPath: z.string().optional(),
-})
+} )
 
-function normalizePrefix(rawFolderPath?: string): string {
-  if (!rawFolderPath) return ''
+function normalizePrefix( rawFolderPath?: string ): string {
+  if ( !rawFolderPath ) return ''
   const trimmed = rawFolderPath.trim()
-  if (!trimmed || trimmed === '/') return ''
-  const decoded = decodeURIComponent(trimmed)
-  return decoded.endsWith('/') ? decoded : `${decoded}/`
+  if ( !trimmed || trimmed === '/' ) return ''
+  const decoded = decodeURIComponent( trimmed )
+  return decoded.endsWith( '/' ) ? decoded : `${decoded}/`
 }
 
-const getInitialBucketViewFn = createServerFn({ method: 'GET' })
-  .inputValidator(InitialBucketViewSchema)
-  .handler(async ({ data }) => {
+const getInitialBucketViewFn = createServerFn( { method: 'GET' } )
+  .inputValidator( InitialBucketViewSchema )
+  .handler( async ( { data } ) => {
     const currentUser = await getAuthenticatedUser()
-    const prefix = normalizePrefix(data.folderPath)
-    const initialData = await listBucketItems({
+    const prefix = normalizePrefix( data.folderPath )
+    const initialData = await listBucketItems( {
       userId: currentUser.id,
       bucketName: data.bucketName,
       prefix,
       maxKeys: 500,
-    })
+    } )
 
     return {
       bucketName: data.bucketName,
       prefix,
       initialData,
     }
-  })
+  } )
 
-export const Route = createFileRoute('/_app/buckets/$bucketName')({
+export const Route = createFileRoute( '/_app/buckets/$bucketName' )( {
   server: {
     middleware: [isAuthenticatedMiddleware],
   },
-  loader: async ({ params }) => {
-    const bucketName = decodeURIComponent(params.bucketName)
-    return getInitialBucketViewFn({
+  loader: async ( { params } ) => {
+    const bucketName = decodeURIComponent( params.bucketName )
+    return getInitialBucketViewFn( {
       data: {
         bucketName,
-        folderPath: params._splat,
+        folderPath: undefined,
       },
-    })
+    } )
   },
   pendingComponent: () => <PageSkeleton variant="default" className="m-4" />,
   component: BucketFilesPage,
-})
+} )
 
 function BucketFilesPage() {
   const { bucketName, prefix, initialData } = Route.useLoaderData()

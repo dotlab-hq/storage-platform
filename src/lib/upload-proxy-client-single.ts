@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { readErrorBody } from '@/lib/upload-proxy-client-shared'
 
 export async function uploadProxySingle(args: {

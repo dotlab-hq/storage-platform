@@ -15,17 +15,17 @@ import { createExternalPassthroughTools } from './-external-tools'
 import { createFileRoute } from '@tanstack/react-router'
 import { json } from '@tanstack/react-start'
 
-export const Route = createFileRoute('/api/v1/chat/completions')({
+export const Route = createFileRoute( '/api/v1/chat/completions' )( {
   server: {
     handlers: {
       POST: POST,
       OPTIONS: OPTIONS,
     },
   },
-})
+} )
 
 export async function OPTIONS() {
-  return json(null, {
+  return json( null, {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -33,15 +33,15 @@ export async function OPTIONS() {
       'Access-Control-Max-Age': '86400',
     },
     status: 204,
-  })
+  } )
 }
 
-export async function POST({ request }: { request: Request }) {
+export async function POST( { request }: { request: Request } ) {
   try {
     // Check for required API keys early
     const googleApiKey = process.env.GOOGLE_API_KEY
-    if (!googleApiKey) {
-      console.error('[Chat] Missing GOOGLE_API_KEY environment variable')
+    if ( !googleApiKey ) {
+      console.error( '[Chat] Missing GOOGLE_API_KEY environment variable' )
       return json(
         {
           error: {
@@ -58,26 +58,26 @@ export async function POST({ request }: { request: Request }) {
     const body: unknown = await request.json()
     const bodyRecord =
       typeof body === 'object' && body !== null
-        ? (body as Record<string, unknown>)
+        ? ( body as Record<string, unknown> )
         : null
     const bodyTools = bodyRecord?.tools
     console.log(
       '[Chat] Full body (first 500 chars):',
-      JSON.stringify(body).slice(0, 500),
+      JSON.stringify( body ).slice( 0, 500 ),
     )
     console.log(
       '[Chat] body.tools is:',
       typeof bodyTools,
-      Array.isArray(bodyTools) ? 'array[' + bodyTools.length + ']' : bodyTools,
+      Array.isArray( bodyTools ) ? 'array[' + bodyTools.length + ']' : bodyTools,
     )
-    const validated = OpenAIChatCompletionsSchema.parse(body)
+    const validated = OpenAIChatCompletionsSchema.parse( body )
     // Authentication (session OR API key)
-    const currentUser = await getAuthenticatedUser().catch(() => null)
-    const apiKeyUser = await getUserFromApiKey(request.headers).catch(
+    const currentUser = await getAuthenticatedUser().catch( () => null )
+    const apiKeyUser = await getUserFromApiKey( request.headers ).catch(
       () => null,
     )
 
-    if (!currentUser && !apiKeyUser) {
+    if ( !currentUser && !apiKeyUser ) {
       return json(
         {
           error: {
@@ -96,11 +96,11 @@ export async function POST({ request }: { request: Request }) {
     // Internal tools stay available even when external tools are requested.
     const internalAvailableTools =
       apiKeyUser && apiKeyPermissions
-        ? getFilteredTools(apiKeyPermissions)
+        ? getFilteredTools( apiKeyPermissions )
         : getAllTools()
     const externalPassthroughTools = createExternalPassthroughTools(
       validated.tools,
-      internalAvailableTools.map((tool) => tool.name),
+      internalAvailableTools.map( ( tool ) => tool.name ),
     )
     const availableTools = [
       ...internalAvailableTools,
@@ -113,7 +113,7 @@ export async function POST({ request }: { request: Request }) {
       '| Auth:',
       apiKeyUser ? 'API Key' : 'Session',
       '| Tools:',
-      availableTools.map((t) => t.name),
+      availableTools.map( ( t ) => t.name ),
       '| Scopes:',
       apiKeyPermissions,
     )
@@ -121,20 +121,20 @@ export async function POST({ request }: { request: Request }) {
     // Determine threadId
     let threadId: string
     const inputThreadId = validated.thread_id || validated.threadId
-    if (inputThreadId) {
+    if ( inputThreadId ) {
       const existing = await db
-        .select({ id: chatThread.id })
-        .from(chatThread)
+        .select( { id: chatThread.id } )
+        .from( chatThread )
         .where(
           and(
-            eq(chatThread.id, inputThreadId),
-            eq(chatThread.userId, user.id),
-            eq(chatThread.isDeleted, false),
+            eq( chatThread.id, inputThreadId ),
+            eq( chatThread.userId, user.id ),
+            eq( chatThread.isDeleted, false ),
           ),
         )
-        .limit(1)
+        .limit( 1 )
 
-      if (existing.length === 0) {
+      if ( existing.length === 0 ) {
         return json(
           {
             error: {
@@ -150,8 +150,8 @@ export async function POST({ request }: { request: Request }) {
     } else {
       const now = new Date()
       const [newThread] = await db
-        .insert(chatThread)
-        .values({
+        .insert( chatThread )
+        .values( {
           userId: user.id,
           title: 'New Chat',
           latestPreview: null,
@@ -159,43 +159,43 @@ export async function POST({ request }: { request: Request }) {
           isDeleted: false,
           createdAt: now,
           updatedAt: now,
-        })
-        .returning({ id: chatThread.id })
+        } )
+        .returning( { id: chatThread.id } )
       threadId = newThread.id
     }
 
     // Convert messages to LangChain format
-    const langchainMessages = openAIMessagesToLangChain(validated.messages)
+    const langchainMessages = openAIMessagesToLangChain( validated.messages )
 
     // Insert user message
     const userMessageContent =
       validated.messages[validated.messages.length - 1].content
     const now = new Date()
     const [userMessage] = await db
-      .insert(chatMessage)
-      .values({
+      .insert( chatMessage )
+      .values( {
         threadId,
         userId: user.id,
         role: 'user',
         content:
           typeof userMessageContent === 'string'
             ? userMessageContent
-            : JSON.stringify(userMessageContent),
+            : JSON.stringify( userMessageContent ),
         regenerationCount: 0,
         isDeleted: false,
         createdAt: now,
         updatedAt: now,
-      })
-      .returning({ id: chatMessage.id })
+      } )
+      .returning( { id: chatMessage.id } )
 
     const requestedToolNames =
-      validated.tools?.map((t) => t.function.name) || []
-    console.log('[Chat] Requested tools:', requestedToolNames)
+      validated.tools?.map( ( t ) => t.function.name ) || []
+    console.log( '[Chat] Requested tools:', requestedToolNames )
 
     const stopSequences =
       typeof validated.stop === 'string'
         ? [validated.stop]
-        : Array.isArray(validated.stop)
+        : Array.isArray( validated.stop )
           ? validated.stop
           : undefined
 
@@ -216,59 +216,58 @@ export async function POST({ request }: { request: Request }) {
     // (DeepAgent is now deprecated in favor of supervisor orchestration)
     // Use header X-Use-Deep-Agent=true to force old DeepAgent (if needed)
     const useDeepAgentLegacy =
-      request.headers.get('X-Use-Deep-Agent') === 'true' ||
+      request.headers.get( 'X-Use-Deep-Agent' ) === 'true' ||
       bodyRecord?.deep_agent === true
 
     // Route to appropriate handler
-    if (validated.stream) {
-      if (useDeepAgentLegacy) {
+    if ( validated.stream ) {
+      if ( useDeepAgentLegacy ) {
         // Legacy DeepAgent (minimal math tools only)
-        return handleDeepAgentStream({
+        return handleDeepAgentStream( {
           messages: langchainMessages,
           params: llmParams,
           threadId,
           userId: user.id,
           userMessageId: userMessage.id,
           model: validated.model,
-        })
+        } )
       } else {
         // OpenAI-compatible streaming with iterative tool execution
-        return handleStreamingResponse({
+        return handleStreamingResponse( {
           messages: langchainMessages,
           params: llmParams,
           threadId,
           userId: user.id,
           userMessageId: userMessage.id,
           model: validated.model,
-          permissions: apiKeyPermissions,
-        })
+        } )
       }
     } else {
-      if (useDeepAgentLegacy) {
+      if ( useDeepAgentLegacy ) {
         console.warn(
           '[Chat] DeepAgent requested for non-streaming, using standard',
         )
       }
-      return handleNonStreamingResponse({
+      return handleNonStreamingResponse( {
         messages: langchainMessages,
         params: llmParams,
         threadId,
         userId: user.id,
         userMessageId: userMessage.id,
         model: validated.model,
-      })
+      } )
     }
-  } catch (error) {
+  } catch ( error ) {
     // Enhanced error handling - capture full error details
-    const err = error instanceof Error ? error : new Error(String(error))
+    const err = error instanceof Error ? error : new Error( String( error ) )
 
     // Log the complete error with stack for debugging
-    console.error('[OpenAI Chat] Request error:', {
+    console.error( '[OpenAI Chat] Request error:', {
       name: err.name,
       message: err.message,
       stack: err.stack,
       cause: err.cause,
-    })
+    } )
 
     // Return detailed error to client (in dev mode, include stack)
     const isDev = process.env.NODE_ENV === 'development'
@@ -278,7 +277,7 @@ export async function POST({ request }: { request: Request }) {
           message: err.message,
           type: 'invalid_request_error',
           code: 'server_error',
-          ...(isDev && { stack: err.stack, cause: err.cause }),
+          ...( isDev && { stack: err.stack, cause: err.cause } ),
         },
       },
       { status: 500 },

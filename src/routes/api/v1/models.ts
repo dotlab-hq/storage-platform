@@ -1,18 +1,17 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { json } from '@tanstack/react-start'
 
-// @ts-expect-error - route type will be generated after router rebuild
-export const Route = createFileRoute('/api/v1/models')({
+export const Route = createFileRoute( '/api/v1/models' )( {
   server: {
     handlers: {
       GET: GET,
       OPTIONS: OPTIONS,
     },
   },
-})
+} )
 
 export async function OPTIONS() {
-  return json(null, {
+  return json( null, {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, OPTIONS',
@@ -20,7 +19,7 @@ export async function OPTIONS() {
       'Access-Control-Max-Age': '86400',
     },
     status: 204,
-  })
+  } )
 }
 
 export async function GET() {

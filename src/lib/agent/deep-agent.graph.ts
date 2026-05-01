@@ -2,6 +2,9 @@ import { StateGraph, START, END } from '@langchain/langgraph'
 import type { DeepAgentState } from './deep-agent.state'
 import { DeepAgentStateSchema } from './deep-agent.state'
 import type { BaseMessage } from '@langchain/core/messages'
+import type { StructuredTool } from '@langchain/core/tools'
+import type { RunnableConfig } from '@langchain/core/runnables'
+import type { EnhancedTool } from '@/routes/_app/chat/tools/-tool-types'
 import {
   startNode,
   createAgentNode,
@@ -19,33 +22,35 @@ import {
  *   2. Tools execute
  *   3. Reflect: if more tools needed, back to agent; else END
  */
-export function createDeepAgentGraph(tools: any[] = []) {
+export function createDeepAgentGraph(
+  tools: Array<StructuredTool | EnhancedTool> = [],
+) {
   // Build graph with chaining to preserve node name types
-  const graph = new StateGraph(DeepAgentStateSchema)
-    .addNode('start', startNode)
-    .addNode('agent', createAgentNode(tools))
-    .addNode('tool', toolNode)
-    .addNode('reflect', reflectNode)
-    .addEdge(START, 'start')
-    .addEdge('start', 'agent')
-    .addConditionalEdges('agent', (state: DeepAgentState, _config?: any) => {
+  const graph = new StateGraph( DeepAgentStateSchema )
+    .addNode( 'start', startNode )
+    .addNode( 'agent', createAgentNode( tools ) )
+    .addNode( 'tool', toolNode )
+    .addNode( 'reflect', reflectNode )
+    .addEdge( START, 'start' )
+    .addEdge( 'start', 'agent' )
+    .addConditionalEdges( 'agent', ( state: DeepAgentState, _config?: RunnableConfig ) => {
       const step = state.metadata?.step
-      if (step === 'tool_execution') {
+      if ( step === 'tool_execution' ) {
         return 'tool'
       }
       return END
-    })
-    .addEdge('tool', 'reflect')
-    .addConditionalEdges('reflect', (state: DeepAgentState, _config?: any) => {
+    } )
+    .addEdge( 'tool', 'reflect' )
+    .addConditionalEdges( 'reflect', ( state: DeepAgentState, _config?: RunnableConfig ) => {
       const step = state.metadata?.step
-      if (step === 'thinking') {
+      if ( step === 'thinking' ) {
         return 'agent'
       }
       return END
-    })
+    } )
 
   // Compile with a name for checkpointing/debugging
-  return graph.compile({ name: 'deep_agent' })
+  return graph.compile( { name: 'deep_agent' } )
 }
 
 /**
@@ -53,13 +58,13 @@ export function createDeepAgentGraph(tools: any[] = []) {
  */
 export interface DeepAgentStreamChunk {
   type:
-    | 'step_start'
-    | 'step_complete'
-    | 'reasoning'
-    | 'tool_call'
-    | 'tool_result'
-    | 'final'
-    | 'error'
+  | 'step_start'
+  | 'step_complete'
+  | 'reasoning'
+  | 'tool_call'
+  | 'tool_result'
+  | 'final'
+  | 'error'
   step?: string
   reasoning?: string
   toolCall?: {
@@ -88,12 +93,12 @@ export interface DeepAgentStreamChunk {
  */
 export async function* runDeepAgent(
   messages: BaseMessage[],
-  tools: any[] = [],
+  tools: Array<StructuredTool | EnhancedTool> = [],
   signal?: AbortSignal,
   userId?: string,
   threadId?: string,
 ): AsyncGenerator<DeepAgentStreamChunk, void, unknown> {
-  const graph = createDeepAgentGraph(tools)
+  const graph = createDeepAgentGraph( tools )
 
   // Initial state with user context
   const initialState: DeepAgentState = {
@@ -109,12 +114,12 @@ export async function* runDeepAgent(
 
   try {
     // Stream the graph execution
-    const stream = await graph.stream(initialState, {
+    const stream = await graph.stream( initialState, {
       streamMode: 'custom',
-    })
+    } )
 
-    for await (const event of stream) {
-      if (signal?.aborted) {
+    for await ( const event of stream ) {
+      if ( signal?.aborted ) {
         yield {
           type: 'error',
           error: {
@@ -131,7 +136,7 @@ export async function* runDeepAgent(
       const meta = state.metadata
 
       // Emit step transitions
-      if (meta.step) {
+      if ( meta.step ) {
         yield {
           type: 'step_complete',
           step: meta.step,
@@ -140,7 +145,7 @@ export async function* runDeepAgent(
       }
 
       // Emit reasoning if available
-      if (meta.reasoning) {
+      if ( meta.reasoning ) {
         yield {
           type: 'reasoning',
           reasoning: meta.reasoning,
@@ -148,8 +153,8 @@ export async function* runDeepAgent(
       }
 
       // Emit tool calls
-      if (meta.activeToolCalls && meta.activeToolCalls.length > 0) {
-        for (const tc of meta.activeToolCalls) {
+      if ( meta.activeToolCalls && meta.activeToolCalls.length > 0 ) {
+        for ( const tc of meta.activeToolCalls ) {
           yield {
             type: 'tool_call',
             toolCall: {
@@ -162,8 +167,8 @@ export async function* runDeepAgent(
       }
 
       // Emit tool results
-      if (meta.toolResults && meta.toolResults.length > 0) {
-        for (const result of meta.toolResults) {
+      if ( meta.toolResults && meta.toolResults.length > 0 ) {
+        for ( const result of meta.toolResults ) {
           yield {
             type: 'tool_result',
             toolResult: {
@@ -177,7 +182,7 @@ export async function* runDeepAgent(
       }
 
       // Check for errors
-      if (meta.error) {
+      if ( meta.error ) {
         yield {
           type: 'error',
           error: {
@@ -191,7 +196,7 @@ export async function* runDeepAgent(
       }
 
       // Check if done
-      if (meta.step === 'end') {
+      if ( meta.step === 'end' ) {
         yield {
           type: 'final',
           message: state.messages[state.messages.length - 1]?.content as string,
@@ -200,8 +205,8 @@ export async function* runDeepAgent(
         return
       }
     }
-  } catch (error) {
-    const err = error instanceof Error ? error : new Error(String(error))
+  } catch ( error ) {
+    const err = error instanceof Error ? error : new Error( String( error ) )
     yield {
       type: 'error',
       error: {

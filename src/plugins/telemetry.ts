@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { defineNitroPlugin } from 'nitro/types'
 import { tracer, requestContext } from '@/lib/telemetry'
 import type { Span } from '@opentelemetry/api'

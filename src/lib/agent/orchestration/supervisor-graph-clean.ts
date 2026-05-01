@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {
   StateGraph,
   START,
@@ -10,16 +9,15 @@ import type { BaseMessage, AIMessage } from '@langchain/core/messages'
 import type { StructuredTool } from '@langchain/core/tools'
 import { z } from 'zod'
 import { executeToolCalls } from '@/routes/_app/chat/tools/-tool-executor'
-import type { EnhancedTool } from '@/routes/_app/chat/tools/-tool-types'
 
-const OrchestrationStateSchema = new StateSchema( {
+const OrchestrationStateSchema = new StateSchema({
   messages: MessagesValue,
   next: z.string().nullable(),
   iteration: z.number(),
   userId: z.string().optional(),
   threadId: z.string().optional(),
   reasoning_content: z.string().optional(),
-} )
+})
 
 export interface OrchestrationState {
   messages: BaseMessage[]
@@ -38,12 +36,12 @@ export function createSupervisorNode() {
     state: OrchestrationState,
   ): Promise<OrchestrationState> {
     const messages = state.messages as BaseMessage[]
-    const userMsg = messages.find( ( m ) => m._getType() === 'human' )
-    const content = String( userMsg?.content || '' ).toLowerCase()
+    const userMsg = messages.find((m) => m._getType() === 'human')
+    const content = String(userMsg?.content || '').toLowerCase()
 
     // If we're back from tool execution, re-evaluate
     const lastMsg = messages[messages.length - 1]
-    if ( lastMsg?._getType() === 'tool' ) {
+    if (lastMsg?._getType() === 'tool') {
       return {
         ...state,
         next: null,
@@ -54,11 +52,11 @@ export function createSupervisorNode() {
     // Initial routing based on user request
     let agent = 'general_agent'
     if (
-      content.includes( 'search' ) ||
-      content.includes( 'web' ) ||
-      content.includes( 'google' ) ||
-      content.includes( 'find out' ) ||
-      content.includes( 'latest' )
+      content.includes('search') ||
+      content.includes('web') ||
+      content.includes('google') ||
+      content.includes('find out') ||
+      content.includes('latest')
     ) {
       agent = 'web_agent'
     }
@@ -74,58 +72,55 @@ export function createSupervisorNode() {
 /**
  * Worker node: LLM + agent-specific tools
  */
-export function createWorkerNode(
-  _agentType: string,
-  _tools: Array<StructuredTool | EnhancedTool>,
-) {
-  return async ( state: OrchestrationState ): Promise<OrchestrationState> => {
+export function createWorkerNode(_agentType: string, _tools: StructuredTool[]) {
+  return async (state: OrchestrationState): Promise<OrchestrationState> => {
     const messages = state.messages as BaseMessage[]
-    const { llm } = await import( '@/llm/gemini.llm' )
+    const { llm } = await import('@/llm/gemini.llm')
 
-    const bound = _tools.length > 0 ? llm.bindTools( _tools ) : llm
+    const bound = _tools.length > 0 ? llm.bindTools(_tools) : llm
 
     // Stream to get real-time reasoning content
     let reasoningContent = ''
     const responseContent: string[] = []
     let hasToolCalls = false
 
-    const stream = await bound.stream( messages )
-    for await ( const chunk of stream ) {
+    const stream = await bound.stream(messages)
+    for await (const chunk of stream) {
       const chunkRecord =
         chunk && typeof chunk === 'object'
-          ? ( chunk as Record<string, unknown> )
+          ? (chunk as Record<string, unknown>)
           : {}
       const contentBlocks = chunkRecord.contentBlocks ?? chunkRecord.content
       const normalizedContent =
         typeof contentBlocks === 'string'
           ? contentBlocks
-          : ( contentBlocks as Array<{ type?: string; text?: string }> )
-            ?.map( ( part ) => part?.text || '' )
-            .join( '' ) || ''
+          : (contentBlocks as Array<{ type?: string; text?: string }>)
+              ?.map((part) => part?.text || '')
+              .join('') || ''
 
-      if ( normalizedContent ) {
-        responseContent.push( normalizedContent )
+      if (normalizedContent) {
+        responseContent.push(normalizedContent)
       }
 
       // Check for reasoning content
-      if ( 'reasoning_content' in chunk && chunk.reasoning_content ) {
+      if ('reasoning_content' in chunk && chunk.reasoning_content) {
         reasoningContent = chunk.reasoning_content as string
       }
 
       // Check for tool calls
-      if ( 'toolCallChunks' in chunk && chunk.toolCallChunks?.length ) {
+      if ('toolCallChunks' in chunk && chunk.toolCallChunks?.length) {
         hasToolCalls = true
       }
     }
 
-    const finalContent = responseContent.join( '' )
+    const finalContent = responseContent.join('')
     const { AIMessage: LocalAIMessage } =
-      await import( '@langchain/core/messages' )
-    const ai = new LocalAIMessage( finalContent )
+      await import('@langchain/core/messages')
+    const ai = new LocalAIMessage(finalContent)
 
     // Attach reasoning content if available
-    if ( reasoningContent ) {
-      ; ( ai as AIMessage & { reasoning_content?: string } ).reasoning_content =
+    if (reasoningContent) {
+      ;(ai as AIMessage & { reasoning_content?: string }).reasoning_content =
         reasoningContent
     }
 
@@ -152,13 +147,13 @@ function createToolExecutionNode(
   userId?: string,
   threadId?: string,
 ) {
-  return async ( state: OrchestrationState ): Promise<OrchestrationState> => {
+  return async (state: OrchestrationState): Promise<OrchestrationState> => {
     const messages = state.messages as BaseMessage[]
     const lastMessage = messages[messages.length - 1] as BaseMessage & { tool_calls?: ToolCall[] }
 
     const toolCalls = lastMessage?.tool_calls || []
 
-    if ( !toolCalls?.length ) {
+    if (!toolCalls?.length) {
       return {
         ...state,
         next: 'supervisor',
@@ -168,25 +163,25 @@ function createToolExecutionNode(
 
     // Execute tools with user context for hooks
     const results = await executeToolCalls(
-      toolCalls.map( ( tc ) => ( {
+      toolCalls.map((tc) => ({
         id: tc.id,
         function: {
           name: tc.name,
-          arguments: JSON.stringify( tc.args || {} ),
+          arguments: JSON.stringify(tc.args || {}),
         },
-      } ) ),
+      })),
       userId,
       threadId,
     )
 
     // Create tool result messages
-    const { ToolMessage } = await import( '@langchain/core/messages' )
-    const toolMessages: BaseMessage[] = results.map( ( result ) => {
+    const { ToolMessage } = await import('@langchain/core/messages')
+    const toolMessages: BaseMessage[] = results.map((result) => {
       const content = result.error
         ? `ERROR: ${result.error}`
-        : String( result.result )
-      return new ToolMessage( content, result.toolCallId )
-    } )
+        : String(result.result)
+      return new ToolMessage(content, result.toolCallId)
+    })
 
     return {
       messages: [...messages, ...toolMessages],
@@ -197,18 +192,18 @@ function createToolExecutionNode(
 }
 
 export function buildSupervisorGraph(
-  agentTools: Record<string, Array<StructuredTool | EnhancedTool>>,
-  allTools: Array<StructuredTool | EnhancedTool>,
+  agentTools: Record<string, StructuredTool[]>,
+  allTools: StructuredTool[],
   userContext?: { userId?: string; threadId?: string },
 ) {
-  const graph = new StateGraph( OrchestrationStateSchema )
+  const graph = new StateGraph(OrchestrationStateSchema)
 
   // Add nodes
-  graph.addNode( 'supervisor', createSupervisorNode() )
+  graph.addNode('supervisor', createSupervisorNode())
 
-  Object.entries( agentTools ).forEach( ( [name, tools] ) => {
-    graph.addNode( name, createWorkerNode( name, tools ) )
-  } )
+  Object.entries(agentTools).forEach(([name, tools]) => {
+    graph.addNode(name, createWorkerNode(name, tools))
+  })
 
   // Add tool execution node with user context
   graph.addNode(
@@ -221,33 +216,33 @@ export function buildSupervisorGraph(
   )
 
   // START -> supervisor
-  graph.addEdge( START, 'supervisor' )
+  graph.addEdge(START, 'supervisor')
 
   // Supervisor routing
-  graph.addConditionalEdges( 'supervisor', ( state: OrchestrationState ) => {
-    if ( state.iteration >= 10 ) return END
+  graph.addConditionalEdges('supervisor', (state: OrchestrationState) => {
+    if (state.iteration >= 10) return END
     // If last message is AI with no pending tool calls -> END
     const last = state.messages[state.messages.length - 1] as BaseMessage & { tool_calls?: ToolCall[] }
-    if ( last?._getType() === 'ai' && !last?.tool_calls?.length ) {
+    if (last?._getType() === 'ai' && !last?.tool_calls?.length) {
       return END
     }
     // Otherwise route to chosen agent (or general if null)
     return state.next || 'general_agent'
-  } )
+  })
 
   // Agent -> tools if tool calls, else -> supervisor
-  Object.keys( agentTools ).forEach( ( name ) => {
-    graph.addConditionalEdges( name, ( state: OrchestrationState ) => {
+  Object.keys(agentTools).forEach((name) => {
+    graph.addConditionalEdges(name, (state: OrchestrationState) => {
       const last = state.messages[state.messages.length - 1] as BaseMessage & { tool_calls?: ToolCall[] }
-      if ( ( last?.tool_calls?.length ?? 0 ) > 0 ) {
+      if ((last?.tool_calls?.length ?? 0) > 0) {
         return 'tools'
       }
       return 'supervisor'
-    } )
-  } )
+    })
+  })
 
   // Tools always -> supervisor
-  graph.addEdge( 'tools', 'supervisor' )
+  graph.addEdge('tools', 'supervisor')
 
-  return graph.compile( { name: 'supervisor_orchestrator' } )
+  return graph.compile({ name: 'supervisor_orchestrator' })
 }

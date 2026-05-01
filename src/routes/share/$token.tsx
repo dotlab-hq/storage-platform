@@ -15,9 +15,9 @@ import { ShareQrDialog } from '@/components/storage/share-qr-dialog'
 import {
   getSharePageDataFn,
   getShareDownloadUrlFn
-  
+
 } from './-share-access-server'
-import type {SharePagePayload} from './-share-access-server';
+import type { SharePagePayload } from './-share-access-server';
 
 type FileShareData = {
   type: 'file'
@@ -57,13 +57,13 @@ type ShareLoaderData = {
   error: string | null
 }
 
-export const Route = createFileRoute('/share/$token')({
+export const Route = createFileRoute( '/share/$token' )( {
   component: ShareAccessPage,
-  loader: async ({ params }): Promise<ShareLoaderData> => {
+  loader: async ( { params } ): Promise<ShareLoaderData> => {
     try {
-      const data = await getSharePageDataFn({ data: { token: params.token } })
+      const data = await getSharePageDataFn( { data: { token: params.token } } )
       return { data, error: null }
-    } catch (error) {
+    } catch ( error ) {
       return {
         data: null,
         error:
@@ -73,33 +73,33 @@ export const Route = createFileRoute('/share/$token')({
       }
     }
   },
-})
+} )
 
 function ShareAccessPage() {
   const { token } = Route.useParams()
   const { data, error } = Route.useLoaderData()
-  const [downloading, setDownloading] = useState(false)
-  const [showQr, setShowQr] = useState(false)
+  const [downloading, setDownloading] = useState( false )
+  const [showQr, setShowQr] = useState( false )
 
   const handleDownload = async () => {
-    setDownloading(true)
+    setDownloading( true )
     try {
-      const { url } = await getShareDownloadUrlFn({ data: { token } })
-      const a = document.createElement('a')
+      const { url } = await getShareDownloadUrlFn( { data: { token } } )
+      const a = document.createElement( 'a' )
       a.href = url
-      document.body.appendChild(a)
+      document.body.appendChild( a )
       a.click()
-      document.body.removeChild(a)
-    } catch (err) {
+      document.body.removeChild( a )
+    } catch ( err ) {
       toast.error(
         `Download failed: ${err instanceof Error ? err.message : 'Unknown error'}`,
       )
     } finally {
-      setDownloading(false)
+      setDownloading( false )
     }
   }
 
-  if (error || !data) {
+  if ( error || !data ) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-4 p-4 text-center">
         <div className="bg-muted rounded-full p-4">
@@ -125,7 +125,7 @@ function ShareAccessPage() {
   const typedData = data as ShareData
   const shareUrl = typeof window !== 'undefined' ? window.location.href : ''
 
-  if (typedData.type === 'file') {
+  if ( typedData.type === 'file' ) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-4 text-center">
         <div className="bg-muted rounded-full p-4">
@@ -135,11 +135,11 @@ function ShareAccessPage() {
           <h1 className="text-lg font-semibold">{typedData.name}</h1>
           <p className="text-muted-foreground text-sm">
             {typedData.mimeType ?? 'File'} &middot;{' '}
-            {formatBytes(typedData.sizeInBytes)}
+            {formatBytes( typedData.sizeInBytes )}
           </p>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <Button onClick={() => window.open(typedData.presignedUrl, '_blank')}>
+          <Button onClick={() => window.open( typedData.presignedUrl, '_blank' )}>
             Open file
           </Button>
           <Button
@@ -154,7 +154,7 @@ function ShareAccessPage() {
             )}
             Download
           </Button>
-          <Button variant="outline" onClick={() => setShowQr(true)}>
+          <Button variant="outline" onClick={() => setShowQr( true )}>
             <QrCode className="mr-2 h-4 w-4" />
             QR Code
           </Button>
@@ -190,12 +190,12 @@ function ShareAccessPage() {
       <div className="flex flex-wrap items-center justify-center gap-3">
         <Button
           onClick={() => {
-            window.location.href = `/?nav=${btoa(JSON.stringify({ folderId: typedData.folderId }))}`
+            window.location.href = `/?nav=${btoa( JSON.stringify( { folderId: typedData.folderId } ) )}`
           }}
         >
           Open folder
         </Button>
-        <Button variant="outline" onClick={() => setShowQr(true)}>
+        <Button variant="outline" onClick={() => setShowQr( true )}>
           <QrCode className="mr-2 h-4 w-4" />
           QR Code
         </Button>
@@ -210,10 +210,10 @@ function ShareAccessPage() {
   )
 }
 
-function formatBytes(bytes: number): string {
-  if (bytes < 1024) return `${bytes} B`
-  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`
-  if (bytes < 1024 * 1024 * 1024)
-    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
-  return `${(bytes / (1024 * 1024 * 1024)).toFixed(1)} GB`
+function formatBytes( bytes: number ): string {
+  if ( bytes < 1024 ) return `${bytes} B`
+  if ( bytes < 1024 * 1024 ) return `${( bytes / 1024 ).toFixed( 1 )} KB`
+  if ( bytes < 1024 * 1024 * 1024 )
+    return `${( bytes / ( 1024 * 1024 ) ).toFixed( 1 )} MB`
+  return `${( bytes / ( 1024 * 1024 * 1024 ) ).toFixed( 1 )} GB`
 }

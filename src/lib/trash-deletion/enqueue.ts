@@ -280,7 +280,7 @@ export async function buildAndClaimDeletionBatch(
           })
           .from(file)
           .where(inArray(file.id, fileIds))
-      : Promise.resolve([] as any[]),
+      : Promise.resolve([] as Array<{ id: string; isDeleted: boolean; deletionQueuedAt: Date | null }>),
     folderIds.length > 0
       ? db
           .select({
@@ -290,11 +290,11 @@ export async function buildAndClaimDeletionBatch(
           })
           .from(folder)
           .where(inArray(folder.id, folderIds))
-      : Promise.resolve([] as any[]),
+      : Promise.resolve([] as Array<{ id: string; isDeleted: boolean; deletionQueuedAt: Date | null }>),
   ])
 
-  const fileStateMap = new Map(fileRows.map((r: any) => [r.id, r]))
-  const folderStateMap = new Map(folderRows.map((r: any) => [r.id, r]))
+  const fileStateMap = new Map(fileRows.map((r) => [r.id, r]))
+  const folderStateMap = new Map(folderRows.map((r) => [r.id, r]))
 
   const now = new Date()
   const finalBatch: TrashDeletionItem[] = []

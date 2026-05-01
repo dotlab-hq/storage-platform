@@ -2,6 +2,7 @@ import type { StructuredTool } from '@langchain/core/tools'
 import { mathTools } from './-math-tools'
 import { TAVILY_TOOL } from './-tavily-search'
 import { ENHANCED_STORAGE_TOOLS } from './-enhanced-storage-tools'
+import type { EnhancedTool } from './-tool-types'
 import type { ApiScope } from '@/lib/permissions/scopes'
 import { hasAllScopes } from '@/lib/permissions/scopes'
 
@@ -16,47 +17,49 @@ import { hasAllScopes } from '@/lib/permissions/scopes'
  */
 
 type ToolDefinition = {
-  tool: StructuredTool
+  tool: StructuredTool | EnhancedTool
   scopes: ApiScope[]
   category: 'basic' | 'web' | 'storage' | 'memory'
 }
 
-const TOOL_REGISTRY: ToolDefinition[] = [
+const TOOL_REGISTRY = [
   // Basic tools (no special scope)
-  ...mathTools.map((t) => ({
+  ...mathTools.map( ( t ) => ( {
     tool: t,
     scopes: [] as ApiScope[],
-    category: 'basic',
-  })),
+    category: 'basic' as const,
+  } ) ),
   // Web search (requires chat:tool:web)
   {
     tool: TAVILY_TOOL,
     scopes: ['chat:tool:web'] as ApiScope[],
-    category: 'web',
+    category: 'web' as const,
   },
   // Storage tools (require chat:tool:storage)
-  ...ENHANCED_STORAGE_TOOLS.map((t) => ({
+  ...ENHANCED_STORAGE_TOOLS.map( ( t ) => ( {
     tool: t,
     scopes: ['chat:tool:storage'] as ApiScope[],
-    category: 'storage',
-  })),
-]
+    category: 'storage' as const,
+  } ) ),
+] satisfies ToolDefinition[]
 
 /**
  * Get all tools, filtered by user's permissions
  */
-export function getFilteredTools(permissions: string | null): StructuredTool[] {
-  return TOOL_REGISTRY.filter((def) => {
-    if (def.scopes.length === 0) return true // basic tools always included
-    return hasAllScopes(permissions, def.scopes)
-  }).map((def) => def.tool)
+export function getFilteredTools(
+  permissions: string | null,
+): Array<StructuredTool | EnhancedTool> {
+  return TOOL_REGISTRY.filter( ( def ) => {
+    if ( def.scopes.length === 0 ) return true // basic tools always included
+    return hasAllScopes( permissions, def.scopes )
+  } ).map( ( def ) => def.tool )
 }
 
 /**
  * Get all available tools (unfiltered)
  */
-export function getAllAvailableTools(): StructuredTool[] {
-  return TOOL_REGISTRY.map((def) => def.tool)
+export function getAllAvailableTools(): Array<StructuredTool | EnhancedTool> {
+  return TOOL_REGISTRY.map( ( def ) => def.tool )
 }
 
 /**
@@ -64,9 +67,9 @@ export function getAllAvailableTools(): StructuredTool[] {
  */
 export function getToolsByCategory() {
   return TOOL_REGISTRY.reduce(
-    (acc, def) => {
-      if (!acc[def.category]) acc[def.category] = []
-      acc[def.category].push(def.tool.name)
+    ( acc, def ) => {
+      if ( !acc[def.category] ) acc[def.category] = []
+      acc[def.category].push( def.tool.name )
       return acc
     },
     {} as Record<string, string[]>,
@@ -80,17 +83,17 @@ export function hasToolAccess(
   toolName: string,
   permissions: string | null,
 ): boolean {
-  const toolDef = TOOL_REGISTRY.find((t) => t.tool.name === toolName)
-  if (!toolDef) return false
-  if (toolDef.scopes.length === 0) return true
-  return hasAllScopes(permissions, toolDef.scopes)
+  const toolDef = TOOL_REGISTRY.find( ( t ) => t.tool.name === toolName )
+  if ( !toolDef ) return false
+  if ( toolDef.scopes.length === 0 ) return true
+  return hasAllScopes( permissions, toolDef.scopes )
 }
 
 /**
  * Get tools available to a specific permissions set
  */
-export function getToolsForPermissions(permissions: string | null): string[] {
+export function getToolsForPermissions( permissions: string | null ): string[] {
   return TOOL_REGISTRY.filter(
-    (def) => def.scopes.length === 0 || hasAllScopes(permissions, def.scopes),
-  ).map((def) => def.tool.name)
+    ( def ) => def.scopes.length === 0 || hasAllScopes( permissions, def.scopes ),
+  ).map( ( def ) => def.tool.name )
 }

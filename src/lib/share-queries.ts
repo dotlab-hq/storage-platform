@@ -119,7 +119,7 @@ export const getShareByToken = createServerFn({ method: 'POST' })
 const GetSharedFilePresignedUrlSchema = z.object({
   objectKey: z.string().min(1),
   fileName: z.string().min(1),
-  providerId: z.string().nullable(),
+  providerId: z.string().min(1),
 })
 
 export const getSharedFilePresignedUrl = createServerFn({ method: 'POST' })
@@ -147,7 +147,6 @@ export const getSharedFilePresignedUrl = createServerFn({ method: 'POST' })
         {
           providerId: data.providerId,
           objectKey: data.objectKey,
-          bucketName: data.bucketName,
           error: message,
           errorName: error instanceof Error ? error.name : undefined,
         },

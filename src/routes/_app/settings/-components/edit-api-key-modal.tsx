@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { Loader2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -24,7 +24,7 @@ import { updateChatApiKeyFn } from './-settings-server'
 
 type EditApiKeyModalProps = {
   open: boolean
-  onOpenChange: (open: boolean) => void
+  onOpenChange: ( open: boolean ) => void
   apiKey: {
     id: string
     name: string
@@ -33,22 +33,22 @@ type EditApiKeyModalProps = {
   onSuccess?: () => void
 }
 
-export function EditApiKeyModal({
+export function EditApiKeyModal( {
   open,
   onOpenChange,
   apiKey,
   onSuccess,
-}: EditApiKeyModalProps) {
-  const formRef = useRef<HTMLFormElement>(null)
-  const [keyName, setKeyName] = useState('')
-  const [selectedScopes, setSelectedScopes] = useState<string[]>([])
-  const [errors, setErrors] = useState<{ name?: string; scopes?: string }>({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
+}: EditApiKeyModalProps ) {
+  const formRef = useRef<HTMLFormElement>( null )
+  const [keyName, setKeyName] = useState( '' )
+  const [selectedScopes, setSelectedScopes] = useState<string[]>( [] )
+  const [errors, setErrors] = useState<{ name?: string; scopes?: string }>( {} )
+  const [isSubmitting, setIsSubmitting] = useState( false )
 
   const queryClient = useQueryClient()
 
-  const updateMutation = useMutation({
-    mutationFn: async ({
+  const updateMutation = useMutation( {
+    mutationFn: async ( {
       id,
       name,
       scopes,
@@ -56,87 +56,87 @@ export function EditApiKeyModal({
       id: string
       name: string
       scopes: ApiScope[]
-    }) => {
-      return updateChatApiKeyFn({ data: { id, name, scopes } })
+    } ) => {
+      return updateChatApiKeyFn( { data: { id, name, scopes } } )
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['settings'] })
+      queryClient.invalidateQueries( { queryKey: ['settings'] } )
       onSuccess?.()
-      toast.success('API key updated successfully')
+      toast.success( 'API key updated successfully' )
     },
-    onError: (error: Error) => {
-      toast.error(error.message || 'Failed to update API key')
+    onError: ( error: Error ) => {
+      toast.error( error.message || 'Failed to update API key' )
     },
-  })
+  } )
 
   // Reset form when opening with new data
-  useState(() => {
-    if (apiKey) {
-      setKeyName(apiKey.name)
-      setSelectedScopes(apiKey.scopes)
-      setErrors({})
+  useEffect( () => {
+    if ( apiKey ) {
+      setKeyName( apiKey.name )
+      setSelectedScopes( apiKey.scopes )
+      setErrors( {} )
     }
-  })
+  }, [apiKey] )
 
   // Update form when apiKey prop changes
-  useState(() => {
-    if (open && apiKey) {
-      setKeyName(apiKey.name)
-      setSelectedScopes(apiKey.scopes)
-      setErrors({})
+  useEffect( () => {
+    if ( open && apiKey ) {
+      setKeyName( apiKey.name )
+      setSelectedScopes( apiKey.scopes )
+      setErrors( {} )
     }
-  }, [open, apiKey])
+  }, [open, apiKey] )
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = ( e: React.FormEvent ) => {
     e.preventDefault()
     const newErrors: { name?: string; scopes?: string } = {}
 
-    if (!keyName.trim()) {
+    if ( !keyName.trim() ) {
       newErrors.name = 'Key name is required'
     }
 
-    if (selectedScopes.length === 0) {
+    if ( selectedScopes.length === 0 ) {
       newErrors.scopes = 'At least one scope must be selected'
     }
 
-    setErrors(newErrors)
+    setErrors( newErrors )
 
-    if (Object.keys(newErrors).length > 0) {
+    if ( Object.keys( newErrors ).length > 0 ) {
       return
     }
 
-    if (!apiKey) return
+    if ( !apiKey ) return
 
-    setIsSubmitting(true)
+    setIsSubmitting( true )
     updateMutation
-      .mutateAsync({
+      .mutateAsync( {
         id: apiKey.id,
         name: keyName.trim(),
         scopes: selectedScopes as ApiScope[],
-      })
-      .finally(() => setIsSubmitting(false))
+      } )
+      .finally( () => setIsSubmitting( false ) )
   }
 
-  const handleScopesChange = (scopes: string[]) => {
-    setSelectedScopes(scopes)
-    if (scopes.length === 0) {
-      setErrors((prev) => ({
+  const handleScopesChange = ( scopes: string[] ) => {
+    setSelectedScopes( scopes )
+    if ( scopes.length === 0 ) {
+      setErrors( ( prev ) => ( {
         ...prev,
         scopes: 'At least one scope must be selected',
-      }))
+      } ) )
     } else {
-      setErrors((prev) => ({ ...prev, scopes: undefined }))
+      setErrors( ( prev ) => ( { ...prev, scopes: undefined } ) )
     }
   }
 
-  const handleOpenChange = (newOpen: boolean) => {
-    if (!newOpen) {
-      setKeyName('')
-      setSelectedScopes([])
-      setErrors({})
-      setIsSubmitting(false)
+  const handleOpenChange = ( newOpen: boolean ) => {
+    if ( !newOpen ) {
+      setKeyName( '' )
+      setSelectedScopes( [] )
+      setErrors( {} )
+      setIsSubmitting( false )
     }
-    onOpenChange(newOpen)
+    onOpenChange( newOpen )
   }
 
   const canSubmit =
@@ -145,7 +145,7 @@ export function EditApiKeyModal({
     selectedScopes.length > 0 &&
     apiKey !== null
 
-  if (!apiKey) return null
+  if ( !apiKey ) return null
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
@@ -166,10 +166,10 @@ export function EditApiKeyModal({
                 id="key-name"
                 placeholder="My API Key"
                 value={keyName}
-                onChange={(e) => {
-                  setKeyName(e.target.value)
-                  if (e.target.value.trim()) {
-                    setErrors((prev) => ({ ...prev, name: undefined }))
+                onChange={( e ) => {
+                  setKeyName( e.target.value )
+                  if ( e.target.value.trim() ) {
+                    setErrors( ( prev ) => ( { ...prev, name: undefined } ) )
                   }
                 }}
                 className={errors.name ? 'border-destructive' : ''}
@@ -204,7 +204,7 @@ export function EditApiKeyModal({
                   type="button"
                   variant="outline"
                   size="sm"
-                  onClick={() => setSelectedScopes(['chat:completions'])}
+                  onClick={() => setSelectedScopes( ['chat:completions'] )}
                   disabled={isSubmitting}
                 >
                   Chat Only
@@ -214,7 +214,7 @@ export function EditApiKeyModal({
                   variant="outline"
                   size="sm"
                   onClick={() =>
-                    setSelectedScopes(['files:full', 'folders:full'])
+                    setSelectedScopes( ['files:full', 'folders:full'] )
                   }
                   disabled={isSubmitting}
                 >
@@ -224,7 +224,7 @@ export function EditApiKeyModal({
                   type="button"
                   variant="outline"
                   size="sm"
-                  onClick={() => setSelectedScopes(['s3:full'])}
+                  onClick={() => setSelectedScopes( ['s3:full'] )}
                   disabled={isSubmitting}
                 >
                   Full S3
@@ -234,12 +234,12 @@ export function EditApiKeyModal({
                   variant="outline"
                   size="sm"
                   onClick={() =>
-                    setSelectedScopes([
+                    setSelectedScopes( [
                       'chat:completions',
                       'chat:tool:web',
                       'chat:tool:storage',
                       'chat:memory',
-                    ])
+                    ] )
                   }
                   disabled={isSubmitting}
                 >
@@ -249,7 +249,7 @@ export function EditApiKeyModal({
                   type="button"
                   variant="ghost"
                   size="sm"
-                  onClick={() => setSelectedScopes([])}
+                  onClick={() => setSelectedScopes( [] )}
                   disabled={isSubmitting}
                 >
                   Clear All
@@ -262,15 +262,15 @@ export function EditApiKeyModal({
               <div className="space-y-2">
                 <Label>Selected Scopes:</Label>
                 <div className="flex flex-wrap gap-2">
-                  {selectedScopes.map((scope) => (
+                  {selectedScopes.map( ( scope ) => (
                     <div
                       key={scope}
                       className="bg-primary/10 text-primary rounded-md px-2 py-1 text-xs font-medium"
                     >
-                      {getScopeDisplayName(scope as ApiScope)}
+                      {getScopeDisplayName( scope as ApiScope )}
                       <span className="ml-1 opacity-70">({scope})</span>
                     </div>
-                  ))}
+                  ) )}
                 </div>
               </div>
             )}
@@ -280,7 +280,7 @@ export function EditApiKeyModal({
             <Button
               type="button"
               variant="outline"
-              onClick={() => handleOpenChange(false)}
+              onClick={() => handleOpenChange( false )}
               disabled={isSubmitting}
             >
               Cancel

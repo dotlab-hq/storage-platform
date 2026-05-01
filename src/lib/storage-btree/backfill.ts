@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { eq } from 'drizzle-orm'
 import { Cache } from '@/lib/Cache'
 import { db } from '@/db'

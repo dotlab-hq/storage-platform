@@ -359,7 +359,7 @@ export const updateChatApiKeyFn = createServerFn({ method: 'POST' })
     const currentUser = await getAuthenticatedUser()
 
     // Build update values
-    const updateValues: any = { updatedAt: new Date() }
+    const updateValues: Partial<typeof apikey.$inferInsert> = { updatedAt: new Date() }
     if (data.name !== undefined) {
       updateValues.name = data.name.trim()
     }

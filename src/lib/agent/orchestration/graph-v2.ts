@@ -7,6 +7,8 @@ import {
 } from '@langchain/langgraph'
 import { ToolNode } from '@langchain/langgraph/prebuilt'
 import type { BaseMessage } from '@langchain/core/messages'
+import type { StructuredTool } from '@langchain/core/tools'
+import type { BaseChatModel } from '@langchain/core/language_models/chat_model'
 import { z } from 'zod'
 
 /**
@@ -32,6 +34,19 @@ const OrchestrationStateSchema = new StateSchema({
   next: z.string().nullable(),
   iteration: z.number(),
 })
+
+interface AgentConfig {
+  tools: StructuredTool[]
+  llm: BaseChatModel
+}
+
+interface MessageWithToolCalls extends BaseMessage {
+  tool_calls?: Array<{
+    id: string
+    name: string
+    args?: unknown
+  }>
+}
 
 /**
  * Supervisor node: decides which agent should handle the request
@@ -70,7 +85,7 @@ export function createSupervisorNode() {
  * Build supervisor graph with agent-specific tool nodes
  */
 export function buildSupervisorGraph(
-  agents: Record<string, { tools: any[]; llm: any }>,
+  agents: Record<string, AgentConfig>,
 ) {
   const graph = new StateGraph(OrchestrationStateSchema).addNode(
     'supervisor',
@@ -87,8 +102,7 @@ export function buildSupervisorGraph(
       const response = await bound.invoke(messages)
 
       const { AIMessage } = await import('@langchain/core/messages')
-      const aiMsg = new AIMessage(response.content || '')
-      // @ts-ignore - tool_calls is added by bindTools
+      const aiMsg = new AIMessage(response.content || '') as MessageWithToolCalls
       aiMsg.tool_calls = response.tool_calls
 
       return {
@@ -113,8 +127,8 @@ export function buildSupervisorGraph(
   // Agent has tool calls? -> tools, else -> supervisor
   Object.keys(agents).forEach((agentName) => {
     graph.addConditionalEdges(agentName, (state: OrchestrationState) => {
-      const lastMsg = state.messages[state.messages.length - 1] as any
-      if (lastMsg?.tool_calls?.length > 0) {
+      const lastMsg = state.messages[state.messages.length - 1] as MessageWithToolCalls
+      if ((lastMsg?.tool_calls?.length ?? 0) > 0) {
         return 'tools'
       }
       return 'supervisor'
@@ -127,8 +141,8 @@ export function buildSupervisorGraph(
   // Supervisor decides to end
   graph.addConditionalEdges('supervisor', (state: OrchestrationState) => {
     if (state.iteration >= 10) return END
-    const lastMsg = state.messages[state.messages.length - 1]
-    if (lastMsg?._getType() === 'ai' && !(lastMsg as any)?.tool_calls?.length)
+    const lastMsg = state.messages[state.messages.length - 1] as MessageWithToolCalls
+    if (lastMsg?._getType() === 'ai' && !lastMsg?.tool_calls?.length)
       return END
     // default: loop back to supervisor for next decision
     return 'supervisor'

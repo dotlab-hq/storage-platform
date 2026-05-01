@@ -8,6 +8,15 @@ import { getAllScopes, getScopeDisplayName } from '@/lib/permissions/scopes'
 // Import Tagify styles
 import '@yaireo/tagify/dist/tagify.css'
 
+interface TagifyTemplateData {
+  value: string
+  down?: boolean
+}
+
+interface TagifyItem {
+  value: string
+}
+
 export interface TagInputProps {
   value?: string[]
   onChange?: (tags: string[]) => void
@@ -25,7 +34,7 @@ export function TagInput({
   ...props
 }: TagInputProps) {
   const containerRef = React.useRef<HTMLDivElement>(null)
-  const tagifyRef = React.useRef<any>(null)
+  const tagifyRef = React.useRef<unknown>(null)
   const inputRef = React.useRef<HTMLInputElement | null>(null)
 
   // Initialize Tagify on mount
@@ -60,13 +69,13 @@ export function TagInput({
           closeOnSelect: false,
         },
         templates: {
-          dropdownItemNoMatch: (data: any) => `No match for "${data.value}"`,
-          dropdownItem: (data: any) => `
+          dropdownItemNoMatch: (data: TagifyTemplateData) => `No match for "${data.value}"`,
+          dropdownItem: (data: TagifyTemplateData) => `
             <div ${data.down ? 'aria-selected="true"' : ''} class="tagify__dropdown__item" tabindex="0">
               ${getScopeDisplayName(data.value as ApiScope)} <small class="opacity-70">(${data.value})</small>
             </div>
           `,
-          tag: (data: any) => `
+          tag: (data: TagifyTemplateData) => `
             <tag title="${data.value}" contenteditable="false" spellcheck="false" class="tagify__tag">
               <span class="tagify__tag-text">${getScopeDisplayName(data.value as ApiScope)}</span>
               <button class="tagify__tag__remove-btn" aria-label="Remove tag">&times;</button>
@@ -89,7 +98,7 @@ export function TagInput({
       }
 
       const handleChange = () => {
-        const tags = tagify.value.map((item: any) => item.value)
+        const tags = (tagify.value as TagifyItem[]).map((item) => item.value)
         onChange?.(tags)
       }
       tagify.on('add remove', handleChange)
@@ -104,20 +113,25 @@ export function TagInput({
 
     return () => {
       isMounted = false
-      if (tagifyRef.current) {
-        tagifyRef.current.destroy()
+      const tagifyInstance = tagifyRef.current as { destroy: () => void } | null
+      if (tagifyInstance) {
+        tagifyInstance.destroy()
       }
     }
   }, [])
 
   // Sync external value changes
   React.useEffect(() => {
-    if (!tagifyRef.current) return
-    const tagify = tagifyRef.current
-    const currentTags = tagify.value.map((item: any) => item.value)
+    const tagifyInstance = tagifyRef.current as { value: TagifyItem[] } | null
+    if (!tagifyInstance) return
+    const currentTags = tagifyInstance.value.map((item) => item.value)
     if (JSON.stringify(currentTags.sort()) !== JSON.stringify(value.sort())) {
-      tagify.removeAllTags()
-      value.forEach((v) => tagify.addTags(v))
+      const destroyable = tagifyInstance as unknown as {
+        removeAllTags: () => void
+        addTags: (tag: string) => void
+      }
+      destroyable.removeAllTags()
+      value.forEach((v) => destroyable.addTags(v))
     }
   }, [value])
 

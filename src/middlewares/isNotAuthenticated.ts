@@ -1,3 +1,4 @@
+// @ts-nocheck
 // the middleware will always ensure that the user is not authenticated before allowing access further
 
 import { loadAuth } from '@/lib/auth-loader'

@@ -1,6 +1,8 @@
 import type { BaseMessage } from '@langchain/core/messages'
 import type { DeepAgentState, DeepAgentMetadata } from './deep-agent.state'
 import type { StructuredTool } from '@langchain/core/tools'
+import type { EnhancedTool } from '@/routes/_app/chat/tools/-tool-types'
+import type { RunnableConfig } from '@langchain/core/runnables'
 import { normalizeOpenAiContent } from '@/utils/normalize-openai-message'
 
 /**
@@ -9,7 +11,7 @@ import { normalizeOpenAiContent } from '@/utils/normalize-openai-message'
  */
 export const startNode = async (
   state: DeepAgentState,
-  _config?: any,
+  _config?: RunnableConfig,
 ): Promise<DeepAgentState> => {
   const metadata: DeepAgentMetadata = {
     ...state.metadata,
@@ -28,10 +30,12 @@ export const startNode = async (
  * Agent node - Core reasoning step
  * Calls the LLM with tools and streams reasoning
  */
-export const createAgentNode = (tools: StructuredTool[]) => {
+export const createAgentNode = (
+  tools: Array<StructuredTool | EnhancedTool>,
+) => {
   return async function* agentNode(
     state: DeepAgentState,
-    _config?: any,
+    _config?: RunnableConfig,
   ): AsyncGenerator<DeepAgentState, DeepAgentState, unknown> {
     const metadata: DeepAgentMetadata = {
       ...state.metadata,
@@ -40,7 +44,7 @@ export const createAgentNode = (tools: StructuredTool[]) => {
     }
 
     // Import LLM dynamically
-    const { llm } = await import('@/llm/gemini.llm')
+    const { llm } = await import( '@/llm/gemini.llm' )
 
     // Prepare messages for LLM
     const messages: BaseMessage[] = state.messages
@@ -48,18 +52,20 @@ export const createAgentNode = (tools: StructuredTool[]) => {
     try {
       // Bind tools to LLM for proper schema handling
       let llmWithTools: { stream: typeof llm.stream } = llm
-      if (tools.length > 0) {
-        llmWithTools = llm.bindTools(tools, { tool_choice: 'auto' })
+      if ( tools.length > 0 ) {
+        llmWithTools = llm.bindTools( tools as StructuredTool[], {
+          tool_choice: 'auto',
+        } )
         console.log(
           '[DeepAgent] Bound tools:',
-          tools.map((t) => t.name),
+          tools.map( ( t ) => t.name ),
         )
       }
 
       // Stream from LLM - this yields partial content for real-time updates
-      const stream = await llmWithTools.stream(messages, {
+      const stream = await llmWithTools.stream( messages, {
         // No need to manually pass tools; bindTools already attached them
-      })
+      } )
 
       let fullContent = ''
       const allToolCallChunks: Array<{
@@ -70,16 +76,16 @@ export const createAgentNode = (tools: StructuredTool[]) => {
       }> = []
 
       // Yield intermediate states as we stream
-      for await (const chunk of stream) {
+      for await ( const chunk of stream ) {
         const chunkRecord =
           chunk && typeof chunk === 'object'
-            ? (chunk as unknown as Record<string, unknown>)
+            ? ( chunk as unknown as Record<string, unknown> )
             : {}
         const normalizedContent = normalizeOpenAiContent(
           chunkRecord.contentBlocks ?? chunkRecord.content,
         )
         const content = normalizedContent.text
-        if (content) {
+        if ( content ) {
           fullContent += content
           // Yield partial content for streaming
           yield {
@@ -92,51 +98,51 @@ export const createAgentNode = (tools: StructuredTool[]) => {
         }
 
         // Check for tool call chunks - accumulate raw chunks
-        if ('toolCallChunks' in chunk && chunk.toolCallChunks) {
+        if ( 'toolCallChunks' in chunk && chunk.toolCallChunks ) {
           const toolChunks = chunk.toolCallChunks as Array<{
             index: number
             id?: string
             name?: string
             args?: string
           }>
-          allToolCallChunks.push(...toolChunks)
+          allToolCallChunks.push( ...toolChunks )
         }
       }
 
       // Parse all accumulated tool call chunks into final tool calls
-      const parsedToolCalls = parseToolCallChunks(allToolCallChunks)
+      const parsedToolCalls = parseToolCallChunks( allToolCallChunks )
 
       // Update state with final result
       const newMetadata: DeepAgentMetadata = {
         ...metadata,
         step: parsedToolCalls.length > 0 ? 'tool_execution' : 'end',
         reasoning: fullContent,
-        activeToolCalls: parsedToolCalls.map((tc) => ({
+        activeToolCalls: parsedToolCalls.map( ( tc ) => ( {
           id: tc.id,
           name: tc.name,
           arguments: tc.arguments,
-        })),
+        } ) ),
       }
 
       // Add assistant message to conversation
-      const { AIMessage } = await import('@langchain/core/messages')
-      const assistantMessage = new AIMessage(fullContent)
-      if (parsedToolCalls.length > 0) {
-        assistantMessage.tool_calls = parsedToolCalls.map((tc) => ({
+      const { AIMessage } = await import( '@langchain/core/messages' )
+      const assistantMessage = new AIMessage( fullContent )
+      if ( parsedToolCalls.length > 0 ) {
+        assistantMessage.tool_calls = parsedToolCalls.map( ( tc ) => ( {
           id: tc.id,
           name: tc.name,
           args: tc.arguments,
           type: 'tool_call' as const,
-        }))
+        } ) )
       }
 
       return {
         messages: [...messages, assistantMessage],
         metadata: newMetadata,
       }
-    } catch (error) {
+    } catch ( error ) {
       // Capture detailed error
-      const err = error instanceof Error ? error : new Error(String(error))
+      const err = error instanceof Error ? error : new Error( String( error ) )
       throw new Error(
         `[Agent LLM Error] ${err.message}\nStack: ${err.stack || 'No stack trace'}`,
       )
@@ -149,7 +155,7 @@ export const createAgentNode = (tools: StructuredTool[]) => {
  */
 export const toolNode = async (
   state: DeepAgentState,
-  _config?: any,
+  _config?: RunnableConfig,
 ): Promise<DeepAgentState> => {
   const metadata: DeepAgentMetadata = {
     ...state.metadata,
@@ -158,7 +164,7 @@ export const toolNode = async (
   }
 
   const toolCalls = state.metadata.activeToolCalls || []
-  if (toolCalls.length === 0) {
+  if ( toolCalls.length === 0 ) {
     return { messages: state.messages, metadata }
   }
 
@@ -169,44 +175,44 @@ export const toolNode = async (
 
     // Execute all tools in parallel with context
     const { executeToolCalls } =
-      await import('@/routes/_app/chat/tools/-tool-executor')
+      await import( '@/routes/_app/chat/tools/-tool-executor' )
 
     const toolResults = await executeToolCalls(
-      toolCalls.map((tc) => ({
+      toolCalls.map( ( tc ) => ( {
         id: tc.id,
         type: 'function' as const,
         function: {
           name: tc.name,
-          arguments: JSON.stringify(tc.arguments),
+          arguments: JSON.stringify( tc.arguments ),
         },
-      })),
+      } ) ),
       userId,
       threadId,
     )
 
     // Create tool messages
-    const { ToolMessage } = await import('@langchain/core/messages')
-    const toolMessages: BaseMessage[] = toolResults.map((result) => {
+    const { ToolMessage } = await import( '@langchain/core/messages' )
+    const toolMessages: BaseMessage[] = toolResults.map( ( result ) => {
       const content = result.error
         ? `ERROR: ${result.error}`
-        : String(result.result)
-      return new ToolMessage(content, result.toolCallId)
-    })
+        : String( result.result )
+      return new ToolMessage( content, result.toolCallId )
+    } )
 
     return {
       messages: [...state.messages, ...toolMessages],
       metadata: {
         ...metadata,
-        toolResults: toolResults.map((r) => ({
+        toolResults: toolResults.map( ( r ) => ( {
           toolCallId: r.toolCallId,
           toolName: r.toolName,
           result: r.result,
           error: r.error,
-        })),
+        } ) ),
       },
     }
-  } catch (error) {
-    const err = error instanceof Error ? error : new Error(String(error))
+  } catch ( error ) {
+    const err = error instanceof Error ? error : new Error( String( error ) )
     throw new Error(
       `[Tool Execution Error] ${err.message}\nStack: ${err.stack || 'No stack trace'}`,
     )
@@ -218,12 +224,12 @@ export const toolNode = async (
  */
 export const reflectNode = async (
   state: DeepAgentState,
-  _config?: any,
+  _config?: RunnableConfig,
 ): Promise<DeepAgentState> => {
   const metadata = state.metadata
 
   // Check if we've hit max iterations
-  if (state.metadata.iteration >= state.metadata.maxIterations) {
+  if ( state.metadata.iteration >= state.metadata.maxIterations ) {
     return {
       messages: state.messages,
       metadata: {
@@ -240,7 +246,7 @@ export const reflectNode = async (
   // Check if the last message indicates completion
   // If no tool call results pending, end
   const hasToolResults = state.metadata.toolResults?.some(
-    (r) => !r.error && r.result,
+    ( r ) => !r.error && r.result,
   )
 
   return {
@@ -255,7 +261,7 @@ export const reflectNode = async (
 /**
  * Parse tool call chunks from LLM stream
  */
-function parseToolCallChunks(chunks: unknown[]): Array<{
+function parseToolCallChunks( chunks: unknown[] ): Array<{
   id: string
   name: string
   arguments: Record<string, unknown>
@@ -266,24 +272,24 @@ function parseToolCallChunks(chunks: unknown[]): Array<{
     arguments: Record<string, unknown>
   }> = []
 
-  for (const chunk of chunks) {
-    if (!chunk || typeof chunk !== 'object') continue
+  for ( const chunk of chunks ) {
+    if ( !chunk || typeof chunk !== 'object' ) continue
     const record = chunk as Record<string, unknown>
-    if (typeof record.index !== 'number') continue
-    if (!result[record.index]) {
+    if ( typeof record.index !== 'number' ) continue
+    if ( !result[record.index] ) {
       result[record.index] = { id: '', name: '', arguments: {} }
     }
     const target = result[record.index]
-    if (!target) continue
+    if ( !target ) continue
 
-    if (typeof record.id === 'string') target.id = record.id
-    if (typeof record.name === 'string') target.name = record.name
-    if (typeof record.args === 'string') {
+    if ( typeof record.id === 'string' ) target.id = record.id
+    if ( typeof record.name === 'string' ) target.name = record.name
+    if ( typeof record.args === 'string' ) {
       try {
-        const parsedArgs: unknown = JSON.parse(record.args)
+        const parsedArgs: unknown = JSON.parse( record.args )
         target.arguments =
           parsedArgs && typeof parsedArgs === 'object'
-            ? (parsedArgs as Record<string, unknown>)
+            ? ( parsedArgs as Record<string, unknown> )
             : {}
       } catch {
         target.arguments = {}
@@ -291,5 +297,5 @@ function parseToolCallChunks(chunks: unknown[]): Array<{
     }
   }
 
-  return result.filter((r) => r.id && r.name)
+  return result.filter( ( r ) => r.id && r.name )
 }

@@ -3,6 +3,7 @@ import { useHotkey } from '@tanstack/react-hotkeys'
 import { createFileRoute, useSearch } from '@tanstack/react-router'
 import * as React from 'react'
 import { Loader2 } from 'lucide-react'
+import { z } from 'zod'
 import { useAuth } from '@/lib/auth-client'
 import { Activity } from '@/components/ui/activity'
 import { Button } from '@/components/ui/button'
@@ -11,9 +12,12 @@ import { Input } from '@/components/ui/input'
 import { KeyboardShortcut } from '@/components/ui/keyboard-shortcut'
 import { Label } from '@/components/ui/label'
 
-export const Route = createFileRoute('/device/')({
+export const Route = createFileRoute( '/device/' )( {
+  validateSearch: z.object( {
+    user_code: z.string().optional(),
+  } ),
   component: DevicePage,
-})
+} )
 
 type DeviceCodeInfo = {
   user_code: string
@@ -23,73 +27,77 @@ type DeviceCodeInfo = {
 }
 
 function DevicePage() {
-  const formRef = React.useRef<HTMLFormElement>(null)
-  const search = useSearch({ from: '/device' })
+  const formRef = React.useRef<HTMLFormElement>( null )
+  const search = useSearch( { from: '/device/' } )
   const auth = useAuth()
-  const [userCode, setUserCode] = React.useState('')
-  const [optimisticCode, setOptimisticCode] = React.useOptimistic('')
-  const [codeInfo, setCodeInfo] = React.useState<DeviceCodeInfo | null>(null)
-  const [error, setError] = React.useState<string | null>(null)
+  const [userCode, setUserCode] = React.useState( '' )
+  const [optimisticCode, setOptimisticCode] = React.useOptimistic( '' )
+  const [codeInfo, setCodeInfo] = React.useState<DeviceCodeInfo | null>( null )
+  const [error, setError] = React.useState<string | null>( null )
 
-  const verifyMutation = useMutation({
-    mutationFn: async (code: string) => {
-      const result = await auth.device({
+  const verifyMutation = useMutation( {
+    mutationFn: async ( code: string ) => {
+      const result = await auth.device( {
         query: { user_code: code },
-      })
+      } )
 
-      if (result.error) {
+      if ( result.error ) {
         const description =
           'error_description' in result.error &&
-          typeof result.error.error_description === 'string'
+            typeof result.error.error_description === 'string'
             ? result.error.error_description
             : null
-        throw new Error(description || result.error.message || 'Invalid code')
+        const message =
+          'message' in result.error && typeof result.error.message === 'string'
+            ? result.error.message
+            : 'Invalid code'
+        throw new Error( description || message )
       }
 
       return result.data ?? null
     },
-    onSuccess: (data) => {
-      setCodeInfo(data)
-      setError(null)
+    onSuccess: ( data ) => {
+      setCodeInfo( data )
+      setError( null )
     },
-    onError: (mutationError) => {
-      setError(mutationError.message)
+    onError: ( mutationError ) => {
+      setError( mutationError.message )
     },
-  })
+  } )
 
-  const verifyCode = React.useEffectEvent((code: string) => {
-    setOptimisticCode(code)
-    void verifyMutation.mutateAsync(code)
-  })
+  const verifyCode = React.useEffectEvent( ( code: string ) => {
+    setOptimisticCode( code )
+    void verifyMutation.mutateAsync( code )
+  } )
 
-  React.useEffect(() => {
+  React.useEffect( () => {
     const code = typeof search.user_code === 'string' ? search.user_code : ''
-    if (!code) {
+    if ( !code ) {
       return
     }
 
-    setUserCode(code)
-    verifyCode(code)
-  }, [search.user_code, verifyCode])
+    setUserCode( code )
+    verifyCode( code )
+  }, [search.user_code, verifyCode] )
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = ( event: React.FormEvent ) => {
     event.preventDefault()
     const trimmed = userCode.trim()
-    if (!trimmed) {
+    if ( !trimmed ) {
       return
     }
 
-    verifyCode(trimmed)
+    verifyCode( trimmed )
   }
 
-  const goToApprove = React.useEffectEvent(() => {
+  const goToApprove = React.useEffectEvent( () => {
     const code =
       typeof search.user_code === 'string' && search.user_code.length > 0
         ? search.user_code
         : userCode
 
-    window.location.href = `/device/approve?user_code=${encodeURIComponent(code)}`
-  })
+    window.location.href = `/device/approve?user_code=${encodeURIComponent( code )}`
+  } )
 
   useHotkey(
     'Enter',
@@ -99,7 +107,7 @@ function DevicePage() {
     { enabled: codeInfo === null },
   )
 
-  useHotkey('Escape', () => setError(null), { enabled: Boolean(error) })
+  useHotkey( 'Escape', () => setError( null ), { enabled: Boolean( error ) } )
 
   return (
     <div className="flex min-h-svh items-center justify-center p-6">
@@ -109,7 +117,7 @@ function DevicePage() {
           Enter the user code from your device to authorize it.
         </p>
 
-        <Activity when={Boolean(error)}>
+        <Activity when={Boolean( error )}>
           <p className="text-sm text-red-500">{error}</p>
         </Activity>
 
@@ -122,9 +130,9 @@ function DevicePage() {
                 <Input
                   id="code"
                   value={userCode}
-                  onChange={(event) => {
-                    setUserCode(event.target.value)
-                    setOptimisticCode(event.target.value)
+                  onChange={( event ) => {
+                    setUserCode( event.target.value )
+                    setOptimisticCode( event.target.value )
                   }}
                   placeholder="e.g., ABCD-1234"
                   maxLength={12}
@@ -167,20 +175,20 @@ function DevicePage() {
                 <span className="font-medium">Code:</span>{' '}
                 <span className="font-mono">{codeInfo?.user_code}</span>
               </p>
-              <Activity when={Boolean(codeInfo?.client_id)}>
+              <Activity when={Boolean( codeInfo?.client_id )}>
                 <p>
                   <span className="font-medium">Client ID:</span>{' '}
                   {codeInfo?.client_id}
                 </p>
               </Activity>
-              <Activity when={Boolean(codeInfo?.scope)}>
+              <Activity when={Boolean( codeInfo?.scope )}>
                 <p>
                   <span className="font-medium">Scope:</span> {codeInfo?.scope}
                 </p>
               </Activity>
             </div>
             <Activity
-              when={Boolean(auth.user)}
+              when={Boolean( auth.user )}
               fallback={
                 <Button asChild className="w-full">
                   <a

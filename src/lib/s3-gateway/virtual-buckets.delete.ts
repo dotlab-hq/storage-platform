@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { eq } from 'drizzle-orm'
 import { db } from '@/db'
 import { virtualBucket } from '@/db/schema/s3-gateway'

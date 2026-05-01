@@ -22,6 +22,21 @@ export type ActivityEventType =
   | 'provider_update'
   | 'provider_delete'
   | 'provider_toggle'
+  | 'folder_lock_toggle'
+  | 'folder_view'
+  | 'file_import_from_url'
+  | 'signup'
+  | 'password_reset_request'
+  | 'user_impersonate'
+  | 'impersonation_stop'
+  | 'user_role_update'
+  | 'user_ban'
+  | 'user_unban'
+  | 'user_delete'
+  | 'user_storage_limit_update'
+  | 'user_file_size_limit_update'
+  | 'message_regenerate'
+  | 'message_delete'
   | 'settings_update'
   | 'password_change'
   | 'twofactor_enable'
@@ -47,6 +62,7 @@ export type ActivityResourceType =
   | 'api_key'
   | 'share'
   | 'chat'
+  | 'chatMessage'
   | 'bucket'
   | 'upload'
   | 'setting'
@@ -61,7 +77,7 @@ export interface ActivityLogInput {
   ipAddress?: string
   userAgent?: string
 }
-export async function logActivity(input: ActivityLogInput): Promise<void> {
+export async function logActivity( input: ActivityLogInput ): Promise<void> {
   const {
     userId,
     eventType,
@@ -75,36 +91,36 @@ export async function logActivity(input: ActivityLogInput): Promise<void> {
 
   // Derive tags based on event type if not provided
   const derivedTags: string[] = [...tags]
-  if (!derivedTags.includes('API') && isApiEvent(eventType)) {
-    derivedTags.push('API')
+  if ( !derivedTags.includes( 'API' ) && isApiEvent( eventType ) ) {
+    derivedTags.push( 'API' )
   }
 
   try {
     // Insert activity record
     const [activity] = await db
-      .insert(userActivity)
-      .values({
+      .insert( userActivity )
+      .values( {
         userId,
         eventType,
         resourceType,
         resourceId,
-        metadata: meta ? JSON.stringify(meta) : '{}',
+        metadata: meta ? JSON.stringify( meta ) : '{}',
         ipAddress,
         userAgent,
-      })
-      .returning({ id: userActivity.id })
+      } )
+      .returning( { id: userActivity.id } )
 
     // Insert tags if any
-    if (derivedTags.length > 0) {
-      const tagRows = derivedTags.map((tag) => ({
+    if ( derivedTags.length > 0 ) {
+      const tagRows = derivedTags.map( ( tag ) => ( {
         activityId: activity.id,
         tag,
-      }))
-      await db.insert(activityTag).values(tagRows)
+      } ) )
+      await db.insert( activityTag ).values( tagRows )
     }
 
     // Structured log to console as well (excessive logging)
-    log('info', `Activity: ${eventType}`, {
+    log( 'info', `Activity: ${eventType}`, {
       userId,
       tags: derivedTags,
       meta: {
@@ -112,44 +128,48 @@ export async function logActivity(input: ActivityLogInput): Promise<void> {
         resourceId,
         ...meta,
       },
-    })
-  } catch (err) {
+    } )
+  } catch ( err ) {
     // Never throw - logging should never break the flow
-    log('error', 'Failed to log activity', {
+    log( 'error', 'Failed to log activity', {
       userId,
-      meta: { error: err instanceof Error ? err.message : String(err) },
-    })
+      meta: { error: err instanceof Error ? err.message : String( err ) },
+    } )
   }
 }
 
-function isApiEvent(eventType: ActivityEventType): boolean {
+function isApiEvent( eventType: ActivityEventType ): boolean {
   // Heuristic: Any S3 request, upload, or API key usage counts as API
   return (
-    eventType.includes('s3_') ||
-    eventType.includes('upload') ||
+    eventType.includes( 's3_' ) ||
+    eventType.includes( 'upload' ) ||
     eventType === 'api_key_create' ||
     eventType === 'api_key_delete'
   )
 }
 
 // Helper to extract request context from Nitro event if available
-export function getContextFromEvent(event: any): {
+export function getContextFromEvent( event: unknown ): {
   requestId?: string
   userId?: string
   ipAddress?: string
   userAgent?: string
 } {
   const store = requestContext.getStore()
-  if (!store) return {}
+  if ( !store ) return {}
 
-  const requestId = store.get('requestId') as string | undefined
-  const userId = store.get('userId') as string | undefined
+  const requestId = store.get( 'requestId' ) as string | undefined
+  const userId = store.get( 'userId' ) as string | undefined
+
   // IP and userAgent might be in event.nodeReq
-  const nodeReq = event?.nodeReq
-  const ipAddress =
-    nodeReq?.headers.get('x-forwarded-for') ??
-    nodeReq?.connection?.remoteAddress
-  const userAgent = nodeReq?.headers.get('user-agent')
+  const eventObj = event as Record<string, unknown>
+  const nodeReq = eventObj?.nodeReq as Record<string, unknown> | undefined
+  const headers = nodeReq?.headers as Record<string, string> | undefined
+  const connection = nodeReq?.connection as Record<string, string> | undefined
 
-  return { requestId, userId, ipAddress: ipAddress as string, userAgent }
+  const ipAddress =
+    headers?.['x-forwarded-for'] ?? ( connection?.remoteAddress as string )
+  const userAgent = headers?.['user-agent']
+
+  return { requestId, userId, ipAddress, userAgent }
 }

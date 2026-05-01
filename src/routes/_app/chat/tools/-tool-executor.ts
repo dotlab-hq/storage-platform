@@ -159,8 +159,8 @@ async function executeEnhancedTool(
       }
     }
 
-    // Execute the tool (using the underlying StructuredTool's _call which calls execute)
-    const rawResult = await tool._call(validated as Record<string, unknown>)
+    // Execute the tool through the StructuredTool interface.
+    const rawResult = await tool.call(validated as Record<string, unknown>)
     const durationMs = Date.now() - startTime
 
     // Build successful result

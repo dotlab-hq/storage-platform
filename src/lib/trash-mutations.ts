@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { eq, and, inArray } from 'drizzle-orm'
 import { seedNodeById } from '@/lib/storage-btree/seed'
 

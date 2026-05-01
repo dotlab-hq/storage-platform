@@ -11,7 +11,7 @@ const SaveProviderSchema = z
   .object( {
     providerId: z.string().min( 1 ).optional(),
     name: z.string().min( 2 ),
-    endpoint: z.string().min( 1 ),
+    endpoint: z.string().min( 1, 'Endpoint is required' ),
     region: z.string().default( 'auto' ),
     bucketName: z.string().default( 'auto' ),
     accessKeyId: z
@@ -67,6 +67,10 @@ export const saveStorageProviderFn = createServerFn( { method: 'POST' } )
       const accessKeyId = data.accessKeyId?.trim()
       const secretAccessKey = data.secretAccessKey?.trim()
 
+      if ( !endpoint ) {
+        throw new Error( 'Endpoint is required' )
+      }
+
       if ( !data.providerId && ( !accessKeyId || !secretAccessKey ) ) {
         throw new Error(
           'Access key ID and secret access key are required when creating a provider',
@@ -91,15 +95,22 @@ export const saveStorageProviderFn = createServerFn( { method: 'POST' } )
           throw new Error( 'Storage provider not found' )
         }
 
-        const nextEndpoint = endpoint || existing.endpoint || ''
-        const nextRegion = region || existing.region || ''
-        const nextBucketName = bucketName || existing.bucketName || ''
+        const nextEndpoint = endpoint || existing.endpoint
+        const nextRegion = region || existing.region
+        const nextBucketName = bucketName || existing.bucketName
         const nextAccessKeyIdEncrypted = accessKeyId
-          ? encryptProviderSecret( accessKeyId )
+          ? encryptProviderSecret(accessKeyId)
           : existing.accessKeyIdEncrypted
         const nextSecretAccessKeyEncrypted = secretAccessKey
-          ? encryptProviderSecret( secretAccessKey )
+          ? encryptProviderSecret(secretAccessKey)
           : existing.secretAccessKeyEncrypted
+
+        if ( !nextEndpoint ) {
+          throw new Error( 'Endpoint is required and cannot be empty' )
+        }
+        if ( !nextRegion ) {
+          throw new Error( 'Region is required and cannot be empty' )
+        }
 
         const updatedProvider = await db
           .update( storageProvider )
@@ -120,14 +131,20 @@ export const saveStorageProviderFn = createServerFn( { method: 'POST' } )
 
         provider = updatedProvider[0]
       } else {
-        const nextEndpoint = endpoint || ''
+        const nextEndpoint = endpoint
+        const nextRegion = region
+        const nextBucketName = bucketName
+        const nextAccessKeyIdEncrypted = encryptProviderSecret(accessKeyId!)
+        const nextSecretAccessKeyEncrypted = encryptProviderSecret(
+          secretAccessKey!,
+        )
 
-        const nextRegion = region || ''
-
-        const nextBucketName = bucketName || ''
-        const nextAccessKeyIdEncrypted = encryptProviderSecret( accessKeyId )
-        const nextSecretAccessKeyEncrypted =
-          encryptProviderSecret( secretAccessKey )
+        if ( !nextEndpoint ) {
+          throw new Error( 'Endpoint is required' )
+        }
+        if ( !nextRegion ) {
+          throw new Error( 'Region is required' )
+        }
 
         const duplicateRows = await db
           .select( { id: storageProvider.id } )

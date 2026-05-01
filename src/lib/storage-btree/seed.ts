@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { and, eq } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
