@@ -9,8 +9,15 @@ import { requireAuthenticatedServerOnlySession } from '@/lib/server-auth.server'
 
 const BUCKET_NAME = 'dot-storage'
 
+// Validate required env vars
+if ( !process.env.S3_REGION ) {
+  throw new Error(
+    'S3_REGION environment variable is not set. This is required for S3 operations.',
+  )
+}
+
 const s3Client = new S3Client( {
-  region: 'auto', // hardcoded default - no env lookup
+  region: process.env.S3_REGION,
   endpoint: process.env.S3_ENDPOINT!,
   forcePathStyle: true,
   bucketEndpoint: false,

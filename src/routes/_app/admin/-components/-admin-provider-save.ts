@@ -12,8 +12,8 @@ const SaveProviderSchema = z
     providerId: z.string().min( 1 ).optional(),
     name: z.string().min( 2 ),
     endpoint: z.string().min( 1, 'Endpoint is required' ),
-    region: z.string().default( 'auto' ),
-    bucketName: z.string().default( 'auto' ),
+    region: z.string().min( 1, 'Region is required' ),
+    bucketName: z.string().min( 1, 'Bucket name is required' ),
     accessKeyId: z
       .string()
       .optional()
@@ -91,18 +91,14 @@ export const saveStorageProviderFn = createServerFn( { method: 'POST' } )
           )
           .limit( 1 )
 
-        if ( !existing ) {
-          throw new Error( 'Storage provider not found' )
-        }
-
         const nextEndpoint = endpoint || existing.endpoint
         const nextRegion = region || existing.region
         const nextBucketName = bucketName || existing.bucketName
         const nextAccessKeyIdEncrypted = accessKeyId
-          ? encryptProviderSecret(accessKeyId)
+          ? encryptProviderSecret( accessKeyId )
           : existing.accessKeyIdEncrypted
         const nextSecretAccessKeyEncrypted = secretAccessKey
-          ? encryptProviderSecret(secretAccessKey)
+          ? encryptProviderSecret( secretAccessKey )
           : existing.secretAccessKeyEncrypted
 
         if ( !nextEndpoint ) {
@@ -134,7 +130,7 @@ export const saveStorageProviderFn = createServerFn( { method: 'POST' } )
         const nextEndpoint = endpoint
         const nextRegion = region
         const nextBucketName = bucketName
-        const nextAccessKeyIdEncrypted = encryptProviderSecret(accessKeyId!)
+        const nextAccessKeyIdEncrypted = encryptProviderSecret( accessKeyId! )
         const nextSecretAccessKeyEncrypted = encryptProviderSecret(
           secretAccessKey!,
         )
