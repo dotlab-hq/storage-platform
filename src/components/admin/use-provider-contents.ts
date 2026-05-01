@@ -1,6 +1,8 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { useEffect, useMemo, useState } from 'react'
 import type { AdminProviderContentsResponse } from '@/lib/admin-provider-browser'
+import { getAdminProviderContentsFn } from '@/routes/_app/admin/-components/-provider-contents-server'
+import { getUserProviderContentsFn } from '@/routes/_app/settings/-provider-contents-server'
 
 type LoadProviderContentsArgs = {
   providerId: string
@@ -47,11 +49,8 @@ async function loadProviderContents({
 }: LoadProviderContentsArgs & {
   searchQuery?: string
 }): Promise<AdminProviderContentsResponse> {
-  if (scope === 'user') {
-    try {
-      const { getUserProviderContentsFn } =
-        await import('@/routes/_app/settings/-provider-contents-server')
-
+  try {
+    if (scope === 'user') {
       return await getUserProviderContentsFn({
         data: {
           providerId,
@@ -61,41 +60,20 @@ async function loadProviderContents({
           search: searchQuery.length > 0 ? searchQuery : undefined,
         },
       })
-    } catch (error) {
-      throw new Error(toErrorMessage(error))
     }
+
+    return await getAdminProviderContentsFn({
+      data: {
+        providerId,
+        prefix,
+        continuationToken: continuationToken ?? null,
+        maxKeys: 250,
+        search: searchQuery.length > 0 ? searchQuery : undefined,
+      },
+    })
+  } catch (error) {
+    throw new Error(toErrorMessage(error))
   }
-
-  const searchParams = new URLSearchParams()
-  if (prefix.length > 0) {
-    searchParams.set('prefix', prefix)
-  }
-  if (continuationToken) {
-    searchParams.set('continuationToken', continuationToken)
-  }
-  if (searchQuery.length > 0) {
-    searchParams.set('search', searchQuery)
-  }
-
-  const basePath = '/api/admin/storage-providers'
-
-  const response = await fetch(
-    `${basePath}/${encodeURIComponent(providerId)}/contents${
-      searchParams.toString().length > 0 ? `?${searchParams.toString()}` : ''
-    }`,
-    {
-      credentials: 'include',
-    },
-  )
-
-  const payload: { error?: string } & Partial<AdminProviderContentsResponse> =
-    await response.json()
-
-  if (!response.ok) {
-    throw new Error(payload.error ?? 'Failed to load provider contents')
-  }
-
-  return payload as AdminProviderContentsResponse
 }
 
 export function useProviderContents(
