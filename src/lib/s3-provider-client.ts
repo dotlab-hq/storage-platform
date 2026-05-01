@@ -18,6 +18,7 @@ type ProviderClientConfig = {
 type ProviderRow = typeof storageProvider.$inferSelect
 
 
+const DEFAULT_S3_REGION = 'auto'
 const INVALID_REGION_SENTINELS = new Set( [
   '',
   UNDETERMINED_PROVIDER_VALUE,
@@ -36,6 +37,15 @@ function safeTrim( value: string | null | undefined ): string {
   return ( value ?? '' ).replace( /^["']|["']$/g, '' ).trim()
 }
 
+function resolveRegion(rawRegion?: string | null): string {
+  const normalizedRegion = safeTrim(rawRegion).toLowerCase()
+  if (!INVALID_REGION_SENTINELS.has(normalizedRegion)) {
+    return safeTrim(rawRegion)
+  }
+  // Fallback to auto if region is invalid/undetermined
+  return DEFAULT_S3_REGION
+}
+
 function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
   // Access Key ID: must be in DB
   const accessKeyId = safeTrim( decryptProviderSecret( row.accessKeyIdEncrypted ) )
@@ -45,15 +55,8 @@ function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
     decryptProviderSecret( row.secretAccessKeyEncrypted ),
   )
 
-  // Region: if row.region is empty/undetermined, throw error
-  const region = safeTrim( row.region )
-
-  if ( INVALID_REGION_SENTINELS.has( region ) ) {
-    throw new Error(
-      `Storage provider "${row.name}" has invalid region configuration: "${row.region}". ` +
-      `Please update the provider settings with a valid region.`,
-    )
-  }
+  // Region: use provided region or fallback to 'auto' if invalid/undetermined
+  const region = resolveRegion(row.region)
 
   console.log( '[fromProviderRow] Resolved region:', region )
 
