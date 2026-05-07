@@ -11,8 +11,8 @@ import {
 import type { ChatRouteSnapshot, PaginatedMessages } from './-chat-types'
 import {
   listThreadMessagesFn,
-  listChatThreadsFn,
 } from './-chat-message-queries-server'
+import { listChatThreadsFn } from './-chat-thread-server'
 
 const THREAD_PAGE_LIMIT = 20
 const MESSAGE_PAGE_LIMIT = 30

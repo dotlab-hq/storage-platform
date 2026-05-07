@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SwRouteImport } from './routes/sw'
 import { Route as HotRouteImport } from './routes/hot'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as DeviceIndexRouteImport } from './routes/device/index'
@@ -50,11 +49,6 @@ import { Route as ApiStorageS3SplatRouteImport } from './routes/api/storage/s3/$
 import { Route as ApiStorageDownloadProxyRouteImport } from './routes/api/storage/download/proxy'
 import { Route as ApiAdminUsersUserIdFolderItemsRouteImport } from './routes/api/admin/users/$userId/folder-items'
 
-const SwRoute = SwRouteImport.update({
-  id: '/sw',
-  path: '/sw',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const HotRoute = HotRouteImport.update({
   id: '/hot',
   path: '/hot',
@@ -262,7 +256,6 @@ const ApiAdminUsersUserIdFolderItemsRoute =
 export interface FileRoutesByFullPath {
   '/': typeof AppIndexRoute
   '/hot': typeof HotRoute
-  '/sw': typeof SwRoute
   '/share/$token': typeof ShareTokenRoute
   '/auth/': typeof AuthIndexRoute
   '/device/': typeof DeviceIndexRoute
@@ -302,7 +295,6 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/hot': typeof HotRoute
-  '/sw': typeof SwRoute
   '/share/$token': typeof ShareTokenRoute
   '/': typeof AppIndexRoute
   '/auth': typeof AuthIndexRoute
@@ -344,7 +336,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_app': typeof AppRouteWithChildren
   '/hot': typeof HotRoute
-  '/sw': typeof SwRoute
   '/share/$token': typeof ShareTokenRoute
   '/_app/': typeof AppIndexRoute
   '/auth/': typeof AuthIndexRoute
@@ -388,7 +379,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/hot'
-    | '/sw'
     | '/share/$token'
     | '/auth/'
     | '/device/'
@@ -428,7 +418,6 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/hot'
-    | '/sw'
     | '/share/$token'
     | '/'
     | '/auth'
@@ -469,7 +458,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/_app'
     | '/hot'
-    | '/sw'
     | '/share/$token'
     | '/_app/'
     | '/auth/'
@@ -512,7 +500,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   AppRoute: typeof AppRouteWithChildren
   HotRoute: typeof HotRoute
-  SwRoute: typeof SwRoute
   ShareTokenRoute: typeof ShareTokenRoute
   AuthIndexRoute: typeof AuthIndexRoute
   DeviceIndexRoute: typeof DeviceIndexRoute
@@ -531,13 +518,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sw': {
-      id: '/sw'
-      path: '/sw'
-      fullPath: '/sw'
-      preLoaderRoute: typeof SwRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/hot': {
       id: '/hot'
       path: '/hot'
@@ -881,7 +861,6 @@ const ApiStorageS3RouteWithChildren = ApiStorageS3Route._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   AppRoute: AppRouteWithChildren,
   HotRoute: HotRoute,
-  SwRoute: SwRoute,
   ShareTokenRoute: ShareTokenRoute,
   AuthIndexRoute: AuthIndexRoute,
   DeviceIndexRoute: DeviceIndexRoute,
