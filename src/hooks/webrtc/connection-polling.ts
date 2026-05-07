@@ -12,6 +12,8 @@ export function startSignalPolling(
   }
 
   let isPolling = false
+  let consecutiveErrors = 0
+  const MAX_CONSECUTIVE_ERRORS = 5
 
   const poll = async () => {
     if (isPolling) {
@@ -22,12 +24,27 @@ export function startSignalPolling(
     try {
       const nextSignal = await callbacks.getSignal()
       if (!nextSignal) {
+        consecutiveErrors = 0
         return
       }
 
+      consecutiveErrors = 0
+      console.log('Received signal:', nextSignal.type)
       await handleSignal(nextSignal, refs, callbacks)
     } catch (error) {
-      console.warn('Signal polling error:', error)
+      consecutiveErrors += 1
+      console.warn(
+        `Signal polling error (${consecutiveErrors}/${MAX_CONSECUTIVE_ERRORS}):`,
+        error,
+      )
+
+      if (consecutiveErrors >= MAX_CONSECUTIVE_ERRORS) {
+        console.error('Too many consecutive polling errors, stopping poll')
+        if (refs.pollingRef.current) {
+          window.clearInterval(refs.pollingRef.current)
+          refs.pollingRef.current = null
+        }
+      }
     } finally {
       isPolling = false
     }

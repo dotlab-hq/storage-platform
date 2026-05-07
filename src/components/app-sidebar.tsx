@@ -83,7 +83,7 @@ const themeConfig = {
 
 export function AppSidebar({ quota = null, ...props }: AppSidebarProps) {
   const [navUser, setNavUser] = React.useState(defaultUser)
-  const [items, setItems] = React.useState(navItems)
+  const [isAdmin, setIsAdmin] = React.useState(false)
   const { theme, setTheme } = useTheme()
 
   const getSessionUserRef = React.useRef(
@@ -105,18 +105,21 @@ export function AppSidebar({ quota = null, ...props }: AppSidebarProps) {
     void getSessionUserRef.current().then((sessionUser) => {
       if (mounted && sessionUser) {
         setNavUser(sessionUser)
-        if (sessionUser.isAdmin) {
-          setItems((prev) => {
-            if (prev.some((item) => item.url === '/admin')) return prev
-            return [...prev, { title: 'Admin', url: '/admin', icon: Shield }]
-          })
-        }
+        setIsAdmin(sessionUser.isAdmin)
       }
     })
     return () => {
       mounted = false
     }
   }, [])
+
+  const items = React.useMemo(() => {
+    const baseItems = [...navItems]
+    if (isAdmin) {
+      baseItems.push({ title: 'Admin', url: '/admin', icon: Shield })
+    }
+    return baseItems
+  }, [isAdmin])
 
   const currentTheme = theme in themeConfig ? theme : 'system'
   const { icon: ThemeIcon, label: themeLabel, next } = themeConfig[currentTheme]

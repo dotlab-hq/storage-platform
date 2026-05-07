@@ -80,26 +80,54 @@ export const getHomeSnapshotFn = createServerFn({ method: 'GET' })
       ? await getFolderBreadcrumbs(ctx.userId, currentFolderId)
       : []
 
+    // Filter out folders that belong to a virtual bucket
+    const folderItems = items.items.filter((i) => i.itemType === 'folder')
+    const folderIds = folderItems.map((f) => f.itemId)
+
+    let nonVirtualFolderIds: Set<string> = new Set(folderIds)
+    if (folderIds.length > 0) {
+      const virtualFolders = await db.query.folder.findMany({
+        where: and(
+          eq(folder.userId, ctx.userId),
+          // Get folders with virtualBucketId (virtual buckets)
+        ),
+        columns: { id: true, virtualBucketId: true },
+      })
+
+      const virtualBucketFolderIds = new Set(
+        virtualFolders
+          .filter((f) => f.virtualBucketId !== null)
+          .map((f) => f.id),
+      )
+
+      nonVirtualFolderIds = new Set(
+        folderIds.filter((id) => !virtualBucketFolderIds.has(id)),
+      )
+    }
+
     return {
       userId: ctx.userId,
       folders: items.items
-        .filter((i) => i.itemType === 'folder')
-        .map((folder) => ({
-          id: folder.itemId,
-          name: folder.name,
-          createdAt: folder.createdAt.toISOString(),
-          parentFolderId: folder.parentFolderId,
+        .filter(
+          (i) =>
+            i.itemType === 'folder' && nonVirtualFolderIds.has(i.itemId),
+        )
+        .map((folderItem) => ({
+          id: folderItem.itemId,
+          name: folderItem.name,
+          createdAt: folderItem.createdAt.toISOString(),
+          parentFolderId: folderItem.parentFolderId,
           isPrivatelyLocked: false,
         })),
       files: items.items
         .filter((i) => i.itemType === 'file')
-        .map((file) => ({
-          id: file.itemId,
-          name: file.name,
-          sizeInBytes: file.size || 0,
-          mimeType: file.mimeType || null,
+        .map((fileItem) => ({
+          id: fileItem.itemId,
+          name: fileItem.name,
+          sizeInBytes: fileItem.size || 0,
+          mimeType: fileItem.mimeType || null,
           objectKey: undefined,
-          createdAt: file.createdAt.toISOString(),
+          createdAt: fileItem.createdAt.toISOString(),
           isPrivatelyLocked: false,
         })),
       breadcrumbs,

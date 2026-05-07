@@ -49,11 +49,14 @@ export async function setupPeerConnection(
     refs.peerConnectionRef.current = null
   }
 
+  console.log(`Setting up peer connection as ${role}`)
+
   const connection = new RTCPeerConnection({ iceServers: ICE_SERVERS })
   refs.peerConnectionRef.current = connection
 
   connection.oniceconnectionstatechange = () => {
     const state = connection.iceConnectionState
+    console.log(`ICE connection state: ${state}`)
     const connected =
       state === 'connected' || state === 'completed' || state === 'checking'
     callbacks.setIsConnected(connected)
@@ -64,6 +67,7 @@ export async function setupPeerConnection(
   }
 
   connection.onconnectionstatechange = () => {
+    console.log(`Connection state: ${connection.connectionState}`)
     if (connection.connectionState === 'connected') {
       callbacks.setIsConnected(true)
     }
@@ -79,9 +83,11 @@ export async function setupPeerConnection(
 
   connection.onicecandidate = (event) => {
     if (!event.candidate) {
+      console.log('ICE candidate gathering complete')
       return
     }
 
+    console.log('Sending ICE candidate')
     void callbacks.sendSignal({
       type: 'ice',
       candidate: event.candidate.toJSON(),
@@ -89,17 +95,23 @@ export async function setupPeerConnection(
   }
 
   connection.ondatachannel = (event) => {
+    console.log('Data channel received from peer')
     refs.dataChannelRef.current = event.channel
     setupFileTransferDataChannel(event.channel, callbacks.setIncomingFiles)
   }
 
   if (role === 'offerer') {
+    console.log('Creating data channel for offerer')
     const channel = connection.createDataChannel('fileTransfer')
     refs.dataChannelRef.current = channel
     setupFileTransferDataChannel(channel, callbacks.setIncomingFiles)
 
+    console.log('Creating offer')
     const offer = await connection.createOffer()
     await connection.setLocalDescription(offer)
+    console.log('Sending offer')
     await callbacks.sendSignal({ type: 'offer', sdp: offer })
+  } else {
+    console.log('Answerer ready - waiting for offer')
   }
 }

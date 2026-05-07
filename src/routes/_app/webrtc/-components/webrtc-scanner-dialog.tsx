@@ -178,6 +178,17 @@ export function WebRTCScannerDialog({
     submitMutation.mutate(decodedPayload)
   }
 
+  // Auto-close dialog after successful connection
+  React.useEffect(() => {
+    if (connectionStatus === 'claimed' && sessionToken) {
+      // Close dialog after brief delay to show success message
+      const timer = setTimeout(() => {
+        setOpen(false)
+      }, 1500)
+      return () => clearTimeout(timer)
+    }
+  }, [connectionStatus, sessionToken])
+
   const isValidWebrtcPayload = decodedPayload.startsWith(WEBRTC_TRANSFER_PREFIX)
 
   return (
@@ -221,6 +232,17 @@ export function WebRTCScannerDialog({
                   {cameraError}
                 </div>
               )}
+            </div>
+          )}
+
+          {(state === 'review' || state === 'submitting') && submitMutation.isPending && (
+            <div className="p-4 border rounded-md bg-blue-50/50 dark:bg-blue-950/20">
+              <p className="text-sm font-medium text-blue-700 dark:text-blue-400 mb-1">
+                ✓ QR Code Recognized
+              </p>
+              <p className="text-xs text-muted-foreground">
+                Establishing peer-to-peer connection...
+              </p>
             </div>
           )}
 
