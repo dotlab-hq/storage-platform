@@ -20,7 +20,7 @@ const SaveContentSchema = z.object({
 })
 
 export const getTextFileContentFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(ContentSchema)
   .handler(async ({ data, context }) => {
     const { user } = context
@@ -80,7 +80,7 @@ export const getTextFileContentFn = createServerFn({ method: 'GET' })
   })
 
 export const saveTextFileFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(SaveContentSchema)
   .handler(async ({ data, context }) => {
     const { user } = context

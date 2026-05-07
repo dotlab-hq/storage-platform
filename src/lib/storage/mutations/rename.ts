@@ -15,7 +15,7 @@ const RenameItemSchema = z.object({
 })
 
 export const renameItemFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(RenameItemSchema)
   .handler(async ({ data, context }) => {
     const { user } = context

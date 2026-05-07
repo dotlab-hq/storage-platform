@@ -8,7 +8,7 @@ const BucketItemsInputSchema = z.object({
 })
 
 export const getBucketItemsFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(BucketItemsInputSchema)
   .handler(async ({ data, context }) => {
     const currentUser = context.user

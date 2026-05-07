@@ -14,7 +14,7 @@ const DeleteItemsSchema = z.object({
 })
 
 export const deleteItemsFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(DeleteItemsSchema)
   .handler(async ({ data, context }) => {
     const { user } = context

@@ -15,7 +15,7 @@ const ImpersonateUserSchema = z.object({
 })
 
 export const impersonateUserFn = createServerFn({ method: 'POST' })
-  .use(isAdminMiddleware)
+  .middleware([isAdminMiddleware])
   .inputValidator(ImpersonateUserSchema)
   .handler(async ({ data, context }) => {
     const adminUser = context.user
@@ -57,7 +57,7 @@ export const impersonateUserFn = createServerFn({ method: 'POST' })
   })
 
 export const stopImpersonationFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .handler(async ({ context }) => {
     const currentUser = context.user
     try {

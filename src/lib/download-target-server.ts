@@ -12,7 +12,7 @@ const DownloadProxyParamsSchema = z.object({
 })
 
 export const getDownloadProxyUrl = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(DownloadProxyParamsSchema)
   .handler(async ({ data, context }) => {
     const { user: authUser } = context

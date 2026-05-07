@@ -11,7 +11,7 @@ const PrivateLockSchema = z.object({
 })
 
 export const setFolderPrivateLockFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(PrivateLockSchema)
   .handler(async ({ data, context }) => {
     const { user } = context

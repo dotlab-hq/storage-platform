@@ -11,7 +11,7 @@ const GetLatestSummarySchema = z.object({
 })
 
 export const getLatestFileSummaryFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(GetLatestSummarySchema)
   .handler(async ({ data, context }) => {
     const currentUser = context.user

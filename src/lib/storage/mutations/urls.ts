@@ -16,7 +16,7 @@ const GetPresignedUrlSchema = z.object({
 })
 
 export const getFilePresignedUrlFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(GetPresignedUrlSchema)
   .handler(async ({ data, context }) => {
     const { user } = context
@@ -103,7 +103,7 @@ export const getFilePresignedUrlFn = createServerFn({ method: 'GET' })
   })
 
 export const getOwnedFileRedirectUrlFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(GetPresignedUrlSchema)
   .handler(async ({ data, context }) => {
     const { user } = context

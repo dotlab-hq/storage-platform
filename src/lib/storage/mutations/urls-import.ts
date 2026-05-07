@@ -16,7 +16,7 @@ const ImportFromUrlSchema = z.object({
 export const MAX_IMPORT_FROM_URL_SIZE = 5 * 1024 * 1024 * 1024 // 5GB limit for URL imports
 
 export const importFileFromUrl = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(ImportFromUrlSchema)
   .handler(async ({ data, context }) => {
     const { user } = context

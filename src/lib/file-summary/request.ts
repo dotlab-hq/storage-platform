@@ -12,7 +12,7 @@ const RequestSummarySchema = z.object({
 })
 
 export const requestFileSummaryFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(RequestSummarySchema)
   .handler(async ({ data, context }) => {
     const currentUser = context.user

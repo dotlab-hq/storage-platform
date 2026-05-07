@@ -17,7 +17,7 @@ const UserProviderContentsSchema = z.object({
 export const getUserProviderContentsFn = createServerFn({
   method: 'POST',
 })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(UserProviderContentsSchema)
   .handler(async ({ data, context }) => {
     const currentUser = context.user

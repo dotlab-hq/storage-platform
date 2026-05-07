@@ -16,7 +16,7 @@ const MoveItemsSchema = z.object({
 })
 
 export const moveItemsFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(MoveItemsSchema)
   .handler(async ({ data, context }) => {
     const { user } = context

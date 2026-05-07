@@ -26,7 +26,7 @@ const ThreadCreateSchema = z.object({
 })
 
 export const listChatThreadsFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(ThreadPaginationSchema)
   .handler(async ({ data, context }): Promise<PaginatedThreads> => {
     const currentUser = context.user
@@ -73,7 +73,7 @@ export const listChatThreadsFn = createServerFn({ method: 'GET' })
   })
 
 export const createChatThreadFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(ThreadCreateSchema)
   .handler(async ({ data, context }) => {
     const currentUser = context.user
@@ -106,7 +106,7 @@ export const createChatThreadFn = createServerFn({ method: 'POST' })
   })
 
 export const renameChatThreadFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(ThreadRenameSchema)
   .handler(async ({ data, context }) => {
     const currentUser = context.user
@@ -138,7 +138,7 @@ export const renameChatThreadFn = createServerFn({ method: 'POST' })
   })
 
 export const deleteChatThreadFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(ThreadDeleteSchema)
   .handler(async ({ data, context }) => {
     const currentUser = context.user

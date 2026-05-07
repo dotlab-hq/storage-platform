@@ -29,6 +29,8 @@ import type {
 import type { HomeLoaderData } from '@/routes/-home-server'
 import { getFolderItemsFn, getQuotaFn } from '@/lib/storage/queries/server'
 
+const PAGE_LIMIT = 100
+
 const checkAuthClient = createClientOnlyFn(async () => {
   const { data, error } = await authClient.getSession()
   if (error || !data?.user) {

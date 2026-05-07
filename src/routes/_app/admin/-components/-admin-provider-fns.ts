@@ -27,7 +27,7 @@ const UpdateProviderAvailabilitySchema = z.object({
 export const getAdminDashboardDataFn = createServerFn({
   method: 'GET',
 })
-  .use(isAdminMiddleware)
+  .middleware([isAdminMiddleware])
   .handler(async () => {
   const [summary, providers, users] = await Promise.all([
     getStorageAdminSummary(),
@@ -40,7 +40,7 @@ export const getAdminDashboardDataFn = createServerFn({
 export const getAdminSummaryFn = createServerFn({
   method: 'GET',
 })
-  .use(isAdminMiddleware)
+  .middleware([isAdminMiddleware])
   .handler(async () => {
   return getStorageAdminSummary()
 })
@@ -48,7 +48,7 @@ export const getAdminSummaryFn = createServerFn({
 export const getAdminProvidersFn = createServerFn({
   method: 'GET',
 })
-  .use(isAdminMiddleware)
+  .middleware([isAdminMiddleware])
   .handler(async () => {
   return listProvidersWithUsage()
 })
@@ -56,7 +56,7 @@ export const getAdminProvidersFn = createServerFn({
 export const getAdminUsersFn = createServerFn({
   method: 'GET',
 })
-  .use(isAdminMiddleware)
+  .middleware([isAdminMiddleware])
   .handler(async () => {
   return getUsersWithUsage()
 })
@@ -64,7 +64,7 @@ export const getAdminUsersFn = createServerFn({
 export const setStorageProviderAvailabilityFn = createServerFn({
   method: 'POST',
 })
-  .use(isAdminMiddleware)
+  .middleware([isAdminMiddleware])
   .inputValidator(UpdateProviderAvailabilitySchema)
   .handler(async ({ data, context }) => {
     const adminUser = context.user
@@ -114,7 +114,7 @@ export const setStorageProviderAvailabilityFn = createServerFn({
   })
 
 export const deleteStorageProviderFn = createServerFn({ method: 'POST' })
-  .use(isAdminMiddleware)
+  .middleware([isAdminMiddleware])
   .inputValidator(ProviderIdSchema)
   .handler(async ({ data, context }) => {
     const adminUser = context.user
@@ -171,7 +171,7 @@ export const deleteStorageProviderFn = createServerFn({ method: 'POST' })
   })
 
 export const triggerTrashCronFn = createServerFn({ method: 'POST' })
-  .use(isAdminMiddleware)
+  .middleware([isAdminMiddleware])
   .handler(async ({ context }) => {
     const adminUser = context.user
     console.log('[Manual Cron Trigger] Admin user:', adminUser.id)

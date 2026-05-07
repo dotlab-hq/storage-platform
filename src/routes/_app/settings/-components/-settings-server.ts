@@ -113,7 +113,7 @@ const hasChatScope = (permissions: string | null): boolean => {
 }
 
 export const getSettingsSnapshotFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .handler(async ({ context }) => {
     const currentUser = context.user
     const request = getRequest()
@@ -192,7 +192,7 @@ export const getSettingsSnapshotFn = createServerFn({ method: 'GET' })
   })
 
 export const updateProfileSettingsFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(ProfileSchema)
   .handler(async ({ data }) => {
     const request = getRequest()
@@ -212,7 +212,7 @@ export const updateProfileSettingsFn = createServerFn({ method: 'POST' })
   })
 
 export const changePasswordSettingsFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(PasswordSchema)
   .handler(async ({ data, context }) => {
     const currentUser = context.user
@@ -245,7 +245,7 @@ export const changePasswordSettingsFn = createServerFn({ method: 'POST' })
   })
 
 export const enableTwoFactorSettingsFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(TwoFactorPasswordSchema)
   .handler(async ({ data }) => {
     const request = getRequest()
@@ -264,7 +264,7 @@ export const enableTwoFactorSettingsFn = createServerFn({ method: 'POST' })
   })
 
 export const verifyTwoFactorSettingsFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(VerifyTotpSchema)
   .handler(async ({ data }) => {
     const request = getRequest()
@@ -278,7 +278,7 @@ export const verifyTwoFactorSettingsFn = createServerFn({ method: 'POST' })
   })
 
 export const disableTwoFactorSettingsFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(TwoFactorPasswordSchema)
   .handler(async ({ data }) => {
     const request = getRequest()
@@ -295,7 +295,7 @@ export const disableTwoFactorSettingsFn = createServerFn({ method: 'POST' })
   })
 
 export const createChatApiKeyFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(ApiKeySchema)
   .handler(async ({ data, context }) => {
     const currentUser = context.user
@@ -333,7 +333,7 @@ export const createChatApiKeyFn = createServerFn({ method: 'POST' })
   })
 
 export const deleteChatApiKeyFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(DeleteKeySchema)
   .handler(async ({ data, context }) => {
     const currentUser = context.user
@@ -351,7 +351,7 @@ export const deleteChatApiKeyFn = createServerFn({ method: 'POST' })
   })
 
 export const updateChatApiKeyFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(UpdateApiKeySchema)
   .handler(async ({ data, context }) => {
     const currentUser = context.user

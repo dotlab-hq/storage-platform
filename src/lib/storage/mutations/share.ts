@@ -15,7 +15,7 @@ const GetShareSchema = z.object({
 })
 
 export const getShareLinkFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(GetShareSchema)
   .handler(async ({ data, context }) => {
     const { user } = context
@@ -31,7 +31,7 @@ const CreateShareSchema = z.object({
 })
 
 export const createShareLinkFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(CreateShareSchema)
   .handler(async ({ data, context }) => {
     const { user } = context
@@ -63,7 +63,7 @@ const ToggleShareSchema = z.object({
 })
 
 export const toggleShareLinkFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(ToggleShareSchema)
   .handler(async ({ data, context }) => {
     const { user } = context

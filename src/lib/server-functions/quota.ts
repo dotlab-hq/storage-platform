@@ -2,7 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { apiAuthMiddleware } from '@/middlewares/api-auth'
 
 export const getUserQuotaSnapshotFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .handler(async ({ context }) => {
     const currentUser = context.user
     const { getUserQuotaSnapshotByUserId } = await import('./quota.server')

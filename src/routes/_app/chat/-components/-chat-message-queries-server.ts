@@ -15,7 +15,7 @@ const MessagePaginationSchema = z.object({
 })
 
 export const listThreadMessagesFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(MessagePaginationSchema)
   .handler(async ({ data, context }): Promise<PaginatedMessages> => {
     const currentUser = context.user

@@ -57,7 +57,7 @@ async function getOrCreateThread(
 }
 
 export const sendChatMessageFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(SendMessageSchema)
   .handler(async ({ data, context }): Promise<SendChatMessageResult> => {
     const currentUser = context.user

@@ -22,7 +22,7 @@ const PrepareUploadTargetSchema = z.object({
 })
 
 export const prepareUploadTarget = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator((data: z.infer<typeof PrepareUploadTargetSchema>) =>
     PrepareUploadTargetSchema.parse(data),
   )

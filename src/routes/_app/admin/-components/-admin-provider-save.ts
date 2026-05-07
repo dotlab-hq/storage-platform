@@ -48,7 +48,7 @@ const SaveProviderSchema = z
   } )
 
 export const saveStorageProviderFn = createServerFn( { method: 'POST' } )
-  .use( isAdminMiddleware )
+  .middleware([isAdminMiddleware])
   .inputValidator( SaveProviderSchema )
   .handler( async ( { data, context } ) => {
     const adminUser = context.user

@@ -44,7 +44,7 @@ export type OfferResponse = z.infer<typeof OfferResponseSchema>
 export type PollResponse = z.infer<typeof PollResponseSchema>
 
 export const createQrOffer = createServerFn( { method: 'POST' } )
-  .use( apiAuthMiddleware )
+  .middleware([apiAuthMiddleware])
   .handler(
   async () => {
     try {

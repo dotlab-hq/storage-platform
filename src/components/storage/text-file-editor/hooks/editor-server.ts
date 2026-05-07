@@ -15,7 +15,7 @@ const SaveEditorFileSchema = z.object({
 })
 
 export const saveTextFileFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(SaveEditorFileSchema)
   .handler(async ({ data, context }): Promise<SaveFileResponse> => {
     try {

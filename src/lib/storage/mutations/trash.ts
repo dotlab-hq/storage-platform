@@ -13,7 +13,7 @@ import { withActivityLogging } from '@/lib/activity-logging'
 import { listTrashFolderContents } from '@/lib/trash-queries'
 
 export const listTrashItemsFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .handler(async ({ context }) => {
     const { user } = context
     // Skip logging for GET; page view will cover
@@ -27,7 +27,7 @@ const TrashActionSchema = z.object({
 })
 
 export const restoreTrashItemsFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(TrashActionSchema)
   .handler(async ({ data, context }) => {
     const { user } = context
@@ -50,7 +50,7 @@ export const restoreTrashItemsFn = createServerFn({ method: 'POST' })
   })
 
 export const permanentDeleteTrashItemsFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(TrashActionSchema)
   .handler(async ({ data, context }) => {
     const { user } = context
@@ -77,7 +77,7 @@ export const permanentDeleteTrashItemsFn = createServerFn({ method: 'POST' })
   })
 
 export const listTrashFolderContentsFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(
     z.object({
       parentFolderId: z.string().optional().nullable(),
@@ -93,7 +93,7 @@ export const listTrashFolderContentsFn = createServerFn({ method: 'GET' })
   })
 
 export const restoreAllTrashFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .handler(async ({ context }) => {
     const { user } = context
     return withActivityLogging(
@@ -112,7 +112,7 @@ export const restoreAllTrashFn = createServerFn({ method: 'POST' })
   })
 
 export const emptyAllTrashFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .handler(async ({ context }) => {
     const { user } = context
     return withActivityLogging(

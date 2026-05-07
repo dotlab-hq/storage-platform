@@ -16,7 +16,7 @@ const PresignInputSchema = z.object({
 })
 
 export const uploadPresign = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator((d: z.infer<typeof PresignInputSchema>) =>
     PresignInputSchema.parse(d),
   )
@@ -83,7 +83,7 @@ const MultipartInitSchema = z.object({
 })
 
 export const uploadMultipartInit = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator((d: z.infer<typeof MultipartInitSchema>) =>
     MultipartInitSchema.parse(d),
   )
@@ -171,7 +171,7 @@ const MultipartCompleteSchema = z.object({
 })
 
 export const uploadMultipartComplete = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator((d: z.infer<typeof MultipartCompleteSchema>) =>
     MultipartCompleteSchema.parse(d),
   )
@@ -239,7 +239,7 @@ const RegisterFileSchema = z.object({
 })
 
 export const registerFile = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator((d: z.infer<typeof RegisterFileSchema>) =>
     RegisterFileSchema.parse(d),
   )

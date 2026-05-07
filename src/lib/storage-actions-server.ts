@@ -10,7 +10,7 @@ const CreateFolderSchema = z.object({
 })
 
 export const createFolderFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(CreateFolderSchema)
   .handler(async ({ data, context }) => {
     const { user } = context

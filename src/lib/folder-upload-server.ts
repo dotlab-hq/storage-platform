@@ -17,7 +17,7 @@ const AbortFolderUploadSchema = z.object({
 })
 
 export const abortFolderUpload = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator((d: z.infer<typeof AbortFolderUploadSchema>) =>
     AbortFolderUploadSchema.parse(d),
   )
@@ -68,7 +68,7 @@ const FolderUploadInitSchema = z.object({
 })
 
 export const initFolderUpload = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator((d: z.infer<typeof FolderUploadInitSchema>) =>
     FolderUploadInitSchema.parse(d),
   )
@@ -145,7 +145,7 @@ const CompleteFolderUploadSchema = z.object({
 })
 
 export const completeFolderUpload = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator((d: z.infer<typeof CompleteFolderUploadSchema>) =>
     CompleteFolderUploadSchema.parse(d),
   )

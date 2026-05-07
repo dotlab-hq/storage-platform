@@ -19,7 +19,7 @@ const UpdateUserFileSizeLimitSchema = z.object({
 })
 
 export const updateUserStorageLimitFn = createServerFn({ method: 'POST' })
-  .use(isAdminMiddleware)
+  .middleware([isAdminMiddleware])
   .inputValidator(UpdateUserStorageLimitSchema)
   .handler(async ({ data, context }) => {
     const adminUser = context.user
@@ -89,7 +89,7 @@ export const updateUserStorageLimitFn = createServerFn({ method: 'POST' })
   })
 
 export const updateUserFileSizeLimitFn = createServerFn({ method: 'POST' })
-  .use(isAdminMiddleware)
+  .middleware([isAdminMiddleware])
   .inputValidator(UpdateUserFileSizeLimitSchema)
   .handler(async ({ data, context }) => {
     const adminUser = context.user

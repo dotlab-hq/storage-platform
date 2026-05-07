@@ -4,7 +4,7 @@ import { listChatThreadsFn } from './-chat-thread-server'
 import type { ChatRouteSnapshot } from './-chat-types'
 
 export const getChatRouteSnapshotFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .handler(async (): Promise<ChatRouteSnapshot> => {
     const threads = await listChatThreadsFn({ data: { page: 1, limit: 20 } })
     return {

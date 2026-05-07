@@ -17,7 +17,7 @@ type RecentSnapshotItem = {
 }
 
 export const getRecentSnapshotFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .handler(async ({ context }) => {
     const currentUser = context.user
     const recent = await getRecentItems(currentUser.id)

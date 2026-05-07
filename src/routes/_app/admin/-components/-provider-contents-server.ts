@@ -16,7 +16,7 @@ const AdminProviderContentsSchema = z.object({
 export const getAdminProviderContentsFn = createServerFn({
   method: 'POST',
 })
-  .use(isAdminMiddleware)
+  .middleware([isAdminMiddleware])
   .inputValidator(AdminProviderContentsSchema)
   .handler(async ({ data }) => {
     return listAdminProviderContents(

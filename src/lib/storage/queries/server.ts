@@ -43,7 +43,7 @@ const FolderItemsSchema = z.object({
 })
 
 export const getFolderItemsFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(FolderItemsSchema)
   .handler(async ({ data, context }) => {
     const user = context.user
@@ -87,7 +87,7 @@ function toNonNegativeBytes(
 }
 
 export const getQuotaFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .handler(async ({ context }) => {
     const user = context.user
     const userId = user.id
@@ -151,7 +151,7 @@ export const getQuotaFn = createServerFn({ method: 'GET' })
   })
 
 export const getAllFoldersFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .handler(async ({ context }) => {
     const user = context.user
     const { getAllFolders } = await import('@/lib/storage-queries')
@@ -162,7 +162,7 @@ export const getAllFoldersFn = createServerFn({ method: 'GET' })
 const SearchItemsSchema = z.object({ query: z.string() })
 
 export const searchItemsFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(SearchItemsSchema)
   .handler(async ({ data, context }) => {
     const user = context.user

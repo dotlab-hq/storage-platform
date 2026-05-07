@@ -12,7 +12,7 @@ const touchInputSchema = z.object({
 })
 
 export const touchFolderOpenedFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(touchInputSchema)
   .handler(async ({ data, context }) => {
     const { user } = context

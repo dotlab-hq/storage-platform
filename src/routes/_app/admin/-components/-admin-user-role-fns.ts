@@ -14,7 +14,7 @@ const UpdateUserRoleSchema = z.object({
 })
 
 export const updateUserRoleFn = createServerFn({ method: 'POST' })
-  .use(isAdminMiddleware)
+  .middleware([isAdminMiddleware])
   .inputValidator(UpdateUserRoleSchema)
   .handler(async ({ data, context }) => {
     const adminUser = context.user
@@ -83,7 +83,7 @@ const BanUsersSchema = z.object({
 })
 
 export const banUsersFn = createServerFn({ method: 'POST' })
-  .use(isAdminMiddleware)
+  .middleware([isAdminMiddleware])
   .inputValidator(BanUsersSchema)
   .handler(async ({ data, context }) => {
     const adminUser = context.user
@@ -130,7 +130,7 @@ const DeleteUsersSchema = z.object({
 })
 
 export const deleteUsersFn = createServerFn({ method: 'POST' })
-  .use(isAdminMiddleware)
+  .middleware([isAdminMiddleware])
   .inputValidator(DeleteUsersSchema)
   .handler(async ({ data, context }) => {
     const adminUser = context.user

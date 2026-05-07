@@ -28,14 +28,14 @@ const SaveUserProviderSchema = z.object({
 })
 
 export const getUserProvidersFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .handler(async ({ context }) => {
     const authUser = context.user
     return await listUserProvidersWithUsage(authUser.id)
   })
 
 export const saveUserProviderFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(SaveUserProviderSchema)
   .handler(async ({ data, context }) => {
     const authUser = context.user
@@ -186,7 +186,7 @@ export const saveUserProviderFn = createServerFn({ method: 'POST' })
   })
 
 export const deleteUserProviderFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(ProviderIdSchema)
   .handler(async ({ data, context }) => {
     const authUser = context.user
@@ -226,7 +226,7 @@ export const deleteUserProviderFn = createServerFn({ method: 'POST' })
   })
 
 export const toggleUserProviderActiveFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(
     z.object({
       providerId: z.string().min(1),
@@ -255,7 +255,7 @@ export const toggleUserProviderActiveFn = createServerFn({ method: 'POST' })
   })
 
 export const updateProviderPreferenceFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(z.object({ use_system_providers: z.boolean() }))
   .handler(async ({ data, context }) => {
     const authUser = context.user

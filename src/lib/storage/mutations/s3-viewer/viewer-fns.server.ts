@@ -141,7 +141,7 @@ export async function getViewerClient(
 }
 
 export const getS3ViewerCredentialsFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(BucketSchema)
   .handler(async ({ data, context }) => {
     const user = context.user
@@ -153,7 +153,7 @@ export const getS3ViewerCredentialsFn = createServerFn({ method: 'GET' })
   })
 
 export const listS3ViewerObjectsFn = createServerFn({ method: 'GET' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(ListSchema)
   .handler(async ({ data, context }) => {
     const { client } = await getViewerClient(context.user.id, data.bucketName)
@@ -211,7 +211,7 @@ export const listS3ViewerObjectsFn = createServerFn({ method: 'GET' })
   })
 
 export const createS3ViewerFolderFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(ObjectKeySchema)
   .handler(async ({ data, context }) => {
     const { client } = await getViewerClient(context.user.id, data.bucketName)
@@ -233,7 +233,7 @@ export const createS3ViewerFolderFn = createServerFn({ method: 'POST' })
   })
 
 export const deleteS3ViewerObjectFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(ObjectKeySchema)
   .handler(async ({ data, context }) => {
     try {
@@ -272,7 +272,7 @@ export const deleteS3ViewerObjectFn = createServerFn({ method: 'POST' })
   })
 
 export const uploadS3ViewerObjectFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(UploadSchema)
   .handler(async ({ data, context }) => {
     const { client } = await getViewerClient(context.user.id, data.bucketName)
@@ -294,7 +294,7 @@ export const uploadS3ViewerObjectFn = createServerFn({ method: 'POST' })
   })
 
 export const createS3ViewerPresignUrlFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(PresignSchema)
   .handler(async ({ data, context }) => {
     try {

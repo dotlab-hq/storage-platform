@@ -187,7 +187,7 @@ export const pollQrStatus = createServerFn({ method: 'POST' })
 const REQUEST_PERMISSION_VALUES = ['read', 'read-write'] as const
 
 export const scanQrFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(
     z.object({
       payload: z.string().optional(),

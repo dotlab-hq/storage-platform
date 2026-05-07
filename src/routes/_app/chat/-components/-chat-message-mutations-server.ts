@@ -18,7 +18,7 @@ const DeleteMessageSchema = z.object({
 })
 
 export const regenerateMessageFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(RegenerateMessageSchema)
   .handler(async ({ data, context }) => {
     const currentUser = context.user
@@ -107,7 +107,7 @@ export const regenerateMessageFn = createServerFn({ method: 'POST' })
   })
 
 export const deleteMessageFn = createServerFn({ method: 'POST' })
-  .use(apiAuthMiddleware)
+  .middleware([apiAuthMiddleware])
   .inputValidator(DeleteMessageSchema)
   .handler(async ({ data, context }) => {
     const currentUser = context.user
