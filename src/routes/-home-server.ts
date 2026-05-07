@@ -6,6 +6,8 @@ import { StorageService } from '@/lib/services/storage-service'
 import { db } from '@/db'
 import { file, folder, userStorage } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
+import { decodeNavToken } from '@/lib/nav-token'
+import { getFolderBreadcrumbs } from '@/lib/storage-queries'
 import { DEFAULT_ALLOCATED_STORAGE_BYTES } from '@/lib/storage-quota-constants'
 import type { UserQuota } from '@/types/storage'
 
@@ -33,21 +35,50 @@ export type HomeLoaderData = {
   files: HomeRawFile[]
   breadcrumbs: { id: string; name: string }[]
   quota: UserQuota
+  currentFolderId: string | null
   tinySessionPermission?: 'read' | 'read-write'
 }
 
-export const getHomeSnapshotFn = createServerFn({ method: 'GET' }).handler(
-  async (): Promise<HomeLoaderData> => {
+const HomeSnapshotSchema = z.object({
+  nav: z.string().optional(),
+})
+
+function resolveNavFolderId(nav?: string): string | null {
+  if (!nav) return null
+  const decoded = decodeNavToken(nav)
+  return decoded?.folderId ?? null
+}
+
+export const getHomeSnapshotFn = createServerFn({ method: 'GET' })
+  .inputValidator(HomeSnapshotSchema)
+  .handler(async ({ data }): Promise<HomeLoaderData> => {
     const ctx = await createServiceContext()
     const service = new StorageService(ctx)
     const quota = await service.getUserQuota()
+    const requestedFolderId = resolveNavFolderId(data.nav)
+    const folderRow = requestedFolderId
+      ? await db.query.folder.findFirst({
+          where: and(
+            eq(folder.id, requestedFolderId),
+            eq(folder.userId, ctx.userId),
+            eq(folder.isDeleted, false),
+            eq(folder.isTrashed, false),
+            isNull(folder.virtualBucketId),
+          ),
+        })
+      : null
+    const currentFolderId = folderRow?.id ?? null
 
     // Use btree-based listing for performance
     const items = await service.listFolderItems({
-      folderId: null,
+      folderId: currentFolderId,
       page: 1,
       limit: 1000,
     })
+
+    const breadcrumbs = currentFolderId
+      ? await getFolderBreadcrumbs(ctx.userId, currentFolderId)
+      : []
 
     return {
       userId: ctx.userId,
@@ -71,12 +102,12 @@ export const getHomeSnapshotFn = createServerFn({ method: 'GET' }).handler(
           createdAt: file.createdAt.toISOString(),
           isPrivatelyLocked: false,
         })),
-      breadcrumbs: [],
+      breadcrumbs,
       quota,
+      currentFolderId,
       tinySessionPermission: 'read-write' as const,
     }
-  },
-)
+  })
 
 export type HomeDashboardData = {
   fileCount: number

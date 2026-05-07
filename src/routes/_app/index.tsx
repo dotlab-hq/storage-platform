@@ -37,10 +37,11 @@ export const Route = createFileRoute('/_app/')({
   validateSearch: validateHomeSearch,
   loaderDeps: ({ search }) => ({
     upload: search.upload ?? false,
+    nav: search.nav,
   }),
   component: StorageRouteComponent,
-  loader: async () => {
-    return getHomeSnapshotFn()
+  loader: async ({ deps }) => {
+    return getHomeSnapshotFn({ data: { nav: deps.nav ?? undefined } })
   },
   pendingComponent: HomeRoutePending,
 })

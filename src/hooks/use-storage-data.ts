@@ -74,6 +74,7 @@ function mapInitialData(initialData?: HomeLoaderData) {
     folders: mapped.folders,
     breadcrumbs: mapBreadcrumbs(initialData.breadcrumbs),
     quota: initialData.quota,
+    currentFolderId: initialData.currentFolderId ?? null,
     tinySessionPermission: initialData.tinySessionPermission,
   }
 }
@@ -112,6 +113,7 @@ export function useStorageData(initialData?: HomeLoaderData) {
     if (initialMapped) {
       store.setUserId(initialMapped.userId)
       store.setTinySessionPermission(initialMapped.tinySessionPermission)
+      store.setCurrentFolderId(initialMapped.currentFolderId)
       return
     }
     void checkAuthClient().then((uid) => {

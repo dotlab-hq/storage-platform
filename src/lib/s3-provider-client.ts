@@ -18,7 +18,7 @@ type ProviderClientConfig = {
 
 type ProviderRow = typeof storageProvider.$inferSelect
 
-const DEFAULT_S3_REGION = 'auto'
+const DEFAULT_S3_REGION = ''
 const INVALID_REGION_SENTINELS = new Set([
   '',
   UNDETERMINED_PROVIDER_VALUE,
@@ -29,16 +29,21 @@ const INVALID_REGION_SENTINELS = new Set([
 ])
 
 function safeTrim(value: string | null | undefined): string {
-  return (value ?? '').replace(/^["']|["']$/g, '').trim()
+  return (value ?? '').replace(/^['"]|['"]$/g, '').trim()
 }
 
 function resolveRegion(rawRegion?: string | null): string {
   const normalizedRegion = safeTrim(rawRegion).toLowerCase()
-  if (!INVALID_REGION_SENTINELS.has(normalizedRegion)) {
+  if (!INVALID_REGION_SENTINELS.has(normalizedRegion) && normalizedRegion.length > 0) {
     return safeTrim(rawRegion)
   }
-  // Fallback to auto if region is invalid/undetermined
-  return DEFAULT_S3_REGION
+
+  // Region is missing or invalid — surface a clear, actionable error instead of
+  // creating a client with an invalid 'auto' region (which causes runtime
+  // errors like: "A region must be set when sending requests to S3").
+  throw new Error(
+    'Storage provider region is missing or invalid. Please set a valid AWS region for this provider in the admin settings.',
+  )
 }
 
 function fromProviderRow(row: ProviderRow): ProviderClientConfig {
