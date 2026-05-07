@@ -57,8 +57,9 @@ export async function setupPeerConnection(
   connection.oniceconnectionstatechange = () => {
     const state = connection.iceConnectionState
     console.log(`ICE connection state: ${state}`)
-    const connected =
-      state === 'connected' || state === 'completed' || state === 'checking'
+    // Only treat the connection as "connected" when ICE reaches connected/completed.
+    // 'checking' is a transient state and should not be reported as connected.
+    const connected = state === 'connected' || state === 'completed'
     callbacks.setIsConnected(connected)
 
     if (state === 'failed' || state === 'disconnected' || state === 'closed') {

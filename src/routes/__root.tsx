@@ -8,6 +8,8 @@ import { lazy, Suspense } from 'react'
 import { ThemeProvider } from 'next-themes'
 
 import TanStackQueryProvider from '../integrations/tanstack-query/root-provider'
+import { ServiceWorkerRegistration } from '@/components/pwa/service-worker-registration'
+import { createRootHead } from './root-head'
 
 import appCss from '../styles.css?url'
 
@@ -34,130 +36,7 @@ const Devtools = import.meta.env.DEV
 export const Route = createRootRouteWithContext<MyRouterContext>()({
   errorComponent: AppErrorBoundary,
   notFoundComponent: NotFoundPage,
-  head: () => ({
-    meta: [
-      {
-        charSet: 'utf-8',
-      },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
-      },
-      {
-        title: 'DOT. Storage — Secure Cloud Storage',
-      },
-      {
-        name: 'description',
-        content:
-          'Secure, fast, and simple cloud file storage with end-to-end encryption. Store, share, and manage files safely in the cloud.',
-      },
-      {
-        name: 'keywords',
-        content:
-          'cloud storage, secure file storage, encrypted storage, file sharing, document management, backup, online storage',
-      },
-      {
-        name: 'author',
-        content: 'DOT. Storage',
-      },
-      {
-        name: 'robots',
-        content:
-          'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
-      },
-      {
-        property: 'og:type',
-        content: 'website',
-      },
-      {
-        property: 'og:title',
-        content: 'DOT. Storage — Secure Cloud Storage',
-      },
-      {
-        property: 'og:description',
-        content:
-          'Secure, fast, and simple cloud file storage with end-to-end encryption.',
-      },
-      {
-        property: 'og:image',
-        content: '/logo.svg',
-      },
-      {
-        property: 'og:url',
-        content: 'https://storage.wpsadi.dev',
-      },
-      {
-        property: 'og:site_name',
-        content: 'DOT. Storage',
-      },
-      {
-        name: 'twitter:card',
-        content: 'summary_large_image',
-      },
-      {
-        name: 'twitter:title',
-        content: 'DOT. Storage — Secure Cloud Storage',
-      },
-      {
-        name: 'twitter:description',
-        content:
-          'Secure, fast, and simple cloud file storage with end-to-end encryption.',
-      },
-      {
-        name: 'twitter:image',
-        content: '/logo.svg',
-      },
-      {
-        name: 'theme-color',
-        content: '#6229ff',
-      },
-      {
-        name: 'apple-mobile-web-app-capable',
-        content: 'yes',
-      },
-      {
-        name: 'apple-mobile-web-app-status-bar-style',
-        content: 'black-translucent',
-      },
-      {
-        name: 'apple-mobile-web-app-title',
-        content: 'DOT. Storage',
-      },
-    ],
-    links: [
-      {
-        rel: 'stylesheet',
-        href: appCss,
-      },
-      {
-        rel: 'manifest',
-        href: '/manifest.json',
-      },
-      {
-        rel: 'icon',
-        href: '/favicon.svg',
-        type: 'image/svg+xml',
-      },
-      {
-        rel: 'icon',
-        href: '/logo.svg',
-        type: 'image/svg+xml',
-        sizes: 'any',
-      },
-      {
-        rel: 'apple-touch-icon',
-        href: '/logo.svg',
-      },
-      {
-        rel: 'canonical',
-        href: 'https://storage.wpsadi.dev',
-      },
-      {
-        rel: 'preconnect',
-        href: 'https://fonts.googleapis.com',
-      },
-    ],
-  }),
+  head: () => createRootHead(appCss),
   shellComponent: RootDocument,
 })
 
@@ -192,54 +71,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 <Devtools />
               </Suspense>
             ) : null}
+            <ServiceWorkerRegistration />
           </TanStackQueryProvider>
         </ThemeProvider>
-
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                  navigator.serviceWorker.register('/sw',{
-                  scope: '/',
-                  }).then(
-                    (registration) => {
-                      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                      
-                      registration.onupdatefound = () => {
-                        const installingWorker = registration.installing;
-                        if (installingWorker == null) {
-                          return;
-                        }
-                        installingWorker.onstatechange = () => {
-                          if (installingWorker.state === 'installed') {
-                            if (navigator.serviceWorker.controller) {
-                              console.log('New content is available and will be used when all tabs for this page are closed.');
-                              // Force update if needed
-                              installingWorker.postMessage({ type: 'SKIP_WAITING' });
-                            } else {
-                              console.log('Content is cached for offline use.');
-                            }
-                          }
-                        };
-                      };
-                    },
-                    (err) => {
-                      console.log('ServiceWorker registration failed: ', err);
-                    }
-                  );
-                  
-                  let refreshing;
-                  navigator.serviceWorker.addEventListener('controllerchange', () => {
-                    if (refreshing) return;
-                    refreshing = true;
-                    window.location.reload();
-                  });
-                });
-              }
-            `,
-          }}
-        />
         <Scripts />
       </body>
     </html>

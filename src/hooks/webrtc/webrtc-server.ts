@@ -119,6 +119,17 @@ export const getSignalServerFn = createServerFn({ method: 'POST' })
     const [nextSignal, ...remaining] = queue
     await writeSignalQueue(incomingKey, remaining)
 
+    // Log what is being delivered to help diagnose empty or malformed payloads
+    try {
+      console.log('Delivering signal', {
+        id: nextSignal.id,
+        length: nextSignal.signal ? nextSignal.signal.length : 0,
+        createdAt: nextSignal.createdAt,
+      })
+    } catch (err) {
+      console.warn('Error while logging signal info', err)
+    }
+
     return {
       hasSignal: true,
       signal: nextSignal.signal,
@@ -135,11 +146,83 @@ export const setSignalServerFn = createServerFn({ method: 'POST' })
       throw new Error('Tiny session is not a WebRTC transfer session.')
     }
 
+    // Log incoming signal size to help debug malformed/truncated payloads
+    try {
+      console.log('Received signal to store', {
+        sessionToken: data.sessionToken,
+        length: data.signal ? data.signal.length : 0,
+      })
+    } catch (err) {
+      console.warn('Error while logging incoming signal', err)
+    }
+
+    // Attempt to normalize the incoming signal payload so the server stores a canonical
+    // JSON object representing the inner WebRTC signal (offer/answer/ice). This handles
+    // double-encoded or envelope-wrapped payloads like the one reported.
+    function findSignalCandidate(value: unknown, depth = 0): unknown | null {
+      if (depth > 6 || value == null) return null
+      if (typeof value === 'string') {
+        if (value.includes('"type"') || value.includes('sdp') || value.includes('candidate')) {
+          try {
+            const p = JSON.parse(value)
+            return findSignalCandidate(p, depth + 1) ?? p
+          } catch {
+            // not JSON, skip
+          }
+        }
+        return null
+      }
+      if (typeof value === 'object') {
+        if ((value as any).type && typeof (value as any).type === 'string') return value
+        if (Array.isArray(value)) {
+          for (const item of value) {
+            const found = findSignalCandidate(item, depth + 1)
+            if (found) return found
+          }
+        } else {
+          for (const key of Object.keys(value as Record<string, unknown>)) {
+            const child = (value as Record<string, unknown>)[key]
+            const found = findSignalCandidate(child, depth + 1)
+            if (found) return found
+          }
+        }
+      }
+      return null
+    }
+
+    let normalizedSignalStr: string | null = null
+    try {
+      let parsed: unknown = data.signal
+      try {
+        parsed = JSON.parse(data.signal)
+      } catch {
+        try {
+          // Some clients may double-encode JSON strings
+          parsed = JSON.parse(JSON.parse(data.signal))
+        } catch {
+          // leave parsed as raw string
+        }
+      }
+n      const candidate = findSignalCandidate(parsed) ?? (typeof parsed === 'object' ? parsed : null)
+      if (candidate && typeof candidate === 'object' && typeof (candidate as any).type === 'string') {
+        normalizedSignalStr = JSON.stringify(candidate)
+      } else if (typeof data.signal === 'string' && data.signal.length > 0) {
+        // Fallback: store the raw string if it's non-empty (preserve for debugging)
+        normalizedSignalStr = data.signal
+      }
+    } catch (err) {
+      console.warn('Failed to normalize incoming signal payload:', err)
+    }
+
+    if (!normalizedSignalStr || normalizedSignalStr.length === 0) {
+      throw new Error('Empty or invalid signal payload')
+    }
+
     const now = new Date()
     const expiresAt = new Date(now.getTime() + SIGNAL_TTL_MS)
     const signalRecord: StoredSignalRecord = {
       id: crypto.randomUUID(),
-      signal: data.signal,
+      signal: normalizedSignalStr,
       createdAt: now.toISOString(),
       expiresAt: expiresAt.toISOString(),
     }
