@@ -1,10 +1,8 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { eq, and } from 'drizzle-orm'
-import {
-  getAuthenticatedUser,
-  requireWritePermission,
-} from '@/lib/server-auth.server'
+import { requireWritePermission } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { db } from '@/db'
 import { folder, file as storageFile } from '@/db/schema/storage'
 import { withActivityLogging } from '@/lib/activity-logging'
@@ -17,9 +15,10 @@ const RenameItemSchema = z.object({
 })
 
 export const renameItemFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(RenameItemSchema)
   .handler(async ({ data, context }) => {
-    const user = await getAuthenticatedUser()
+    const { user } = context
     return withActivityLogging(
       user.id,
       data.itemType === 'folder' ? 'folder_rename' : 'file_rename',

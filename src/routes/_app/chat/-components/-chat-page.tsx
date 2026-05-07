@@ -5,13 +5,16 @@ import { ChatPageContent } from './-chat-page-content'
 import { ChatThreadDeleteDialog } from './-chat-thread-delete-dialog'
 import { ChatThreadRenameDialog } from './-chat-thread-rename-dialog'
 import { ChatThreadSidebarContent } from './-chat-thread-sidebar-content'
-import { useChatThreadActions } from './-chat-thread-actions'
-import { useChatMessageActions } from './-chat-message-actions'
-import { useChatShellActions } from './-chat-shell-actions'
-import { useChatPageData } from './-chat-page-data'
-import { useChatPageEvents } from './-chat-page-events'
-import { updateChatUi, useChatUiStore } from './-chat-store'
-import { useChatStoreSync } from './-chat-store-sync'
+import {
+  useChatThreadActions,
+  useChatMessageActions,
+  useChatShellActions,
+  useChatPageData,
+  useChatPageEvents,
+  useChatStoreSync,
+  useChatUiStore,
+  updateChatUi,
+} from '../-hooks'
 import type { ChatRouteSnapshot } from './-chat-types'
 
 type ChatPageProps = {

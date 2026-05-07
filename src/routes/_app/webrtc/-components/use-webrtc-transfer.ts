@@ -2,22 +2,7 @@ import { useQuery, useMutation } from '@tanstack/react-query'
 import * as React from 'react'
 import QRCode from 'qrcode'
 import { WEBRTC_TRANSFER_PREFIX } from '@/lib/webrtc-transfer-utils'
-
-// Dynamically load server functions
-async function loadCreateOffer() {
-  const mod = await import('./webrtc-server')
-  return mod.createOffer
-}
-
-async function loadPollOffer() {
-  const mod = await import('./webrtc-server')
-  return mod.pollOffer
-}
-
-async function loadScanOffer() {
-  const mod = await import('./webrtc-server')
-  return mod.scanOffer
-}
+import { createOffer, pollOffer, scanOffer } from './webrtc-server'
 
 export type WebrtcOfferResponse = {
   code: string
@@ -47,8 +32,7 @@ export function useWebrtcTransfer(isConnected: boolean) {
   const createOfferQuery = useQuery({
     queryKey: ['webrtc-transfer-offer'],
     queryFn: async () => {
-      const fn = await loadCreateOffer()
-      const data = await fn()
+      const data = await createOffer()
       const dataUrl = await QRCode.toDataURL(data.payload, {
         width: 260,
         margin: 1,
@@ -133,8 +117,7 @@ export function useWebrtcTransfer(isConnected: boolean) {
       }
 
       try {
-        const fn = await loadPollOffer()
-        const pollData = await fn({ data: { pollKey: offer.pollKey } })
+        const pollData = await pollOffer({ data: { pollKey: offer.pollKey } })
 
         const status = pollData.status
 
@@ -187,8 +170,7 @@ export function useWebrtcScanner() {
 
   const submitMutation = useMutation({
     mutationFn: async (payload: string) => {
-      const fn = await loadScanOffer()
-      return await fn({ data: { payload } })
+      return await scanOffer({ data: { payload } })
     },
     onSuccess: (data) => {
       if (data.sessionToken) {

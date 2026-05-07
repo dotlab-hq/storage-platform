@@ -9,7 +9,7 @@ import { SendFileDropZone } from '@/components/storage/send-file-drop-zone'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { IncomingFilesRegion } from '@/components/storage/incoming-files-region'
 import { useWebRTC } from '@/hooks/use-webrtc'
-import { useWebrtcTransfer } from './use-webrtc-transfer'
+import { useWebrtcTransfer } from '../-hooks'
 
 const WebRTCScannerDialog = React.lazy(() =>
   import('./webrtc-scanner-dialog').then((m) => ({

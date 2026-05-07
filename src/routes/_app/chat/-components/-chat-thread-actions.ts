@@ -2,22 +2,11 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from '@/components/ui/sonner'
 import { chatQueryKeys } from './-chat-query-keys'
 import type { ChatRouteSnapshot, PaginatedThreads } from './-chat-types'
-
-// Dynamically load server functions
-async function loadCreateChatThreadFn() {
-  const mod = await import('./-chat-thread-server')
-  return mod.createChatThreadFn
-}
-
-async function loadDeleteChatThreadFn() {
-  const mod = await import('./-chat-thread-server')
-  return mod.deleteChatThreadFn
-}
-
-async function loadRenameChatThreadFn() {
-  const mod = await import('./-chat-thread-server')
-  return mod.renameChatThreadFn
-}
+import {
+  createChatThreadFn,
+  deleteChatThreadFn,
+  renameChatThreadFn,
+} from './-chat-thread-server'
 
 type ThreadActionsParams = {
   initial: ChatRouteSnapshot
@@ -60,8 +49,7 @@ export function useChatThreadActions({
 
   const createThreadMutation = useMutation({
     mutationFn: async () => {
-      const fn = await loadCreateChatThreadFn()
-      return fn({ data: { title: 'New Chat' } })
+      return createChatThreadFn({ data: { title: 'New Chat' } })
     },
     onSuccess: (result) => {
       queryClient.setQueryData<PaginatedThreads>(
@@ -93,8 +81,7 @@ export function useChatThreadActions({
 
   const renameThreadMutation = useMutation({
     mutationFn: async (payload: { threadId: string; title: string }) => {
-      const fn = await loadRenameChatThreadFn()
-      return fn({ data: payload })
+      return renameChatThreadFn({ data: payload })
     },
     onSuccess: (result) => {
       queryClient.setQueryData<PaginatedThreads>(
@@ -122,8 +109,7 @@ export function useChatThreadActions({
 
   const deleteThreadMutation = useMutation({
     mutationFn: async (threadId: string) => {
-      const fn = await loadDeleteChatThreadFn()
-      return fn({ data: { threadId } })
+      return deleteChatThreadFn({ data: { threadId } })
     },
     onSuccess: () => {
       if (!deleteTargetId) return

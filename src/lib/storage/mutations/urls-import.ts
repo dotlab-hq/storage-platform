@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { selectProviderForUpload } from '@/lib/s3-provider-client'
 import { DEFAULT_FILE_SIZE_LIMIT_BYTES } from '@/lib/storage-quota-constants'
 import { logActivity } from '@/lib/activity'
@@ -16,9 +16,10 @@ const ImportFromUrlSchema = z.object({
 export const MAX_IMPORT_FROM_URL_SIZE = 5 * 1024 * 1024 * 1024 // 5GB limit for URL imports
 
 export const importFileFromUrl = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(ImportFromUrlSchema)
-  .handler(async ({ data }) => {
-    const user = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const { user } = context
     const userId = user.id
 
     const fileSizeLimit = await getUserFileSizeLimit(userId)

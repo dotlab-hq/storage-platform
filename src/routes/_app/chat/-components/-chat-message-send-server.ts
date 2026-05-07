@@ -2,7 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { db } from '@/db'
 import { chatMessage, chatThread } from '@/db/schema/chat'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import {
   deriveThreadTitle,
   toMessageSnapshot,
@@ -57,9 +57,10 @@ async function getOrCreateThread(
 }
 
 export const sendChatMessageFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(SendMessageSchema)
-  .handler(async ({ data }): Promise<SendChatMessageResult> => {
-    const currentUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }): Promise<SendChatMessageResult> => {
+    const currentUser = context.user
     const thread = await getOrCreateThread(
       currentUser.id,
       data.threadId ?? null,

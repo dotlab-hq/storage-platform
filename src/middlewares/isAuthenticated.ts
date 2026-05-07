@@ -1,7 +1,7 @@
 // the middleware will always ensure that the user is authenticated before allowing access further
 
 import { isAdminRole, normalizeUserRole } from '@/lib/authz'
-import { loadAuth } from '@/lib/auth-loader'
+import { auth } from '@/lib/auth'
 import { resolveTinySessionFromHeaders } from '@/lib/tiny-session'
 import { redirect } from '@tanstack/react-router'
 import { createMiddleware } from '@tanstack/react-start'
@@ -27,7 +27,6 @@ type AuthenticatedSessionContext = {
 async function resolveAuthenticatedSession(
   headers: Headers,
 ): Promise<AuthenticatedSessionContext | null> {
-  const auth = await loadAuth()
   const session = await auth.api.getSession({ headers })
   if (session?.user) {
     const role = normalizeUserRole(session.user.role)

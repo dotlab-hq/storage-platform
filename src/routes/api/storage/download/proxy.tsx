@@ -1,14 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { handleProxyDownloadRange } from '@/lib/download-proxy-server'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 
 export const Route = createFileRoute('/api/storage/download/proxy')({
   server: {
+    middleware: [apiAuthMiddleware],
     handlers: {
-      GET: async ({ request }) => {
+      GET: async ({ request, context }) => {
         try {
-          const authUser = await getAuthenticatedUser()
-          return handleProxyDownloadRange(request, authUser.id)
+          const { user } = context
+          return handleProxyDownloadRange(request, user.id)
         } catch (error) {
           const message =
             error instanceof Error ? error.message : 'Failed to download file'

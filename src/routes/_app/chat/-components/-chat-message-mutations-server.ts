@@ -3,7 +3,7 @@ import { and, desc, eq } from 'drizzle-orm'
 import { z } from 'zod'
 import { db } from '@/db'
 import { chatMessage, chatMessageVersion } from '@/db/schema/chat'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { logActivity } from '@/lib/activity'
 import { toMessageSnapshot } from './-chat-server-utils'
 import { generateAssistantReplyStream } from './-chat-assistant-reply-stream'
@@ -18,9 +18,10 @@ const DeleteMessageSchema = z.object({
 })
 
 export const regenerateMessageFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(RegenerateMessageSchema)
-  .handler(async ({ data }) => {
-    const currentUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const currentUser = context.user
     const target = await findOwnedMessage(currentUser.id, data.messageId)
 
     if (!target) {
@@ -106,9 +107,10 @@ export const regenerateMessageFn = createServerFn({ method: 'POST' })
   })
 
 export const deleteMessageFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(DeleteMessageSchema)
-  .handler(async ({ data }) => {
-    const currentUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const currentUser = context.user
     const target = await findOwnedMessage(currentUser.id, data.messageId)
 
     if (!target) {

@@ -1,5 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Outlet } from '@tanstack/react-router'
+import { createFileRoute, Outlet  } from '@tanstack/react-router'
 import { RootLayout } from '@/lib/providers.tsx/RootProvider'
 
 // This is a TanStack Router route group layout.

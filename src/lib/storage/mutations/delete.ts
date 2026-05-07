@@ -1,10 +1,8 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { eq, and, inArray } from 'drizzle-orm'
-import {
-  getAuthenticatedUser,
-  requireWritePermission,
-} from '@/lib/server-auth.server'
+import { requireWritePermission } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { db } from '@/db'
 import { folder, file as storageFile } from '@/db/schema/storage'
 import { withActivityLogging } from '@/lib/activity-logging'
@@ -16,9 +14,10 @@ const DeleteItemsSchema = z.object({
 })
 
 export const deleteItemsFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(DeleteItemsSchema)
-  .handler(async ({ data }) => {
-    const user = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const { user } = context
     return withActivityLogging(
       user.id,
       'file_delete',

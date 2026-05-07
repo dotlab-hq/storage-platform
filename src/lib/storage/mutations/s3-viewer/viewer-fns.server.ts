@@ -10,7 +10,7 @@ import {
   S3Client,
 } from '@aws-sdk/client-s3'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { getVirtualBucketCredentials } from '@/lib/s3-gateway/virtual-buckets.server'
 import { DEFAULT_ASSETS_BUCKET_NAME } from '@/lib/storage/assets-bucket'
 import {
@@ -85,10 +85,10 @@ function getRequestOrigin(): string | null {
 }
 
 export async function getViewerClient(
+  userId: string,
   bucketName: string,
 ): Promise<ViewerClient> {
-  const user = await getAuthenticatedUser()
-  const credentials = await getVirtualBucketCredentials(user.id, bucketName)
+  const credentials = await getVirtualBucketCredentials(userId, bucketName)
 
   // Defensive: credentials must have a valid region
   const regionTrimmed = credentials.region?.trim() ?? ''
@@ -141,9 +141,10 @@ export async function getViewerClient(
 }
 
 export const getS3ViewerCredentialsFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
   .inputValidator(BucketSchema)
-  .handler(async ({ data }) => {
-    const user = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const user = context.user
     const targetBucket =
       data.bucketName && data.bucketName.length > 0
         ? data.bucketName
@@ -152,9 +153,10 @@ export const getS3ViewerCredentialsFn = createServerFn({ method: 'GET' })
   })
 
 export const listS3ViewerObjectsFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
   .inputValidator(ListSchema)
-  .handler(async ({ data }) => {
-    const { client } = await getViewerClient(data.bucketName)
+  .handler(async ({ data, context }) => {
+    const { client } = await getViewerClient(context.user.id, data.bucketName)
     const normalizedPrefix =
       data.prefix && data.prefix.length > 0 ? data.prefix : undefined
 
@@ -209,9 +211,10 @@ export const listS3ViewerObjectsFn = createServerFn({ method: 'GET' })
   })
 
 export const createS3ViewerFolderFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(ObjectKeySchema)
-  .handler(async ({ data }) => {
-    const { client } = await getViewerClient(data.bucketName)
+  .handler(async ({ data, context }) => {
+    const { client } = await getViewerClient(context.user.id, data.bucketName)
     const folderKey = data.objectKey.endsWith('/')
       ? data.objectKey
       : `${data.objectKey}/`
@@ -230,10 +233,14 @@ export const createS3ViewerFolderFn = createServerFn({ method: 'POST' })
   })
 
 export const deleteS3ViewerObjectFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(ObjectKeySchema)
-  .handler(async ({ data }) => {
+  .handler(async ({ data, context }) => {
     try {
-      const { client, credentials } = await getViewerClient(data.bucketName)
+      const { client, credentials } = await getViewerClient(
+        context.user.id,
+        data.bucketName,
+      )
       const endpoint = normalizeBucketEndpoint(
         credentials.endpoint,
         data.bucketName,
@@ -265,9 +272,10 @@ export const deleteS3ViewerObjectFn = createServerFn({ method: 'POST' })
   })
 
 export const uploadS3ViewerObjectFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(UploadSchema)
-  .handler(async ({ data }) => {
-    const { client } = await getViewerClient(data.bucketName)
+  .handler(async ({ data, context }) => {
+    const { client } = await getViewerClient(context.user.id, data.bucketName)
     const content = Buffer.from(data.contentBase64, 'base64')
 
     await client.send(
@@ -286,10 +294,11 @@ export const uploadS3ViewerObjectFn = createServerFn({ method: 'POST' })
   })
 
 export const createS3ViewerPresignUrlFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(PresignSchema)
-  .handler(async ({ data }) => {
+  .handler(async ({ data, context }) => {
     try {
-      const { client } = await getViewerClient(data.bucketName)
+      const { client } = await getViewerClient(context.user.id, data.bucketName)
       const url = await getSignedUrl(
         client,
         new GetObjectCommand({

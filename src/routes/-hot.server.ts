@@ -14,7 +14,7 @@ import {
   TINY_SESSION_TTL_MS,
 } from '@/lib/tiny-session'
 import { Cache } from '@/lib/Cache'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import type { CachedQrLoginOffer } from './-hot-qr-server'
 
 const OfferResponseSchema = z.object( {
@@ -43,11 +43,11 @@ const PollResponseSchema = z.object( {
 export type OfferResponse = z.infer<typeof OfferResponseSchema>
 export type PollResponse = z.infer<typeof PollResponseSchema>
 
-export const createQrOffer = createServerFn( { method: 'POST' } ).handler(
+export const createQrOffer = createServerFn( { method: 'POST' } )
+  .use( apiAuthMiddleware )
+  .handler(
   async () => {
     try {
-      await getAuthenticatedUser()
-
       const code = createQrOfferCode()
       const pollKey = createPollKey()
       const expiresAt = new Date( Date.now() + QR_OFFER_TTL_MS )

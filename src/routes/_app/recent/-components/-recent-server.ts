@@ -1,6 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { getFilePresignedUrlFn } from '@/lib/storage/mutations/urls'
 import { getRecentItems } from '@/lib/storage-queries'
 
@@ -16,9 +16,10 @@ type RecentSnapshotItem = {
   mimeType: string | null
 }
 
-export const getRecentSnapshotFn = createServerFn({ method: 'GET' }).handler(
-  async () => {
-    const currentUser = await getAuthenticatedUser()
+export const getRecentSnapshotFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
+  .handler(async ({ context }) => {
+    const currentUser = context.user
     const recent = await getRecentItems(currentUser.id)
 
     const items: RecentSnapshotItem[] = [
@@ -43,8 +44,7 @@ export const getRecentSnapshotFn = createServerFn({ method: 'GET' }).handler(
     )
 
     return { items }
-  },
-)
+  })
 
 export const getRecentFileUrlFn = createServerFn({ method: 'GET' })
   .inputValidator(RecentFileInputSchema)

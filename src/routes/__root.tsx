@@ -166,34 +166,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'SoftwareApplication',
-              name: 'DOT. Storage',
-              description:
-                'Secure, fast, and simple cloud file storage with end-to-end encryption',
-              url: 'https://storage.wpsadi.dev',
-              applicationCategory: 'BusinessApplication',
-              offers: {
-                '@type': 'Offer',
-                price: '0',
-              },
-              aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: '4.8',
-                ratingCount: '1000',
-              },
-              author: {
-                '@type': 'Organization',
-                name: 'DOT. Storage',
-                logo: 'https://storage.wpsadi.dev/logo.svg',
-              },
-            }),
-          }}
-        />
       </head>
       <body>
         <ThemeProvider

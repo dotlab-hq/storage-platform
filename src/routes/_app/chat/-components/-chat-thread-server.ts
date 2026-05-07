@@ -3,7 +3,7 @@ import { and, desc, eq, sql } from 'drizzle-orm'
 import { z } from 'zod'
 import { db } from '@/db'
 import { chatThread } from '@/db/schema/chat'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import type { PaginatedThreads } from './-chat-types'
 import { toThreadSnapshot } from './-chat-server-utils'
 
@@ -26,9 +26,10 @@ const ThreadCreateSchema = z.object({
 })
 
 export const listChatThreadsFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
   .inputValidator(ThreadPaginationSchema)
-  .handler(async ({ data }): Promise<PaginatedThreads> => {
-    const currentUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }): Promise<PaginatedThreads> => {
+    const currentUser = context.user
     const offset = (data.page - 1) * data.limit
 
     const [rows, countRows] = await Promise.all([
@@ -72,9 +73,10 @@ export const listChatThreadsFn = createServerFn({ method: 'GET' })
   })
 
 export const createChatThreadFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(ThreadCreateSchema)
-  .handler(async ({ data }) => {
-    const currentUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const currentUser = context.user
     const now = new Date()
 
     const [created] = await db
@@ -104,9 +106,10 @@ export const createChatThreadFn = createServerFn({ method: 'POST' })
   })
 
 export const renameChatThreadFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(ThreadRenameSchema)
-  .handler(async ({ data }) => {
-    const currentUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const currentUser = context.user
 
     const [updated] = await db
       .update(chatThread)
@@ -135,9 +138,10 @@ export const renameChatThreadFn = createServerFn({ method: 'POST' })
   })
 
 export const deleteChatThreadFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(ThreadDeleteSchema)
-  .handler(async ({ data }) => {
-    const currentUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const currentUser = context.user
 
     const [updated] = await db
       .update(chatThread)

@@ -1,6 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import {
   resolveProviderId,
   selectProviderForUpload,
@@ -17,11 +17,12 @@ const AbortFolderUploadSchema = z.object({
 })
 
 export const abortFolderUpload = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator((d: z.infer<typeof AbortFolderUploadSchema>) =>
     AbortFolderUploadSchema.parse(d),
   )
-  .handler(async ({ data }) => {
-    const authUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const { user: authUser } = context
     return withActivityLogging(
       authUser.id,
       'upload_abort',
@@ -67,11 +68,12 @@ const FolderUploadInitSchema = z.object({
 })
 
 export const initFolderUpload = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator((d: z.infer<typeof FolderUploadInitSchema>) =>
     FolderUploadInitSchema.parse(d),
   )
-  .handler(async ({ data }) => {
-    const authUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const { user: authUser } = context
     return withActivityLogging(
       authUser.id,
       'upload_multipart',
@@ -143,11 +145,12 @@ const CompleteFolderUploadSchema = z.object({
 })
 
 export const completeFolderUpload = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator((d: z.infer<typeof CompleteFolderUploadSchema>) =>
     CompleteFolderUploadSchema.parse(d),
   )
-  .handler(async ({ data }) => {
-    const authUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const { user: authUser } = context
     return withActivityLogging(
       authUser.id,
       'upload_complete',

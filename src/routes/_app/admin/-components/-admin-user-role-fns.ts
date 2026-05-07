@@ -1,7 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { db } from '@/db'
 import { user } from '@/db/schema/auth-schema'
-import { requireAdminUser } from '@/lib/server-auth.server'
+import { isAdminMiddleware } from '@/middlewares/isAdmin'
 import { eq } from 'drizzle-orm'
 import { z } from 'zod'
 import { logActivity } from '@/lib/activity'
@@ -14,9 +14,10 @@ const UpdateUserRoleSchema = z.object({
 })
 
 export const updateUserRoleFn = createServerFn({ method: 'POST' })
+  .use(isAdminMiddleware)
   .inputValidator(UpdateUserRoleSchema)
-  .handler(async ({ data }) => {
-    const adminUser = await requireAdminUser()
+  .handler(async ({ data, context }) => {
+    const adminUser = context.user
     try {
       const updates: Record<string, unknown> = {}
 
@@ -82,9 +83,10 @@ const BanUsersSchema = z.object({
 })
 
 export const banUsersFn = createServerFn({ method: 'POST' })
+  .use(isAdminMiddleware)
   .inputValidator(BanUsersSchema)
-  .handler(async ({ data }) => {
-    const adminUser = await requireAdminUser()
+  .handler(async ({ data, context }) => {
+    const adminUser = context.user
     try {
       if (data.userIds.includes(adminUser.id)) {
         throw new Error('Cannot ban yourself')
@@ -128,9 +130,10 @@ const DeleteUsersSchema = z.object({
 })
 
 export const deleteUsersFn = createServerFn({ method: 'POST' })
+  .use(isAdminMiddleware)
   .inputValidator(DeleteUsersSchema)
-  .handler(async ({ data }) => {
-    const adminUser = await requireAdminUser()
+  .handler(async ({ data, context }) => {
+    const adminUser = context.user
     try {
       if (data.userIds.includes(adminUser.id)) {
         throw new Error('Cannot delete your own account')

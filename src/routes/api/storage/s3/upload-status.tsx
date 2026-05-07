@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { getUploadStatus } from '@/lib/s3-gateway/upload-attempts'
 
 const UploadStatusQuerySchema = z.object({
@@ -10,10 +10,11 @@ const UploadStatusQuerySchema = z.object({
 export const Route = createFileRoute('/api/storage/s3/upload-status')({
   component: () => null,
   server: {
+    middleware: [apiAuthMiddleware],
     handlers: {
-      GET: async ({ request }) => {
+      GET: async ({ request, context }) => {
         try {
-          const currentUser = await getAuthenticatedUser()
+          const { user: currentUser } = context
           const url = new URL(request.url)
           const query = UploadStatusQuerySchema.parse({
             uploadId: url.searchParams.get('uploadId'),

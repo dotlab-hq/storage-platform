@@ -4,7 +4,7 @@ import { z } from 'zod'
 import { db } from '@/db'
 import { storageProvider } from '@/db/schema/storage-provider'
 import { listAdminProviderContents } from '@/lib/admin-provider-browser'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 
 const UserProviderContentsSchema = z.object({
   providerId: z.string().min(1),
@@ -17,9 +17,10 @@ const UserProviderContentsSchema = z.object({
 export const getUserProviderContentsFn = createServerFn({
   method: 'POST',
 })
+  .use(apiAuthMiddleware)
   .inputValidator(UserProviderContentsSchema)
-  .handler(async ({ data }) => {
-    const currentUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const currentUser = context.user
 
     const providerRows = await db
       .select({ id: storageProvider.id })

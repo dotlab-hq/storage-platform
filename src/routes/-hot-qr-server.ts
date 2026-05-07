@@ -5,7 +5,7 @@ import {
   getRequestHeaders,
 } from '@tanstack/react-start/server'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import {
   buildQrLoginPayload,
   createPollKey,
@@ -187,15 +187,16 @@ export const pollQrStatus = createServerFn({ method: 'POST' })
 const REQUEST_PERMISSION_VALUES = ['read', 'read-write'] as const
 
 export const scanQrFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(
     z.object({
       payload: z.string().optional(),
       requestedPermission: z.string().optional(),
     }),
   )
-  .handler(async ({ data }) => {
+  .handler(async ({ data, context }) => {
     try {
-      const scanner = await getAuthenticatedUser()
+      const scanner = context.user
 
       const payload = data.payload?.trim() ?? ''
       const code = parseQrLoginPayload(payload)

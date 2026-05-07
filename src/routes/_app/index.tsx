@@ -3,8 +3,7 @@ import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
 import { lazy, Suspense } from 'react'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { HomeRoutePending } from '../-home-pending'
-
-type GetHomeSnapshotFn = typeof import('../-home-server').getHomeSnapshotFn
+import { getHomeSnapshotFn } from '../-home-server'
 
 type HomeSearch = {
   upload?: boolean
@@ -27,12 +26,6 @@ function validateHomeSearch(search: Record<string, unknown>): HomeSearch {
   }
 }
 
-// Lazy-load the server function to keep client bundle small
-async function loadGetHomeSnapshotFn(): Promise<GetHomeSnapshotFn> {
-  const mod = await import('../-home-server')
-  return mod.getHomeSnapshotFn
-}
-
 const StoragePage = lazy(() =>
   import('./-storage-page').then((m) => ({ default: m.StoragePage })),
 )
@@ -47,8 +40,7 @@ export const Route = createFileRoute('/_app/')({
   }),
   component: StorageRouteComponent,
   loader: async () => {
-    const fn = await loadGetHomeSnapshotFn()
-    return fn()
+    return getHomeSnapshotFn()
   },
   pendingComponent: HomeRoutePending,
 })

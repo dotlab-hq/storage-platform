@@ -15,7 +15,7 @@ import { useFileSelectionStore } from '@/stores/file-selection-store'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { TrashHeader } from './trash-header'
 import { BulkActionBar } from './bulk-action-bar'
-import { useTrashShellActions } from './use-trash-shell-actions'
+import { useTrashShellActions } from '../-hooks'
 
 const TrashContent = lazy(() =>
   import('@/components/storage/trash-content').then((m) => ({

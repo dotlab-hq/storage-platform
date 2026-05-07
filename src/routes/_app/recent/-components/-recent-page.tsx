@@ -9,6 +9,7 @@ import { formatRelativeTime } from '@/lib/file-utils'
 import { toast } from '@/components/ui/sonner'
 import { encodeNavToken } from '@/lib/nav-token'
 import { useShellView } from '@/components/shell/shell-actions-registry'
+import { getRecentFileUrlFn } from './-recent-server'
 
 type RecentItem = {
   id: string
@@ -59,9 +60,7 @@ export function RecentPage({ initial }: RecentPageProps) {
         return
       }
       try {
-        const mod = await import('./-recent-server')
-        const fn = mod.getRecentFileUrlFn
-        const { url } = await fn({ data: { fileId: item.id } })
+        const { url } = await getRecentFileUrlFn({ data: { fileId: item.id } })
         window.open(url, '_blank')
       } catch {
         toast.error('Failed to open file')

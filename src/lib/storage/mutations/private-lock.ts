@@ -1,9 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import {
-  getAuthenticatedUser,
-  requireWritePermission,
-} from '@/lib/server-auth.server'
+import { requireWritePermission } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { setFolderPrivateLock } from '@/lib/private-lock-mutations'
 import { withActivityLogging } from '@/lib/activity-logging'
 
@@ -13,9 +11,10 @@ const PrivateLockSchema = z.object({
 })
 
 export const setFolderPrivateLockFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(PrivateLockSchema)
   .handler(async ({ data, context }) => {
-    const user = await getAuthenticatedUser()
+    const { user } = context
     return withActivityLogging(
       user.id,
       'folder_lock_toggle',

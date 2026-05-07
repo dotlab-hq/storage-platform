@@ -4,7 +4,7 @@ import { db } from '@/db'
 import { objectAcl, fileTag, fileVersion } from '@/db/schema/s3-controls'
 import { file } from '@/db/schema/storage'
 import { virtualBucket } from '@/db/schema/s3-gateway'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { and, desc, eq } from 'drizzle-orm'
 import { buildUpstreamObjectKey } from '@/lib/s3-gateway/upload-key-utils'
 import { restoreObjectVersion } from '@/lib/s3-gateway/s3-versioning'
@@ -135,10 +135,11 @@ async function resolveOwnedObject(
 export const Route = createFileRoute('/api/storage/s3/object-settings')({
   component: () => null,
   server: {
+    middleware: [apiAuthMiddleware],
     handlers: {
-      GET: async ({ request }) => {
+      GET: async ({ request, context }) => {
         try {
-          const user = await getAuthenticatedUser()
+          const { user } = context
           const parsed = QuerySchema.parse(
             Object.fromEntries(new URL(request.url).searchParams.entries()),
           )
@@ -216,9 +217,9 @@ export const Route = createFileRoute('/api/storage/s3/object-settings')({
           )
         }
       },
-      PUT: async ({ request }) => {
+      PUT: async ({ request, context }) => {
         try {
-          const user = await getAuthenticatedUser()
+          const { user } = context
           const payload = UpdateSchema.parse(await request.json())
           const bucket = await resolveOwnedBucket(user.id, payload.bucketName)
           if (!bucket)

@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { listBucketItems } from '@/lib/s3-gateway/list-bucket-items.server'
 
 const BucketItemsQuerySchema = z.object({
@@ -30,10 +30,11 @@ function errorToMessage(error: unknown): string {
 export const Route = createFileRoute('/api/storage/s3/bucket-items')({
   component: () => null,
   server: {
+    middleware: [apiAuthMiddleware],
     handlers: {
-      GET: async ({ request }) => {
+      GET: async ({ request, context }) => {
         try {
-          const currentUser = await getAuthenticatedUser()
+          const { user: currentUser } = context
           const url = new URL(request.url)
           const query = BucketItemsQuerySchema.parse({
             bucketName: url.searchParams.get('bucketName'),

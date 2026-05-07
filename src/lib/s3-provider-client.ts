@@ -4,6 +4,7 @@ import { storageProvider } from '@/db/schema/storage-provider'
 import { UNDETERMINED_PROVIDER_VALUE } from '@/lib/storage-provider-constants'
 import { decryptProviderSecret } from '@/lib/provider-crypto'
 import { and, eq, isNotNull, isNull, sql } from 'drizzle-orm'
+import { db } from '@/db'
 
 type ProviderClientConfig = {
   providerId: string | null
@@ -17,24 +18,18 @@ type ProviderClientConfig = {
 
 type ProviderRow = typeof storageProvider.$inferSelect
 
-
 const DEFAULT_S3_REGION = 'auto'
-const INVALID_REGION_SENTINELS = new Set( [
+const INVALID_REGION_SENTINELS = new Set([
   '',
   UNDETERMINED_PROVIDER_VALUE,
   'pending',
   'null',
   'undefined',
   'bucket',
-] )
+])
 
-async function loadDb() {
-  const { db } = await import( '@/db' )
-  return db
-}
-
-function safeTrim( value: string | null | undefined ): string {
-  return ( value ?? '' ).replace( /^["']|["']$/g, '' ).trim()
+function safeTrim(value: string | null | undefined): string {
+  return (value ?? '').replace(/^["']|["']$/g, '').trim()
 }
 
 function resolveRegion(rawRegion?: string | null): string {
@@ -46,44 +41,44 @@ function resolveRegion(rawRegion?: string | null): string {
   return DEFAULT_S3_REGION
 }
 
-function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
+function fromProviderRow(row: ProviderRow): ProviderClientConfig {
   // Access Key ID: must be in DB
-  const accessKeyId = safeTrim( decryptProviderSecret( row.accessKeyIdEncrypted ) )
+  const accessKeyId = safeTrim(decryptProviderSecret(row.accessKeyIdEncrypted))
 
   // Secret Access Key: must be in DB
   const secretAccessKey = safeTrim(
-    decryptProviderSecret( row.secretAccessKeyEncrypted ),
+    decryptProviderSecret(row.secretAccessKeyEncrypted),
   )
 
   // Region: use provided region or fallback to 'auto' if invalid/undetermined
   const region = resolveRegion(row.region)
 
-  console.log( '[fromProviderRow] Resolved region:', region )
+  console.log('[fromProviderRow] Resolved region:', region)
 
   // Endpoint: must be in DB
-  const endpoint = safeTrim( row.endpoint )
+  const endpoint = safeTrim(row.endpoint)
 
-  if ( !accessKeyId || !secretAccessKey || !endpoint ) {
+  if (!accessKeyId || !secretAccessKey || !endpoint) {
     const missing: string[] = []
-    if ( !accessKeyId ) missing.push( 'accessKeyId' )
-    if ( !secretAccessKey ) missing.push( 'secretAccessKey' )
-    if ( !endpoint ) missing.push( 'endpoint' )
+    if (!accessKeyId) missing.push('accessKeyId')
+    if (!secretAccessKey) missing.push('secretAccessKey')
+    if (!endpoint) missing.push('endpoint')
     throw new Error(
-      `Storage provider "${row.name}" is missing required credentials: ${missing.join( ', ' )}`,
+      `Storage provider "${row.name}" is missing required credentials: ${missing.join(', ')}`,
     )
   }
 
-  console.log( '[fromProviderRow] Creating S3 client:', {
+  console.log('[fromProviderRow] Creating S3 client:', {
     providerId: row.id,
     providerName: row.name,
     bucketName: row.bucketName,
     region,
     endpoint,
-  } )
+  })
 
   let client: S3Client
   try {
-    client = new S3Client( {
+    client = new S3Client({
       region,
       endpoint,
 
@@ -95,12 +90,12 @@ function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
         accessKeyId,
         secretAccessKey,
       },
-    } )
-  } catch ( error ) {
+    })
+  } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error'
     throw new Error(
       `Failed to create S3 client for provider "${row.name}": ${message}. ` +
-      `Check region (${region}) and endpoint (${endpoint}) configuration.`,
+        `Check region (${region}) and endpoint (${endpoint}) configuration.`,
     )
   }
 
@@ -118,66 +113,62 @@ function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
 export async function getProviderClientById(
   providerId: string | null,
 ): Promise<ProviderClientConfig> {
-  console.log( '[ProviderClient] Getting client for providerId:', providerId )
-  const db = await loadDb()
-  if ( !providerId ) {
-    throw new Error( 'Provider ID is required' )
+  console.log('[ProviderClient] Getting client for providerId:', providerId)
+  if (!providerId) {
+    throw new Error('Provider ID is required')
   }
   const providerRows = await db
     .select()
-    .from( storageProvider )
-    .where( eq( storageProvider.id, providerId ) )
-    .limit( 1 )
-  if ( providerRows.length === 0 ) {
-    throw new Error( 'Storage provider not found' )
+    .from(storageProvider)
+    .where(eq(storageProvider.id, providerId))
+    .limit(1)
+  if (providerRows.length === 0) {
+    throw new Error('Storage provider not found')
   }
   const provider = providerRows[0]
-  console.log( '[ProviderClient] Found provider:', provider.id, provider.name )
-  return fromProviderRow( provider )
+  console.log('[ProviderClient] Found provider:', provider.id, provider.name)
+  return fromProviderRow(provider)
 }
 
 export async function getSystemProviderClientById(
   providerId: string,
 ): Promise<ProviderClientConfig> {
-  const db = await loadDb()
   const providerRows = await db
     .select()
-    .from( storageProvider )
+    .from(storageProvider)
     .where(
-      and( eq( storageProvider.id, providerId ), isNull( storageProvider.userId ) ),
+      and(eq(storageProvider.id, providerId), isNull(storageProvider.userId)),
     )
-    .limit( 1 )
+    .limit(1)
 
-  if ( providerRows.length === 0 ) {
-    throw new Error( 'Storage provider not found' )
+  if (providerRows.length === 0) {
+    throw new Error('Storage provider not found')
   }
 
-
-  return fromProviderRow( providerRows[0] )
+  return fromProviderRow(providerRows[0])
 }
 
 export async function resolveProviderId(
   providerId: string | null | undefined,
 ): Promise<string | null> {
-  const db = await loadDb()
-  if ( !providerId ) {
-    throw new Error( 'Provider ID is required' )
+  if (!providerId) {
+    throw new Error('Provider ID is required')
   }
 
   const providerRows = await db
-    .select( { id: storageProvider.id } )
-    .from( storageProvider )
+    .select({ id: storageProvider.id })
+    .from(storageProvider)
     .where(
       and(
-        eq( storageProvider.id, providerId ),
-        isNull( storageProvider.userId ),
-        eq( storageProvider.isActive, true ),
+        eq(storageProvider.id, providerId),
+        isNull(storageProvider.userId),
+        eq(storageProvider.isActive, true),
       ),
     )
-    .limit( 1 )
+    .limit(1)
 
-  if ( providerRows.length === 0 ) {
-    throw new Error( 'Only active system providers can be used for uploads' )
+  if (providerRows.length === 0) {
+    throw new Error('Only active system providers can be used for uploads')
   }
 
   return providerId
@@ -187,56 +178,55 @@ export async function selectProviderForUpload(
   incomingFileSize: number,
   _userId: string,
 ): Promise<ProviderClientConfig> {
-  const db = await loadDb()
   const providers = await db
     .select()
-    .from( storageProvider )
+    .from(storageProvider)
     .where(
-      and( eq( storageProvider.isActive, true ), isNull( storageProvider.userId ) ),
+      and(eq(storageProvider.isActive, true), isNull(storageProvider.userId)),
     )
 
-  if ( providers.length === 0 ) {
+  if (providers.length === 0) {
     throw new Error(
       'No storage providers configured. Please add one in the admin settings.',
     )
   }
 
   const usageRows = await db
-    .select( {
+    .select({
       providerId: file.providerId,
       usedBytes: sql<number>`COALESCE(SUM(${file.sizeInBytes}), 0)`,
-    } )
-    .from( file )
+    })
+    .from(file)
     .where(
       and(
-        eq( file.isDeleted, false ),
-        eq( file.isTrashed, false ),
-        isNotNull( file.providerId ),
+        eq(file.isDeleted, false),
+        eq(file.isTrashed, false),
+        isNotNull(file.providerId),
       ),
     )
-    .groupBy( file.providerId )
+    .groupBy(file.providerId)
   const usageByProvider = new Map(
-    usageRows.map( ( row ) => [row.providerId ?? '', row.usedBytes] ),
+    usageRows.map((row) => [row.providerId ?? '', row.usedBytes]),
   )
 
   const eligible = providers
-    .map( ( provider ) => {
-      const used = usageByProvider.get( provider.id ) ?? 0
+    .map((provider) => {
+      const used = usageByProvider.get(provider.id) ?? 0
       const available = provider.storageLimitBytes - used
       return { provider, available }
-    } )
+    })
     .filter(
-      ( item ) =>
+      (item) =>
         item.available >= incomingFileSize &&
         item.provider.fileSizeLimitBytes >= incomingFileSize,
     )
-    .sort( ( a, b ) => b.available - a.available )
+    .sort((a, b) => b.available - a.available)
 
-  if ( eligible.length === 0 ) {
+  if (eligible.length === 0) {
     throw new Error(
       'No available storage provider can accept this file size and capacity',
     )
   }
 
-  return fromProviderRow( eligible[0].provider )
+  return fromProviderRow(eligible[0].provider)
 }

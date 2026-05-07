@@ -6,7 +6,7 @@ import { file } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
 import { and, count, eq, isNull } from 'drizzle-orm'
 import { z } from 'zod'
-import { requireAdminUser } from '@/lib/server-auth.server'
+import { isAdminMiddleware } from '@/middlewares/isAdmin'
 import {
   getStorageAdminSummary,
   getUsersWithUsage,
@@ -26,8 +26,9 @@ const UpdateProviderAvailabilitySchema = z.object({
 
 export const getAdminDashboardDataFn = createServerFn({
   method: 'GET',
-}).handler(async () => {
-  await requireAdminUser()
+})
+  .use(isAdminMiddleware)
+  .handler(async () => {
   const [summary, providers, users] = await Promise.all([
     getStorageAdminSummary(),
     listProvidersWithUsage(),
@@ -38,31 +39,35 @@ export const getAdminDashboardDataFn = createServerFn({
 
 export const getAdminSummaryFn = createServerFn({
   method: 'GET',
-}).handler(async () => {
-  await requireAdminUser()
+})
+  .use(isAdminMiddleware)
+  .handler(async () => {
   return getStorageAdminSummary()
 })
 
 export const getAdminProvidersFn = createServerFn({
   method: 'GET',
-}).handler(async () => {
-  await requireAdminUser()
+})
+  .use(isAdminMiddleware)
+  .handler(async () => {
   return listProvidersWithUsage()
 })
 
 export const getAdminUsersFn = createServerFn({
   method: 'GET',
-}).handler(async () => {
-  await requireAdminUser()
+})
+  .use(isAdminMiddleware)
+  .handler(async () => {
   return getUsersWithUsage()
 })
 
 export const setStorageProviderAvailabilityFn = createServerFn({
   method: 'POST',
 })
+  .use(isAdminMiddleware)
   .inputValidator(UpdateProviderAvailabilitySchema)
-  .handler(async ({ data }) => {
-    const adminUser = await requireAdminUser()
+  .handler(async ({ data, context }) => {
+    const adminUser = context.user
     try {
       const providers = await db
         .update(storageProvider)
@@ -109,9 +114,10 @@ export const setStorageProviderAvailabilityFn = createServerFn({
   })
 
 export const deleteStorageProviderFn = createServerFn({ method: 'POST' })
+  .use(isAdminMiddleware)
   .inputValidator(ProviderIdSchema)
-  .handler(async ({ data }) => {
-    const adminUser = await requireAdminUser()
+  .handler(async ({ data, context }) => {
+    const adminUser = context.user
     try {
       const [inUseRow] = await db
         .select({ count: count() })
@@ -164,9 +170,10 @@ export const deleteStorageProviderFn = createServerFn({ method: 'POST' })
     }
   })
 
-export const triggerTrashCronFn = createServerFn({ method: 'POST' }).handler(
-  async () => {
-    const adminUser = await requireAdminUser()
+export const triggerTrashCronFn = createServerFn({ method: 'POST' })
+  .use(isAdminMiddleware)
+  .handler(async ({ context }) => {
+    const adminUser = context.user
     console.log('[Manual Cron Trigger] Admin user:', adminUser.id)
 
     const queue = env.TRASH_DELETION_QUEUE
@@ -219,5 +226,4 @@ export const triggerTrashCronFn = createServerFn({ method: 'POST' }).handler(
       enqueuedCount: fullBatch.length,
       message: `Successfully enqueued ${fullBatch.length} items for deletion`,
     }
-  },
-)
+  })

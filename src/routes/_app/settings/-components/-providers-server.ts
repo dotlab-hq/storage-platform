@@ -1,6 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { db } from '@/db'
 import { storageProvider } from '@/db/schema/storage-provider'
 import { file } from '@/db/schema/storage'
@@ -27,17 +27,18 @@ const SaveUserProviderSchema = z.object({
   isActive: z.boolean().default(true),
 })
 
-export const getUserProvidersFn = createServerFn({ method: 'GET' }).handler(
-  async () => {
-    const authUser = await getAuthenticatedUser()
+export const getUserProvidersFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
+  .handler(async ({ context }) => {
+    const authUser = context.user
     return await listUserProvidersWithUsage(authUser.id)
-  },
-)
+  })
 
 export const saveUserProviderFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(SaveUserProviderSchema)
-  .handler(async ({ data }) => {
-    const authUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const authUser = context.user
     if (data.fileSizeLimitBytes > data.storageLimitBytes) {
       throw new Error('File-size limit cannot exceed storage limit')
     }
@@ -185,9 +186,10 @@ export const saveUserProviderFn = createServerFn({ method: 'POST' })
   })
 
 export const deleteUserProviderFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(ProviderIdSchema)
-  .handler(async ({ data }) => {
-    const authUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const authUser = context.user
 
     const providerRows = await db
       .select()
@@ -224,14 +226,15 @@ export const deleteUserProviderFn = createServerFn({ method: 'POST' })
   })
 
 export const toggleUserProviderActiveFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(
     z.object({
       providerId: z.string().min(1),
       isActive: z.boolean(),
     }),
   )
-  .handler(async ({ data }) => {
-    const authUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const authUser = context.user
 
     const updated = await db
       .update(storageProvider)
@@ -252,9 +255,10 @@ export const toggleUserProviderActiveFn = createServerFn({ method: 'POST' })
   })
 
 export const updateProviderPreferenceFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(z.object({ use_system_providers: z.boolean() }))
-  .handler(async ({ data }) => {
-    const authUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const authUser = context.user
 
     await db
       .update(userTable)

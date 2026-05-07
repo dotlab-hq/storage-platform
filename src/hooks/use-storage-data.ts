@@ -27,19 +27,7 @@ import type {
   BreadcrumbItem,
 } from '@/types/storage'
 import type { HomeLoaderData } from '@/routes/-home-server'
-
-const PAGE_LIMIT = 50
-
-// Dynamically load server functions to reduce initial client bundle
-async function loadGetFolderItemsFn() {
-  const mod = await import('@/lib/storage/queries/server')
-  return mod.getFolderItemsFn
-}
-
-async function loadGetQuotaFn() {
-  const mod = await import('@/lib/storage/queries/server')
-  return mod.getQuotaFn
-}
+import { getFolderItemsFn, getQuotaFn } from '@/lib/storage/queries/server'
 
 const checkAuthClient = createClientOnlyFn(async () => {
   const { data, error } = await authClient.getSession()
@@ -52,14 +40,12 @@ const checkAuthClient = createClientOnlyFn(async () => {
 
 const fetchFolderItems = createClientOnlyFn(
   async (folderId: string | null, page: number = 1, limit: number = 100) => {
-    const getFolderItemsFn = await loadGetFolderItemsFn()
     const data = await getFolderItemsFn({ data: { folderId, page, limit } })
     return data as unknown as FetchResponse
   },
 )
 
 const fetchUserQuota = createClientOnlyFn(async (): Promise<UserQuota> => {
-  const getQuotaFn = await loadGetQuotaFn()
   const data = await getQuotaFn()
   return {
     usedStorage: data.usedStorage,

@@ -1,6 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { getProviderClientById } from '@/lib/s3-provider-client'
 import { logActivity } from '@/lib/activity'
 
@@ -12,9 +12,10 @@ const DownloadProxyParamsSchema = z.object({
 })
 
 export const getDownloadProxyUrl = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(DownloadProxyParamsSchema)
-  .handler(async ({ data }) => {
-    const authUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const { user: authUser } = context
 
     // Validate provider if provided
     let provider = null

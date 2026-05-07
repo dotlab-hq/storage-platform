@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { useWebrtcScanner } from './use-webrtc-transfer'
+import { useWebrtcScanner } from '../-hooks'
 import { useWebRTC } from '@/hooks/use-webrtc'
 import { WEBRTC_TRANSFER_PREFIX } from '@/lib/webrtc-transfer-utils'
 

@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
 import { db } from '@/db'
 import { virtualBucket } from '@/db/schema/s3-gateway'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { and, eq } from 'drizzle-orm'
 import {
   getBucketCors,
@@ -123,10 +123,11 @@ async function loadUserBucket(
 export const Route = createFileRoute('/api/storage/s3/bucket-settings')({
   component: () => null,
   server: {
+    middleware: [apiAuthMiddleware],
     handlers: {
-      GET: async ({ request }) => {
+      GET: async ({ request, context }) => {
         try {
-          const user = await getAuthenticatedUser()
+          const { user } = context
           const params = new URL(request.url).searchParams
           const parsed = BucketQuerySchema.parse({
             bucketName: params.get('bucketName') ?? '',
@@ -165,9 +166,9 @@ export const Route = createFileRoute('/api/storage/s3/bucket-settings')({
           )
         }
       },
-      PUT: async ({ request }) => {
+      PUT: async ({ request, context }) => {
         try {
-          const user = await getAuthenticatedUser()
+          const { user } = context
           const payload = UpdateBucketSchema.parse(await request.json())
           const bucket = await loadUserBucket(user.id, payload.bucketName)
           if (bucket === null) {

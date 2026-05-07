@@ -6,11 +6,7 @@ import {
   DEFAULT_ALLOCATED_STORAGE_BYTES,
   DEFAULT_FILE_SIZE_LIMIT_BYTES,
 } from '@/lib/storage-quota-constants'
-
-async function loadDb() {
-  const { db } = await import('@/db')
-  return db
-}
+import { db } from '@/db'
 
 function toNonNegativeBytes(value: number | string | null | undefined): number {
   const parsed = typeof value === 'string' ? Number(value) : value
@@ -21,7 +17,6 @@ function toNonNegativeBytes(value: number | string | null | undefined): number {
 }
 
 export async function listProvidersWithUsage() {
-  const db = await loadDb()
   const providers = await db
     .select({
       id: storageProvider.id,
@@ -79,7 +74,6 @@ export type AdminSummary = Awaited<ReturnType<typeof getStorageAdminSummary>>
 export type AdminUser = Awaited<ReturnType<typeof getUsersWithUsage>>[number]
 
 export async function listUserProvidersWithUsage(userId: string) {
-  const db = await loadDb()
   const providers = await db
     .select({
       id: storageProvider.id,
@@ -140,7 +134,6 @@ export type UserProvider = Awaited<
 >[number]
 
 export async function getStorageAdminSummary() {
-  const db = await loadDb()
   const [providerCountRow] = await db
     .select({
       count: count(),
@@ -167,7 +160,6 @@ export async function getStorageAdminSummary() {
 }
 
 export async function getUsersWithUsage() {
-  const db = await loadDb()
   const rows = await db.all<{
     id: string
     name: string

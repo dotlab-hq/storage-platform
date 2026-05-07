@@ -1,6 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { getSummaryTarget } from './target'
 import { createSourceProfile } from './source'
 import { getFileSummaryLimits, getFileSummaryModelName } from './config'
@@ -12,9 +12,10 @@ const RequestSummarySchema = z.object({
 })
 
 export const requestFileSummaryFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(RequestSummarySchema)
-  .handler(async ({ data }) => {
-    const currentUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const currentUser = context.user
 
     const existingActive = await getActiveSummaryJob(
       data.fileId,

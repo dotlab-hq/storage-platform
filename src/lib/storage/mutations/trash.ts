@@ -1,9 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import {
-  getAuthenticatedUser,
-  requireWritePermission,
-} from '@/lib/server-auth.server'
+import { requireWritePermission } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { listTrashItems } from '@/lib/trash-queries'
 import {
   restoreItems,
@@ -14,14 +12,14 @@ import {
 import { withActivityLogging } from '@/lib/activity-logging'
 import { listTrashFolderContents } from '@/lib/trash-queries'
 
-export const listTrashItemsFn = createServerFn({ method: 'GET' }).handler(
-  async () => {
-    const user = await getAuthenticatedUser()
+export const listTrashItemsFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
+  .handler(async ({ context }) => {
+    const { user } = context
     // Skip logging for GET; page view will cover
     const items = await listTrashItems(user.id)
     return { items }
-  },
-)
+  })
 
 const TrashActionSchema = z.object({
   itemIds: z.array(z.string()),
@@ -29,9 +27,10 @@ const TrashActionSchema = z.object({
 })
 
 export const restoreTrashItemsFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(TrashActionSchema)
   .handler(async ({ data, context }) => {
-    const user = await getAuthenticatedUser()
+    const { user } = context
     return withActivityLogging(
       user.id,
       'file_restore',
@@ -51,9 +50,10 @@ export const restoreTrashItemsFn = createServerFn({ method: 'POST' })
   })
 
 export const permanentDeleteTrashItemsFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(TrashActionSchema)
   .handler(async ({ data, context }) => {
-    const user = await getAuthenticatedUser()
+    const { user } = context
     return withActivityLogging(
       user.id,
       'trash_empty',
@@ -77,13 +77,14 @@ export const permanentDeleteTrashItemsFn = createServerFn({ method: 'POST' })
   })
 
 export const listTrashFolderContentsFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
   .inputValidator(
     z.object({
       parentFolderId: z.string().optional().nullable(),
     }),
   )
-  .handler(async ({ data }) => {
-    const user = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const { user } = context
     const items = await listTrashFolderContents(
       user.id,
       data.parentFolderId ?? null,
@@ -91,9 +92,10 @@ export const listTrashFolderContentsFn = createServerFn({ method: 'GET' })
     return { items }
   })
 
-export const restoreAllTrashFn = createServerFn({ method: 'POST' }).handler(
-  async ({ context }) => {
-    const user = await getAuthenticatedUser()
+export const restoreAllTrashFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
+  .handler(async ({ context }) => {
+    const { user } = context
     return withActivityLogging(
       user.id,
       'file_restore',
@@ -107,12 +109,12 @@ export const restoreAllTrashFn = createServerFn({ method: 'POST' }).handler(
         return result
       },
     )
-  },
-)
+  })
 
-export const emptyAllTrashFn = createServerFn({ method: 'POST' }).handler(
-  async ({ context }) => {
-    const user = await getAuthenticatedUser()
+export const emptyAllTrashFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
+  .handler(async ({ context }) => {
+    const { user } = context
     return withActivityLogging(
       user.id,
       'trash_empty',
@@ -126,5 +128,4 @@ export const emptyAllTrashFn = createServerFn({ method: 'POST' }).handler(
         return result
       },
     )
-  },
-)
+  })

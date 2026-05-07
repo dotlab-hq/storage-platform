@@ -1,9 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import {
-  getAuthenticatedUser,
-  requireWritePermission,
-} from '@/lib/server-auth.server'
+import { requireWritePermission } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import {
   createShareLink,
   getShareLink,
@@ -17,9 +15,10 @@ const GetShareSchema = z.object({
 })
 
 export const getShareLinkFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
   .inputValidator(GetShareSchema)
   .handler(async ({ data, context }) => {
-    const user = await getAuthenticatedUser()
+    const { user } = context
     // Query: maybe log? We'll skip GET for now; could be logged by plugin
     const link = await getShareLink(user.id, data.itemId, data.itemType)
     return { link }
@@ -32,9 +31,10 @@ const CreateShareSchema = z.object({
 })
 
 export const createShareLinkFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(CreateShareSchema)
   .handler(async ({ data, context }) => {
-    const user = await getAuthenticatedUser()
+    const { user } = context
     return withActivityLogging(
       user.id,
       'share_create',
@@ -63,9 +63,10 @@ const ToggleShareSchema = z.object({
 })
 
 export const toggleShareLinkFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(ToggleShareSchema)
   .handler(async ({ data, context }) => {
-    const user = await getAuthenticatedUser()
+    const { user } = context
     return withActivityLogging(
       user.id,
       'share_access',

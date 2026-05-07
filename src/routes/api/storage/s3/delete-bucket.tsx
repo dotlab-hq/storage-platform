@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { deleteVirtualBucket } from '@/lib/s3-gateway/virtual-buckets'
 
 const BucketActionSchema = z.object({
@@ -20,10 +20,11 @@ function errorToMessage(error: unknown): string {
 export const Route = createFileRoute('/api/storage/s3/delete-bucket')({
   component: () => null,
   server: {
+    middleware: [apiAuthMiddleware],
     handlers: {
-      POST: async ({ request }) => {
+      POST: async ({ request, context }) => {
         try {
-          const currentUser = await getAuthenticatedUser()
+          const { user: currentUser } = context
           const payload = BucketActionSchema.parse(await request.json())
           await deleteVirtualBucket(currentUser.id, payload.bucketName)
           return Response.json({ ok: true })

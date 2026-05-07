@@ -1,8 +1,8 @@
 'use server'
 
 import { createServerFn } from '@tanstack/react-start'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
-import { loadAuth } from '@/lib/auth-loader'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
+import { auth } from '@/lib/auth'
 import { db } from '@/db'
 import { account, apikey, user } from '@/db/schema/auth-schema'
 import { getRequest } from '@tanstack/react-start/server'
@@ -112,10 +112,10 @@ const hasChatScope = (permissions: string | null): boolean => {
   }
 }
 
-export const getSettingsSnapshotFn = createServerFn({ method: 'GET' }).handler(
-  async () => {
-    const currentUser = await getAuthenticatedUser()
-    const auth = await loadAuth()
+export const getSettingsSnapshotFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
+  .handler(async ({ context }) => {
+    const currentUser = context.user
     const request = getRequest()
     const headers = request.headers
     const [session, methods, apiKeys] = await Promise.all([
@@ -189,14 +189,12 @@ export const getSettingsSnapshotFn = createServerFn({ method: 'GET' }).handler(
       use_system_providers: use_system_providers,
       providers,
     }
-  },
-)
+  })
 
 export const updateProfileSettingsFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(ProfileSchema)
   .handler(async ({ data }) => {
-    await getAuthenticatedUser()
-    const auth = await loadAuth()
     const request = getRequest()
     const headers = request.headers
     try {
@@ -214,10 +212,10 @@ export const updateProfileSettingsFn = createServerFn({ method: 'POST' })
   })
 
 export const changePasswordSettingsFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(PasswordSchema)
-  .handler(async ({ data }) => {
-    const currentUser = await getAuthenticatedUser()
-    const auth = await loadAuth()
+  .handler(async ({ data, context }) => {
+    const currentUser = context.user
     const request = getRequest()
     const headers = request.headers
     try {
@@ -247,10 +245,9 @@ export const changePasswordSettingsFn = createServerFn({ method: 'POST' })
   })
 
 export const enableTwoFactorSettingsFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(TwoFactorPasswordSchema)
   .handler(async ({ data }) => {
-    await getAuthenticatedUser()
-    const auth = await loadAuth()
     const request = getRequest()
     const headers = request.headers
     try {
@@ -267,10 +264,9 @@ export const enableTwoFactorSettingsFn = createServerFn({ method: 'POST' })
   })
 
 export const verifyTwoFactorSettingsFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(VerifyTotpSchema)
   .handler(async ({ data }) => {
-    await getAuthenticatedUser()
-    const auth = await loadAuth()
     const request = getRequest()
     const headers = request.headers
     try {
@@ -282,10 +278,9 @@ export const verifyTwoFactorSettingsFn = createServerFn({ method: 'POST' })
   })
 
 export const disableTwoFactorSettingsFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(TwoFactorPasswordSchema)
   .handler(async ({ data }) => {
-    await getAuthenticatedUser()
-    const auth = await loadAuth()
     const request = getRequest()
     const headers = request.headers
     try {
@@ -300,9 +295,10 @@ export const disableTwoFactorSettingsFn = createServerFn({ method: 'POST' })
   })
 
 export const createChatApiKeyFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(ApiKeySchema)
-  .handler(async ({ data }) => {
-    const currentUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const currentUser = context.user
 
     const randomBytes = crypto.getRandomValues(new Uint8Array(32))
     const tokenBody = bytesToBase64Url(randomBytes)
@@ -337,9 +333,10 @@ export const createChatApiKeyFn = createServerFn({ method: 'POST' })
   })
 
 export const deleteChatApiKeyFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(DeleteKeySchema)
-  .handler(async ({ data }) => {
-    const currentUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const currentUser = context.user
 
     const result = await db
       .delete(apikey)
@@ -354,12 +351,15 @@ export const deleteChatApiKeyFn = createServerFn({ method: 'POST' })
   })
 
 export const updateChatApiKeyFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(UpdateApiKeySchema)
-  .handler(async ({ data }) => {
-    const currentUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const currentUser = context.user
 
     // Build update values
-    const updateValues: Partial<typeof apikey.$inferInsert> = { updatedAt: new Date() }
+    const updateValues: Partial<typeof apikey.$inferInsert> = {
+      updatedAt: new Date(),
+    }
     if (data.name !== undefined) {
       updateValues.name = data.name.trim()
     }

@@ -4,7 +4,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { eq, and } from 'drizzle-orm'
 
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { db } from '@/db'
 import { file as storageFile } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
@@ -16,9 +16,10 @@ const GetPresignedUrlSchema = z.object({
 })
 
 export const getFilePresignedUrlFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
   .inputValidator(GetPresignedUrlSchema)
-  .handler(async ({ data }) => {
-    const user = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const { user } = context
     return withActivityLogging(
       user.id,
       'file_download',
@@ -102,9 +103,10 @@ export const getFilePresignedUrlFn = createServerFn({ method: 'GET' })
   })
 
 export const getOwnedFileRedirectUrlFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
   .inputValidator(GetPresignedUrlSchema)
-  .handler(async ({ data }) => {
-    const user = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const { user } = context
     return withActivityLogging(
       user.id,
       'file_view',
@@ -152,7 +154,9 @@ export const getOwnedFileRedirectUrlFn = createServerFn({ method: 'GET' })
 
         let viewUrl: string
         try {
-          const { client, region } = await getProviderClientById(fileData.providerId)
+          const { client, region } = await getProviderClientById(
+            fileData.providerId,
+          )
 
           const objectKey = fileData.objectKey
           console.log(

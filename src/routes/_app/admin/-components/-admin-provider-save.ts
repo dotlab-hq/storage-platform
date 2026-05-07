@@ -2,7 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { db } from '@/db'
 import { storageProvider } from '@/db/schema/storage-provider'
 import { encryptProviderSecret } from '@/lib/provider-crypto'
-import { requireAdminUser } from '@/lib/server-auth.server'
+import { isAdminMiddleware } from '@/middlewares/isAdmin'
 import { eq, isNull, and } from 'drizzle-orm'
 import { z } from 'zod'
 import { logActivity } from '@/lib/activity'
@@ -48,9 +48,10 @@ const SaveProviderSchema = z
   } )
 
 export const saveStorageProviderFn = createServerFn( { method: 'POST' } )
+  .use( isAdminMiddleware )
   .inputValidator( SaveProviderSchema )
-  .handler( async ( { data } ) => {
-    const adminUser = await requireAdminUser()
+  .handler( async ( { data, context } ) => {
+    const adminUser = context.user
     try {
       if ( data.fileSizeLimitBytes > data.storageLimitBytes ) {
         throw new Error( 'File-size limit cannot exceed storage limit' )

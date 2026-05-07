@@ -2,7 +2,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { eq, and } from 'drizzle-orm'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { db } from '@/db'
 import { folder } from '@/db/schema/storage'
 import { withActivityLogging } from '@/lib/activity-logging'
@@ -12,9 +12,10 @@ const touchInputSchema = z.object({
 })
 
 export const touchFolderOpenedFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(touchInputSchema)
   .handler(async ({ data, context }) => {
-    const user = await getAuthenticatedUser()
+    const { user } = context
     return withActivityLogging(
       user.id,
       'folder_view',

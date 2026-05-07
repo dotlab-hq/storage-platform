@@ -1,10 +1,10 @@
 import { createServerFn } from '@tanstack/react-start'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 
-export const getUserQuotaSnapshotFn = createServerFn({ method: 'GET' }).handler(
-  async () => {
-    const currentUser = await getAuthenticatedUser()
+export const getUserQuotaSnapshotFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
+  .handler(async ({ context }) => {
+    const currentUser = context.user
     const { getUserQuotaSnapshotByUserId } = await import('./quota.server')
     return getUserQuotaSnapshotByUserId(currentUser.id)
-  },
-)
+  })

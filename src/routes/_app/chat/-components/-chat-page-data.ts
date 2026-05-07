@@ -9,17 +9,10 @@ import {
   useThreadPages,
 } from './-chat-page-thread-data'
 import type { ChatRouteSnapshot, PaginatedMessages } from './-chat-types'
-
-// Dynamically load server functions
-async function loadListThreadMessagesFn() {
-  const mod = await import('./-chat-message-queries-server')
-  return mod.listThreadMessagesFn
-}
-
-async function loadListChatThreadsFn() {
-  const mod = await import('./-chat-thread-server')
-  return mod.listChatThreadsFn
-}
+import {
+  listThreadMessagesFn,
+  listChatThreadsFn,
+} from './-chat-message-queries-server'
 
 const THREAD_PAGE_LIMIT = 20
 const MESSAGE_PAGE_LIMIT = 30
@@ -57,8 +50,7 @@ export function useChatPageData({
   const threadQuery = useQuery({
     queryKey: [...chatQueryKeys.threads, threadPage],
     queryFn: async () => {
-      const fn = await loadListChatThreadsFn()
-      return fn({
+      return listChatThreadsFn({
         data: { page: threadPage, limit: THREAD_PAGE_LIMIT },
       })
     },
@@ -89,8 +81,7 @@ export function useChatPageData({
       if (!activeThreadId) {
         return Promise.resolve(initialMessages())
       }
-      const fn = await loadListThreadMessagesFn()
-      return fn({
+      return listThreadMessagesFn({
         data: {
           threadId: activeThreadId,
           page: messagePage,

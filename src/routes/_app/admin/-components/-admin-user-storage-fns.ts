@@ -2,7 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { db } from '@/db'
 import { user } from '@/db/schema/auth-schema'
 import { userStorage } from '@/db/schema/storage'
-import { requireAdminUser } from '@/lib/server-auth.server'
+import { isAdminMiddleware } from '@/middlewares/isAdmin'
 import { eq } from 'drizzle-orm'
 import { z } from 'zod'
 import { DEFAULT_FILE_SIZE_LIMIT_BYTES } from '@/lib/storage-quota-constants'
@@ -19,9 +19,10 @@ const UpdateUserFileSizeLimitSchema = z.object({
 })
 
 export const updateUserStorageLimitFn = createServerFn({ method: 'POST' })
+  .use(isAdminMiddleware)
   .inputValidator(UpdateUserStorageLimitSchema)
-  .handler(async ({ data }) => {
-    const adminUser = await requireAdminUser()
+  .handler(async ({ data, context }) => {
+    const adminUser = context.user
     try {
       const [userRecord] = await db
         .select({
@@ -88,9 +89,10 @@ export const updateUserStorageLimitFn = createServerFn({ method: 'POST' })
   })
 
 export const updateUserFileSizeLimitFn = createServerFn({ method: 'POST' })
+  .use(isAdminMiddleware)
   .inputValidator(UpdateUserFileSizeLimitSchema)
-  .handler(async ({ data }) => {
-    const adminUser = await requireAdminUser()
+  .handler(async ({ data, context }) => {
+    const adminUser = context.user
     try {
       const [userRecord] = await db
         .select({

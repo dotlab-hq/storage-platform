@@ -1,7 +1,7 @@
-// @ts-nocheck
 import { isAdminRole, normalizeUserRole } from '@/lib/authz'
-import { loadAuth } from '@/lib/auth-loader'
+import { auth } from '@/lib/auth'
 import { resolveTinySessionFromHeaders } from '@/lib/tiny-session'
+import { redirect } from '@tanstack/react-router'
 import { createMiddleware } from '@tanstack/react-start'
 
 type AdminSessionContext = {
@@ -25,7 +25,6 @@ type AdminSessionContext = {
 async function resolveAdminSession(
   headers: Headers,
 ): Promise<AdminSessionContext | null> {
-  const auth = await loadAuth()
   const session = await auth.api.getSession({ headers })
   if (session?.user) {
     const role = normalizeUserRole(session.user.role)

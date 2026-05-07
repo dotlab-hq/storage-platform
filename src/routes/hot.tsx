@@ -1,5 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Link } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import * as React from 'react'
 import { QrCode, RefreshCcw } from 'lucide-react'
 import { useMutation, useQuery } from '@tanstack/react-query'
@@ -7,18 +6,8 @@ import type { UseMutationResult } from '@tanstack/react-query'
 import QRCode from 'qrcode'
 import { Button } from '@/components/ui/button'
 import { isNotAuthenticatedMiddleware } from '@/middlewares/isNotAuthenticated'
+import { createQrOffer, pollQrStatus } from './-hot-qr-server'
 import type { OfferResponse, PollResponse } from './-hot-qr-server'
-
-// Dynamically load server functions
-async function loadCreateQrOffer() {
-  const mod = await import('./-hot-qr-server')
-  return mod.createQrOffer
-}
-
-async function loadPollQrStatus() {
-  const mod = await import('./-hot-qr-server')
-  return mod.pollQrStatus
-}
 
 const ONE_MINUTE_MS = 60_000
 
@@ -40,8 +29,7 @@ function useCreateQrOffer(): UseCreateQrOfferReturn {
 
   const createOfferMutation = useMutation({
     mutationFn: async () => {
-      const fn = await loadCreateQrOffer()
-      const result = await fn()
+      const result = await createQrOffer()
       if (!result.success) {
         throw new Error(result.error)
       }
@@ -79,8 +67,7 @@ function usePollQrStatus(
     queryKey: ['pollQrStatus', currentOffer?.pollKey],
     queryFn: async () => {
       if (!currentOffer) return null
-      const fn = await loadPollQrStatus()
-      const result = await fn({
+      const result = await pollQrStatus({
         data: { pollKey: currentOffer.pollKey },
       })
       if (!result.success) {

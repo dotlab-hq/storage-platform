@@ -4,7 +4,7 @@ import { redirect } from '@tanstack/react-router'
 import { getRequest } from '@tanstack/react-start/server'
 import { isAdminRole, normalizeUserRole } from '@/lib/authz'
 import { resolveTinySessionFromHeaders } from '@/lib/tiny-session'
-import { loadAuth } from '@/lib/auth-loader'
+import { auth } from '@/lib/auth'
 import type { UserRole } from '@/lib/authz'
 import type { user } from '@/db/schema/auth-schema'
 
@@ -37,7 +37,6 @@ function throwUnauthenticated(request: Request): never {
 export async function getAuthenticatedUser(): Promise<AuthenticatedUser> {
   const request = getRequest()
   const headers = request.headers
-  const auth = await loadAuth()
 
   let session: Awaited<ReturnType<typeof auth.api.getSession>> | null = null
   try {

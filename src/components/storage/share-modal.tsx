@@ -13,22 +13,11 @@ import { toast } from '@/components/ui/sonner'
 import { Copy, Globe, Loader2, Link2, QrCode } from 'lucide-react'
 import type { StorageItem, ShareLinkInfo } from '@/types/storage'
 import { ShareQrDialog } from './share-qr-dialog'
-
-// Dynamically load server functions
-async function loadGetShareLinkFn() {
-  const mod = await import('@/lib/storage/mutations/share')
-  return mod.getShareLinkFn
-}
-
-async function loadCreateShareLinkFn() {
-  const mod = await import('@/lib/storage/mutations/share')
-  return mod.createShareLinkFn
-}
-
-async function loadToggleShareLinkFn() {
-  const mod = await import('@/lib/storage/mutations/share')
-  return mod.toggleShareLinkFn
-}
+import {
+  getShareLinkFn,
+  createShareLinkFn,
+  toggleShareLinkFn,
+} from '@/lib/storage/mutations/share'
 
 type ShareModalProps = {
   open: boolean
@@ -39,8 +28,7 @@ type ShareModalProps = {
 
 const fetchShareLink = createClientOnlyFn(
   async (itemId: string, itemType: 'file' | 'folder') => {
-    const fn = await loadGetShareLinkFn()
-    return await fn({ data: { itemId, itemType } })
+    return await getShareLinkFn({ data: { itemId, itemType } })
   },
 )
 
@@ -61,8 +49,7 @@ type ShareAction = ShareActionCreate | ShareActionToggle
 
 const postShareAction = createClientOnlyFn(async (body: ShareAction) => {
   if (body.action === 'create') {
-    const fn = await loadCreateShareLinkFn()
-    return await fn({
+    return await createShareLinkFn({
       data: {
         itemId: body.itemId,
         itemType: body.itemType,
@@ -70,8 +57,7 @@ const postShareAction = createClientOnlyFn(async (body: ShareAction) => {
       },
     })
   } else if (body.action === 'toggle') {
-    const fn = await loadToggleShareLinkFn()
-    return await fn({
+    return await toggleShareLinkFn({
       data: {
         linkId: body.linkId,
         isActive: body.isActive,

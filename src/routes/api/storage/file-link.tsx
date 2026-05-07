@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
 import { decodeNavToken } from '@/lib/nav-token'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 import { GetObjectCommand } from '@aws-sdk/client-s3'
 import { eq, and } from 'drizzle-orm'
@@ -17,8 +17,9 @@ const FileLinkSchema = z.object({
 export const Route = createFileRoute('/api/storage/file-link')({
   component: () => null,
   server: {
+    middleware: [apiAuthMiddleware],
     handlers: {
-      GET: async ({ request }) => {
+      GET: async ({ request, context }) => {
         try {
           const url = new URL(request.url)
           const navParam = url.searchParams.get('nav')
@@ -32,7 +33,7 @@ export const Route = createFileRoute('/api/storage/file-link')({
             return new Response('Invalid nav token', { status: 400 })
           }
 
-          const user = await getAuthenticatedUser()
+          const { user } = context
           const fileId = navPayload.fileId
           const userId = user.id
 

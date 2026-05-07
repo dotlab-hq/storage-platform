@@ -5,14 +5,7 @@ import { BarChart3, Files, Folder, HardDrive } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 import { formatBytes } from '@/lib/format-bytes'
-import type { getHomeDashboardDataFn } from '@/routes/-home-server'
-
-async function loadGetHomeDashboardDataFn(): Promise<
-  typeof getHomeDashboardDataFn
-> {
-  const mod = await import('@/routes/-home-server')
-  return mod.getHomeDashboardDataFn
-}
+import { getHomeDashboardDataFn } from '@/routes/-home-server'
 
 interface StatsPanelProps {
   className?: string
@@ -22,8 +15,7 @@ export function StatsPanel({ className }: StatsPanelProps) {
   const { data, isLoading, error } = useQuery({
     queryKey: ['home-dashboard'],
     queryFn: async () => {
-      const fn = await loadGetHomeDashboardDataFn()
-      return fn()
+      return getHomeDashboardDataFn()
     },
     // Data will be fresh from cache if HomeMetricsBar already fetched it
   })

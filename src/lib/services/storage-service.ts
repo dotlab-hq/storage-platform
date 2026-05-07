@@ -146,7 +146,7 @@ export class StorageService extends BaseService {
         ),
       )
 
-    const total = Number(countResult?.count || 0)
+    const total = Number(countResult.count || 0)
 
     return {
       items,
@@ -362,14 +362,6 @@ export class StorageService extends BaseService {
       .select()
       .from(userStorage)
       .where(eq(userStorage.userId, this.ctx.userId))
-
-    if (!quota) {
-      return {
-        usedStorage: 0,
-        allocatedStorage: 1073741824, // 1GB default
-        fileSizeLimit: 10485760, // 10MB default
-      }
-    }
 
     return {
       usedStorage: Number(quota.usedStorage),

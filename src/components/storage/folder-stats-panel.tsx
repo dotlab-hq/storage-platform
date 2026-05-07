@@ -5,11 +5,7 @@ import { Files, Folder, HardDrive } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 import { formatBytes } from '@/lib/format-bytes'
-
-async function loadGetFolderStatsFn() {
-  const mod = await import('@/routes/-home-server')
-  return mod.getFolderStatsFn
-}
+import { getFolderStatsFn } from '@/routes/-home-server'
 
 interface FolderStatsPanelProps {
   folderId: string | null
@@ -23,8 +19,7 @@ export function FolderStatsPanel({
   const { data, isLoading, error } = useQuery({
     queryKey: ['folder-stats', folderId],
     queryFn: async () => {
-      const fn = await loadGetFolderStatsFn()
-      return fn({ data: { folderId } })
+      return getFolderStatsFn({ data: { folderId } })
     },
   })
 

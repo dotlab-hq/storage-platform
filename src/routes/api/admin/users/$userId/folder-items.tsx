@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
-import { isAdminMiddleware } from '@/middlewares/isAdmin'
+import { apiAdminMiddleware } from '@/middlewares/api-auth'
 import { listFolderItems, getFolderBreadcrumbs } from '@/lib/storage-queries'
 import { mapBreadcrumbs } from '@/hooks/storage-data-mapper'
 
@@ -23,7 +23,7 @@ function errorToMessage(error: unknown): string {
 export const Route = createFileRoute('/api/admin/users/$userId/folder-items')({
   component: () => null,
   server: {
-    middleware: [isAdminMiddleware],
+    middleware: [apiAdminMiddleware],
     handlers: {
       GET: async ({ context, request, params }) => {
         try {

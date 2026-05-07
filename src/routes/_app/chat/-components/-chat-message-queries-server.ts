@@ -3,7 +3,7 @@ import { and, asc, eq, sql } from 'drizzle-orm'
 import { z } from 'zod'
 import { db } from '@/db'
 import { chatMessage } from '@/db/schema/chat'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { toMessageSnapshot } from './-chat-server-utils'
 import { findOwnedThread } from './-chat-server-db'
 import type { PaginatedMessages } from './-chat-types'
@@ -15,9 +15,10 @@ const MessagePaginationSchema = z.object({
 })
 
 export const listThreadMessagesFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
   .inputValidator(MessagePaginationSchema)
-  .handler(async ({ data }): Promise<PaginatedMessages> => {
-    const currentUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }): Promise<PaginatedMessages> => {
+    const currentUser = context.user
     const thread = await findOwnedThread(currentUser.id, data.threadId)
 
     if (!thread) {

@@ -1,6 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import {
   getProviderClientById,
   selectProviderForUpload,
@@ -22,11 +22,12 @@ const PrepareUploadTargetSchema = z.object({
 })
 
 export const prepareUploadTarget = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator((data: z.infer<typeof PrepareUploadTargetSchema>) =>
     PrepareUploadTargetSchema.parse(data),
   )
-  .handler(async ({ data }) => {
-    const authUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const { user: authUser } = context
 
     const storageRows = await db
       .select({ fileSizeLimit: userStorage.fileSizeLimit })

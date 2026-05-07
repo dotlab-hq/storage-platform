@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { initiateUpload } from '@/lib/s3-gateway/upload-attempts'
 
 const InitiateUploadSchema = z.object({
@@ -13,10 +13,11 @@ const InitiateUploadSchema = z.object({
 export const Route = createFileRoute('/api/storage/s3/initiate-upload')({
   component: () => null,
   server: {
+    middleware: [apiAuthMiddleware],
     handlers: {
-      POST: async ({ request }) => {
+      POST: async ({ request, context }) => {
         try {
-          const currentUser = await getAuthenticatedUser()
+          const { user: currentUser } = context
           const payload = InitiateUploadSchema.parse(await request.json())
           const result = await initiateUpload({
             userId: currentUser.id,

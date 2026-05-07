@@ -2,7 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { listFolderItems, getFolderBreadcrumbs } from '@/lib/storage-queries'
 import { touchFolderOpenedFn } from '@/lib/storage/mutations/touch'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { eq } from 'drizzle-orm'
 import { Cache } from '@/lib/Cache'
 import {
@@ -43,9 +43,10 @@ const FolderItemsSchema = z.object({
 })
 
 export const getFolderItemsFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
   .inputValidator(FolderItemsSchema)
-  .handler(async ({ data }) => {
-    const user = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const user = context.user
     const folderId = data.folderId ?? null
     const page = data.page ?? 1
     const limit = data.limit ?? 100
@@ -85,9 +86,10 @@ function toNonNegativeBytes(
   return Math.max(0, value)
 }
 
-export const getQuotaFn = createServerFn({ method: 'GET' }).handler(
-  async () => {
-    const user = await getAuthenticatedUser()
+export const getQuotaFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
+  .handler(async ({ context }) => {
+    const user = context.user
     const userId = user.id
 
     const cacheKey = `quota:${userId}`
@@ -146,24 +148,24 @@ export const getQuotaFn = createServerFn({ method: 'GET' }).handler(
     await Cache.set(cacheKey, result, { expirationTtl: 300 }) // 5 min cache
 
     return result
-  },
-)
+  })
 
-export const getAllFoldersFn = createServerFn({ method: 'GET' }).handler(
-  async () => {
-    const user = await getAuthenticatedUser()
+export const getAllFoldersFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
+  .handler(async ({ context }) => {
+    const user = context.user
     const { getAllFolders } = await import('@/lib/storage-queries')
     const folders = await getAllFolders(user.id)
     return { folders }
-  },
-)
+  })
 
 const SearchItemsSchema = z.object({ query: z.string() })
 
 export const searchItemsFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
   .inputValidator(SearchItemsSchema)
-  .handler(async ({ data }) => {
-    const user = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const user = context.user
     const { searchItems } = await import('@/lib/storage-queries')
     if (!data.query || data.query.trim().length === 0) {
       return { folders: [], files: [] }

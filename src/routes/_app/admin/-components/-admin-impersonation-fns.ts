@@ -2,10 +2,10 @@
 
 import { createServerFn } from '@tanstack/react-start'
 import {
-  requireAdminUser,
-  getAuthenticatedUser,
-} from '@/lib/server-auth.server'
-import { loadAuth } from '@/lib/auth-loader'
+  apiAuthMiddleware,
+} from '@/middlewares/api-auth'
+import { isAdminMiddleware } from '@/middlewares/isAdmin'
+import { auth } from '@/lib/auth'
 import { z } from 'zod'
 import { logActivity } from '@/lib/activity'
 import { getRequest } from '@tanstack/react-start/server'
@@ -15,15 +15,15 @@ const ImpersonateUserSchema = z.object({
 })
 
 export const impersonateUserFn = createServerFn({ method: 'POST' })
+  .use(isAdminMiddleware)
   .inputValidator(ImpersonateUserSchema)
-  .handler(async ({ data }) => {
-    const adminUser = await requireAdminUser()
+  .handler(async ({ data, context }) => {
+    const adminUser = context.user
     try {
       if (data.userId === adminUser.id) {
         throw new Error('Cannot impersonate yourself')
       }
 
-      const auth = await loadAuth()
       const request = getRequest()
       const headers = request.headers
 
@@ -56,11 +56,11 @@ export const impersonateUserFn = createServerFn({ method: 'POST' })
     }
   })
 
-export const stopImpersonationFn = createServerFn({ method: 'POST' }).handler(
-  async () => {
-    const currentUser = await getAuthenticatedUser()
+export const stopImpersonationFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
+  .handler(async ({ context }) => {
+    const currentUser = context.user
     try {
-      const auth = await loadAuth()
       const request = getRequest()
       const headers = request.headers
 
@@ -86,5 +86,4 @@ export const stopImpersonationFn = createServerFn({ method: 'POST' }).handler(
       })
       throw error
     }
-  },
-)
+  })

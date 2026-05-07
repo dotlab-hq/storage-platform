@@ -1,6 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { listVirtualBucketItems } from '@/lib/s3-gateway/virtual-bucket-items'
 
 const BucketItemsInputSchema = z.object({
@@ -8,8 +8,9 @@ const BucketItemsInputSchema = z.object({
 })
 
 export const getBucketItemsFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
   .inputValidator(BucketItemsInputSchema)
-  .handler(async ({ data }) => {
-    const currentUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const currentUser = context.user
     return listVirtualBucketItems(currentUser.id, data.bucketName)
   })

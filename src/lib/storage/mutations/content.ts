@@ -1,7 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { eq, and } from 'drizzle-orm'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { db } from '@/db'
 import { file as storageFile } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
@@ -20,9 +20,10 @@ const SaveContentSchema = z.object({
 })
 
 export const getTextFileContentFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
   .inputValidator(ContentSchema)
-  .handler(async ({ data }) => {
-    const user = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const { user } = context
     const { fileId } = data
     const userId = user.id
 
@@ -79,9 +80,10 @@ export const getTextFileContentFn = createServerFn({ method: 'GET' })
   })
 
 export const saveTextFileFn = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator(SaveContentSchema)
-  .handler(async ({ data }) => {
-    const user = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const { user } = context
     const userId = user.id
     const { fileId, content, name } = data
 

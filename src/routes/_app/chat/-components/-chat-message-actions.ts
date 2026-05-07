@@ -5,17 +5,10 @@ import { chatQueryKeys } from './-chat-query-keys'
 import { updateChatUi } from './-chat-store'
 import { consumeSseEvents } from './-chat-stream-events'
 import type { ChatMessageSnapshot, PaginatedMessages } from './-chat-types'
-
-// Dynamically load server functions
-async function loadDeleteMessageFn() {
-  const mod = await import('./-chat-message-mutations-server')
-  return mod.deleteMessageFn
-}
-
-async function loadRegenerateMessageFn() {
-  const mod = await import('./-chat-message-mutations-server')
-  return mod.regenerateMessageFn
-}
+import {
+  deleteMessageFn,
+  regenerateMessageFn,
+} from './-chat-message-mutations-server'
 
 const MESSAGE_PAGE_LIMIT = 30
 
@@ -302,8 +295,7 @@ export function useChatMessageActions({
 
   const regenerateMutation = useMutation({
     mutationFn: async (messageId: string) => {
-      const fn = await loadRegenerateMessageFn()
-      return fn({ data: { messageId } })
+      return regenerateMessageFn({ data: { messageId } })
     },
     onSuccess: (result) => {
       if (!activeThreadId) return
@@ -330,8 +322,7 @@ export function useChatMessageActions({
 
   const deleteMessageMutation = useMutation({
     mutationFn: async (messageId: string) => {
-      const fn = await loadDeleteMessageFn()
-      return fn({ data: { messageId } })
+      return deleteMessageFn({ data: { messageId } })
     },
     onSuccess: (_result, messageId) => {
       if (!activeThreadId) return

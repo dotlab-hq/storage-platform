@@ -3,8 +3,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { listAdminProviderContents } from '@/lib/admin-provider-browser'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
-import { isAdminRole, normalizeUserRole } from '@/lib/authz'
+import { isAdminMiddleware } from '@/middlewares/isAdmin'
 
 const AdminProviderContentsSchema = z.object({
   providerId: z.string().min(1),
@@ -17,16 +16,9 @@ const AdminProviderContentsSchema = z.object({
 export const getAdminProviderContentsFn = createServerFn({
   method: 'POST',
 })
+  .use(isAdminMiddleware)
   .inputValidator(AdminProviderContentsSchema)
   .handler(async ({ data }) => {
-    const currentUser = await getAuthenticatedUser()
-
-    // Verify admin status
-    const role = normalizeUserRole(currentUser.role)
-    if (!isAdminRole(role)) {
-      throw new Error('Admin access required')
-    }
-
     return listAdminProviderContents(
       data.providerId,
       data.prefix,

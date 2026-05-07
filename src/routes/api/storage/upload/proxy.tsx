@@ -1,15 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { handleProxyUploadRequest } from '@/lib/upload-proxy-server'
 
 export const Route = createFileRoute('/api/storage/upload/proxy')({
   server: {
+    middleware: [apiAuthMiddleware],
     handlers: {
-      POST: async ({ request }) => {
+      POST: async ({ request, context }) => {
         try {
-          const authUser = await getAuthenticatedUser()
-          return handleProxyUploadRequest(request, authUser.id)
+          const { user } = context
+          return handleProxyUploadRequest(request, user.id)
         } catch (error) {
           const message =
             error instanceof z.ZodError

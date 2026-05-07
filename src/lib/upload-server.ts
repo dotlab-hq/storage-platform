@@ -1,6 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import {
   selectProviderForUpload,
   resolveProviderId,
@@ -16,11 +16,12 @@ const PresignInputSchema = z.object({
 })
 
 export const uploadPresign = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator((d: z.infer<typeof PresignInputSchema>) =>
     PresignInputSchema.parse(d),
   )
-  .handler(async ({ data }) => {
-    const authUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const authUser = context.user
 
     const [{ db }, { userStorage }] = await Promise.all([
       import('@/db'),
@@ -82,11 +83,12 @@ const MultipartInitSchema = z.object({
 })
 
 export const uploadMultipartInit = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator((d: z.infer<typeof MultipartInitSchema>) =>
     MultipartInitSchema.parse(d),
   )
-  .handler(async ({ data }) => {
-    const authUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const authUser = context.user
 
     const [{ db }, { userStorage }] = await Promise.all([
       import('@/db'),
@@ -169,11 +171,12 @@ const MultipartCompleteSchema = z.object({
 })
 
 export const uploadMultipartComplete = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator((d: z.infer<typeof MultipartCompleteSchema>) =>
     MultipartCompleteSchema.parse(d),
   )
-  .handler(async ({ data }) => {
-    const authUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const authUser = context.user
 
     const { ListPartsCommand, CompleteMultipartUploadCommand } =
       await import('@aws-sdk/client-s3')
@@ -236,11 +239,12 @@ const RegisterFileSchema = z.object({
 })
 
 export const registerFile = createServerFn({ method: 'POST' })
+  .use(apiAuthMiddleware)
   .inputValidator((d: z.infer<typeof RegisterFileSchema>) =>
     RegisterFileSchema.parse(d),
   )
-  .handler(async ({ data }) => {
-    const authUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const authUser = context.user
 
     const [{ db }, { file: storageFile, folder, userStorage }] =
       await Promise.all([import('@/db'), import('@/db/schema/storage')])

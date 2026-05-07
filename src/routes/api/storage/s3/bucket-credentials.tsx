@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { getVirtualBucketCredentials } from '@/lib/s3-gateway/virtual-buckets'
 import { DEFAULT_ASSETS_BUCKET_NAME } from '@/lib/storage/assets-bucket'
 
@@ -42,10 +42,11 @@ function errorToMessage(error: unknown): string {
 export const Route = createFileRoute('/api/storage/s3/bucket-credentials')({
   component: () => null,
   server: {
+    middleware: [apiAuthMiddleware],
     handlers: {
-      POST: async ({ request }) => {
+      POST: async ({ request, context }) => {
         try {
-          const currentUser = await getAuthenticatedUser()
+          const { user: currentUser } = context
           const payload = BucketActionSchema.parse(await request.json())
           const bucketName = payload.bucketName ?? DEFAULT_ASSETS_BUCKET_NAME
           const credentials = await getVirtualBucketCredentials(

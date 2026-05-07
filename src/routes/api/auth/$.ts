@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { loadAuth } from '@/lib/auth-loader'
+import { auth } from '@/lib/auth'
 
 const AUTH_HANDLER_TIMEOUT_MS = Number(
   process.env.AUTH_HANDLER_TIMEOUT_MS ?? 10000,
@@ -17,7 +17,6 @@ function createServiceUnavailableResponse(message: string) {
 
 async function handleAuthRequest(request: Request) {
   try {
-    const auth = await loadAuth()
     const response = await Promise.race([
       auth.handler(request),
       new Promise<Response>((resolve) => {

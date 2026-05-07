@@ -3,7 +3,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { db } from '@/db'
 import { fileSummaryJob } from '@/db/schema/file-summary'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { toSummaryJobSnapshot } from './serialization'
 
 const GetLatestSummarySchema = z.object({
@@ -11,9 +11,10 @@ const GetLatestSummarySchema = z.object({
 })
 
 export const getLatestFileSummaryFn = createServerFn({ method: 'GET' })
+  .use(apiAuthMiddleware)
   .inputValidator(GetLatestSummarySchema)
-  .handler(async ({ data }) => {
-    const currentUser = await getAuthenticatedUser()
+  .handler(async ({ data, context }) => {
+    const currentUser = context.user
 
     const [row] = await db
       .select({
