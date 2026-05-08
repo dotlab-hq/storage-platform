@@ -23,7 +23,13 @@ export function ServiceWorkerRegistration() {
             if (installingWorker.state !== 'installed') return
             if (!navigator.serviceWorker.controller) return
 
-            void installingWorker.postMessage({ type: 'SKIP_WAITING' })
+            // Avoid forcing skipWaiting + reload automatically. Instead notify
+            // the app that an update is available so the UI can prompt the user.
+            window.dispatchEvent(
+              new CustomEvent('dot:sw-update-available', {
+                detail: { registration },
+              }),
+            )
           }
         }
       })

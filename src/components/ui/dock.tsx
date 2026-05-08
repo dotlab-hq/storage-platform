@@ -134,7 +134,10 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       <div
         ref={ref}
         className={cn(
-          'fixed bottom-4 left-1/2 -translate-x-1/2 z-50',
+          // Position absolutely inside the page content wrapper so the dock
+          // centers relative to the content area (not the viewport). The
+          // parent container should be positioned `relative`.
+          'absolute inset-x-0 bottom-4 z-50 flex justify-center',
           className,
         )}
       >

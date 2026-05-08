@@ -9,7 +9,7 @@ import { ThemeProvider } from 'next-themes'
 
 import TanStackQueryProvider from '../integrations/tanstack-query/root-provider'
 import { ServiceWorkerRegistration } from '@/components/pwa/service-worker-registration'
-import { createRootHead } from './root-head'
+import { createRootHead } from '../lib/create-root-head'
 
 import appCss from '../styles.css?url'
 

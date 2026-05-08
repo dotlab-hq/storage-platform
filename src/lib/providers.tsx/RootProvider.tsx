@@ -65,7 +65,7 @@ export function RootLayout({ children }: RootLayoutProps) {
               <AppSidebar quota={quota} />
             </Suspense>
           </ProfilerBoundary>
-          <div className="flex-1 flex flex-col min-h-dvh">
+          <div className="flex-1 flex flex-col min-h-dvh relative">
             <ProfilerBoundary id="app-content">{children}</ProfilerBoundary>
             <Activity when={!hideDock}>
               <Suspense fallback={null}>
