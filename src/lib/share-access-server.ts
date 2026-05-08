@@ -5,7 +5,7 @@ import {
   getSharedFolderTreeByToken,
   getSharedFilePresignedUrl,
   getSharedFileDownloadUrl,
-} from '@/lib/share-queries'
+} from './share-queries'
 
 type FileItem = {
   id: string

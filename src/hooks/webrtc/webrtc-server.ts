@@ -203,7 +203,8 @@ export const setSignalServerFn = createServerFn({ method: 'POST' })
           // leave parsed as raw string
         }
       }
-n      const candidate = findSignalCandidate(parsed) ?? (typeof parsed === 'object' ? parsed : null)
+
+      const candidate = findSignalCandidate(parsed) ?? (typeof parsed === 'object' ? parsed : null)
       if (candidate && typeof candidate === 'object' && typeof (candidate as any).type === 'string') {
         normalizedSignalStr = JSON.stringify(candidate)
       } else if (typeof data.signal === 'string' && data.signal.length > 0) {

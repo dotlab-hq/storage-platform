@@ -14,10 +14,9 @@ import { ShareFolderTree } from '@/components/storage/share-folder-tree'
 import { ShareQrDialog } from '@/components/storage/share-qr-dialog'
 import {
   getSharePageDataFn,
-  getShareDownloadUrlFn
-
-} from './-share-access-server'
-import type { SharePagePayload } from './-share-access-server';
+  getShareDownloadUrlFn,
+} from '@/lib/share-access-server'
+import type { SharePagePayload } from '@/lib/share-access-server'
 
 type FileShareData = {
   type: 'file'
