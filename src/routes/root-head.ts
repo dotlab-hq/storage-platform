@@ -1,4 +1,4 @@
-export function createRootHead(appCss: string) {
+export function createRootHead( appCss: string ) {
   return {
     meta: [
       { charSet: 'utf-8' },
@@ -55,5 +55,5 @@ export function createRootHead(appCss: string) {
       { rel: 'canonical', href: 'https://storage.wpsadi.dev' },
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
     ],
-  } as const
+  }
 }

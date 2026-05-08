@@ -25,17 +25,18 @@ interface MyRouterContext {
   queryClient: QueryClient
 }
 
-const Devtools = import.meta.env.DEV
-  ? lazy(() =>
-      import('@/components/devtools/tanstack-devtools').then((module) => ({
-        default: module.TanstackDevtools,
-      })),
-    )
-  : null
+// const Devtools = import.meta.env.DEV
+//   ? lazy(() =>
+//       import('@/components/devtools/tanstack-devtools').then((module) => ({
+//         default: module.TanstackDevtools,
+//       })),
+//     )
+//   : null
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
   errorComponent: AppErrorBoundary,
   notFoundComponent: NotFoundPage,
+  
   head: () => createRootHead(appCss),
   shellComponent: RootDocument,
 })
@@ -62,7 +63,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
               </ClientOnly>
             </TooltipProvider>
             <Toaster />
-            {Devtools ? (
+            {/* {Devtools ? (
               <Suspense
                 fallback={
                   <PageSkeleton variant="compact" className="mx-3 my-2" />
@@ -70,7 +71,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
               >
                 <Devtools />
               </Suspense>
-            ) : null}
+            ) : null} */}
             <ServiceWorkerRegistration />
           </TanStackQueryProvider>
         </ThemeProvider>
