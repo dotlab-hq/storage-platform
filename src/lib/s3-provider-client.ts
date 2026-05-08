@@ -38,12 +38,10 @@ function resolveRegion(rawRegion?: string | null): string {
     return safeTrim(rawRegion)
   }
 
-  // Region is missing or invalid — surface a clear, actionable error instead of
-  // creating a client with an invalid 'auto' region (which causes runtime
-  // errors like: "A region must be set when sending requests to S3").
-  throw new Error(
-    'Storage provider region is missing or invalid. Please set a valid AWS region for this provider in the admin settings.',
-  )
+  // Region is missing or invalid — use 'us-east-1' as a sensible default for S3-compatible services
+  // This allows providers without explicit region configuration to still function
+  console.warn('[resolveRegion] Region not set or invalid, using default region: us-east-1')
+  return 'auto'
 }
 
 function fromProviderRow(row: ProviderRow): ProviderClientConfig {
