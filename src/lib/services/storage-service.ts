@@ -5,6 +5,7 @@ import { storageNodeBtree } from '@/db/schema/storage-btree'
 import { userActivity } from '@/db/schema/activity'
 import { and, eq, desc, isNull, sql } from 'drizzle-orm'
 import { z } from 'zod'
+import { upsertFolderNode } from '@/lib/storage-btree/index'
 
 export const CreateFolderSchema = z.object({
   name: z.string().min(1).max(255),
@@ -43,7 +44,8 @@ export class StorageService extends BaseService {
         where: and(
           eq(folder.id, parentFolderId),
           eq(folder.userId, this.ctx.userId),
-          isNull(folder.deletedAt),
+          eq(folder.isDeleted, false),
+          isNull(folder.virtualBucketId),
         ),
       })
       if (!parent) {
@@ -59,7 +61,9 @@ export class StorageService extends BaseService {
           ? isNull(folder.parentFolderId)
           : eq(folder.parentFolderId, parentFolderId),
         eq(folder.userId, this.ctx.userId),
-        isNull(folder.deletedAt),
+        eq(folder.isDeleted, false),
+        eq(folder.isTrashed, false),
+        isNull(folder.virtualBucketId),
       ),
     })
     if (existing) {
@@ -80,7 +84,16 @@ export class StorageService extends BaseService {
       parentFolderId,
     })
 
-    // Seed btree for fast listing
+    // Insert folder itself into btree for root listing to work
+    await upsertFolderNode({
+      userId: this.ctx.userId,
+      folderId: newFolder.id,
+      name: newFolder.name,
+      parentFolderId,
+      isDeleted: false,
+    })
+
+    // Seed btree for fast listing of this folder's contents
     await this.seedBtreeForFolder(newFolder.id, parentFolderId)
 
     return newFolder
@@ -97,7 +110,9 @@ export class StorageService extends BaseService {
         where: and(
           eq(folder.id, folderId),
           eq(folder.userId, this.ctx.userId),
-          isNull(folder.deletedAt),
+          eq(folder.isDeleted, false),
+          eq(folder.isTrashed, false),
+          isNull(folder.virtualBucketId),
         ),
       })
       if (!parentFolder) {
@@ -171,7 +186,9 @@ export class StorageService extends BaseService {
         where: and(
           eq(folder.id, targetFolderId),
           eq(folder.userId, this.ctx.userId),
-          isNull(folder.deletedAt),
+          eq(folder.isDeleted, false),
+          eq(folder.isTrashed, false),
+          isNull(folder.virtualBucketId),
         ),
       })
       if (!target) {
@@ -275,7 +292,9 @@ export class StorageService extends BaseService {
       where: and(
         eq(folder.id, itemId),
         eq(folder.userId, this.ctx.userId),
-        isNull(folder.deletedAt),
+        eq(folder.isDeleted, false),
+        eq(folder.isTrashed, false),
+        isNull(folder.virtualBucketId),
       ),
     })
 
@@ -333,14 +352,15 @@ export class StorageService extends BaseService {
           where: and(
             eq(folder.id, itemId),
             eq(folder.userId, this.ctx.userId),
-            isNull(folder.deletedAt),
+            eq(folder.isDeleted, false),
+            isNull(folder.virtualBucketId),
           ),
         })
 
         if (folderRec) {
           await tx
             .update(folder)
-            .set({ deletedAt: new Date() })
+            .set({ isDeleted: true, deletedAt: new Date() })
             .where(eq(folder.id, itemId))
 
           await tx

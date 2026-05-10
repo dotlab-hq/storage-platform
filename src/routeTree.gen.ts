@@ -21,18 +21,14 @@ import { Route as AppTrashIndexRouteImport } from './routes/_app/trash/index'
 import { Route as AppSharedIndexRouteImport } from './routes/_app/shared/index'
 import { Route as AppSettingsIndexRouteImport } from './routes/_app/settings/index'
 import { Route as AppRecentIndexRouteImport } from './routes/_app/recent/index'
-import { Route as AppChatIndexRouteImport } from './routes/_app/chat/index'
 import { Route as AppBucketsIndexRouteImport } from './routes/_app/buckets/index'
 import { Route as AppAdminIndexRouteImport } from './routes/_app/admin/index'
 import { Route as ApiV1ModelsRouteImport } from './routes/api/v1/models'
 import { Route as ApiStorageS3RouteImport } from './routes/api/storage/s3'
 import { Route as ApiStorageFileLinkRouteImport } from './routes/api/storage/file-link'
-import { Route as ApiChatStreamRouteImport } from './routes/api/chat/stream'
-import { Route as ApiChatCompletionsRouteImport } from './routes/api/chat/completions'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as AppBucketsBucketNameRouteImport } from './routes/_app/buckets/$bucketName'
 import { Route as ApiStorageS3IndexRouteImport } from './routes/api/storage/s3/index'
-import { Route as ApiV1ChatCompletionsRouteImport } from './routes/api/v1/chat/completions'
 import { Route as ApiStorageUploadProxyRouteImport } from './routes/api/storage/upload/proxy'
 import { Route as ApiStorageS3UploadStatusRouteImport } from './routes/api/storage/s3/upload-status'
 import { Route as ApiStorageS3RotateCredentialsRouteImport } from './routes/api/storage/s3/rotate-credentials'
@@ -108,11 +104,6 @@ const AppRecentIndexRoute = AppRecentIndexRouteImport.update({
   path: '/recent/',
   getParentRoute: () => AppRoute,
 } as any)
-const AppChatIndexRoute = AppChatIndexRouteImport.update({
-  id: '/chat/',
-  path: '/chat/',
-  getParentRoute: () => AppRoute,
-} as any)
 const AppBucketsIndexRoute = AppBucketsIndexRouteImport.update({
   id: '/buckets/',
   path: '/buckets/',
@@ -138,16 +129,6 @@ const ApiStorageFileLinkRoute = ApiStorageFileLinkRouteImport.update({
   path: '/api/storage/file-link',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiChatStreamRoute = ApiChatStreamRouteImport.update({
-  id: '/api/chat/stream',
-  path: '/api/chat/stream',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiChatCompletionsRoute = ApiChatCompletionsRouteImport.update({
-  id: '/api/chat/completions',
-  path: '/api/chat/completions',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
@@ -162,11 +143,6 @@ const ApiStorageS3IndexRoute = ApiStorageS3IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ApiStorageS3Route,
-} as any)
-const ApiV1ChatCompletionsRoute = ApiV1ChatCompletionsRouteImport.update({
-  id: '/api/v1/chat/completions',
-  path: '/api/v1/chat/completions',
-  getParentRoute: () => rootRouteImport,
 } as any)
 const ApiStorageUploadProxyRoute = ApiStorageUploadProxyRouteImport.update({
   id: '/api/storage/upload/proxy',
@@ -261,14 +237,11 @@ export interface FileRoutesByFullPath {
   '/device/': typeof DeviceIndexRoute
   '/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
-  '/api/chat/completions': typeof ApiChatCompletionsRoute
-  '/api/chat/stream': typeof ApiChatStreamRoute
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
   '/api/v1/models': typeof ApiV1ModelsRoute
   '/admin/': typeof AppAdminIndexRoute
   '/buckets/': typeof AppBucketsIndexRoute
-  '/chat/': typeof AppChatIndexRoute
   '/recent/': typeof AppRecentIndexRoute
   '/settings/': typeof AppSettingsIndexRoute
   '/shared/': typeof AppSharedIndexRoute
@@ -289,7 +262,6 @@ export interface FileRoutesByFullPath {
   '/api/storage/s3/rotate-credentials': typeof ApiStorageS3RotateCredentialsRoute
   '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
   '/api/storage/upload/proxy': typeof ApiStorageUploadProxyRoute
-  '/api/v1/chat/completions': typeof ApiV1ChatCompletionsRoute
   '/api/storage/s3/': typeof ApiStorageS3IndexRoute
   '/api/admin/users/$userId/folder-items': typeof ApiAdminUsersUserIdFolderItemsRoute
 }
@@ -301,13 +273,10 @@ export interface FileRoutesByTo {
   '/device': typeof DeviceIndexRoute
   '/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
-  '/api/chat/completions': typeof ApiChatCompletionsRoute
-  '/api/chat/stream': typeof ApiChatStreamRoute
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/api/v1/models': typeof ApiV1ModelsRoute
   '/admin': typeof AppAdminIndexRoute
   '/buckets': typeof AppBucketsIndexRoute
-  '/chat': typeof AppChatIndexRoute
   '/recent': typeof AppRecentIndexRoute
   '/settings': typeof AppSettingsIndexRoute
   '/shared': typeof AppSharedIndexRoute
@@ -328,7 +297,6 @@ export interface FileRoutesByTo {
   '/api/storage/s3/rotate-credentials': typeof ApiStorageS3RotateCredentialsRoute
   '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
   '/api/storage/upload/proxy': typeof ApiStorageUploadProxyRoute
-  '/api/v1/chat/completions': typeof ApiV1ChatCompletionsRoute
   '/api/storage/s3': typeof ApiStorageS3IndexRoute
   '/api/admin/users/$userId/folder-items': typeof ApiAdminUsersUserIdFolderItemsRoute
 }
@@ -342,14 +310,11 @@ export interface FileRoutesById {
   '/device/': typeof DeviceIndexRoute
   '/_app/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
-  '/api/chat/completions': typeof ApiChatCompletionsRoute
-  '/api/chat/stream': typeof ApiChatStreamRoute
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
   '/api/v1/models': typeof ApiV1ModelsRoute
   '/_app/admin/': typeof AppAdminIndexRoute
   '/_app/buckets/': typeof AppBucketsIndexRoute
-  '/_app/chat/': typeof AppChatIndexRoute
   '/_app/recent/': typeof AppRecentIndexRoute
   '/_app/settings/': typeof AppSettingsIndexRoute
   '/_app/shared/': typeof AppSharedIndexRoute
@@ -370,7 +335,6 @@ export interface FileRoutesById {
   '/api/storage/s3/rotate-credentials': typeof ApiStorageS3RotateCredentialsRoute
   '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
   '/api/storage/upload/proxy': typeof ApiStorageUploadProxyRoute
-  '/api/v1/chat/completions': typeof ApiV1ChatCompletionsRoute
   '/api/storage/s3/': typeof ApiStorageS3IndexRoute
   '/api/admin/users/$userId/folder-items': typeof ApiAdminUsersUserIdFolderItemsRoute
 }
@@ -384,14 +348,11 @@ export interface FileRouteTypes {
     | '/device/'
     | '/buckets/$bucketName'
     | '/api/auth/$'
-    | '/api/chat/completions'
-    | '/api/chat/stream'
     | '/api/storage/file-link'
     | '/api/storage/s3'
     | '/api/v1/models'
     | '/admin/'
     | '/buckets/'
-    | '/chat/'
     | '/recent/'
     | '/settings/'
     | '/shared/'
@@ -412,7 +373,6 @@ export interface FileRouteTypes {
     | '/api/storage/s3/rotate-credentials'
     | '/api/storage/s3/upload-status'
     | '/api/storage/upload/proxy'
-    | '/api/v1/chat/completions'
     | '/api/storage/s3/'
     | '/api/admin/users/$userId/folder-items'
   fileRoutesByTo: FileRoutesByTo
@@ -424,13 +384,10 @@ export interface FileRouteTypes {
     | '/device'
     | '/buckets/$bucketName'
     | '/api/auth/$'
-    | '/api/chat/completions'
-    | '/api/chat/stream'
     | '/api/storage/file-link'
     | '/api/v1/models'
     | '/admin'
     | '/buckets'
-    | '/chat'
     | '/recent'
     | '/settings'
     | '/shared'
@@ -451,7 +408,6 @@ export interface FileRouteTypes {
     | '/api/storage/s3/rotate-credentials'
     | '/api/storage/s3/upload-status'
     | '/api/storage/upload/proxy'
-    | '/api/v1/chat/completions'
     | '/api/storage/s3'
     | '/api/admin/users/$userId/folder-items'
   id:
@@ -464,14 +420,11 @@ export interface FileRouteTypes {
     | '/device/'
     | '/_app/buckets/$bucketName'
     | '/api/auth/$'
-    | '/api/chat/completions'
-    | '/api/chat/stream'
     | '/api/storage/file-link'
     | '/api/storage/s3'
     | '/api/v1/models'
     | '/_app/admin/'
     | '/_app/buckets/'
-    | '/_app/chat/'
     | '/_app/recent/'
     | '/_app/settings/'
     | '/_app/shared/'
@@ -492,7 +445,6 @@ export interface FileRouteTypes {
     | '/api/storage/s3/rotate-credentials'
     | '/api/storage/s3/upload-status'
     | '/api/storage/upload/proxy'
-    | '/api/v1/chat/completions'
     | '/api/storage/s3/'
     | '/api/admin/users/$userId/folder-items'
   fileRoutesById: FileRoutesById
@@ -504,15 +456,12 @@ export interface RootRouteChildren {
   AuthIndexRoute: typeof AuthIndexRoute
   DeviceIndexRoute: typeof DeviceIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
-  ApiChatCompletionsRoute: typeof ApiChatCompletionsRoute
-  ApiChatStreamRoute: typeof ApiChatStreamRoute
   ApiStorageFileLinkRoute: typeof ApiStorageFileLinkRoute
   ApiStorageS3Route: typeof ApiStorageS3RouteWithChildren
   ApiV1ModelsRoute: typeof ApiV1ModelsRoute
   DeviceApproveIndexRoute: typeof DeviceApproveIndexRoute
   ApiStorageDownloadProxyRoute: typeof ApiStorageDownloadProxyRoute
   ApiStorageUploadProxyRoute: typeof ApiStorageUploadProxyRoute
-  ApiV1ChatCompletionsRoute: typeof ApiV1ChatCompletionsRoute
   ApiAdminUsersUserIdFolderItemsRoute: typeof ApiAdminUsersUserIdFolderItemsRoute
 }
 
@@ -602,13 +551,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppRecentIndexRouteImport
       parentRoute: typeof AppRoute
     }
-    '/_app/chat/': {
-      id: '/_app/chat/'
-      path: '/chat'
-      fullPath: '/chat/'
-      preLoaderRoute: typeof AppChatIndexRouteImport
-      parentRoute: typeof AppRoute
-    }
     '/_app/buckets/': {
       id: '/_app/buckets/'
       path: '/buckets'
@@ -644,20 +586,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageFileLinkRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/chat/stream': {
-      id: '/api/chat/stream'
-      path: '/api/chat/stream'
-      fullPath: '/api/chat/stream'
-      preLoaderRoute: typeof ApiChatStreamRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/chat/completions': {
-      id: '/api/chat/completions'
-      path: '/api/chat/completions'
-      fullPath: '/api/chat/completions'
-      preLoaderRoute: typeof ApiChatCompletionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -678,13 +606,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/api/storage/s3/'
       preLoaderRoute: typeof ApiStorageS3IndexRouteImport
       parentRoute: typeof ApiStorageS3Route
-    }
-    '/api/v1/chat/completions': {
-      id: '/api/v1/chat/completions'
-      path: '/api/v1/chat/completions'
-      fullPath: '/api/v1/chat/completions'
-      preLoaderRoute: typeof ApiV1ChatCompletionsRouteImport
-      parentRoute: typeof rootRouteImport
     }
     '/api/storage/upload/proxy': {
       id: '/api/storage/upload/proxy'
@@ -799,7 +720,6 @@ interface AppRouteChildren {
   AppBucketsBucketNameRoute: typeof AppBucketsBucketNameRoute
   AppAdminIndexRoute: typeof AppAdminIndexRoute
   AppBucketsIndexRoute: typeof AppBucketsIndexRoute
-  AppChatIndexRoute: typeof AppChatIndexRoute
   AppRecentIndexRoute: typeof AppRecentIndexRoute
   AppSettingsIndexRoute: typeof AppSettingsIndexRoute
   AppSharedIndexRoute: typeof AppSharedIndexRoute
@@ -812,7 +732,6 @@ const AppRouteChildren: AppRouteChildren = {
   AppBucketsBucketNameRoute: AppBucketsBucketNameRoute,
   AppAdminIndexRoute: AppAdminIndexRoute,
   AppBucketsIndexRoute: AppBucketsIndexRoute,
-  AppChatIndexRoute: AppChatIndexRoute,
   AppRecentIndexRoute: AppRecentIndexRoute,
   AppSettingsIndexRoute: AppSettingsIndexRoute,
   AppSharedIndexRoute: AppSharedIndexRoute,
@@ -865,15 +784,12 @@ const rootRouteChildren: RootRouteChildren = {
   AuthIndexRoute: AuthIndexRoute,
   DeviceIndexRoute: DeviceIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
-  ApiChatCompletionsRoute: ApiChatCompletionsRoute,
-  ApiChatStreamRoute: ApiChatStreamRoute,
   ApiStorageFileLinkRoute: ApiStorageFileLinkRoute,
   ApiStorageS3Route: ApiStorageS3RouteWithChildren,
   ApiV1ModelsRoute: ApiV1ModelsRoute,
   DeviceApproveIndexRoute: DeviceApproveIndexRoute,
   ApiStorageDownloadProxyRoute: ApiStorageDownloadProxyRoute,
   ApiStorageUploadProxyRoute: ApiStorageUploadProxyRoute,
-  ApiV1ChatCompletionsRoute: ApiV1ChatCompletionsRoute,
   ApiAdminUsersUserIdFolderItemsRoute: ApiAdminUsersUserIdFolderItemsRoute,
 }
 export const routeTree = rootRouteImport
