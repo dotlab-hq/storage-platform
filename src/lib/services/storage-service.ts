@@ -7,6 +7,15 @@ import { and, eq, desc, isNull, sql } from 'drizzle-orm'
 import { z } from 'zod'
 import { upsertFolderNode } from '@/lib/storage-btree/index'
 
+const EXCLUDE_VIRTUAL_BUCKET_FOLDERS = sql<boolean>`
+  NOT EXISTS (
+    SELECT 1
+    FROM "virtual_bucket" vb
+    WHERE vb."mapped_folder_id" = "folder"."id"
+      AND vb."is_active" = true
+  )
+`
+
 export const CreateFolderSchema = z.object({
   name: z.string().min(1).max(255),
   parentFolderId: z.string().nullable().optional(),
@@ -144,6 +153,7 @@ export class StorageService extends BaseService {
           parentFolderCondition,
           eq(storageNodeBtree.userId, this.ctx.userId),
           eq(storageNodeBtree.isDeleted, false),
+          EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
         ),
       )
       .orderBy(desc(storageNodeBtree.updatedAt))
@@ -158,6 +168,7 @@ export class StorageService extends BaseService {
           parentFolderCondition,
           eq(storageNodeBtree.userId, this.ctx.userId),
           eq(storageNodeBtree.isDeleted, false),
+          EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
         ),
       )
 
