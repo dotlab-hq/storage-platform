@@ -4,11 +4,10 @@ import {
   Scripts,
   createRootRouteWithContext,
 } from '@tanstack/react-router'
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 import { ThemeProvider } from 'next-themes'
 
 import TanStackQueryProvider from '../integrations/tanstack-query/root-provider'
-import { ServiceWorkerRegistration } from '@/components/pwa/service-worker-registration'
 import { createRootHead } from '../lib/create-root-head'
 
 import appCss from '../styles.css?url'
@@ -16,7 +15,6 @@ import appCss from '../styles.css?url'
 import type { QueryClient } from '@tanstack/react-query'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { Toaster } from '@/components/ui/sonner'
-import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { AppErrorBoundary } from '@/components/error-boundary'
 import { NotFoundPage } from '@/components/not-found'
 import { GlobalShellActions } from '@/components/shell/global-shell-actions'
@@ -72,7 +70,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 <Devtools />
               </Suspense>
             ) : null} */}
-            <ServiceWorkerRegistration />
           </TanStackQueryProvider>
         </ThemeProvider>
         <Scripts />

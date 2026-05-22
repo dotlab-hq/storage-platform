@@ -66,7 +66,9 @@ function DevicePage() {
   } )
 
   const verifyCode = React.useEffectEvent( ( code: string ) => {
-    setOptimisticCode( code )
+    React.startTransition( () => {
+      setOptimisticCode( code )
+    } )
     void verifyMutation.mutateAsync( code )
   } )
 
@@ -107,7 +109,10 @@ function DevicePage() {
     { enabled: codeInfo === null },
   )
 
-  useHotkey( 'Escape', () => setError( null ), { enabled: Boolean( error ) } )
+  useHotkey( 'Escape', () => setError( null ), {
+    enabled: Boolean( error ),
+    conflictBehavior: 'replace',
+  } )
 
   return (
     <div className="flex min-h-svh items-center justify-center p-6">
@@ -132,7 +137,9 @@ function DevicePage() {
                   value={userCode}
                   onChange={( event ) => {
                     setUserCode( event.target.value )
-                    setOptimisticCode( event.target.value )
+                    React.startTransition( () => {
+                      setOptimisticCode( event.target.value )
+                    } )
                   }}
                   placeholder="e.g., ABCD-1234"
                   maxLength={12}

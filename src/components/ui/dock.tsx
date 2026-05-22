@@ -20,45 +20,65 @@ interface DockIconButtonProps {
   className?: string
 }
 
-const DockIconButton = React.forwardRef<HTMLAnchorElement, DockIconButtonProps>(
-  ({ icon: Icon, label, href, onClick, active, className }, ref) => {
-    const content = (
-      <motion.a
-        ref={ref}
-        href={href}
-        onClick={onClick}
-        whileHover={{ scale: 1.05, y: -1 }}
-        whileTap={{ scale: 0.95 }}
+function DockIconButton({
+  icon: Icon,
+  label,
+  href,
+  onClick,
+  active,
+  className,
+}: DockIconButtonProps) {
+  const buttonClassName = cn(
+    'relative group flex h-10 w-10 items-center justify-center rounded-xl',
+    'border border-transparent bg-white/3 text-muted-foreground',
+    'transition-colors duration-200 hover:border-white/10 hover:bg-white/[0.08] hover:text-foreground',
+    active && 'border-white/10 bg-white/12 text-foreground',
+    className,
+  )
+
+  const content = (
+    <>
+      <Icon className="h-4 w-4" />
+      <span
         className={cn(
-          'relative group flex h-10 w-10 items-center justify-center rounded-xl',
-          'border border-transparent bg-white/3 text-muted-foreground',
-          'transition-colors duration-200 hover:border-white/10 hover:bg-white/[0.08] hover:text-foreground',
-          active && 'border-white/10 bg-white/12 text-foreground',
-          className,
+          'absolute -top-9 left-1/2 -translate-x-1/2',
+          'px-2 py-1 rounded text-xs',
+          'bg-popover text-popover-foreground',
+          'opacity-0 group-hover:opacity-100',
+          'transition-opacity whitespace-nowrap pointer-events-none',
         )}
       >
-        <Icon className="h-4 w-4" />
-        <span
-          className={cn(
-            'absolute -top-9 left-1/2 -translate-x-1/2',
-            'px-2 py-1 rounded text-xs',
-            'bg-popover text-popover-foreground',
-            'opacity-0 group-hover:opacity-100',
-            'transition-opacity whitespace-nowrap pointer-events-none',
-          )}
+        {label}
+      </span>
+    </>
+  )
+
+  if (href) {
+    return (
+      <Link to={href as '/'} className={buttonClassName}>
+        <motion.span
+          whileHover={{ scale: 1.05, y: -1 }}
+          whileTap={{ scale: 0.95 }}
+          className="flex h-full w-full items-center justify-center"
         >
-          {label}
-        </span>
-      </motion.a>
+          {content}
+        </motion.span>
+      </Link>
     )
+  }
 
-    if (href) {
-      return <Link to={href as '/'}>{content}</Link>
-    }
-
-    return content
-  },
-)
+  return (
+    <motion.button
+      type="button"
+      onClick={onClick}
+      whileHover={{ scale: 1.05, y: -1 }}
+      whileTap={{ scale: 0.95 }}
+      className={buttonClassName}
+    >
+      {content}
+    </motion.button>
+  )
+}
 DockIconButton.displayName = 'DockIconButton'
 
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(

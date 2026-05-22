@@ -14,7 +14,6 @@ import {
   Sun,
   Monitor,
   Wifi,
-  MessagesSquare,
 } from 'lucide-react'
 import { ClientOnly, Link } from '@tanstack/react-router'
 import { createClientOnlyFn } from '@tanstack/react-start'
@@ -58,7 +57,6 @@ const navItems = [
   { title: 'WebRTC Transfers', url: '/webrtc', icon: Wifi },
   { title: 'Buckets', url: '/buckets', icon: Database },
   { title: 'Recent', url: '/recent', icon: Clock },
-  { title: 'Chat', url: '/chat', icon: MessagesSquare },
   { title: 'Shared with Me', url: '/shared', icon: Share2 },
   { title: 'Trash', url: '/trash', icon: Trash2 },
   { title: 'Settings', url: '/settings', icon: Settings },
@@ -150,7 +148,7 @@ export function AppSidebar({ quota = null, ...props }: AppSidebarProps) {
             <React.Suspense
               fallback={
                 <div className="px-3 py-2">
-                  <PageSkeleton variant="compact" />
+                  <PageSkeleton variant="compact" className="h-9 w-full" />
                 </div>
               }
             >

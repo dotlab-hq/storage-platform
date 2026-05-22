@@ -75,7 +75,10 @@ export function NewFolderDialog({
     { enabled: open },
   )
 
-  useHotkey('Escape', closeDialog, { enabled: open })
+  useHotkey('Escape', closeDialog, {
+    enabled: open,
+    conflictBehavior: 'replace',
+  })
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -95,7 +98,9 @@ export function NewFolderDialog({
               value={folderName}
               onChange={(e) => {
                 setFolderName(e.target.value)
-                setOptimisticFolderName(e.target.value)
+                React.startTransition(() => {
+                  setOptimisticFolderName(e.target.value)
+                })
               }}
               placeholder="Folder name"
               autoFocus

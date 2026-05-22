@@ -6,6 +6,8 @@ import svgr from 'vite-plugin-svgr'
 import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
+const devtoolsPort = Number(process.env.TANSTACK_DEVTOOLS_PORT ?? 42071)
+
 const config = defineConfig({
   
   server:{
@@ -16,7 +18,7 @@ const config = defineConfig({
   },
   plugins: [
     cloudflare({ viteEnvironment: { name: 'ssr' } }),
-    devtools({ eventBusConfig: { port: 42071 } }),
+    devtools({ eventBusConfig: { port: devtoolsPort } }),
     tailwindcss(),
     tanstackStart(),
     svgr(),
@@ -24,7 +26,11 @@ const config = defineConfig({
   ],
   optimizeDeps: {
     noDiscovery: true,
-    include: undefined,
+    include: [
+      'qrcode',
+      'use-sync-external-store/shim',
+      'use-sync-external-store/shim/with-selector',
+    ],
   },
   build: {
     rollupOptions: {

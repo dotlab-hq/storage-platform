@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
-import QRCode from 'qrcode'
+import * as QRCode from 'qrcode'
 
 type ShareQrDialogProps = {
   open: boolean

@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import * as React from 'react'
-import QRCode from 'qrcode'
+import * as QRCode from 'qrcode'
 
 export type OfferResponse = {
   code: string

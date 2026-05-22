@@ -89,7 +89,7 @@ export function ApiKeysSection({
         setShowKeyDialog(false)
       }
     },
-    { enabled: showKeyDialog },
+    { enabled: showKeyDialog, conflictBehavior: 'replace' },
   )
 
   useHotkey(

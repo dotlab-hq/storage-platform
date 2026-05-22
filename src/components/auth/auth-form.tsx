@@ -33,7 +33,9 @@ export function AuthForm({ className, ...props }: React.ComponentProps<'div'>) {
 
   const githubMutation = useMutation({
     mutationFn: async () => {
-      setOptimisticStatus('submitting')
+      React.startTransition(() => {
+        setOptimisticStatus('submitting')
+      })
       await callGithubOauth()
     },
   })

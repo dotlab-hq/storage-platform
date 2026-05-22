@@ -134,7 +134,7 @@ export function CreateApiKeyModal( {
     () => {
       handleOpenChange( false )
     },
-    { enabled: open },
+    { enabled: open, conflictBehavior: 'replace' },
   )
 
   useHotkey(

@@ -1,6 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { listFolderItems, getFolderBreadcrumbs } from '@/lib/storage-queries'
+import { getFolderBreadcrumbs } from '@/lib/storage-queries'
+import { getTimeOrderedFolderItems } from './folder-items'
 import { touchFolderOpenedFn } from '@/lib/storage/mutations/touch'
 import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { eq } from 'drizzle-orm'
@@ -60,7 +61,7 @@ export const getFolderItemsFn = createServerFn({ method: 'GET' })
       return cached
     }
 
-    const items = await listFolderItems(user.id, folderId, limit, page)
+    const items = await getTimeOrderedFolderItems(context, folderId, page, limit)
 
     let breadcrumbs: { id: string; name: string }[] = []
     if (folderId) {
