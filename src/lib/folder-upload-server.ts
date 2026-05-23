@@ -11,8 +11,8 @@ import { file as storageFile, folder, userStorage } from '@/db/schema/storage'
 import { eq, sql, and } from 'drizzle-orm'
 import { withActivityLogging } from '@/lib/activity-logging'
 import {
-  resolveUniqueFileName,
-  resolveUniqueFolderName,
+  withUniqueFileName,
+  withUniqueFolderName,
 } from '@/lib/unique-sibling-name.server'
 
 const AbortFolderUploadSchema = z.object( {
@@ -183,21 +183,23 @@ export const completeFolderUpload = createServerFn( { method: 'POST' } )
           }
         }
 
-        const rootFolderName = await resolveUniqueFolderName(
+        const [createdFolder] = await withUniqueFolderName(
           authUser.id,
           data.parentFolderId || null,
           data.folderName,
+          async ( rootFolderName ) => {
+            const [insertedFolder] = await db
+              .insert( folder )
+              .values( {
+                name: rootFolderName,
+                userId: authUser.id,
+                parentFolderId: data.parentFolderId || null,
+                isPrivatelyLocked,
+              } )
+              .returning( { id: folder.id } )
+            return insertedFolder
+          },
         )
-
-        const [createdFolder] = await db
-          .insert( folder )
-          .values( {
-            name: rootFolderName,
-            userId: authUser.id,
-            parentFolderId: data.parentFolderId || null,
-            isPrivatelyLocked,
-          } )
-          .returning( { id: folder.id } )
 
         // Map from directory path to its folder ID. Empty string represents the root folder.
         const folderPathToId = new Map<string, string>()
@@ -239,20 +241,23 @@ export const completeFolderUpload = createServerFn( { method: 'POST' } )
               : ''
             const parentId = folderPathToId.get( parentPath )!
             const folderName = path.split( '/' ).pop()!
-            const uniqueFolderName = await resolveUniqueFolderName(
+            const [newFolder] = await withUniqueFolderName(
               authUser.id,
               parentId,
               folderName,
+              async ( uniqueFolderName ) => {
+                const [insertedFolder] = await db
+                  .insert( folder )
+                  .values( {
+                    name: uniqueFolderName,
+                    userId: authUser.id,
+                    parentFolderId: parentId,
+                    isPrivatelyLocked,
+                  } )
+                  .returning( { id: folder.id } )
+                return insertedFolder
+              },
             )
-            const [newFolder] = await db
-              .insert( folder )
-              .values( {
-                name: uniqueFolderName,
-                userId: authUser.id,
-                parentFolderId: parentId,
-                isPrivatelyLocked,
-              } )
-              .returning( { id: folder.id } )
             folderPathToId.set( path, newFolder.id )
           }
         }
@@ -273,22 +278,23 @@ export const completeFolderUpload = createServerFn( { method: 'POST' } )
           const resolvedProviderId = await resolveProviderId(
             file.providerId ?? data.providerId,
           )
-          const uniqueFileName = await resolveUniqueFileName(
+          await withUniqueFileName(
             authUser.id,
             parentFolderId,
             file.fileName,
+            async ( uniqueFileName ) => {
+              await db.insert( storageFile ).values( {
+                name: uniqueFileName,
+                objectKey: file.objectKey,
+                mimeType: file.mimeType || null,
+                sizeInBytes: file.fileSize,
+                userId: authUser.id,
+                folderId: parentFolderId,
+                providerId: resolvedProviderId,
+                isPrivatelyLocked,
+              } )
+            },
           )
-
-          await db.insert( storageFile ).values( {
-            name: uniqueFileName,
-            objectKey: file.objectKey,
-            mimeType: file.mimeType || null,
-            sizeInBytes: file.fileSize,
-            userId: authUser.id,
-            folderId: parentFolderId,
-            providerId: resolvedProviderId,
-            isPrivatelyLocked,
-          } )
 
           totalUploadedSize += file.fileSize
         }

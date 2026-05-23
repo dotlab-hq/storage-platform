@@ -6,7 +6,7 @@ import { userActivity } from '@/db/schema/activity'
 import { and, eq, desc, isNull, sql } from 'drizzle-orm'
 import { z } from 'zod'
 import { upsertFolderNode } from '@/lib/storage-btree/index'
-import { resolveUniqueFolderName } from '@/lib/unique-sibling-name.server'
+import { withUniqueFolderName } from '@/lib/unique-sibling-name.server'
 
 const EXCLUDE_VIRTUAL_BUCKET_FOLDERS = sql<boolean>`
   NOT EXISTS (
@@ -64,20 +64,22 @@ export class StorageService extends BaseService {
       }
     }
 
-    const finalName = await resolveUniqueFolderName(
+    const [newFolder] = await withUniqueFolderName(
       this.ctx.userId,
       parentFolderId,
       name,
+      async ( finalName ) => {
+        const [inserted] = await this.db
+          .insert( folder )
+          .values( {
+            name: finalName,
+            parentFolderId,
+            userId: this.ctx.userId,
+          } )
+          .returning()
+        return inserted
+      },
     )
-
-    const [newFolder] = await this.db
-      .insert( folder )
-      .values( {
-        name: finalName,
-        parentFolderId,
-        userId: this.ctx.userId,
-      } )
-      .returning()
 
     await this.logActivity( 'folder.create', 'Folder', newFolder.id, {
       name: newFolder.name,

@@ -6,7 +6,7 @@ import {
   resolveProviderId,
   getProviderClientById,
 } from '@/lib/s3-provider-client'
-import { resolveUniqueFileName } from '@/lib/unique-sibling-name.server'
+import { withUniqueFileName } from '@/lib/unique-sibling-name.server'
 import { DEFAULT_FILE_SIZE_LIMIT_BYTES } from '@/lib/storage-quota-constants'
 import { logActivity } from '@/lib/activity'
 
@@ -286,35 +286,38 @@ export const registerFile = createServerFn( { method: 'POST' } )
     }
 
     const resolvedProviderId = await resolveProviderId( data.providerId )
-    const finalFileName = await resolveUniqueFileName(
+
+    const [insertedFile] = await withUniqueFileName(
       authUser.id,
       data.parentFolderId || null,
       data.fileName,
+      async ( finalFileName ) => {
+        const [inserted] = await db
+          .insert( storageFile )
+          .values( {
+            name: finalFileName,
+            objectKey: data.objectKey,
+            mimeType: data.mimeType || null,
+            sizeInBytes: data.fileSize,
+            userId: authUser.id,
+            folderId: data.parentFolderId || null,
+            providerId: resolvedProviderId,
+            isPrivatelyLocked,
+          } )
+          .returning( {
+            id: storageFile.id,
+            name: storageFile.name,
+            folderId: storageFile.folderId,
+            mimeType: storageFile.mimeType,
+            sizeInBytes: storageFile.sizeInBytes,
+            objectKey: storageFile.objectKey,
+            etag: storageFile.etag,
+            lastModified: storageFile.lastModified,
+            createdAt: storageFile.createdAt,
+          } )
+        return inserted
+      },
     )
-
-    const [insertedFile] = await db
-      .insert( storageFile )
-      .values( {
-        name: finalFileName,
-        objectKey: data.objectKey,
-        mimeType: data.mimeType || null,
-        sizeInBytes: data.fileSize,
-        userId: authUser.id,
-        folderId: data.parentFolderId || null,
-        providerId: resolvedProviderId,
-        isPrivatelyLocked,
-      } )
-      .returning( {
-        id: storageFile.id,
-        name: storageFile.name,
-        folderId: storageFile.folderId,
-        mimeType: storageFile.mimeType,
-        sizeInBytes: storageFile.sizeInBytes,
-        objectKey: storageFile.objectKey,
-        etag: storageFile.etag,
-        lastModified: storageFile.lastModified,
-        createdAt: storageFile.createdAt,
-      } )
 
     const { upsertFileNode } = await import( '@/lib/storage-btree/index' )
     await upsertFileNode( {

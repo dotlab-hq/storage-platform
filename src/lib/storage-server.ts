@@ -2,8 +2,8 @@ import { and, eq, isNull, sql } from 'drizzle-orm'
 import { selectProviderForUpload } from '@/lib/s3-provider-client'
 import { requireAuthenticatedServerOnlySession } from '@/lib/server-auth.server'
 import {
-  resolveUniqueFileName,
-  resolveUniqueFolderName,
+  withUniqueFileName,
+  withUniqueFolderName,
 } from '@/lib/unique-sibling-name.server'
 
 const EXCLUDE_VIRTUAL_BUCKET_FOLDERS = sql<boolean>`
@@ -60,12 +60,6 @@ export async function uploadSingleFile( {
 
   console.log( `[Server] S3 upload successful for: ${file.name}` )
 
-  const finalFileName = await resolveUniqueFileName(
-    userId,
-    parentFolderId,
-    file.name,
-  )
-
   let isPrivatelyLocked = false
   if ( parentFolderId ) {
     const parentRows = await db
@@ -78,27 +72,35 @@ export async function uploadSingleFile( {
     }
   }
 
-  const [insertedFile] = await db
-    .insert( storageFile )
-    .values( {
-      name: finalFileName,
-      objectKey,
-      mimeType: file.type || null,
-      sizeInBytes: file.size,
-      userId,
-      folderId: parentFolderId,
-      providerId: provider.providerId,
-      isPrivatelyLocked,
-    } )
-    .returning( {
-      id: storageFile.id,
-      name: storageFile.name,
-      folderId: storageFile.folderId,
-      sizeInBytes: storageFile.sizeInBytes,
-      etag: storageFile.etag,
-      lastModified: storageFile.lastModified,
-      createdAt: storageFile.createdAt,
-    } )
+  const [insertedFile] = await withUniqueFileName(
+    userId,
+    parentFolderId,
+    file.name,
+    async ( finalFileName ) => {
+      const [inserted] = await db
+        .insert( storageFile )
+        .values( {
+          name: finalFileName,
+          objectKey,
+          mimeType: file.type || null,
+          sizeInBytes: file.size,
+          userId,
+          folderId: parentFolderId,
+          providerId: provider.providerId,
+          isPrivatelyLocked,
+        } )
+        .returning( {
+          id: storageFile.id,
+          name: storageFile.name,
+          folderId: storageFile.folderId,
+          sizeInBytes: storageFile.sizeInBytes,
+          etag: storageFile.etag,
+          lastModified: storageFile.lastModified,
+          createdAt: storageFile.createdAt,
+        } )
+      return inserted
+    },
+  )
 
   const { upsertFileNode } = await import( '@/lib/storage-btree/index' )
   await upsertFileNode( {
@@ -135,23 +137,29 @@ export async function createNewFolder( {
     import( '@/db/schema/storage' ),
   ] )
 
-  const finalName = await resolveUniqueFolderName( userId, parentFolderId, name )
-
-  const [created] = await db
-    .insert( folder )
-    .values( {
-      name: finalName,
-      userId,
-      parentFolderId,
-      isPrivatelyLocked: false,
-    } )
-    .returning( {
-      id: folder.id,
-      name: folder.name,
-      parentFolderId: folder.parentFolderId,
-      isDeleted: folder.isDeleted,
-      createdAt: folder.createdAt,
-    } )
+  const [created] = await withUniqueFolderName(
+    userId,
+    parentFolderId,
+    name,
+    async ( finalName ) => {
+      const [inserted] = await db
+        .insert( folder )
+        .values( {
+          name: finalName,
+          userId,
+          parentFolderId,
+          isPrivatelyLocked: false,
+        } )
+        .returning( {
+          id: folder.id,
+          name: folder.name,
+          parentFolderId: folder.parentFolderId,
+          isDeleted: folder.isDeleted,
+          createdAt: folder.createdAt,
+        } )
+      return inserted
+    },
+  )
 
   const { upsertFolderNode } = await import( '@/lib/storage-btree/index' )
   await upsertFolderNode( {

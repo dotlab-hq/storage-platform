@@ -2,6 +2,22 @@ import { and, eq, isNull } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
 
+const siblingNameQueues = new Map<string, Promise<void>>()
+
+function getSiblingNameLockKey( userId: string, parentFolderId: string | null ) {
+    return `${userId}:${parentFolderId ?? 'root'}`
+}
+
+async function runExclusive<T>(
+    key: string,
+    handler: () => Promise<T>,
+): Promise<T> {
+    const previous = siblingNameQueues.get( key ) ?? Promise.resolve()
+    const current = previous.then( handler, handler )
+    siblingNameQueues.set( key, current.then( () => undefined, () => undefined ) )
+    return current
+}
+
 function buildParentCondition( parentFolderId: string | null ) {
     return parentFolderId === null
         ? isNull( folder.parentFolderId )
@@ -104,4 +120,28 @@ export async function resolveUniqueFileName(
     }
 
     return candidate
+}
+
+export async function withUniqueFolderName<T>(
+    userId: string,
+    parentFolderId: string | null,
+    desiredName: string,
+    handler: ( uniqueName: string ) => Promise<T>,
+): Promise<T> {
+    return runExclusive(
+        getSiblingNameLockKey( userId, parentFolderId ),
+        async () => handler( await resolveUniqueFolderName( userId, parentFolderId, desiredName ) ),
+    )
+}
+
+export async function withUniqueFileName<T>(
+    userId: string,
+    parentFolderId: string | null,
+    desiredName: string,
+    handler: ( uniqueName: string ) => Promise<T>,
+): Promise<T> {
+    return runExclusive(
+        getSiblingNameLockKey( userId, parentFolderId ),
+        async () => handler( await resolveUniqueFileName( userId, parentFolderId, desiredName ) ),
+    )
 }
