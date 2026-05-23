@@ -35,11 +35,6 @@ const TinySessionsSection = lazy(() =>
     default: m.TinySessionsSection,
   })),
 )
-const ApiKeysSection = lazy(() =>
-  import('./-components/api-keys-section').then((m) => ({
-    default: m.ApiKeysSection,
-  })),
-)
 const ProvidersSection = lazy(() =>
   import('./-components/providers-section').then((m) => ({
     default: m.ProvidersSection,
@@ -61,7 +56,6 @@ type SettingsTab =
   | '2fa'
   | 'password'
   | 'sessions'
-  | 'api-keys'
 
 const tabs: { id: SettingsTab; label: string }[] = [
   { id: 'profile', label: 'Profile' },
@@ -70,7 +64,6 @@ const tabs: { id: SettingsTab; label: string }[] = [
   { id: '2fa', label: 'Two-Factor' },
   { id: 'password', label: 'Password' },
   { id: 'sessions', label: 'Sessions' },
-  { id: 'api-keys', label: 'API Keys' },
 ]
 
 function SettingsPage() {
@@ -95,18 +88,18 @@ function SettingsPage() {
         />
         <h1 className="text-sm font-semibold">Settings</h1>
       </header>
-      <div className="flex h-[calc(100vh-theme(spacing.14))] p-4">
+      <div className="flex h-[calc(100vh-(--spacing(14)))] p-4">
         <main className="flex-1 overflow-auto">
           <Tabs
             value={activeTab}
             onValueChange={(value) => setActiveTab(value as SettingsTab)}
           >
-            <TabsList className="mb-4 flex h-auto w-full flex-nowrap overflow-x-auto gap-1 p-1 md:grid md:grid-cols-7">
+            <TabsList className="mb-4 flex h-auto w-full flex-nowrap gap-1 overflow-x-auto p-1 md:grid md:grid-cols-6">
               {tabs.map((tab) => (
                 <TabsTrigger
                   key={tab.id}
                   value={tab.id}
-                  className="flex-shrink-0 py-1.5 text-xs md:text-sm"
+                  className="shrink-0 py-1.5 text-xs md:text-sm"
                 >
                   {tab.label}
                 </TabsTrigger>
@@ -136,11 +129,6 @@ function SettingsPage() {
           <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
             {activeTab === 'sessions' && (
               <TinySessionsSection initial={initial} />
-            )}
-          </Suspense>
-          <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
-            {activeTab === 'api-keys' && (
-              <ApiKeysSection initialKeys={initial.apiKeys} />
             )}
           </Suspense>
         </main>

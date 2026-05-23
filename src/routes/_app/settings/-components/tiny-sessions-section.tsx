@@ -1,125 +1,170 @@
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
+import { useMemo } from 'react'
+import { createColumnHelper, type ColumnDef } from '@tanstack/react-table'
 import { Badge } from '@/components/ui/badge'
-import { Clock, Shield } from 'lucide-react'
+import { Clock, Shield, TimerReset } from 'lucide-react'
+import { SettingsDataTable } from './settings-data-table'
+
+type SessionRow = {
+  id: string
+  expiresAt: Date
+  createdAt: Date
+  ipAddress: string | null
+  userAgent: string | null
+}
+
+const columnHelper = createColumnHelper<SessionRow>()
 
 export function TinySessionsSection({
   initial,
 }: {
   initial: {
     tinySessions: {
-      active: { id: string; permission: string; expiresAt: Date }[]
-      recent: { id: string; permission: string; createdAt: Date }[]
+      active: SessionRow[]
+      recent: SessionRow[]
     }
   }
 }) {
+  const activeColumns = useMemo<ColumnDef<SessionRow>[]>(
+    () => [
+      columnHelper.accessor('userAgent', {
+        header: 'Device',
+        size: 320,
+        cell: (info) => (
+          <div className="max-w-[20rem] truncate font-medium text-foreground">
+            {info.getValue() ?? 'Unknown device'}
+          </div>
+        ),
+      }),
+      columnHelper.accessor('ipAddress', {
+        header: 'IP',
+        size: 160,
+        cell: (info) => (
+          <div className="font-mono text-xs text-muted-foreground">
+            {info.getValue() ?? 'Hidden'}
+          </div>
+        ),
+      }),
+      columnHelper.accessor('expiresAt', {
+        header: 'Expires',
+        size: 180,
+        cell: (info) => (
+          <div className="text-sm text-muted-foreground">
+            {new Date(info.getValue()).toLocaleString()}
+          </div>
+        ),
+      }),
+      {
+        id: 'status',
+        header: 'Status',
+        size: 120,
+        cell: () => (
+          <Badge
+            variant="secondary"
+            className="bg-emerald-500/10 text-emerald-700"
+          >
+            Active
+          </Badge>
+        ),
+      },
+    ],
+    [],
+  )
+
+  const recentColumns = useMemo<ColumnDef<SessionRow>[]>(
+    () => [
+      columnHelper.accessor('userAgent', {
+        header: 'Device',
+        size: 320,
+        cell: (info) => (
+          <div className="max-w-[20rem] truncate font-medium text-foreground">
+            {info.getValue() ?? 'Unknown device'}
+          </div>
+        ),
+      }),
+      columnHelper.accessor('createdAt', {
+        header: 'Created',
+        size: 180,
+        cell: (info) => (
+          <div className="text-sm text-muted-foreground">
+            {new Date(info.getValue()).toLocaleString()}
+          </div>
+        ),
+      }),
+      columnHelper.accessor('ipAddress', {
+        header: 'IP',
+        size: 160,
+        cell: (info) => (
+          <div className="font-mono text-xs text-muted-foreground">
+            {info.getValue() ?? 'Hidden'}
+          </div>
+        ),
+      }),
+      columnHelper.accessor('expiresAt', {
+        header: 'Expires',
+        size: 180,
+        cell: (info) => (
+          <div className="text-sm text-muted-foreground">
+            {new Date(info.getValue()).toLocaleString()}
+          </div>
+        ),
+      }),
+    ],
+    [],
+  )
+
   return (
-    <section className="overflow-hidden rounded-2xl bg-gradient-to-br from-background via-background to-muted/30 p-6 shadow-sm">
-      <div className="mb-6 flex items-center gap-3">
-        <div className="bg-primary/10 flex size-10 items-center justify-center rounded-lg">
-          <Shield className="text-primary size-5" />
+    <section className="overflow-hidden rounded-3xl border border-border/60 bg-linear-to-br from-background via-background to-muted/20 p-6 shadow-sm">
+      <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+        <div className="flex items-center gap-3">
+          <div className="bg-primary/10 flex size-10 items-center justify-center rounded-xl">
+            <Shield className="text-primary size-5" />
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold">Sessions</h2>
+            <p className="text-muted-foreground text-sm">
+              Active devices and recently issued sessions
+            </p>
+          </div>
         </div>
         <div>
-          <h2 className="text-lg font-semibold">Tiny Sessions</h2>
-          <p className="text-muted-foreground text-sm">
-            Scan-based sessions last 10 minutes
-          </p>
+          <Badge variant="secondary" className="gap-2 px-3 py-1.5">
+            <TimerReset className="size-4" />
+            Session visibility on
+          </Badge>
         </div>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
-        {/* Active Sessions */}
-        <div className="space-y-3">
-          <div className="flex items-center gap-2">
-            <div className="bg-green-500/10 flex size-6 items-center justify-center rounded-full">
-              <span className="bg-green-500 size-2 rounded-full" />
+      <div className="grid gap-4 md:grid-cols-2">
+        <div className="rounded-2xl border border-border/60 bg-background/80 p-4">
+          <div className="mb-4 flex items-center gap-2">
+            <div className="flex size-6 items-center justify-center rounded-full bg-emerald-500/10">
+              <span className="size-2 rounded-full bg-emerald-500" />
             </div>
             <h3 className="font-medium">Active Sessions</h3>
             <Badge variant="secondary" className="ml-auto">
               {initial.tinySessions.active.length}
             </Badge>
           </div>
-
-          {initial.tinySessions.active.length > 0 ? (
-            <div className="rounded-xl border overflow-hidden">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Permission</TableHead>
-                    <TableHead>Expires</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {initial.tinySessions.active.map((session) => (
-                    <TableRow key={session.id}>
-                      <TableCell className="font-medium capitalize">
-                        {session.permission}
-                      </TableCell>
-                      <TableCell className="text-muted-foreground">
-                        {new Date(session.expiresAt).toLocaleTimeString()}
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          ) : (
-            <div className="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed py-8">
-              <Shield className="text-muted-foreground/50 size-8" />
-              <span className="text-muted-foreground text-sm">
-                No active tiny sessions
-              </span>
-            </div>
-          )}
+          <SettingsDataTable
+            data={initial.tinySessions.active}
+            columns={activeColumns}
+            emptyMessage="No active sessions found."
+          />
         </div>
 
-        {/* Recent Sessions */}
-        <div className="space-y-3">
-          <div className="flex items-center gap-2">
+        <div className="rounded-2xl border border-border/60 bg-background/80 p-4">
+          <div className="mb-4 flex items-center gap-2">
             <Clock className="size-5 text-muted-foreground" />
             <h3 className="font-medium">Recent Sessions</h3>
             <Badge variant="secondary" className="ml-auto">
               {initial.tinySessions.recent.length}
             </Badge>
           </div>
-
-          {initial.tinySessions.recent.length > 0 ? (
-            <div className="rounded-xl border overflow-hidden">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Permission</TableHead>
-                    <TableHead>Created</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {initial.tinySessions.recent.slice(0, 5).map((session) => (
-                    <TableRow key={session.id}>
-                      <TableCell className="font-medium capitalize">
-                        {session.permission}
-                      </TableCell>
-                      <TableCell className="text-muted-foreground text-xs">
-                        {new Date(session.createdAt).toLocaleDateString()}
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          ) : (
-            <div className="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed py-8">
-              <Clock className="text-muted-foreground/50 size-8" />
-              <span className="text-muted-foreground text-sm">
-                No tiny sessions yet
-              </span>
-            </div>
-          )}
+          <SettingsDataTable
+            data={initial.tinySessions.recent}
+            columns={recentColumns}
+            emptyMessage="No recent sessions yet."
+          />
         </div>
       </div>
     </section>
