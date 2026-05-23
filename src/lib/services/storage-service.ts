@@ -64,7 +64,7 @@ export class StorageService extends BaseService {
       }
     }
 
-    const [newFolder] = await withUniqueFolderName(
+    const newFolder = await withUniqueFolderName(
       this.ctx.userId,
       parentFolderId,
       name,

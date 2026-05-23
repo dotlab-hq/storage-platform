@@ -1,4 +1,4 @@
-import { and, eq, isNull, ilike, gte, desc, sql } from 'drizzle-orm'
+import { and, eq, isNull, ilike, gte, desc, sql, or } from 'drizzle-orm'
 
 const EXCLUDE_VIRTUAL_BUCKET_FOLDERS = sql<boolean>`
     NOT EXISTS (
@@ -15,61 +15,61 @@ export async function listFolderItems(
   limit: number = 100,
   page: number = 1,
 ) {
-  const [{ db }, { file: storageFile, folder }] = await Promise.all([
-    import('@/db'),
-    import('@/db/schema/storage'),
-  ])
+  const [{ db }, { file: storageFile, folder }] = await Promise.all( [
+    import( '@/db' ),
+    import( '@/db/schema/storage' ),
+  ] )
 
   const folderWhere = folderId
     ? and(
-        eq(folder.userId, userId),
-        eq(folder.parentFolderId, folderId),
-        eq(folder.isDeleted, false),
-        eq(folder.isTrashed, false),
-        isNull(folder.virtualBucketId),
-        EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
-      )
+      eq( folder.userId, userId ),
+      eq( folder.parentFolderId, folderId ),
+      eq( folder.isDeleted, false ),
+      eq( folder.isTrashed, false ),
+      isNull( folder.virtualBucketId ),
+      EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
+    )
     : and(
-        eq(folder.userId, userId),
-        isNull(folder.parentFolderId),
-        eq(folder.isDeleted, false),
-        eq(folder.isTrashed, false),
-        isNull(folder.virtualBucketId),
-        EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
-      )
+      eq( folder.userId, userId ),
+      isNull( folder.parentFolderId ),
+      eq( folder.isDeleted, false ),
+      eq( folder.isTrashed, false ),
+      isNull( folder.virtualBucketId ),
+      EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
+    )
 
   const fileWhere = folderId
     ? and(
-        eq(storageFile.userId, userId),
-        eq(storageFile.folderId, folderId),
-        eq(storageFile.isDeleted, false),
-        eq(storageFile.isTrashed, false),
-      )
+      eq( storageFile.userId, userId ),
+      eq( storageFile.folderId, folderId ),
+      eq( storageFile.isDeleted, false ),
+      eq( storageFile.isTrashed, false ),
+    )
     : and(
-        eq(storageFile.userId, userId),
-        isNull(storageFile.folderId),
-        eq(storageFile.isDeleted, false),
-        eq(storageFile.isTrashed, false),
-      )
+      eq( storageFile.userId, userId ),
+      isNull( storageFile.folderId ),
+      eq( storageFile.isDeleted, false ),
+      eq( storageFile.isTrashed, false ),
+    )
 
-  const offset = (page - 1) * limit
+  const offset = ( page - 1 ) * limit
 
-  const [folders, files] = await Promise.all([
+  const [folders, files] = await Promise.all( [
     db
-      .select({
+      .select( {
         id: folder.id,
         name: folder.name,
         createdAt: folder.createdAt,
         parentFolderId: folder.parentFolderId,
         isPrivatelyLocked: folder.isPrivatelyLocked,
-      })
-      .from(folder)
-      .where(folderWhere)
-      .orderBy(folder.name)
-      .limit(limit)
-      .offset(offset),
+      } )
+      .from( folder )
+      .where( folderWhere )
+      .orderBy( folder.name )
+      .limit( limit )
+      .offset( offset ),
     db
-      .select({
+      .select( {
         id: storageFile.id,
         name: storageFile.name,
         sizeInBytes: storageFile.sizeInBytes,
@@ -77,48 +77,48 @@ export async function listFolderItems(
         objectKey: storageFile.objectKey,
         createdAt: storageFile.createdAt,
         isPrivatelyLocked: storageFile.isPrivatelyLocked,
-      })
-      .from(storageFile)
-      .where(fileWhere)
-      .orderBy(storageFile.name)
-      .limit(limit)
-      .offset(offset),
-  ])
+      } )
+      .from( storageFile )
+      .where( fileWhere )
+      .orderBy( storageFile.name )
+      .limit( limit )
+      .offset( offset ),
+  ] )
 
   return { folders, files }
 }
 
-export async function searchItems(userId: string, query: string) {
-  const [{ db }, { file: storageFile, folder }] = await Promise.all([
-    import('@/db'),
-    import('@/db/schema/storage'),
-  ])
+export async function searchItems( userId: string, query: string ) {
+  const [{ db }, { file: storageFile, folder }] = await Promise.all( [
+    import( '@/db' ),
+    import( '@/db/schema/storage' ),
+  ] )
 
   const pattern = `%${query}%`
 
-  const [folders, files] = await Promise.all([
+  const [folders, files] = await Promise.all( [
     db
-      .select({
+      .select( {
         id: folder.id,
         name: folder.name,
         createdAt: folder.createdAt,
         parentFolderId: folder.parentFolderId,
         isPrivatelyLocked: folder.isPrivatelyLocked,
-      })
-      .from(folder)
+      } )
+      .from( folder )
       .where(
         and(
-          eq(folder.userId, userId),
-          ilike(folder.name, pattern),
-          eq(folder.isDeleted, false),
-          eq(folder.isTrashed, false),
-          isNull(folder.virtualBucketId),
+          eq( folder.userId, userId ),
+          ilike( folder.name, pattern ),
+          eq( folder.isDeleted, false ),
+          eq( folder.isTrashed, false ),
+          isNull( folder.virtualBucketId ),
           EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
         ),
       )
-      .limit(50),
+      .limit( 50 ),
     db
-      .select({
+      .select( {
         id: storageFile.id,
         name: storageFile.name,
         sizeInBytes: storageFile.sizeInBytes,
@@ -126,174 +126,176 @@ export async function searchItems(userId: string, query: string) {
         objectKey: storageFile.objectKey,
         createdAt: storageFile.createdAt,
         isPrivatelyLocked: storageFile.isPrivatelyLocked,
-      })
-      .from(storageFile)
+      } )
+      .from( storageFile )
       .where(
         and(
-          eq(storageFile.userId, userId),
-          ilike(storageFile.name, pattern),
-          eq(storageFile.isDeleted, false),
-          eq(storageFile.isTrashed, false),
+          eq( storageFile.userId, userId ),
+          ilike( storageFile.name, pattern ),
+          eq( storageFile.isDeleted, false ),
+          eq( storageFile.isTrashed, false ),
         ),
       )
-      .limit(50),
-  ])
+      .limit( 50 ),
+  ] )
 
   return { folders, files }
 }
 
-export async function getFolderBreadcrumbs(userId: string, folderId: string) {
-  const [{ db }, { folder }, { storageNodeBtree }] = await Promise.all([
-    import('@/db'),
-    import('@/db/schema/storage'),
-    import('@/db/schema/storage-btree'),
-  ])
+export async function getFolderBreadcrumbs( userId: string, folderId: string ) {
+  const [{ db }, { folder }, { storageNodeBtree }] = await Promise.all( [
+    import( '@/db' ),
+    import( '@/db/schema/storage' ),
+    import( '@/db/schema/storage-btree' ),
+  ] )
 
   const btreeRows = await db
-    .select({ fullPath: storageNodeBtree.fullPath })
-    .from(storageNodeBtree)
+    .select( { fullPath: storageNodeBtree.fullPath } )
+    .from( storageNodeBtree )
     .where(
       and(
-        eq(storageNodeBtree.userId, userId),
-        eq(storageNodeBtree.nodeType, 'folder'),
-        eq(storageNodeBtree.nodeId, folderId),
+        eq( storageNodeBtree.userId, userId ),
+        eq( storageNodeBtree.nodeType, 'folder' ),
+        eq( storageNodeBtree.nodeId, folderId ),
       ),
     )
-    .limit(1)
+    .limit( 1 )
 
   const btreePath = btreeRows[0]?.fullPath
-  if (btreePath) {
+  if ( btreePath ) {
     const segments = btreePath
-      .split('/')
-      .filter((segment) => segment.length > 0)
-    if (segments.length === 0) return []
+      .split( '/' )
+      .filter( ( segment ) => segment.length > 0 )
+    if ( segments.length === 0 ) return []
 
     const crumbs: { id: string; name: string }[] = []
     let fullPath = ''
-    for (const segment of segments) {
+    for ( const segment of segments ) {
       fullPath = fullPath ? `${fullPath}/${segment}` : segment
       const rows = await db
-        .select({ id: storageNodeBtree.nodeId, name: storageNodeBtree.name })
-        .from(storageNodeBtree)
+        .select( { id: storageNodeBtree.nodeId, name: storageNodeBtree.name } )
+        .from( storageNodeBtree )
         .where(
           and(
-            eq(storageNodeBtree.userId, userId),
-            eq(storageNodeBtree.nodeType, 'folder'),
-            eq(storageNodeBtree.fullPath, fullPath),
-            eq(storageNodeBtree.isDeleted, false),
+            eq( storageNodeBtree.userId, userId ),
+            eq( storageNodeBtree.nodeType, 'folder' ),
+            eq( storageNodeBtree.fullPath, fullPath ),
+            eq( storageNodeBtree.isDeleted, false ),
           ),
         )
-        .limit(1)
-      if (rows[0]) {
-        crumbs.push({ id: rows[0].id, name: rows[0].name })
+        .limit( 1 )
+      if ( rows[0] ) {
+        crumbs.push( { id: rows[0].id, name: rows[0].name } )
       }
     }
-    if (crumbs.length > 0) {
+    if ( crumbs.length > 0 ) {
       return crumbs
     }
   }
 
-  const { seedNodeById } = await import('@/lib/storage-btree/seed')
-  await seedNodeById(userId, 'folder', folderId)
+  const { seedNodeById } = await import( '@/lib/storage-btree/seed' )
+  await seedNodeById( userId, 'folder', folderId )
 
   const crumbs: { id: string; name: string }[] = []
   let currentId: string | null = folderId
   const visited = new Set<string>()
   let hops = 0
 
-  while (currentId) {
-    if (visited.has(currentId)) {
+  while ( currentId ) {
+    if ( visited.has( currentId ) ) {
       throw new Error(
         'Detected cyclic folder relationship while building breadcrumbs',
       )
     }
-    visited.add(currentId)
+    visited.add( currentId )
 
     const rows: { id: string; name: string; parentFolderId: string | null }[] =
       await db
-        .select({
+        .select( {
           id: folder.id,
           name: folder.name,
           parentFolderId: folder.parentFolderId,
-        })
-        .from(folder)
-        .where(and(eq(folder.id, currentId), eq(folder.userId, userId)))
-        .limit(1)
+        } )
+        .from( folder )
+        .where( and( eq( folder.id, currentId ), eq( folder.userId, userId ) ) )
+        .limit( 1 )
 
-    if (rows.length === 0) break
+    if ( rows.length === 0 ) break
     const row: { id: string; name: string; parentFolderId: string | null } =
       rows[0]
-    crumbs.unshift({ id: row.id, name: row.name })
+    crumbs.unshift( { id: row.id, name: row.name } )
     currentId = row.parentFolderId
     hops += 1
 
-    if (hops > 1024) {
-      throw new Error('Folder breadcrumb traversal exceeded safe depth')
+    if ( hops > 1024 ) {
+      throw new Error( 'Folder breadcrumb traversal exceeded safe depth' )
     }
   }
 
   return crumbs
 }
 
-export async function getAllFolders(userId: string) {
-  const [{ db }, { folder }] = await Promise.all([
-    import('@/db'),
-    import('@/db/schema/storage'),
-  ])
+export async function getAllFolders( userId: string ) {
+  const [{ db }, { folder }] = await Promise.all( [
+    import( '@/db' ),
+    import( '@/db/schema/storage' ),
+  ] )
 
   return db
-    .select({
+    .select( {
       id: folder.id,
       name: folder.name,
       parentFolderId: folder.parentFolderId,
       isPrivatelyLocked: folder.isPrivatelyLocked,
-    })
-    .from(folder)
+    } )
+    .from( folder )
     .where(
       and(
-        eq(folder.userId, userId),
-        eq(folder.isDeleted, false),
-        eq(folder.isTrashed, false),
-        isNull(folder.virtualBucketId),
+        eq( folder.userId, userId ),
+        eq( folder.isDeleted, false ),
+        eq( folder.isTrashed, false ),
+        isNull( folder.virtualBucketId ),
         EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
       ),
     )
-    .orderBy(folder.name)
+    .orderBy( folder.name )
 }
 
-export async function getRecentItems(userId: string) {
-  const [{ db }, { file: storageFile, folder }] = await Promise.all([
-    import('@/db'),
-    import('@/db/schema/storage'),
-  ])
+export async function getRecentItems( userId: string ) {
+  const [{ db }, { file: storageFile, folder }] = await Promise.all( [
+    import( '@/db' ),
+    import( '@/db/schema/storage' ),
+  ] )
 
-  const cutoff = new Date(Date.now() - 24 * 60 * 60 * 1000)
+  const cutoff = new Date( Date.now() - 24 * 60 * 60 * 1000 )
+  const folderRecentAt = sql<Date>`coalesce(${folder.lastOpenedAt}, ${folder.createdAt})`
+  const fileRecentAt = sql<Date>`coalesce(${storageFile.lastOpenedAt}, ${storageFile.createdAt})`
 
-  const [folders, files] = await Promise.all([
+  const [folders, files] = await Promise.all( [
     db
-      .select({
+      .select( {
         id: folder.id,
         name: folder.name,
         createdAt: folder.createdAt,
         parentFolderId: folder.parentFolderId,
         lastOpenedAt: folder.lastOpenedAt,
         isPrivatelyLocked: folder.isPrivatelyLocked,
-      })
-      .from(folder)
+      } )
+      .from( folder )
       .where(
         and(
-          eq(folder.userId, userId),
-          eq(folder.isDeleted, false),
-          eq(folder.isTrashed, false),
-          isNull(folder.virtualBucketId),
+          eq( folder.userId, userId ),
+          eq( folder.isDeleted, false ),
+          eq( folder.isTrashed, false ),
+          isNull( folder.virtualBucketId ),
           EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
-          gte(folder.lastOpenedAt, cutoff),
+          or( gte( folder.lastOpenedAt, cutoff ), gte( folder.createdAt, cutoff ) ),
         ),
       )
-      .orderBy(desc(folder.lastOpenedAt))
-      .limit(50),
+      .orderBy( desc( folderRecentAt ) )
+      .limit( 50 ),
     db
-      .select({
+      .select( {
         id: storageFile.id,
         name: storageFile.name,
         sizeInBytes: storageFile.sizeInBytes,
@@ -301,19 +303,22 @@ export async function getRecentItems(userId: string) {
         createdAt: storageFile.createdAt,
         lastOpenedAt: storageFile.lastOpenedAt,
         isPrivatelyLocked: storageFile.isPrivatelyLocked,
-      })
-      .from(storageFile)
+      } )
+      .from( storageFile )
       .where(
         and(
-          eq(storageFile.userId, userId),
-          eq(storageFile.isDeleted, false),
-          eq(storageFile.isTrashed, false),
-          gte(storageFile.lastOpenedAt, cutoff),
+          eq( storageFile.userId, userId ),
+          eq( storageFile.isDeleted, false ),
+          eq( storageFile.isTrashed, false ),
+          or(
+            gte( storageFile.lastOpenedAt, cutoff ),
+            gte( storageFile.createdAt, cutoff ),
+          ),
         ),
       )
-      .orderBy(desc(storageFile.lastOpenedAt))
-      .limit(50),
-  ])
+      .orderBy( desc( fileRecentAt ) )
+      .limit( 50 ),
+  ] )
 
   return { folders, files }
 }

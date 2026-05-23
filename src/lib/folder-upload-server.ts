@@ -183,7 +183,7 @@ export const completeFolderUpload = createServerFn( { method: 'POST' } )
           }
         }
 
-        const [createdFolder] = await withUniqueFolderName(
+        const createdFolder = await withUniqueFolderName(
           authUser.id,
           data.parentFolderId || null,
           data.folderName,
@@ -241,7 +241,7 @@ export const completeFolderUpload = createServerFn( { method: 'POST' } )
               : ''
             const parentId = folderPathToId.get( parentPath )!
             const folderName = path.split( '/' ).pop()!
-            const [newFolder] = await withUniqueFolderName(
+            const newFolder = await withUniqueFolderName(
               authUser.id,
               parentId,
               folderName,
