@@ -5,6 +5,7 @@ export {
   changePasswordSettingsFn,
   disableTwoFactorSettingsFn,
   enableTwoFactorSettingsFn,
+  revokeSessionSettingsFn,
   updateProfileSettingsFn,
   verifyTwoFactorSettingsFn,
 } from './settings-auth'

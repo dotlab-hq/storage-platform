@@ -10,12 +10,16 @@ type SettingsDataTableProps<TData> = {
   data: TData[]
   columns: ColumnDef<TData>[]
   emptyMessage: string
+  onRowAction?: (row: TData) => void
+  rowActionLabel?: string
 }
 
 export function SettingsDataTable<TData>({
   data,
   columns,
   emptyMessage,
+  onRowAction,
+  rowActionLabel = 'Open details',
 }: SettingsDataTableProps<TData>) {
   const table = useReactTable({
     data,
@@ -60,7 +64,18 @@ export function SettingsDataTable<TData>({
                     </td>
                   ))}
                   <td className="px-4 py-4 text-right text-muted-foreground">
-                    <ChevronRight className="ml-auto size-4" />
+                    {onRowAction ? (
+                      <button
+                        type="button"
+                        aria-label={rowActionLabel}
+                        className="ml-auto inline-flex size-8 items-center justify-center rounded-full transition-colors hover:bg-muted hover:text-foreground"
+                        onClick={() => onRowAction(row.original)}
+                      >
+                        <ChevronRight className="size-4" />
+                      </button>
+                    ) : (
+                      <ChevronRight className="ml-auto size-4" />
+                    )}
                   </td>
                 </tr>
               ))

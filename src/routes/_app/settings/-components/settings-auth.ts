@@ -2,8 +2,11 @@
 
 import { createServerFn } from '@tanstack/react-start'
 import { getRequest } from '@tanstack/react-start/server'
+import { and, eq } from 'drizzle-orm'
 import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { auth } from '@/lib/auth'
+import { db } from '@/db'
+import { session as authSession } from '@/db/schema/auth-schema'
 import {
     PasswordSchema,
     ProfileSchema,
@@ -113,5 +116,35 @@ export const disableTwoFactorSettingsFn = createServerFn( { method: 'POST' } )
             return { success: true, message: '2FA disabled.' }
         } catch ( error ) {
             throw new Error( toErrorMessage( error, 'Failed to disable 2FA.' ) )
+        }
+    } )
+
+const RevokeSessionSchema = z.object( {
+    sessionId: z.string().min( 1 ),
+} )
+
+export const revokeSessionSettingsFn = createServerFn( { method: 'POST' } )
+    .middleware( [apiAuthMiddleware] )
+    .inputValidator( RevokeSessionSchema )
+    .handler( async ( { data, context } ) => {
+        const currentUser = context.user
+        try {
+            const [deletedSession] = await db
+                .delete( authSession )
+                .where(
+                    and(
+                        eq( authSession.id, data.sessionId ),
+                        eq( authSession.userId, currentUser.id ),
+                    ),
+                )
+                .returning( { id: authSession.id } )
+
+            if ( !deletedSession ) {
+                throw new Error( 'Session not found.' )
+            }
+
+            return { success: true, message: 'Session revoked.' }
+        } catch ( error ) {
+            throw new Error( toErrorMessage( error, 'Failed to revoke session.' ) )
         }
     } )

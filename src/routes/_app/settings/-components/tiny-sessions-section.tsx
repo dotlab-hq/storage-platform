@@ -1,8 +1,9 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { createColumnHelper, type ColumnDef } from '@tanstack/react-table'
 import { Badge } from '@/components/ui/badge'
 import { Clock, Shield, TimerReset } from 'lucide-react'
 import { SettingsDataTable } from './settings-data-table'
+import { SessionDetailsDialog } from './session-details-dialog'
 
 type SessionRow = {
   id: string
@@ -18,12 +19,15 @@ export function TinySessionsSection({
   initial,
 }: {
   initial: {
+    currentSessionId: string | null
     tinySessions: {
       active: SessionRow[]
       recent: SessionRow[]
     }
   }
 }) {
+  const [selectedSession, setSelectedSession] = useState<SessionRow | null>(null)
+
   const activeColumns = useMemo<ColumnDef<SessionRow>[]>(
     () => [
       columnHelper.accessor('userAgent', {
@@ -149,6 +153,8 @@ export function TinySessionsSection({
             data={initial.tinySessions.active}
             columns={activeColumns}
             emptyMessage="No active sessions found."
+            onRowAction={(session) => setSelectedSession(session)}
+            rowActionLabel="Open active session details"
           />
         </div>
 
@@ -164,9 +170,20 @@ export function TinySessionsSection({
             data={initial.tinySessions.recent}
             columns={recentColumns}
             emptyMessage="No recent sessions yet."
+            onRowAction={(session) => setSelectedSession(session)}
+            rowActionLabel="Open recent session details"
           />
         </div>
       </div>
+
+      <SessionDetailsDialog
+        open={selectedSession !== null}
+        onOpenChange={(open) => {
+          if (!open) setSelectedSession(null)
+        }}
+        session={selectedSession}
+        currentSessionId={initial.currentSessionId}
+      />
     </section>
   )
 }

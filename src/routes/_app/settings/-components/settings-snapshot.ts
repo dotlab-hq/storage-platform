@@ -101,6 +101,7 @@ export const getSettingsSnapshotFn = createServerFn( { method: 'GET' } )
                 image: session.user.image ?? '',
                 role: currentUser.role,
             },
+            currentSessionId: session.session?.id ?? null,
             security: {
                 twoFactorEnabled,
                 passkeysSupported: false,
