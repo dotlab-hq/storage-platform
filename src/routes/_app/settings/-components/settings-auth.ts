@@ -3,6 +3,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { getRequest } from '@tanstack/react-start/server'
 import { and, eq } from 'drizzle-orm'
+import { z } from 'zod'
 import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { auth } from '@/lib/auth'
 import { db } from '@/db'
