@@ -11,8 +11,9 @@ const EXCLUDE_VIRTUAL_BUCKET_FOLDERS = sql<boolean>`
   NOT EXISTS (
     SELECT 1
     FROM "virtual_bucket" vb
-    WHERE vb."mapped_folder_id" = "folder"."id"
+    WHERE vb."mapped_folder_id" = ${storageNodeBtree.nodeId}
       AND vb."is_active" = true
+      AND ${storageNodeBtree.nodeType} = 'folder'
   )
 `
 
