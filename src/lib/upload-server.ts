@@ -287,7 +287,7 @@ export const registerFile = createServerFn( { method: 'POST' } )
 
     const resolvedProviderId = await resolveProviderId( data.providerId )
 
-    const [insertedFile] = await withUniqueFileName(
+    const insertedFile = await withUniqueFileName(
       authUser.id,
       data.parentFolderId || null,
       data.fileName,

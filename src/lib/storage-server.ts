@@ -72,7 +72,7 @@ export async function uploadSingleFile( {
     }
   }
 
-  const [insertedFile] = await withUniqueFileName(
+  const insertedFile = await withUniqueFileName(
     userId,
     parentFolderId,
     file.name,
@@ -137,7 +137,7 @@ export async function createNewFolder( {
     import( '@/db/schema/storage' ),
   ] )
 
-  const [created] = await withUniqueFolderName(
+  const created = await withUniqueFolderName(
     userId,
     parentFolderId,
     name,
