@@ -1,6 +1,10 @@
 import { and, eq, isNull, sql } from 'drizzle-orm'
 import { selectProviderForUpload } from '@/lib/s3-provider-client'
 import { requireAuthenticatedServerOnlySession } from '@/lib/server-auth.server'
+import {
+  resolveUniqueFileName,
+  resolveUniqueFolderName,
+} from '@/lib/unique-sibling-name.server'
 
 const EXCLUDE_VIRTUAL_BUCKET_FOLDERS = sql<boolean>`
     NOT EXISTS (
@@ -17,61 +21,67 @@ type UploadFileInput = {
   parentFolderId?: string | null
 }
 
-export async function uploadSingleFile({
+export async function uploadSingleFile( {
   userId,
   file,
   parentFolderId = null,
-}: UploadFileInput) {
+}: UploadFileInput ) {
   // Validate that the userId matches authenticated user
   await requireAuthenticatedServerOnlySession()
 
-  const { PutObjectCommand } = await import('@aws-sdk/client-s3')
-  const [{ db }, { file: storageFile, folder }] = await Promise.all([
-    import('@/db'),
-    import('@/db/schema/storage'),
-  ])
+  const { PutObjectCommand } = await import( '@aws-sdk/client-s3' )
+  const [{ db }, { file: storageFile, folder }] = await Promise.all( [
+    import( '@/db' ),
+    import( '@/db/schema/storage' ),
+  ] )
 
-  const provider = await selectProviderForUpload(file.size, userId)
+  const provider = await selectProviderForUpload( file.size, userId )
 
   console.log(
     `[Server] Starting upload for file: ${file.name} (${file.size} bytes)`,
   )
 
-  const extension = file.name.includes('.') ? file.name.split('.').pop() : 'bin'
+  const extension = file.name.includes( '.' ) ? file.name.split( '.' ).pop() : 'bin'
   const objectKey = `${userId}/${crypto.randomUUID()}.${extension}`
-  const fileBytes = new Uint8Array(await file.arrayBuffer())
+  const fileBytes = new Uint8Array( await file.arrayBuffer() )
 
-  console.log(`[Server] S3 Key: ${objectKey}, Bucket: ${provider.bucketName}`)
-  console.log(`[Server] Selected provider: ${provider.providerName}`)
+  console.log( `[Server] S3 Key: ${objectKey}, Bucket: ${provider.bucketName}` )
+  console.log( `[Server] Selected provider: ${provider.providerName}` )
 
   await provider.client.send(
-    new PutObjectCommand({
+    new PutObjectCommand( {
       Bucket: provider.bucketName,
       Key: objectKey,
       Body: fileBytes,
       // ContentLength: fileBytes.byteLength,
       ContentType: file.type || 'application/octet-stream',
-    }),
+    } ),
   )
 
-  console.log(`[Server] S3 upload successful for: ${file.name}`)
+  console.log( `[Server] S3 upload successful for: ${file.name}` )
+
+  const finalFileName = await resolveUniqueFileName(
+    userId,
+    parentFolderId,
+    file.name,
+  )
 
   let isPrivatelyLocked = false
-  if (parentFolderId) {
+  if ( parentFolderId ) {
     const parentRows = await db
-      .select({ isPrivatelyLocked: folder.isPrivatelyLocked })
-      .from(folder)
-      .where(and(eq(folder.id, parentFolderId), eq(folder.userId, userId)))
-      .limit(1)
-    if (parentRows.length > 0) {
+      .select( { isPrivatelyLocked: folder.isPrivatelyLocked } )
+      .from( folder )
+      .where( and( eq( folder.id, parentFolderId ), eq( folder.userId, userId ) ) )
+      .limit( 1 )
+    if ( parentRows.length > 0 ) {
       isPrivatelyLocked = parentRows[0].isPrivatelyLocked
     }
   }
 
   const [insertedFile] = await db
-    .insert(storageFile)
-    .values({
-      name: file.name,
+    .insert( storageFile )
+    .values( {
+      name: finalFileName,
       objectKey,
       mimeType: file.type || null,
       sizeInBytes: file.size,
@@ -79,8 +89,8 @@ export async function uploadSingleFile({
       folderId: parentFolderId,
       providerId: provider.providerId,
       isPrivatelyLocked,
-    })
-    .returning({
+    } )
+    .returning( {
       id: storageFile.id,
       name: storageFile.name,
       folderId: storageFile.folderId,
@@ -88,10 +98,10 @@ export async function uploadSingleFile({
       etag: storageFile.etag,
       lastModified: storageFile.lastModified,
       createdAt: storageFile.createdAt,
-    })
+    } )
 
-  const { upsertFileNode } = await import('@/lib/storage-btree/index')
-  await upsertFileNode({
+  const { upsertFileNode } = await import( '@/lib/storage-btree/index' )
+  await upsertFileNode( {
     userId,
     fileId: insertedFile.id,
     name: insertedFile.name,
@@ -100,9 +110,9 @@ export async function uploadSingleFile({
     sizeInBytes: insertedFile.sizeInBytes,
     etag: insertedFile.etag,
     lastModified: insertedFile.lastModified,
-  })
+  } )
 
-  console.log(`[Server] DB insert successful`)
+  console.log( `[Server] DB insert successful` )
   return insertedFile
 }
 
@@ -112,128 +122,96 @@ type CreateFolderInput = {
   parentFolderId?: string | null
 }
 
-export async function createNewFolder({
+export async function createNewFolder( {
   userId,
   name,
   parentFolderId = null,
-}: CreateFolderInput) {
+}: CreateFolderInput ) {
   // Validate that the userId matches authenticated user
   await requireAuthenticatedServerOnlySession()
 
-  const [{ db }, { folder }] = await Promise.all([
-    import('@/db'),
-    import('@/db/schema/storage'),
-  ])
+  const [{ db }, { folder }] = await Promise.all( [
+    import( '@/db' ),
+    import( '@/db/schema/storage' ),
+  ] )
 
-  // Find existing folder names in the same directory to handle duplicates
-  const siblings = await db
-    .select({ name: folder.name })
-    .from(folder)
-    .where(
-      parentFolderId
-        ? and(
-            eq(folder.userId, userId),
-            eq(folder.parentFolderId, parentFolderId),
-            eq(folder.isDeleted, false),
-            eq(folder.isTrashed, false),
-            isNull(folder.virtualBucketId),
-            EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
-          )
-        : and(
-            eq(folder.userId, userId),
-            isNull(folder.parentFolderId),
-            eq(folder.isDeleted, false),
-            eq(folder.isTrashed, false),
-            isNull(folder.virtualBucketId),
-            EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
-          ),
-    )
-
-  const siblingNames = new Set(siblings.map((s) => s.name))
-  let finalName = name
-  if (siblingNames.has(finalName)) {
-    let counter = 1
-    while (siblingNames.has(`${name} (${counter})`)) {
-      counter++
-    }
-    finalName = `${name} (${counter})`
-  }
+  const finalName = await resolveUniqueFolderName( userId, parentFolderId, name )
 
   const [created] = await db
-    .insert(folder)
-    .values({
+    .insert( folder )
+    .values( {
       name: finalName,
       userId,
       parentFolderId,
       isPrivatelyLocked: false,
-    })
-    .returning({
+    } )
+    .returning( {
       id: folder.id,
       name: folder.name,
       parentFolderId: folder.parentFolderId,
       isDeleted: folder.isDeleted,
       createdAt: folder.createdAt,
-    })
+    } )
 
-  const { upsertFolderNode } = await import('@/lib/storage-btree/index')
-  await upsertFolderNode({
+  const { upsertFolderNode } = await import( '@/lib/storage-btree/index' )
+  await upsertFolderNode( {
     userId,
     folderId: created.id,
     name: created.name,
     parentFolderId: created.parentFolderId,
     isDeleted: created.isDeleted,
-  })
+  } )
 
   return created
 }
 
-export async function listRootItems(userId: string) {
+export async function listRootItems( userId: string ) {
   // Validate that the userId matches authenticated user
   await requireAuthenticatedServerOnlySession()
 
-  const [{ db }, { file: storageFile, folder }] = await Promise.all([
-    import('@/db'),
-    import('@/db/schema/storage'),
-  ])
+  const [{ db }, { file: storageFile, folder }] = await Promise.all( [
+    import( '@/db' ),
+    import( '@/db/schema/storage' ),
+  ] )
 
   const rootFolders = await db
-    .select({
+    .select( {
       id: folder.id,
       name: folder.name,
       createdAt: folder.createdAt,
       isPrivatelyLocked: folder.isPrivatelyLocked,
-    })
-    .from(folder)
+    } )
+    .from( folder )
     .where(
       and(
-        eq(folder.userId, userId),
-        isNull(folder.parentFolderId),
-        eq(folder.isDeleted, false),
-        eq(folder.isTrashed, false),
-        isNull(folder.virtualBucketId),
+        eq( folder.userId, userId ),
+        isNull( folder.parentFolderId ),
+        eq( folder.isDeleted, false ),
+        eq( folder.isTrashed, false ),
+        isNull( folder.virtualBucketId ),
         EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
       ),
     )
-    .orderBy(folder.createdAt)
+    .orderBy( folder.createdAt )
 
   const rootFiles = await db
-    .select({
+    .select( {
       id: storageFile.id,
       name: storageFile.name,
       sizeInBytes: storageFile.sizeInBytes,
       createdAt: storageFile.createdAt,
       isPrivatelyLocked: storageFile.isPrivatelyLocked,
-    })
-    .from(storageFile)
+    } )
+    .from( storageFile )
     .where(
       and(
-        eq(storageFile.userId, userId),
-        isNull(storageFile.folderId),
-        eq(storageFile.isDeleted, false),
-        eq(storageFile.isTrashed, false),
+        eq( storageFile.userId, userId ),
+        isNull( storageFile.folderId ),
+        eq( storageFile.isDeleted, false ),
+        eq( storageFile.isTrashed, false ),
       ),
     )
-    .orderBy(storageFile.createdAt)
+    .orderBy( storageFile.createdAt )
 
   return {
     folders: rootFolders,
