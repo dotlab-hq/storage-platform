@@ -84,6 +84,7 @@ function BucketFilesPage() {
             onClick={() => {
               window.location.href = '/buckets'
             }}
+            className="border-emerald-500/30 bg-muted/20 text-emerald-100"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Buckets

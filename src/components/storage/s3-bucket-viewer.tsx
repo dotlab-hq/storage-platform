@@ -3,25 +3,29 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { S3BucketViewerBrowser } from '@/components/storage/s3-bucket-viewer-browser'
 import { useS3BucketViewer } from '@/components/storage/use-s3-bucket-viewer'
-import type { S3ListResponse } from '@/components/storage/use-s3-bucket-viewer'
-import { useCallback, useRef } from 'react'
+import type { S3ListResponse } from '@/components/storage/s3-viewer-types'
+import { ConfirmActionDialog } from '@/components/ui/confirm-action-dialog'
+import { useCallback, useRef, useState } from 'react'
 
 type S3BucketViewerProps = {
   bucketName: string
   initialPrefix?: string
   initialData?: S3ListResponse
+  readOnly?: boolean
 }
 
 export function S3BucketViewer({
   bucketName,
   initialPrefix,
   initialData,
+  readOnly = false,
 }: S3BucketViewerProps) {
   const viewer = useS3BucketViewer(bucketName, {
     initialPrefix,
     initialData,
   })
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [pendingDeleteKey, setPendingDeleteKey] = useState<string | null>(null)
 
   const totalItems =
     viewer.folders.length + viewer.files.length + viewer.uploadingFiles.length
@@ -38,14 +42,14 @@ export function S3BucketViewer({
   }, [viewer])
 
   return (
-    <section className="flex h-full flex-col bg-background">
-      <div className="mb-4 flex items-center justify-between py-3">
-        <div className="flex items-center gap-1 text-sm text-muted-foreground">
+    <section className="flex h-full flex-col rounded-xl border border-emerald-500/20 bg-background/70 p-4 shadow-lg">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
           <Button
             type="button"
             size="sm"
             variant="ghost"
-            className="h-8 px-2 font-medium"
+            className="h-8 rounded-full border border-emerald-500/30 bg-muted/30 px-3 font-medium text-emerald-100"
             onClick={() => void viewer.refresh('')}
           >
             <Home className="h-4 w-4 mr-1.5" />
@@ -59,7 +63,7 @@ export function S3BucketViewer({
                 type="button"
                 size="sm"
                 variant="ghost"
-                className="h-8 px-2 font-medium"
+                className="h-8 rounded-full border border-emerald-500/20 bg-muted/20 px-3 font-medium text-emerald-100"
                 onClick={() => void viewer.refresh(crumb.value)}
               >
                 {crumb.label}
@@ -75,30 +79,37 @@ export function S3BucketViewer({
             size="sm"
             disabled={viewer.busy}
             onClick={() => void viewer.refresh()}
+            className="border-emerald-500/30 bg-muted/20 text-emerald-100"
           >
             <RefreshCw className="h-4 w-4 mr-1.5" />
             Refresh
           </Button>
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            disabled={viewer.busy}
-            onClick={() => void viewer.createFolder()}
-          >
-            <FolderPlus className="h-4 w-4 mr-1.5" />
-            New Folder
-          </Button>
-          <Button
-            type="button"
-            variant="default"
-            size="sm"
-            disabled={viewer.busy}
-            onClick={() => viewer.inputRef.current?.click()}
-          >
-            <Upload className="h-4 w-4 mr-1.5" />
-            Upload
-          </Button>
+          {!readOnly && (
+            <>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                disabled={viewer.busy}
+                onClick={() => void viewer.createFolder()}
+                className="border-emerald-500/30 bg-muted/20 text-emerald-100"
+              >
+                <FolderPlus className="h-4 w-4 mr-1.5" />
+                New Folder
+              </Button>
+              <Button
+                type="button"
+                variant="default"
+                size="sm"
+                disabled={viewer.busy}
+                onClick={() => viewer.inputRef.current?.click()}
+                className="shadow-[0_0_14px_rgba(16,185,129,0.35)]"
+              >
+                <Upload className="h-4 w-4 mr-1.5" />
+                Upload
+              </Button>
+            </>
+          )}
           <Input
             ref={viewer.inputRef}
             className="hidden"
@@ -115,6 +126,10 @@ export function S3BucketViewer({
         totalItems={totalItems}
         scrollContainerRef={scrollContainerRef}
         onScroll={handleScroll}
+        onRequestDelete={(key) => setPendingDeleteKey(key)}
+        onRequestUpload={() => viewer.inputRef.current?.click()}
+        onRequestNewFolder={() => void viewer.createFolder()}
+        allowMutations={!readOnly}
       />
 
       <div className="flex items-center justify-between pt-3 text-sm text-muted-foreground">
@@ -131,6 +146,26 @@ export function S3BucketViewer({
           </span>
         )}
       </div>
+
+      <ConfirmActionDialog
+        open={pendingDeleteKey !== null}
+        onOpenChange={(open) => {
+          if (!open) {
+            setPendingDeleteKey(null)
+          }
+        }}
+        title="Delete this file?"
+        description="This will permanently remove the selected object."
+        confirmLabel="Delete file"
+        confirmVariant="destructive"
+        requiresConfirmation
+        onConfirm={async () => {
+          if (pendingDeleteKey) {
+            await viewer.deleteFile(pendingDeleteKey)
+            setPendingDeleteKey(null)
+          }
+        }}
+      />
     </section>
   )
 }

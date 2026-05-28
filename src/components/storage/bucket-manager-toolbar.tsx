@@ -17,12 +17,13 @@ type BucketManagerToolbarProps = {
 
 export function BucketManagerToolbar(props: BucketManagerToolbarProps) {
   return (
-    <div className="grid gap-3 rounded-xl border border-border/80 bg-muted/20 p-3 lg:grid-cols-[1fr_auto]">
+    <div className="grid gap-3 rounded-xl border border-emerald-500/20 bg-muted/30 p-3 shadow-md lg:grid-cols-[1fr_auto]">
       <div className="grid gap-2 sm:grid-cols-2">
         <Input
           value={props.bucketName}
           onChange={(event) => props.onBucketNameChange(event.target.value)}
           placeholder="new-bucket-name"
+          className="bg-background/60"
         />
         <div className="relative">
           <Search className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -38,9 +39,10 @@ export function BucketManagerToolbar(props: BucketManagerToolbarProps) {
       <div className="flex flex-wrap gap-2 lg:justify-end">
         <Button
           variant="outline"
+          size="sm"
           onClick={() => void props.onRefresh()}
           disabled={props.isRefreshing || props.isLoading}
-          className="gap-2"
+          className="gap-2 border-emerald-500/30 bg-muted/30 text-emerald-100 hover:bg-emerald-500/10"
         >
           {props.isRefreshing ? (
             <Loader2 className="h-4 w-4 animate-spin" />
@@ -52,7 +54,8 @@ export function BucketManagerToolbar(props: BucketManagerToolbarProps) {
         <Button
           onClick={() => void props.onCreate()}
           disabled={props.createDisabled}
-          className="gap-2"
+          size="sm"
+          className="gap-2 shadow-[0_0_14px_rgba(16,185,129,0.35)]"
         >
           {props.isCreating ? (
             <Loader2 className="h-4 w-4 animate-spin" />

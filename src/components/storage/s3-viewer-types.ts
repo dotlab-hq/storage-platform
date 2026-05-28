@@ -19,3 +19,18 @@ export type UploadingFile = {
   status: 'uploading' | 'completed' | 'error'
   errorMessage?: string
 }
+
+export type S3ListResponse = {
+  prefix: string
+  keyCount: number
+  isTruncated: boolean
+  nextContinuationToken: string | null
+  folders: { name: string; prefix: string }[]
+  objects: {
+    key: string
+    name: string
+    sizeInBytes: number
+    eTag: string | null
+    lastModified: string | null
+  }[]
+}

@@ -63,7 +63,7 @@ export function BucketManagerTable({
   onDelete,
 }: BucketManagerTableProps) {
   return (
-    <div className="overflow-hidden rounded-lg border border-border bg-background">
+    <div className="overflow-hidden rounded-lg border border-emerald-500/20 bg-background shadow-md">
       <Table>
         <TableHeader className="bg-muted/45">
           <TableRow>
@@ -79,7 +79,7 @@ export function BucketManagerTable({
             const pendingAction = pendingByBucket[bucket.name]
             const isPending = Boolean(pendingAction)
             return (
-              <TableRow key={bucket.id}>
+            <TableRow key={bucket.id} className="hover:bg-emerald-500/5">
                 <TableCell className="px-3">
                   <button
                     onClick={() => onView(bucket.name)}
@@ -123,20 +123,21 @@ export function BucketManagerTable({
                     size="sm"
                     disabled={isPending}
                     onClick={() => onView(bucket.name)}
+                    className="border-emerald-500/30 bg-muted/20 text-emerald-100"
                   >
                     <Eye className="h-4 w-4" />
                     Objects
                   </Button>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button
-                        className="ml-1"
-                        variant="ghost"
-                        size="icon"
-                        disabled={isPending}
-                      >
-                        <MoreVertical className="h-4 w-4" />
-                      </Button>
+                        <Button
+                          className="ml-1"
+                          variant="ghost"
+                          size="icon"
+                          disabled={isPending}
+                        >
+                          <MoreVertical className="h-4 w-4" />
+                        </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-52">
                       <DropdownMenuItem onClick={() => onView(bucket.name)}>
@@ -176,6 +177,7 @@ export function BucketManagerTable({
                           await onDelete(bucket.name, bucket.isDefault)
                         }}
                         disabled={bucket.isDefault}
+                        className="text-red-300 focus:text-red-300"
                       >
                         <Trash2 className="mr-2 h-4 w-4" />
                         Delete Bucket

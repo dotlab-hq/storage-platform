@@ -1,47 +1,33 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { Button } from '@/components/ui/button'
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-
+import type { ObjectPayload } from '@/components/storage/object-operations-types'
+import { ObjectOperationsPropertiesTab } from '@/components/storage/object-operations-properties-tab'
+import { ObjectOperationsTagsTab } from '@/components/storage/object-operations-tags-tab'
+import { ObjectOperationsVersionsTab } from '@/components/storage/object-operations-versions-tab'
+import { ObjectOperationsPermissionsTab } from '@/components/storage/object-operations-permissions-tab'
 type ObjectOperationsDialogProps = {
   bucketName: string | null
   onOpenChange: (open: boolean) => void
 }
-
-type ObjectPayload = {
-  properties: {
-    name: string
-    sizeInBytes: number
-    mimeType: string | null
-    etag: string | null
-  }
-  tags: Array<{ key: string; value: string }>
-  acl: 'private' | 'public-read'
-  versions: Array<{
-    versionId: string
-    isDeleteMarker: boolean
-    createdAt: string
-    etag: string | null
-    sizeInBytes: number
-  }>
-}
-
-export function ObjectOperationsDialog(props: ObjectOperationsDialogProps) {
-  const { bucketName, onOpenChange } = props
+type ObjectTab = 'properties' | 'tags' | 'versions' | 'permissions'
+export function ObjectOperationsDialog({
+  bucketName,
+  onOpenChange,
+}: ObjectOperationsDialogProps) {
   const [objectKey, setObjectKey] = useState('')
-  const [activeTab, setActiveTab] = useState<
-    'properties' | 'tags' | 'versions' | 'permissions'
-  >('properties')
-  const [draftTags, setDraftTags] = useState<string>('[]')
+  const [activeTab, setActiveTab] = useState<ObjectTab>('properties')
   const queryClient = useQueryClient()
-
   const query = useQuery({
     queryKey: ['object-settings', bucketName, objectKey],
     enabled: bucketName !== null && objectKey.trim().length > 0,
@@ -56,7 +42,6 @@ export function ObjectOperationsDialog(props: ObjectOperationsDialogProps) {
       return payload
     },
   })
-
   const update = useMutation({
     mutationFn: async (payload: unknown) => {
       const response = await fetch('/api/storage/s3/object-settings', {
@@ -113,155 +98,99 @@ export function ObjectOperationsDialog(props: ObjectOperationsDialogProps) {
       })
     },
   })
-
-  const tagsPretty = useMemo(
-    () => JSON.stringify(query.data?.tags ?? [], null, 2),
-    [query.data?.tags],
-  )
-
   return (
     <Dialog open={bucketName !== null} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl">
-        <DialogHeader>
+      <DialogContent className="max-w-5xl border border-emerald-500/20 bg-card shadow-2xl">
+        <DialogHeader className="text-left">
           <DialogTitle>Object Operations</DialogTitle>
           <DialogDescription>
             {bucketName ? `Manage object in ${bucketName}` : ''}
           </DialogDescription>
         </DialogHeader>
-
         <Input
           value={objectKey}
           onChange={(e) => setObjectKey(e.target.value)}
           placeholder="path/to/object.txt"
+          className="bg-muted/30"
         />
-
-        <div className="flex gap-2">
-          <Button
-            size="sm"
-            variant={activeTab === 'properties' ? 'default' : 'outline'}
-            onClick={() => setActiveTab('properties')}
-          >
-            Properties
-          </Button>
-          <Button
-            size="sm"
-            variant={activeTab === 'tags' ? 'default' : 'outline'}
-            onClick={() => setActiveTab('tags')}
-          >
-            Tags
-          </Button>
-          <Button
-            size="sm"
-            variant={activeTab === 'versions' ? 'default' : 'outline'}
-            onClick={() => setActiveTab('versions')}
-          >
-            Versions
-          </Button>
-          <Button
-            size="sm"
-            variant={activeTab === 'permissions' ? 'default' : 'outline'}
-            onClick={() => setActiveTab('permissions')}
-          >
-            Permissions
-          </Button>
+        <div className="flex flex-wrap gap-2">
+          {(['properties', 'tags', 'versions', 'permissions'] as ObjectTab[]).map(
+            (tab) => (
+              <Button
+                key={tab}
+                size="sm"
+                variant={activeTab === tab ? 'default' : 'outline'}
+                className={
+                  activeTab === tab
+                    ? 'shadow-[0_0_12px_rgba(16,185,129,0.35)]'
+                    : 'border-emerald-500/30 bg-muted/20 text-emerald-100'
+                }
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab}
+              </Button>
+            ),
+          )}
         </div>
-
         {query.error && (
-          <div className="rounded border border-destructive/40 bg-destructive/10 p-2 text-xs text-destructive">
+          <div className="rounded border border-red-500/40 bg-red-500/10 p-2 text-xs text-red-200">
             {query.error.message}
           </div>
         )}
         {update.error && (
-          <div className="rounded border border-destructive/40 bg-destructive/10 p-2 text-xs text-destructive">
+          <div className="rounded border border-red-500/40 bg-red-500/10 p-2 text-xs text-red-200">
             {update.error.message}
           </div>
         )}
-
         {query.data && activeTab === 'properties' && (
-          <div className="space-y-1 text-sm">
-            <p>Name: {query.data.properties.name}</p>
-            <p>Size: {query.data.properties.sizeInBytes}</p>
-            <p>Type: {query.data.properties.mimeType ?? 'unknown'}</p>
-            <p>ETag: {query.data.properties.etag ?? '-'}</p>
-          </div>
+          <ObjectOperationsPropertiesTab
+            payload={query.data}
+            objectKey={objectKey}
+          />
         )}
-
         {query.data && activeTab === 'tags' && (
-          <div className="space-y-2">
-            <textarea
-              aria-label="Object tags JSON"
-              className="h-36 w-full rounded border p-2 text-xs"
-              value={draftTags || tagsPretty}
-              onChange={(e) => setDraftTags(e.target.value)}
-            />
-            <Button
-              size="sm"
-              onClick={() =>
-                update.mutate({
-                  action: 'tags',
-                  bucketName,
-                  objectKey,
-                  tags: JSON.parse(draftTags || tagsPretty),
-                })
-              }
-            >
-              Save Tags
-            </Button>
-          </div>
+          <ObjectOperationsTagsTab
+            payload={query.data}
+            onSave={(tags) =>
+              update.mutate({ action: 'tags', bucketName, objectKey, tags })
+            }
+            isPending={update.isPending}
+          />
         )}
-
         {query.data && activeTab === 'versions' && (
-          <div className="max-h-56 space-y-2 overflow-auto text-xs">
-            {query.data.versions.map((version) => (
-              <div key={version.versionId} className="rounded border p-2">
-                <p>{version.versionId}</p>
-                <p>{version.createdAt}</p>
-                <p>
-                  {version.isDeleteMarker
-                    ? 'Delete marker'
-                    : `Size ${version.sizeInBytes}`}
-                </p>
-                {!version.isDeleteMarker && (
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="mt-2"
-                    onClick={() =>
-                      update.mutate({
-                        action: 'restore',
-                        bucketName,
-                        objectKey,
-                        versionId: version.versionId,
-                      })
-                    }
-                  >
-                    Restore
-                  </Button>
-                )}
-              </div>
-            ))}
-          </div>
+          <ObjectOperationsVersionsTab
+            payload={query.data}
+            onRestore={(versionId) =>
+              update.mutate({
+                action: 'restore',
+                bucketName,
+                objectKey,
+                versionId,
+              })
+            }
+            isPending={update.isPending}
+          />
         )}
-
         {query.data && activeTab === 'permissions' && (
-          <div className="space-y-2">
-            <p className="text-sm">Current ACL: {query.data.acl}</p>
-            <Button
-              size="sm"
-              onClick={() =>
-                update.mutate({
-                  action: 'acl',
-                  bucketName,
-                  objectKey,
-                  cannedAcl:
-                    query.data.acl === 'private' ? 'public-read' : 'private',
-                })
-              }
-            >
-              Toggle ACL
-            </Button>
-          </div>
+          <ObjectOperationsPermissionsTab
+            payload={query.data}
+            onToggle={(nextAcl) =>
+              update.mutate({ action: 'acl', bucketName, objectKey, cannedAcl: nextAcl })
+            }
+            isPending={update.isPending}
+          />
         )}
+        <DialogFooter className="flex w-full flex-row justify-between">
+          <DialogClose asChild>
+            <Button
+              variant="outline"
+              size="sm"
+              className="border-emerald-500/30 bg-muted/20 text-emerald-100"
+            >
+              Close
+            </Button>
+          </DialogClose>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   )

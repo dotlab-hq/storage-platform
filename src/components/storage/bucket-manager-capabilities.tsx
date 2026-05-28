@@ -24,9 +24,9 @@ export function BucketManagerCapabilities() {
         return (
           <div
             key={item.label}
-            className="flex min-h-16 items-center gap-3 rounded-lg border border-border bg-background px-3 py-2"
+            className="flex min-h-16 items-center gap-3 rounded-lg border border-emerald-500/20 bg-background px-3 py-2 shadow-sm"
           >
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/20 text-primary">
               <Icon className="h-4 w-4" />
             </span>
             <div className="min-w-0">

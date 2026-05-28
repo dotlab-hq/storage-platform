@@ -10,7 +10,7 @@ type BucketManagerOverviewProps = {
 
 function StatCard(props: { label: string; value: string; icon: ReactNode }) {
   return (
-    <div className="rounded-lg border border-border bg-background p-3">
+    <div className="rounded-lg border border-emerald-500/20 bg-background p-3 shadow-sm">
       <div className="flex items-center justify-between text-muted-foreground">
         <p className="text-xs font-medium uppercase tracking-[0.16em]">
           {props.label}
@@ -53,7 +53,7 @@ export function BucketManagerOverview(props: BucketManagerOverviewProps) {
       </div>
 
       {props.defaultBucketName ? (
-        <div className="flex flex-col gap-2 rounded-lg border border-border bg-muted/25 p-3 text-sm sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-2 rounded-lg border border-emerald-500/20 bg-muted/25 p-3 text-sm sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="font-medium">
               Default assets bucket: {props.defaultBucketName}
@@ -62,7 +62,7 @@ export function BucketManagerOverview(props: BucketManagerOverviewProps) {
               Reserved for attachments. Destructive operations stay locked.
             </p>
           </div>
-          <span className="w-fit rounded-md border border-border bg-background px-2 py-1 text-xs font-medium">
+          <span className="w-fit rounded-md border border-emerald-500/20 bg-background px-2 py-1 text-xs font-medium text-emerald-100">
             protected
           </span>
         </div>

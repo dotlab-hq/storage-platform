@@ -1,10 +1,11 @@
-import { FileText, FolderPlus, Loader2 } from 'lucide-react'
+import { FileText, FolderPlus, Loader2, Upload } from 'lucide-react'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
 import {
-  S3ViewerFolderCard,
-  S3ViewerFileCard,
+  S3ViewerFileListItem,
+  S3ViewerFolderListItem,
   S3ViewerUploadingFileListItem,
 } from '@/components/storage/s3-bucket-viewer-cards'
+import { Button } from '@/components/ui/button'
 
 type ViewerState = {
   folders: { name: string; prefix: string }[]
@@ -38,16 +39,29 @@ type S3BucketViewerBrowserProps = {
   totalItems: number
   scrollContainerRef: React.RefObject<HTMLDivElement | null>
   onScroll: () => void
+  onRequestDelete: (key: string) => void
+  onRequestUpload: () => void
+  onRequestNewFolder: () => void
+  allowMutations: boolean
 }
 
 export function S3BucketViewerBrowser(props: S3BucketViewerBrowserProps) {
-  const { viewer, totalItems, scrollContainerRef, onScroll } = props
+  const {
+    viewer,
+    totalItems,
+    scrollContainerRef,
+    onScroll,
+    onRequestDelete,
+    onRequestUpload,
+    onRequestNewFolder,
+    allowMutations,
+  } = props
 
   return (
     <div
       ref={scrollContainerRef}
       onScroll={onScroll}
-      className="flex-1 overflow-y-auto rounded-lg border"
+      className="flex-1 overflow-y-auto rounded-lg border border-emerald-500/20 bg-background/60"
     >
       {totalItems === 0 ? (
         <div className="flex h-full flex-col items-center justify-center py-12 text-muted-foreground">
@@ -66,6 +80,26 @@ export function S3BucketViewerBrowser(props: S3BucketViewerBrowserProps) {
               <p className="text-xs text-muted-foreground/70">
                 No files or folders found
               </p>
+              {allowMutations && (
+                <div className="flex items-center gap-2 pt-2">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={onRequestNewFolder}
+                    className="border-emerald-500/30 bg-muted/20 text-emerald-100"
+                  >
+                    New Folder
+                  </Button>
+                  <Button
+                    size="sm"
+                    onClick={onRequestUpload}
+                    className="gap-2 shadow-[0_0_14px_rgba(16,185,129,0.35)]"
+                  >
+                    <Upload className="h-4 w-4" />
+                    Upload
+                  </Button>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -84,12 +118,11 @@ export function S3BucketViewerBrowser(props: S3BucketViewerBrowserProps) {
               <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 Folders
               </p>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+              <div className="overflow-hidden rounded-xl border border-emerald-500/15">
                 {viewer.folders.map((folder) => (
-                  <S3ViewerFolderCard
+                  <S3ViewerFolderListItem
                     key={folder.prefix}
                     entry={folder}
-                    onSelect={() => undefined}
                     onOpen={(targetPrefix) => {
                       void viewer.refresh(targetPrefix)
                     }}
@@ -104,13 +137,14 @@ export function S3BucketViewerBrowser(props: S3BucketViewerBrowserProps) {
               <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 Files
               </p>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+              <div className="overflow-hidden rounded-xl border border-emerald-500/15">
                 {viewer.files.map((file) => (
-                  <S3ViewerFileCard
+                  <S3ViewerFileListItem
                     key={file.key}
                     entry={file}
                     onOpen={viewer.openFile}
-                    onDelete={viewer.deleteFile}
+                    onDelete={onRequestDelete}
+                    allowDelete={allowMutations}
                   />
                 ))}
               </div>

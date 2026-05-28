@@ -1,35 +1,10 @@
-import {
-  useMutation,
-  useInfiniteQuery,
-  useQueryClient,
-} from '@tanstack/react-query'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import {
-  createS3ViewerFolderFn,
-  createS3ViewerPresignUrlFn,
-  deleteS3ViewerObjectFn,
-} from '@/lib/storage/mutations/s3-viewer-rpc'
-import { uploadFileWithMultipartPresignedUrl } from '@/components/storage/s3-viewer-upload'
-import type {
-  S3ViewerFileEntry,
-  S3ViewerFolderEntry,
-  UploadingFile,
-} from '@/components/storage/s3-viewer-types'
-
-export interface S3ListResponse {
-  prefix: string
-  keyCount: number
-  isTruncated: boolean
-  nextContinuationToken: string | null
-  folders: { name: string; prefix: string }[]
-  objects: {
-    key: string
-    name: string
-    sizeInBytes: number
-    eTag: string | null
-    lastModified: string | null
-  }[]
-}
+import { createS3ViewerPresignUrlFn } from '@/lib/storage/mutations/s3-viewer-rpc'
+import type { S3ListResponse } from '@/components/storage/s3-viewer-types'
+import { useS3ViewerQuery } from '@/components/storage/use-s3-bucket-viewer-query'
+import { useS3ViewerUpload } from '@/components/storage/use-s3-bucket-viewer-upload'
+import { useS3ViewerFolder } from '@/components/storage/use-s3-bucket-viewer-folder'
+import { useS3ViewerDelete } from '@/components/storage/use-s3-bucket-viewer-delete'
 
 type S3BucketViewerOptions = {
   initialPrefix?: string
@@ -40,10 +15,7 @@ export function useS3BucketViewer(
   bucketName: string,
   options?: S3BucketViewerOptions,
 ) {
-  const queryClient = useQueryClient()
   const [prefix, setPrefix] = useState(options?.initialPrefix ?? '')
-  const [uploadingFiles, setUploadingFiles] = useState<UploadingFile[]>([])
-  const inputRef = useRef<HTMLInputElement | null>(null)
   const skipFirstLoadRef = useRef(Boolean(options?.initialData))
 
   useEffect(() => {
@@ -52,235 +24,29 @@ export function useS3BucketViewer(
     }
   }, [])
 
-  const queryKey = useMemo(
-    () => ['s3-viewer', bucketName, prefix],
-    [bucketName, prefix],
-  )
-
-  // Main infinite query for listing objects with pagination
-  const query = useInfiniteQuery<S3ListResponse>({
-    queryKey,
-    enabled: !!bucketName && !skipFirstLoadRef.current,
-    initialPageParam: null as string | null,
-    queryFn: async ({ pageParam }) => {
-      const params = new URLSearchParams()
-      params.append('bucketName', bucketName)
-      params.append('maxKeys', '500')
-      if (prefix) {
-        params.append('prefix', prefix)
-      }
-      if (typeof pageParam === 'string' && pageParam.length > 0) {
-        params.append('continuationToken', pageParam)
-      }
-      const res = await fetch(`/api/storage/s3/bucket-items?${params}`, {
-        credentials: 'include',
-      })
-      if (!res.ok) {
-        const err = await res
-          .json()
-          .then((d: unknown) => {
-            if (typeof d === 'object' && d !== null && 'error' in d) {
-              const errorValue = (d as { error?: unknown }).error
-              return typeof errorValue === 'string'
-                ? errorValue
-                : 'Failed to load bucket content'
-            }
-            return 'Failed to load bucket content'
-          })
-          .catch(() => 'Failed to load bucket content')
-        throw new Error(err)
-      }
-      return res.json()
-    },
-    getNextPageParam: (lastPage) =>
-      lastPage.isTruncated ? lastPage.nextContinuationToken : undefined,
-    initialData: options?.initialData
-      ? {
-          pages: [options.initialData],
-          pageParams: [null],
-        }
-      : undefined,
-    staleTime: 30_000,
+  const queryState = useS3ViewerQuery({
+    bucketName,
+    prefix,
+    setPrefix,
+    initialData: options?.initialData,
+    skipFirstLoad: skipFirstLoadRef.current,
   })
 
-  // Merge folders across pages (dedup by prefix)
-  const folders = useMemo<S3ViewerFolderEntry[]>(() => {
-    const seen = new Set<string>()
-    const merged: S3ListResponse['folders'] = []
-    for (const page of query.data?.pages ?? []) {
-      for (const folder of page.folders) {
-        if (!seen.has(folder.prefix)) {
-          seen.add(folder.prefix)
-          merged.push(folder)
-        }
-      }
-    }
-    return merged
-  }, [query.data?.pages])
-
-  // Merge files across pages (dedup by key)
-  const files = useMemo<S3ViewerFileEntry[]>(() => {
-    const seen = new Set<string>()
-    const merged: S3ListResponse['objects'] = []
-    for (const page of query.data?.pages ?? []) {
-      for (const file of page.objects) {
-        if (!seen.has(file.key)) {
-          seen.add(file.key)
-          merged.push(file)
-        }
-      }
-    }
-    return merged
-  }, [query.data?.pages])
-
-  const breadcrumbs = useMemo(() => {
-    const parts = prefix.split('/').filter((part) => part.length > 0)
-    return parts.map((part, index) => ({
-      label: part,
-      value: `${parts.slice(0, index + 1).join('/')}/`,
-    }))
-  }, [prefix])
-
-  const refresh = useCallback(
-    async (nextPrefix?: string) => {
-      const targetPrefix = typeof nextPrefix === 'string' ? nextPrefix : prefix
-      if (targetPrefix !== prefix) {
-        setPrefix(targetPrefix)
-      } else {
-        await query.refetch()
-      }
-    },
-    [prefix, query],
-  )
-
-  const loadMore = useCallback(async () => {
-    if (query.hasNextPage && !query.isFetchingNextPage) {
-      await query.fetchNextPage()
-    }
-  }, [query])
-
-  // Upload mutation with multipart presigned URLs and progress
-  const uploadMutation = useMutation({
-    mutationFn: async ({
-      file,
-      uploadingId,
-    }: {
-      file: File
-      uploadingId: string
-    }) => {
-      const objectKey = `${prefix}${file.name}`
-      await uploadFileWithMultipartPresignedUrl({
-        bucketName,
-        objectKey,
-        file,
-        onProgress: (progress) => {
-          setUploadingFiles((prev) =>
-            prev.map((item) =>
-              item.id === uploadingId ? { ...item, progress } : item,
-            ),
-          )
-        },
-      })
-      return { uploadingId }
-    },
-    onMutate: ({ file, uploadingId }) => {
-      setUploadingFiles((prev) => [
-        ...prev,
-        {
-          id: uploadingId,
-          name: file.name,
-          sizeInBytes: file.size,
-          progress: 0,
-          status: 'uploading',
-        },
-      ])
-    },
-    onSuccess: ({ uploadingId }) => {
-      setUploadingFiles((prev) =>
-        prev.map((f) =>
-          f.id === uploadingId
-            ? { ...f, status: 'completed', progress: 100 }
-            : f,
-        ),
-      )
-      setTimeout(() => {
-        setUploadingFiles((prev) => prev.filter((f) => f.id !== uploadingId))
-      }, 2000)
-      queryClient.invalidateQueries({ queryKey })
-    },
-    onError: (error, { uploadingId }) => {
-      setUploadingFiles((prev) =>
-        prev.map((f) =>
-          f.id === uploadingId
-            ? {
-                ...f,
-                status: 'error',
-                errorMessage:
-                  error instanceof Error ? error.message : 'Upload failed',
-              }
-            : f,
-        ),
-      )
-    },
+  const uploadState = useS3ViewerUpload({
+    bucketName,
+    prefix,
+    queryKey: queryState.queryKey,
+  })
+  const folderState = useS3ViewerFolder({
+    bucketName,
+    prefix,
+    queryKey: queryState.queryKey,
+  })
+  const deleteState = useS3ViewerDelete({
+    bucketName,
+    queryKey: queryState.queryKey,
   })
 
-  const handleUpload = useCallback(
-    async (event: React.ChangeEvent<HTMLInputElement>) => {
-      const file = event.target.files?.[0]
-      if (!file) return
-      const uploadingId = crypto.randomUUID()
-      try {
-        await uploadMutation.mutateAsync({ file, uploadingId })
-      } finally {
-        event.target.value = ''
-      }
-    },
-    [uploadMutation],
-  )
-
-  // Create folder mutation
-  const createFolderMutation = useMutation({
-    mutationFn: async (folderName: string) => {
-      const result = await createS3ViewerFolderFn({
-        data: { bucketName, objectKey: `${prefix}${folderName}/` },
-      })
-      return result
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey })
-    },
-  })
-
-  const createFolder = useCallback(async () => {
-    const folderName = window.prompt('Folder name')?.trim()
-    if (!folderName) return
-    await createFolderMutation.mutateAsync(folderName)
-  }, [createFolderMutation])
-
-  // Delete mutation
-  const deleteMutation = useMutation({
-    mutationFn: async (objectKey: string) => {
-      await deleteS3ViewerObjectFn({ data: { bucketName, objectKey } })
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey })
-    },
-    onError: (error) => {
-      const message =
-        error instanceof Error ? error.message : 'Failed to delete object'
-      console.error('Failed to delete object:', message)
-    },
-  })
-
-  const deleteFile = useCallback(
-    async (key: string) => {
-      if (!window.confirm(`Delete ${key}?`)) return
-      await deleteMutation.mutateAsync(key)
-    },
-    [deleteMutation],
-  )
-
-  // Open file with presigned URL
   const openFile = useCallback(
     async (key: string) => {
       try {
@@ -296,47 +62,58 @@ export function useS3BucketViewer(
   )
 
   const busy =
-    query.isFetching ||
-    uploadMutation.isPending ||
-    createFolderMutation.isPending ||
-    deleteMutation.isPending
+    queryState.query.isFetching ||
+    uploadState.uploadMutation.isPending ||
+    folderState.createFolderMutation.isPending ||
+    deleteState.deleteMutation.isPending
 
-  const message = query.error
-    ? query.error instanceof Error
-      ? query.error.message
-      : 'Failed to load bucket content'
-    : uploadMutation.error
-      ? uploadMutation.error instanceof Error
-        ? uploadMutation.error.message
+  const message = useMemo(() => {
+    if (queryState.query.error) {
+      return queryState.query.error instanceof Error
+        ? queryState.query.error.message
+        : 'Failed to load bucket content'
+    }
+    if (uploadState.uploadMutation.error) {
+      return uploadState.uploadMutation.error instanceof Error
+        ? uploadState.uploadMutation.error.message
         : 'Upload failed'
-      : createFolderMutation.error
-        ? createFolderMutation.error instanceof Error
-          ? createFolderMutation.error.message
-          : 'Failed to create folder'
-        : deleteMutation.error
-          ? deleteMutation.error instanceof Error
-            ? deleteMutation.error.message
-            : 'Delete failed'
-          : null
+    }
+    if (folderState.createFolderMutation.error) {
+      return folderState.createFolderMutation.error instanceof Error
+        ? folderState.createFolderMutation.error.message
+        : 'Failed to create folder'
+    }
+    if (deleteState.deleteMutation.error) {
+      return deleteState.deleteMutation.error instanceof Error
+        ? deleteState.deleteMutation.error.message
+        : 'Delete failed'
+    }
+    return null
+  }, [
+    queryState.query.error,
+    uploadState.uploadMutation.error,
+    folderState.createFolderMutation.error,
+    deleteState.deleteMutation.error,
+  ])
 
   return {
-    inputRef,
+    inputRef: uploadState.inputRef,
     prefix,
-    folders,
-    files,
-    uploadingFiles,
+    folders: queryState.folders,
+    files: queryState.files,
+    uploadingFiles: uploadState.uploadingFiles,
     busy,
     message,
-    breadcrumbs,
+    breadcrumbs: queryState.breadcrumbs,
     setPrefix,
-    refresh,
-    loadMore,
-    handleUpload,
-    createFolder,
-    deleteFile,
+    refresh: queryState.refresh,
+    loadMore: queryState.loadMore,
+    handleUpload: uploadState.handleUpload,
+    createFolder: folderState.createFolder,
+    deleteFile: deleteState.deleteFile,
     openFile,
-    isLoading: query.isLoading,
-    isFetchingNextPage: query.isFetchingNextPage,
-    hasNextPage: query.hasNextPage,
+    isLoading: queryState.query.isLoading,
+    isFetchingNextPage: queryState.query.isFetchingNextPage,
+    hasNextPage: queryState.query.hasNextPage,
   }
 }

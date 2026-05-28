@@ -40,7 +40,7 @@ export function BucketManagerCard(props: BucketManagerCardProps) {
   const isPending = typeof pendingAction === 'string'
 
   return (
-    <article className="rounded-lg p-4 bg-gradient-to-br from-background to-muted/30 shadow-sm hover:shadow-md transition-shadow">
+    <article className="rounded-lg border border-emerald-500/20 bg-gradient-to-br from-background to-muted/30 p-4 shadow-md transition-shadow hover:shadow-emerald-500/20">
       <div className="space-y-1">
         <p className="truncate text-sm font-semibold">{bucket.name}</p>
         <p className="text-muted-foreground text-xs">
@@ -53,6 +53,7 @@ export function BucketManagerCard(props: BucketManagerCardProps) {
           size="sm"
           disabled={isPending}
           onClick={() => onView(bucket.name)}
+          className="border-emerald-500/30 bg-muted/20 text-emerald-100"
         >
           <Eye className="h-4 w-4" />
         </Button>
@@ -61,6 +62,7 @@ export function BucketManagerCard(props: BucketManagerCardProps) {
           size="sm"
           disabled={isPending}
           onClick={() => onCredentials(bucket.name)}
+          className="border-emerald-500/30 bg-muted/20 text-emerald-100"
         >
           <KeyRound className="h-4 w-4" />
           Credentials
@@ -70,6 +72,7 @@ export function BucketManagerCard(props: BucketManagerCardProps) {
           size="sm"
           disabled={isPending}
           onClick={() => onSettings(bucket.name)}
+          className="border-emerald-500/30 bg-muted/20 text-emerald-100"
         >
           Settings
         </Button>
@@ -78,6 +81,7 @@ export function BucketManagerCard(props: BucketManagerCardProps) {
           size="sm"
           disabled={isPending}
           onClick={() => onObjectOps(bucket.name)}
+          className="border-emerald-500/30 bg-muted/20 text-emerald-100"
         >
           Object Ops
         </Button>
@@ -86,6 +90,7 @@ export function BucketManagerCard(props: BucketManagerCardProps) {
           size="sm"
           disabled={isPending}
           onClick={() => onEmpty(bucket.name)}
+          className="border-amber-500/40 text-amber-200 hover:bg-amber-500/10"
         >
           {pendingAction === 'empty' ? (
             <Loader2 className="h-4 w-4 animate-spin" />

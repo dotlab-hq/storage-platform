@@ -6,6 +6,7 @@ import { BucketManagerOverview } from '@/components/storage/bucket-manager-overv
 import { BucketManagerTable } from '@/components/storage/bucket-manager-table'
 import { BucketManagerToolbar } from '@/components/storage/bucket-manager-toolbar'
 import { useS3Buckets } from '@/hooks/use-s3-buckets'
+import { ConfirmActionDialog } from '@/components/ui/confirm-action-dialog'
 
 export function BucketManager() {
   const [bucketName, setBucketName] = useState('')
@@ -20,6 +21,12 @@ export function BucketManager() {
     string | null
   >(null)
   const [activeViewerBucket, setActiveViewerBucket] = useState<string | null>(
+    null,
+  )
+  const [pendingEmptyBucket, setPendingEmptyBucket] = useState<string | null>(
+    null,
+  )
+  const [pendingDeleteBucket, setPendingDeleteBucket] = useState<string | null>(
     null,
   )
 
@@ -147,12 +154,12 @@ export function BucketManager() {
           }}
           onEmpty={async (name, isDefault) => {
             if (!isDefault) {
-              await runBucketAction(name, 'empty')
+              setPendingEmptyBucket(name)
             }
           }}
           onDelete={async (name, isDefault) => {
             if (!isDefault) {
-              await runBucketAction(name, 'delete')
+              setPendingDeleteBucket(name)
             }
           }}
         />
@@ -170,6 +177,46 @@ export function BucketManager() {
         onCloseSettings={() => setActiveSettingsBucket(null)}
         onCloseObjectOps={() => setActiveObjectOpsBucket(null)}
         onCloseViewer={() => setActiveViewerBucket(null)}
+      />
+
+      <ConfirmActionDialog
+        open={pendingEmptyBucket !== null}
+        onOpenChange={(open) => {
+          if (!open) {
+            setPendingEmptyBucket(null)
+          }
+        }}
+        title="Empty bucket?"
+        description="This will remove all objects and versions inside the bucket."
+        confirmLabel="Empty bucket"
+        confirmVariant="destructive"
+        requiresConfirmation
+        onConfirm={async () => {
+          if (pendingEmptyBucket) {
+            await runBucketAction(pendingEmptyBucket, 'empty')
+            setPendingEmptyBucket(null)
+          }
+        }}
+      />
+
+      <ConfirmActionDialog
+        open={pendingDeleteBucket !== null}
+        onOpenChange={(open) => {
+          if (!open) {
+            setPendingDeleteBucket(null)
+          }
+        }}
+        title="Delete this bucket permanently?"
+        description="This will remove all objects, versions, and bucket metadata."
+        confirmLabel="Delete bucket"
+        confirmVariant="destructive"
+        requiresConfirmation
+        onConfirm={async () => {
+          if (pendingDeleteBucket) {
+            await runBucketAction(pendingDeleteBucket, 'delete')
+            setPendingDeleteBucket(null)
+          }
+        }}
       />
     </section>
   )

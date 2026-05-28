@@ -23,15 +23,15 @@ export function S3ViewerFolderListItem({ entry, onOpen }: FolderListItemProps) {
     <button
       type="button"
       onClick={() => onOpen(entry.prefix)}
-      className="group flex items-center w-full px-4 py-3 hover:bg-muted/50 transition-colors text-left"
+      className="group flex w-full items-center px-4 py-3 text-left transition-colors hover:bg-emerald-500/5"
     >
       {/* Icon */}
-      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center mr-4">
-        <Folder className="h-5 w-5 text-amber-500" />
+      <div className="mr-4 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-emerald-500/10">
+        <Folder className="h-5 w-5 text-emerald-300" />
       </div>
 
       {/* Name and item count */}
-      <div className="flex-1 min-w-0 mr-4">
+      <div className="mr-4 min-w-0 flex-1">
         <p className="text-sm font-medium text-foreground truncate">
           {entry.name}
         </p>
@@ -58,19 +58,21 @@ type FileListItemProps = {
   entry: S3ViewerFileEntry
   onOpen: (key: string) => void
   onDelete: (key: string) => void
+  allowDelete?: boolean
 }
 
 export function S3ViewerFileListItem({
   entry,
   onOpen,
   onDelete,
+  allowDelete = true,
 }: FileListItemProps) {
   const FileIcon = getFileIcon(entry.name)
   const iconColor = getFileIconColor(entry.name)
   const bgColor = getIconBgColor(entry.name)
 
   return (
-    <div className="group flex items-center px-4 py-3 hover:bg-muted/50 transition-colors">
+    <div className="group flex items-center px-4 py-3 transition-colors hover:bg-emerald-500/5">
       {/* Icon */}
       <button
         title="none"
@@ -96,31 +98,33 @@ export function S3ViewerFileListItem({
       </button>
 
       {/* Size */}
-      <div className="w-28 text-right hidden sm:block">
+      <div className="hidden w-28 text-right sm:block">
         <span className="text-sm text-muted-foreground">
           {formatBytes(entry.sizeInBytes)}
         </span>
       </div>
 
       {/* Modified */}
-      <div className="w-32 text-right hidden md:block">
+      <div className="hidden w-32 text-right md:block">
         <span className="text-sm text-muted-foreground">
           {formatDate(entry.lastModified)}
         </span>
       </div>
 
       {/* Actions */}
-      <div className="w-10 flex justify-end opacity-0 group-hover:opacity-100 transition-opacity">
-        <Button
-          type="button"
-          size="icon"
-          variant="ghost"
-          className="h-8 w-8 text-muted-foreground hover:text-destructive"
-          onClick={() => onDelete(entry.key)}
-        >
-          <Trash2 className="h-4 w-4" />
-        </Button>
-      </div>
+      {allowDelete && (
+        <div className="flex w-10 justify-end opacity-0 transition-opacity group-hover:opacity-100">
+          <Button
+            type="button"
+            size="icon"
+            variant="ghost"
+            className="h-8 w-8 text-red-300 hover:text-red-200 hover:bg-red-500/10"
+            onClick={() => onDelete(entry.key)}
+          >
+            <Trash2 className="h-4 w-4" />
+          </Button>
+        </div>
+      )}
     </div>
   )
 }
