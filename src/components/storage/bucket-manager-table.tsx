@@ -9,6 +9,7 @@ import {
   Trash2,
 } from 'lucide-react'
 import type { S3BucketItem } from '@/types/s3-buckets'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -17,6 +18,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 
 type BucketManagerTableProps = {
   buckets: S3BucketItem[]
@@ -54,54 +63,78 @@ export function BucketManagerTable({
   onDelete,
 }: BucketManagerTableProps) {
   return (
-    <div className="rounded-xl border border-border overflow-hidden">
-      <table className="w-full text-sm">
-        <thead className="bg-muted/45">
-          <tr>
-            <th className="px-3 py-2 text-left font-medium">Name</th>
-            <th className="px-3 py-2 text-left font-medium">Created</th>
-            <th className="px-3 py-2 text-left font-medium">Status</th>
-            <th className="px-3 py-2 text-right font-medium">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
+    <div className="overflow-hidden rounded-lg border border-border bg-background">
+      <Table>
+        <TableHeader className="bg-muted/45">
+          <TableRow>
+            <TableHead className="w-[34%] px-3">Bucket</TableHead>
+            <TableHead className="px-3">Created</TableHead>
+            <TableHead className="px-3">Protection</TableHead>
+            <TableHead className="px-3">Status</TableHead>
+            <TableHead className="px-3 text-right">Actions</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
           {buckets.map((bucket) => {
             const pendingAction = pendingByBucket[bucket.name]
             const isPending = Boolean(pendingAction)
             return (
-              <tr key={bucket.id} className="border-t border-border/70">
-                <td className="px-3 py-2">
+              <TableRow key={bucket.id}>
+                <TableCell className="px-3">
                   <button
                     onClick={() => onView(bucket.name)}
-                    className="font-medium underline-offset-4 hover:underline"
+                    className="max-w-[22rem] truncate font-medium underline-offset-4 hover:underline"
                   >
                     {bucket.name}
                   </button>
-                  {bucket.isDefault ? (
-                    <span className="ml-2 rounded border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide">
-                      default
-                    </span>
-                  ) : null}
-                </td>
-                <td className="px-3 py-2 text-muted-foreground">
+                  <p className="mt-1 truncate text-xs text-muted-foreground">
+                    {bucket.mappedFolderId
+                      ? `Folder ${bucket.mappedFolderId}`
+                      : 'Root storage namespace'}
+                  </p>
+                </TableCell>
+                <TableCell className="px-3 text-muted-foreground">
                   {formatCreatedAt(bucket.createdAt)}
-                </td>
-                <td className="px-3 py-2">
+                </TableCell>
+                <TableCell className="px-3">
+                  {bucket.isDefault ? (
+                    <Badge variant="outline">Default locked</Badge>
+                  ) : (
+                    <Badge variant="secondary">Mutable</Badge>
+                  )}
+                </TableCell>
+                <TableCell className="px-3">
                   {isPending ? (
                     <span className="inline-flex items-center gap-2 text-muted-foreground">
                       <Loader2 className="h-3.5 w-3.5 animate-spin" />
                       <span className="capitalize">{pendingAction}...</span>
                     </span>
                   ) : (
-                    <span className="inline-flex items-center rounded border border-border px-2 py-0.5 text-xs">
-                      Active
-                    </span>
+                    <Badge
+                      variant={bucket.isActive ? 'outline' : 'destructive'}
+                    >
+                      {bucket.isActive ? 'Active' : 'Inactive'}
+                    </Badge>
                   )}
-                </td>
-                <td className="px-3 py-2 text-right">
+                </TableCell>
+                <TableCell className="px-3 text-right">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    disabled={isPending}
+                    onClick={() => onView(bucket.name)}
+                  >
+                    <Eye className="h-4 w-4" />
+                    Objects
+                  </Button>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="icon" disabled={isPending}>
+                      <Button
+                        className="ml-1"
+                        variant="ghost"
+                        size="icon"
+                        disabled={isPending}
+                      >
                         <MoreVertical className="h-4 w-4" />
                       </Button>
                     </DropdownMenuTrigger>
@@ -149,12 +182,12 @@ export function BucketManagerTable({
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             )
           })}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
     </div>
   )
 }

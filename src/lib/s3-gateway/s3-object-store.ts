@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {
   HeadObjectCommand,
   PutObjectCommand,
@@ -464,20 +463,6 @@ function toBodyInit(body: unknown): BodyInit | null {
   ) {
     return body
   }
-  if (body instanceof Readable) {
-    const withToWeb = Readable as typeof Readable & {
-      toWeb?: (stream: Readable) => ReadableStream<Uint8Array>
-    }
-    if (typeof withToWeb.toWeb === 'function') {
-      return withToWeb.toWeb(body)
-    }
-  }
-  if (body instanceof Uint8Array) {
-    const cloned = new Uint8Array(body.byteLength)
-    cloned.set(body)
-    return cloned.buffer
-  }
-  // Handle AWS SDK SpongeBlob (has transformToWebStream)
   if (
     typeof body === 'object' &&
     'transformToWebStream' in body &&
@@ -488,7 +473,55 @@ function toBodyInit(body: unknown): BodyInit | null {
       body as { transformToWebStream: () => ReadableStream<Uint8Array> }
     ).transformToWebStream()
   }
+  if (body instanceof Readable) {
+    const withToWeb = Readable as typeof Readable & {
+      toWeb?: (stream: Readable) => ReadableStream<Uint8Array>
+    }
+    if (typeof withToWeb.toWeb === 'function') {
+      return withToWeb.toWeb(body)
+    }
+    return nodeReadableToWebStream(body)
+  }
+  if (body instanceof Uint8Array) {
+    const cloned = new Uint8Array(body.byteLength)
+    cloned.set(body)
+    return cloned.buffer
+  }
   return null
+}
+
+function normalizeReadableChunk(value: Uint8Array | string): Uint8Array {
+  if (typeof value === 'string') {
+    return new TextEncoder().encode(value)
+  }
+  if (value.byteOffset === 0 && value.byteLength === value.buffer.byteLength) {
+    return value
+  }
+  const copy = new Uint8Array(value.byteLength)
+  copy.set(value)
+  return copy
+}
+
+function nodeReadableToWebStream(stream: Readable): ReadableStream<Uint8Array> {
+  const iterator = stream[Symbol.asyncIterator]() as AsyncIterator<
+    Uint8Array | string
+  >
+  return new ReadableStream<Uint8Array>({
+    async pull(controller) {
+      const result = await iterator.next()
+      if (result.done) {
+        controller.close()
+        return
+      }
+      controller.enqueue(normalizeReadableChunk(result.value))
+    },
+    async cancel(reason) {
+      if (iterator.return) {
+        await iterator.return()
+      }
+      stream.destroy(reason instanceof Error ? reason : undefined)
+    },
+  })
 }
 
 /**
@@ -516,8 +549,8 @@ async function softDeleteMissingStoredObject(input: {
     })
     .where(
       and(
-        eq(file.userId, bucket.userId),
-        eq(file.objectKey, upstreamKey),
+        eq(file.userId, input.userId),
+        eq(file.objectKey, input.upstreamObjectKey),
         eq(file.isDeleted, false),
         eq(file.isTrashed, false),
       ),
@@ -568,34 +601,24 @@ export async function getObject(
     })
   }
 
-  // For large files, use proxy streaming to avoid memory issues
-  // Proxy threshold: 100MB - files larger than this use the proxy download path
-  const PROXY_STREAMING_THRESHOLD = 100 * 1024 * 1024
-
-  if (
-    stored.sizeInBytes > PROXY_STREAMING_THRESHOLD &&
-    provider.proxyUploadsEnabled
-  ) {
-    // Use proxy streaming for large files to handle GB-sized movies
-    return streamLargeObjectViaProxy(
-      bucket,
-      stored,
-      provider,
-      effectiveLastModified,
-    )
-  }
-
-  // Small files: fetch directly with streaming response
   const command = new GetObjectCommand({
     Bucket: provider.bucketName,
     Key: stored.objectKey,
     ResponseContentType: stored.mimeType ?? undefined,
-    Range: parsedRange ? `bytes=${parsedRange.start}-${parsedRange.end}` : undefined,
+    Range: parsedRange
+      ? `bytes=${parsedRange.start}-${parsedRange.end}`
+      : undefined,
   })
   let upstream: {
     Body?: unknown
     ContentType?: string
     ContentLength?: number
+    ETag?: string
+    LastModified?: Date
+    CacheControl?: string
+    ContentDisposition?: string
+    ContentEncoding?: string
+    ContentLanguage?: string
     Metadata?: Record<string, unknown>
   }
   try {
@@ -615,6 +638,21 @@ export async function getObject(
     }
     throw error
   }
+  const fullLength = stored.sizeInBytes
+  const rangeLength = parsedRange
+    ? parsedRange.end - parsedRange.start + 1
+    : fullLength
+  const body = toBodyInit(upstream.Body)
+  if (!body && rangeLength > 0) {
+    return new Response(null, {
+      status: 502,
+      headers: new Headers({
+        'x-amz-error-code': 'BadGateway',
+        'x-amz-error-message': 'Provider returned an unreadable object stream',
+      }),
+    })
+  }
+
   const headers = new Headers()
   if (upstream.Metadata) {
     for (const [key, value] of Object.entries(upstream.Metadata)) {
@@ -623,18 +661,38 @@ export async function getObject(
       }
     }
   }
+  if (upstream.ETag ?? stored.etag) {
+    headers.set('ETag', normalizeETag(upstream.ETag ?? stored.etag ?? ''))
+  }
+  if (upstream.LastModified ?? effectiveLastModified) {
+    headers.set(
+      'Last-Modified',
+      (upstream.LastModified ?? effectiveLastModified).toUTCString(),
+    )
+  }
+  if (upstream.CacheControl ?? stored.cacheControl) {
+    headers.set(
+      'Cache-Control',
+      upstream.CacheControl ?? stored.cacheControl ?? '',
+    )
+  }
+  if (upstream.ContentDisposition) {
+    headers.set('Content-Disposition', upstream.ContentDisposition)
+  }
+  if (upstream.ContentEncoding) {
+    headers.set('Content-Encoding', upstream.ContentEncoding)
+  }
+  if (upstream.ContentLanguage) {
+    headers.set('Content-Language', upstream.ContentLanguage)
+  }
   headers.set(
     'Content-Type',
     upstream.ContentType ?? stored.mimeType ?? 'application/octet-stream',
   )
   headers.set('Accept-Ranges', 'bytes')
-  const fullLength = stored.sizeInBytes
-  const rangeLength = parsedRange
-    ? parsedRange.end - parsedRange.start + 1
-    : fullLength
   headers.set(
     'Content-Length',
-    String(parsedRange ? rangeLength : upstream.ContentLength ?? fullLength),
+    String(parsedRange ? rangeLength : (upstream.ContentLength ?? fullLength)),
   )
   if (parsedRange) {
     headers.set(
@@ -643,51 +701,10 @@ export async function getObject(
     )
   }
 
-  return new Response(toBodyInit(upstream.Body), {
+  return new Response(body, {
     status: parsedRange ? 206 : 200,
     headers,
   })
-}
-
-/**
- * Stream large objects via proxy to handle GB-sized files without memory buffering.
- * Uses the proxy download endpoint which streams directly from S3 to client.
- */
-async function streamLargeObjectViaProxy(
-  _bucket: BucketContext,
-  stored: {
-    objectKey: string
-    mimeType: string | null
-    etag: string | null
-    sizeInBytes: number
-    lastModified: Date | null
-    updatedAt: Date
-    providerId: string
-  },
-  _provider: { bucketName: string },
-  effectiveLastModified: Date,
-): Promise<Response> {
-  // For large files, we need to stream through the proxy to avoid memory issues
-  // The proxy endpoint will fetch from S3 and stream to the client
-  const proxyDownloadUrl = `/api/storage/download/proxy?key=${encodeURIComponent(stored.objectKey)}`
-
-  const headers = new Headers()
-  headers.set('Content-Type', stored.mimeType ?? 'application/octet-stream')
-  headers.set('Content-Length', String(stored.sizeInBytes))
-  headers.set('X-Proxy-Provider-Id', stored.providerId)
-
-  // Return a response that will be handled by the dispatch layer
-  // The dispatch-read will detect the proxy URL and fetch from it
-  return new Response(
-    null,
-    {
-      status: 200,
-      headers,
-    },
-    {
-      // Pass the proxy URL for the dispatch layer to use
-    },
-  ) as Response & { proxyUrl?: string }
 }
 
 export async function headObject(
@@ -748,6 +765,21 @@ export async function headObject(
   }
 
   const headers = new Headers()
+  if (upstreamHead.ETag ?? stored.etag) {
+    headers.set('ETag', normalizeETag(upstreamHead.ETag ?? stored.etag ?? ''))
+  }
+  if (upstreamHead.LastModified ?? effectiveLastModified) {
+    headers.set(
+      'Last-Modified',
+      (upstreamHead.LastModified ?? effectiveLastModified).toUTCString(),
+    )
+  }
+  if (upstreamHead.CacheControl ?? stored.cacheControl) {
+    headers.set(
+      'Cache-Control',
+      upstreamHead.CacheControl ?? stored.cacheControl ?? '',
+    )
+  }
   headers.set(
     'Content-Type',
     upstreamHead.ContentType ?? stored.mimeType ?? 'application/octet-stream',
