@@ -64,7 +64,7 @@ export function UploadingCard({
               paddingClass,
               extraLeftPadding,
               isUploading && 'opacity-90',
-              isCompleted && 'border-emerald-500/30 bg-emerald-500/5',
+              isCompleted && 'border-border/60 hover:bg-muted/30',
               isFailed && 'border-destructive/30 bg-destructive/5',
             )}
           >
@@ -94,7 +94,7 @@ export function UploadingCard({
                 <Loader2 className="text-primary h-3.5 w-3.5 animate-spin" />
               )}
               {isCompleted && (
-                <CheckCircle className="h-3.5 w-3.5 text-emerald-500" />
+                <CheckCircle className="h-3.5 w-3.5 text-foreground" />
               )}
               {isFailed && (
                 <AlertCircle className="text-destructive h-3.5 w-3.5" />
@@ -159,3 +159,4 @@ export function UploadingCard({
     </TooltipProvider>
   )
 }
+

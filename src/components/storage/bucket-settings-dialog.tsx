@@ -12,10 +12,11 @@ import {
 import { Button } from '@/components/ui/button'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
 import {
-  bucketSettingsTabs,
-  type BucketSettingsPayload,
-  type BucketSettingsTab,
+  bucketSettingsTabs
+  
+  
 } from '@/components/storage/bucket-settings-types'
+import type {BucketSettingsPayload, BucketSettingsTab} from '@/components/storage/bucket-settings-types';
 import { useBucketSettingsMutation } from '@/components/storage/bucket-settings-mutation'
 import { BucketSettingsOverviewTab } from '@/components/storage/bucket-settings-overview-tab'
 import { BucketSettingsPermissionsTab } from '@/components/storage/bucket-settings-permissions-tab'
@@ -54,7 +55,7 @@ export function BucketSettingsDialog({
 
   return (
     <Dialog open={bucketName !== null} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-5xl border border-emerald-500/20 bg-card shadow-2xl">
+      <DialogContent className="w-[min(94vw,56rem)] max-h-[85vh] overflow-y-auto border border-border/60 bg-card shadow-sm">
         <DialogHeader className="text-left">
           <DialogTitle>Bucket Settings</DialogTitle>
           <DialogDescription>
@@ -70,8 +71,8 @@ export function BucketSettingsDialog({
               variant={activeTab === tab ? 'default' : 'outline'}
               className={
                 activeTab === tab
-                  ? 'shadow-[0_0_12px_rgba(16,185,129,0.35)]'
-                  : 'border-emerald-500/30 bg-muted/20 text-emerald-100'
+                  ? 'bg-foreground text-background'
+                  : 'border-border/60 bg-muted/40 text-foreground'
               }
               onClick={() => setActiveTab(tab)}
             >
@@ -130,7 +131,7 @@ export function BucketSettingsDialog({
             <Button
               variant="outline"
               size="sm"
-              className="border-emerald-500/30 bg-muted/20 text-emerald-100"
+              className="border-border/60 bg-muted/40 text-foreground"
             >
               Close
             </Button>
@@ -140,3 +141,4 @@ export function BucketSettingsDialog({
     </Dialog>
   )
 }
+

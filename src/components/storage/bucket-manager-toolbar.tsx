@@ -17,7 +17,7 @@ type BucketManagerToolbarProps = {
 
 export function BucketManagerToolbar(props: BucketManagerToolbarProps) {
   return (
-    <div className="grid gap-3 rounded-xl border border-emerald-500/20 bg-muted/30 p-3 shadow-md lg:grid-cols-[1fr_auto]">
+    <div className="grid gap-3 rounded-xl border border-border/60 bg-muted/40 p-3 shadow-sm lg:grid-cols-[1fr_auto]">
       <div className="grid gap-2 sm:grid-cols-2">
         <Input
           value={props.bucketName}
@@ -42,7 +42,7 @@ export function BucketManagerToolbar(props: BucketManagerToolbarProps) {
           size="sm"
           onClick={() => void props.onRefresh()}
           disabled={props.isRefreshing || props.isLoading}
-          className="gap-2 border-emerald-500/30 bg-muted/30 text-emerald-100 hover:bg-emerald-500/10"
+          className="gap-2 border-border/60 bg-muted/40 text-foreground hover:bg-muted/60"
         >
           {props.isRefreshing ? (
             <Loader2 className="h-4 w-4 animate-spin" />
@@ -55,7 +55,7 @@ export function BucketManagerToolbar(props: BucketManagerToolbarProps) {
           onClick={() => void props.onCreate()}
           disabled={props.createDisabled}
           size="sm"
-          className="gap-2 shadow-[0_0_14px_rgba(16,185,129,0.35)]"
+          className="gap-2 bg-foreground text-background shadow-sm hover:bg-foreground/90"
         >
           {props.isCreating ? (
             <Loader2 className="h-4 w-4 animate-spin" />

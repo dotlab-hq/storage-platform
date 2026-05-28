@@ -10,6 +10,7 @@ import {
   listTrashFolderContentsFn,
   restoreTrashItemsFn,
   permanentDeleteTrashItemsFn,
+  emptyAllTrashFn,
 } from '@/lib/storage/mutations/trash'
 
 const checkAuthClient = createClientOnlyFn( async () => {
@@ -25,8 +26,6 @@ export function useTrashData( params: { parentFolderId?: string | null } = {} ) 
   const { parentFolderId = null } = params
   const queryClient = useQueryClient()
   const [isPending, startTransition] = useTransition()
-
-  // Query for trash items
   const trashQuery = useQuery( {
     queryKey: ['trash-items', parentFolderId],
     queryFn: async () => {
@@ -50,16 +49,12 @@ export function useTrashData( params: { parentFolderId?: string | null } = {} ) 
     () => trashQuery.data?.userId ?? null,
     [trashQuery.data],
   )
-
-  // Optimistic state for trash items
   const [optimisticItems, removeOptimistic] = useOptimistic<
     TrashItem[],
     string[]
   >( serverItems, ( currentItems, idsToRemove ) =>
     currentItems.filter( ( item ) => !idsToRemove.includes( item.id ) ),
   )
-
-  // Restore mutation with optimistic update
   const restoreMutation = useMutation( {
     mutationFn: async ( {
       itemIds,
@@ -94,8 +89,6 @@ export function useTrashData( params: { parentFolderId?: string | null } = {} ) 
       } )
     },
   } )
-
-  // Permanent delete mutation with optimistic update
   const permanentDeleteMutation = useMutation( {
     mutationFn: async ( {
       itemIds,
@@ -131,6 +124,33 @@ export function useTrashData( params: { parentFolderId?: string | null } = {} ) 
     },
   } )
 
+  const emptyAllMutation = useMutation( {
+    mutationFn: async () => {
+      await emptyAllTrashFn()
+    },
+    onMutate: () => {
+      const idsToRemove = optimisticItems.map( ( item ) => item.id )
+      if ( idsToRemove.length === 0 ) return
+      startTransition( () => {
+        removeOptimistic( idsToRemove )
+      } )
+    },
+    onSuccess: () => {
+      toast.success( 'Trash emptied' )
+    },
+    onError: ( err ) => {
+      toast.error( err instanceof Error ? err.message : 'Empty trash failed' )
+    },
+    onSettled: () => {
+      void queryClient.invalidateQueries( {
+        queryKey: ['trash-items'],
+      } )
+      void queryClient.invalidateQueries( {
+        queryKey: STORAGE_QUERY_KEYS.quota,
+      } )
+    },
+  } )
+
   const refresh = useCallback( async () => {
     await queryClient.invalidateQueries( {
       queryKey: ['trash-items'],
@@ -152,6 +172,10 @@ export function useTrashData( params: { parentFolderId?: string | null } = {} ) 
     },
     [userId, permanentDeleteMutation],
   )
+  const handleEmptyAll = useCallback( async () => {
+    if ( !userId ) return
+    await emptyAllMutation.mutateAsync()
+  }, [userId, emptyAllMutation] )
 
   const isLoading = useMemo(
     () => trashQuery.isLoading || isPending,
@@ -165,5 +189,6 @@ export function useTrashData( params: { parentFolderId?: string | null } = {} ) 
     refresh,
     handleRestore,
     handlePermanentDelete,
+    handleEmptyAll,
   }
 }

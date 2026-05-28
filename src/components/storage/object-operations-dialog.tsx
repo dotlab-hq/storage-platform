@@ -16,6 +16,7 @@ import { ObjectOperationsPropertiesTab } from '@/components/storage/object-opera
 import { ObjectOperationsTagsTab } from '@/components/storage/object-operations-tags-tab'
 import { ObjectOperationsVersionsTab } from '@/components/storage/object-operations-versions-tab'
 import { ObjectOperationsPermissionsTab } from '@/components/storage/object-operations-permissions-tab'
+
 type ObjectOperationsDialogProps = {
   bucketName: string | null
   onOpenChange: (open: boolean) => void
@@ -100,7 +101,7 @@ export function ObjectOperationsDialog({
   })
   return (
     <Dialog open={bucketName !== null} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-5xl border border-emerald-500/20 bg-card shadow-2xl">
+      <DialogContent className="w-[min(94vw,56rem)] max-h-[85vh] overflow-y-auto border border-border/60 bg-card shadow-sm">
         <DialogHeader className="text-left">
           <DialogTitle>Object Operations</DialogTitle>
           <DialogDescription>
@@ -122,8 +123,8 @@ export function ObjectOperationsDialog({
                 variant={activeTab === tab ? 'default' : 'outline'}
                 className={
                   activeTab === tab
-                    ? 'shadow-[0_0_12px_rgba(16,185,129,0.35)]'
-                    : 'border-emerald-500/30 bg-muted/20 text-emerald-100'
+                    ? 'bg-foreground text-background'
+                    : 'border-border/60 bg-muted/30 text-foreground'
                 }
                 onClick={() => setActiveTab(tab)}
               >
@@ -185,7 +186,7 @@ export function ObjectOperationsDialog({
             <Button
               variant="outline"
               size="sm"
-              className="border-emerald-500/30 bg-muted/20 text-emerald-100"
+              className="border-border/60 bg-muted/30 text-foreground"
             >
               Close
             </Button>
@@ -195,3 +196,4 @@ export function ObjectOperationsDialog({
     </Dialog>
   )
 }
+

@@ -62,13 +62,13 @@ export function BucketSettingsPermissionsTab({
         </div>
         <textarea
           aria-label="Bucket policy JSON"
-          className="h-56 w-full rounded-lg border border-emerald-500/20 bg-muted/30 p-3 font-mono text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+          className="h-56 w-full rounded-lg border border border-border/60 bg-muted/30 p-3 font-mono text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-foreground/70/40"
           value={draftPolicy}
           onChange={(e) => setDraftPolicy(e.target.value)}
         />
       </div>
 
-      <div className="space-y-3 rounded-lg border border-emerald-500/20 bg-muted/20 p-3 text-xs">
+      <div className="space-y-3 rounded-lg border border border-border/60 bg-muted/30 p-3 text-xs">
         <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
           Security Summary
         </p>
@@ -84,7 +84,7 @@ export function BucketSettingsPermissionsTab({
         </div>
         <div>
           <p className="text-foreground">Policy Preview</p>
-          <pre className="mt-1 max-h-40 overflow-auto rounded-md border border-emerald-500/10 bg-background/70 p-2 text-[10px] text-muted-foreground">
+          <pre className="mt-1 max-h-40 overflow-auto rounded-md border border-foreground/70/10 bg-background/70 p-2 text-[10px] text-muted-foreground">
             {policyPreview}
           </pre>
         </div>
@@ -93,3 +93,5 @@ export function BucketSettingsPermissionsTab({
     </div>
   )
 }
+
+

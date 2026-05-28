@@ -18,7 +18,7 @@ export function ObjectOperationsVersionsTab({
 
   return (
     <>
-      <div className="overflow-hidden rounded-lg border border-emerald-500/20">
+      <div className="overflow-hidden rounded-lg border border-border/60">
         <div className="grid grid-cols-[1.2fr_0.6fr_0.6fr_0.6fr] gap-2 bg-muted/30 px-3 py-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
           <span>Version</span>
           <span>Size</span>
@@ -29,7 +29,7 @@ export function ObjectOperationsVersionsTab({
           {payload.versions.map((version) => (
             <div
               key={version.versionId}
-              className="grid grid-cols-[1.2fr_0.6fr_0.6fr_0.6fr] gap-2 border-t border-emerald-500/10 px-3 py-2 text-muted-foreground"
+              className="grid grid-cols-[1.2fr_0.6fr_0.6fr_0.6fr] gap-2 border-t border-foreground/70/10 px-3 py-2 text-muted-foreground"
             >
               <div className="break-all text-foreground">
                 <p>{version.versionId}</p>
@@ -46,7 +46,7 @@ export function ObjectOperationsVersionsTab({
                   <Button
                     size="sm"
                     variant="outline"
-                    className="border-emerald-500/30 bg-muted/20 text-emerald-100"
+                    className="border-border/60 bg-muted/30 text-foreground"
                     onClick={() => setPendingRestore(version.versionId)}
                     disabled={isPending}
                   >
@@ -80,3 +80,5 @@ export function ObjectOperationsVersionsTab({
     </>
   )
 }
+
+

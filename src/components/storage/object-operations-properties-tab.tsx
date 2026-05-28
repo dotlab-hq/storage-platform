@@ -10,7 +10,7 @@ export function ObjectOperationsPropertiesTab({
   objectKey,
 }: ObjectOperationsPropertiesTabProps) {
   return (
-    <div className="grid gap-3 rounded-lg border border-emerald-500/20 bg-muted/20 p-3 text-sm">
+    <div className="grid gap-3 rounded-lg border border-border/60 bg-muted/30 p-3 text-sm">
       <div>
         <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
           Object Key
@@ -46,3 +46,4 @@ export function ObjectOperationsPropertiesTab({
     </div>
   )
 }
+

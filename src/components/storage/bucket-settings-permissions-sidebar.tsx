@@ -37,7 +37,7 @@ export function BucketSettingsPermissionsSidebar({
           size="sm"
           variant="outline"
           onClick={() => onSetPolicy(publicReadTemplate(bucketName))}
-          className="w-full justify-start border-emerald-500/30 bg-muted/20 text-emerald-100"
+          className="w-full justify-start border-border/60 bg-muted/20 text-foreground"
         >
           Template: Public Read
         </Button>
@@ -70,7 +70,7 @@ export function BucketSettingsPermissionsSidebar({
                   variant: 'primary',
                 })
               }
-              className="w-full justify-start border-emerald-500/30 bg-muted/20 text-emerald-100"
+              className="w-full justify-start border-border/60 bg-muted/20 text-foreground"
               disabled={isPending}
             >
               Template: Make Private
@@ -143,7 +143,7 @@ export function BucketSettingsPermissionsSidebar({
                   variant: 'primary',
                 })
               }
-              className="w-full justify-start border-emerald-500/30 bg-muted/20 text-emerald-100"
+              className="w-full justify-start border-border/60 bg-muted/20 text-foreground"
               disabled={isPending}
             >
               Enforce Private Access
@@ -173,3 +173,4 @@ export function BucketSettingsPermissionsSidebar({
     </>
   )
 }
+

@@ -61,7 +61,7 @@ export function S3BucketViewerBrowser(props: S3BucketViewerBrowserProps) {
     <div
       ref={scrollContainerRef}
       onScroll={onScroll}
-      className="flex-1 overflow-y-auto rounded-lg border border-emerald-500/20 bg-background/60"
+      className="flex-1 overflow-y-auto rounded-lg border border-border/60 bg-background/60"
     >
       {totalItems === 0 ? (
         <div className="flex h-full flex-col items-center justify-center py-12 text-muted-foreground">
@@ -86,14 +86,14 @@ export function S3BucketViewerBrowser(props: S3BucketViewerBrowserProps) {
                     size="sm"
                     variant="outline"
                     onClick={onRequestNewFolder}
-                    className="border-emerald-500/30 bg-muted/20 text-emerald-100"
+                    className="border-border/60 bg-muted/20 text-foreground"
                   >
                     New Folder
                   </Button>
                   <Button
                     size="sm"
                     onClick={onRequestUpload}
-                    className="gap-2 shadow-[0_0_14px_rgba(16,185,129,0.35)]"
+                    className="gap-2 shadow-sm"
                   >
                     <Upload className="h-4 w-4" />
                     Upload
@@ -118,7 +118,7 @@ export function S3BucketViewerBrowser(props: S3BucketViewerBrowserProps) {
               <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 Folders
               </p>
-              <div className="overflow-hidden rounded-xl border border-emerald-500/15">
+              <div className="overflow-hidden rounded-xl border border-foreground/70/15">
                 {viewer.folders.map((folder) => (
                   <S3ViewerFolderListItem
                     key={folder.prefix}
@@ -137,7 +137,7 @@ export function S3BucketViewerBrowser(props: S3BucketViewerBrowserProps) {
               <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 Files
               </p>
-              <div className="overflow-hidden rounded-xl border border-emerald-500/15">
+              <div className="overflow-hidden rounded-xl border border-foreground/70/15">
                 {viewer.files.map((file) => (
                   <S3ViewerFileListItem
                     key={file.key}
@@ -165,3 +165,5 @@ export function S3BucketViewerBrowser(props: S3BucketViewerBrowserProps) {
     </div>
   )
 }
+
+

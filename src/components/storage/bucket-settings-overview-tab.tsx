@@ -15,7 +15,7 @@ export function BucketSettingsOverviewTab({
 
   return (
     <div className="space-y-3 text-sm">
-      <div className="grid gap-2 rounded-lg border border-emerald-500/20 bg-muted/20 p-4">
+      <div className="grid gap-2 rounded-lg border border border-border/60 bg-muted/30 p-4">
         <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
           Bucket
         </p>
@@ -30,7 +30,7 @@ export function BucketSettingsOverviewTab({
           <Badge
             key={chip}
             variant="outline"
-            className="border-emerald-500/30 text-emerald-100"
+            className="border-border/60 text-foreground"
           >
             {chip}
           </Badge>
@@ -39,8 +39,8 @@ export function BucketSettingsOverviewTab({
           variant="outline"
           className={
             payload.bucket.blockPublicAccess
-              ? 'border-emerald-500/40 text-emerald-100'
-              : 'border-amber-500/40 text-amber-200'
+              ? 'border-border/60 text-foreground'
+              : 'border-border/60 text-foreground'
           }
         >
           {payload.bucket.blockPublicAccess ? 'Private access enforced' : 'Public ACLs allowed'}
@@ -49,3 +49,4 @@ export function BucketSettingsOverviewTab({
     </div>
   )
 }
+

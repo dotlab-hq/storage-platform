@@ -167,7 +167,7 @@ export function UploadWidget() {
                       ? 'text-destructive'
                       : activeUploads.length > 0
                         ? 'text-primary'
-                        : 'text-emerald-500',
+                        : 'text-foreground',
                   )}
                 />
               </svg>
@@ -184,7 +184,7 @@ export function UploadWidget() {
                     )}
                   />
                 ) : uploads.length > 0 ? (
-                  <CheckCircle2 className="h-5 w-5 text-emerald-500" />
+                  <CheckCircle2 className="h-5 w-5 text-foreground" />
                 ) : null}
               </div>
 
@@ -303,3 +303,4 @@ export function UploadWidget() {
     </TooltipProvider>
   )
 }
+

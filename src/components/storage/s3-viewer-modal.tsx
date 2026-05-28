@@ -30,8 +30,8 @@ export function S3ViewerModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="flex h-[94vh] w-[min(98vw,1540px)] max-w-[1540px] flex-col gap-0 overflow-hidden border border-emerald-500/20 bg-background/95 p-0 shadow-2xl">
-        <DialogHeader className="border-b border-emerald-500/20 px-6 py-4 text-left">
+      <DialogContent className="flex h-[94vh] w-[min(98vw,1540px)] max-w-[1540px] flex-col gap-0 overflow-hidden border border-border/60 bg-background/95 p-0 shadow-sm">
+        <DialogHeader className="border-b border-border/60 px-6 py-4 text-left">
           <DialogTitle className="text-lg font-semibold text-foreground">
             S3 Viewer
           </DialogTitle>
@@ -66,3 +66,4 @@ export function S3ViewerModal({
     </Dialog>
   )
 }
+

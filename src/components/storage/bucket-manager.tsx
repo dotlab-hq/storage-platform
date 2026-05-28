@@ -84,7 +84,7 @@ export function BucketManager() {
           </p>
         </div>
         <div className="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-xs">
-          <span className="h-2 w-2 rounded-full bg-emerald-500" />
+          <span className="h-2 w-2 rounded-full bg-foreground/70" />
           <span className="font-medium">Gateway online</span>
           <span className="text-muted-foreground">AWS S3 compatible</span>
         </div>
@@ -221,3 +221,4 @@ export function BucketManager() {
     </section>
   )
 }
+

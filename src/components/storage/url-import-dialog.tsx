@@ -14,7 +14,8 @@ import {
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { useUrlImport, type PendingImport } from '@/hooks/use-url-import'
+import { useUrlImport  } from '@/hooks/use-url-import'
+import type {PendingImport} from '@/hooks/use-url-import';
 
 type UrlImportDialogProps = {
   open: boolean

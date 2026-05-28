@@ -51,7 +51,7 @@ export function ObjectOperationsTagsTab({
                 )
               }
               placeholder="Tag key"
-              className="rounded-md border border-emerald-500/20 bg-muted/30 px-2 py-1 text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+              className="rounded-md border border-border/60 bg-muted/30 px-2 py-1 text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-foreground/70/40"
             />
             <input
               value={tag.value}
@@ -65,7 +65,7 @@ export function ObjectOperationsTagsTab({
                 )
               }
               placeholder="Tag value"
-              className="rounded-md border border-emerald-500/20 bg-muted/30 px-2 py-1 text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+              className="rounded-md border border-border/60 bg-muted/30 px-2 py-1 text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-foreground/70/40"
             />
           </div>
         ))}
@@ -80,7 +80,7 @@ export function ObjectOperationsTagsTab({
               { id: crypto.randomUUID(), key: '', value: '' },
             ])
           }
-          className="border-emerald-500/30 bg-muted/20 text-emerald-100"
+          className="border-border/60 bg-muted/30 text-foreground"
         >
           Add tag row
         </Button>
@@ -104,3 +104,5 @@ export function ObjectOperationsTagsTab({
     </div>
   )
 }
+
+

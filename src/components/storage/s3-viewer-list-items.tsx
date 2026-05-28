@@ -23,11 +23,11 @@ export function S3ViewerFolderListItem({ entry, onOpen }: FolderListItemProps) {
     <button
       type="button"
       onClick={() => onOpen(entry.prefix)}
-      className="group flex w-full items-center px-4 py-3 text-left transition-colors hover:bg-emerald-500/5"
+      className="group flex w-full items-center px-4 py-3 text-left transition-colors hover:hover:bg-muted/30"
     >
       {/* Icon */}
-      <div className="mr-4 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-emerald-500/10">
-        <Folder className="h-5 w-5 text-emerald-300" />
+      <div className="mr-4 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-muted/20">
+        <Folder className="h-5 w-5 text-foreground/80" />
       </div>
 
       {/* Name and item count */}
@@ -72,7 +72,7 @@ export function S3ViewerFileListItem({
   const bgColor = getIconBgColor(entry.name)
 
   return (
-    <div className="group flex items-center px-4 py-3 transition-colors hover:bg-emerald-500/5">
+    <div className="group flex items-center px-4 py-3 transition-colors hover:hover:bg-muted/30">
       {/* Icon */}
       <button
         title="none"
@@ -184,3 +184,4 @@ export function S3ViewerUploadingFileListItem({
     </div>
   )
 }
+

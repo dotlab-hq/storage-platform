@@ -40,7 +40,7 @@ export function BucketManagerCard(props: BucketManagerCardProps) {
   const isPending = typeof pendingAction === 'string'
 
   return (
-    <article className="rounded-lg border border-emerald-500/20 bg-gradient-to-br from-background to-muted/30 p-4 shadow-md transition-shadow hover:shadow-emerald-500/20">
+    <article className="rounded-lg border border-border/60 bg-gradient-to-br from-background to-muted/30 p-4 shadow-md transition-shadow hover:shadow-foreground/70/20">
       <div className="space-y-1">
         <p className="truncate text-sm font-semibold">{bucket.name}</p>
         <p className="text-muted-foreground text-xs">
@@ -53,7 +53,7 @@ export function BucketManagerCard(props: BucketManagerCardProps) {
           size="sm"
           disabled={isPending}
           onClick={() => onView(bucket.name)}
-          className="border-emerald-500/30 bg-muted/20 text-emerald-100"
+          className="border-border/60 bg-muted/20 text-foreground"
         >
           <Eye className="h-4 w-4" />
         </Button>
@@ -62,7 +62,7 @@ export function BucketManagerCard(props: BucketManagerCardProps) {
           size="sm"
           disabled={isPending}
           onClick={() => onCredentials(bucket.name)}
-          className="border-emerald-500/30 bg-muted/20 text-emerald-100"
+          className="border-border/60 bg-muted/20 text-foreground"
         >
           <KeyRound className="h-4 w-4" />
           Credentials
@@ -72,7 +72,7 @@ export function BucketManagerCard(props: BucketManagerCardProps) {
           size="sm"
           disabled={isPending}
           onClick={() => onSettings(bucket.name)}
-          className="border-emerald-500/30 bg-muted/20 text-emerald-100"
+          className="border-border/60 bg-muted/20 text-foreground"
         >
           Settings
         </Button>
@@ -81,7 +81,7 @@ export function BucketManagerCard(props: BucketManagerCardProps) {
           size="sm"
           disabled={isPending}
           onClick={() => onObjectOps(bucket.name)}
-          className="border-emerald-500/30 bg-muted/20 text-emerald-100"
+          className="border-border/60 bg-muted/20 text-foreground"
         >
           Object Ops
         </Button>
@@ -116,3 +116,4 @@ export function BucketManagerCard(props: BucketManagerCardProps) {
     </article>
   )
 }
+

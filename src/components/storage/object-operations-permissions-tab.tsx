@@ -20,12 +20,12 @@ export function ObjectOperationsPermissionsTab({
 
   return (
     <>
-      <div className="space-y-3 rounded-lg border border-emerald-500/20 bg-muted/20 p-3 text-sm">
+      <div className="space-y-3 rounded-lg border border-border/60 bg-muted/30 p-3 text-sm">
         <div>
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
             ACL
           </p>
-          <p className={isPublic ? 'text-amber-200' : 'text-emerald-200'}>
+          <p className={isPublic ? 'text-amber-200' : 'text-foreground'}>
             {isPublic ? 'Public read enabled' : 'Private'}
           </p>
         </div>
@@ -41,7 +41,7 @@ export function ObjectOperationsPermissionsTab({
           disabled={isPending}
           className={
             isPublic
-              ? 'border-emerald-500/30 bg-muted/20 text-emerald-100'
+              ? 'border-border/60 bg-muted/30 text-foreground'
               : 'border-amber-500/40 text-amber-200 hover:bg-amber-500/10'
           }
         >
@@ -64,3 +64,4 @@ export function ObjectOperationsPermissionsTab({
     </>
   )
 }
+

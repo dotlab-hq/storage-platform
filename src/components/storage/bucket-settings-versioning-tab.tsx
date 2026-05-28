@@ -19,14 +19,14 @@ export function BucketSettingsVersioningTab({
 }: BucketSettingsVersioningTabProps) {
   return (
     <div className="space-y-3">
-      <div className="flex flex-wrap items-center gap-2 rounded-lg border border-emerald-500/20 bg-muted/20 p-2">
+      <div className="flex flex-wrap items-center gap-2 rounded-lg border border border-border/60 bg-muted/30 p-2">
         <Button
           size="sm"
           disabled={isPending}
           className={
             payload.versioning === 'enabled'
-              ? 'bg-emerald-500/20 text-emerald-100'
-              : 'border border-emerald-500/30 bg-muted/20 text-emerald-100'
+              ? 'bg-muted/30 text-foreground'
+              : 'border border-border/60 bg-muted/30 text-foreground'
           }
           onClick={() =>
             onUpdate({
@@ -44,8 +44,8 @@ export function BucketSettingsVersioningTab({
           disabled={isPending}
           className={
             payload.versioning === 'suspended'
-              ? 'border-amber-500/50 bg-amber-500/15 text-amber-200'
-              : 'border-amber-500/30 text-amber-200 hover:bg-amber-500/10'
+              ? 'border-amber-500/50 bg-amber-500/15 text-foreground'
+              : 'border-amber-500/30 text-foreground hover:bg-amber-500/10'
           }
           onClick={() =>
             onUpdate({
@@ -84,3 +84,4 @@ export function BucketSettingsVersioningTab({
     </div>
   )
 }
+

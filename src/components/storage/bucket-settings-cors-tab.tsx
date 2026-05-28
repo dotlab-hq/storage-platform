@@ -53,7 +53,7 @@ export function BucketSettingsCorsTab({
 
   return (
     <div className="space-y-3">
-      <div className="rounded-lg border border-emerald-500/20 bg-muted/20 p-3 text-xs text-muted-foreground">
+      <div className="rounded-lg border border border-border/60 bg-muted/30 p-3 text-xs text-muted-foreground">
         <p className="font-medium text-foreground">CORS Rules</p>
         <p className="mt-1">
           Provide JSON rules in PascalCase or camelCase. AllowedOrigins and
@@ -66,7 +66,7 @@ export function BucketSettingsCorsTab({
           size="sm"
           variant="outline"
           onClick={() => setDraftCors(publicTemplate)}
-          className="border-emerald-500/30 bg-muted/20 text-emerald-100"
+          className="border-border/60 bg-muted/30 text-foreground"
         >
           Load Public Template
         </Button>
@@ -74,7 +74,7 @@ export function BucketSettingsCorsTab({
           size="sm"
           variant="outline"
           onClick={() => setDraftCors(strictTemplate)}
-          className="border-emerald-500/30 bg-muted/20 text-emerald-100"
+          className="border-border/60 bg-muted/30 text-foreground"
         >
           Load Strict Template
         </Button>
@@ -82,7 +82,7 @@ export function BucketSettingsCorsTab({
 
       <textarea
         aria-label="Bucket CORS rules JSON"
-        className="h-48 w-full rounded-lg border border-emerald-500/20 bg-muted/30 p-3 font-mono text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+        className="h-48 w-full rounded-lg border border border-border/60 bg-muted/30 p-3 font-mono text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-foreground/70/40"
         value={draftCors}
         onChange={(e) => {
           setDraftCors(e.target.value)
@@ -156,3 +156,5 @@ export function BucketSettingsCorsTab({
     </div>
   )
 }
+
+
