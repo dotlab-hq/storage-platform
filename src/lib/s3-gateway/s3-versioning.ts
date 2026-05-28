@@ -4,6 +4,7 @@ import {
   GetObjectCommand,
   HeadObjectCommand,
 } from '@aws-sdk/client-s3'
+import { Readable } from 'node:stream'
 import { and, desc, eq } from 'drizzle-orm'
 import { db } from '@/db'
 import { fileVersion } from '@/db/schema/s3-controls'
@@ -29,6 +30,47 @@ type VersionListRow = {
   lastModified: Date
   etag: string | null
   size: number
+}
+
+function toBodyInit(body: unknown): BodyInit | null {
+  if (body === null || body === undefined) {
+    return null
+  }
+  if (
+    body instanceof ReadableStream ||
+    body instanceof Blob ||
+    body instanceof ArrayBuffer ||
+    typeof body === 'string' ||
+    body instanceof URLSearchParams ||
+    body instanceof FormData
+  ) {
+    return body
+  }
+  if (body instanceof Readable) {
+    const withToWeb = Readable as typeof Readable & {
+      toWeb?: (stream: Readable) => ReadableStream<Uint8Array>
+    }
+    if (typeof withToWeb.toWeb === 'function') {
+      return withToWeb.toWeb(body)
+    }
+  }
+  if (body instanceof Uint8Array) {
+    const cloned = new Uint8Array(body.byteLength)
+    cloned.set(body)
+    return cloned.buffer
+  }
+  if (
+    typeof body === 'object' &&
+    body !== null &&
+    'transformToWebStream' in body &&
+    typeof (body as { transformToWebStream?: unknown }).transformToWebStream ===
+      'function'
+  ) {
+    return (
+      body as { transformToWebStream: () => ReadableStream<Uint8Array> }
+    ).transformToWebStream()
+  }
+  return null
 }
 
 export type ListedVersionResponse = {
@@ -348,7 +390,7 @@ export async function getObjectVersionResponse(
   if (headOnly) {
     return new Response(null, { status: 200, headers })
   }
-  const body = 'Body' in result ? (result.Body as BodyInit | null) : null
+  const body = 'Body' in result ? toBodyInit(result.Body) : null
   return new Response(body, { status: 200, headers })
 }
 

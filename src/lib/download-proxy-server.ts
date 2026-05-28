@@ -1,9 +1,43 @@
 import { GetObjectCommand, HeadObjectCommand } from '@aws-sdk/client-s3'
+import { Readable } from 'node:stream'
 import { requireProxyProvider } from '@/lib/upload-proxy-provider'
 import { parseProviderId } from '@/lib/upload-proxy-utils'
 import { sendWithProviderTimeout } from './s3-gateway/s3-provider-timeout'
 
 function webStreamFromBody(body: unknown): ReadableStream<Uint8Array> {
+  if (body instanceof ReadableStream) {
+    return body
+  }
+  if (body instanceof Readable) {
+    const withToWeb = Readable as typeof Readable & {
+      toWeb?: (stream: Readable) => ReadableStream<Uint8Array>
+    }
+    if (typeof withToWeb.toWeb === 'function') {
+      return withToWeb.toWeb(body)
+    }
+  }
+  if (body instanceof Uint8Array) {
+    const chunk = new Uint8Array(body.byteLength)
+    chunk.set(body)
+    return new ReadableStream({
+      start(controller) {
+        controller.enqueue(chunk)
+        controller.close()
+      },
+    })
+  }
+  if (body instanceof ArrayBuffer) {
+    const chunk = new Uint8Array(body)
+    return new ReadableStream({
+      start(controller) {
+        controller.enqueue(chunk)
+        controller.close()
+      },
+    })
+  }
+  if (body instanceof Blob) {
+    return body.stream()
+  }
   // Handle SDK v3 response body that has transformToWebStream (SpongeBlob)
   if (
     body &&

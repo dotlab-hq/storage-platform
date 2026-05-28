@@ -402,6 +402,14 @@ function toBodyInit(body: unknown): BodyInit | null {
   ) {
     return body
   }
+  if (body instanceof Readable) {
+    const withToWeb = Readable as typeof Readable & {
+      toWeb?: (stream: Readable) => ReadableStream<Uint8Array>
+    }
+    if (typeof withToWeb.toWeb === 'function') {
+      return withToWeb.toWeb(body)
+    }
+  }
   if (body instanceof Uint8Array) {
     const cloned = new Uint8Array(body.byteLength)
     cloned.set(body)
