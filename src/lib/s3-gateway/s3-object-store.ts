@@ -45,6 +45,10 @@ const PROVIDER_METADATA_HEAD_TIMEOUT_MS = parsePositiveInt(
   process.env.S3_PROVIDER_METADATA_HEAD_TIMEOUT_MS,
   4000,
 )
+const LARGE_OBJECT_CHUNK_BYTES = parsePositiveInt(
+  process.env.S3_LARGE_OBJECT_CHUNK_BYTES,
+  4 * 1024 * 1024,
+)
 
 async function* streamWebChunks(
   stream: ReadableStream<Uint8Array>,
@@ -490,6 +494,72 @@ function toBodyInit(body: unknown): BodyInit | null {
   return null
 }
 
+async function pipeBodyToController(
+  body: unknown,
+  controller: ReadableStreamDefaultController<Uint8Array>,
+): Promise<void> {
+  const bodyInit = toBodyInit(body)
+  if (!bodyInit) {
+    throw new Error('Provider returned an unreadable object stream')
+  }
+  if (bodyInit instanceof ReadableStream) {
+    const reader = bodyInit.getReader()
+    try {
+      for (;;) {
+        const { done, value } = await reader.read()
+        if (done) return
+        controller.enqueue(value)
+      }
+    } finally {
+      reader.releaseLock()
+    }
+    return
+  }
+
+  const buffer = await new Response(bodyInit).arrayBuffer()
+  controller.enqueue(new Uint8Array(buffer))
+}
+
+function chunkedObjectStream(input: {
+  provider: Awaited<ReturnType<typeof getProviderClientById>>
+  bucketName: string
+  objectKey: string
+  sizeInBytes: number
+  contentType: string
+}): ReadableStream<Uint8Array> {
+  return new ReadableStream<Uint8Array>({
+    async start(controller) {
+      try {
+        for (
+          let start = 0;
+          start < input.sizeInBytes;
+          start += LARGE_OBJECT_CHUNK_BYTES
+        ) {
+          const end = Math.min(
+            start + LARGE_OBJECT_CHUNK_BYTES - 1,
+            input.sizeInBytes - 1,
+          )
+          const upstream = await sendWithProviderTimeout((abortSignal) =>
+            input.provider.client.send(
+              new GetObjectCommand({
+                Bucket: input.bucketName,
+                Key: input.objectKey,
+                ResponseContentType: input.contentType,
+                Range: `bytes=${start}-${end}`,
+              }),
+              { abortSignal },
+            ),
+          )
+          await pipeBodyToController(upstream.Body, controller)
+        }
+        controller.close()
+      } catch (error) {
+        controller.error(error)
+      }
+    },
+  })
+}
+
 function normalizeReadableChunk(value: Uint8Array | string): Uint8Array {
   if (typeof value === 'string') {
     return new TextEncoder().encode(value)
@@ -599,6 +669,34 @@ export async function getObject(
         'Content-Range': `bytes */${stored.sizeInBytes}`,
       }),
     })
+  }
+
+  const responseContentType = stored.mimeType ?? 'application/octet-stream'
+  if (!parsedRange && stored.sizeInBytes > LARGE_OBJECT_CHUNK_BYTES) {
+    const headers = new Headers()
+    headers.set('Content-Type', responseContentType)
+    headers.set('Content-Length', String(stored.sizeInBytes))
+    headers.set('Accept-Ranges', 'bytes')
+    headers.set('Cache-Control', stored.cacheControl ?? 'no-transform')
+    if (responseContentType === 'application/pdf') {
+      headers.set('Content-Disposition', 'inline')
+    }
+    if (stored.etag) {
+      headers.set('ETag', normalizeETag(stored.etag))
+    }
+    if (effectiveLastModified) {
+      headers.set('Last-Modified', effectiveLastModified.toUTCString())
+    }
+    return new Response(
+      chunkedObjectStream({
+        provider,
+        bucketName: provider.bucketName,
+        objectKey: stored.objectKey,
+        sizeInBytes: stored.sizeInBytes,
+        contentType: responseContentType,
+      }),
+      { status: 200, headers },
+    )
   }
 
   const command = new GetObjectCommand({

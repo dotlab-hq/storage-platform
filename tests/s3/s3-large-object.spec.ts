@@ -59,6 +59,19 @@ test.describe('S3 large object reads', () => {
       expect(bytes?.byteLength ?? 0).toBe(payload.byteLength)
       expect(bytes?.[0]).toBe(payload[0])
       expect(bytes?.[payload.length - 1]).toBe(payload[payload.length - 1])
+
+      const ranged = await client.send(
+        new GetObjectCommand({
+          Bucket: testBucketName(),
+          Key: key,
+          Range: 'bytes=1048576-1049599',
+        }),
+      )
+      const rangedBytes = await ranged.Body?.transformToByteArray()
+      expect(rangedBytes?.byteLength ?? 0).toBe(1024)
+      expect(ranged.ContentRange).toBe(
+        `bytes 1048576-1049599/${payload.byteLength}`,
+      )
     } finally {
       await client.send(
         new DeleteObjectCommand({ Bucket: testBucketName(), Key: key }),
