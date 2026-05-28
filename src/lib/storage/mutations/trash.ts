@@ -3,12 +3,8 @@ import { z } from 'zod'
 import { requireWritePermission } from '@/lib/server-auth.server'
 import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { listTrashItems } from '@/lib/trash-queries'
-import {
-  restoreItems,
-  permanentDeleteItems,
-  restoreAllTrash,
-  emptyAllTrash,
-} from '@/lib/trash-mutations'
+import { restoreItems, permanentDeleteItems, restoreAllTrash } from '@/lib/trash-mutations'
+import { emptyAllTrashForUser } from '@/lib/trash-empty-all'
 import { withActivityLogging } from '@/lib/activity-logging'
 import { listTrashFolderContents } from '@/lib/trash-queries'
 
@@ -124,7 +120,7 @@ export const emptyAllTrashFn = createServerFn({ method: 'POST' })
       },
       async () => {
         requireWritePermission(user)
-        const result = await emptyAllTrash(user.id)
+        const result = await emptyAllTrashForUser(user.id)
         return result
       },
     )

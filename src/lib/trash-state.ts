@@ -3,7 +3,7 @@ import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
 import { seedNodeById } from '@/lib/storage-btree/seed'
 
-const CHUNK_SIZE = 500
+const CHUNK_SIZE = 90
 
 export type DeletionScheduleResult = {
   fileIds: string[]
