@@ -93,7 +93,7 @@ export async function markItemsDeleted(
       .update(file)
       .set({
         isDeleted: true,
-        isTrashed: false,
+        isTrashed: true,
         deletedAt,
         deletionQueuedAt: null,
         updatedAt: deletedAt,
@@ -106,7 +106,7 @@ export async function markItemsDeleted(
       .update(folder)
       .set({
         isDeleted: true,
-        isTrashed: false,
+        isTrashed: true,
         deletedAt,
         deletionQueuedAt: null,
         updatedAt: deletedAt,

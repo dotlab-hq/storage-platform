@@ -54,6 +54,16 @@ for more files So for loading the endpoints, it should have pagination as well. 
 
 # Prioritize using dynamic imports in the folders. Ensure that API calls and anything network-related are in a separate file for each path or route, handling everything from there.
 
+## Trash and deletion state rules
+
+- `isTrashed=false` and `isDeleted=false`: active item. It can appear in normal files and folders.
+- `isTrashed=true` and `isDeleted=false`: visible Trash item. This is what move-to-trash must set.
+- `isTrashed=true` and `isDeleted=true`: deletion-scheduled item. It must not appear in normal files or Trash; cron/workflows may enqueue it, delete upstream objects, then delete DB rows.
+- `isTrashed=false` and `isDeleted=true`: legacy/invalid hidden state. Do not create this state in new code.
+- Empty bucket, delete bucket, Empty Trash, and permanent-delete flows must mark affected files/folders as `isTrashed=true` and `isDeleted=true`, with `deletedAt` set and `deletionQueuedAt` cleared so cron can claim them.
+- Before a workflow permanently deletes a folder row, it must mark every existing child file/folder as `isTrashed=true` and `isDeleted=true`, queue unqueued children, and only remove the folder after children are gone.
+- Cron candidates must require both `isTrashed=true` and `isDeleted=true`; `isTrashed=true` with `isDeleted=false` remains user-visible Trash and must not be enqueued.
+
 ## graphify
 
 This project has a graphify knowledge graph at graphify-out/.

@@ -1,6 +1,10 @@
 // @ts-nocheck
 import { eq, and, inArray } from 'drizzle-orm'
 import { seedNodeById } from '@/lib/storage-btree/seed'
+import {
+  markFilesForDeletionSchedule,
+  markFolderSubtreesForDeletionSchedule,
+} from '@/lib/trash-state'
 
 export async function restoreItems(
   userId: string,
@@ -246,39 +250,17 @@ export async function permanentDeleteItems(
     else folderIds.push(itemIds[i])
   }
 
-  const [{ db }, { file: storageFile, folder }] = await Promise.all([
-    import('@/db'),
-    import('@/db/schema/storage'),
-  ])
-
   const deletedAt = new Date()
-
-  // Soft delete: mark as deleted, not trashed (no queue, no recursion)
-  if (fileIds.length > 0) {
-    await db
-      .update(storageFile)
-      .set({
-        isDeleted: true,
-        isTrashed: false,
-        deletedAt,
-        updatedAt: deletedAt,
-      })
-      .where(
-        and(eq(storageFile.userId, userId), inArray(storageFile.id, fileIds)),
-      )
-  }
-
-  if (folderIds.length > 0) {
-    await db
-      .update(folder)
-      .set({
-        isDeleted: true,
-        isTrashed: false,
-        deletedAt,
-        updatedAt: deletedAt,
-      })
-      .where(and(eq(folder.userId, userId), inArray(folder.id, folderIds)))
-  }
+  const deletedFileIds = await markFilesForDeletionSchedule(
+    userId,
+    fileIds,
+    deletedAt,
+  )
+  const deletedFolderResult = await markFolderSubtreesForDeletionSchedule(
+    userId,
+    folderIds,
+    deletedAt,
+  )
 
   const { invalidateFolderCache, invalidateQuotaCache } =
     await import('@/lib/cache-invalidation')
@@ -286,8 +268,8 @@ export async function permanentDeleteItems(
   await invalidateFolderCache(userId, null)
 
   return {
-    deletedFiles: fileIds.length,
-    deletedFolders: folderIds.length,
+    deletedFiles: deletedFileIds.length + deletedFolderResult.fileIds.length,
+    deletedFolders: deletedFolderResult.folderIds.length,
   }
 }
 
@@ -364,89 +346,16 @@ export async function emptyAllTrash(userId: string) {
   const folderIds = folderRows.map((r) => r.id)
 
   const deletedAt = new Date()
-
-  // Soft delete: mark as deleted, not trashed (no queue, no recursion)
-  if (fileIds.length > 0) {
-    await db
-      .update(storageFile)
-      .set({
-        isDeleted: true,
-        isTrashed: false,
-        deletedAt,
-        updatedAt: deletedAt,
-      })
-      .where(
-        and(eq(storageFile.userId, userId), inArray(storageFile.id, fileIds)),
-      )
-  }
-
-  if (folderIds.length > 0) {
-    await db
-      .update(folder)
-      .set({
-        isDeleted: true,
-        isTrashed: false,
-        deletedAt,
-        updatedAt: deletedAt,
-      })
-      .where(and(eq(folder.userId, userId), inArray(folder.id, folderIds)))
-
-    // Mark direct children (1 level) as deleted too
-    const childFileRows = await db
-      .select({ id: storageFile.id })
-      .from(storageFile)
-      .where(
-        and(
-          inArray(storageFile.folderId, folderIds),
-          eq(storageFile.userId, userId),
-          eq(storageFile.isDeleted, false),
-        ),
-      )
-    const childFileIds = childFileRows.map((r) => r.id)
-
-    const childFolderRows = await db
-      .select({ id: folder.id })
-      .from(folder)
-      .where(
-        and(
-          inArray(folder.parentFolderId, folderIds),
-          eq(folder.userId, userId),
-          eq(folder.isDeleted, false),
-        ),
-      )
-    const childFolderIds = childFolderRows.map((r) => r.id)
-
-    if (childFileIds.length > 0) {
-      await db
-        .update(storageFile)
-        .set({
-          isDeleted: true,
-          isTrashed: false,
-          deletedAt,
-          updatedAt: deletedAt,
-        })
-        .where(
-          and(
-            inArray(storageFile.id, childFileIds),
-            eq(storageFile.userId, userId),
-          ),
-        )
-    }
-
-    if (childFolderIds.length > 0) {
-      await db
-        .update(folder)
-        .set({
-          isDeleted: true,
-          isTrashed: false,
-          deletedAt,
-          updatedAt: deletedAt,
-        })
-        .where(
-          and(inArray(folder.id, childFolderIds), eq(folder.userId, userId)),
-        )
-    }
-  }
+  const deletedFileIds = await markFilesForDeletionSchedule(
+    userId,
+    fileIds,
+    deletedAt,
+  )
+  const deletedFolderResult = await markFolderSubtreesForDeletionSchedule(
+    userId,
+    folderIds,
+    deletedAt,
+  )
 
   const { invalidateFolderCache, invalidateQuotaCache } =
     await import('@/lib/cache-invalidation')
@@ -454,9 +363,7 @@ export async function emptyAllTrash(userId: string) {
   await invalidateFolderCache(userId, null)
 
   return {
-    deletedFiles:
-      fileIds.length + (folderIds.length > 0 ? childFileIds.length : 0),
-    deletedFolders:
-      folderIds.length + (folderIds.length > 0 ? childFolderIds.length : 0),
+    deletedFiles: deletedFileIds.length + deletedFolderResult.fileIds.length,
+    deletedFolders: deletedFolderResult.folderIds.length,
   }
 }

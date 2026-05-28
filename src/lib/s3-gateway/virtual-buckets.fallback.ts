@@ -1,8 +1,10 @@
 import { and, eq, like } from 'drizzle-orm'
 import { db } from '@/db'
-import { file, folder, userStorage } from '@/db/schema/storage'
-import { markFolderSubtreeDeleted } from '@/lib/storage-btree/index'
-import { seedNodeById } from '@/lib/storage-btree/seed'
+import { file, userStorage } from '@/db/schema/storage'
+import {
+  markFilesForDeletionSchedule,
+  markFolderSubtreesForDeletionSchedule,
+} from '@/lib/trash-state'
 
 type BucketFileRow = {
   objectKey: string
@@ -84,25 +86,15 @@ export async function softDeleteByPrefix(
       and(
         eq(file.userId, userId),
         eq(file.isDeleted, false),
-        eq(file.isTrashed, false),
         like(file.objectKey, prefix),
       ),
     )
 
   try {
-    await db
-      .update(file)
-      .set({ isDeleted: true, deletedAt: now })
-      .where(
-        and(
-          eq(file.userId, userId),
-          eq(file.isDeleted, false),
-          eq(file.isTrashed, false),
-          like(file.objectKey, prefix),
-        ),
-      )
-    await Promise.all(
-      candidateRows.map((row) => seedNodeById(userId, 'file', row.id)),
+    await markFilesForDeletionSchedule(
+      userId,
+      candidateRows.map((row) => row.id),
+      now,
     )
   } catch (error) {
     const message =
@@ -191,9 +183,5 @@ export async function deleteMappedFolder(
   userId: string,
   mappedFolderId: string,
 ): Promise<void> {
-  await db
-    .update(folder)
-    .set({ isDeleted: true, deletedAt: new Date() })
-    .where(and(eq(folder.id, mappedFolderId), eq(folder.userId, userId)))
-  await markFolderSubtreeDeleted(userId, mappedFolderId, true)
+  await markFolderSubtreesForDeletionSchedule(userId, [mappedFolderId])
 }

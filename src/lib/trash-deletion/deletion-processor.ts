@@ -27,6 +27,7 @@ export async function deleteFile(
       sizeInBytes: file.sizeInBytes,
       providerId: file.providerId,
       folderId: file.folderId,
+      isTrashed: file.isTrashed,
       isDeleted: file.isDeleted,
     })
     .from(file)
@@ -41,7 +42,7 @@ export async function deleteFile(
   const fileRow = fileRows[0]
 
   // Skip if item is no longer marked for deletion (e.g., restored)
-  if (!fileRow.isDeleted) {
+  if (!fileRow.isTrashed || !fileRow.isDeleted) {
     console.log(
       `[Workflow Step] Skipping file ${fileId}: not marked for deletion (restored?)`,
     )

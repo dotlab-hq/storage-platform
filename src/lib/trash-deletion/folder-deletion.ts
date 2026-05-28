@@ -9,6 +9,7 @@ import {
 import type { TrashDeletionItem } from './params'
 import { getTrashDeletionDO } from './do-client'
 import type { QueueClient } from './do-client'
+import { markAndQueueFolderChildren } from './folder-children'
 
 export async function processFolderChildren(
   env: Env,
@@ -25,6 +26,7 @@ export async function processFolderChildren(
       and(
         eq(folder.parentFolderId, folderId),
         eq(folder.userId, userId),
+        eq(folder.isTrashed, true),
         eq(folder.isDeleted, true),
         isNull(folder.deletionQueuedAt),
       ),
@@ -37,6 +39,7 @@ export async function processFolderChildren(
       and(
         eq(file.folderId, folderId),
         eq(file.userId, userId),
+        eq(file.isTrashed, true),
         eq(file.isDeleted, true),
         isNull(file.deletionQueuedAt),
       ),
@@ -81,11 +84,11 @@ export async function enqueueFolderChildren(
   const now = new Date()
 
   for (const fileId of childFileIds) {
-    const result = await db
+    await db
       .update(file)
       .set({
         isDeleted: true,
-        isTrashed: false,
+        isTrashed: true,
         deletionQueuedAt: now,
         updatedAt: now,
       })
@@ -93,25 +96,23 @@ export async function enqueueFolderChildren(
         and(
           eq(file.id, fileId),
           eq(file.userId, userId),
-          eq(file.isDeleted, false),
+          eq(file.isTrashed, true),
+          eq(file.isDeleted, true),
         ),
       )
-    const changes = result as any
-    if (changes.changes > 0) {
-      await queue.send(
-        JSON.stringify({ userId, itemId: fileId, itemType: 'file' }),
-      )
-      enqueued++
-      console.log('[Workflow Step] Enqueued child file:', fileId)
-    }
+    await queue.send(
+      JSON.stringify({ userId, itemId: fileId, itemType: 'file' }),
+    )
+    enqueued++
+    console.log('[Workflow Step] Enqueued child file:', fileId)
   }
 
   for (const childFolderId of childFolderIds) {
-    const result = await db
+    await db
       .update(folder)
       .set({
         isDeleted: true,
-        isTrashed: false,
+        isTrashed: true,
         deletionQueuedAt: now,
         updatedAt: now,
       })
@@ -119,17 +120,15 @@ export async function enqueueFolderChildren(
         and(
           eq(folder.id, childFolderId),
           eq(folder.userId, userId),
-          eq(folder.isDeleted, false),
+          eq(folder.isTrashed, true),
+          eq(folder.isDeleted, true),
         ),
       )
-    const changes = result as any
-    if (changes.changes > 0) {
-      await queue.send(
-        JSON.stringify({ userId, itemId: childFolderId, itemType: 'folder' }),
-      )
-      enqueued++
-      console.log('[Workflow Step] Enqueued child folder:', childFolderId)
-    }
+    await queue.send(
+      JSON.stringify({ userId, itemId: childFolderId, itemType: 'folder' }),
+    )
+    enqueued++
+    console.log('[Workflow Step] Enqueued child folder:', childFolderId)
   }
 
   return enqueued
@@ -147,13 +146,18 @@ export async function deleteFolder(
   const initialCheck = await db
     .select({
       isDeleted: folder.isDeleted,
+      isTrashed: folder.isTrashed,
       parentFolderId: folder.parentFolderId,
     })
     .from(folder)
     .where(eq(folder.id, folderId))
     .limit(1)
 
-  if (initialCheck.length === 0 || !initialCheck[0].isDeleted) {
+  if (
+    initialCheck.length === 0 ||
+    !initialCheck[0].isTrashed ||
+    !initialCheck[0].isDeleted
+  ) {
     console.log(
       `[Workflow Step] Skipping folder ${folderId}: not marked for deletion (restored?)`,
     )
@@ -174,8 +178,18 @@ export async function deleteFolder(
     return
   }
 
-  // Children are already marked as deleted when user emptied trash
-  // Just delete the folder directly
+  const childQueueResult = await markAndQueueFolderChildren(
+    env,
+    userId,
+    folderId,
+  )
+  if (childQueueResult.totalChildren > 0) {
+    console.log(
+      `[Workflow Step] Folder ${folderId} has ${childQueueResult.totalChildren} children; queued ${childQueueResult.queuedChildren} before folder deletion`,
+    )
+    return
+  }
+
   console.log(
     `[Workflow Step] Folder ${folderId} is marked for deletion, deleting permanently`,
   )
@@ -183,13 +197,18 @@ export async function deleteFolder(
   const folderInfo = await db
     .select({
       parentFolderId: folder.parentFolderId,
+      isTrashed: folder.isTrashed,
       isDeleted: folder.isDeleted,
     })
     .from(folder)
     .where(eq(folder.id, folderId))
     .limit(1)
 
-  if (folderInfo.length === 0 || !folderInfo[0].isDeleted) {
+  if (
+    folderInfo.length === 0 ||
+    !folderInfo[0].isTrashed ||
+    !folderInfo[0].isDeleted
+  ) {
     console.log(
       `[Workflow Step] Skipping folder ${folderId}: not marked for deletion (restored?)`,
     )
@@ -251,6 +270,7 @@ export async function checkAndDeleteCompletedFolders(
         .select({
           userId: folder.userId,
           parentFolderId: folder.parentFolderId,
+          isTrashed: folder.isTrashed,
           isDeleted: folder.isDeleted,
         })
         .from(folder)
@@ -263,7 +283,7 @@ export async function checkAndDeleteCompletedFolders(
       }
 
       // Skip if folder was restored (no longer marked for deletion)
-      if (!folderRows[0].isDeleted) {
+      if (!folderRows[0].isTrashed || !folderRows[0].isDeleted) {
         console.log(
           `[Workflow Step] Folder ${folderId} restored before deletion, skipping`,
         )

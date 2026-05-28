@@ -1,5 +1,6 @@
 import { and, eq, like, or } from 'drizzle-orm'
 import { db } from '@/db'
+import { folder } from '@/db/schema/storage'
 import { storageNodeBtree } from '@/db/schema/storage-btree'
 import {
   descendantPrefix,
@@ -36,6 +37,69 @@ async function getNodePath(userId: string, folderId: string | null) {
   return rows[0]?.fullPath ?? null
 }
 
+async function resolveParentPath(
+  userId: string,
+  folderId: string | null,
+  visited = new Set<string>(),
+): Promise<string> {
+  if (!folderId) return ''
+  const existingPath = await getNodePath(userId, folderId)
+  if (existingPath !== null) return existingPath
+  if (visited.has(folderId)) return ''
+
+  visited.add(folderId)
+  const rows = await db
+    .select({
+      id: folder.id,
+      name: folder.name,
+      parentFolderId: folder.parentFolderId,
+      isDeleted: folder.isDeleted,
+      isTrashed: folder.isTrashed,
+    })
+    .from(folder)
+    .where(and(eq(folder.id, folderId), eq(folder.userId, userId)))
+    .limit(1)
+  const parent = rows[0]
+  if (!parent) return ''
+
+  const parentPath = await resolveParentPath(
+    userId,
+    parent.parentFolderId,
+    visited,
+  )
+  const folderPath = normalizePath(parentPath)
+  const fullPath = joinPath(folderPath, parent.name)
+  const isDeleted = parent.isDeleted || parent.isTrashed
+  await db
+    .insert(storageNodeBtree)
+    .values({
+      userId,
+      nodeType: 'folder',
+      nodeId: parent.id,
+      parentFolderId: parent.parentFolderId,
+      folderPath,
+      fullPath,
+      name: parent.name,
+      isDeleted,
+    })
+    .onConflictDoUpdate({
+      target: [
+        storageNodeBtree.userId,
+        storageNodeBtree.nodeType,
+        storageNodeBtree.nodeId,
+      ],
+      set: {
+        parentFolderId: parent.parentFolderId,
+        folderPath,
+        fullPath,
+        name: parent.name,
+        isDeleted,
+        updatedAt: new Date(),
+      },
+    })
+  return fullPath
+}
+
 export async function upsertFolderNode(input: {
   userId: string
   folderId: string
@@ -43,8 +107,10 @@ export async function upsertFolderNode(input: {
   parentFolderId: string | null
   isDeleted: boolean
 }) {
-  const parentPath =
-    (await getNodePath(input.userId, input.parentFolderId)) ?? ''
+  const parentPath = await resolveParentPath(
+    input.userId,
+    input.parentFolderId,
+  )
   const folderPath = normalizePath(parentPath)
   const fullPath = joinPath(folderPath, input.name)
 

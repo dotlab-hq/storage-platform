@@ -1,10 +1,12 @@
-import { eq, and, inArray, isNull, isNotNull, gt, lt } from 'drizzle-orm'
+import { eq, and, inArray, isNull, isNotNull, lt } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
 import type { TrashDeletionItem } from './params'
 import { enqueueTrashDeletionItems, type QueueBinding } from './producer'
 
-const ONE_DAY_AGO = new Date(Date.now() - 24 * 60 * 60 * 1000)
+function getOneDayAgo(): Date {
+  return new Date(Date.now() - 24 * 60 * 60 * 1000)
+}
 
 /**
  * Get items ready for deletion for automated cron (respects 24h wait).
@@ -15,6 +17,7 @@ export async function getDeletableItems(
   limit: number = 1000,
 ): Promise<TrashDeletionItem[]> {
   const items: TrashDeletionItem[] = []
+  const oneDayAgo = getOneDayAgo()
 
   // New candidates: deletionQueuedAt IS NULL AND deleted > 24h ago
   const candidateFolders = await db
@@ -27,9 +30,10 @@ export async function getDeletableItems(
     .from(folder)
     .where(
       and(
+        eq(folder.isTrashed, true),
         eq(folder.isDeleted, true),
         isNull(folder.deletionQueuedAt),
-        gt(folder.deletedAt, ONE_DAY_AGO),
+        lt(folder.deletedAt, oneDayAgo),
       ),
     )
     .limit(limit)
@@ -40,11 +44,15 @@ export async function getDeletableItems(
       continue
     }
     const parent = await db
-      .select({ id: folder.id, isDeleted: folder.isDeleted })
+      .select({
+        id: folder.id,
+        isTrashed: folder.isTrashed,
+        isDeleted: folder.isDeleted,
+      })
       .from(folder)
       .where(eq(folder.id, f.parentFolderId))
       .limit(1)
-    if (parent.length === 0 || !parent[0].isDeleted) {
+    if (parent.length === 0 || !parent[0].isTrashed || !parent[0].isDeleted) {
       items.push({ userId: f.userId, itemId: f.id, itemType: 'folder' })
     }
   }
@@ -59,9 +67,10 @@ export async function getDeletableItems(
     .from(file)
     .where(
       and(
+        eq(file.isTrashed, true),
         eq(file.isDeleted, true),
         isNull(file.deletionQueuedAt),
-        gt(file.deletedAt, ONE_DAY_AGO),
+        lt(file.deletedAt, oneDayAgo),
       ),
     )
     .limit(limit)
@@ -72,11 +81,15 @@ export async function getDeletableItems(
       continue
     }
     const parent = await db
-      .select({ id: folder.id, isDeleted: folder.isDeleted })
+      .select({
+        id: folder.id,
+        isTrashed: folder.isTrashed,
+        isDeleted: folder.isDeleted,
+      })
       .from(folder)
       .where(eq(folder.id, f.folderId))
       .limit(1)
-    if (parent.length === 0 || !parent[0].isDeleted) {
+    if (parent.length === 0 || !parent[0].isTrashed || !parent[0].isDeleted) {
       items.push({ userId: f.userId, itemId: f.id, itemType: 'file' })
     }
   }
@@ -94,6 +107,7 @@ export async function getDeletableItems(
     .from(folder)
     .where(
       and(
+        eq(folder.isTrashed, true),
         eq(folder.isDeleted, true),
         isNotNull(folder.deletionQueuedAt),
         lt(folder.deletionQueuedAt, TWO_HOURS_AGO),
@@ -107,11 +121,15 @@ export async function getDeletableItems(
       continue
     }
     const parent = await db
-      .select({ id: folder.id, isDeleted: folder.isDeleted })
+      .select({
+        id: folder.id,
+        isTrashed: folder.isTrashed,
+        isDeleted: folder.isDeleted,
+      })
       .from(folder)
       .where(eq(folder.id, f.parentFolderId))
       .limit(1)
-    if (parent.length === 0 || !parent[0].isDeleted) {
+    if (parent.length === 0 || !parent[0].isTrashed || !parent[0].isDeleted) {
       items.push({ userId: f.userId, itemId: f.id, itemType: 'folder' })
     }
   }
@@ -125,6 +143,7 @@ export async function getDeletableItems(
     .from(file)
     .where(
       and(
+        eq(file.isTrashed, true),
         eq(file.isDeleted, true),
         isNotNull(file.deletionQueuedAt),
         lt(file.deletionQueuedAt, TWO_HOURS_AGO),
@@ -138,11 +157,15 @@ export async function getDeletableItems(
       continue
     }
     const parent = await db
-      .select({ id: folder.id, isDeleted: folder.isDeleted })
+      .select({
+        id: folder.id,
+        isTrashed: folder.isTrashed,
+        isDeleted: folder.isDeleted,
+      })
       .from(folder)
       .where(eq(folder.id, f.folderId))
       .limit(1)
-    if (parent.length === 0 || !parent[0].isDeleted) {
+    if (parent.length === 0 || !parent[0].isTrashed || !parent[0].isDeleted) {
       items.push({ userId: f.userId, itemId: f.id, itemType: 'file' })
     }
   }
@@ -167,7 +190,7 @@ export async function getDeletableItemsForManualCron(
       parentFolderId: folder.parentFolderId,
     })
     .from(folder)
-    .where(eq(folder.isDeleted, true))
+    .where(and(eq(folder.isTrashed, true), eq(folder.isDeleted, true)))
     .limit(limit)
 
   for (const f of candidateFolders) {
@@ -176,11 +199,15 @@ export async function getDeletableItemsForManualCron(
       continue
     }
     const parent = await db
-      .select({ id: folder.id, isDeleted: folder.isDeleted })
+      .select({
+        id: folder.id,
+        isTrashed: folder.isTrashed,
+        isDeleted: folder.isDeleted,
+      })
       .from(folder)
       .where(eq(folder.id, f.parentFolderId))
       .limit(1)
-    if (parent.length === 0 || !parent[0].isDeleted) {
+    if (parent.length === 0 || !parent[0].isTrashed || !parent[0].isDeleted) {
       items.push({ userId: f.userId, itemId: f.id, itemType: 'folder' })
     }
   }
@@ -192,7 +219,7 @@ export async function getDeletableItemsForManualCron(
       folderId: file.folderId,
     })
     .from(file)
-    .where(eq(file.isDeleted, true))
+    .where(and(eq(file.isTrashed, true), eq(file.isDeleted, true)))
     .limit(limit)
 
   for (const f of candidateFiles) {
@@ -201,11 +228,15 @@ export async function getDeletableItemsForManualCron(
       continue
     }
     const parent = await db
-      .select({ id: folder.id, isDeleted: folder.isDeleted })
+      .select({
+        id: folder.id,
+        isTrashed: folder.isTrashed,
+        isDeleted: folder.isDeleted,
+      })
       .from(folder)
       .where(eq(folder.id, f.folderId))
       .limit(1)
-    if (parent.length === 0 || !parent[0].isDeleted) {
+    if (parent.length === 0 || !parent[0].isTrashed || !parent[0].isDeleted) {
       items.push({ userId: f.userId, itemId: f.id, itemType: 'file' })
     }
   }
@@ -275,22 +306,38 @@ export async function buildAndClaimDeletionBatch(
       ? db
           .select({
             id: file.id,
+            isTrashed: file.isTrashed,
             isDeleted: file.isDeleted,
             deletionQueuedAt: file.deletionQueuedAt,
           })
           .from(file)
           .where(inArray(file.id, fileIds))
-      : Promise.resolve([] as Array<{ id: string; isDeleted: boolean; deletionQueuedAt: Date | null }>),
+      : Promise.resolve(
+          [] as Array<{
+            id: string
+            isTrashed: boolean | null
+            isDeleted: boolean
+            deletionQueuedAt: Date | null
+          }>,
+        ),
     folderIds.length > 0
       ? db
           .select({
             id: folder.id,
+            isTrashed: folder.isTrashed,
             isDeleted: folder.isDeleted,
             deletionQueuedAt: folder.deletionQueuedAt,
           })
           .from(folder)
           .where(inArray(folder.id, folderIds))
-      : Promise.resolve([] as Array<{ id: string; isDeleted: boolean; deletionQueuedAt: Date | null }>),
+      : Promise.resolve(
+          [] as Array<{
+            id: string
+            isTrashed: boolean | null
+            isDeleted: boolean
+            deletionQueuedAt: Date | null
+          }>,
+        ),
   ])
 
   const fileStateMap = new Map(fileRows.map((r) => [r.id, r]))
@@ -310,7 +357,7 @@ export async function buildAndClaimDeletionBatch(
     // Skip if missing, already claimed, or not marked for deletion (e.g., restored)
     if (!state) continue
     if (state.deletionQueuedAt !== null) continue
-    if (!state.isDeleted) continue
+    if (!state.isTrashed || !state.isDeleted) continue
 
     finalBatch.push(item)
     if (item.itemType === 'file') filesToClaim.push(item.itemId)
@@ -325,6 +372,7 @@ export async function buildAndClaimDeletionBatch(
       .where(
         and(
           inArray(file.id, filesToClaim),
+          eq(file.isTrashed, true),
           eq(file.isDeleted, true),
           isNull(file.deletionQueuedAt),
         ),
@@ -339,6 +387,7 @@ export async function buildAndClaimDeletionBatch(
       .where(
         and(
           inArray(folder.id, foldersToClaim),
+          eq(folder.isTrashed, true),
           eq(folder.isDeleted, true),
           isNull(folder.deletionQueuedAt),
         ),
@@ -377,21 +426,31 @@ export async function claimItems(items: TrashDeletionItem[]): Promise<number> {
   let affected = 0
 
   if (fileIds.length > 0) {
-    const result = await db
+    await db
       .update(file)
       .set({ deletionQueuedAt: now, updatedAt: now })
-      .where(inArray(file.id, fileIds))
-    const changes = result as any
-    affected += changes.changes ?? 0
+      .where(
+        and(
+          inArray(file.id, fileIds),
+          eq(file.isTrashed, true),
+          eq(file.isDeleted, true),
+        ),
+      )
+    affected += fileIds.length
   }
 
   if (folderIds.length > 0) {
-    const result = await db
+    await db
       .update(folder)
       .set({ deletionQueuedAt: now, updatedAt: now })
-      .where(inArray(folder.id, folderIds))
-    const changes = result as any
-    affected += changes.changes ?? 0
+      .where(
+        and(
+          inArray(folder.id, folderIds),
+          eq(folder.isTrashed, true),
+          eq(folder.isDeleted, true),
+        ),
+      )
+    affected += folderIds.length
   }
 
   return affected

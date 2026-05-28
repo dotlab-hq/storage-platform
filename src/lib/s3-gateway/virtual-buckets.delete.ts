@@ -8,14 +8,12 @@ import {
   getActiveBucketRow,
 } from '@/lib/s3-gateway/virtual-buckets.shared'
 import {
-  decrementUserStorage,
   deleteMappedFolder,
   getActiveBucketFiles,
   hasActiveObjects,
   softDeleteByPrefix,
 } from '@/lib/s3-gateway/virtual-buckets.fallback'
 import { removeBucketContextCache } from '@/lib/s3-gateway/virtual-bucket-kv-cache'
-import { removeS3ObjectRecordsByPrefix } from '@/lib/s3-gateway/virtual-buckets.records'
 
 export async function emptyVirtualBucket(
   userId: string,
@@ -35,13 +33,7 @@ export async function emptyVirtualBucket(
     return
   }
 
-  const totalBytes = activeFiles.reduce(
-    (sum, item) => sum + item.sizeInBytes,
-    0,
-  )
   await softDeleteByPrefix(userId, prefix)
-  await removeS3ObjectRecordsByPrefix(userId, row, prefix)
-  await decrementUserStorage(userId, totalBytes)
 }
 
 export async function deleteVirtualBucket(
