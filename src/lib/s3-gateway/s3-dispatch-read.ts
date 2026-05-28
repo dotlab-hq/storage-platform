@@ -421,7 +421,7 @@ export async function handleGet(
   const object = await getObject( resolvedBucket, parsed.objectKey, {
     ifNoneMatch: request.headers.get( 'if-none-match' ),
     ifModifiedSince: request.headers.get( 'if-modified-since' ),
-  } )
+  }, request.headers.get( 'range' ) )
   if ( !object )
     return s3ErrorResponse(
       404,

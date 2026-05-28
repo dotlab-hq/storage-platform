@@ -84,6 +84,68 @@ export type ListedS3Object = {
   lastModified: Date
 }
 
+type ParsedRange = {
+  start: number
+  end: number
+}
+
+function parseRangeHeader(
+  rangeHeader: string | null,
+  totalLength: number,
+): ParsedRange | 'invalid' | 'unsatisfiable' | null {
+  if (!rangeHeader) {
+    return null
+  }
+  const match = /^bytes=(\d*)-(\d*)$/.exec(rangeHeader)
+  if (!match) {
+    return 'invalid'
+  }
+  const startRaw = match[1]
+  const endRaw = match[2]
+  if (!startRaw && !endRaw) {
+    return 'invalid'
+  }
+  if (!Number.isFinite(totalLength) || totalLength < 0) {
+    return 'invalid'
+  }
+  if (totalLength === 0) {
+    return 'unsatisfiable'
+  }
+
+  if (!startRaw) {
+    const suffixLength = Number.parseInt(endRaw, 10)
+    if (!Number.isFinite(suffixLength) || suffixLength <= 0) {
+      return 'invalid'
+    }
+    const length = Math.min(suffixLength, totalLength)
+    return {
+      start: totalLength - length,
+      end: totalLength - 1,
+    }
+  }
+
+  const start = Number.parseInt(startRaw, 10)
+  if (!Number.isFinite(start) || start < 0) {
+    return 'invalid'
+  }
+  if (start >= totalLength) {
+    return 'unsatisfiable'
+  }
+
+  let end = totalLength - 1
+  if (endRaw) {
+    const parsedEnd = Number.parseInt(endRaw, 10)
+    if (!Number.isFinite(parsedEnd) || parsedEnd < 0) {
+      return 'invalid'
+    }
+    end = Math.min(parsedEnd, totalLength - 1)
+  }
+  if (end < start) {
+    return 'invalid'
+  }
+  return { start, end }
+}
+
 async function hasBucketObjects(bucket: BucketContext): Promise<boolean> {
   try {
     const objectKeyPrefix = `s3/${bucket.userId}/${bucket.bucketId}/%`
@@ -466,6 +528,7 @@ export async function getObject(
   bucket: BucketContext,
   objectKey: string,
   conditionals: ObjectConditionalHeaders,
+  rangeHeader: string | null,
 ): Promise<Response | null> {
   const stored = await findStoredObject(bucket, objectKey)
   if (!stored) {
@@ -487,6 +550,23 @@ export async function getObject(
   }
 
   const provider = await getProviderClientById(stored.providerId)
+  const parsedRange = parseRangeHeader(rangeHeader, stored.sizeInBytes)
+  if (parsedRange === 'invalid') {
+    return new Response(null, {
+      status: 416,
+      headers: new Headers({
+        'Content-Range': `bytes */${stored.sizeInBytes}`,
+      }),
+    })
+  }
+  if (parsedRange === 'unsatisfiable') {
+    return new Response(null, {
+      status: 416,
+      headers: new Headers({
+        'Content-Range': `bytes */${stored.sizeInBytes}`,
+      }),
+    })
+  }
 
   // For large files, use proxy streaming to avoid memory issues
   // Proxy threshold: 100MB - files larger than this use the proxy download path
@@ -510,6 +590,7 @@ export async function getObject(
     Bucket: provider.bucketName,
     Key: stored.objectKey,
     ResponseContentType: stored.mimeType ?? undefined,
+    Range: parsedRange ? `bytes=${parsedRange.start}-${parsedRange.end}` : undefined,
   })
   let upstream: {
     Body?: unknown
@@ -546,13 +627,24 @@ export async function getObject(
     'Content-Type',
     upstream.ContentType ?? stored.mimeType ?? 'application/octet-stream',
   )
+  headers.set('Accept-Ranges', 'bytes')
+  const fullLength = stored.sizeInBytes
+  const rangeLength = parsedRange
+    ? parsedRange.end - parsedRange.start + 1
+    : fullLength
   headers.set(
     'Content-Length',
-    String(upstream.ContentLength ?? stored.sizeInBytes),
+    String(parsedRange ? rangeLength : upstream.ContentLength ?? fullLength),
   )
+  if (parsedRange) {
+    headers.set(
+      'Content-Range',
+      `bytes ${parsedRange.start}-${parsedRange.end}/${fullLength}`,
+    )
+  }
 
   return new Response(toBodyInit(upstream.Body), {
-    status: 200,
+    status: parsedRange ? 206 : 200,
     headers,
   })
 }
