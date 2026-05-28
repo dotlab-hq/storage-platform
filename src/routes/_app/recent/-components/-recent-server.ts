@@ -2,7 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { getFilePresignedUrlFn } from '@/lib/storage/mutations/urls'
-import { getRecentItems } from '@/lib/storage-queries'
+import { getRecentDriveItems } from './-recent-queries'
 
 const RecentFileInputSchema = z.object({
   fileId: z.string().min(1),
@@ -20,7 +20,7 @@ export const getRecentSnapshotFn = createServerFn({ method: 'GET' })
   .middleware([apiAuthMiddleware])
   .handler(async ({ context }) => {
     const currentUser = context.user
-    const recent = await getRecentItems(currentUser.id)
+    const recent = await getRecentDriveItems(currentUser.id)
 
     const items: RecentSnapshotItem[] = [
       ...recent.folders.map((folder) => ({
@@ -52,7 +52,7 @@ export const getRecentFileUrlFn = createServerFn({ method: 'GET' })
     const result = await getFilePresignedUrlFn({
       data: { fileId: data.fileId },
     })
-    if (!result || typeof result.url !== 'string') {
+    if (typeof result.url !== 'string') {
       throw new Error('Failed to generate presigned URL')
     }
     return { url: result.url }
