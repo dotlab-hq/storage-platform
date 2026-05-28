@@ -6,6 +6,7 @@ import { selectProviderForUpload } from '@/lib/s3-provider-client'
 import { DEFAULT_FILE_SIZE_LIMIT_BYTES } from '@/lib/storage-quota-constants'
 import { logActivity } from '@/lib/activity'
 import { registerFile } from '@/lib/upload-server'
+import { buildUploadObjectKey } from '@/lib/upload-object-key'
 
 const ImportFromUrlSchema = z.object({
   url: z.string().url(),
@@ -67,16 +68,10 @@ export const importFileFromUrl = createServerFn({ method: 'POST' })
       fileName = fileName.split('?')[0]
     }
 
-    const dotIndex = fileName.lastIndexOf('.')
-    const base =
-      (dotIndex > 0 ? fileName.slice(0, dotIndex) : fileName)
-        .replace(/\s+/g, '_')
-        .replace(/[^a-zA-Z0-9._-]/g, '') || 'file'
-    const ext =
-      dotIndex > 0
-        ? `.${fileName.slice(dotIndex + 1).replace(/[^a-zA-Z0-9]/g, '')}`
-        : ''
-    const objectKey = `${userId}/${crypto.randomUUID()}-${base}${ext}`
+    const objectKey = buildUploadObjectKey({
+      segments: [userId],
+      fileName,
+    })
 
     const provider = await selectProviderForUpload(fileSize, userId)
     const { PutObjectCommand } = await import('@aws-sdk/client-s3')

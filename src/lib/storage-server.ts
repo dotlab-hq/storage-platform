@@ -5,6 +5,7 @@ import {
   withUniqueFileName,
   withUniqueFolderName,
 } from '@/lib/unique-sibling-name.server'
+import { buildUploadObjectKey } from '@/lib/upload-object-key'
 
 const EXCLUDE_VIRTUAL_BUCKET_FOLDERS = sql<boolean>`
     NOT EXISTS (
@@ -41,8 +42,10 @@ export async function uploadSingleFile( {
     `[Server] Starting upload for file: ${file.name} (${file.size} bytes)`,
   )
 
-  const extension = file.name.includes( '.' ) ? file.name.split( '.' ).pop() : 'bin'
-  const objectKey = `${userId}/${crypto.randomUUID()}.${extension}`
+  const objectKey = buildUploadObjectKey( {
+    segments: [userId],
+    fileName: file.name,
+  } )
   const fileBytes = new Uint8Array( await file.arrayBuffer() )
 
   console.log( `[Server] S3 Key: ${objectKey}, Bucket: ${provider.bucketName}` )

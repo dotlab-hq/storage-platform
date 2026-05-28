@@ -14,6 +14,7 @@ import {
   withUniqueFileName,
   withUniqueFolderName,
 } from '@/lib/unique-sibling-name.server'
+import { buildUploadObjectKey } from '@/lib/upload-object-key'
 
 const AbortFolderUploadSchema = z.object( {
   uploadSessionId: z.string(),
@@ -110,16 +111,10 @@ export const initFolderUpload = createServerFn( { method: 'POST' } )
         const objectKeys: Record<string, string> = {}
 
         for ( const file of data.files ) {
-          const dotIndex = file.fileName.lastIndexOf( '.' )
-          const base =
-            ( dotIndex > 0 ? file.fileName.slice( 0, dotIndex ) : file.fileName )
-              .replace( /\s+/g, '_' )
-              .replace( /[^a-zA-Z0-9._-]/g, '' ) || 'file'
-          const ext =
-            dotIndex > 0
-              ? `.${file.fileName.slice( dotIndex + 1 ).replace( /[^a-zA-Z0-9]/g, '' )}`
-              : ''
-          const objectKey = `${authUser.id}/${uploadSessionId}/${crypto.randomUUID()}-${base}${ext}`
+          const objectKey = buildUploadObjectKey( {
+            segments: [authUser.id, uploadSessionId],
+            fileName: file.fileName,
+          } )
           objectKeys[file.fileName] = objectKey
         }
 

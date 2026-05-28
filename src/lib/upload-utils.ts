@@ -7,6 +7,7 @@ import {
 } from './upload-server'
 import { uploadFileViaProxy } from './upload-proxy-client'
 import { prepareUploadTarget } from './upload-target-server'
+import { buildUploadObjectKey } from './upload-object-key'
 import { updateUpload, uploadStore } from '@/lib/stores/upload-store'
 import type { UploadingFile } from '@/types/storage'
 
@@ -267,16 +268,10 @@ export async function uploadFileToS3(
     throw new Error('User ID is required for upload')
   }
 
-  const dotIndex = file.name.lastIndexOf('.')
-  const base =
-    (dotIndex > 0 ? file.name.slice(0, dotIndex) : file.name)
-      .replace(/\s+/g, '_')
-      .replace(/[^a-zA-Z0-9._-]/g, '') || 'file'
-  const ext =
-    dotIndex > 0
-      ? `.${file.name.slice(dotIndex + 1).replace(/[^a-zA-Z0-9]/g, '')}`
-      : ''
-  const objectKey = `${userId}/${crypto.randomUUID()}-${base}${ext}`
+  const objectKey = buildUploadObjectKey({
+    segments: [userId],
+    fileName: file.name,
+  })
   const contentType = file.type || 'application/octet-stream'
 
   const uploadTarget = await fetchUploadTarget(

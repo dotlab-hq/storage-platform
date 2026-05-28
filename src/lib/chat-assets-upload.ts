@@ -1,6 +1,7 @@
 import { getVirtualBucketCredentials } from '@/lib/s3-gateway/virtual-buckets.server'
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
 import { nanoid } from 'nanoid'
+import { buildUploadObjectKey } from '@/lib/upload-object-key'
 
 export interface UploadedFileMetadata {
   key: string
@@ -20,9 +21,11 @@ export async function uploadChatAttachment(
   // Get or create the assets virtual bucket for this user
   const bucket = await getVirtualBucketCredentials(userId, 'assets')
 
-  // Generate unique object key: chat-uploads/{userId}/{nanoid}_{filename}
-  const safeFilename = file.name.replace(/[^a-zA-Z0-9.-]/g, '_')
-  const objectKey = `chat-uploads/${userId}/${nanoid()}_${safeFilename}`
+  const objectKey = buildUploadObjectKey({
+    segments: ['chat-uploads', userId],
+    fileName: file.name,
+    uniqueId: nanoid(),
+  })
 
   // Create S3 client
   const s3Client = new S3Client({
@@ -68,7 +71,11 @@ export async function getChatAttachmentUploadUrl(
   _size: number,
 ): Promise<{ uploadUrl: string; objectKey: string }> {
   const bucket = await getVirtualBucketCredentials(userId, 'assets')
-  const objectKey = `chat-uploads/${userId}/${nanoid()}_${filename}`
+  const objectKey = buildUploadObjectKey({
+    segments: ['chat-uploads', userId],
+    fileName: filename,
+    uniqueId: nanoid(),
+  })
 
   // For simplicity, use direct upload URL
   // In production, might use presigned POST or multipart
