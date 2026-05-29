@@ -5,16 +5,18 @@ import {
 } from '@aws-sdk/client-s3'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 import { createServerFn } from '@tanstack/react-start'
+import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { getViewerClient } from './viewer-fns.server'
 import { MultipartCompleteSchema, MultipartInitSchema } from './schemas'
 
 export const createS3ViewerUploadPresignUrlFn = createServerFn({
   method: 'POST',
 })
+  .middleware([apiAuthMiddleware])
   .inputValidator(MultipartInitSchema)
-  .handler(async ({ data }) => {
+  .handler(async ({ data, context }) => {
     try {
-      const { client } = await getViewerClient(data.bucketName)
+      const { client } = await getViewerClient(context.user.id, data.bucketName)
       const contentType =
         data.contentType && data.contentType.length > 0
           ? data.contentType
@@ -97,9 +99,10 @@ export const createS3ViewerUploadPresignUrlFn = createServerFn({
 export const completeS3ViewerMultipartUploadFn = createServerFn({
   method: 'POST',
 })
+  .middleware([apiAuthMiddleware])
   .inputValidator(MultipartCompleteSchema)
-  .handler(async ({ data }) => {
-    const { client } = await getViewerClient(data.bucketName)
+  .handler(async ({ data, context }) => {
+    const { client } = await getViewerClient(context.user.id, data.bucketName)
 
     await client.send(
       new CompleteMultipartUploadCommand({

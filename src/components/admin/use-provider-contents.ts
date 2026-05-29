@@ -1,80 +1,10 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { useEffect, useMemo, useState } from 'react'
 import type { AdminProviderContentsResponse } from '@/lib/admin-provider-browser'
-import { getAdminProviderContentsFn } from '@/routes/_app/admin/-components/-provider-contents-server'
-import { getUserProviderContentsFn } from '@/routes/_app/settings/-provider-contents-server'
-
-type LoadProviderContentsArgs = {
-  providerId: string
-  prefix: string
-  continuationToken?: string | null
-  scope: 'admin' | 'user'
-}
-
-function toErrorMessage(error: unknown): string {
-  if (error instanceof Error) {
-    return error.message
-  }
-  if (
-    typeof error === 'object' &&
-    error !== null &&
-    'message' in error &&
-    typeof (error as { message?: unknown }).message === 'string'
-  ) {
-    return (error as { message: string }).message
-  }
-  if (
-    typeof error === 'object' &&
-    error !== null &&
-    'data' in error &&
-    typeof (error as { data?: unknown }).data === 'object' &&
-    (error as { data?: unknown }).data !== null &&
-    'message' in
-      ((error as { data: { message?: unknown } }).data as {
-        message?: unknown
-      }) &&
-    typeof (error as { data: { message?: unknown } }).data.message === 'string'
-  ) {
-    return (error as { data: { message: string } }).data.message
-  }
-  return 'Failed to load provider contents'
-}
-
-async function loadProviderContents({
-  providerId,
-  prefix,
-  continuationToken,
-  scope,
-  searchQuery = '',
-}: LoadProviderContentsArgs & {
-  searchQuery?: string
-}): Promise<AdminProviderContentsResponse> {
-  try {
-    if (scope === 'user') {
-      return await getUserProviderContentsFn({
-        data: {
-          providerId,
-          prefix,
-          continuationToken: continuationToken ?? null,
-          maxKeys: 250,
-          search: searchQuery.length > 0 ? searchQuery : undefined,
-        },
-      })
-    }
-
-    return await getAdminProviderContentsFn({
-      data: {
-        providerId,
-        prefix,
-        continuationToken: continuationToken ?? null,
-        maxKeys: 250,
-        search: searchQuery.length > 0 ? searchQuery : undefined,
-      },
-    })
-  } catch (error) {
-    throw new Error(toErrorMessage(error))
-  }
-}
+import {
+  getProviderObjectUrl,
+  loadProviderContents,
+} from '@/components/admin/provider-contents-client'
 
 export function useProviderContents(
   providerId: string | null,
@@ -175,6 +105,13 @@ export function useProviderContents(
       if (query.hasNextPage && !query.isFetchingNextPage) {
         await query.fetchNextPage()
       }
+    },
+    openFile: async (objectKey: string) => {
+      if (!providerId) {
+        throw new Error('Provider is required')
+      }
+      const url = await getProviderObjectUrl({ providerId, objectKey, scope })
+      window.open(url, '_blank', 'noopener,noreferrer')
     },
     setSearchQuery,
   }

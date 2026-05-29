@@ -32,7 +32,7 @@ export function BucketSettingsPermissionsTab({
   )
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[220px_minmax(0,1fr)_260px]">
+    <div className="grid min-w-0 gap-4 xl:grid-cols-[220px_minmax(0,1fr)_260px]">
       <BucketSettingsPermissionsSidebar
         bucketName={bucketName}
         onUpdate={onUpdate}
@@ -40,8 +40,8 @@ export function BucketSettingsPermissionsTab({
         isPending={isPending}
       />
 
-      <div className="space-y-3">
-        <div className="flex items-center justify-between">
+      <div className="min-w-0 space-y-3">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
             Policy Editor
           </p>
@@ -55,20 +55,20 @@ export function BucketSettingsPermissionsTab({
               })
             }
             disabled={isPending}
-            className="gap-2"
+            className="w-full gap-2 sm:w-auto"
           >
             <Save className="h-4 w-4" /> Save Policy
           </Button>
         </div>
         <textarea
           aria-label="Bucket policy JSON"
-          className="h-56 w-full rounded-lg border border border-border/60 bg-muted/30 p-3 font-mono text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-foreground/70/40"
+          className="h-56 w-full min-w-0 rounded-lg border border-border/60 bg-muted/30 p-3 font-mono text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-foreground/40"
           value={draftPolicy}
           onChange={(e) => setDraftPolicy(e.target.value)}
         />
       </div>
 
-      <div className="space-y-3 rounded-lg border border border-border/60 bg-muted/30 p-3 text-xs">
+      <div className="min-w-0 space-y-3 rounded-lg border border-border/60 bg-muted/30 p-3 text-xs">
         <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
           Security Summary
         </p>
@@ -89,9 +89,6 @@ export function BucketSettingsPermissionsTab({
           </pre>
         </div>
       </div>
-
     </div>
   )
 }
-
-

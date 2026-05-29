@@ -1,7 +1,7 @@
 import {
   completeS3ViewerMultipartUploadFn,
   createS3ViewerUploadPresignUrlFn,
-} from '@/lib/storage/mutations/s3-viewer/presigned-multipart'
+} from '@/lib/storage/mutations/s3-viewer-rpc'
 
 const MIN_PART_SIZE_BYTES = 5 * 1024 * 1024
 const TARGET_PART_COUNT = 8

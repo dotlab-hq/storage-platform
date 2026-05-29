@@ -54,7 +54,7 @@ function createViewerAdapter(viewer: UseProviderContentsResult): ViewerAdapter {
     loadMore: async () => {
       await viewer.loadMore()
     },
-    openFile: async () => undefined,
+    openFile: viewer.openFile,
     deleteFile: async () => undefined,
   }
 }
@@ -152,6 +152,10 @@ export function ProviderContentsPanel({ viewer }: ProviderContentsPanelProps) {
         totalItems={totalItems}
         scrollContainerRef={scrollContainerRef}
         onScroll={maybeLoadMore}
+        onRequestDelete={() => undefined}
+        onRequestUpload={() => undefined}
+        onRequestNewFolder={() => undefined}
+        allowMutations={false}
       />
     </div>
   )

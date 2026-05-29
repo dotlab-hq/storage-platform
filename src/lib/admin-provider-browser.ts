@@ -1,4 +1,5 @@
-import { ListObjectsV2Command } from '@aws-sdk/client-s3'
+import { GetObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3'
+import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 import { getProviderClientById } from '@/lib/s3-provider-client'
 
 export type AdminProviderFolderEntry = {
@@ -129,4 +130,19 @@ export async function listAdminProviderContents(
     folders: filteredFolders,
     files: filteredFiles,
   }
+}
+
+export async function createAdminProviderObjectUrl(
+  providerId: string,
+  objectKey: string,
+): Promise<string> {
+  const provider = await getProviderClientById(providerId)
+  return getSignedUrl(
+    provider.client,
+    new GetObjectCommand({
+      Bucket: provider.bucketName,
+      Key: objectKey,
+    }),
+    { expiresIn: 900 },
+  )
 }

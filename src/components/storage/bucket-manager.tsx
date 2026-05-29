@@ -1,12 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
-import { BucketManagerCapabilities } from '@/components/storage/bucket-manager-capabilities'
 import { BucketManagerDialogs } from '@/components/storage/bucket-manager-dialogs'
 import { BucketManagerOverview } from '@/components/storage/bucket-manager-overview'
 import { BucketManagerTable } from '@/components/storage/bucket-manager-table'
 import { BucketManagerToolbar } from '@/components/storage/bucket-manager-toolbar'
 import { useS3Buckets } from '@/hooks/use-s3-buckets'
-import { ConfirmActionDialog } from '@/components/ui/confirm-action-dialog'
+import { BucketManagerConfirmDialogs } from '@/components/storage/bucket-manager-confirm-dialogs'
 
 export function BucketManager() {
   const [bucketName, setBucketName] = useState('')
@@ -83,14 +82,7 @@ export function BucketManager() {
             lifecycle-safe operations, ACL, versioning, policy, and CORS.
           </p>
         </div>
-        <div className="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-xs">
-          <span className="h-2 w-2 rounded-full bg-foreground/70" />
-          <span className="font-medium">Gateway online</span>
-          <span className="text-muted-foreground">AWS S3 compatible</span>
-        </div>
       </div>
-
-      <BucketManagerCapabilities />
 
       <BucketManagerToolbar
         bucketName={bucketName}
@@ -179,46 +171,13 @@ export function BucketManager() {
         onCloseViewer={() => setActiveViewerBucket(null)}
       />
 
-      <ConfirmActionDialog
-        open={pendingEmptyBucket !== null}
-        onOpenChange={(open) => {
-          if (!open) {
-            setPendingEmptyBucket(null)
-          }
-        }}
-        title="Empty bucket?"
-        description="This will remove all objects and versions inside the bucket."
-        confirmLabel="Empty bucket"
-        confirmVariant="destructive"
-        requiresConfirmation
-        onConfirm={async () => {
-          if (pendingEmptyBucket) {
-            await runBucketAction(pendingEmptyBucket, 'empty')
-            setPendingEmptyBucket(null)
-          }
-        }}
-      />
-
-      <ConfirmActionDialog
-        open={pendingDeleteBucket !== null}
-        onOpenChange={(open) => {
-          if (!open) {
-            setPendingDeleteBucket(null)
-          }
-        }}
-        title="Delete this bucket permanently?"
-        description="This will remove all objects, versions, and bucket metadata."
-        confirmLabel="Delete bucket"
-        confirmVariant="destructive"
-        requiresConfirmation
-        onConfirm={async () => {
-          if (pendingDeleteBucket) {
-            await runBucketAction(pendingDeleteBucket, 'delete')
-            setPendingDeleteBucket(null)
-          }
-        }}
+      <BucketManagerConfirmDialogs
+        pendingEmptyBucket={pendingEmptyBucket}
+        pendingDeleteBucket={pendingDeleteBucket}
+        onClearEmpty={() => setPendingEmptyBucket(null)}
+        onClearDelete={() => setPendingDeleteBucket(null)}
+        onRunAction={runBucketAction}
       />
     </section>
   )
 }
-
