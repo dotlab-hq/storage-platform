@@ -52,10 +52,46 @@ function queryParamEqualsIgnoreCase(key: string, expected: string): boolean {
   return key.toLowerCase() === expected.toLowerCase()
 }
 
+type RawQueryPair = { key: string; value: string }
+
+type CanonicalQueryPair = {
+  key: string
+  value: string
+  encodedKey: string
+  encodedValue: string
+}
+
+function safeDecodeQueryComponent(value: string): string {
+  try {
+    return decodeURIComponent(value)
+  } catch {
+    return value
+  }
+}
+
+function rawQueryPairs(url: URL): RawQueryPair[] {
+  const raw = url.search.startsWith('?') ? url.search.slice(1) : url.search
+  if (raw.length === 0) return []
+
+  // Important: do NOT treat '+' as space. URLSearchParams does, but SigV4 expects RFC3986 semantics.
+  return raw
+    .split('&')
+    .filter((part) => part.length > 0)
+    .map((part) => {
+      const equalsIndex = part.indexOf('=')
+      const rawKey = equalsIndex === -1 ? part : part.slice(0, equalsIndex)
+      const rawValue = equalsIndex === -1 ? '' : part.slice(equalsIndex + 1)
+      return {
+        key: safeDecodeQueryComponent(rawKey),
+        value: safeDecodeQueryComponent(rawValue),
+      }
+    })
+}
+
 function getQueryParamCaseInsensitive(url: URL, key: string): string | null {
-  for (const [entryKey, value] of url.searchParams.entries()) {
-    if (queryParamEqualsIgnoreCase(entryKey, key)) {
-      return value
+  for (const entry of rawQueryPairs(url)) {
+    if (queryParamEqualsIgnoreCase(entry.key, key)) {
+      return entry.value
     }
   }
   return null
@@ -88,24 +124,36 @@ function encodeRfc3986(value: string): string {
     .replaceAll('*', '%2A')
 }
 
-function canonicalQueryString(url: URL, includeSignature: boolean): string {
-  const pairs: Array<{ key: string; value: string }> = []
-  for (const [key, value] of url.searchParams.entries()) {
+function canonicalQueryPairs(url: URL, includeSignature: boolean): CanonicalQueryPair[] {
+  const pairs: CanonicalQueryPair[] = []
+  for (const pair of rawQueryPairs(url)) {
     if (
       !includeSignature &&
-      queryParamEqualsIgnoreCase(key, 'X-Amz-Signature')
+      queryParamEqualsIgnoreCase(pair.key, 'X-Amz-Signature')
     ) {
       continue
     }
-    pairs.push({ key, value })
+    pairs.push({
+      key: pair.key,
+      value: pair.value,
+      encodedKey: encodeRfc3986(pair.key),
+      encodedValue: encodeRfc3986(pair.value),
+    })
   }
+
+  // SigV4 requires sorting by the encoded name, then encoded value.
   pairs.sort((a, b) => {
-    const k = compareAscii(a.key, b.key)
+    const k = compareAscii(a.encodedKey, b.encodedKey)
     if (k !== 0) return k
-    return compareAscii(a.value, b.value)
+    return compareAscii(a.encodedValue, b.encodedValue)
   })
+
   return pairs
-    .map((pair) => `${encodeRfc3986(pair.key)}=${encodeRfc3986(pair.value)}`)
+}
+
+function canonicalQueryString(url: URL, includeSignature: boolean): string {
+  return canonicalQueryPairs(url, includeSignature)
+    .map((pair) => `${pair.encodedKey}=${pair.encodedValue}`)
     .join('&')
 }
 
@@ -113,26 +161,11 @@ function canonicalQueryStringWithoutEmptyEquals(
   url: URL,
   includeSignature: boolean,
 ): string {
-  const pairs: Array<{ key: string; value: string }> = []
-  for (const [key, value] of url.searchParams.entries()) {
-    if (
-      !includeSignature &&
-      queryParamEqualsIgnoreCase(key, 'X-Amz-Signature')
-    ) {
-      continue
-    }
-    pairs.push({ key, value })
-  }
-  pairs.sort((a, b) => {
-    const k = compareAscii(a.key, b.key)
-    if (k !== 0) return k
-    return compareAscii(a.value, b.value)
-  })
-  return pairs
+  return canonicalQueryPairs(url, includeSignature)
     .map((pair) =>
       pair.value.length === 0
-        ? encodeRfc3986(pair.key)
-        : `${encodeRfc3986(pair.key)}=${encodeRfc3986(pair.value)}`,
+        ? pair.encodedKey
+        : `${pair.encodedKey}=${pair.encodedValue}`,
     )
     .join('&')
 }

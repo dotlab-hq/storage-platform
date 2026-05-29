@@ -3,6 +3,7 @@ import {
   getObject,
   headObject,
   listObjectsV2,
+  listObjectsV2Paged,
 } from '@/lib/s3-gateway/s3-object-store'
 import {
   getObjectTags,
@@ -305,16 +306,53 @@ export async function handleGet(
       )
     const prefix = listPrefix( request.url )
     const delimiter = listDelimiter( request.url )
-    const objects = await listObjectsV2( resolvedBucket, prefix )
-    const projected = applyDelimiterProjection( objects, prefix, delimiter )
     const paginationToken =
       decodeContinuationToken( url.searchParams.get( 'continuation-token' ) ) ??
       url.searchParams.get( 'start-after' ) ??
       url.searchParams.get( 'marker' )
+    const maxKeys = parseMaxKeys( url )
+
+    if ( !delimiter ) {
+      const paged = await listObjectsV2Paged( resolvedBucket, {
+        prefix,
+        startAfterKey: paginationToken,
+        maxKeys,
+      } )
+      if ( !listTypeIsV2( request.url ) ) {
+        const marker = url.searchParams.get( 'marker' ) ?? ''
+        return xmlResponse(
+          listObjectsXml(
+            resolvedBucket.bucketName,
+            prefix,
+            marker,
+            paged.objects,
+            {
+              delimiter: null,
+              commonPrefixes: [],
+              maxKeys,
+              isTruncated: paged.isTruncated,
+              nextMarker: paged.nextKey,
+            },
+          ),
+        )
+      }
+      return xmlResponse(
+        listObjectsV2Xml( resolvedBucket.bucketName, prefix, paged.objects, {
+          delimiter: null,
+          commonPrefixes: [],
+          maxKeys,
+          isTruncated: paged.isTruncated,
+          nextContinuationToken: encodeContinuationToken( paged.nextKey ),
+        } ),
+      )
+    }
+
+    const objects = await listObjectsV2( resolvedBucket, prefix )
+    const projected = applyDelimiterProjection( objects, prefix, delimiter )
     const paged = applyPagination(
       projected.objects,
       projected.commonPrefixes,
-      parseMaxKeys( url ),
+      maxKeys,
       paginationToken,
     )
     if ( !listTypeIsV2( request.url ) ) {
@@ -328,7 +366,7 @@ export async function handleGet(
           {
             delimiter,
             commonPrefixes: paged.commonPrefixes,
-            maxKeys: parseMaxKeys( url ),
+            maxKeys,
             isTruncated: paged.isTruncated,
             nextMarker: paged.nextMarker,
           },
@@ -339,7 +377,7 @@ export async function handleGet(
       listObjectsV2Xml( resolvedBucket.bucketName, prefix, paged.objects, {
         delimiter,
         commonPrefixes: paged.commonPrefixes,
-        maxKeys: parseMaxKeys( url ),
+        maxKeys,
         isTruncated: paged.isTruncated,
         nextContinuationToken: paged.nextToken,
       } ),
@@ -464,7 +502,14 @@ export async function handleHead(
     ( await resolveAuthorizedBucket( request, parsed.bucketName ) ) ??
     ( await resolveBucketByName( parsed.bucketName ) )
   if ( !bucket ) return new Response( null, { status: 403 } )
-  if ( !parsed.objectKey ) return new Response( null, { status: 200 } )
+
+  if ( !parsed.objectKey ) {
+    const allowed = await ensureAccess( bucket, request, 's3:ListBucket', null )
+    if ( !allowed ) {
+      return new Response( null, { status: 403 } )
+    }
+    return new Response( null, { status: 200 } )
+  }
 
   const versionId = new URL( request.url ).searchParams.get( 'versionId' )
   if ( versionId )

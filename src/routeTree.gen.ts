@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as HotRouteImport } from './routes/hot'
 import { Route as AppRouteImport } from './routes/_app'
+import { Route as S3RouteImport } from './routes/S3'
 import { Route as DeviceIndexRouteImport } from './routes/device/index'
 import { Route as AuthIndexRouteImport } from './routes/auth/index'
 import { Route as AppIndexRouteImport } from './routes/_app/index'
@@ -52,6 +53,11 @@ const HotRoute = HotRouteImport.update({
 } as any)
 const AppRoute = AppRouteImport.update({
   id: '/_app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const S3Route = S3RouteImport.update({
+  id: '/S3',
+  path: '/S3',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DeviceIndexRoute = DeviceIndexRouteImport.update({
@@ -230,6 +236,7 @@ const ApiAdminUsersUserIdFolderItemsRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
+  '/S3': typeof S3Route
   '/': typeof AppIndexRoute
   '/hot': typeof HotRoute
   '/share/$token': typeof ShareTokenRoute
@@ -266,6 +273,7 @@ export interface FileRoutesByFullPath {
   '/api/admin/users/$userId/folder-items': typeof ApiAdminUsersUserIdFolderItemsRoute
 }
 export interface FileRoutesByTo {
+  '/S3': typeof S3Route
   '/hot': typeof HotRoute
   '/share/$token': typeof ShareTokenRoute
   '/': typeof AppIndexRoute
@@ -302,6 +310,7 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/S3': typeof S3Route
   '/_app': typeof AppRouteWithChildren
   '/hot': typeof HotRoute
   '/share/$token': typeof ShareTokenRoute
@@ -341,6 +350,7 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/S3'
     | '/'
     | '/hot'
     | '/share/$token'
@@ -377,6 +387,7 @@ export interface FileRouteTypes {
     | '/api/admin/users/$userId/folder-items'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/S3'
     | '/hot'
     | '/share/$token'
     | '/'
@@ -412,6 +423,7 @@ export interface FileRouteTypes {
     | '/api/admin/users/$userId/folder-items'
   id:
     | '__root__'
+    | '/S3'
     | '/_app'
     | '/hot'
     | '/share/$token'
@@ -450,6 +462,7 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  S3Route: typeof S3Route
   AppRoute: typeof AppRouteWithChildren
   HotRoute: typeof HotRoute
   ShareTokenRoute: typeof ShareTokenRoute
@@ -479,6 +492,13 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: '/'
       preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/S3': {
+      id: '/S3'
+      path: '/S3'
+      fullPath: '/S3'
+      preLoaderRoute: typeof S3RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/device/': {
@@ -778,6 +798,7 @@ const ApiStorageS3RouteWithChildren = ApiStorageS3Route._addFileChildren(
 )
 
 const rootRouteChildren: RootRouteChildren = {
+  S3Route: S3Route,
   AppRoute: AppRouteWithChildren,
   HotRoute: HotRoute,
   ShareTokenRoute: ShareTokenRoute,

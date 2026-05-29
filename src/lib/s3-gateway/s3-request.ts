@@ -8,27 +8,42 @@ export type ParsedCopySource = {
   objectKey: string
 }
 
-const S3_BASE_PATH = '/api/storage/s3'
+const S3_BASE_PATHS = ['/api/storage/s3', '/S3'] as const
+
+type S3BasePath = (typeof S3_BASE_PATHS)[number]
+
+function matchS3BasePath(pathname: string): S3BasePath | null {
+  for (const basePath of S3_BASE_PATHS) {
+    if (pathname === basePath || pathname === `${basePath}/`) {
+      return basePath
+    }
+    if (pathname.startsWith(`${basePath}/`)) {
+      return basePath
+    }
+  }
+  return null
+}
 
 export function parseS3Path(requestUrl: string): ParsedS3Path {
   const url = new URL(requestUrl)
   const pathname = url.pathname
+  const basePath = matchS3BasePath(pathname)
 
-  if (pathname === S3_BASE_PATH || pathname === `${S3_BASE_PATH}/`) {
+  if (!basePath) {
     return {
       bucketName: null,
       objectKey: null,
     }
   }
 
-  if (!pathname.startsWith(`${S3_BASE_PATH}/`)) {
+  if (pathname === basePath || pathname === `${basePath}/`) {
     return {
       bucketName: null,
       objectKey: null,
     }
   }
 
-  const rest = pathname.slice(`${S3_BASE_PATH}/`.length)
+  const rest = pathname.slice(`${basePath}/`.length)
   if (rest.length === 0) {
     return {
       bucketName: null,
@@ -46,8 +61,11 @@ export function parseS3Path(requestUrl: string): ParsedS3Path {
 
   const bucketName = decodeURIComponent(rest.slice(0, firstSlash))
   const rawObjectKey = rest.slice(firstSlash + 1)
-  const objectKey =
+  const decodedObjectKey =
     rawObjectKey.length > 0 ? decodeURIComponent(rawObjectKey) : null
+
+  // Treat Windows-style separators as virtual folder delimiters to avoid files landing in root.
+  const objectKey = decodedObjectKey ? decodedObjectKey.replaceAll('\\', '/') : null
 
   return {
     bucketName,
@@ -114,6 +132,6 @@ export function parseCopySource(headerValue: string): ParsedCopySource | null {
 
   return {
     bucketName: normalized.slice(0, slashIndex),
-    objectKey: normalized.slice(slashIndex + 1),
+    objectKey: normalized.slice(slashIndex + 1).replaceAll('\\', '/'),
   }
 }

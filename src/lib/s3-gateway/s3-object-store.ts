@@ -29,6 +29,7 @@ import { upsertCommittedFile } from './upload-file-records'
 import { buildUpstreamObjectKey, deriveFileName } from './upload-key-utils'
 import { resolveVirtualFolder, splitObjectKey } from './virtual-fs'
 import { listObjectsByBtree } from '@/lib/storage-btree/list'
+import { listObjectsByBtreePaged } from '@/lib/storage-btree/list-paged'
 import { backfillStorageBtree } from '@/lib/storage-btree/backfill'
 import { deleteNodeByEntity } from '@/lib/storage-btree/index'
 import { patchQuotaUsedStorage } from '@/lib/cache-invalidation'
@@ -178,6 +179,12 @@ async function hasBucketObjects(bucket: BucketContext): Promise<boolean> {
   }
 }
 
+export type ListedS3ObjectPage = {
+  objects: ListedS3Object[]
+  isTruncated: boolean
+  nextKey: string | null
+}
+
 export async function listObjectsV2(
   bucket: BucketContext,
   prefix: string,
@@ -306,6 +313,90 @@ export async function listObjectsV2(
   }
 
   return results
+}
+
+export async function listObjectsV2Paged(
+  bucket: BucketContext,
+  input: {
+    prefix: string
+    startAfterKey: string | null
+    maxKeys: number
+  },
+): Promise<ListedS3ObjectPage> {
+  const pageLimit = input.maxKeys === 0 ? 1 : Math.min(input.maxKeys + 1, 1001)
+
+  const btreePage = await listObjectsByBtreePaged({
+    userId: bucket.userId,
+    mappedFolderId: bucket.mappedFolderId,
+    prefix: input.prefix,
+    startAfterKey: input.startAfterKey,
+    limit: pageLimit,
+  })
+  if (btreePage.length > 0) {
+    return collapseListPage(btreePage, input.maxKeys)
+  }
+
+  if (!(await hasBucketObjects(bucket))) {
+    return { objects: [], isTruncated: false, nextKey: null }
+  }
+
+  await backfillStorageBtree(bucket.userId)
+  const btreeAfterBackfill = await listObjectsByBtreePaged({
+    userId: bucket.userId,
+    mappedFolderId: bucket.mappedFolderId,
+    prefix: input.prefix,
+    startAfterKey: input.startAfterKey,
+    limit: pageLimit,
+  })
+  if (btreeAfterBackfill.length > 0) {
+    return collapseListPage(btreeAfterBackfill, input.maxKeys)
+  }
+
+  const all = await listObjectsV2(bucket, input.prefix)
+  const sorted = all
+    .slice()
+    .sort((left, right) => left.key.localeCompare(right.key))
+  const startAfterKey = input.startAfterKey
+  const filtered = startAfterKey
+    ? sorted.filter((entry) => entry.key > startAfterKey)
+    : sorted
+
+  if (input.maxKeys === 0) {
+    return {
+      objects: [],
+      isTruncated: filtered.length > 0,
+      nextKey: filtered[0]?.key ?? null,
+    }
+  }
+
+  const objects = filtered.slice(0, input.maxKeys)
+  const nextKey = filtered[input.maxKeys]?.key ?? null
+  return {
+    objects,
+    isTruncated: filtered.length > input.maxKeys,
+    nextKey,
+  }
+}
+
+function collapseListPage(
+  candidates: ListedS3Object[],
+  maxKeys: number,
+): ListedS3ObjectPage {
+  if (maxKeys === 0) {
+    return {
+      objects: [],
+      isTruncated: candidates.length > 0,
+      nextKey: candidates[0]?.key ?? null,
+    }
+  }
+
+  const objects = candidates.slice(0, maxKeys)
+  const nextKey = candidates[maxKeys]?.key ?? null
+  return {
+    objects,
+    isTruncated: candidates.length > maxKeys,
+    nextKey,
+  }
 }
 
 export async function putObject(
