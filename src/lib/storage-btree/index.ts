@@ -1,4 +1,4 @@
-import { and, eq, like, or } from 'drizzle-orm'
+import { and, eq, like, or, sql } from 'drizzle-orm'
 import { db } from '@/db'
 import { folder } from '@/db/schema/storage'
 import { storageNodeBtree } from '@/db/schema/storage-btree'
@@ -202,7 +202,7 @@ export async function markFolderSubtreeDeleted(
             eq(storageNodeBtree.userId, userId),
             or(
               eq(storageNodeBtree.fullPath, basePath),
-              like(storageNodeBtree.fullPath, `${prefix}%`),
+              sql`${storageNodeBtree.fullPath} >= ${prefix} AND ${storageNodeBtree.fullPath} < ${prefix} || char(1114111)`,
             ),
           )
         : and(

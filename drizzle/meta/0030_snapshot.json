@@ -1,8 +1,8 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "369459ad-ba50-4db0-9bf3-1c86dfffabdc",
-  "prevId": "c136e83a-422f-4203-994e-d266ea211f6d",
+  "id": "a2a25ffb-7f3e-4dfd-ae93-4068729f2668",
+  "prevId": "c3d4e5f6-a7b8-4901-cdef-1234567890ab",
   "tables": {
     "activity_tag": {
       "name": "activity_tag",
@@ -3243,6 +3243,27 @@
           "name": "file_deletionQueuedAt_idx",
           "columns": [
             "deletion_queued_at"
+          ],
+          "isUnique": false
+        },
+        "file_user_objectKey_idx": {
+          "name": "file_user_objectKey_idx",
+          "columns": [
+            "user_id",
+            "object_key",
+            "is_deleted",
+            "is_trashed"
+          ],
+          "isUnique": false
+        },
+        "file_user_folder_name_idx": {
+          "name": "file_user_folder_name_idx",
+          "columns": [
+            "user_id",
+            "folder_id",
+            "name",
+            "is_deleted",
+            "is_trashed"
           ],
           "isUnique": false
         }

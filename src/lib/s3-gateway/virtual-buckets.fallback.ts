@@ -1,4 +1,4 @@
-import { and, eq, like } from 'drizzle-orm'
+import { and, eq, like, sql } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, userStorage } from '@/db/schema/storage'
 import {
@@ -15,6 +15,7 @@ export async function getActiveBucketFiles(
   userId: string,
   prefix: string,
 ): Promise<BucketFileRow[]> {
+  const cleanPrefix = prefix.endsWith('%') ? prefix.slice(0, -1) : prefix
   try {
     return await db
       .select({
@@ -26,7 +27,7 @@ export async function getActiveBucketFiles(
         and(
           eq(file.userId, userId),
           eq(file.isDeleted, false),
-          like(file.objectKey, prefix),
+          sql`${file.objectKey} >= ${cleanPrefix} AND ${file.objectKey} < ${cleanPrefix} || char(1114111)`,
         ),
       )
   } catch (error) {
@@ -45,7 +46,7 @@ export async function getActiveBucketFiles(
         sizeInBytes: file.sizeInBytes,
       })
       .from(file)
-      .where(like(file.objectKey, prefix))
+      .where(sql`${file.objectKey} >= ${cleanPrefix} AND ${file.objectKey} < ${cleanPrefix} || char(1114111)`)
   } catch (fallbackError) {
     const message =
       fallbackError instanceof Error
@@ -58,7 +59,7 @@ export async function getActiveBucketFiles(
     const keyOnlyRows = await db
       .select({ objectKey: file.objectKey })
       .from(file)
-      .where(like(file.objectKey, prefix))
+      .where(sql`${file.objectKey} >= ${cleanPrefix} AND ${file.objectKey} < ${cleanPrefix} || char(1114111)`)
 
     return keyOnlyRows.map((row) => ({
       objectKey: row.objectKey,
@@ -78,6 +79,7 @@ export async function softDeleteByPrefix(
   userId: string,
   prefix: string,
 ): Promise<void> {
+  const cleanPrefix = prefix.endsWith('%') ? prefix.slice(0, -1) : prefix
   const now = new Date()
   const candidateRows = await db
     .select({ id: file.id })
@@ -86,7 +88,7 @@ export async function softDeleteByPrefix(
       and(
         eq(file.userId, userId),
         eq(file.isDeleted, false),
-        like(file.objectKey, prefix),
+        sql`${file.objectKey} >= ${cleanPrefix} AND ${file.objectKey} < ${cleanPrefix} || char(1114111)`,
       ),
     )
 
@@ -103,7 +105,7 @@ export async function softDeleteByPrefix(
       '[S3 Gateway] soft-delete failed, falling back to hard delete:',
       message,
     )
-    await db.delete(file).where(like(file.objectKey, prefix))
+    await db.delete(file).where(sql`${file.objectKey} >= ${cleanPrefix} AND ${file.objectKey} < ${cleanPrefix} || char(1114111)`)
   }
 }
 
@@ -136,6 +138,7 @@ export async function hasActiveObjects(
   userId: string,
   prefix: string,
 ): Promise<boolean> {
+  const cleanPrefix = prefix.endsWith('%') ? prefix.slice(0, -1) : prefix
   try {
     const rows = await db
       .select({ objectKey: file.objectKey })
@@ -145,7 +148,7 @@ export async function hasActiveObjects(
           eq(file.userId, userId),
           eq(file.isDeleted, false),
           eq(file.isTrashed, false),
-          like(file.objectKey, prefix),
+          sql`${file.objectKey} >= ${cleanPrefix} AND ${file.objectKey} < ${cleanPrefix} || char(1114111)`,
         ),
       )
       .limit(1)
@@ -163,7 +166,7 @@ export async function hasActiveObjects(
     const rows = await db
       .select({ objectKey: file.objectKey })
       .from(file)
-      .where(like(file.objectKey, prefix))
+      .where(sql`${file.objectKey} >= ${cleanPrefix} AND ${file.objectKey} < ${cleanPrefix} || char(1114111)`)
       .limit(1)
     return rows.length > 0
   } catch (fallbackError) {

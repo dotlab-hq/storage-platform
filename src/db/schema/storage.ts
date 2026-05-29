@@ -98,6 +98,20 @@ export const file = schema.table(
     index('file_folderId_idx').on(table.folderId),
     index('file_isTrashed_idx').on(table.isTrashed),
     index('file_deletionQueuedAt_idx').on(table.deletionQueuedAt),
+    index('file_user_objectKey_idx').on(
+      table.userId,
+      table.objectKey,
+      table.isDeleted,
+      table.isTrashed,
+    ),
+    // Supports virtual-path lookup: findStoredObject fallback by (userId, folderId, name)
+    index('file_user_folder_name_idx').on(
+      table.userId,
+      table.folderId,
+      table.name,
+      table.isDeleted,
+      table.isTrashed,
+    ),
   ],
 )
 

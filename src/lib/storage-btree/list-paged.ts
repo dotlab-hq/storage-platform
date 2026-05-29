@@ -1,4 +1,4 @@
-import { and, asc, eq, gt, inArray, like } from 'drizzle-orm'
+import { and, asc, eq, gt, inArray, like, sql } from 'drizzle-orm'
 import { db } from '@/db'
 import { storageNodeBtree } from '@/db/schema/storage-btree'
 import { joinPath, normalizePath } from '@/lib/storage-btree/path'
@@ -45,12 +45,16 @@ export async function listObjectsByBtreePaged(input: {
 
     const requestedPrefix = normalizePath(input.prefix)
     const fullPrefix = joinPath(basePath, requestedPrefix)
-    const likePattern =
+    const prefixStr =
       fullPrefix.length === 0
-        ? '%'
+        ? ''
         : requestedPrefix.length === 0 && basePath.length > 0
-          ? `${basePath}/%`
-          : `${fullPrefix}%`
+          ? `${basePath}/`
+          : fullPrefix
+
+    const prefixCondition = prefixStr.length === 0
+      ? sql`1 = 1`
+      : sql`${storageNodeBtree.fullPath} >= ${prefixStr} AND ${storageNodeBtree.fullPath} < ${prefixStr} || char(1114111)`
 
     const normalizedStartAfter = input.startAfterKey
       ? normalizePath(input.startAfterKey.replace(/\/+$/, ''))
@@ -64,14 +68,14 @@ export async function listObjectsByBtreePaged(input: {
           eq(storageNodeBtree.userId, input.userId),
           inArray(storageNodeBtree.nodeType, ['file', 'folder']),
           eq(storageNodeBtree.isDeleted, false),
-          like(storageNodeBtree.fullPath, likePattern),
+          prefixCondition,
           gt(storageNodeBtree.fullPath, startAfterFullPath),
         )
       : and(
           eq(storageNodeBtree.userId, input.userId),
           inArray(storageNodeBtree.nodeType, ['file', 'folder']),
           eq(storageNodeBtree.isDeleted, false),
-          like(storageNodeBtree.fullPath, likePattern),
+          prefixCondition,
         )
 
     const rows = await db

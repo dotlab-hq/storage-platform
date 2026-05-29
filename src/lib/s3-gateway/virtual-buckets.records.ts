@@ -1,4 +1,4 @@
-import { and, eq, like } from 'drizzle-orm'
+import { and, eq, like, sql } from 'drizzle-orm'
 import { db } from '@/db'
 import { file } from '@/db/schema/storage'
 import type { BucketContext } from '@/lib/s3-gateway/s3-context'
@@ -9,6 +9,7 @@ export async function removeS3ObjectRecordsByPrefix(
   bucket: BucketContext,
   prefix: string,
 ): Promise<void> {
+  const cleanPrefix = prefix.endsWith('%') ? prefix.slice(0, -1) : prefix
   try {
     const rows = await db
       .select({ id: file.id })
@@ -17,13 +18,13 @@ export async function removeS3ObjectRecordsByPrefix(
         and(
           eq(file.userId, userId),
           eq(file.isDeleted, true),
-          like(file.objectKey, prefix),
+          sql`${file.objectKey} >= ${cleanPrefix} AND ${file.objectKey} < ${cleanPrefix} || char(1114111)`,
         ),
       )
 
     await db
       .delete(file)
-      .where(and(eq(file.userId, userId), like(file.objectKey, prefix)))
+      .where(and(eq(file.userId, userId), sql`${file.objectKey} >= ${cleanPrefix} AND ${file.objectKey} < ${cleanPrefix} || char(1114111)`))
 
     await Promise.all(
       rows.map((row) => deleteNodeByEntity(userId, 'file', row.id)),

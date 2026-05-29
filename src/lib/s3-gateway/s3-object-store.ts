@@ -152,7 +152,7 @@ function parseRangeHeader(
 
 async function hasBucketObjects(bucket: BucketContext): Promise<boolean> {
   try {
-    const objectKeyPrefix = `s3/${bucket.userId}/${bucket.bucketId}/%`
+    const prefixStr = `s3/${bucket.userId}/${bucket.bucketId}/`
     const rows = await db
       .select({ id: file.id })
       .from(file)
@@ -161,7 +161,7 @@ async function hasBucketObjects(bucket: BucketContext): Promise<boolean> {
           eq(file.userId, bucket.userId),
           eq(file.isDeleted, false),
           eq(file.isTrashed, false),
-          like(file.objectKey, objectKeyPrefix),
+          sql`${file.objectKey} >= ${prefixStr} AND ${file.objectKey} < ${prefixStr} || char(1114111)`,
         ),
       )
       .limit(1)
