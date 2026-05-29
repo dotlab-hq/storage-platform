@@ -225,7 +225,9 @@ export class StorageService extends BaseService {
       this.error( 'Cannot move folder into itself', 'INVALID_OPERATION' )
     }
 
-    const movedItems: any[] = []
+    const movedItems: Array<
+      Record<string, unknown> & { itemType: 'file' | 'folder' }
+    > = []
 
     await this.db.transaction( async ( tx ) => {
       for ( const itemId of itemIds ) {

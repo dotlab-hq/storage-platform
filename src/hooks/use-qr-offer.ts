@@ -2,8 +2,8 @@ import { useMutation, useQuery } from '@tanstack/react-query'
 import type { UseMutationResult } from '@tanstack/react-query'
 import * as QRCode from 'qrcode'
 import * as React from 'react'
-import { createQrOffer, pollQrStatus } from '@/routes/-hot.server'
-import type { OfferResponse, PollResponse } from '@/routes/-hot.server'
+import { createQrOffer, pollQrStatus } from '@/routes/-hot.server-fns'
+import type { OfferResponse, PollResponse } from '@/routes/-hot.server-fns'
 
 export type UseCreateQrOfferReturn = {
   qrImage: string
