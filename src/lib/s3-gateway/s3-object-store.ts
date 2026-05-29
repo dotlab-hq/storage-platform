@@ -86,6 +86,7 @@ export type ListedS3Object = {
   size: number
   eTag: string | null
   lastModified: Date
+  mimeType?: string | null
 }
 
 type ParsedRange = {
@@ -261,6 +262,7 @@ export async function listObjectsV2(
         etag: file.etag,
         lastModified: file.lastModified,
         updatedAt: file.updatedAt,
+        mimeType: file.mimeType,
       })
       .from(file)
       .where(
@@ -307,6 +309,7 @@ export async function listObjectsV2(
           size: f.sizeInBytes,
           eTag: f.etag,
           lastModified: f.lastModified ?? f.updatedAt ?? new Date(0),
+          mimeType: f.mimeType,
         })
       }
     }

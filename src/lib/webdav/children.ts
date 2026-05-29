@@ -7,6 +7,7 @@ import type { BucketContext } from '@/lib/s3-gateway/s3-context'
 import type { WebDavPrincipal } from '@/lib/webdav/auth'
 import { collectionKey } from '@/lib/webdav/path'
 import type { WebDavResource } from '@/lib/webdav/resources'
+import { mimeTypeForKey } from '@/lib/webdav/mime'
 
 function immediateChildren(
   objects: ListedS3Object[],
@@ -28,7 +29,11 @@ function immediateChildren(
       slash === -1 ? item.key : `${prefix}${relative.slice(0, slash + 1)}`
     if (seen.has(key)) continue
     seen.add(key)
-    children.push({ key, isCollection: slash !== -1 || key.endsWith('/'), item })
+    children.push({
+      key,
+      isCollection: slash !== -1 || key.endsWith('/'),
+      item,
+    })
   }
   return children
 }
@@ -66,18 +71,22 @@ export async function listDavChildren(input: {
   const bucket = input.bucket
   const prefix = input.objectKey ? collectionKey(input.objectKey) : ''
   const objects = await listObjectsV2(bucket, prefix)
-  return immediateChildren(objects, prefix).map(({ key, isCollection, item }) => ({
-    bucket,
-    bucketName: bucket.bucketName,
-    objectKey: key,
-    href: encodeKeyHref(bucket.bucketName, key),
-    displayName: key.replace(/\/+$/, '').split('/').pop() ?? key,
-    isCollection,
-    exists: true,
-    size: isCollection ? 0 : item.size,
-    etag: isCollection ? null : item.eTag,
-    contentType: isCollection ? 'httpd/unix-directory' : 'application/octet-stream',
-    createdAt: item.lastModified,
-    lastModified: item.lastModified,
-  }))
+  return immediateChildren(objects, prefix).map(
+    ({ key, isCollection, item }) => ({
+      bucket,
+      bucketName: bucket.bucketName,
+      objectKey: key,
+      href: encodeKeyHref(bucket.bucketName, key),
+      displayName: key.replace(/\/+$/, '').split('/').pop() ?? key,
+      isCollection,
+      exists: true,
+      size: isCollection ? 0 : item.size,
+      etag: isCollection ? null : item.eTag,
+      contentType: isCollection
+        ? 'httpd/unix-directory'
+        : mimeTypeForKey(key, item.mimeType),
+      createdAt: item.lastModified,
+      lastModified: item.lastModified,
+    }),
+  )
 }

@@ -5,6 +5,7 @@ import type { WebDavPrincipal } from '@/lib/webdav/auth'
 import type { WebDavPath } from '@/lib/webdav/path'
 import { webDavHref } from '@/lib/webdav/path'
 import { getLocks } from '@/lib/webdav/locks'
+import { fixContentType } from '@/lib/webdav/mime'
 import {
   davXmlResponse,
   emptyDavResponse,
@@ -16,7 +17,8 @@ import {
 function davHeaders(): Headers {
   return new Headers({
     DAV: '1, 2',
-    Allow: 'OPTIONS, GET, HEAD, PUT, DELETE, MKCOL, COPY, MOVE, PROPFIND, PROPPATCH, LOCK, UNLOCK',
+    Allow:
+      'OPTIONS, GET, HEAD, PUT, DELETE, MKCOL, COPY, MOVE, PROPFIND, PROPPATCH, LOCK, UNLOCK',
     'MS-Author-Via': 'DAV',
   })
 }
@@ -101,7 +103,14 @@ export async function handleGet(input: {
     },
     input.request.headers.get('range'),
   )
-  return object ?? new Response('Not found', { status: 404 })
+  if (!object) return new Response('Not found', { status: 404 })
+
+  const ct = object.headers.get('Content-Type') ?? 'application/octet-stream'
+  const fixed = fixContentType(resource.objectKey, ct)
+  if (fixed !== ct) {
+    object.headers.set('Content-Type', fixed)
+  }
+  return object
 }
 
 export async function handleHead(input: {
@@ -126,5 +135,12 @@ export async function handleHead(input: {
     ifNoneMatch: input.request.headers.get('if-none-match'),
     ifModifiedSince: input.request.headers.get('if-modified-since'),
   })
-  return object ?? new Response(null, { status: 404 })
+  if (!object) return new Response(null, { status: 404 })
+
+  const ct = object.headers.get('Content-Type') ?? 'application/octet-stream'
+  const fixed = fixContentType(resource.objectKey, ct)
+  if (fixed !== ct) {
+    object.headers.set('Content-Type', fixed)
+  }
+  return object
 }
