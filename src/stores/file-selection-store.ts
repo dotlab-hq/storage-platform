@@ -1,14 +1,11 @@
-import { useStore } from '@tanstack/react-store'
-import { Store } from '@tanstack/store'
+import { create } from 'zustand'
 import { setHasSelectedFiles } from '@/lib/stores/file-selection-ui-store'
 import type { StorageItem } from '@/types/storage'
 
-type FileSelectionState = {
+interface FileSelectionState {
   selectedIds: Set<string>
   lastSelectedId: string | null
-}
 
-type FileSelectionActions = {
   select: (id: string, shiftKey: boolean, items: StorageItem[]) => void
   toggleSelect: (id: string) => void
   clearSelection: () => void
@@ -17,95 +14,81 @@ type FileSelectionActions = {
   isSelected: (id: string) => boolean
 }
 
-type FileSelectionSnapshot = FileSelectionState & FileSelectionActions
-
-const initialState: FileSelectionState = {
+export const useFileSelectionStore = create<FileSelectionState>((set, get) => ({
   selectedIds: new Set(),
   lastSelectedId: null,
-}
 
-export const fileSelectionStore = new Store<FileSelectionState>(initialState)
+  select: (id, shiftKey, items) => {
+    set((state) => {
+      if (shiftKey && state.lastSelectedId) {
+        const lastIndex = items.findIndex(
+          (item) => item.id === state.lastSelectedId,
+        )
+        const currentIndex = items.findIndex((item) => item.id === id)
 
-const updateSelection = (nextSelected: Set<string>, lastSelectedId: string | null) => {
-  setHasSelectedFiles(nextSelected.size > 0)
-  fileSelectionStore.setState(() => ({
-    selectedIds: nextSelected,
-    lastSelectedId,
-  }))
-}
+        if (lastIndex === -1 || currentIndex === -1) {
+          const next = new Set([id])
+          setHasSelectedFiles(next.size > 0)
+          return { selectedIds: next, lastSelectedId: id }
+        }
 
-export const select = (id: string, shiftKey: boolean, items: StorageItem[]): void => {
-  const state = fileSelectionStore.state
-  if (shiftKey && state.lastSelectedId) {
-    const lastIndex = items.findIndex((item) => item.id === state.lastSelectedId)
-    const currentIndex = items.findIndex((item) => item.id === id)
+        const start = Math.min(lastIndex, currentIndex)
+        const end = Math.max(lastIndex, currentIndex)
+        const rangeIds = items.slice(start, end + 1).map((item) => item.id)
+        const next = new Set([...state.selectedIds, ...rangeIds])
+        setHasSelectedFiles(next.size > 0)
+        return { selectedIds: next, lastSelectedId: id }
+      }
 
-    if (lastIndex === -1 || currentIndex === -1) {
-      updateSelection(new Set([id]), id)
-      return
-    }
+      const next = new Set([id])
+      setHasSelectedFiles(next.size > 0)
+      return { selectedIds: next, lastSelectedId: id }
+    })
+  },
 
-    const start = Math.min(lastIndex, currentIndex)
-    const end = Math.max(lastIndex, currentIndex)
-    const rangeIds = items.slice(start, end + 1).map((item) => item.id)
-    const next = new Set([...state.selectedIds, ...rangeIds])
-    updateSelection(next, id)
-    return
-  }
+  toggleSelect: (id) => {
+    set((state) => {
+      const next = new Set(state.selectedIds)
+      if (next.has(id)) {
+        next.delete(id)
+      } else {
+        next.add(id)
+      }
+      setHasSelectedFiles(next.size > 0)
+      return { selectedIds: next, lastSelectedId: id }
+    })
+  },
 
-  updateSelection(new Set([id]), id)
-}
+  clearSelection: () => {
+    setHasSelectedFiles(false)
+    set({ selectedIds: new Set(), lastSelectedId: null })
+  },
 
-export const toggleSelect = (id: string): void => {
-  const next = new Set(fileSelectionStore.state.selectedIds)
-  if (next.has(id)) {
-    next.delete(id)
-  } else {
-    next.add(id)
-  }
-  updateSelection(next, id)
-}
+  selectMany: (ids, append = false) => {
+    set((state) => {
+      const nextSelected = append
+        ? new Set(state.selectedIds)
+        : new Set<string>()
+      ids.forEach((id) => nextSelected.add(id))
+      const lastId =
+        ids.length > 0
+          ? ids[ids.length - 1]
+          : append
+            ? state.lastSelectedId
+            : null
+      setHasSelectedFiles(nextSelected.size > 0)
+      return { selectedIds: nextSelected, lastSelectedId: lastId }
+    })
+  },
 
-export const clearSelection = (): void => {
-  updateSelection(new Set(), null)
-}
+  selectAll: (items) => {
+    const next = new Set(items.map((item) => item.id))
+    setHasSelectedFiles(next.size > 0)
+    set({
+      selectedIds: next,
+      lastSelectedId: items[items.length - 1]?.id ?? null,
+    })
+  },
 
-export const selectMany = (ids: string[], append = false): void => {
-  const state = fileSelectionStore.state
-  const nextSelected = append ? new Set(state.selectedIds) : new Set<string>()
-  ids.forEach((id) => nextSelected.add(id))
-  const lastId =
-    ids.length > 0 ? ids[ids.length - 1] : append ? state.lastSelectedId : null
-  updateSelection(nextSelected, lastId)
-}
-
-export const selectAll = (items: StorageItem[]): void => {
-  const next = new Set(items.map((item) => item.id))
-  updateSelection(next, items[items.length - 1]?.id ?? null)
-}
-
-export const isSelected = (id: string): boolean =>
-  fileSelectionStore.state.selectedIds.has(id)
-
-const getSnapshot = (state: FileSelectionState): FileSelectionSnapshot => ({
-  ...state,
-  select,
-  toggleSelect,
-  clearSelection,
-  selectMany,
-  selectAll,
-  isSelected,
-})
-
-export function useFileSelectionStore<T>(
-  selector: (state: FileSelectionSnapshot) => T,
-): T
-export function useFileSelectionStore(): FileSelectionSnapshot
-export function useFileSelectionStore<T>(
-  selector?: (state: FileSelectionSnapshot) => T,
-) {
-  return useStore(fileSelectionStore, (state) => {
-    const snapshot = getSnapshot(state)
-    return selector ? selector(snapshot) : snapshot
-  })
-}
+  isSelected: (id) => get().selectedIds.has(id),
+}))
