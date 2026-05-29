@@ -25,11 +25,13 @@ import { Route as AppRecentIndexRouteImport } from './routes/_app/recent/index'
 import { Route as AppBucketsIndexRouteImport } from './routes/_app/buckets/index'
 import { Route as AppAdminIndexRouteImport } from './routes/_app/admin/index'
 import { Route as ApiV1ModelsRouteImport } from './routes/api/v1/models'
+import { Route as ApiStorageWebdavRouteImport } from './routes/api/storage/webdav'
 import { Route as ApiStorageS3RouteImport } from './routes/api/storage/s3'
 import { Route as ApiStorageFileLinkRouteImport } from './routes/api/storage/file-link'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as AppBucketsBucketNameRouteImport } from './routes/_app/buckets/$bucketName'
 import { Route as ApiStorageS3IndexRouteImport } from './routes/api/storage/s3/index'
+import { Route as ApiStorageWebdavSplatRouteImport } from './routes/api/storage/webdav/$'
 import { Route as ApiStorageUploadProxyRouteImport } from './routes/api/storage/upload/proxy'
 import { Route as ApiStorageS3UploadStatusRouteImport } from './routes/api/storage/s3/upload-status'
 import { Route as ApiStorageS3RotateCredentialsRouteImport } from './routes/api/storage/s3/rotate-credentials'
@@ -125,6 +127,11 @@ const ApiV1ModelsRoute = ApiV1ModelsRouteImport.update({
   path: '/api/v1/models',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiStorageWebdavRoute = ApiStorageWebdavRouteImport.update({
+  id: '/api/storage/webdav',
+  path: '/api/storage/webdav',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiStorageS3Route = ApiStorageS3RouteImport.update({
   id: '/api/storage/s3',
   path: '/api/storage/s3',
@@ -149,6 +156,11 @@ const ApiStorageS3IndexRoute = ApiStorageS3IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ApiStorageS3Route,
+} as any)
+const ApiStorageWebdavSplatRoute = ApiStorageWebdavSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => ApiStorageWebdavRoute,
 } as any)
 const ApiStorageUploadProxyRoute = ApiStorageUploadProxyRouteImport.update({
   id: '/api/storage/upload/proxy',
@@ -246,6 +258,7 @@ export interface FileRoutesByFullPath {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
+  '/api/storage/webdav': typeof ApiStorageWebdavRouteWithChildren
   '/api/v1/models': typeof ApiV1ModelsRoute
   '/admin/': typeof AppAdminIndexRoute
   '/buckets/': typeof AppBucketsIndexRoute
@@ -269,6 +282,7 @@ export interface FileRoutesByFullPath {
   '/api/storage/s3/rotate-credentials': typeof ApiStorageS3RotateCredentialsRoute
   '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
   '/api/storage/upload/proxy': typeof ApiStorageUploadProxyRoute
+  '/api/storage/webdav/$': typeof ApiStorageWebdavSplatRoute
   '/api/storage/s3/': typeof ApiStorageS3IndexRoute
   '/api/admin/users/$userId/folder-items': typeof ApiAdminUsersUserIdFolderItemsRoute
 }
@@ -282,6 +296,7 @@ export interface FileRoutesByTo {
   '/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
+  '/api/storage/webdav': typeof ApiStorageWebdavRouteWithChildren
   '/api/v1/models': typeof ApiV1ModelsRoute
   '/admin': typeof AppAdminIndexRoute
   '/buckets': typeof AppBucketsIndexRoute
@@ -305,6 +320,7 @@ export interface FileRoutesByTo {
   '/api/storage/s3/rotate-credentials': typeof ApiStorageS3RotateCredentialsRoute
   '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
   '/api/storage/upload/proxy': typeof ApiStorageUploadProxyRoute
+  '/api/storage/webdav/$': typeof ApiStorageWebdavSplatRoute
   '/api/storage/s3': typeof ApiStorageS3IndexRoute
   '/api/admin/users/$userId/folder-items': typeof ApiAdminUsersUserIdFolderItemsRoute
 }
@@ -321,6 +337,7 @@ export interface FileRoutesById {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
+  '/api/storage/webdav': typeof ApiStorageWebdavRouteWithChildren
   '/api/v1/models': typeof ApiV1ModelsRoute
   '/_app/admin/': typeof AppAdminIndexRoute
   '/_app/buckets/': typeof AppBucketsIndexRoute
@@ -344,6 +361,7 @@ export interface FileRoutesById {
   '/api/storage/s3/rotate-credentials': typeof ApiStorageS3RotateCredentialsRoute
   '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
   '/api/storage/upload/proxy': typeof ApiStorageUploadProxyRoute
+  '/api/storage/webdav/$': typeof ApiStorageWebdavSplatRoute
   '/api/storage/s3/': typeof ApiStorageS3IndexRoute
   '/api/admin/users/$userId/folder-items': typeof ApiAdminUsersUserIdFolderItemsRoute
 }
@@ -360,6 +378,7 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/api/storage/file-link'
     | '/api/storage/s3'
+    | '/api/storage/webdav'
     | '/api/v1/models'
     | '/admin/'
     | '/buckets/'
@@ -383,6 +402,7 @@ export interface FileRouteTypes {
     | '/api/storage/s3/rotate-credentials'
     | '/api/storage/s3/upload-status'
     | '/api/storage/upload/proxy'
+    | '/api/storage/webdav/$'
     | '/api/storage/s3/'
     | '/api/admin/users/$userId/folder-items'
   fileRoutesByTo: FileRoutesByTo
@@ -396,6 +416,7 @@ export interface FileRouteTypes {
     | '/buckets/$bucketName'
     | '/api/auth/$'
     | '/api/storage/file-link'
+    | '/api/storage/webdav'
     | '/api/v1/models'
     | '/admin'
     | '/buckets'
@@ -419,6 +440,7 @@ export interface FileRouteTypes {
     | '/api/storage/s3/rotate-credentials'
     | '/api/storage/s3/upload-status'
     | '/api/storage/upload/proxy'
+    | '/api/storage/webdav/$'
     | '/api/storage/s3'
     | '/api/admin/users/$userId/folder-items'
   id:
@@ -434,6 +456,7 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/api/storage/file-link'
     | '/api/storage/s3'
+    | '/api/storage/webdav'
     | '/api/v1/models'
     | '/_app/admin/'
     | '/_app/buckets/'
@@ -457,6 +480,7 @@ export interface FileRouteTypes {
     | '/api/storage/s3/rotate-credentials'
     | '/api/storage/s3/upload-status'
     | '/api/storage/upload/proxy'
+    | '/api/storage/webdav/$'
     | '/api/storage/s3/'
     | '/api/admin/users/$userId/folder-items'
   fileRoutesById: FileRoutesById
@@ -471,6 +495,7 @@ export interface RootRouteChildren {
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiStorageFileLinkRoute: typeof ApiStorageFileLinkRoute
   ApiStorageS3Route: typeof ApiStorageS3RouteWithChildren
+  ApiStorageWebdavRoute: typeof ApiStorageWebdavRouteWithChildren
   ApiV1ModelsRoute: typeof ApiV1ModelsRoute
   DeviceApproveIndexRoute: typeof DeviceApproveIndexRoute
   ApiStorageDownloadProxyRoute: typeof ApiStorageDownloadProxyRoute
@@ -592,6 +617,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiV1ModelsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/storage/webdav': {
+      id: '/api/storage/webdav'
+      path: '/api/storage/webdav'
+      fullPath: '/api/storage/webdav'
+      preLoaderRoute: typeof ApiStorageWebdavRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/storage/s3': {
       id: '/api/storage/s3'
       path: '/api/storage/s3'
@@ -626,6 +658,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/api/storage/s3/'
       preLoaderRoute: typeof ApiStorageS3IndexRouteImport
       parentRoute: typeof ApiStorageS3Route
+    }
+    '/api/storage/webdav/$': {
+      id: '/api/storage/webdav/$'
+      path: '/$'
+      fullPath: '/api/storage/webdav/$'
+      preLoaderRoute: typeof ApiStorageWebdavSplatRouteImport
+      parentRoute: typeof ApiStorageWebdavRoute
     }
     '/api/storage/upload/proxy': {
       id: '/api/storage/upload/proxy'
@@ -797,6 +836,17 @@ const ApiStorageS3RouteWithChildren = ApiStorageS3Route._addFileChildren(
   ApiStorageS3RouteChildren,
 )
 
+interface ApiStorageWebdavRouteChildren {
+  ApiStorageWebdavSplatRoute: typeof ApiStorageWebdavSplatRoute
+}
+
+const ApiStorageWebdavRouteChildren: ApiStorageWebdavRouteChildren = {
+  ApiStorageWebdavSplatRoute: ApiStorageWebdavSplatRoute,
+}
+
+const ApiStorageWebdavRouteWithChildren =
+  ApiStorageWebdavRoute._addFileChildren(ApiStorageWebdavRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   S3Route: S3Route,
   AppRoute: AppRouteWithChildren,
@@ -807,6 +857,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiStorageFileLinkRoute: ApiStorageFileLinkRoute,
   ApiStorageS3Route: ApiStorageS3RouteWithChildren,
+  ApiStorageWebdavRoute: ApiStorageWebdavRouteWithChildren,
   ApiV1ModelsRoute: ApiV1ModelsRoute,
   DeviceApproveIndexRoute: DeviceApproveIndexRoute,
   ApiStorageDownloadProxyRoute: ApiStorageDownloadProxyRoute,

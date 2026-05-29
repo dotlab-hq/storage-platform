@@ -85,6 +85,67 @@ export async function resolveVirtualFolder(
   return currentFolderId
 }
 
+export async function resolveVirtualFolderReadOnly(
+  userId: string,
+  rootFolderId: string | null,
+  path: string,
+): Promise<string | null | 'not_found'> {
+  const segments = path.split('/').filter(Boolean)
+  if (segments.length === 0) {
+    return rootFolderId
+  }
+
+  let currentFolderId = rootFolderId
+  let currentFolderPath = await resolveFolderPath(userId, currentFolderId)
+
+  for (const segment of segments) {
+    const btreeRows = await db
+      .select({ nodeId: storageNodeBtree.nodeId })
+      .from(storageNodeBtree)
+      .where(
+        and(
+          eq(storageNodeBtree.userId, userId),
+          eq(storageNodeBtree.nodeType, 'folder'),
+          eq(storageNodeBtree.isDeleted, false),
+          eq(storageNodeBtree.folderPath, currentFolderPath),
+          eq(storageNodeBtree.name, segment),
+        ),
+      )
+      .limit(1)
+
+    if (btreeRows[0]) {
+      currentFolderId = btreeRows[0].nodeId
+      currentFolderPath = await resolveFolderPath(userId, currentFolderId)
+      continue
+    }
+
+    const condition = and(
+      eq(folder.userId, userId),
+      eq(folder.name, segment),
+      currentFolderId
+        ? eq(folder.parentFolderId, currentFolderId)
+        : isNull(folder.parentFolderId),
+      eq(folder.isDeleted, false),
+      eq(folder.isTrashed, false),
+    )
+
+    const rows = await db
+      .select({ id: folder.id })
+      .from(folder)
+      .where(condition)
+      .limit(1)
+
+    if (rows.length === 0) {
+      return 'not_found'
+    } else {
+      currentFolderId = rows[0].id
+      currentFolderPath = await resolveFolderPath(userId, currentFolderId)
+    }
+  }
+
+  return currentFolderId
+}
+
 export function splitObjectKey(objectKey: string): {
   folderPath: string
   fileName: string
