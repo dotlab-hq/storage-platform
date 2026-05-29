@@ -4,7 +4,8 @@ import {
   requireAdminUser,
 } from '@/lib/server-auth.server'
 import { logActivity } from '@/lib/activity'
-import { type ClassValue, clsx } from 'clsx'
+import type { ClassValue } from 'clsx'
+import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
@@ -17,14 +18,16 @@ export type ServiceContext = {
   requestId?: string
 }
 
-export type ServiceResult<T = any> = {
+export type ServiceResult<T = unknown> = {
   data?: T
   error?: {
     message: string
     code?: string
-    details?: any
+    details?: unknown
   }
 }
+
+type DbTransaction = Parameters<Parameters<typeof db.transaction>[0]>[0]
 
 export class BaseService {
   protected ctx: ServiceContext
@@ -52,7 +55,9 @@ export class BaseService {
   }
 
   // DB helpers
-  protected async transaction<T>(fn: (tx: any) => Promise<T>): Promise<T> {
+  protected async transaction<T>(
+    fn: (tx: DbTransaction) => Promise<T>,
+  ): Promise<T> {
     return this.db.transaction(fn)
   }
 
@@ -78,7 +83,9 @@ export class BaseService {
   }
 
   // Standardized error factory
-  protected error(message: string, code?: string, details?: any): never {
+  protected error(message: string, code?: string, details?: unknown): never {
+    void code
+    void details
     throw new Error(message)
   }
 
