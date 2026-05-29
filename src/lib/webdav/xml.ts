@@ -29,6 +29,16 @@ export function escapeXml(value: string): string {
     .replaceAll("'", '&apos;')
 }
 
+function toDate(value: Date | number | string | null | undefined): Date {
+  if (value instanceof Date) return value
+  if (typeof value === 'number') return new Date(value * 1000)
+  if (typeof value === 'string') {
+    const parsed = new Date(value)
+    return Number.isNaN(parsed.getTime()) ? new Date(0) : parsed
+  }
+  return new Date(0)
+}
+
 export function davXmlResponse(body: string, status = 207): Response {
   return new Response(body, {
     status,
@@ -111,8 +121,8 @@ export function resourcePropXml(
   const available = new Map<string, string>([
     ['displayname', `<D:displayname>${escapeXml(resource.displayName)}</D:displayname>`],
     ['resourcetype', resource.isCollection ? '<D:resourcetype><D:collection/></D:resourcetype>' : '<D:resourcetype/>'],
-    ['creationdate', `<D:creationdate>${escapeXml(resource.createdAt.toISOString())}</D:creationdate>`],
-    ['getlastmodified', `<D:getlastmodified>${escapeXml(resource.lastModified.toUTCString())}</D:getlastmodified>`],
+    ['creationdate', `<D:creationdate>${escapeXml(toDate(resource.createdAt).toISOString())}</D:creationdate>`],
+    ['getlastmodified', `<D:getlastmodified>${escapeXml(toDate(resource.lastModified).toUTCString())}</D:getlastmodified>`],
     ['getcontentlength', `<D:getcontentlength>${resource.size}</D:getcontentlength>`],
     ['getcontenttype', `<D:getcontenttype>${escapeXml(resource.contentType)}</D:getcontenttype>`],
     ['getetag', resource.etag ? `<D:getetag>${escapeXml(resource.etag)}</D:getetag>` : '<D:getetag/>'],
