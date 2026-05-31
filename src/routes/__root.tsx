@@ -40,6 +40,23 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const pathname = globalThis.location?.pathname ?? '/'
+  const isPublicLanding = pathname.startsWith('/landing')
+
+  if (isPublicLanding) {
+    return (
+      <html lang="en" suppressHydrationWarning>
+        <head>
+          <HeadContent />
+        </head>
+        <body>
+          <div className="min-h-screen bg-white text-slate-900">{children}</div>
+          <Scripts />
+        </body>
+      </html>
+    )
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -54,11 +71,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         >
           <TanStackQueryProvider>
             <TooltipProvider>
-              <ClientOnly fallback={children}>
-                <Suspense fallback={children}>
-                  <GlobalShellActions>{children}</GlobalShellActions>
-                </Suspense>
-              </ClientOnly>
+              <RootShell>{children}</RootShell>
             </TooltipProvider>
             <Toaster />
             {/* {Devtools ? (
@@ -75,5 +88,22 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
+  )
+}
+
+function RootShell({ children }: { children: React.ReactNode }) {
+  const pathname = globalThis.location?.pathname ?? '/'
+  const isPublicLanding = pathname.startsWith('/landing')
+
+  if (isPublicLanding) {
+    return <div className="min-h-screen bg-white text-slate-900">{children}</div>
+  }
+
+  return (
+    <ClientOnly fallback={children}>
+      <Suspense fallback={children}>
+        <GlobalShellActions>{children}</GlobalShellActions>
+      </Suspense>
+    </ClientOnly>
   )
 }
