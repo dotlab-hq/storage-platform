@@ -4,14 +4,12 @@ import Lenis from 'lenis'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
-import HeroSection from '@/components/landing/hero-section'
-import StoryPanels from '@/components/landing/story-panels'
-import ArchitectureSection from '@/components/landing/architecture-section'
-import FeaturesSection from '@/components/landing/features-section'
-import TimelineSection from '@/components/landing/timeline-section'
-import StatsDashboard from '@/components/landing/stats-dashboard'
-import EnterpriseSection from '@/components/landing/enterprise-section'
-import FinalCTA from '@/components/landing/final-cta'
+import { Navbar } from '@/components/landing/navbar'
+import { Footer } from '@/components/landing/footer'
+import { HeroSection } from '@/components/landing/hero-section'
+import { CoreFeatures } from '@/components/landing/core-features'
+import { HowItWorks } from '@/components/landing/how-it-works'
+import { FinalCTA } from '@/components/landing/final-cta-simple'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -48,16 +46,14 @@ function LandingPageContent() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full overflow-hidden bg-black text-white"
+      className="relative w-full overflow-hidden bg-white text-gray-900"
     >
+      <Navbar />
       <HeroSection />
-      <StoryPanels />
-      <ArchitectureSection />
-      <FeaturesSection />
-      <TimelineSection />
-      <StatsDashboard />
-      <EnterpriseSection />
+      <CoreFeatures />
+      <HowItWorks />
       <FinalCTA />
+      <Footer />
     </div>
   )
 }
