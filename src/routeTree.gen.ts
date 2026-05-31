@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as HotRouteImport } from './routes/hot'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as S3RouteImport } from './routes/S3'
+import { Route as LandingIndexRouteImport } from './routes/landing/index'
 import { Route as DeviceIndexRouteImport } from './routes/device/index'
 import { Route as AuthIndexRouteImport } from './routes/auth/index'
 import { Route as AppIndexRouteImport } from './routes/_app/index'
@@ -60,6 +61,11 @@ const AppRoute = AppRouteImport.update({
 const S3Route = S3RouteImport.update({
   id: '/S3',
   path: '/S3',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LandingIndexRoute = LandingIndexRouteImport.update({
+  id: '/landing/',
+  path: '/landing/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DeviceIndexRoute = DeviceIndexRouteImport.update({
@@ -254,6 +260,7 @@ export interface FileRoutesByFullPath {
   '/share/$token': typeof ShareTokenRoute
   '/auth/': typeof AuthIndexRoute
   '/device/': typeof DeviceIndexRoute
+  '/landing/': typeof LandingIndexRoute
   '/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
@@ -293,6 +300,7 @@ export interface FileRoutesByTo {
   '/': typeof AppIndexRoute
   '/auth': typeof AuthIndexRoute
   '/device': typeof DeviceIndexRoute
+  '/landing': typeof LandingIndexRoute
   '/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
@@ -333,6 +341,7 @@ export interface FileRoutesById {
   '/_app/': typeof AppIndexRoute
   '/auth/': typeof AuthIndexRoute
   '/device/': typeof DeviceIndexRoute
+  '/landing/': typeof LandingIndexRoute
   '/_app/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
@@ -374,6 +383,7 @@ export interface FileRouteTypes {
     | '/share/$token'
     | '/auth/'
     | '/device/'
+    | '/landing/'
     | '/buckets/$bucketName'
     | '/api/auth/$'
     | '/api/storage/file-link'
@@ -413,6 +423,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/device'
+    | '/landing'
     | '/buckets/$bucketName'
     | '/api/auth/$'
     | '/api/storage/file-link'
@@ -452,6 +463,7 @@ export interface FileRouteTypes {
     | '/_app/'
     | '/auth/'
     | '/device/'
+    | '/landing/'
     | '/_app/buckets/$bucketName'
     | '/api/auth/$'
     | '/api/storage/file-link'
@@ -492,6 +504,7 @@ export interface RootRouteChildren {
   ShareTokenRoute: typeof ShareTokenRoute
   AuthIndexRoute: typeof AuthIndexRoute
   DeviceIndexRoute: typeof DeviceIndexRoute
+  LandingIndexRoute: typeof LandingIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiStorageFileLinkRoute: typeof ApiStorageFileLinkRoute
   ApiStorageS3Route: typeof ApiStorageS3RouteWithChildren
@@ -524,6 +537,13 @@ declare module '@tanstack/react-router' {
       path: '/S3'
       fullPath: '/S3'
       preLoaderRoute: typeof S3RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/landing/': {
+      id: '/landing/'
+      path: '/landing'
+      fullPath: '/landing/'
+      preLoaderRoute: typeof LandingIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/device/': {
@@ -854,6 +874,7 @@ const rootRouteChildren: RootRouteChildren = {
   ShareTokenRoute: ShareTokenRoute,
   AuthIndexRoute: AuthIndexRoute,
   DeviceIndexRoute: DeviceIndexRoute,
+  LandingIndexRoute: LandingIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiStorageFileLinkRoute: ApiStorageFileLinkRoute,
   ApiStorageS3Route: ApiStorageS3RouteWithChildren,
