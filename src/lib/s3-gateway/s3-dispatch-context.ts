@@ -91,13 +91,25 @@ export async function resolveAuthorizedBucket(
   bucketName: string | null,
 ): Promise<BucketContext | null> {
   const accessKeyId = parseAccessKeyId(request)
-  if (!accessKeyId) return null
+  if (!accessKeyId) {
+    console.error('[S3-Auth] No accessKeyId parsed from request')
+    return null
+  }
   const byAccessKey = await resolveBucketByAccessKey(accessKeyId)
-  if (!byAccessKey) return null
+  if (!byAccessKey) {
+    console.error('[S3-Auth] No bucket found for accessKeyId:', accessKeyId)
+    return null
+  }
 
   // Access keys are bucket-scoped in this gateway, so avoid resolving by global
   // bucket name here to prevent mismatches when different users share a name.
   if (bucketName && byAccessKey.bucketName !== bucketName) {
+    console.error(
+      '[S3-Auth] Bucket name mismatch: URL bucket=',
+      bucketName,
+      'credential bucket=',
+      byAccessKey.bucketName,
+    )
     return null
   }
   const candidateBucket = byAccessKey
@@ -105,6 +117,24 @@ export async function resolveAuthorizedBucket(
   if (isSigV4Valid(request, candidateBucket)) {
     return candidateBucket
   }
+  console.error('[S3-Auth] SigV4 validation failed')
+  console.error(
+    '[S3-Auth] Authorization header:',
+    request.headers.get('authorization')?.substring(0, 80),
+  )
+  console.error(
+    '[S3-Auth] x-amz-date:',
+    request.headers.get('x-amz-date'),
+  )
+  console.error(
+    '[S3-Auth] Bucket context:',
+    JSON.stringify({
+      userId: candidateBucket.userId,
+      bucketId: candidateBucket.bucketId,
+      bucketName: candidateBucket.bucketName,
+      credentialVersion: candidateBucket.credentialVersion,
+    }),
+  )
   const providedSecret = request.headers.get('x-s3-secret-access-key')
   if (providedSecret && !isSecretValid(candidateBucket, providedSecret))
     return null
