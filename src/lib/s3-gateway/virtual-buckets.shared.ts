@@ -1,26 +1,44 @@
 import { createHmac } from 'node:crypto'
 import { db } from '@/db'
 import { virtualBucket } from '@/db/schema/s3-gateway'
+import { user } from '@/db/schema/auth-schema'
 import type { S3BucketCredentials, S3BucketItem } from '@/types/s3-buckets'
 import { and, eq } from 'drizzle-orm'
-import {
-  DEFAULT_ASSETS_BUCKET_NAME,
-  isDefaultAssetsBucketName,
-} from '@/lib/storage/assets-bucket'
 
-export function toBucketItem( row: {
-  id: string
-  name: string
-  mappedFolderId: string | null
-  isActive: boolean
-  createdAt: Date
-} ): S3BucketItem {
+/**
+ * Resolve the name of the user's default assets bucket. Stored on the user
+ * row at bucket-creation time. Bucket names are globally unique, so this
+ * returns the per-user-suffixed name (e.g. "assets-abcde").
+ */
+export async function getUserDefaultAssetsBucketName(
+  userId: string,
+): Promise<string | null> {
+  const rows = await db
+    .select({ name: user.defaultAssetsBucketName })
+    .from(user)
+    .where(eq(user.id, userId))
+    .limit(1)
+  return rows[0]?.name ?? null
+}
+
+export async function toBucketItem(
+  row: {
+    id: string
+    name: string
+    mappedFolderId: string | null
+    isActive: boolean
+    createdAt: Date
+  },
+  defaultAssetsBucketName: string | null,
+): Promise<S3BucketItem> {
   return {
     id: row.id,
     name: row.name,
     mappedFolderId: row.mappedFolderId,
     isActive: row.isActive,
-    isDefault: isDefaultAssetsBucketName( row.name ),
+    isDefault:
+      defaultAssetsBucketName !== null &&
+      defaultAssetsBucketName === row.name,
     createdAt: row.createdAt.toISOString(),
   }
 }
@@ -51,10 +69,19 @@ export async function getActiveBucketRow( userId: string, bucketName: string ) {
   return rows[0] ?? null
 }
 
-export function assertMutableBucket( bucketName: string ): void {
-  if ( isDefaultAssetsBucketName( bucketName ) ) {
+/**
+ * Throws if the (userId, bucketName) row is the user's default assets bucket.
+ * Since bucket names are globally unique, we compare against the name stored
+ * on the user row, not against a hard-coded literal.
+ */
+export async function assertMutableBucket(
+  userId: string,
+  bucketName: string,
+): Promise<void> {
+  const defaultName = await getUserDefaultAssetsBucketName(userId)
+  if (defaultName !== null && defaultName === bucketName) {
     throw new Error(
-      `Bucket "${DEFAULT_ASSETS_BUCKET_NAME}" is reserved for attachments and cannot be deleted or emptied.`,
+      `Bucket "${defaultName}" is reserved for attachments and cannot be deleted or emptied.`,
     )
   }
 }

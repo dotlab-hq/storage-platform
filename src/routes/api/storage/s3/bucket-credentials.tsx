@@ -3,7 +3,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
 import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { getVirtualBucketCredentials } from '@/lib/s3-gateway/virtual-buckets'
-import { DEFAULT_ASSETS_BUCKET_NAME } from '@/lib/storage/assets-bucket'
+import { getUserDefaultAssetsBucketName } from '@/lib/s3-gateway/virtual-buckets.shared'
 
 const BucketActionSchema = z.object({
   bucketName: z.string().trim().min(3).max(63).optional(),
@@ -48,7 +48,13 @@ export const Route = createFileRoute('/api/storage/s3/bucket-credentials')({
         try {
           const { user: currentUser } = context
           const payload = BucketActionSchema.parse(await request.json())
-          const bucketName = payload.bucketName ?? DEFAULT_ASSETS_BUCKET_NAME
+          // When no bucket is provided, default to the user's stored default
+          // assets bucket (per-user unique name like "assets-abcde").
+          const fallbackName = await getUserDefaultAssetsBucketName(currentUser.id)
+          const bucketName = payload.bucketName ?? fallbackName
+          if (!bucketName) {
+            throw new Error('No bucket name provided and no default assets bucket exists yet')
+          }
           const credentials = await getVirtualBucketCredentials(
             currentUser.id,
             bucketName,

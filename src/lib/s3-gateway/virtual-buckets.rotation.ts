@@ -5,10 +5,10 @@ import { z } from 'zod'
 import {
   createBucketCredentials,
   getActiveBucketRow,
+  getUserDefaultAssetsBucketName,
 } from '@/lib/s3-gateway/virtual-buckets.shared'
 import { removeBucketContextCache } from '@/lib/s3-gateway/virtual-bucket-kv-cache'
 import { logActivity } from '@/lib/activity'
-import { isDefaultAssetsBucketName } from '@/lib/storage/assets-bucket'
 
 const RotateCredentialsSchema = z.object({
   bucketName: z.string().min(1).max(63),
@@ -28,7 +28,8 @@ export async function rotateBucketCredentials(
   }
 
   // Prevent rotating credentials for the default assets bucket
-  if (isDefaultAssetsBucketName(row.name)) {
+  const defaultAssetsBucketName = await getUserDefaultAssetsBucketName(userId)
+  if (defaultAssetsBucketName !== null && defaultAssetsBucketName === row.name) {
     throw new Error('Cannot rotate credentials for the default assets bucket')
   }
 

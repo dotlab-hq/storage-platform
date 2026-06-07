@@ -67,6 +67,9 @@ export function BucketManager() {
     ? credentialByBucket[activeCredentialsBucket]
     : undefined
 
+  const activeCredentialsIsDefault =
+    activeCredentialsBucket === defaultBucket?.name
+
   return (
     <section className="space-y-5">
       <div className="flex flex-col gap-3 border-b border-border pb-4 lg:flex-row lg:items-end lg:justify-between">
@@ -163,6 +166,7 @@ export function BucketManager() {
         activeObjectOpsBucket={activeObjectOpsBucket}
         activeViewerBucket={activeViewerBucket}
         activeCredentials={activeCredentials}
+        activeCredentialsIsDefault={activeCredentialsIsDefault}
         onCopy={async (value) => navigator.clipboard.writeText(value)}
         onRotate={rotateCredentials}
         onCloseCredentials={() => setActiveCredentialsBucket(null)}

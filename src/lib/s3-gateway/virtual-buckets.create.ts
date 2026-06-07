@@ -1,11 +1,12 @@
 import { db } from '@/db'
 import { virtualBucket } from '@/db/schema/s3-gateway'
 import { folder } from '@/db/schema/storage'
+import { user } from '@/db/schema/auth-schema'
 import type { S3BucketItem } from '@/types/s3-buckets'
 import { and, eq } from 'drizzle-orm'
 import { replaceBucketCors } from '@/lib/s3-gateway/s3-bucket-controls'
 import { toBucketItem } from '@/lib/s3-gateway/virtual-buckets.shared'
-import { DEFAULT_ASSETS_BUCKET_NAME } from '@/lib/storage/assets-bucket'
+import { generateDefaultAssetsBucketName } from '@/lib/storage/assets-bucket'
 import { upsertFolderNode } from '@/lib/storage-btree/index'
 import { upsertBucketContextCache } from '@/lib/s3-gateway/virtual-bucket-kv-cache'
 
@@ -19,16 +20,13 @@ async function createVirtualBucketRow(
 ): Promise<S3BucketItem> {
   const bucketId = crypto.randomUUID()
 
-  // Check for existing bucket with same name for this user
+  // Bucket names are globally unique (DB-level enforced by the unique index
+  // on virtual_bucket.name), so a single lookup is enough to detect a clash.
   const existing = await db
     .select({ id: virtualBucket.id })
     .from(virtualBucket)
     .where(
-      and(
-        eq(virtualBucket.userId, input.userId),
-        eq(virtualBucket.name, input.bucketName),
-        eq(virtualBucket.isActive, true),
-      ),
+      and(eq(virtualBucket.name, input.bucketName), eq(virtualBucket.isActive, true)),
     )
     .limit(1)
 
@@ -98,7 +96,19 @@ async function createVirtualBucketRow(
     credentialVersion: createdRows[0].credentialVersion,
   })
 
-  return toBucketItem(createdRows[0])
+  const defaultAssetsBucketName = await getDefaultAssetsBucketNameForUser(input.userId)
+  return toBucketItem(createdRows[0], defaultAssetsBucketName)
+}
+
+async function getDefaultAssetsBucketNameForUser(
+  userId: string,
+): Promise<string | null> {
+  const rows = await db
+    .select({ name: user.defaultAssetsBucketName })
+    .from(user)
+    .where(eq(user.id, userId))
+    .limit(1)
+  return rows[0]?.name ?? null
 }
 
 export async function createVirtualBucket(
@@ -111,30 +121,43 @@ export async function createVirtualBucket(
 export async function ensureDefaultAssetsBucket(
   userId: string,
 ): Promise<S3BucketItem> {
-  const existing = await db
-    .select({
-      id: virtualBucket.id,
-      name: virtualBucket.name,
-      mappedFolderId: virtualBucket.mappedFolderId,
-      isActive: virtualBucket.isActive,
-      createdAt: virtualBucket.createdAt,
-    })
-    .from(virtualBucket)
-    .where(
-      and(
-        eq(virtualBucket.userId, userId),
-        eq(virtualBucket.name, DEFAULT_ASSETS_BUCKET_NAME),
-        eq(virtualBucket.isActive, true),
-      ),
-    )
-    .limit(1)
+  // 1. Read the user's stored default assets bucket name (set on first
+  //    creation or by the data migration).
+  const storedName = await getDefaultAssetsBucketNameForUser(userId)
 
-  if (existing.length > 0) {
-    return toBucketItem(existing[0])
+  if (storedName) {
+    const existing = await db
+      .select({
+        id: virtualBucket.id,
+        name: virtualBucket.name,
+        mappedFolderId: virtualBucket.mappedFolderId,
+        isActive: virtualBucket.isActive,
+        createdAt: virtualBucket.createdAt,
+      })
+      .from(virtualBucket)
+      .where(
+        and(
+          eq(virtualBucket.userId, userId),
+          eq(virtualBucket.name, storedName),
+          eq(virtualBucket.isActive, true),
+        ),
+      )
+      .limit(1)
+
+    if (existing.length > 0) {
+      return toBucketItem(existing[0], storedName)
+    }
   }
 
-  return createVirtualBucketRow({
-    userId,
-    bucketName: DEFAULT_ASSETS_BUCKET_NAME,
-  })
+  // 2. Bucket missing (or user has no default name yet) — create one with a
+  //    fresh globally-unique suffixed name, then persist it on the user.
+  const bucketName = generateDefaultAssetsBucketName()
+  const created = await createVirtualBucketRow({ userId, bucketName })
+
+  await db
+    .update(user)
+    .set({ defaultAssetsBucketName: bucketName })
+    .where(eq(user.id, userId))
+
+  return created
 }

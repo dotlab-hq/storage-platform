@@ -40,7 +40,7 @@ export const virtualBucket = schema.table(
     credentialVersion: integer( 'credential_version' ).default( 1 ).notNull(),
   },
   ( table ) => [
-    uniqueIndex( 'virtualBucket_userId_name_unq' ).on( table.userId, table.name ),
+    uniqueIndex( 'virtualBucket_name_unq' ).on( table.name ),
     index( 'virtualBucket_userId_idx' ).on( table.userId ),
     index( 'virtualBucket_mappedFolderId_idx' ).on( table.mappedFolderId ),
     index( 'virtualBucket_isActive_idx' ).on( table.isActive ),

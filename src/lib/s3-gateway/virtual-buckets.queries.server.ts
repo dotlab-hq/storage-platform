@@ -5,27 +5,31 @@ import { and, eq } from 'drizzle-orm'
 import {
   createBucketCredentials,
   getActiveBucketRow,
+  getUserDefaultAssetsBucketName,
   toBucketItem,
 } from '@/lib/s3-gateway/virtual-buckets.shared'
 
 export async function listVirtualBuckets(
   userId: string,
 ): Promise<S3BucketItem[]> {
-  const rows = await db
-    .select({
-      id: virtualBucket.id,
-      name: virtualBucket.name,
-      mappedFolderId: virtualBucket.mappedFolderId,
-      isActive: virtualBucket.isActive,
-      createdAt: virtualBucket.createdAt,
-    })
-    .from(virtualBucket)
-    .where(
-      and(eq(virtualBucket.userId, userId), eq(virtualBucket.isActive, true)),
-    )
-    .orderBy(virtualBucket.createdAt)
+  const [defaultName, rows] = await Promise.all([
+    getUserDefaultAssetsBucketName(userId),
+    db
+      .select({
+        id: virtualBucket.id,
+        name: virtualBucket.name,
+        mappedFolderId: virtualBucket.mappedFolderId,
+        isActive: virtualBucket.isActive,
+        createdAt: virtualBucket.createdAt,
+      })
+      .from(virtualBucket)
+      .where(
+        and(eq(virtualBucket.userId, userId), eq(virtualBucket.isActive, true)),
+      )
+      .orderBy(virtualBucket.createdAt),
+  ])
 
-  return rows.map(toBucketItem)
+  return Promise.all(rows.map((row) => toBucketItem(row, defaultName)))
 }
 
 export async function getVirtualBucketCredentials(

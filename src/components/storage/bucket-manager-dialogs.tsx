@@ -29,6 +29,7 @@ type BucketManagerDialogsProps = {
   activeObjectOpsBucket: string | null
   activeViewerBucket: string | null
   activeCredentials: S3BucketCredentials | undefined
+  activeCredentialsIsDefault: boolean
   onCopy: (value: string) => Promise<void>
   onRotate: (bucketName: string) => Promise<S3BucketCredentials | null>
   onCloseCredentials: () => void
@@ -43,6 +44,7 @@ export function BucketManagerDialogs(props: BucketManagerDialogsProps) {
       <BucketCredentialsDialog
         bucketName={props.activeCredentialsBucket}
         credentials={props.activeCredentials}
+        isDefaultAssets={props.activeCredentialsIsDefault}
         onCopy={props.onCopy}
         onRotate={
           props.activeCredentialsBucket

@@ -30,6 +30,7 @@ export const user = sqliteTable('user', {
   use_system_providers: integer('use_system_providers', { mode: 'boolean' })
     .default(true)
     .notNull(),
+  defaultAssetsBucketName: text('default_assets_bucket_name'),
 })
 
 export const session = sqliteTable(

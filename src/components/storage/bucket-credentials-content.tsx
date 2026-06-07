@@ -10,7 +10,6 @@ import {
 } from '@/components/ui/dialog'
 import { toast } from '@/components/ui/sonner'
 import type { S3BucketCredentials } from '@/types/s3-buckets'
-import { DEFAULT_ASSETS_BUCKET_NAME } from '@/lib/storage/assets-bucket'
 import { ConfirmActionDialog } from '@/components/ui/confirm-action-dialog'
 import {
   Tooltip,
@@ -22,6 +21,7 @@ import {
 type BucketCredentialsContentProps = {
   bucketName: string | null
   credentials: S3BucketCredentials | undefined
+  isDefaultAssets: boolean
   onCopy: (value: string) => Promise<void>
   onRotate?: (() => Promise<S3BucketCredentials | null>) | undefined
 }
@@ -29,6 +29,7 @@ type BucketCredentialsContentProps = {
 export function BucketCredentialsContent({
   bucketName,
   credentials,
+  isDefaultAssets,
   onCopy,
   onRotate,
 }: BucketCredentialsContentProps) {
@@ -66,7 +67,6 @@ export function BucketCredentialsContent({
   const maskedSecret = credentials?.secretAccessKey
     ? credentials.secretAccessKey.replace(/./g, '•')
     : ''
-  const isDefaultAssets = bucketName === DEFAULT_ASSETS_BUCKET_NAME
 
   return (
     <>

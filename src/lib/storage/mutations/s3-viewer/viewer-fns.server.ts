@@ -14,7 +14,7 @@ import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 import { isStatusMetadataError } from '@/lib/s3-gateway/s3-conditional-cache'
 import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { getVirtualBucketCredentials } from '@/lib/s3-gateway/virtual-buckets.server'
-import { DEFAULT_ASSETS_BUCKET_NAME } from '@/lib/storage/assets-bucket'
+import { getUserDefaultAssetsBucketName } from '@/lib/s3-gateway/virtual-buckets.shared'
 import {
   BucketSchema,
   ListSchema,
@@ -147,11 +147,14 @@ export const getS3ViewerCredentialsFn = createServerFn({ method: 'GET' })
   .inputValidator(BucketSchema)
   .handler(async ({ data, context }) => {
     const user = context.user
-    const targetBucket =
-      data.bucketName && data.bucketName.length > 0
-        ? data.bucketName
-        : DEFAULT_ASSETS_BUCKET_NAME
-    return getVirtualBucketCredentials(user.id, targetBucket)
+    if (data.bucketName && data.bucketName.length > 0) {
+      return getVirtualBucketCredentials(user.id, data.bucketName)
+    }
+    const fallbackName = await getUserDefaultAssetsBucketName(user.id)
+    if (!fallbackName) {
+      throw new Error('No bucket name provided and no default assets bucket exists yet')
+    }
+    return getVirtualBucketCredentials(user.id, fallbackName)
   })
 
 export const listS3ViewerObjectsFn = createServerFn({ method: 'GET' })

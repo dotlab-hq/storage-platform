@@ -19,7 +19,7 @@ export async function emptyVirtualBucket(
   userId: string,
   bucketName: string,
 ): Promise<void> {
-  assertMutableBucket(bucketName)
+  await assertMutableBucket(userId, bucketName)
   await ensureS3FileSchemaCompatibility()
 
   const row = await getActiveBucketRow(userId, bucketName)
@@ -40,7 +40,7 @@ export async function deleteVirtualBucket(
   userId: string,
   bucketName: string,
 ): Promise<void> {
-  assertMutableBucket(bucketName)
+  await assertMutableBucket(userId, bucketName)
   await ensureS3FileSchemaCompatibility()
 
   const row = await getActiveBucketRow(userId, bucketName)
