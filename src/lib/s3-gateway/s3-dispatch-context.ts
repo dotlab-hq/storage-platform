@@ -69,7 +69,10 @@ export function mapProviderStatusToS3Error(statusCode: number): {
     return {
       status: 503,
       code: 'ServiceUnavailable',
-      message: 'Upstream storage provider is temporarily unavailable',
+      message:
+        'Upstream storage provider is temporarily unavailable. ' +
+        'If this happens on PUT, the provider may reject chunked transfer-encoding. ' +
+        'Ensure the request uses Content-Length (buffer the body) rather than Transfer-Encoding: chunked.',
     }
   return {
     status: 502,

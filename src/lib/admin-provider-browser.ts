@@ -1,6 +1,11 @@
-import { GetObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3'
+import {
+  GetObjectCommand,
+  ListObjectsV2Command,
+  type ListObjectsV2CommandOutput,
+} from '@aws-sdk/client-s3'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 import { getProviderClientById } from '@/lib/s3-provider-client'
+import { isStatusMetadataError } from '@/lib/s3-gateway/s3-conditional-cache'
 
 export type AdminProviderFolderEntry = {
   name: string
@@ -61,15 +66,37 @@ export async function listAdminProviderContents(
 ): Promise<AdminProviderContentsResponse> {
   const provider = await getProviderClientById(providerId)
   const normalizedPrefix = normalizePrefix(prefix)
-  const result = await provider.client.send(
-    new ListObjectsV2Command({
-      Bucket: provider.bucketName,
-      Prefix: normalizedPrefix.length > 0 ? normalizedPrefix : undefined,
-      Delimiter: '/',
-      ContinuationToken: continuationToken ?? undefined,
-      MaxKeys: maxKeys,
-    }),
-  )
+
+  let result: ListObjectsV2CommandOutput
+  try {
+    result = await provider.client.send(
+      new ListObjectsV2Command({
+        Bucket: provider.bucketName,
+        Prefix: normalizedPrefix.length > 0 ? normalizedPrefix : undefined,
+        Delimiter: '/',
+        ContinuationToken: continuationToken ?? undefined,
+        MaxKeys: maxKeys,
+      }),
+    )
+  } catch (error) {
+    // Some S3-compatible providers return NoSuchKey (404) for empty
+    // prefixes instead of an empty Contents list. Treat 404 as no objects.
+    const status = isStatusMetadataError(error)
+      ? error.$metadata?.httpStatusCode
+      : null
+    if (status === 404) {
+      result = {
+        CommonPrefixes: [],
+        Contents: [],
+        KeyCount: 0,
+        IsTruncated: false,
+        Prefix: normalizedPrefix,
+        $metadata: {},
+      } as ListObjectsV2CommandOutput
+    } else {
+      throw error
+    }
+  }
 
   const folders = (result.CommonPrefixes ?? [])
     .map((entry) => entry.Prefix ?? '')

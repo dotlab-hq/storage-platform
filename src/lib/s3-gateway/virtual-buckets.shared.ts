@@ -96,8 +96,16 @@ function resolveCompatEndpoint(): string {
 }
 
 function resolveCompatRegion(): string {
-  // Hardcoded default - no environment variable lookup
-  return 'auto'
+  // Return a real region for SigV4 compatibility. 'auto' causes signing
+  // failures with many S3-compatible providers.
+  const envRegion = process.env.S3_TEST_REGION ?? process.env.S3_REGION
+  if (envRegion) {
+    const trimmed = envRegion.trim().toLowerCase()
+    if (trimmed.length > 0 && trimmed !== 'auto' && trimmed !== 'null' && trimmed !== 'undefined') {
+      return envRegion.trim()
+    }
+  }
+  return 'us-east-1'
 }
 
 export function createBucketCredentials(

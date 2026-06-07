@@ -1,5 +1,6 @@
-import { ListObjectsV2Command } from '@aws-sdk/client-s3'
+import { ListObjectsV2Command, type ListObjectsV2CommandOutput } from '@aws-sdk/client-s3'
 import { getProviderClientById } from '@/lib/s3-provider-client'
+import { isStatusMetadataError } from '@/lib/s3-gateway/s3-conditional-cache'
 
 export interface ProviderContentsResponse {
   providerId: string
@@ -59,14 +60,38 @@ export async function listProviderContents({
   const provider = await getProviderClientById(providerId)
   const normalizedPrefix = normalizePrefix(prefix ?? '')
 
-  const result = await provider.client.send(
-    new ListObjectsV2Command({
-      Bucket: provider.bucketName,
-      Prefix: normalizedPrefix.length > 0 ? normalizedPrefix : undefined,
-      Delimiter: '/',
-      MaxKeys: maxKeys ?? 1000,
-    }),
-  )
+  let result: ListObjectsV2CommandOutput
+  try {
+    result = await provider.client.send(
+      new ListObjectsV2Command({
+        Bucket: provider.bucketName,
+        Prefix: normalizedPrefix.length > 0 ? normalizedPrefix : undefined,
+        Delimiter: '/',
+        MaxKeys: maxKeys ?? 1000,
+      }),
+    )
+  } catch (error) {
+    // Some S3-compatible providers (e.g. the one behind storage.wpsadi.dev)
+    // return NoSuchKey (404) for prefixes that don't exist or are empty
+    // instead of returning an empty Contents list. Per the S3 spec, a list
+    // call with no matches should return an empty result, not an error —
+    // so treat the NoSuchKey case as "no objects".
+    const status = isStatusMetadataError(error)
+      ? error.$metadata?.httpStatusCode
+      : null
+    if (status === 404) {
+      result = {
+        CommonPrefixes: [],
+        Contents: [],
+        KeyCount: 0,
+        IsTruncated: false,
+        Prefix: normalizedPrefix,
+        $metadata: {},
+      } as ListObjectsV2CommandOutput
+    } else {
+      throw error
+    }
+  }
 
   const folders = (result.CommonPrefixes ?? [])
     .map((entry) => entry.Prefix ?? '')

@@ -6,10 +6,12 @@ import {
   DeleteObjectCommand,
   GetObjectCommand,
   ListObjectsV2Command,
+  type ListObjectsV2CommandOutput,
   PutObjectCommand,
   S3Client,
 } from '@aws-sdk/client-s3'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
+import { isStatusMetadataError } from '@/lib/s3-gateway/s3-conditional-cache'
 import { apiAuthMiddleware } from '@/middlewares/api-auth'
 import { getVirtualBucketCredentials } from '@/lib/s3-gateway/virtual-buckets.server'
 import { DEFAULT_ASSETS_BUCKET_NAME } from '@/lib/storage/assets-bucket'
@@ -160,15 +162,36 @@ export const listS3ViewerObjectsFn = createServerFn({ method: 'GET' })
     const normalizedPrefix =
       data.prefix && data.prefix.length > 0 ? data.prefix : undefined
 
-    const result = await client.send(
-      new ListObjectsV2Command({
-        Bucket: data.bucketName,
-        Prefix: normalizedPrefix,
-        Delimiter: '/',
-        ContinuationToken: data.continuationToken,
-        MaxKeys: data.maxKeys,
-      }),
-    )
+    let result: ListObjectsV2CommandOutput
+    try {
+      result = await client.send(
+        new ListObjectsV2Command({
+          Bucket: data.bucketName,
+          Prefix: normalizedPrefix,
+          Delimiter: '/',
+          ContinuationToken: data.continuationToken,
+          MaxKeys: data.maxKeys,
+        }),
+      )
+    } catch (error) {
+      // Some S3-compatible providers return NoSuchKey (404) for empty
+      // prefixes instead of an empty Contents list. Treat 404 as no objects.
+      const status = isStatusMetadataError(error)
+        ? error.$metadata?.httpStatusCode
+        : null
+      if (status === 404) {
+        result = {
+          CommonPrefixes: [],
+          Contents: [],
+          KeyCount: 0,
+          IsTruncated: false,
+          Prefix: normalizedPrefix ?? '',
+          $metadata: {},
+        } as ListObjectsV2CommandOutput
+      } else {
+        throw error
+      }
+    }
 
     const folders = (result.CommonPrefixes ?? [])
       .map((entry) => entry.Prefix ?? '')

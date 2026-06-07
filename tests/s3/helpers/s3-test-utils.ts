@@ -20,7 +20,8 @@ export function createS3Client(input?: {
 }): S3Client {
   const endpoint =
     process.env.S3_TEST_ENDPOINT ?? 'https://storage.wpsadi.dev/api/storage/s3'
-  const region = process.env.S3_TEST_REGION ?? 'auto'
+  // NOTE: 'auto' region causes SigV4 signing issues. Fall back to 'us-east-1'.
+  const region = process.env.S3_TEST_REGION === 'auto' ? 'us-east-1' : (process.env.S3_TEST_REGION ?? 'us-east-1')
   return new S3Client({
     endpoint,
     region,

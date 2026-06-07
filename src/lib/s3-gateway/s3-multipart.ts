@@ -66,6 +66,30 @@ function toNodeReadable(stream: ReadableStream<Uint8Array>): Readable {
   return Readable.from(streamWebChunks(stream))
 }
 
+async function readStreamToBuffer(
+  stream: ReadableStream<Uint8Array>,
+): Promise<Buffer> {
+  const reader = stream.getReader()
+  const chunks: Uint8Array[] = []
+  try {
+    for (;;) {
+      const { done, value } = await reader.read()
+      if (done) break
+      chunks.push(value)
+    }
+  } finally {
+    reader.releaseLock()
+  }
+  const totalLength = chunks.reduce((sum, chunk) => sum + chunk.byteLength, 0)
+  const result = Buffer.allocUnsafe(totalLength)
+  let offset = 0
+  for (const chunk of chunks) {
+    result.set(chunk, offset)
+    offset += chunk.byteLength
+  }
+  return result
+}
+
 function multipartPartObjectKey(
   upstreamObjectKey: string,
   uploadId: string,
@@ -169,25 +193,64 @@ export async function uploadPart(
     partNumber,
   )
 
+  // Buffer the body to avoid Transfer-Encoding: chunked which some
+  // S3-compatible providers reject with 503.
+  const bufferedBody = await readStreamToBuffer(body)
   const result = await sendWithProviderTimeout((abortSignal) =>
     provider.client.send(
       new PutObjectCommand({
         Bucket: provider.bucketName,
         Key: temporaryPartKey,
-        Body: toNodeReadable(body),
+        Body: bufferedBody,
         ContentType: contentType ?? 'application/octet-stream',
-        ContentLength: contentLength ?? undefined,
+        ContentLength: bufferedBody.byteLength,
       }),
       { abortSignal },
     ),
   )
+
+  // Some S3-compatible providers (e.g. the one behind storage.wpsadi.dev)
+  // do not return an ETag header in the PutObject response. Recover it via
+  // a HEAD request against the same key, but don't fail the part upload
+  // if the HEAD fails — `null` is acceptable since the multipart-complete
+  // step can still derive the ETag from a HEAD against the assembled object.
+  let partETag: string | null = result.ETag ?? null
+  if (!partETag) {
+    let headTimer: ReturnType<typeof setTimeout> | null = null
+    try {
+      const headAbort = new AbortController()
+      headTimer = setTimeout(
+        () => headAbort.abort(),
+        PROVIDER_METADATA_HEAD_TIMEOUT_MS,
+      )
+      const head = await provider.client.send(
+        new HeadObjectCommand({
+          Bucket: provider.bucketName,
+          Key: temporaryPartKey,
+        }),
+        { abortSignal: headAbort.signal },
+      )
+      partETag = head.ETag ?? null
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? `${error.name}: ${error.message}`
+          : 'Unknown head error during multipart part upload'
+      console.warn(
+        '[S3 Gateway] uploadPart HEAD-after-PUT non-fatal failure:',
+        message,
+      )
+    } finally {
+      if (headTimer) clearTimeout(headTimer)
+    }
+  }
 
   await db
     .insert(multipartUploadPart)
     .values({
       uploadAttemptId: attempt.id,
       partNumber,
-      etag: result.ETag ?? null,
+      etag: partETag,
       sizeInBytes: contentLength ?? 0,
       upstreamPartLocator: temporaryPartKey,
     })
@@ -197,7 +260,7 @@ export async function uploadPart(
         multipartUploadPart.partNumber,
       ],
       set: {
-        etag: result.ETag ?? null,
+        etag: partETag,
         sizeInBytes: contentLength ?? 0,
         upstreamPartLocator: temporaryPartKey,
       },
@@ -211,7 +274,7 @@ export async function uploadPart(
     })
     .where(eq(uploadAttempt.id, uploadId))
 
-  return result.ETag ?? null
+  return partETag
 }
 
 export async function completeMultipartUpload(

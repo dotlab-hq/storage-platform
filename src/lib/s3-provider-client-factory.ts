@@ -23,6 +23,7 @@ const INVALID_REGION_SENTINELS = new Set([
   'null',
   'undefined',
   'bucket',
+  'auto',
 ])
 
 function safeTrim(value: string | null | undefined): string {
@@ -67,6 +68,11 @@ export function fromProviderRow(row: ProviderRow): ProviderClientConfig {
     endpoint,
     forcePathStyle: true,
     bucketEndpoint: false,
+    // Disable the SDK's automatic "aws-chunked" content encoding. Some
+    // S3-compatible providers (e.g. the one behind storage.wpsadi.dev) reject
+    // requests with `Transfer-Encoding: chunked` + `Content-Encoding: aws-chunked`
+    // and respond with 503 ServiceUnavailable. WHEN_REQUIRED lets the SDK
+    // buffer the body so it can emit a plain `Content-Length` header instead.
     requestChecksumCalculation: 'WHEN_REQUIRED',
     responseChecksumValidation: 'WHEN_REQUIRED',
     credentials: {

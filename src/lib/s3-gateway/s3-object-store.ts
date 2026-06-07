@@ -18,7 +18,7 @@ import {
   getProviderClientById,
   selectProviderForUpload,
 } from '@/lib/s3-provider-client'
-import { and, eq, isNull, like } from 'drizzle-orm'
+import { and, eq, isNull, like, sql } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder, userStorage } from '@/db/schema/storage'
 import {
@@ -50,6 +50,30 @@ const LARGE_OBJECT_CHUNK_BYTES = parsePositiveInt(
   process.env.S3_LARGE_OBJECT_CHUNK_BYTES,
   4 * 1024 * 1024,
 )
+
+async function readStreamToBuffer(
+  stream: ReadableStream<Uint8Array>,
+): Promise<Buffer> {
+  const reader = stream.getReader()
+  const chunks: Uint8Array[] = []
+  try {
+    for (;;) {
+      const { done, value } = await reader.read()
+      if (done) break
+      chunks.push(value)
+    }
+  } finally {
+    reader.releaseLock()
+  }
+  const totalLength = chunks.reduce((sum, chunk) => sum + chunk.byteLength, 0)
+  const result = Buffer.allocUnsafe(totalLength)
+  let offset = 0
+  for (const chunk of chunks) {
+    result.set(chunk, offset)
+    offset += chunk.byteLength
+  }
+  return result
+}
 
 async function* streamWebChunks(
   stream: ReadableStream<Uint8Array>,
@@ -440,12 +464,17 @@ export async function putObject(
     targetFolderId,
     objectKey,
   )
+  // Buffer the body to a single Buffer so the AWS SDK sends
+  // `Content-Length` instead of `Transfer-Encoding: chunked`.
+  // Some S3-compatible providers (the one behind storage.wpsadi.dev, for
+  // example) reject chunked requests with 503 ServiceUnavailable.
+  const bufferedBody = await readStreamToBuffer(body)
   const result = await sendWithProviderTimeout((abortSignal) =>
     provider.client.send(
       new PutObjectCommand({
         Bucket: provider.bucketName,
         Key: upstreamKey,
-        Body: toNodeReadable(body),
+        Body: bufferedBody,
         ContentType: contentType ?? 'application/octet-stream',
         CacheControl: metadataInput?.cacheControl ?? undefined,
         ContentDisposition: metadataInput?.contentDisposition ?? undefined,
@@ -455,7 +484,7 @@ export async function putObject(
           metadataInput && Object.keys(metadataInput.metadata).length > 0
             ? metadataInput.metadata
             : undefined,
-        ContentLength: contentLength ?? undefined,
+        ContentLength: bufferedBody.byteLength,
       }),
       { abortSignal },
     ),
@@ -1159,22 +1188,38 @@ export async function copyObject(
       ),
     )
 
+    // Buffer the body to avoid Transfer-Encoding: chunked which some
+    // S3-compatible providers reject with 503.
+    const providerBody = toProviderPutBody(sourceGet.Body)
+    let bufferedBody: Buffer
+    if (Buffer.isBuffer(providerBody)) {
+      bufferedBody = providerBody
+    } else if (providerBody instanceof ReadableStream) {
+      bufferedBody = await readStreamToBuffer(providerBody)
+    } else {
+      // Node Readable — consume into a Buffer
+      const chunks: Buffer[] = []
+      for await (const chunk of providerBody) {
+        chunks.push(
+          Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk as Uint8Array),
+        )
+      }
+      bufferedBody = Buffer.concat(chunks)
+    }
+
     await sendWithProviderTimeout((abortSignal) =>
       sourceProvider.client.send(
         new PutObjectCommand({
           Bucket: sourceProvider.bucketName,
           Key: destinationUpstreamKey,
-          Body: toProviderPutBody(sourceGet.Body),
+          Body: bufferedBody,
           ContentType:
             sourceGet.ContentType ??
             sourceStored?.mimeType ??
             'application/octet-stream',
           CacheControl:
             sourceGet.CacheControl ?? sourceStored?.cacheControl ?? undefined,
-          ContentLength:
-            typeof sourceGet.ContentLength === 'number'
-              ? sourceGet.ContentLength
-              : undefined,
+          ContentLength: bufferedBody.byteLength,
         }),
         { abortSignal },
       ),
