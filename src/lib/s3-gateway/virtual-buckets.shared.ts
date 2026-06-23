@@ -13,12 +13,17 @@ import { and, eq } from 'drizzle-orm'
 export async function getUserDefaultAssetsBucketName(
   userId: string,
 ): Promise<string | null> {
-  const rows = await db
-    .select({ name: user.defaultAssetsBucketName })
-    .from(user)
-    .where(eq(user.id, userId))
-    .limit(1)
-  return rows[0]?.name ?? null
+  try {
+    const rows = await db
+      .select({ name: user.defaultAssetsBucketName })
+      .from(user)
+      .where(eq(user.id, userId))
+      .limit(1)
+    return rows[0]?.name ?? null
+  } catch {
+    // Column may not exist if migration 0034 hasn't run yet
+    return null
+  }
 }
 
 export async function toBucketItem(

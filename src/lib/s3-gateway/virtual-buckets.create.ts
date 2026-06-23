@@ -103,12 +103,16 @@ async function createVirtualBucketRow(
 async function getDefaultAssetsBucketNameForUser(
   userId: string,
 ): Promise<string | null> {
-  const rows = await db
-    .select({ name: user.defaultAssetsBucketName })
-    .from(user)
-    .where(eq(user.id, userId))
-    .limit(1)
-  return rows[0]?.name ?? null
+  try {
+    const rows = await db
+      .select({ name: user.defaultAssetsBucketName })
+      .from(user)
+      .where(eq(user.id, userId))
+      .limit(1)
+    return rows[0]?.name ?? null
+  } catch {
+    return null
+  }
 }
 
 export async function createVirtualBucket(
@@ -154,10 +158,14 @@ export async function ensureDefaultAssetsBucket(
   const bucketName = generateDefaultAssetsBucketName()
   const created = await createVirtualBucketRow({ userId, bucketName })
 
-  await db
-    .update(user)
-    .set({ defaultAssetsBucketName: bucketName })
-    .where(eq(user.id, userId))
+  try {
+    await db
+      .update(user)
+      .set({ defaultAssetsBucketName: bucketName })
+      .where(eq(user.id, userId))
+  } catch {
+    // Column may not exist if migration 0034 hasn't run yet; bucket still works
+  }
 
   return created
 }
