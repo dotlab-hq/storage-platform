@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { getFileIcon, getFolderIcon, formatFileSize } from '@/lib/file-utils'
 import { cn } from '@/lib/utils'
+import { RelativeTime } from '@/components/ui/relative-time'
 
 type TrashItemData = {
   id: string
@@ -59,9 +60,6 @@ export function TrashContent<T extends TrashItemData>({
             item.type === 'folder'
               ? getFolderIcon()
               : getFileIcon(item.name, item.mimeType ?? null)
-          const deletedLabel = item.deletedAt
-            ? formatTimeSince(item.deletedAt)
-            : 'Unknown'
           const isSelected = selectedIds.has(item.id)
 
           return (
@@ -91,7 +89,12 @@ export function TrashContent<T extends TrashItemData>({
                     {item.name}
                   </p>
                   <p className="text-muted-foreground text-xs">
-                    Deleted {deletedLabel}
+                    Deleted{' '}
+                    {item.deletedAt ? (
+                      <RelativeTime date={item.deletedAt} />
+                    ) : (
+                      'at an unknown time'
+                    )}
                     {item.type === 'file' && item.sizeInBytes != null && (
                       <> &middot; {formatFileSize(item.sizeInBytes)}</>
                     )}
@@ -122,16 +125,4 @@ export function TrashContent<T extends TrashItemData>({
       </div>
     </div>
   )
-}
-
-function formatTimeSince(isoDate: string): string {
-  const ms = Date.now() - new Date(isoDate).getTime()
-  const minutes = Math.floor(ms / 60000)
-  if (minutes < 1) return 'just now'
-  if (minutes < 60) return `${minutes}m ago`
-  const hours = Math.floor(minutes / 60)
-  if (hours < 24) return `${hours}h ago`
-  const days = Math.floor(hours / 24)
-  if (days < 30) return `${days}d ago`
-  return `${Math.floor(days / 30)}mo ago`
 }

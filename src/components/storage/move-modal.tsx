@@ -186,7 +186,7 @@ export function MoveModal({
                   <span className="truncate">{folder.path}</span>
                 </button>
               ))}
-              {filteredFolders.length === 0 && !fetching && (
+              {filteredFolders.length === 0 && (
                 <p className="text-muted-foreground px-3 py-4 text-center text-sm">
                   No matching destination paths.
                 </p>

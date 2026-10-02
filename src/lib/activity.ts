@@ -77,7 +77,7 @@ export interface ActivityLogInput {
   ipAddress?: string
   userAgent?: string
 }
-export async function logActivity( input: ActivityLogInput ): Promise<void> {
+export async function logActivity(input: ActivityLogInput): Promise<void> {
   const {
     userId,
     eventType,
@@ -91,36 +91,36 @@ export async function logActivity( input: ActivityLogInput ): Promise<void> {
 
   // Derive tags based on event type if not provided
   const derivedTags: string[] = [...tags]
-  if ( !derivedTags.includes( 'API' ) && isApiEvent( eventType ) ) {
-    derivedTags.push( 'API' )
+  if (!derivedTags.includes('API') && isApiEvent(eventType)) {
+    derivedTags.push('API')
   }
 
   try {
     // Insert activity record
     const [activity] = await db
-      .insert( userActivity )
-      .values( {
+      .insert(userActivity)
+      .values({
         userId,
         eventType,
         resourceType,
         resourceId,
-        metadata: meta ? JSON.stringify( meta ) : '{}',
+        metadata: meta ? JSON.stringify(meta) : '{}',
         ipAddress,
         userAgent,
-      } )
-      .returning( { id: userActivity.id } )
+      })
+      .returning({ id: userActivity.id })
 
     // Insert tags if any
-    if ( derivedTags.length > 0 ) {
-      const tagRows = derivedTags.map( ( tag ) => ( {
+    if (derivedTags.length > 0) {
+      const tagRows = derivedTags.map((tag) => ({
         activityId: activity.id,
         tag,
-      } ) )
-      await db.insert( activityTag ).values( tagRows )
+      }))
+      await db.insert(activityTag).values(tagRows)
     }
 
     // Structured log to console as well (excessive logging)
-    log( 'info', `Activity: ${eventType}`, {
+    log('info', `Activity: ${eventType}`, {
       userId,
       tags: derivedTags,
       meta: {
@@ -128,47 +128,47 @@ export async function logActivity( input: ActivityLogInput ): Promise<void> {
         resourceId,
         ...meta,
       },
-    } )
-  } catch ( err ) {
+    })
+  } catch (err) {
     // Never throw - logging should never break the flow
-    log( 'error', 'Failed to log activity', {
+    log('error', 'Failed to log activity', {
       userId,
-      meta: { error: err instanceof Error ? err.message : String( err ) },
-    } )
+      meta: { error: err instanceof Error ? err.message : String(err) },
+    })
   }
 }
 
-function isApiEvent( eventType: ActivityEventType ): boolean {
+function isApiEvent(eventType: ActivityEventType): boolean {
   // Heuristic: Any S3 request, upload, or API key usage counts as API
   return (
-    eventType.includes( 's3_' ) ||
-    eventType.includes( 'upload' ) ||
+    eventType.includes('s3_') ||
+    eventType.includes('upload') ||
     eventType === 'api_key_create' ||
     eventType === 'api_key_delete'
   )
 }
 
 // Helper to extract request context from Nitro event if available
-export function getContextFromEvent( event: unknown ): {
+export function getContextFromEvent(event: unknown): {
   requestId?: string
   userId?: string
   ipAddress?: string
   userAgent?: string
 } {
   const store = requestContext.getStore()
-  if ( !store ) return {}
+  if (!store) return {}
 
-  const requestId = store.get( 'requestId' ) as string | undefined
-  const userId = store.get( 'userId' ) as string | undefined
+  const requestId = store.get('requestId') as string | undefined
+  const userId = store.get('userId') as string | undefined
 
   // IP and userAgent might be in event.nodeReq
-  const eventObj = event as Record<string, unknown>
+  const eventObj = event as Record<string, unknown> | null | undefined
   const nodeReq = eventObj?.nodeReq as Record<string, unknown> | undefined
   const headers = nodeReq?.headers as Record<string, string> | undefined
   const connection = nodeReq?.connection as Record<string, string> | undefined
 
   const ipAddress =
-    headers?.['x-forwarded-for'] ?? ( connection?.remoteAddress as string )
+    headers?.['x-forwarded-for'] ?? (connection?.remoteAddress as string)
   const userAgent = headers?.['user-agent']
 
   return { requestId, userId, ipAddress, userAgent }

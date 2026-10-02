@@ -71,7 +71,7 @@ export async function getActiveBucketRow( userId: string, bucketName: string ) {
     )
     .limit( 1 )
 
-  return rows[0] ?? null
+  return rows.at(0) ?? null
 }
 
 /**
@@ -130,7 +130,9 @@ function resolveCompatEndpoint(): string {
 function resolveCompatRegion(): string {
   // Return a real region for SigV4 compatibility. 'auto' causes signing
   // failures with many S3-compatible providers.
-  const envRegion = process.env.S3_TEST_REGION ?? process.env.S3_REGION
+  // Env vars may be unset at runtime even though the generated types mark them as strings.
+  const envRegion =
+    (process.env.S3_TEST_REGION as string | undefined) ?? process.env.S3_REGION
   if (envRegion) {
     const trimmed = envRegion.trim().toLowerCase()
     if (trimmed.length > 0 && trimmed !== 'auto' && trimmed !== 'null' && trimmed !== 'undefined') {

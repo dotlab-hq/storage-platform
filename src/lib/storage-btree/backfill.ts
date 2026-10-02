@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { eq } from 'drizzle-orm'
 import { Cache } from '@/lib/Cache'
 import { db } from '@/db'
@@ -101,7 +100,9 @@ export async function backfillStorageBtree(userId: string): Promise<void> {
           },
         }),
     )
-    await db.batch(queries)
+    const first = queries.at(0)
+    // D1 batches must be non-empty tuples.
+    if (first) await db.batch([first, ...queries.slice(1)])
   }
 
   // Fetch all files for the user
@@ -165,7 +166,9 @@ export async function backfillStorageBtree(userId: string): Promise<void> {
           },
         }),
     )
-    await db.batch(queries)
+    const first = queries.at(0)
+    // D1 batches must be non-empty tuples.
+    if (first) await db.batch([first, ...queries.slice(1)])
   }
 
   await Cache.set(markerKey, 'done', { expirationTtl: BACKFILL_TTL_SECONDS })

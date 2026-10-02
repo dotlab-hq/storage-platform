@@ -1,8 +1,8 @@
 import { DurableObject } from 'cloudflare:workers'
 
 export interface TrashDeletionState {
-  processedChildren: Record<string, string[]> // folderId -> array of processed child IDs
-  enqueuedChildren: Record<string, string[]> // folderId -> array of child IDs enqueued
+  processedChildren: Record<string, string[] | undefined> // folderId -> array of processed child IDs
+  enqueuedChildren: Record<string, string[] | undefined> // folderId -> array of child IDs enqueued
   pendingFolderCompletion: string[] // folderIds that are waiting for children to be processed
 }
 
@@ -81,16 +81,10 @@ export class TrashDeletionStateDO extends DurableObject {
     const enqueued = state.enqueuedChildren[folderId] ?? []
     const processed = state.processedChildren[folderId] ?? []
 
-    const enqueuedSet = new Set(enqueued)
+    // Complete once every enqueued child has been processed. Compared as
+    // sets: queue retries are at-least-once and may record a child twice.
     const processedSet = new Set(processed)
-
-    for (const id of enqueued) {
-      if (!processedSet.has(id)) {
-        return false
-      }
-    }
-
-    return enqueued.length > 0 && processed.length === enqueuedSet.size
+    return enqueued.length > 0 && enqueued.every((id) => processedSet.has(id))
   }
 
   async getFolderChildrenToEnqueue(
@@ -135,8 +129,13 @@ export class TrashDeletionStateDO extends DurableObject {
 
   async getPendingFolderCompletions(): Promise<string[]> {
     const state = await this.getState()
-    return state.pendingFolderCompletion.filter((folderId) =>
-      this.checkFolderCompletion(folderId),
+    const completion = await Promise.all(
+      state.pendingFolderCompletion.map((folderId) =>
+        this.checkFolderCompletion(folderId),
+      ),
+    )
+    return state.pendingFolderCompletion.filter(
+      (_folderId, index) => completion[index],
     )
   }
 }

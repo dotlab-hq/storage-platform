@@ -35,7 +35,7 @@ export function AuthForm({
       throw new Error(data.error.message)
     }
 
-    if (!data.data?.url) {
+    if (!data.data.url) {
       throw new Error('GitHub OAuth URL was not returned')
     }
 

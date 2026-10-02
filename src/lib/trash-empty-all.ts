@@ -12,7 +12,7 @@ async function seedFilesByDeletedAt(
 ): Promise<void> {
   let offset = 0
 
-  while (true) {
+  for (;;) {
     const batch = await db
       .select({ id: storageFile.id })
       .from(storageFile)
@@ -29,9 +29,7 @@ async function seedFilesByDeletedAt(
 
     if (batch.length === 0) return
 
-    await Promise.all(
-      batch.map((row) => seedNodeById(userId, 'file', row.id)),
-    )
+    await Promise.all(batch.map((row) => seedNodeById(userId, 'file', row.id)))
 
     if (batch.length < SEED_BATCH_SIZE) return
     offset += SEED_BATCH_SIZE
@@ -66,7 +64,7 @@ export async function emptyAllTrashForUser(
       ),
   ])
 
-  const trashedFileCount = Number(trashedFileCountRow?.count ?? 0)
+  const trashedFileCount = Number(trashedFileCountRow.count)
   const folderIds = folderRows.map((row) => row.id)
 
   await db
@@ -88,7 +86,11 @@ export async function emptyAllTrashForUser(
 
   const deletedFolderResult =
     folderIds.length > 0
-      ? await markFolderSubtreesForDeletionSchedule(userId, folderIds, deletedAt)
+      ? await markFolderSubtreesForDeletionSchedule(
+          userId,
+          folderIds,
+          deletedAt,
+        )
       : { fileIds: [], folderIds: [] }
 
   if (trashedFileCount > 0 || deletedFolderResult.fileIds.length > 0) {

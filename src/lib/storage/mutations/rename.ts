@@ -34,7 +34,7 @@ export const renameItemFn = createServerFn({ method: 'POST' })
         let parentFolderId: string | null = null
 
         if (itemType === 'folder') {
-          const [updated] = await db
+          const updatedRows = await db
             .update(folder)
             .set({ name: newName })
             .where(and(eq(folder.id, itemId), eq(folder.userId, user.id)))
@@ -43,12 +43,13 @@ export const renameItemFn = createServerFn({ method: 'POST' })
               name: folder.name,
               parentFolderId: folder.parentFolderId,
             })
+          const updated = updatedRows.at(0)
           parentFolderId = updated?.parentFolderId ?? null
           if (updated?.id) {
             await seedNodeById(user.id, 'folder', updated.id)
           }
         } else {
-          const [updated] = await db
+          const updatedRows = await db
             .update(storageFile)
             .set({ name: newName })
             .where(
@@ -59,6 +60,7 @@ export const renameItemFn = createServerFn({ method: 'POST' })
               name: storageFile.name,
               folderId: storageFile.folderId,
             })
+          const updated = updatedRows.at(0)
           parentFolderId = updated?.folderId ?? null
           if (updated?.id) {
             await seedNodeById(user.id, 'file', updated.id)

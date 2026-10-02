@@ -33,7 +33,7 @@ export async function persistSseMetadata(
     )
     .limit(1)
 
-  const target = files[0]
+  const target = files.at(0)
   if (!target) {
     return
   }

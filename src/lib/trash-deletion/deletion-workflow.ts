@@ -12,13 +12,15 @@ export class TrashDeletionWorkflow extends WorkflowEntrypoint<
     event: Readonly<WorkflowEvent<DeletionWorkflowParams>>,
     step: WorkflowStep,
   ): Promise<void> {
-    const items = event.payload?.items
+    // Payload comes from an external trigger; don't trust its shape
+    const payload = event.payload as Partial<DeletionWorkflowParams> | undefined
+    const items = payload?.items
     if (!items || items.length === 0) {
       console.log('[Workflow] No items provided, exiting')
       return
     }
 
-    const env = this.env as Env
+    const env = this.env
     console.log(`[Workflow] Starting deletion batch for ${items.length} items`)
 
     let fileCount = 0

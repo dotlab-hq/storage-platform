@@ -1,8 +1,9 @@
+import type {
+  resolveBucketByName} from '@/lib/s3-gateway/s3-context';
 import {
   parseAccessKeyId,
   resolveBucketByAccessKey,
-  resolveBucketsByName,
-  resolveBucketByName,
+  resolveBucketsByName
 } from '@/lib/s3-gateway/s3-context'
 import { applyBucketCors } from '@/lib/s3-gateway/s3-cors'
 import { ensureS3FileSchemaCompatibility } from '@/lib/s3-gateway/s3-file-schema-compat'

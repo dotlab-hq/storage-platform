@@ -94,10 +94,12 @@ export const moveItemsFn = createServerFn({ method: 'POST' })
           const id = itemIds[i]
           const type = itemTypes[i]
           if (type === 'folder') {
-            const [f] = await db
-              .select({ parentFolderId: folder.parentFolderId })
-              .from(folder)
-              .where(and(eq(folder.id, id), eq(folder.userId, userId)))
+            const f = (
+              await db
+                .select({ parentFolderId: folder.parentFolderId })
+                .from(folder)
+                .where(and(eq(folder.id, id), eq(folder.userId, userId)))
+            ).at(0)
             if (f) distinctParents.add(f.parentFolderId)
             await db
               .update(folder)
@@ -105,12 +107,14 @@ export const moveItemsFn = createServerFn({ method: 'POST' })
               .where(and(eq(folder.id, id), eq(folder.userId, userId)))
             await seedNodeById(userId, 'folder', id)
           } else {
-            const [f] = await db
-              .select({ folderId: storageFile.folderId })
-              .from(storageFile)
-              .where(
-                and(eq(storageFile.id, id), eq(storageFile.userId, userId)),
-              )
+            const f = (
+              await db
+                .select({ folderId: storageFile.folderId })
+                .from(storageFile)
+                .where(
+                  and(eq(storageFile.id, id), eq(storageFile.userId, userId)),
+                )
+            ).at(0)
             if (f) distinctParents.add(f.folderId)
             await db
               .update(storageFile)

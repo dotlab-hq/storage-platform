@@ -331,7 +331,7 @@ export async function listObjectsV2(
           key: newPath,
           size: f.sizeInBytes,
           eTag: f.etag,
-          lastModified: f.lastModified ?? f.updatedAt ?? new Date(0),
+          lastModified: f.lastModified ?? f.updatedAt,
           mimeType: f.mimeType,
         })
       }
@@ -806,9 +806,7 @@ export async function getObject(
     if (stored.etag) {
       headers.set('ETag', normalizeETag(stored.etag))
     }
-    if (effectiveLastModified) {
-      headers.set('Last-Modified', effectiveLastModified.toUTCString())
-    }
+    headers.set('Last-Modified', effectiveLastModified.toUTCString())
     return new Response(
       chunkedObjectStream({
         provider,
@@ -884,12 +882,10 @@ export async function getObject(
   if (upstream.ETag ?? stored.etag) {
     headers.set('ETag', normalizeETag(upstream.ETag ?? stored.etag ?? ''))
   }
-  if (upstream.LastModified ?? effectiveLastModified) {
-    headers.set(
-      'Last-Modified',
-      (upstream.LastModified ?? effectiveLastModified).toUTCString(),
-    )
-  }
+  headers.set(
+    'Last-Modified',
+    (upstream.LastModified ?? effectiveLastModified).toUTCString(),
+  )
   if (upstream.CacheControl ?? stored.cacheControl) {
     headers.set(
       'Cache-Control',
@@ -988,12 +984,10 @@ export async function headObject(
   if (upstreamHead.ETag ?? stored.etag) {
     headers.set('ETag', normalizeETag(upstreamHead.ETag ?? stored.etag ?? ''))
   }
-  if (upstreamHead.LastModified ?? effectiveLastModified) {
-    headers.set(
-      'Last-Modified',
-      (upstreamHead.LastModified ?? effectiveLastModified).toUTCString(),
-    )
-  }
+  headers.set(
+    'Last-Modified',
+    (upstreamHead.LastModified ?? effectiveLastModified).toUTCString(),
+  )
   if (upstreamHead.CacheControl ?? stored.cacheControl) {
     headers.set(
       'Cache-Control',

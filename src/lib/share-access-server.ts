@@ -37,7 +37,6 @@ export type SharePagePayload =
     name: string
     mimeType: string | null
     sizeInBytes: number
-    presignedUrl: string
   }
   | {
     type: 'folder'
@@ -102,7 +101,7 @@ async function getShareDataFromDB(token: string) {
       .from(shareLink)
       .where(eq(shareLink.id, normalizedToken))
       .limit(1)
-    linkRow = byIdRows[0] ?? null
+    linkRow = byIdRows.at(0) ?? null
   }
 
   if (!linkRow) return null
@@ -156,6 +155,15 @@ async function getShareDataFromDB(token: string) {
   return null
 }
 
+/**
+ * `Content-Disposition` value with a safe ASCII fallback plus the exact
+ * UTF-8 name (RFC 6266), so quotes or non-ASCII characters can't break it.
+ */
+function contentDisposition(type: 'inline' | 'attachment', fileName: string) {
+  const asciiFallback = fileName.replace(/[^\x20-\x7e]|["\\]/g, '_')
+  return `${type}; filename="${asciiFallback}"; filename*=UTF-8''${encodeURIComponent(fileName)}`
+}
+
 // Helper function to get presigned URL (NOT a server function)
 async function generatePresignedUrl(
   objectKey: string,
@@ -173,9 +181,10 @@ async function generatePresignedUrl(
     const command = new GetObjectCommand({
       Bucket: provider.bucketName,
       Key: objectKey,
-      ResponseContentDisposition: isDownload
-        ? `attachment; filename="${fileName}"`
-        : `inline; filename="${fileName}"`,
+      ResponseContentDisposition: contentDisposition(
+        isDownload ? 'attachment' : 'inline',
+        fileName,
+      ),
     })
 
     const presignedUrl = await getSignedUrl(provider.client, command, {
@@ -287,7 +296,7 @@ async function getFolderTreeData(token: string) {
   }
 }
 
-// Main server function - the ONLY server function in this file
+/** Data for the public share page (no signed URLs; see getShareFileUrlFn). */
 export const getSharePageDataFn = createServerFn({ method: 'GET' })
   .inputValidator(z.object({ token: z.string() }))
   .handler(async ({ data }) => {
@@ -296,22 +305,13 @@ export const getSharePageDataFn = createServerFn({ method: 'GET' })
       throw new Error('Share link not found, expired, or inactive')
     }
 
-    console.log('Share result:', result)
-
     if (result.type === 'file') {
       const fileItem = result.item as FileItem
-      const { presignedUrl } = await generatePresignedUrl(
-        fileItem.objectKey,
-        fileItem.name,
-        fileItem.providerId!,
-        false
-      )
       return {
         type: 'file',
         name: fileItem.name,
         mimeType: fileItem.mimeType,
         sizeInBytes: fileItem.sizeInBytes,
-        presignedUrl,
       } as SharePagePayload
     }
 
@@ -325,8 +325,17 @@ export const getSharePageDataFn = createServerFn({ method: 'GET' })
     } as SharePagePayload
   })
 
-export const getShareDownloadUrlFn = createServerFn({ method: 'GET' })
-  .inputValidator(z.object({ token: z.string() }))
+/**
+ * A fresh signed URL for a shared file, so links keep working however long
+ * the share page has been open. `inline` opens in the browser.
+ */
+export const getShareFileUrlFn = createServerFn({ method: 'GET' })
+  .inputValidator(
+    z.object({
+      token: z.string(),
+      disposition: z.enum(['inline', 'attachment']).default('attachment'),
+    }),
+  )
   .handler(async ({ data }) => {
     const result = await getShareDataFromDB(data.token)
     if (!result) {
@@ -340,7 +349,7 @@ export const getShareDownloadUrlFn = createServerFn({ method: 'GET' })
       fileItem.objectKey,
       fileItem.name,
       fileItem.providerId!,
-      true
+      data.disposition === 'attachment',
     )
     return { url, name: fileItem.name }
   })

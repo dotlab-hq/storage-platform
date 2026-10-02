@@ -2,6 +2,7 @@ const XML_CONTENT_TYPE = 'application/xml'
 
 function escapeXml(value: string): string {
   const sanitized = value.replace(
+    // eslint-disable-next-line no-control-regex -- intentionally strips control chars that are invalid in XML 1.0
     /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g,
     '',
   )

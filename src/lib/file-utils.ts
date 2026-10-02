@@ -12,7 +12,7 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import { getFileExtension } from '@/lib/file-type-utils'
 
-const EXTENSION_ICON_MAP: Record<string, LucideIcon> = {
+const EXTENSION_ICON_MAP: Partial<Record<string, LucideIcon>> = {
   txt: FileText,
   text: FileText,
   md: FileText,
@@ -81,8 +81,9 @@ export function getFileIcon(
   mimeType: string | null,
 ): LucideIcon {
   const extension = getFileExtension(fileName)
-  if (extension && EXTENSION_ICON_MAP[extension]) {
-    return EXTENSION_ICON_MAP[extension]
+  const extensionIcon = extension ? EXTENSION_ICON_MAP[extension] : undefined
+  if (extensionIcon) {
+    return extensionIcon
   }
 
   if (!mimeType) return File

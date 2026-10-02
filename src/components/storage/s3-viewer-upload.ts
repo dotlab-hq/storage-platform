@@ -93,7 +93,7 @@ export async function uploadFileWithMultipartPresignedUrl(input: {
       const start = index * partSize
       const end = Math.min(start + partSize, input.file.size)
       const chunk = input.file.slice(start, end)
-      const partUrl = initialized.partUrls[index]
+      const partUrl = initialized.partUrls.at(index)
       if (!partUrl) {
         throw new Error(`Missing presigned URL for part ${partNumber}`)
       }

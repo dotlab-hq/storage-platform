@@ -105,6 +105,16 @@ export function UploadWidget() {
   return (
     <TooltipProvider>
       <div className="animate-in fade-in slide-in-from-bottom-4 fixed right-4 bottom-4 z-50 duration-300">
+        {/* Close button - top right of the badge (a sibling: buttons can't nest) */}
+        <button
+          type="button"
+          onClick={handleClose}
+          className="bg-muted border-border hover:bg-accent absolute -top-1 -right-1 z-20 flex h-5 w-5 items-center justify-center rounded-full border transition-colors"
+          aria-label="Close upload widget"
+        >
+          <X className="h-3 w-3" />
+        </button>
+
         {/* Main circular badge */}
         <Tooltip>
           <TooltipTrigger asChild>
@@ -167,17 +177,6 @@ export function UploadWidget() {
                 ) : null}
               </div>
 
-              {/* Close button - top right, always visible */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  handleClose()
-                }}
-                className="absolute -top-1 -right-1 z-10 flex items-center justify-center w-5 h-5 rounded-full bg-muted border border-border hover:bg-accent transition-colors"
-                aria-label="Close upload widget"
-              >
-                <X className="h-3 w-3" />
-              </button>
             </button>
           </TooltipTrigger>
           <TooltipContent side="left">

@@ -16,7 +16,7 @@ export const getLatestFileSummaryFn = createServerFn({ method: 'GET' })
   .handler(async ({ data, context }) => {
     const currentUser = context.user
 
-    const [row] = await db
+    const rows = await db
       .select({
         id: fileSummaryJob.id,
         fileId: fileSummaryJob.fileId,
@@ -43,6 +43,7 @@ export const getLatestFileSummaryFn = createServerFn({ method: 'GET' })
       )
       .orderBy(desc(fileSummaryJob.createdAt))
       .limit(1)
+    const row = rows.at(0)
 
     return { summary: row ? toSummaryJobSnapshot(row) : null }
   })

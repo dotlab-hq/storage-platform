@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {
   DeleteObjectCommand,
   GetObjectCommand,
@@ -48,14 +47,12 @@ async function* streamWebChunks(
 ): AsyncGenerator<Uint8Array> {
   const reader = stream.getReader()
   try {
-    while (true) {
+    for (;;) {
       const { done, value } = await reader.read()
       if (done) {
         return
       }
-      if (value) {
-        yield value
-      }
+      yield value
     }
   } finally {
     reader.releaseLock()
@@ -342,7 +339,10 @@ export async function completeMultipartUpload(
     const normalizedRequested = normalizeMultipartPartETagForProvider(
       requestedPart.eTag,
     )
-    const normalizedStored = normalizeETag(storedPart.etag)
+    const locator = storedPart.locator
+    const normalizedStored = storedPart.etag
+      ? normalizeETag(storedPart.etag)
+      : null
     if (normalizedStored && normalizedRequested !== normalizedStored) {
       throw new Error('InvalidPart: Referenced multipart part ETag mismatch')
     }
@@ -351,7 +351,7 @@ export async function completeMultipartUpload(
       provider.client.send(
         new GetObjectCommand({
           Bucket: provider.bucketName,
-          Key: storedPart.locator,
+          Key: locator,
         }),
         { abortSignal },
       ),

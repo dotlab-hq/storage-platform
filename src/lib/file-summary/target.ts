@@ -8,7 +8,7 @@ export async function getSummaryTarget(
   fileId: string,
   userId: string,
 ): Promise<FileSummaryTarget> {
-  const [row] = await db
+  const rows = await db
     .select({
       fileId: storageFile.id,
       userId: storageFile.userId,
@@ -32,6 +32,7 @@ export async function getSummaryTarget(
       ),
     )
     .limit(1)
+  const row = rows.at(0)
 
   if (!row) {
     throw new Error('File not found or access denied.')

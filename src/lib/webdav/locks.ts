@@ -38,10 +38,15 @@ function parseTimeoutSeconds(value: string | null): number {
   return Math.min(parsed, MAX_TIMEOUT_SECONDS)
 }
 
-function pathMatches(lock: ActiveWebDavLock, objectKey: string | null): boolean {
+function pathMatches(
+  lock: ActiveWebDavLock,
+  objectKey: string | null,
+): boolean {
   if (lock.objectKey === objectKey) return true
   if (lock.depth !== 'infinity' || !lock.objectKey || !objectKey) return false
-  const prefix = lock.objectKey.endsWith('/') ? lock.objectKey : `${lock.objectKey}/`
+  const prefix = lock.objectKey.endsWith('/')
+    ? lock.objectKey
+    : `${lock.objectKey}/`
   return objectKey.startsWith(prefix)
 }
 
@@ -89,7 +94,9 @@ export function createLock(input: {
   if (input.scope === 'exclusive' && existing.length > 0) return 'conflict'
   if (existing.some((lock) => lock.scope === 'exclusive')) return 'conflict'
 
-  const timeoutSeconds = parseTimeoutSeconds(input.request.headers.get('timeout'))
+  const timeoutSeconds = parseTimeoutSeconds(
+    input.request.headers.get('timeout'),
+  )
   const token = `opaquelocktoken:${crypto.randomUUID()}`
   const lock: ActiveWebDavLock = {
     token,
@@ -112,7 +119,7 @@ export function refreshLock(
   objectKey: string | null,
 ): ActiveWebDavLock | null {
   pruneLocks()
-  const token = requestTokens(request).values().next().value as string | undefined
+  const token = requestTokens(request).values().next().value
   if (!token) return null
   const lock = locks.get(token)
   if (!lock) return null
@@ -135,10 +142,13 @@ export function unlock(
   objectKey: string | null,
 ): boolean {
   pruneLocks()
-  const token = request.headers.get('lock-token')?.match(/opaquelocktoken:[^>\s)]+/)?.[0]
+  const token = request.headers
+    .get('lock-token')
+    ?.match(/opaquelocktoken:[^>\s)]+/)?.[0]
   if (!token) return false
   const lock = locks.get(token)
   if (!lock) return false
-  if (lock.bucketName !== bucketName || lock.objectKey !== objectKey) return false
+  if (lock.bucketName !== bucketName || lock.objectKey !== objectKey)
+    return false
   return locks.delete(token)
 }

@@ -1,11 +1,6 @@
-import {
-  resolveBucketByName,
-  type BucketContext,
-} from '@/lib/s3-gateway/s3-context'
-import {
-  headObject,
-  listObjectsV2,
-} from '@/lib/s3-gateway/s3-object-store'
+import { resolveBucketByName } from '@/lib/s3-gateway/s3-context'
+import type { BucketContext } from '@/lib/s3-gateway/s3-context'
+import { headObject, listObjectsV2 } from '@/lib/s3-gateway/s3-object-store'
 import type { WebDavPath } from '@/lib/webdav/path'
 import { collectionKey } from '@/lib/webdav/path'
 import type { WebDavPrincipal } from '@/lib/webdav/auth'
@@ -37,10 +32,16 @@ export async function resolveDavBucket(
   if (!bucketName) return { ok: true, bucket: null }
   const bucket = await resolveBucketByName(bucketName)
   if (!bucket) {
-    return { ok: false, response: new Response('Bucket not found', { status: 404 }) }
+    return {
+      ok: false,
+      response: new Response('Bucket not found', { status: 404 }),
+    }
   }
   if (!assertBucketPrincipal(principal, bucket)) {
-    return { ok: false, response: new Response('Access denied', { status: 403 }) }
+    return {
+      ok: false,
+      response: new Response('Access denied', { status: 403 }),
+    }
   }
   return { ok: true, bucket }
 }
@@ -67,7 +68,10 @@ export async function resourceFromPath(input: {
   href: string
   principal: WebDavPrincipal
 }): Promise<WebDavResource | Response> {
-  const resolved = await resolveDavBucket(input.principal, input.path.bucketName)
+  const resolved = await resolveDavBucket(
+    input.principal,
+    input.path.bucketName,
+  )
   if (!resolved.ok) return resolved.response
   const bucket = resolved.bucket
 
@@ -121,7 +125,8 @@ export async function resourceFromPath(input: {
       exists: true,
       size: Number.parseInt(head.headers.get('content-length') ?? '0', 10),
       etag: etagFromHead(head),
-      contentType: head.headers.get('content-type') ?? 'application/octet-stream',
+      contentType:
+        head.headers.get('content-type') ?? 'application/octet-stream',
       createdAt: headerDate(head.headers.get('last-modified')),
       lastModified: headerDate(head.headers.get('last-modified')),
     }
@@ -142,7 +147,7 @@ export async function resourceFromPath(input: {
       etag: null,
       contentType: 'httpd/unix-directory',
       createdAt: new Date(0),
-    lastModified: children[0]?.lastModified ?? new Date(0),
+      lastModified: children[0]?.lastModified ?? new Date(0),
     }
   }
 

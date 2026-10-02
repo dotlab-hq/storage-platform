@@ -149,8 +149,8 @@ export async function getStorageAdminSummary() {
     .select({ total: sum(file.sizeInBytes).mapWith(Number) })
     .from(file)
     .where(and(eq(file.isDeleted, false), eq(file.isTrashed, false)))
-  const providerCount = Number(providerCountRow?.count ?? 0)
-  const userCount = Number(userCountRow?.count ?? 0)
+  const providerCount = Number(providerCountRow.count)
+  const userCount = Number(userCountRow.count)
   const totalUsedStorageBytes = toNonNegativeBytes(totalUsedRow.total)
   return {
     providerCount,

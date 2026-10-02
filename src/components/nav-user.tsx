@@ -68,7 +68,7 @@ export function NavUser() {
       try {
         const data = await sessionStatusFn()
 
-        if (!data.active || !data.permission || !data.expiresAt) {
+        if (!data.active || !data.expiresAt) {
           if (!cancelled) {
             setTinySession(null)
           }

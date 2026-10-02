@@ -2,7 +2,8 @@ import { eq, and, inArray, isNull, isNotNull, lt } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
 import type { TrashDeletionItem } from './params'
-import { enqueueTrashDeletionItems, type QueueBinding } from './producer'
+import { enqueueTrashDeletionItems } from './producer'
+import type { QueueBinding } from './producer'
 
 function getOneDayAgo(): Date {
   return new Date(Date.now() - 24 * 60 * 60 * 1000)

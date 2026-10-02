@@ -17,7 +17,7 @@ import { ShareQrDialog } from '@/components/storage/share-qr-dialog'
 import { formatBytes } from '@/lib/format-bytes'
 import { encodeNavToken } from '@/lib/nav-token'
 import {
-  getShareDownloadUrlFn,
+  getShareFileUrlFn,
   getSharePageDataFn,
 } from '@/lib/share-access-server'
 import type { SharePagePayload } from '@/lib/share-access-server'
@@ -91,9 +91,30 @@ function SharedFile({
 }) {
   const { token } = Route.useParams()
 
-  // Always asks for a fresh signed URL, so downloads work however long the page was open.
+  // Both buttons ask for a fresh signed URL, so they keep working however
+  // long the page has been open (signed URLs expire after an hour).
+  const open = useMutation({
+    mutationFn: async () => {
+      // Open the tab inside the click so popup blockers allow it, then
+      // point it at the URL once we have it.
+      const tab = window.open('', '_blank')
+      try {
+        const { url } = await getShareFileUrlFn({
+          data: { token, disposition: 'inline' },
+        })
+        if (tab) tab.location.href = url
+        else window.open(url, '_blank')
+      } catch (error) {
+        tab?.close()
+        throw error
+      }
+    },
+    onError: (error) => toast.error(`Could not open file: ${error.message}`),
+  })
+
   const download = useMutation({
-    mutationFn: () => getShareDownloadUrlFn({ data: { token } }),
+    mutationFn: () =>
+      getShareFileUrlFn({ data: { token, disposition: 'attachment' } }),
     onSuccess: ({ url }) => {
       const anchor = document.createElement('a')
       anchor.href = url
@@ -116,10 +137,9 @@ function SharedFile({
         </p>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-3">
-        <Button asChild>
-          <a href={file.presignedUrl} target="_blank" rel="noopener noreferrer">
-            Open file
-          </a>
+        <Button onClick={() => open.mutate()} disabled={open.isPending}>
+          {open.isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          Open file
         </Button>
         <Button
           variant="outline"

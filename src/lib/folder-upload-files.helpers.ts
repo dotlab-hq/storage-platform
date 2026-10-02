@@ -56,7 +56,7 @@ export function createUploadEntries(
     {
       id: uploadId,
       file: undefined,
-      fileName: folderName ?? files[0]?.file.name ?? 'Folder',
+      fileName: folderName ?? files.at(0)?.file.name ?? 'Folder',
       progress: 0,
       status: 'uploading' as const,
       relativePath: undefined,

@@ -5,8 +5,8 @@ import {
   createUploadEntries,
   getParentPath,
   resolvePathFolderId,
-  type FlatFolderFile,
 } from './folder-upload-files.helpers'
+import type { FlatFolderFile } from './folder-upload-files.helpers'
 import type {
   FolderUploadResult,
   UploadStateUpdater,
@@ -27,7 +27,7 @@ type UploadFolderFilesArgs = {
   folderName?: string
 }
 
-async function uploadFolderFiles( {
+async function uploadFolderFiles({
   files,
   userId,
   rootFolderId,
@@ -37,7 +37,7 @@ async function uploadFolderFiles( {
   fileConcurrency,
   maxAttempts,
   folderName,
-}: UploadFolderFilesArgs ): Promise<number> {
+}: UploadFolderFilesArgs): Promise<number> {
   const uploadEntries = createUploadEntries(
     uploadId,
     rootFolderId,
@@ -45,39 +45,39 @@ async function uploadFolderFiles( {
     folderName,
   )
   const folderEntryId = uploadEntries[0].id
-  setUploads( ( prev ) => [...uploadEntries, ...prev] )
+  setUploads((prev) => [...uploadEntries, ...prev])
 
   const folderIdsByPath = new Map<string, string>()
   const queue: FlatFolderFile[] = [...files]
   let succeeded = 0
 
-  const updateFolderProgress = ( uploadedCount: number ) => {
+  const updateFolderProgress = (uploadedCount: number) => {
     const totalCount = files.length
     const progress =
-      totalCount > 0 ? Math.round( ( uploadedCount / totalCount ) * 100 ) : 0
-    setUploads( ( prev ) =>
-      prev.map( ( u ) =>
+      totalCount > 0 ? Math.round((uploadedCount / totalCount) * 100) : 0
+    setUploads((prev) =>
+      prev.map((u) =>
         u.id === folderEntryId
           ? {
-            ...u,
-            progress,
-            uploadedFilesCount: uploadedCount,
-          }
+              ...u,
+              progress,
+              uploadedFilesCount: uploadedCount,
+            }
           : u,
       ),
     )
   }
 
   const worker = async () => {
-    while ( queue.length > 0 ) {
+    while (queue.length > 0) {
       const fileData = queue.shift()
-      if ( !fileData ) break
+      if (!fileData) break
 
       let attempt = 0
-      while ( attempt < maxAttempts ) {
+      while (attempt < maxAttempts) {
         attempt += 1
         try {
-          const targetPath = getParentPath( fileData.name )
+          const targetPath = getParentPath(fileData.name)
           const targetFolderId = await resolvePathFolderId(
             targetPath,
             rootFolderId,
@@ -89,35 +89,35 @@ async function uploadFolderFiles( {
             fileData.file,
             userId,
             targetFolderId,
-            ( _progress ) => {
+            (_progress) => {
               // Individual file progress not needed - folder shows aggregate
             },
           )
 
           succeeded += 1
-          updateFolderProgress( succeeded )
+          updateFolderProgress(succeeded)
           break
-        } catch ( error: unknown ) {
+        } catch (error: unknown) {
           // ignore error and retry
         }
       }
     }
   }
 
-  await Promise.all( Array.from( { length: fileConcurrency }, () => worker() ) )
+  await Promise.all(Array.from({ length: fileConcurrency }, () => worker()))
 
   // Final status update
   const allSucceeded = succeeded === files.length
-  setUploads( ( prev ) =>
-    prev.map( ( u ) =>
+  setUploads((prev) =>
+    prev.map((u) =>
       u.id === folderEntryId
         ? {
-          ...u,
-          progress: 100,
-          status: allSucceeded ? 'completed' : 'failed',
-          uploadedFilesCount: succeeded,
-          error: allSucceeded ? undefined : 'Some files failed to upload',
-        }
+            ...u,
+            progress: 100,
+            status: allSucceeded ? 'completed' : 'failed',
+            uploadedFilesCount: succeeded,
+            error: allSucceeded ? undefined : 'Some files failed to upload',
+          }
         : u,
     ),
   )
@@ -125,7 +125,7 @@ async function uploadFolderFiles( {
   return succeeded
 }
 
-export async function uploadFolderFromFiles( {
+export async function uploadFolderFromFiles({
   folderName,
   files,
   userId,
@@ -142,17 +142,17 @@ export async function uploadFolderFromFiles( {
     fileConcurrency?: number
     maxAttempts?: number
   }
-} ): Promise<FolderUploadResult> {
+}): Promise<FolderUploadResult> {
   const uploadId = crypto.randomUUID()
-  const fileMap = await computeFilesHashes( files )
-  const flatFiles = flattenFileMap( fileMap )
-  if ( flatFiles.length === 0 ) {
+  const fileMap = await computeFilesHashes(files)
+  const flatFiles = flattenFileMap(fileMap)
+  if (flatFiles.length === 0) {
     return { success: false, error: 'No files found in folder' }
   }
 
-  const { folder: rootFolder } = await createFolderFn( {
+  const { folder: rootFolder } = await createFolderFn({
     data: { name: folderName, parentFolderId },
-  } )
+  })
 
   const fileConcurrency = Math.max(
     1,
@@ -166,7 +166,7 @@ export async function uploadFolderFromFiles( {
     options?.maxAttempts ?? DEFAULT_FILE_UPLOAD_ATTEMPTS,
   )
 
-  const succeeded = await uploadFolderFiles( {
+  const succeeded = await uploadFolderFiles({
     files: flatFiles,
     userId,
     rootFolderId: rootFolder.id,
@@ -176,18 +176,18 @@ export async function uploadFolderFromFiles( {
     fileConcurrency,
     maxAttempts,
     folderName,
-  } )
+  })
 
   return succeeded > 0
     ? {
-      success: true,
-      folderId: rootFolder.id,
-      folderName,
-      filesCount: succeeded,
-    }
+        success: true,
+        folderId: rootFolder.id,
+        folderName,
+        filesCount: succeeded,
+      }
     : {
-      success: false,
-      folderName,
-      error: 'All files failed to upload',
-    }
+        success: false,
+        folderName,
+        error: 'All files failed to upload',
+      }
 }

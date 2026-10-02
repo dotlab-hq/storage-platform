@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { and, eq } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
@@ -23,7 +22,7 @@ export async function seedNodeById(
       .where(and(eq(folder.id, nodeId), eq(folder.userId, userId)))
       .limit(1)
     if (rows[0]) {
-      const nodeIsDeleted = rows[0].isDeleted || rows[0].isTrashed
+      const nodeIsDeleted = Boolean(rows[0].isDeleted || rows[0].isTrashed)
       await upsertFolderNode({
         userId,
         folderId: rows[0].id,
@@ -50,7 +49,7 @@ export async function seedNodeById(
     .where(and(eq(file.id, nodeId), eq(file.userId, userId)))
     .limit(1)
   if (rows[0]) {
-    const nodeIsDeleted = rows[0].isDeleted || rows[0].isTrashed
+    const nodeIsDeleted = Boolean(rows[0].isDeleted || rows[0].isTrashed)
     await upsertFileNode({
       userId,
       fileId: rows[0].id,

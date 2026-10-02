@@ -2,10 +2,8 @@ import { file } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
 import { and, eq, isNotNull, isNull, sql } from 'drizzle-orm'
 import { db } from '@/db'
-import {
-  fromProviderRow,
-  type ProviderClientConfig,
-} from '@/lib/s3-provider-client-factory'
+import { fromProviderRow } from '@/lib/s3-provider-client-factory'
+import type { ProviderClientConfig } from '@/lib/s3-provider-client-factory'
 
 export async function getProviderClientById(
   providerId: string | null,

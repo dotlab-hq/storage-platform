@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { eq, and } from 'drizzle-orm'

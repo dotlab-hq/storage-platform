@@ -43,7 +43,7 @@ export function BucketSettingsCorsTab({
   const [corsValidationError, setCorsValidationError] = useState('')
 
   const corsPretty = useMemo(
-    () => JSON.stringify(payload.corsRules ?? [], null, 2),
+    () => JSON.stringify(payload.corsRules, null, 2),
     [payload.corsRules],
   )
 

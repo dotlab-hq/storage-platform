@@ -72,17 +72,16 @@ export async function handleSignal(
     return
   }
 
-  if (signal.type === 'ice') {
-    if (!connection.remoteDescription) {
-      console.log('Queueing ICE candidate (remote description not ready)')
-      refs.queueRef.current.push(signal.candidate)
-      return
-    }
+  // `signal` is validated by parseSignalPayload, so only 'ice' remains here.
+  if (!connection.remoteDescription) {
+    console.log('Queueing ICE candidate (remote description not ready)')
+    refs.queueRef.current.push(signal.candidate)
+    return
+  }
 
-    try {
-      await connection.addIceCandidate(signal.candidate)
-    } catch (error) {
-      console.warn('Failed to add ICE candidate:', error)
-    }
+  try {
+    await connection.addIceCandidate(signal.candidate)
+  } catch (error) {
+    console.warn('Failed to add ICE candidate:', error)
   }
 }

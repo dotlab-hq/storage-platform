@@ -1,8 +1,6 @@
 import { listVirtualBuckets } from '@/lib/s3-gateway/virtual-buckets.queries.server'
-import {
-  listObjectsV2,
-  type ListedS3Object,
-} from '@/lib/s3-gateway/s3-object-store'
+import { listObjectsV2 } from '@/lib/s3-gateway/s3-object-store'
+import type { ListedS3Object } from '@/lib/s3-gateway/s3-object-store'
 import type { BucketContext } from '@/lib/s3-gateway/s3-context'
 import type { WebDavPrincipal } from '@/lib/webdav/auth'
 import { collectionKey } from '@/lib/webdav/path'

@@ -109,8 +109,7 @@ export const getHomeSnapshotFn = createServerFn({ method: 'GET' })
       userId: ctx.userId,
       folders: items.items
         .filter(
-          (i) =>
-            i.itemType === 'folder' && nonVirtualFolderIds.has(i.itemId),
+          (i) => i.itemType === 'folder' && nonVirtualFolderIds.has(i.itemId),
         )
         .map((folderItem) => ({
           id: folderItem.itemId,
@@ -166,11 +165,11 @@ export const getHomeDashboardDataFn = createServerFn({ method: 'GET' }).handler(
       .reduce((acc, f) => acc + (f.size || 0), 0)
 
     // Provider count - kept as direct query for now (admin-level data)
-    const [providerCountRows] = await db
+    const providerCountRows = await db
       .select({ count: count() })
       .from(storageProvider)
       .limit(1)
-    const providerCount = Number(providerCountRows?.count ?? 0)
+    const providerCount = Number(providerCountRows.at(0)?.count ?? 0)
 
     return {
       fileCount,

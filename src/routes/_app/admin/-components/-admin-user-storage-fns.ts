@@ -24,34 +24,38 @@ export const updateUserStorageLimitFn = createServerFn({ method: 'POST' })
   .handler(async ({ data, context }) => {
     const adminUser = context.user
     try {
-      const [userRecord] = await db
-        .select({
-          id: user.id,
-          name: user.name,
-        })
-        .from(user)
-        .where(eq(user.id, data.userId))
+      const userRecord = (
+        await db
+          .select({
+            id: user.id,
+            name: user.name,
+          })
+          .from(user)
+          .where(eq(user.id, data.userId))
+      ).at(0)
 
       if (!userRecord) {
         throw new Error('User not found')
       }
 
-      const [storageRecord] = await db
-        .insert(userStorage)
-        .values({
-          userId: data.userId,
-          allocatedStorage: data.storageLimitBytes,
-          usedStorage: 0,
-          fileSizeLimit: DEFAULT_FILE_SIZE_LIMIT_BYTES,
-        })
-        .onConflictDoUpdate({
-          target: userStorage.userId,
-          set: { allocatedStorage: data.storageLimitBytes },
-        })
-        .returning({
-          userId: userStorage.userId,
-          allocatedStorage: userStorage.allocatedStorage,
-        })
+      const storageRecord = (
+        await db
+          .insert(userStorage)
+          .values({
+            userId: data.userId,
+            allocatedStorage: data.storageLimitBytes,
+            usedStorage: 0,
+            fileSizeLimit: DEFAULT_FILE_SIZE_LIMIT_BYTES,
+          })
+          .onConflictDoUpdate({
+            target: userStorage.userId,
+            set: { allocatedStorage: data.storageLimitBytes },
+          })
+          .returning({
+            userId: userStorage.userId,
+            allocatedStorage: userStorage.allocatedStorage,
+          })
+      ).at(0)
 
       if (!storageRecord) {
         throw new Error('Failed to update storage limit')
@@ -94,34 +98,38 @@ export const updateUserFileSizeLimitFn = createServerFn({ method: 'POST' })
   .handler(async ({ data, context }) => {
     const adminUser = context.user
     try {
-      const [userRecord] = await db
-        .select({
-          id: user.id,
-          name: user.name,
-        })
-        .from(user)
-        .where(eq(user.id, data.userId))
+      const userRecord = (
+        await db
+          .select({
+            id: user.id,
+            name: user.name,
+          })
+          .from(user)
+          .where(eq(user.id, data.userId))
+      ).at(0)
 
       if (!userRecord) {
         throw new Error('User not found')
       }
 
-      const [storageRecord] = await db
-        .insert(userStorage)
-        .values({
-          userId: data.userId,
-          fileSizeLimit: data.fileSizeLimitBytes,
-          allocatedStorage: 0,
-          usedStorage: 0,
-        })
-        .onConflictDoUpdate({
-          target: userStorage.userId,
-          set: { fileSizeLimit: data.fileSizeLimitBytes },
-        })
-        .returning({
-          userId: userStorage.userId,
-          fileSizeLimit: userStorage.fileSizeLimit,
-        })
+      const storageRecord = (
+        await db
+          .insert(userStorage)
+          .values({
+            userId: data.userId,
+            fileSizeLimit: data.fileSizeLimitBytes,
+            allocatedStorage: 0,
+            usedStorage: 0,
+          })
+          .onConflictDoUpdate({
+            target: userStorage.userId,
+            set: { fileSizeLimit: data.fileSizeLimitBytes },
+          })
+          .returning({
+            userId: userStorage.userId,
+            fileSizeLimit: userStorage.fileSizeLimit,
+          })
+      ).at(0)
 
       if (!storageRecord) {
         throw new Error('Failed to update file size limit')

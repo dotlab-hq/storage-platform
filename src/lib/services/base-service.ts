@@ -4,7 +4,8 @@ import {
   requireAdminUser,
 } from '@/lib/server-auth.server'
 import { logActivity } from '@/lib/activity'
-import { type ClassValue, clsx } from 'clsx'
+import { clsx } from 'clsx'
+import type { ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {

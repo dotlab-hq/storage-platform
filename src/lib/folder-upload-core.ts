@@ -102,7 +102,7 @@ export async function uploadSingleFileWithProgress(
     if (target.uploadMethod === 'proxy') {
       return await uploadFileViaProxy({
         uploadUrl: target.uploadUrl,
-        providerId: target.providerId ?? null,
+        providerId: target.providerId,
         objectKey,
         file,
         contentType,
@@ -133,7 +133,7 @@ export async function uploadSingleFileWithProgress(
         xhr.send(file)
       })
 
-      return target.providerId ?? null
+      return target.providerId
     }
   } catch (error: unknown) {
     throw new Error(toErrorMessage(error))

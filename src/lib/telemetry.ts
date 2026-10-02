@@ -1,4 +1,5 @@
 import { trace } from '@opentelemetry/api'
+import type { Span, SpanKind } from '@opentelemetry/api'
 import { AsyncLocalStorage } from 'node:async_hooks'
 
 export const requestContext = new AsyncLocalStorage<Map<string, unknown>>()
@@ -7,8 +8,8 @@ export const tracer = trace.getTracer('storage-platform')
 
 export function startSpan<T>(
   name: string,
-  fn: (span: import('@opentelemetry/api').Span) => T,
-  kind?: import('@opentelemetry/api').SpanKind,
+  fn: (span: Span) => T,
+  kind?: SpanKind,
 ): T {
   return tracer.startActiveSpan(name, { kind }, (span) => {
     try {
@@ -19,8 +20,6 @@ export function startSpan<T>(
   })
 }
 
-export function getCurrentSpan():
-  | import('@opentelemetry/api').Span
-  | undefined {
+export function getCurrentSpan(): Span | undefined {
   return trace.getActiveSpan()
 }

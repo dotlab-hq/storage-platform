@@ -34,7 +34,7 @@ async function getNodePath(userId: string, folderId: string | null) {
       ),
     )
     .limit(1)
-  return rows[0]?.fullPath ?? null
+  return rows.at(0)?.fullPath ?? null
 }
 
 async function resolveParentPath(
@@ -59,7 +59,7 @@ async function resolveParentPath(
     .from(folder)
     .where(and(eq(folder.id, folderId), eq(folder.userId, userId)))
     .limit(1)
-  const parent = rows[0]
+  const parent = rows.at(0)
   if (!parent) return ''
 
   const parentPath = await resolveParentPath(
@@ -107,10 +107,7 @@ export async function upsertFolderNode(input: {
   parentFolderId: string | null
   isDeleted: boolean
 }) {
-  const parentPath = await resolveParentPath(
-    input.userId,
-    input.parentFolderId,
-  )
+  const parentPath = await resolveParentPath(input.userId, input.parentFolderId)
   const folderPath = normalizePath(parentPath)
   const fullPath = joinPath(folderPath, input.name)
 

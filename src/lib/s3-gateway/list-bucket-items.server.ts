@@ -78,7 +78,7 @@ export async function listBucketItems(
       )
       .limit(1)
 
-    const row = rows[0]
+    const row = rows.at(0)
     if (!row) {
       throw new Error('Virtual bucket not found')
     }
@@ -124,7 +124,7 @@ export async function listBucketItems(
         name: relativeKey,
         sizeInBytes: obj.size,
         eTag: obj.eTag,
-        lastModified: obj.lastModified ? obj.lastModified.toISOString() : null,
+        lastModified: obj.lastModified.toISOString(),
       })
     }
 

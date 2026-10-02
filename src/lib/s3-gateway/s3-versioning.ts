@@ -61,7 +61,6 @@ function toBodyInit(body: unknown): BodyInit | null {
   }
   if (
     typeof body === 'object' &&
-    body !== null &&
     'transformToWebStream' in body &&
     typeof (body as { transformToWebStream?: unknown }).transformToWebStream ===
       'function'
@@ -363,7 +362,7 @@ export async function getObjectVersionResponse(
     )
     .limit(1)
 
-  const version = rows[0]
+  const version = rows.at(0)
   if (!version || version.isDeleteMarker || !version.upstreamObjectKey) {
     return null
   }
@@ -432,7 +431,7 @@ export async function listObjectVersions(
     latestByKey.add(item.key)
     return { ...item, isLatest }
   })
-  const next = remainder[0] ?? null
+  const next = remainder.at(0) ?? null
 
   return {
     prefix: normalized.prefix,
@@ -471,7 +470,7 @@ export async function deleteObjectVersion(
       )
       .limit(1)
 
-    const currentFile = fileRows[0]
+    const currentFile = fileRows.at(0)
     if (!currentFile) {
       throw new Error('NoSuchVersion')
     }
@@ -522,7 +521,7 @@ export async function deleteObjectVersion(
       ),
     )
     .limit(1)
-  const target = rows[0]
+  const target = rows.at(0)
   if (!target) {
     throw new Error('NoSuchVersion')
   }
@@ -586,7 +585,7 @@ export async function restoreObjectVersion(
     )
     .limit(1)
 
-  const version = rows[0]
+  const version = rows.at(0)
   if (!version || !version.upstreamObjectKey) {
     throw new Error('NoSuchVersion')
   }

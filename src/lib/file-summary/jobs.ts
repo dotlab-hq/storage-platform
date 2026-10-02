@@ -33,7 +33,7 @@ export async function getActiveSummaryJob(
   fileId: string,
   userId: string,
 ): Promise<FileSummaryJobSnapshot | null> {
-  const [row] = await db
+  const rows = await db
     .select(FILE_SUMMARY_JOB_SELECT)
     .from(fileSummaryJob)
     .where(
@@ -45,6 +45,7 @@ export async function getActiveSummaryJob(
     )
     .orderBy(desc(fileSummaryJob.createdAt))
     .limit(1)
+  const row = rows.at(0)
 
   return row ? toSummaryJobSnapshot(row) : null
 }
@@ -59,7 +60,7 @@ export async function createSummaryJob(input: {
 }): Promise<FileSummaryJobSnapshot> {
   const jobId = crypto.randomUUID()
 
-  const [row] = await db
+  const insertedRows = await db
     .insert(fileSummaryJob)
     .values({
       id: jobId,
@@ -79,6 +80,7 @@ export async function createSummaryJob(input: {
       updatedAt: new Date(),
     })
     .returning(FILE_SUMMARY_JOB_SELECT)
+  const row = insertedRows.at(0)
 
   if (!row) {
     throw new Error('Failed to create summary job.')

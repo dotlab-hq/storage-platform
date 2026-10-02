@@ -37,7 +37,10 @@ export function classifyDroppedUploads(dataTransfer: DataTransfer): {
   >()
 
   for (const item of Array.from(dataTransfer.items)) {
-    const entry = item.webkitGetAsEntry?.()
+    // webkitGetAsEntry is non-standard and may be missing in some browsers
+    const entry = (
+      item as Partial<Pick<DataTransferItem, 'webkitGetAsEntry'>>
+    ).webkitGetAsEntry?.()
     if (entry?.isDirectory) {
       foldersFromEntries.push({
         type: 'entry',

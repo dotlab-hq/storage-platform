@@ -15,12 +15,8 @@ import {
   FolderUp,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import {
-  getFileIcon,
-  getFolderIcon,
-  formatFileSize,
-  formatRelativeTime,
-} from '@/lib/file-utils'
+import { RelativeTime } from '@/components/ui/relative-time'
+import { getFileIcon, getFolderIcon, formatFileSize } from '@/lib/file-utils'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
@@ -247,7 +243,7 @@ export function FileCard({
         {item.type === 'file' && (
           <span>{formatFileSize(item.sizeInBytes)}</span>
         )}
-        <span>{formatRelativeTime(item.createdAt)}</span>
+        <RelativeTime date={item.createdAt} />
       </div>
 
       {item.type === 'file' && item.isShared && (

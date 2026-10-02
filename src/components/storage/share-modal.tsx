@@ -56,15 +56,13 @@ const postShareAction = createClientOnlyFn(async (body: ShareAction) => {
         consentedPrivatelyUnlock: body.consentedPrivatelyUnlock,
       },
     })
-  } else if (body.action === 'toggle') {
-    return await toggleShareLinkFn({
-      data: {
-        linkId: body.linkId,
-        isActive: body.isActive,
-      },
-    })
   }
-  throw new Error('Invalid action')
+  return await toggleShareLinkFn({
+    data: {
+      linkId: body.linkId,
+      isActive: body.isActive,
+    },
+  })
 })
 
 export function ShareModal({

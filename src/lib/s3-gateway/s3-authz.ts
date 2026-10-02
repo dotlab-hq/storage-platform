@@ -1,5 +1,4 @@
 import type { BucketContext } from '@/lib/s3-gateway/s3-context'
-import { accessKeyIdForBucket } from '@/lib/s3-gateway/s3-context'
 import { evaluateBucketPolicy } from '@/lib/s3-gateway/s3-policy'
 import {
   isBucketPublicReadable,
@@ -35,9 +34,8 @@ export async function isActionAllowed(input: {
     return true
   }
 
-  const ownerAccessKey = accessKeyIdForBucket(input.bucket.bucketId)
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  const isOwner = input.accessKeyId === ownerAccessKey
+  // Past this point the request is anonymous (no validated credentials), so
+  // ownership cannot be established; only policy / public-access rules apply.
   const resource = input.objectKey
     ? objectArn(input.bucket.bucketName, input.objectKey)
     : bucketArn(input.bucket.bucketName)
@@ -52,10 +50,6 @@ export async function isActionAllowed(input: {
     return false
   }
   if (policyDecision === 'allow') {
-    return true
-  }
-
-  if (isOwner) {
     return true
   }
 

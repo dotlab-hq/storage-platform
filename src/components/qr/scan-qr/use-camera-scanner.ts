@@ -32,6 +32,9 @@ export function useCameraScanner() {
     if (decodedText) return
     let cancelled = false
     let scanner: Html5QrScanner | null = null
+    // Read through a function so TS doesn't narrow `cancelled` across awaits;
+    // the cleanup below flips it while `start` is suspended.
+    const isCancelled = () => cancelled
 
     const start = async () => {
       try {
@@ -42,8 +45,7 @@ export function useCameraScanner() {
           if (!cancelled) setDecodedText(text)
         })
         // Unmounted while the camera was starting: stop it now.
-        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- set by the cleanup while awaiting
-        if (cancelled) void stopScanner(scanner)
+        if (isCancelled()) void stopScanner(scanner)
       } catch (error) {
         if (cancelled) return
         setCameraError(

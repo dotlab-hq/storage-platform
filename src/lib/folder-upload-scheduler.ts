@@ -22,7 +22,7 @@ async function listDirectoryEntries(
   const reader = directory.createReader()
   const entries: FileSystemEntry[] = []
 
-  while (true) {
+  for (;;) {
     const batch = await new Promise<FileSystemEntry[]>((resolve, reject) => {
       reader.readEntries(resolve, reject)
     })

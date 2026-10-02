@@ -26,7 +26,7 @@ function toNonNegativeBytes(
 export async function getUserQuotaSnapshotByUserId(
   userId: string,
 ): Promise<UserQuotaSnapshot> {
-  let [row] = await db
+  const rows = await db
     .select({
       usedStorage: userStorage.usedStorage,
       allocatedStorage: userStorage.allocatedStorage,
@@ -35,9 +35,10 @@ export async function getUserQuotaSnapshotByUserId(
     .from(userStorage)
     .where(eq(userStorage.userId, userId))
     .limit(1)
+  let row = rows.at(0)
 
   if (!row) {
-    const [inserted] = await db
+    const insertedRows = await db
       .insert(userStorage)
       .values({
         userId,
@@ -52,7 +53,7 @@ export async function getUserQuotaSnapshotByUserId(
         fileSizeLimit: userStorage.fileSizeLimit,
       })
 
-    row = inserted ?? {
+    row = insertedRows.at(0) ?? {
       usedStorage: 0,
       allocatedStorage: DEFAULT_ALLOCATED_STORAGE_BYTES,
       fileSizeLimit: DEFAULT_FILE_SIZE_LIMIT_BYTES,

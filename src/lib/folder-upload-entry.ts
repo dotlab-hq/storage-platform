@@ -1,6 +1,8 @@
 import { uploadFolderFromFiles } from './folder-upload-files'
-import type { UploadStateUpdater } from './folder-upload-core'
-import type { FolderUploadResult } from './folder-upload-core'
+import type {
+  UploadStateUpdater,
+  FolderUploadResult,
+} from './folder-upload-core'
 
 async function readAllEntries(
   directory: FileSystemDirectoryEntry,
@@ -8,7 +10,7 @@ async function readAllEntries(
   const reader = directory.createReader()
   const allEntries: FileSystemEntry[] = []
 
-  while (true) {
+  for (;;) {
     const batch = await new Promise<FileSystemEntry[]>((resolve, reject) => {
       reader.readEntries(resolve, reject)
     })

@@ -6,10 +6,10 @@ import {
   DeleteObjectCommand,
   GetObjectCommand,
   ListObjectsV2Command,
-  type ListObjectsV2CommandOutput,
   PutObjectCommand,
   S3Client,
 } from '@aws-sdk/client-s3'
+import type { ListObjectsV2CommandOutput } from '@aws-sdk/client-s3'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 import { isStatusMetadataError } from '@/lib/s3-gateway/s3-conditional-cache'
 import { apiAuthMiddleware } from '@/middlewares/api-auth'
@@ -74,7 +74,8 @@ function resolveRequestScopedEndpoint(
 }
 
 function getRequestOrigin(): string | null {
-  const request = getRequest()
+  // getRequest() is typed non-null but may be unavailable outside a request context
+  const request = getRequest() as Request | undefined
   if (!request) {
     return null
   }
@@ -93,7 +94,7 @@ export async function getViewerClient(
   const credentials = await getVirtualBucketCredentials(userId, bucketName)
 
   // Defensive: credentials must have a valid region
-  const regionTrimmed = credentials.region?.trim() ?? ''
+  const regionTrimmed = credentials.region.trim()
   if (!regionTrimmed) {
     console.error('[getViewerClient] Invalid region for bucket:', {
       bucketName,
@@ -152,7 +153,9 @@ export const getS3ViewerCredentialsFn = createServerFn({ method: 'GET' })
     }
     const fallbackName = await getUserDefaultAssetsBucketName(user.id)
     if (!fallbackName) {
-      throw new Error('No bucket name provided and no default assets bucket exists yet')
+      throw new Error(
+        'No bucket name provided and no default assets bucket exists yet',
+      )
     }
     return getVirtualBucketCredentials(user.id, fallbackName)
   })

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {
   uploadMultipartInit,
   uploadMultipartComplete,
@@ -46,14 +45,14 @@ async function fetchUploadTarget(
     if (data.uploadMethod === 'proxy') {
       return {
         uploadMethod: 'proxy',
-        providerId: data.providerId ?? null,
+        providerId: data.providerId,
         uploadUrl: data.uploadUrl,
       }
     }
 
     return {
       uploadMethod: 'direct',
-      providerId: data.providerId ?? null,
+      providerId: data.providerId,
       presignedUrl: data.presignedUrl,
     }
   } catch (error: unknown) {
@@ -178,7 +177,7 @@ async function uploadFileMultipart(
   let nextPartIndex = 0
 
   const uploadWorker = async () => {
-    while (true) {
+    for (;;) {
       const currentIndex = nextPartIndex
       nextPartIndex += 1
       if (currentIndex >= partCount) {
@@ -234,9 +233,6 @@ async function registerFileInDb(
         providerId,
       },
     })
-    if (!data.file) {
-      throw new Error('Failed to register file')
-    }
     return {
       id: data.file.id,
       name: data.file.name,
