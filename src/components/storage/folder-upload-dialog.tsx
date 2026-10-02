@@ -1,15 +1,10 @@
 'use client'
 
 import * as React from 'react'
-import { useRouter } from '@tanstack/react-router'
-import { createClientOnlyFn } from '@tanstack/react-start'
 import { FolderUp, X } from 'lucide-react'
-import { authClient } from '@/lib/auth-client'
-import { uploadFolder, uploadFolderFromFiles } from '@/lib/folder-upload-utils'
 import { classifyDroppedUploads } from '@/lib/drop-upload-classifier'
-import { runScheduledFolderUploads } from '@/lib/folder-upload-scheduler'
+import { useUploader } from '@/hooks/use-uploader'
 import type { FolderUploadSource } from '@/lib/drop-upload-classifier'
-import { toast } from '@/components/ui/sonner'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -19,33 +14,26 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import type { UploadingFile } from '@/types/storage'
 
 type FolderUploadDialogProps = {
   open: boolean
   onOpenChange: (open: boolean) => void
-  userId: string | null
-  currentFolderId: string | null
-  setUploads: React.Dispatch<React.SetStateAction<UploadingFile[]>>
-  onUploadComplete: () => Promise<void> | void
+  /** Folder the folders are uploaded into (null = My Files root). */
+  folderId: string | null
 }
 
 export function FolderUploadDialog({
   open,
   onOpenChange,
-  userId,
-  currentFolderId,
-  setUploads,
-  onUploadComplete,
+  folderId,
 }: FolderUploadDialogProps) {
-  const router = useRouter()
+  const { uploadFolders } = useUploader(folderId)
   const folderInputRef = React.useRef<HTMLInputElement>(null)
   const [isDragging, setIsDragging] = React.useState(false)
   const [selectedFolders, setSelectedFolders] = React.useState<
     FolderUploadSource[]
   >([])
   const [uploadError, setUploadError] = React.useState<string | null>(null)
-  const [isUploading, setIsUploading] = React.useState(false)
 
   React.useEffect(() => {
     if (!open) {
@@ -53,12 +41,6 @@ export function FolderUploadDialog({
       setUploadError(null)
     }
   }, [open])
-
-  const resolveUserIdClient = createClientOnlyFn(async (uid: string | null) => {
-    if (uid) return uid
-    const { data } = await authClient.getSession()
-    return data?.user?.id ?? null
-  })
 
   const handleDragOver = React.useCallback(
     (e: React.DragEvent<HTMLDivElement>) => {
@@ -133,90 +115,15 @@ export function FolderUploadDialog({
     setSelectedFolders((prev) => prev.filter((_, i) => i !== index))
   }
 
-  const processFolder = React.useCallback(
-    async (
-      folder: FolderUploadSource,
-      uid: string,
-      fileConcurrency: number,
-    ) => {
-      if (folder.type === 'entry') {
-        return await uploadFolder(
-          folder.entry,
-          uid,
-          currentFolderId,
-          setUploads,
-          { fileConcurrency },
-        )
-      } else {
-        return await uploadFolderFromFiles({
-          folderName: folder.folderName,
-          files: folder.files,
-          userId: uid,
-          parentFolderId: currentFolderId,
-          setUploads,
-          options: { fileConcurrency },
-        })
-      }
-    },
-    [currentFolderId, setUploads],
-  )
-
-  const handleUpload = async () => {
+  const handleUpload = () => {
     if (selectedFolders.length === 0) {
       setUploadError('Select at least one folder.')
       return
     }
-    setUploadError(null)
-    setIsUploading(true)
-
-    const uid = await resolveUserIdClient(userId)
-    if (!uid) {
-      setUploadError('Session not ready.')
-      setIsUploading(false)
-      return
-    }
-
-    onOpenChange(false)
-
-    let uploadedCount = 0
-    let failedCount = 0
-
-    const results = await runScheduledFolderUploads({
-      sources: selectedFolders,
-      uploadFolder: (source, fileConcurrency) =>
-        processFolder(source, uid, fileConcurrency),
-    })
-
-    for (const result of results) {
-      if (result.success && result.filesCount) {
-        uploadedCount++
-        toast.success(
-          `Folder "${result.folderName}" uploaded with ${result.filesCount} files`,
-        )
-        continue
-      }
-
-      failedCount++
-      toast.error(
-        `Folder upload failed: ${result.error ?? 'Unknown error occurred'}`,
-      )
-    }
-
+    // Close right away; progress continues in the upload widget.
+    void uploadFolders(selectedFolders)
     setSelectedFolders([])
-    router.invalidate()
-    await onUploadComplete()
-    setIsUploading(false)
-
-    if (uploadedCount > 0) {
-      toast.success(
-        `Uploaded ${uploadedCount} folder${uploadedCount > 1 ? 's' : ''}`,
-      )
-    }
-    if (failedCount > 0) {
-      toast.error(
-        `${failedCount} folder${failedCount > 1 ? 's' : ''} failed to upload`,
-      )
-    }
+    onOpenChange(false)
   }
 
   return (
@@ -300,9 +207,9 @@ export function FolderUploadDialog({
           )}
           <Button
             onClick={handleUpload}
-            disabled={selectedFolders.length === 0 || isUploading}
+            disabled={selectedFolders.length === 0}
           >
-            {isUploading ? 'Uploading...' : 'Upload'}
+            Upload
           </Button>
         </DialogFooter>
       </DialogContent>

@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
 import {
@@ -15,9 +13,12 @@ import { Badge } from '@/components/ui/badge'
 import { BreadcrumbNav } from '@/components/storage/breadcrumb-nav'
 import { FileGrid } from '@/components/storage/file-grid'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
+import { formatDate } from './format-date'
 import { useUserContents } from './use-user-contents'
 import type { AdminUser } from '@/lib/storage-provider-queries'
 import type { StorageItem } from '@/types/storage'
+
+const NO_SELECTION = new Set<string>()
 
 type UserFilesModalProps = {
   user: AdminUser
@@ -25,6 +26,7 @@ type UserFilesModalProps = {
   onOpenChange: (open: boolean) => void
 }
 
+/** Read-only view of a user's files and account details for admins. */
 export function UserFilesModal({
   user,
   open,
@@ -33,19 +35,13 @@ export function UserFilesModal({
   const [activeTab, setActiveTab] = useState('explorer')
   const contents = useUserContents(user.id, open && activeTab === 'explorer')
 
-  const handleNavigate = (folderId: string | null) => {
-    contents.openFolder(folderId)
-  }
+  const usedPercent =
+    user.storageLimitBytes > 0
+      ? (user.usedStorage / user.storageLimitBytes) * 100
+      : 0
 
   const handleDoubleClick = (item: StorageItem) => {
-    if (item.type === 'folder') {
-      contents.openFolder(item.id)
-    }
-  }
-
-  const handleContextAction = (_action: string, _item: StorageItem) => {
-    // Admin read-only: allow download/copy-link only if needed
-    // For now, pass through or disable
+    if (item.type === 'folder') contents.openFolder(item.id)
   }
 
   return (
@@ -78,9 +74,15 @@ export function UserFilesModal({
               <div className="mb-4 shrink-0">
                 <BreadcrumbNav
                   items={contents.breadcrumbs}
-                  onNavigate={handleNavigate}
+                  onNavigate={contents.openFolder}
                 />
               </div>
+
+              {contents.error && (
+                <p className="mb-4 text-sm text-destructive">
+                  {contents.error.message}
+                </p>
+              )}
 
               {/* File content area */}
               <div className="min-h-0 flex-1 overflow-y-auto">
@@ -103,9 +105,10 @@ export function UserFilesModal({
                     items={contents.items}
                     uploads={[]}
                     isLoading={contents.isLoading}
-                    selectedIds={new Set<string>()}
+                    selectedIds={NO_SELECTION}
                     onDoubleClick={handleDoubleClick}
-                    onContextAction={handleContextAction}
+                    // Read-only viewer: context-menu actions are disabled.
+                    onContextAction={() => undefined}
                     onLoadMore={contents.loadMore}
                     hasMore={contents.hasNextPage}
                     isReadOnly={true}
@@ -161,7 +164,7 @@ export function UserFilesModal({
                     <div className="flex justify-between">
                       <dt className="text-muted-foreground">Joined</dt>
                       <dd className="font-medium">
-                        {new Date(user.createdAt).toLocaleDateString()}
+                        {formatDate(user.createdAt)}
                       </dd>
                     </div>
                   </dl>
@@ -201,16 +204,12 @@ export function UserFilesModal({
                             <div
                               className="h-full bg-primary"
                               style={{
-                                width: `${Math.min(100, (user.usedStorage / user.storageLimitBytes) * 100)}%`,
+                                width: `${Math.min(100, usedPercent)}%`,
                               }}
                             />
                           </div>
                           <span className="text-xs text-muted-foreground">
-                            {(
-                              (user.usedStorage / user.storageLimitBytes) *
-                              100
-                            ).toFixed(1)}
-                            %
+                            {usedPercent.toFixed(1)}%
                           </span>
                         </div>
                       </dd>

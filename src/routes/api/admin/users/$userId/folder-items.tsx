@@ -2,7 +2,6 @@ import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
 import { apiAdminMiddleware } from '@/middlewares/api-auth'
 import { listFolderItems, getFolderBreadcrumbs } from '@/lib/storage-queries'
-import { mapBreadcrumbs } from '@/hooks/storage-data-mapper'
 
 const AdminUserItemsQuerySchema = z.object({
   folderId: z.string().nullable().optional(),
@@ -25,11 +24,8 @@ export const Route = createFileRoute('/api/admin/users/$userId/folder-items')({
   server: {
     middleware: [apiAdminMiddleware],
     handlers: {
-      GET: async ({ context, request, params }) => {
+      GET: async ({ request, params }) => {
         try {
-          // Admin already verified by middleware; user is in context
-          const currentUser = context.user
-
           const query = AdminUserItemsQuerySchema.parse(
             Object.fromEntries(new URL(request.url).searchParams.entries()),
           )
@@ -46,12 +42,9 @@ export const Route = createFileRoute('/api/admin/users/$userId/folder-items')({
             page,
           )
 
-          let breadcrumbs: { id: string; name: string }[] = []
-          if (folderId) {
-            breadcrumbs = await getFolderBreadcrumbs(targetUserId, folderId)
-          }
-
-          const mappedBreadcrumbs = mapBreadcrumbs(breadcrumbs)
+          const breadcrumbs = folderId
+            ? await getFolderBreadcrumbs(targetUserId, folderId)
+            : []
 
           const totalCount = rawItems.folders.length + rawItems.files.length
           const hasMore = totalCount >= limit
@@ -62,7 +55,11 @@ export const Route = createFileRoute('/api/admin/users/$userId/folder-items')({
             folderId,
             folders: rawItems.folders,
             files: rawItems.files,
-            breadcrumbs: mappedBreadcrumbs,
+            breadcrumbs: breadcrumbs.map(({ id, name }) => ({
+              id,
+              name,
+              path: '',
+            })),
             hasMore,
             nextPage,
           })
@@ -73,7 +70,7 @@ export const Route = createFileRoute('/api/admin/users/$userId/folder-items')({
               ? 401
               : message === 'User not found'
                 ? 404
-                : message?.toLowerCase().includes('admin access')
+                : message.toLowerCase().includes('admin access')
                   ? 403
                   : error instanceof z.ZodError
                     ? 400

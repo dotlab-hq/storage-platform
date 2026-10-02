@@ -9,54 +9,15 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { useWebrtcScanner } from '../-hooks'
-import { useWebRTC } from '@/hooks/use-webrtc'
+import { CameraRegion } from '@/components/qr/scan-qr/camera-region'
+import { useCameraScanner } from '@/components/qr/scan-qr/use-camera-scanner'
 import { WEBRTC_TRANSFER_PREFIX } from '@/lib/webrtc-transfer-utils'
+import { useWebrtcScanner } from './use-webrtc-scanner'
 
-type Html5QrScanner = {
-  start: (
-    deviceId: unknown,
-    config: unknown,
-    onSuccess: (text: string) => void,
-    onError: (error: string) => void,
-  ) => Promise<void>
-  stop: () => Promise<void>
-  clear: () => void
-}
+/** How long the "connected" confirmation stays up before the dialog closes. */
+const CLOSE_AFTER_CLAIM_MS = 1500
 
-async function startScannerWithFallback(
-  scanner: Html5QrScanner,
-  onSuccess: (text: string) => void,
-) {
-  const config = { fps: 10, qrbox: { width: 220, height: 220 } }
-
-  try {
-    await scanner.start(
-      { facingMode: { exact: 'environment' } },
-      config,
-      onSuccess,
-      () => {},
-    )
-    return
-  } catch {
-    // fallback
-  }
-
-  try {
-    await scanner.start({ facingMode: 'user' }, config, onSuccess, () => {})
-    return
-  } catch {
-    // fallback
-  }
-
-  const { Html5Qrcode } = await import('html5-qrcode')
-  const cameras = await Html5Qrcode.getCameras()
-  if (cameras.length === 0) {
-    throw new Error('No camera detected.')
-  }
-  await scanner.start(cameras[0].id, config, onSuccess, () => {})
-}
-
+/** Button that scans another device's WebRTC QR code and connects to it. */
 export function WebRTCScannerDialog({
   triggerLabel = 'Scan Now',
   triggerVariant = 'outline',
@@ -67,129 +28,7 @@ export function WebRTCScannerDialog({
   className?: string
 }) {
   const [open, setOpen] = React.useState(false)
-  const [state, setState] = React.useState<
-    'idle' | 'scanning' | 'review' | 'submitting'
-  >('idle')
-  const [decodedPayload, setDecodedPayload] = React.useState('')
-  const [cameraError, setCameraError] = React.useState('')
-  const scannerRef = React.useRef<Html5QrScanner | null>(null)
-  const regionId = React.useId().replace(/:/g, '')
-
-  const {
-    submitMutation,
-    error: submitError,
-    connectionStatus,
-    sessionToken,
-  } = useWebrtcScanner()
-  const { startConnection } = useWebRTC()
-
-  React.useEffect(() => {
-    if (sessionToken && connectionStatus === 'claimed') {
-      startConnection(sessionToken, 'answerer')
-    }
-  }, [sessionToken, connectionStatus, startConnection])
-
-  const stopScanner = React.useCallback(async () => {
-    const scanner = scannerRef.current
-    if (!scanner) return
-    try {
-      await scanner.stop()
-    } catch {
-      // no-op
-    }
-    try {
-      scanner.clear()
-    } catch {
-      // no-op
-    }
-    scannerRef.current = null
-  }, [])
-
-  const reset = React.useCallback(async () => {
-    await stopScanner()
-    setDecodedPayload('')
-    setCameraError('')
-    setState('idle')
-  }, [stopScanner])
-
-  React.useEffect(() => {
-    if (!open) {
-      void reset()
-      return
-    }
-
-    let cancelled = false
-
-    const start = async () => {
-      try {
-        setState('scanning')
-        setCameraError('')
-        const { Html5Qrcode } = await import('html5-qrcode')
-        const scanner = new Html5Qrcode(regionId) as unknown as Html5QrScanner
-        scannerRef.current = scanner
-
-        await startScannerWithFallback(scanner, (text) => {
-          if (cancelled) return
-          setDecodedPayload(text)
-          setState('review')
-          void stopScanner()
-        })
-      } catch (error) {
-        if (cancelled) return
-        setState('idle')
-        setCameraError(
-          error instanceof Error ? error.message : 'Unable to start camera.',
-        )
-      }
-    }
-
-    void start()
-    return () => {
-      cancelled = true
-      void stopScanner()
-    }
-  }, [open, regionId, stopScanner])
-
-  const handleInvalidQr = async () => {
-    setDecodedPayload('')
-    setState('scanning')
-    setCameraError('')
-    try {
-      const { Html5Qrcode } = await import('html5-qrcode')
-      const scanner = new Html5Qrcode(regionId) as unknown as Html5QrScanner
-      scannerRef.current = scanner
-
-      await startScannerWithFallback(scanner, (text) => {
-        setDecodedPayload(text)
-        setState('review')
-        void stopScanner()
-      })
-    } catch (error) {
-      setState('idle')
-      setCameraError(
-        error instanceof Error ? error.message : 'Unable to restart camera.',
-      )
-    }
-  }
-
-  const handleSubmit = () => {
-    if (!decodedPayload) return
-    setState('submitting')
-    submitMutation.mutate(decodedPayload)
-  }
-
-  // Auto-close dialog after successful connection
-  React.useEffect(() => {
-    if (connectionStatus === 'claimed' && sessionToken) {
-      // Close dialog after brief delay to show success message
-      const timer = setTimeout(() => {
-        setOpen(false)
-      }, 1500)
-      return () => clearTimeout(timer)
-    }
-  }, [connectionStatus, sessionToken])
-
-  const isValidWebrtcPayload = decodedPayload.startsWith(WEBRTC_TRANSFER_PREFIX)
+  const close = React.useCallback(() => setOpen(false), [])
 
   return (
     <>
@@ -202,114 +41,112 @@ export function WebRTCScannerDialog({
         {triggerLabel}
       </Button>
 
-      <Dialog
-        open={open}
-        onOpenChange={(isOpen) => {
-          if (!isOpen) void reset()
-          setOpen(isOpen)
-        }}
-      >
+      <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent
-          className="sm:max-w-md max-h-dvh overflow-y-auto"
-          onInteractOutside={(e) => e.preventDefault()}
+          className="max-h-dvh overflow-y-auto sm:max-w-md"
+          onInteractOutside={(event) => event.preventDefault()}
         >
-          <DialogHeader>
-            <DialogTitle>Scan WebRTC QR Code</DialogTitle>
-            <DialogDescription>
-              {state === 'scanning' &&
-                'Point your camera at a WebRTC transfer QR code...'}
-              {state === 'review' && 'Review the scanned QR code...'}
-              {(state === 'submitting' || submitMutation.isPending) &&
-                'Connecting to peer...'}
-            </DialogDescription>
-          </DialogHeader>
-
-          {state === 'scanning' && (
-            <div className="relative aspect-square w-full max-w-75 overflow-hidden rounded-lg mx-auto bg-black border">
-              <div id={regionId} className="h-full w-full" />
-              {cameraError && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black/80 px-4 text-center text-sm text-red-500">
-                  {cameraError}
-                </div>
-              )}
-            </div>
-          )}
-
-          {(state === 'review' || state === 'submitting') && submitMutation.isPending && (
-            <div className="p-4 border rounded-md bg-blue-50/50 dark:bg-blue-950/20">
-              <p className="text-sm font-medium text-blue-700 dark:text-blue-400 mb-1">
-                ✓ QR Code Recognized
-              </p>
-              <p className="text-xs text-muted-foreground">
-                Establishing peer-to-peer connection...
-              </p>
-            </div>
-          )}
-
-          {(state === 'review' || state === 'submitting') && (
-            <div className="space-y-4">
-              {isValidWebrtcPayload ? (
-                <div className="p-4 border rounded-md bg-green-50/50 dark:bg-green-950/20">
-                  <p className="text-sm font-medium text-green-700 dark:text-green-400 mb-1">
-                    Valid WebRTC Transfer QR Code
-                  </p>
-                  <p className="text-xs text-muted-foreground font-mono break-all">
-                    {decodedPayload
-                      .slice(WEBRTC_TRANSFER_PREFIX.length)
-                      .slice(0, 16)}
-                    ...
-                  </p>
-                </div>
-              ) : (
-                <div className="p-4 border rounded-md bg-red-50/50 dark:bg-red-950/20">
-                  <p className="text-sm font-medium text-red-700 dark:text-red-400 mb-1">
-                    Invalid QR Code
-                  </p>
-                  <p className="text-xs text-muted-foreground mb-3">
-                    This doesn't look like a WebRTC transfer QR code.
-                  </p>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={handleInvalidQr}
-                    className="w-full"
-                  >
-                    <RefreshCcw className="size-4 mr-2" />
-                    Scan again
-                  </Button>
-                </div>
-              )}
-
-              {submitError && (
-                <div className="p-4 border rounded-md bg-red-50/50 dark:bg-red-950/20">
-                  <p className="text-sm font-medium text-red-700 dark:text-red-400">
-                    {submitError}
-                  </p>
-                </div>
-              )}
-            </div>
-          )}
-
-          <DialogFooter className="mt-6 flex flex-col sm:flex-row gap-2">
-            <Button
-              variant="secondary"
-              onClick={() => setOpen(false)}
-              className="w-full sm:w-auto"
-            >
-              Cancel
-            </Button>
-            {state === 'review' && isValidWebrtcPayload && (
-              <Button
-                onClick={handleSubmit}
-                disabled={submitMutation.isPending}
-                className="w-full sm:w-auto"
-              >
-                {submitMutation.isPending ? 'Connecting...' : 'Connect'}
-              </Button>
-            )}
-          </DialogFooter>
+          {/* Mounted only while open, so closing stops the camera and resets. */}
+          <WebrtcQrScanner onClose={close} />
         </DialogContent>
       </Dialog>
     </>
   )
+}
+
+function WebrtcQrScanner({ onClose }: { onClose: () => void }) {
+  const camera = useCameraScanner()
+  const claim = useWebrtcScanner()
+  const payload = camera.decodedText
+  const isValidPayload = payload.startsWith(WEBRTC_TRANSFER_PREFIX)
+
+  React.useEffect(() => {
+    if (!claim.isSuccess) return
+    const timer = setTimeout(onClose, CLOSE_AFTER_CLAIM_MS)
+    return () => clearTimeout(timer)
+  }, [claim.isSuccess, onClose])
+
+  return (
+    <>
+      <DialogHeader>
+        <DialogTitle>Scan WebRTC QR Code</DialogTitle>
+        <DialogDescription>
+          {describeStep(Boolean(payload), claim.isPending)}
+        </DialogDescription>
+      </DialogHeader>
+
+      {!payload ? (
+        <CameraRegion
+          regionId={camera.regionId}
+          cameraError={camera.cameraError}
+        />
+      ) : (
+        <div className="space-y-4">
+          {isValidPayload ? (
+            <div className="rounded-md border bg-green-50/50 p-4 dark:bg-green-950/20">
+              <p className="mb-1 text-sm font-medium text-green-700 dark:text-green-400">
+                {claim.isSuccess
+                  ? 'Connected. Starting peer connection...'
+                  : 'Valid WebRTC Transfer QR Code'}
+              </p>
+              <p className="text-muted-foreground font-mono text-xs break-all">
+                {payload.slice(WEBRTC_TRANSFER_PREFIX.length).slice(0, 16)}...
+              </p>
+            </div>
+          ) : (
+            <div className="rounded-md border bg-red-50/50 p-4 dark:bg-red-950/20">
+              <p className="mb-1 text-sm font-medium text-red-700 dark:text-red-400">
+                Invalid QR Code
+              </p>
+              <p className="text-muted-foreground mb-3 text-xs">
+                This doesn't look like a WebRTC transfer QR code.
+              </p>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={camera.rescan}
+                className="w-full"
+              >
+                <RefreshCcw className="mr-2 size-4" />
+                Scan again
+              </Button>
+            </div>
+          )}
+
+          {claim.error && (
+            <div className="rounded-md border bg-red-50/50 p-4 dark:bg-red-950/20">
+              <p className="text-sm font-medium text-red-700 dark:text-red-400">
+                {claim.error.message}
+              </p>
+            </div>
+          )}
+        </div>
+      )}
+
+      <DialogFooter className="mt-6 flex flex-col gap-2 sm:flex-row">
+        <Button
+          variant="secondary"
+          onClick={onClose}
+          className="w-full sm:w-auto"
+        >
+          Cancel
+        </Button>
+        {isValidPayload && !claim.isSuccess && (
+          <Button
+            onClick={() => claim.mutate(payload)}
+            disabled={claim.isPending}
+            className="w-full sm:w-auto"
+          >
+            {claim.isPending ? 'Connecting...' : 'Connect'}
+          </Button>
+        )}
+      </DialogFooter>
+    </>
+  )
+}
+
+function describeStep(scanned: boolean, connecting: boolean) {
+  if (connecting) return 'Connecting to peer...'
+  if (scanned) return 'Review the scanned QR code...'
+  return 'Point your camera at a WebRTC transfer QR code...'
 }

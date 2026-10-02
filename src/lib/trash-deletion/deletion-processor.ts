@@ -5,10 +5,6 @@ import { fileVersion } from '@/db/schema/s3-controls'
 import { getProviderClientById } from '@/lib/s3-provider-client'
 import { DeleteObjectCommand } from '@aws-sdk/client-s3'
 import { deleteNodeByEntity } from '@/lib/storage-btree/index'
-import {
-  invalidateFolderCache,
-  invalidateQuotaCache,
-} from '@/lib/cache-invalidation'
 import type { TrashDeletionItem } from './params'
 import { getTrashDeletionDO } from './do-client'
 import { checkAndDeleteCompletedFolders, deleteFolder } from './folder-deletion'
@@ -187,8 +183,6 @@ export async function deleteFile(
     console.error('[Workflow Step] Failed to mark file as processed:', error)
   }
 
-  await invalidateQuotaCache(userId)
-  await invalidateFolderCache(userId, fileRow.folderId)
 
   console.log('[Workflow Step] deleteFile completed for:', fileId)
 }

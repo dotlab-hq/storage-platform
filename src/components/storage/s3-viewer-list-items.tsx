@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { Folder, Loader2, Trash2, XCircle, CheckCircle2 } from 'lucide-react'
+import { Folder, Loader2, Trash2, X, XCircle, CheckCircle2 } from 'lucide-react'
 import { formatBytes } from '@/lib/format-bytes'
 import {
   getFileIcon,
@@ -18,12 +18,13 @@ type FolderListItemProps = {
   onOpen: (prefix: string) => void
 }
 
+/** Row for a folder (common prefix); clicking opens it. */
 export function S3ViewerFolderListItem({ entry, onOpen }: FolderListItemProps) {
   return (
     <button
       type="button"
       onClick={() => onOpen(entry.prefix)}
-      className="group flex w-full items-center px-4 py-3 text-left transition-colors hover:hover:bg-muted/30"
+      className="group flex w-full items-center px-4 py-3 text-left transition-colors hover:bg-muted/30"
     >
       {/* Icon */}
       <div className="mr-4 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-muted/20">
@@ -61,6 +62,7 @@ type FileListItemProps = {
   allowDelete?: boolean
 }
 
+/** Row for an object; double-click opens it, hover shows delete. */
 export function S3ViewerFileListItem({
   entry,
   onOpen,
@@ -72,7 +74,7 @@ export function S3ViewerFileListItem({
   const bgColor = getIconBgColor(entry.name)
 
   return (
-    <div className="group flex items-center px-4 py-3 transition-colors hover:hover:bg-muted/30">
+    <div className="group flex items-center px-4 py-3 transition-colors hover:bg-muted/30">
       {/* Icon */}
       <button
         title="none"
@@ -131,15 +133,21 @@ export function S3ViewerFileListItem({
 
 type UploadingFileListItemProps = {
   file: UploadingFile
+  /** Removes the row; offered once the upload has failed. */
+  onDismiss?: (id: string) => void
 }
 
+/** Row for an upload in progress, just completed, or failed. */
 export function S3ViewerUploadingFileListItem({
   file,
+  onDismiss,
 }: UploadingFileListItemProps) {
   const bgColor = getIconBgColor(file.name)
 
   return (
-    <div className="group flex items-center px-4 py-3 bg-muted/30 animate-pulse">
+    <div
+      className={`group flex items-center px-4 py-3 bg-muted/30 ${file.status === 'uploading' ? 'animate-pulse' : ''}`}
+    >
       {/* Icon */}
       <div
         className={`flex-shrink-0 w-10 h-10 rounded-xl ${bgColor} flex items-center justify-center mr-4`}
@@ -179,9 +187,21 @@ export function S3ViewerUploadingFileListItem({
         <span className="text-sm text-muted-foreground">-</span>
       </div>
 
-      {/* Actions placeholder */}
-      <div className="w-10" />
+      {/* Actions */}
+      <div className="flex w-10 justify-end">
+        {file.status === 'error' && onDismiss && (
+          <Button
+            type="button"
+            size="icon"
+            variant="ghost"
+            className="h-8 w-8"
+            aria-label={`Dismiss failed upload ${file.name}`}
+            onClick={() => onDismiss(file.id)}
+          >
+            <X className="h-4 w-4" />
+          </Button>
+        )}
+      </div>
     </div>
   )
 }
-

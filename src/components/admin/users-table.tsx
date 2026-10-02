@@ -1,200 +1,68 @@
-'use client'
-
 import {
   flexRender,
   getCoreRowModel,
-  getFilteredRowModel,
   getSortedRowModel,
   useReactTable,
-  type SortingState,
 } from '@tanstack/react-table'
-import { useState, useMemo, useCallback } from 'react'
+import type { RowSelectionState, SortingState } from '@tanstack/react-table'
+import { useMemo, useState } from 'react'
 import { ChevronDown, Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import type { AdminUser } from '@/lib/storage-provider-queries'
-import { getColumns, type UserTableRow } from './users-table-columns'
+import { getUserColumns } from './users-table-columns'
+import type { UserActions } from './users-table-columns'
 
-interface UsersTableProps {
+type UsersTableProps = {
   users: AdminUser[]
-  onRoleChange?: (userId: string, isAdmin: boolean) => Promise<void>
-  onBan?: (userId: string, banned: boolean) => Promise<void>
-  onDelete?: (userId: string) => Promise<void>
-  onUpdateStorage?: (userId: string, storageLimitBytes: number) => Promise<void>
-  onUpdateFileSizeLimit?: (
-    userId: string,
-    fileSizeLimitBytes: number,
-  ) => Promise<void>
-  selectedUsers?: string[]
-  onSelectionChange?: (selectedIds: string[]) => void
-  onViewUserFiles?: (user: AdminUser) => void
+  actions: UserActions
+  /** Controlled selection (user ids). */
+  selectedIds: string[]
+  onSelectionChange: (selectedIds: string[]) => void
 }
 
+/** Sortable, searchable table of users with row selection. */
 export function UsersTable({
   users,
-  onRoleChange,
-  onBan,
-  onDelete,
-  onUpdateStorage,
-  onUpdateFileSizeLimit,
-  selectedUsers = [],
+  actions,
+  selectedIds,
   onSelectionChange,
-  onViewUserFiles,
 }: UsersTableProps) {
   const [sorting, setSorting] = useState<SortingState>([])
-  const [globalFilter, setGlobalFilter] = useState('')
-  const [updatingUsers, setUpdatingUsers] = useState<Set<string>>(new Set())
-  const [rowSelection, setRowSelection] = useState<Record<string, boolean>>(
-    () => {
-      const initial: Record<string, boolean> = {}
-      selectedUsers.forEach((id) => {
-        initial[id] = true
-      })
-      return initial
-    },
-  )
+  const [filter, setFilter] = useState('')
 
-  const handleRoleChange = useCallback(
-    async (userId: string, isAdmin: boolean) => {
-      if (!onRoleChange) return
-      setUpdatingUsers((prev) => new Set([...prev, userId]))
-      try {
-        await onRoleChange(userId, isAdmin)
-      } finally {
-        setUpdatingUsers((prev) => {
-          const next = new Set(prev)
-          next.delete(userId)
-          return next
-        })
-      }
-    },
-    [onRoleChange],
-  )
+  const columns = useMemo(() => getUserColumns(actions), [actions])
 
-  const handleBan = useCallback(
-    async (userId: string, banned: boolean) => {
-      if (!onBan) return
-      setUpdatingUsers((prev) => new Set([...prev, userId]))
-      try {
-        await onBan(userId, banned)
-      } finally {
-        setUpdatingUsers((prev) => {
-          const next = new Set(prev)
-          next.delete(userId)
-          return next
-        })
-      }
-    },
-    [onBan],
-  )
-
-  const handleDelete = useCallback(
-    async (userId: string) => {
-      if (!onDelete) return
-      setUpdatingUsers((prev) => new Set([...prev, userId]))
-      try {
-        await onDelete(userId)
-      } finally {
-        setUpdatingUsers((prev) => {
-          const next = new Set(prev)
-          next.delete(userId)
-          return next
-        })
-      }
-    },
-    [onDelete],
-  )
-
-  const handleUpdateStorage = useCallback(
-    async (userId: string, storageLimitBytes: number) => {
-      if (!onUpdateStorage) return
-      setUpdatingUsers((prev) => new Set([...prev, userId]))
-      try {
-        await onUpdateStorage(userId, storageLimitBytes)
-      } finally {
-        setUpdatingUsers((prev) => {
-          const next = new Set(prev)
-          next.delete(userId)
-          return next
-        })
-      }
-    },
-    [onUpdateStorage],
-  )
-
-  const handleUpdateFileSizeLimit = useCallback(
-    async (userId: string, fileSizeLimitBytes: number) => {
-      if (!onUpdateFileSizeLimit) return
-      setUpdatingUsers((prev) => new Set([...prev, userId]))
-      try {
-        await onUpdateFileSizeLimit(userId, fileSizeLimitBytes)
-      } finally {
-        setUpdatingUsers((prev) => {
-          const next = new Set(prev)
-          next.delete(userId)
-          return next
-        })
-      }
-    },
-    [onUpdateFileSizeLimit],
-  )
-
-  const columns = useMemo(
-    () =>
-      getColumns({
-        onRoleChange: handleRoleChange,
-        onBan: handleBan,
-        onDelete: handleDelete,
-        onUpdateStorage: handleUpdateStorage,
-        onUpdateFileSizeLimit: handleUpdateFileSizeLimit,
-        onViewUserFiles,
-        updatingUsers,
-      }),
-    [
-      handleRoleChange,
-      handleBan,
-      handleDelete,
-      handleUpdateStorage,
-      handleUpdateFileSizeLimit,
-      onViewUserFiles,
-      updatingUsers,
-    ],
-  )
-
-  const filteredData = useMemo(() => {
-    if (!globalFilter) return users as UserTableRow[]
-
-    const lowerFilter = globalFilter.toLowerCase()
-    return (users as UserTableRow[]).filter(
+  const filteredUsers = useMemo(() => {
+    const needle = filter.trim().toLowerCase()
+    if (!needle) return users
+    return users.filter(
       (user) =>
-        user.name.toLowerCase().includes(lowerFilter) ||
-        user.email.toLowerCase().includes(lowerFilter),
+        user.name.toLowerCase().includes(needle) ||
+        user.email.toLowerCase().includes(needle),
     )
-  }, [users, globalFilter])
+  }, [users, filter])
+
+  const rowSelection = useMemo<RowSelectionState>(
+    () => Object.fromEntries(selectedIds.map((id) => [id, true])),
+    [selectedIds],
+  )
 
   const table = useReactTable({
-    data: filteredData,
+    data: filteredUsers,
     columns,
-    state: {
-      sorting,
-      globalFilter,
-      rowSelection,
-    },
+    state: { sorting, rowSelection },
     onSortingChange: setSorting,
     onRowSelectionChange: (updater) => {
-      setRowSelection((prev) => {
-        const newSelection =
-          typeof updater === 'function' ? updater(prev) : updater
-        onSelectionChange?.(Object.keys(newSelection))
-        return newSelection
-      })
+      const next =
+        typeof updater === 'function' ? updater(rowSelection) : updater
+      onSelectionChange(Object.keys(next).filter((id) => next[id]))
     },
-    getSortedRowModel: getSortedRowModel(),
     getCoreRowModel: getCoreRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
+    getSortedRowModel: getSortedRowModel(),
     getRowId: (row) => row.id,
   })
 
-  const selectedCount = table.getSelectedRowModel().rows.length
+  const rows = table.getRowModel().rows
 
   return (
     <div className="space-y-4">
@@ -203,14 +71,14 @@ export function UsersTable({
           <Search className="absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             placeholder="Search users by name or email..."
-            value={globalFilter}
-            onChange={(e) => setGlobalFilter(e.target.value)}
+            value={filter}
+            onChange={(event) => setFilter(event.target.value)}
             className="pl-8"
           />
         </div>
-        {selectedCount > 0 && (
+        {selectedIds.length > 0 && (
           <div className="text-sm font-medium text-muted-foreground">
-            {selectedCount} selected
+            {selectedIds.length} selected
           </div>
         )}
       </div>
@@ -223,44 +91,46 @@ export function UsersTable({
                 key={headerGroup.id}
                 className="border-b border-border/50 bg-muted/30"
               >
-                {headerGroup.headers.map((header) => (
-                  <th
-                    key={header.id}
-                    className="px-4 py-3 text-left font-semibold text-foreground"
-                    style={{ width: header.getSize() }}
-                  >
-                    <div
-                      className={`flex items-center gap-2 ${
-                        header.column.getCanSort()
-                          ? 'cursor-pointer select-none'
-                          : ''
-                      }`}
-                      onClick={header.column.getToggleSortingHandler()}
+                {headerGroup.headers.map((header) => {
+                  const canSort = header.column.getCanSort()
+                  const sorted = header.column.getIsSorted()
+                  return (
+                    <th
+                      key={header.id}
+                      className="px-4 py-3 text-left font-semibold text-foreground"
+                      style={{ width: header.getSize() }}
                     >
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext(),
-                      )}
-                      {header.column.getCanSort() && (
-                        <ChevronDown
-                          className={`h-4 w-4 transition-transform ${
-                            header.column.getIsSorted() === 'desc'
-                              ? 'rotate-180'
-                              : header.column.getIsSorted() === 'asc'
-                                ? ''
-                                : 'text-muted-foreground/50'
-                          }`}
-                        />
-                      )}
-                    </div>
-                  </th>
-                ))}
+                      <div
+                        className={`flex items-center gap-2 ${
+                          canSort ? 'cursor-pointer select-none' : ''
+                        }`}
+                        onClick={header.column.getToggleSortingHandler()}
+                      >
+                        {flexRender(
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
+                        {canSort && (
+                          <ChevronDown
+                            className={`h-4 w-4 transition-transform ${
+                              sorted === 'desc'
+                                ? 'rotate-180'
+                                : sorted === 'asc'
+                                  ? ''
+                                  : 'text-muted-foreground/50'
+                            }`}
+                          />
+                        )}
+                      </div>
+                    </th>
+                  )
+                })}
               </tr>
             ))}
           </thead>
           <tbody>
-            {table.getRowModel().rows.length > 0 ? (
-              table.getRowModel().rows.map((row) => (
+            {rows.length > 0 ? (
+              rows.map((row) => (
                 <tr
                   key={row.id}
                   className="border-b border-border/30 transition-colors hover:bg-muted/20"
@@ -293,10 +163,8 @@ export function UsersTable({
         </table>
       </div>
 
-      <div className="flex items-center justify-between text-sm text-muted-foreground">
-        <div>
-          Showing {table.getRowModel().rows.length} of {users.length} users
-        </div>
+      <div className="text-sm text-muted-foreground">
+        Showing {rows.length} of {users.length} users
       </div>
     </div>
   )

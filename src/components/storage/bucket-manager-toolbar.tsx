@@ -6,7 +6,6 @@ type BucketManagerToolbarProps = {
   bucketName: string
   searchQuery: string
   isCreating: boolean
-  isLoading: boolean
   isRefreshing: boolean
   createDisabled: boolean
   onBucketNameChange: (value: string) => void
@@ -15,6 +14,7 @@ type BucketManagerToolbarProps = {
   onRefresh: () => Promise<unknown>
 }
 
+/** Create-bucket input, bucket search and the refresh/create buttons. */
 export function BucketManagerToolbar(props: BucketManagerToolbarProps) {
   return (
     <div className="grid gap-3 rounded-xl border border-border/60 bg-muted/40 p-3 shadow-sm lg:grid-cols-[1fr_auto]">
@@ -41,7 +41,7 @@ export function BucketManagerToolbar(props: BucketManagerToolbarProps) {
           variant="outline"
           size="sm"
           onClick={() => void props.onRefresh()}
-          disabled={props.isRefreshing || props.isLoading}
+          disabled={props.isRefreshing}
           className="gap-2 border-border/60 bg-muted/40 text-foreground hover:bg-muted/60"
         >
           {props.isRefreshing ? (

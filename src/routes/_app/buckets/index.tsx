@@ -1,40 +1,28 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { lazy, Suspense } from 'react'
-import { Separator } from '@/components/ui/separator'
-import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
+import { PageHeader } from '@/components/app/page-header'
+import { BucketManager } from '@/components/storage/bucket-manager'
+import { SidebarInset } from '@/components/ui/sidebar'
+import { bucketsQuery } from '@/lib/s3-buckets/queries'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
-import { PageSkeleton } from '@/components/ui/page-skeleton'
-
-const BucketManager = lazy(() =>
-  import('@/components/storage/bucket-manager').then((m) => ({
-    default: m.BucketManager,
-  })),
-)
+import { BucketsPageSkeleton } from './-buckets-page-skeleton'
 
 export const Route = createFileRoute('/_app/buckets/')({
   server: {
     middleware: [isAuthenticatedMiddleware],
   },
+  loader: ({ context: { queryClient } }) =>
+    queryClient.ensureQueryData(bucketsQuery()),
+  pendingComponent: BucketsPageSkeleton,
   component: BucketsPage,
 })
 
+/** /buckets: the user's virtual S3 buckets. */
 function BucketsPage() {
   return (
     <SidebarInset>
-      <header className="flex h-14 shrink-0 items-center gap-2 px-4">
-        <SidebarTrigger className="-ml-1" />
-        <Separator
-          orientation="vertical"
-          className="mr-2 data-[orientation=vertical]:h-4"
-        />
-        <h1 className="text-sm font-semibold">Buckets</h1>
-      </header>
+      <PageHeader title="Buckets" />
       <div className="p-4">
-        <Suspense
-          fallback={<PageSkeleton className="mb-2" variant="default" />}
-        >
-          <BucketManager />
-        </Suspense>
+        <BucketManager />
       </div>
     </SidebarInset>
   )

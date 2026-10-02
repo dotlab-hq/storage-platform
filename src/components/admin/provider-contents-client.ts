@@ -2,11 +2,11 @@ import type { AdminProviderContentsResponse } from '@/lib/admin-provider-browser
 import {
   getAdminProviderContentsFn,
   getAdminProviderObjectUrlFn,
-} from '@/routes/_app/admin/-provider-contents-server'
+} from '@/routes/_app/admin/-components/-provider-contents-server'
 import {
   getUserProviderContentsFn,
   getUserProviderObjectUrlFn,
-} from '@/routes/_app/settings/-provider-contents-server'
+} from '@/routes/_app/settings/-components/-provider-contents-server'
 
 export type LoadProviderContentsArgs = {
   providerId: string

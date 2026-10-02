@@ -34,13 +34,11 @@ type BucketManagerTableProps = {
   onSettings: (bucketName: string) => void
   onObjectOps: (bucketName: string) => void
   onCredentials: (bucketName: string) => Promise<void>
-  onEmpty: (bucketName: string, isDefault: boolean | undefined) => Promise<void>
-  onDelete: (
-    bucketName: string,
-    isDefault: boolean | undefined,
-  ) => Promise<void>
+  onEmpty: (bucketName: string, isDefault: boolean | undefined) => void
+  onDelete: (bucketName: string, isDefault: boolean | undefined) => void
 }
 
+/** Stable (timezone/locale independent) date so SSR and client agree. */
 function formatCreatedAt(value: string | null): string {
   if (!value) {
     return 'Unknown'
@@ -49,9 +47,10 @@ function formatCreatedAt(value: string | null): string {
   if (Number.isNaN(date.getTime())) {
     return 'Unknown'
   }
-  return date.toLocaleString()
+  return date.toISOString().slice(0, 10)
 }
 
+/** Table of buckets with per-row actions. */
 export function BucketManagerTable({
   buckets,
   pendingByBucket,
@@ -79,7 +78,7 @@ export function BucketManagerTable({
             const pendingAction = pendingByBucket[bucket.name]
             const isPending = Boolean(pendingAction)
             return (
-            <TableRow key={bucket.id} className="hover:bg-muted/30">
+              <TableRow key={bucket.id} className="hover:bg-muted/30">
                 <TableCell className="px-3">
                   <button
                     onClick={() => onView(bucket.name)}
@@ -130,14 +129,14 @@ export function BucketManagerTable({
                   </Button>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <Button
-                          className="ml-1"
-                          variant="ghost"
-                          size="icon"
-                          disabled={isPending}
-                        >
-                          <MoreVertical className="h-4 w-4" />
-                        </Button>
+                      <Button
+                        className="ml-1"
+                        variant="ghost"
+                        size="icon"
+                        disabled={isPending}
+                      >
+                        <MoreVertical className="h-4 w-4" />
+                      </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-52">
                       <DropdownMenuItem onClick={() => onView(bucket.name)}>
@@ -155,27 +154,21 @@ export function BucketManagerTable({
                         Object Operations
                       </DropdownMenuItem>
                       <DropdownMenuItem
-                        onClick={async () => {
-                          await onCredentials(bucket.name)
-                        }}
+                        onClick={() => void onCredentials(bucket.name)}
                       >
                         <KeyRound className="mr-2 h-4 w-4" />
                         Credentials
                       </DropdownMenuItem>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem
-                        onClick={async () => {
-                          await onEmpty(bucket.name, bucket.isDefault)
-                        }}
+                        onClick={() => onEmpty(bucket.name, bucket.isDefault)}
                         disabled={bucket.isDefault}
                       >
                         <Eraser className="mr-2 h-4 w-4" />
                         Empty Bucket
                       </DropdownMenuItem>
                       <DropdownMenuItem
-                        onClick={async () => {
-                          await onDelete(bucket.name, bucket.isDefault)
-                        }}
+                        onClick={() => onDelete(bucket.name, bucket.isDefault)}
                         disabled={bucket.isDefault}
                         className="text-red-300 focus:text-red-300"
                       >
@@ -193,4 +186,3 @@ export function BucketManagerTable({
     </div>
   )
 }
-

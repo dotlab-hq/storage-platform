@@ -1,22 +1,12 @@
-// @ts-nocheck
-// the middleware will always ensure that the user is not authenticated before allowing access further
-
-import { auth } from '@/lib/auth'
 import { redirect } from '@tanstack/react-router'
 import { createMiddleware } from '@tanstack/react-start'
+import { resolveSession } from '@/lib/auth/resolve-session'
 
-const isNotAuthenticatedMiddleware = createMiddleware().server(
+/** Page middleware for /auth: already signed-in users go to their files. */
+export const isNotAuthenticatedMiddleware = createMiddleware().server(
   async ({ next, request }) => {
-    const headers = request.headers
-    const session = await auth.api.getSession({ headers })
-    if (session) {
-      throw redirect({
-        to: '/_app',
-      })
-    }
-    //  add the session info to context, so that it can be accessed in the next middlewares or in the server functions
+    const resolved = await resolveSession(request.headers)
+    if (resolved) throw redirect({ to: '/' })
     return next()
   },
 )
-
-export { isNotAuthenticatedMiddleware }

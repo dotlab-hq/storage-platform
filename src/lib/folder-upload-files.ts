@@ -1,6 +1,5 @@
 import { uploadFileToS3 } from '@/lib/upload-utils'
 import { createFolderFn } from '@/lib/storage-actions-server'
-import { invalidateUploadFolderCache } from '@/lib/upload-server'
 import { computeFilesHashes, flattenFileMap } from './folder-upload-core'
 import {
   createUploadEntries,
@@ -93,7 +92,6 @@ async function uploadFolderFiles( {
             ( _progress ) => {
               // Individual file progress not needed - folder shows aggregate
             },
-            { deferFolderCacheInvalidation: true },
           )
 
           succeeded += 1
@@ -107,16 +105,6 @@ async function uploadFolderFiles( {
   }
 
   await Promise.all( Array.from( { length: fileConcurrency }, () => worker() ) )
-  if ( succeeded > 0 ) {
-    const invalidationTargets = new Set<string | null>( [rootFolderId, parentFolderId] )
-    await Promise.all(
-      Array.from( invalidationTargets ).map( ( targetFolderId ) =>
-        invalidateUploadFolderCache( {
-          data: { parentFolderId: targetFolderId },
-        } ),
-      ),
-    )
-  }
 
   // Final status update
   const allSucceeded = succeeded === files.length

@@ -13,35 +13,30 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/collapsible'
 import { Button } from '@/components/ui/button'
-
-const WEBRTC_ENABLED_KEY = 'dot_webrtc_enabled'
+import { usePreferencesStore } from '@/stores/preferences-store'
+import { useUploader } from '@/hooks/use-uploader'
 
 type DeviceTransferSectionProps = {
-  onSaveRequest: (file: IncomingFile) => void
+  /** Folder that received files are saved into. */
+  folderId: string | null
 }
 
-export function DeviceTransferSection({
-  onSaveRequest,
-}: DeviceTransferSectionProps) {
-  const [webrtcEnabled, setWebrtcEnabled] = React.useState(false)
+/** Files sent from another device over WebRTC, with "save to this folder". */
+export function DeviceTransferSection({ folderId }: DeviceTransferSectionProps) {
+  const webrtcEnabled = usePreferencesStore((state) => state.webrtcEnabled)
   const [isOpen, setIsOpen] = React.useState(false)
   const tinySession = useTinySession()
-  const { incomingFiles } = useWebRTC()
+  const { incomingFiles, markSaved } = useWebRTC()
+  const { uploadFiles } = useUploader(folderId)
 
-  React.useEffect(() => {
-    const stored = localStorage.getItem(WEBRTC_ENABLED_KEY)
-    setWebrtcEnabled(stored === 'true')
-
-    const handleToggle = (e: CustomEvent) => {
-      setWebrtcEnabled(e.detail)
-    }
-    window.addEventListener('webrtc-toggled', handleToggle as EventListener)
-    return () =>
-      window.removeEventListener(
-        'webrtc-toggled',
-        handleToggle as EventListener,
-      )
-  }, [])
+  const saveToFolder = async (incoming: IncomingFile) => {
+    if (!incoming.blob) return
+    markSaved(incoming.id)
+    const file = new File([incoming.blob], incoming.name, {
+      type: incoming.mimeType || 'application/octet-stream',
+    })
+    await uploadFiles([file])
+  }
 
   const showSection = webrtcEnabled || incomingFiles.length > 0
 
@@ -86,7 +81,7 @@ export function DeviceTransferSection({
       </CollapsibleTrigger>
       <CollapsibleContent className="mt-4 space-y-2">
         {incomingFiles.length > 0 && (
-          <IncomingFilesRegion onSaveRequest={onSaveRequest} />
+          <IncomingFilesRegion onSaveRequest={(file) => void saveToFolder(file)} />
         )}
         {webrtcEnabled && hasActiveSession && <SendFileDropZone />}
         {webrtcEnabled && !hasActiveSession && (

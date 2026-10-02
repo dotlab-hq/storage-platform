@@ -32,7 +32,6 @@ import { listObjectsByBtree } from '@/lib/storage-btree/list'
 import { listObjectsByBtreePaged } from '@/lib/storage-btree/list-paged'
 import { backfillStorageBtree } from '@/lib/storage-btree/backfill'
 import { deleteNodeByEntity } from '@/lib/storage-btree/index'
-import { patchQuotaUsedStorage } from '@/lib/cache-invalidation'
 
 function parsePositiveInt(value: string | undefined, fallback: number): number {
   if (!value) {
@@ -1115,7 +1114,6 @@ export async function deleteObject(
           .set({ usedStorage: nextUsedStorage })
           .where(eq(userStorage.userId, bucket.userId))
       }
-      await patchQuotaUsedStorage(bucket.userId, -deletedBytes)
     }
   } catch (error) {
     const message =

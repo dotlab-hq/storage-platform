@@ -20,21 +20,14 @@ import type {PendingImport} from '@/hooks/use-url-import';
 type UrlImportDialogProps = {
   open: boolean
   onOpenChange: (open: boolean) => void
-  userId: string | null
-  currentFolderId: string | null
-  setItems?: React.Dispatch<
-    React.SetStateAction<import('@/types/storage').StorageItem[]>
-  >
-  onImportComplete?: () => Promise<void> | void
+  /** Folder the file is imported into (null = My Files root). */
+  folderId: string | null
 }
 
 export function UrlImportDialog({
   open,
   onOpenChange,
-  userId,
-  currentFolderId,
-  setItems,
-  onImportComplete,
+  folderId,
 }: UrlImportDialogProps) {
   const {
     url,
@@ -49,7 +42,7 @@ export function UrlImportDialog({
     validateUrl,
     executeImport,
     reset,
-  } = useUrlImport({ userId, currentFolderId, onImportComplete, setItems })
+  } = useUrlImport({ folderId })
 
   // Reset state when dialog closes
   React.useEffect(() => {

@@ -1,13 +1,12 @@
 import {
-  ClientOnly,
   HeadContent,
   Scripts,
   createRootRouteWithContext,
+  useRouterState,
 } from '@tanstack/react-router'
-import { Suspense } from 'react'
 import { ThemeProvider } from 'next-themes'
 
-import TanStackQueryProvider from '../integrations/tanstack-query/root-provider'
+import AppProviders from '../integrations/tanstack-query/root-provider'
 import { createRootHead } from '../lib/create-root-head'
 
 import appCss from '../styles.css?url'
@@ -19,43 +18,26 @@ import { AppErrorBoundary } from '@/components/error-boundary'
 import { NotFoundPage } from '@/components/not-found'
 import { GlobalShellActions } from '@/components/shell/global-shell-actions'
 
-interface MyRouterContext {
+export interface AppRouterContext {
   queryClient: QueryClient
 }
 
-// const Devtools = import.meta.env.DEV
-//   ? lazy(() =>
-//       import('@/components/devtools/tanstack-devtools').then((module) => ({
-//         default: module.TanstackDevtools,
-//       })),
-//     )
-//   : null
-
-export const Route = createRootRouteWithContext<MyRouterContext>()({
+export const Route = createRootRouteWithContext<AppRouterContext>()({
   errorComponent: AppErrorBoundary,
   notFoundComponent: NotFoundPage,
-  
   head: () => createRootHead(appCss),
   shellComponent: RootDocument,
 })
 
+/**
+ * The HTML document. It renders the same tree on the server and the client
+ * (no `window.location` checks, no <ClientOnly> swaps), which is what keeps
+ * hydration from re-mounting the page and flashing.
+ */
 function RootDocument({ children }: { children: React.ReactNode }) {
-  const pathname = globalThis.location?.pathname ?? '/'
-  const isPublicLanding = pathname.startsWith('/landing')
-
-  if (isPublicLanding) {
-    return (
-      <html lang="en" suppressHydrationWarning>
-        <head>
-          <HeadContent />
-        </head>
-        <body>
-          <div className="min-h-screen bg-white text-slate-900">{children}</div>
-          <Scripts />
-        </body>
-      </html>
-    )
-  }
+  const isLanding = useRouterState({
+    select: (state) => state.location.pathname.startsWith('/landing'),
+  })
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -67,43 +49,24 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           attribute="class"
           defaultTheme="light"
           enableSystem
-          disableTransitionOnChange={false}
+          forcedTheme={isLanding ? 'light' : undefined}
+          disableTransitionOnChange
         >
-          <TanStackQueryProvider>
+          <AppProviders>
             <TooltipProvider>
-              <RootShell>{children}</RootShell>
+              {isLanding ? (
+                <div className="min-h-screen bg-white text-slate-900">
+                  {children}
+                </div>
+              ) : (
+                <GlobalShellActions>{children}</GlobalShellActions>
+              )}
             </TooltipProvider>
             <Toaster />
-            {/* {Devtools ? (
-              <Suspense
-                fallback={
-                  <PageSkeleton variant="compact" className="mx-3 my-2" />
-                }
-              >
-                <Devtools />
-              </Suspense>
-            ) : null} */}
-          </TanStackQueryProvider>
+          </AppProviders>
         </ThemeProvider>
         <Scripts />
       </body>
     </html>
-  )
-}
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  const pathname = globalThis.location?.pathname ?? '/'
-  const isPublicLanding = pathname.startsWith('/landing')
-
-  if (isPublicLanding) {
-    return <div className="min-h-screen bg-white text-slate-900">{children}</div>
-  }
-
-  return (
-    <ClientOnly fallback={children}>
-      <Suspense fallback={children}>
-        <GlobalShellActions>{children}</GlobalShellActions>
-      </Suspense>
-    </ClientOnly>
   )
 }

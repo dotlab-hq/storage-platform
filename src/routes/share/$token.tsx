@@ -1,218 +1,197 @@
-import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
-import { Button } from '@/components/ui/button'
+import type { ReactNode } from 'react'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { useMutation } from '@tanstack/react-query'
 import {
+  Download,
   FileText,
   Folder,
-  Loader2,
   Link2Off,
-  Download,
+  Loader2,
   QrCode,
 } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import { toast } from '@/components/ui/sonner'
 import { ShareFolderTree } from '@/components/storage/share-folder-tree'
 import { ShareQrDialog } from '@/components/storage/share-qr-dialog'
+import { formatBytes } from '@/lib/format-bytes'
+import { encodeNavToken } from '@/lib/nav-token'
 import {
-  getSharePageDataFn,
   getShareDownloadUrlFn,
+  getSharePageDataFn,
 } from '@/lib/share-access-server'
 import type { SharePagePayload } from '@/lib/share-access-server'
-
-type FileShareData = {
-  type: 'file'
-  name: string
-  mimeType: string | null
-  sizeInBytes: number
-  presignedUrl: string
-}
-
-type FolderShareData = {
-  type: 'folder'
-  name: string
-  folderId: string
-  tree?: {
-    rootFolderId: string
-    rootFolderName: string
-    folders: {
-      id: string
-      name: string
-      parentFolderId: string | null
-      depth: number
-    }[]
-    files: {
-      id: string
-      name: string
-      mimeType: string | null
-      sizeInBytes: number
-      folderId: string | null
-    }[]
-  } | null
-}
-
-type ShareData = FileShareData | FolderShareData
 
 type ShareLoaderData = {
   data: SharePagePayload | null
   error: string | null
 }
 
-export const Route = createFileRoute( '/share/$token' )( {
+const UNAVAILABLE_MESSAGE =
+  'This share link is invalid, expired, or has been disabled.'
+
+export const Route = createFileRoute('/share/$token')({
   component: ShareAccessPage,
-  loader: async ( { params } ): Promise<ShareLoaderData> => {
+  loader: async ({ params }): Promise<ShareLoaderData> => {
     try {
-      const data = await getSharePageDataFn( { data: { token: params.token } } )
+      const data = await getSharePageDataFn({ data: { token: params.token } })
       return { data, error: null }
-    } catch ( error ) {
+    } catch (error) {
       return {
         data: null,
-        error:
-          error instanceof Error
-            ? error.message
-            : 'This share link is invalid, expired, or has been disabled.',
+        error: error instanceof Error ? error.message : UNAVAILABLE_MESSAGE,
       }
     }
   },
-} )
+})
 
+/** Public page for a share link: a file (open/download) or a folder tree. */
 function ShareAccessPage() {
-  const { token } = Route.useParams()
   const { data, error } = Route.useLoaderData()
-  const [downloading, setDownloading] = useState( false )
-  const [showQr, setShowQr] = useState( false )
+  // The page URL is read when the QR dialog opens, never during render.
+  const [qrUrl, setQrUrl] = useState<string | null>(null)
 
-  const handleDownload = async () => {
-    setDownloading( true )
-    try {
-      const { url } = await getShareDownloadUrlFn( { data: { token } } )
-      const a = document.createElement( 'a' )
-      a.href = url
-      document.body.appendChild( a )
-      a.click()
-      document.body.removeChild( a )
-    } catch ( err ) {
-      toast.error(
-        `Download failed: ${err instanceof Error ? err.message : 'Unknown error'}`,
-      )
-    } finally {
-      setDownloading( false )
-    }
-  }
+  if (error || !data) return <ShareUnavailable message={error} />
 
-  if ( error || !data ) {
-    return (
-      <div className="flex min-h-screen flex-col items-center justify-center gap-4 p-4 text-center">
-        <div className="bg-muted rounded-full p-4">
-          <Link2Off className="text-muted-foreground h-8 w-8" />
-        </div>
-        <h1 className="text-lg font-semibold">Link unavailable</h1>
-        <p className="text-muted-foreground max-w-sm text-sm">
-          {error ??
-            'This share link is invalid, expired, or has been disabled.'}
-        </p>
-        <Button
-          variant="outline"
-          onClick={() => {
-            window.location.href = '/'
-          }}
-        >
-          Go to home
-        </Button>
-      </div>
-    )
-  }
-
-  const typedData = data as ShareData
-  const shareUrl = typeof window !== 'undefined' ? window.location.href : ''
-
-  if ( typedData.type === 'file' ) {
-    return (
-      <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-4 text-center">
-        <div className="bg-muted rounded-full p-4">
-          <FileText className="text-muted-foreground h-10 w-10" />
-        </div>
-        <div className="space-y-1">
-          <h1 className="text-lg font-semibold">{typedData.name}</h1>
-          <p className="text-muted-foreground text-sm">
-            {typedData.mimeType ?? 'File'} &middot;{' '}
-            {formatBytes( typedData.sizeInBytes )}
-          </p>
-        </div>
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <Button onClick={() => window.open( typedData.presignedUrl, '_blank' )}>
-            Open file
-          </Button>
-          <Button
-            variant="outline"
-            onClick={() => void handleDownload()}
-            disabled={downloading}
-          >
-            {downloading ? (
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            ) : (
-              <Download className="mr-2 h-4 w-4" />
-            )}
-            Download
-          </Button>
-          <Button variant="outline" onClick={() => setShowQr( true )}>
-            <QrCode className="mr-2 h-4 w-4" />
-            QR Code
-          </Button>
-        </div>
-        <ShareQrDialog
-          open={showQr}
-          onOpenChange={setShowQr}
-          shareUrl={shareUrl}
-          itemName={typedData.name}
-        />
-      </div>
-    )
-  }
+  const qrButton = (
+    <Button variant="outline" onClick={() => setQrUrl(window.location.href)}>
+      <QrCode className="mr-2 h-4 w-4" />
+      QR Code
+    </Button>
+  )
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-4 text-center">
-      <div className="bg-muted rounded-full p-4">
-        <Folder className="text-muted-foreground h-10 w-10" />
-      </div>
-      <div className="space-y-1">
-        <h1 className="text-lg font-semibold">{typedData.name}</h1>
-        <p className="text-muted-foreground text-sm">Shared folder</p>
-        {typedData.tree && (
-          <p className="text-muted-foreground text-xs">
-            {typedData.tree.folders.length} folders ·{' '}
-            {typedData.tree.files.length} files exposed
-          </p>
-        )}
-      </div>
-      {typedData.tree && (
-        <ShareFolderTree tree={typedData.tree} formatBytes={formatBytes} />
+      {data.type === 'file' ? (
+        <SharedFile file={data} qrButton={qrButton} />
+      ) : (
+        <SharedFolder folder={data} qrButton={qrButton} />
       )}
-      <div className="flex flex-wrap items-center justify-center gap-3">
-        <Button
-          onClick={() => {
-            window.location.href = `/?nav=${btoa( JSON.stringify( { folderId: typedData.folderId } ) )}`
-          }}
-        >
-          Open folder
-        </Button>
-        <Button variant="outline" onClick={() => setShowQr( true )}>
-          <QrCode className="mr-2 h-4 w-4" />
-          QR Code
-        </Button>
-      </div>
       <ShareQrDialog
-        open={showQr}
-        onOpenChange={setShowQr}
-        shareUrl={shareUrl}
-        itemName={typedData.name}
+        open={qrUrl !== null}
+        onOpenChange={(open) => {
+          if (!open) setQrUrl(null)
+        }}
+        shareUrl={qrUrl ?? ''}
+        itemName={data.name}
       />
     </div>
   )
 }
 
-function formatBytes( bytes: number ): string {
-  if ( bytes < 1024 ) return `${bytes} B`
-  if ( bytes < 1024 * 1024 ) return `${( bytes / 1024 ).toFixed( 1 )} KB`
-  if ( bytes < 1024 * 1024 * 1024 )
-    return `${( bytes / ( 1024 * 1024 ) ).toFixed( 1 )} MB`
-  return `${( bytes / ( 1024 * 1024 * 1024 ) ).toFixed( 1 )} GB`
+type SharedFileData = Extract<SharePagePayload, { type: 'file' }>
+type SharedFolderData = Extract<SharePagePayload, { type: 'folder' }>
+
+function SharedFile({
+  file,
+  qrButton,
+}: {
+  file: SharedFileData
+  qrButton: ReactNode
+}) {
+  const { token } = Route.useParams()
+
+  // Always asks for a fresh signed URL, so downloads work however long the page was open.
+  const download = useMutation({
+    mutationFn: () => getShareDownloadUrlFn({ data: { token } }),
+    onSuccess: ({ url }) => {
+      const anchor = document.createElement('a')
+      anchor.href = url
+      document.body.appendChild(anchor)
+      anchor.click()
+      anchor.remove()
+    },
+    onError: (error) => toast.error(`Download failed: ${error.message}`),
+  })
+
+  return (
+    <>
+      <div className="bg-muted rounded-full p-4">
+        <FileText className="text-muted-foreground h-10 w-10" />
+      </div>
+      <div className="space-y-1">
+        <h1 className="text-lg font-semibold">{file.name}</h1>
+        <p className="text-muted-foreground text-sm">
+          {file.mimeType ?? 'File'} &middot; {formatBytes(file.sizeInBytes)}
+        </p>
+      </div>
+      <div className="flex flex-wrap items-center justify-center gap-3">
+        <Button asChild>
+          <a href={file.presignedUrl} target="_blank" rel="noopener noreferrer">
+            Open file
+          </a>
+        </Button>
+        <Button
+          variant="outline"
+          onClick={() => download.mutate()}
+          disabled={download.isPending}
+        >
+          {download.isPending ? (
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          ) : (
+            <Download className="mr-2 h-4 w-4" />
+          )}
+          Download
+        </Button>
+        {qrButton}
+      </div>
+    </>
+  )
+}
+
+function SharedFolder({
+  folder,
+  qrButton,
+}: {
+  folder: SharedFolderData
+  qrButton: ReactNode
+}) {
+  return (
+    <>
+      <div className="bg-muted rounded-full p-4">
+        <Folder className="text-muted-foreground h-10 w-10" />
+      </div>
+      <div className="space-y-1">
+        <h1 className="text-lg font-semibold">{folder.name}</h1>
+        <p className="text-muted-foreground text-sm">Shared folder</p>
+        {folder.tree && (
+          <p className="text-muted-foreground text-xs">
+            {folder.tree.folders.length} folders · {folder.tree.files.length}{' '}
+            files exposed
+          </p>
+        )}
+      </div>
+      {folder.tree && (
+        <ShareFolderTree tree={folder.tree} formatBytes={formatBytes} />
+      )}
+      <div className="flex flex-wrap items-center justify-center gap-3">
+        <Button asChild>
+          <Link
+            to="/"
+            search={{ nav: encodeNavToken({ folderId: folder.folderId }) }}
+          >
+            Open folder
+          </Link>
+        </Button>
+        {qrButton}
+      </div>
+    </>
+  )
+}
+
+function ShareUnavailable({ message }: { message: string | null }) {
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center gap-4 p-4 text-center">
+      <div className="bg-muted rounded-full p-4">
+        <Link2Off className="text-muted-foreground h-8 w-8" />
+      </div>
+      <h1 className="text-lg font-semibold">Link unavailable</h1>
+      <p className="text-muted-foreground max-w-sm text-sm">
+        {message ?? UNAVAILABLE_MESSAGE}
+      </p>
+      <Button variant="outline" asChild>
+        <Link to="/">Go to home</Link>
+      </Button>
+    </div>
+  )
 }

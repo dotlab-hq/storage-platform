@@ -69,7 +69,7 @@ async function resolveParentPath(
   )
   const folderPath = normalizePath(parentPath)
   const fullPath = joinPath(folderPath, parent.name)
-  const isDeleted = parent.isDeleted || parent.isTrashed
+  const isDeleted = Boolean(parent.isDeleted || parent.isTrashed)
   await db
     .insert(storageNodeBtree)
     .values({

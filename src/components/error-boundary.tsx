@@ -1,12 +1,18 @@
-import {
-  ErrorComponent,
-  type ErrorComponentProps,
-} from '@tanstack/react-router'
+import { useEffect } from 'react'
+import { ErrorComponent, Link, useRouter } from '@tanstack/react-router'
+import { useQueryErrorResetBoundary } from '@tanstack/react-query'
+import type { ErrorComponentProps } from '@tanstack/react-router'
 import { AlertTriangle, RefreshCw, Home } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
-export function AppErrorBoundary({ error, reset }: ErrorComponentProps) {
+/** Full-page error screen; "Try again" re-runs the failed loaders/queries. */
+export function AppErrorBoundary({ error }: ErrorComponentProps) {
+  const router = useRouter()
+  const queryErrorBoundary = useQueryErrorResetBoundary()
   const isDev = import.meta.env.DEV
+
+  // Let failed suspense queries retry when this boundary is reset.
+  useEffect(() => queryErrorBoundary.reset(), [queryErrorBoundary])
   const message =
     error instanceof Error ? error.message : 'An unexpected error occurred'
 
@@ -29,14 +35,13 @@ export function AppErrorBoundary({ error, reset }: ErrorComponentProps) {
         )}
 
         <div className="flex items-center justify-center gap-3">
-          <Button
-            variant="outline"
-            onClick={() => (window.location.href = '/')}
-          >
-            <Home className="mr-2 h-4 w-4" />
-            Go Home
+          <Button variant="outline" asChild>
+            <Link to="/">
+              <Home className="mr-2 h-4 w-4" />
+              Go Home
+            </Link>
           </Button>
-          <Button onClick={reset}>
+          <Button onClick={() => void router.invalidate()}>
             <RefreshCw className="mr-2 h-4 w-4" />
             Try Again
           </Button>

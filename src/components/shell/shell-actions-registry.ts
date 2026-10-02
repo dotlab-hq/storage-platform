@@ -1,6 +1,5 @@
-'use client'
-
 import { useEffect } from 'react'
+import { create } from 'zustand'
 
 export type ShellAction = {
   id: string
@@ -16,35 +15,49 @@ export type ShellViewConfig = {
   contextActions: ShellAction[]
 }
 
-const DEFAULT_CONFIG: ShellViewConfig = {
-  commandActions: [],
-  contextActions: [],
+const EMPTY_CONFIG: ShellViewConfig = { commandActions: [], contextActions: [] }
+
+/**
+ * Commands the current page offers in the Cmd/Ctrl+K palette and the
+ * right-click menu. Pages register with `useShellView`; the global shell
+ * (`global-shell-actions.tsx`) reads the active config.
+ */
+type ShellActionsState = {
+  activeView: ShellView
+  configs: Partial<Record<ShellView, ShellViewConfig>>
 }
 
-let activeView: ShellView = 'other'
-const configs: Partial<Record<ShellView, ShellViewConfig>> = {}
+export const useShellActionsStore = create<ShellActionsState>(() => ({
+  activeView: 'other',
+  configs: {},
+}))
 
 export function getActiveConfig(): ShellViewConfig {
-  return configs[activeView] ?? DEFAULT_CONFIG
+  const { activeView, configs } = useShellActionsStore.getState()
+  return configs[activeView] ?? EMPTY_CONFIG
 }
 
-export function registerShellView(
-  view: ShellView,
-  config: ShellViewConfig,
-): () => void {
-  configs[view] = config
-  activeView = view
-  window.dispatchEvent(new Event('dot:shell-actions-changed'))
-
-  return () => {
-    delete configs[view]
-    if (activeView === view) {
-      activeView = 'other'
-      window.dispatchEvent(new Event('dot:shell-actions-changed'))
-    }
-  }
+export function useActiveShellConfig(): ShellViewConfig {
+  return useShellActionsStore(
+    (state) => state.configs[state.activeView] ?? EMPTY_CONFIG,
+  )
 }
 
+/** Registers a page's shell actions while the calling component is mounted. */
 export function useShellView(view: ShellView, config: ShellViewConfig) {
-  useEffect(() => registerShellView(view, config), [view, config])
+  useEffect(() => {
+    useShellActionsStore.setState((state) => ({
+      activeView: view,
+      configs: { ...state.configs, [view]: config },
+    }))
+    return () => {
+      useShellActionsStore.setState((state) => {
+        const { [view]: _removed, ...configs } = state.configs
+        return {
+          configs,
+          activeView: state.activeView === view ? 'other' : state.activeView,
+        }
+      })
+    }
+  }, [view, config])
 }

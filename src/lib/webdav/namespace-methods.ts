@@ -74,7 +74,7 @@ export async function handleCopyMove(input: {
   }
   const destination = await ensureDestination(input)
   if (destination instanceof Response) return destination
-  if (!destination.path.objectKey) {
+  if (!destination.path.bucketName || !destination.path.objectKey) {
     return new Response('Destination object path is required', { status: 400 })
   }
 

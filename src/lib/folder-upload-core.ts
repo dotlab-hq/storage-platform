@@ -1,4 +1,3 @@
-import { authClient } from '@/lib/auth-client'
 import { uploadFileViaProxy } from '@/lib/upload-proxy-client'
 import { prepareUploadTarget } from '@/lib/upload-target-server'
 import type { UploadingFile } from '@/types/storage'
@@ -147,12 +146,4 @@ export type FolderUploadResult = {
   folderName?: string
   filesCount?: number
   error?: string
-}
-
-export async function resolveUserId(
-  uid: string | null,
-): Promise<string | null> {
-  if (uid) return uid
-  const { data } = await authClient.getSession()
-  return data?.user?.id ?? null
 }

@@ -1,4 +1,4 @@
-import { Trash2, RotateCcw, AlertTriangle, Loader2 } from 'lucide-react'
+import { Trash2, RotateCcw, AlertTriangle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { getFileIcon, getFolderIcon, formatFileSize } from '@/lib/file-utils'
@@ -13,33 +13,28 @@ type TrashItemData = {
   mimeType?: string | null
 }
 
-type TrashContentProps = {
-  items: TrashItemData[]
-  isLoading: boolean
-  selectedIds: Set<string>
+/** Grid classes shared with the trash skeleton. */
+export const TRASH_LIST_CLASS =
+  'grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'
+
+type TrashContentProps<T extends TrashItemData> = {
+  items: T[]
+  selectedIds: ReadonlySet<string>
   onToggleSelect: (id: string) => void
-  onRestore: (id: string, type: 'file' | 'folder') => void
-  onDelete: (id: string, type: 'file' | 'folder') => void
-  onFolderClick?: (id: string, name: string) => void
+  onRestore: (item: T) => void
+  onDelete: (item: T) => void
+  /** Double-clicking a trashed folder shows its contents. */
+  onFolderOpen?: (item: T) => void
 }
 
-export function TrashContent({
+export function TrashContent<T extends TrashItemData>({
   items,
-  isLoading,
   selectedIds,
   onToggleSelect,
   onRestore,
   onDelete,
-  onFolderClick,
-}: TrashContentProps) {
-  if (isLoading) {
-    return (
-      <div className="flex flex-1 items-center justify-center py-20">
-        <Loader2 className="text-muted-foreground h-8 w-8 animate-spin" />
-      </div>
-    )
-  }
-
+  onFolderOpen,
+}: TrashContentProps<T>) {
   if (items.length === 0) {
     return (
       <div className="flex flex-1 flex-col items-center justify-center py-20 text-center">
@@ -47,7 +42,7 @@ export function TrashContent({
           <Trash2 className="text-muted-foreground h-8 w-8" />
         </div>
         <h3 className="text-foreground mb-1 text-sm font-medium">
-          Trash is empty
+          Nothing here
         </h3>
         <p className="text-muted-foreground text-sm">
           Items you delete will appear here
@@ -58,7 +53,7 @@ export function TrashContent({
 
   return (
     <div className="flex-1 p-4 pt-0">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className={TRASH_LIST_CLASS}>
         {items.map((item) => {
           const Icon =
             item.type === 'folder'
@@ -78,9 +73,7 @@ export function TrashContent({
                 item.type === 'folder' && 'cursor-pointer',
               )}
               onDoubleClick={() => {
-                if (item.type === 'folder') {
-                  onFolderClick?.(item.id, item.name)
-                }
+                if (item.type === 'folder') onFolderOpen?.(item)
               }}
             >
               <div className="flex items-start gap-3">
@@ -109,7 +102,7 @@ export function TrashContent({
                 <Button
                   size="sm"
                   variant="outline"
-                  onClick={() => onRestore(item.id, item.type)}
+                  onClick={() => onRestore(item)}
                 >
                   <RotateCcw className="mr-1 h-3 w-3" />
                   Restore
@@ -117,7 +110,7 @@ export function TrashContent({
                 <Button
                   size="sm"
                   variant="destructive"
-                  onClick={() => onDelete(item.id, item.type)}
+                  onClick={() => onDelete(item)}
                 >
                   <AlertTriangle className="mr-1 h-3 w-3" />
                   Delete

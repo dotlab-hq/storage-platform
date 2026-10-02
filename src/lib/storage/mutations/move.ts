@@ -127,16 +127,6 @@ export const moveItemsFn = createServerFn({ method: 'POST' })
           }
         }
 
-        const { patchFolderCache, invalidateFolderCache } =
-          await import('@/lib/cache-invalidation')
-        for (const parentId of Array.from(distinctParents)) {
-          await patchFolderCache(userId, parentId, {
-            removeFolderIds: movingFolderIds,
-            removeFileIds: itemIds.filter((_, i) => itemTypes[i] === 'file'),
-          })
-        }
-        await invalidateFolderCache(userId, targetFolderId)
-
         return { moved: itemIds.length }
       },
     )

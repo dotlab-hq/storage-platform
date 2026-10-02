@@ -49,7 +49,7 @@ export function createRootHead( appCss: string ) {
     links: [
       { rel: 'stylesheet', href: appCss },
       { rel: 'manifest', href: '/manifest.json' },
-      { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+      { rel: 'icon', href: '/favicon.ico', sizes: '32x32' },
       { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml', sizes: 'any' },
       { rel: 'apple-touch-icon', href: '/logo.svg' },
       { rel: 'canonical', href: 'https://storage.wpsadi.dev' },

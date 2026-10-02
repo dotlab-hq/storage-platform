@@ -1,12 +1,8 @@
 'use client'
 
 import * as React from 'react'
-import { useRouter } from '@tanstack/react-router'
-import { createClientOnlyFn } from '@tanstack/react-start'
 import { Upload, X } from 'lucide-react'
-import { authClient } from '@/lib/auth-client'
-import { uploadBatch } from '@/lib/upload-utils'
-import { toast } from '@/components/ui/sonner'
+import { useUploader } from '@/hooks/use-uploader'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -17,31 +13,21 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { formatFileSize } from '@/lib/file-utils'
-import type { StorageItem, UploadingFile } from '@/types/storage'
 import { cn } from '@/lib/utils'
 
 type FileUploadDialogProps = {
   open: boolean
   onOpenChange: (open: boolean) => void
-  userId: string | null
-  currentFolderId: string | null
-  setUploads: React.Dispatch<React.SetStateAction<UploadingFile[]>>
-  onUploadComplete: () => Promise<void> | void
-  setItems?: React.Dispatch<React.SetStateAction<StorageItem[]>>
-  fileSizeLimit?: number | null
+  /** Folder the files are uploaded into (null = My Files root). */
+  folderId: string | null
 }
 
 export function FileUploadDialog({
   open,
   onOpenChange,
-  userId,
-  currentFolderId,
-  setUploads,
-  onUploadComplete,
-  setItems,
-  fileSizeLimit,
+  folderId,
 }: FileUploadDialogProps) {
-  const router = useRouter()
+  const { uploadFiles, fileSizeLimit } = useUploader(folderId)
   const fileInputRef = React.useRef<HTMLInputElement>(null)
   const [isDragging, setIsDragging] = React.useState(false)
   const [selectedFiles, setSelectedFiles] = React.useState<File[]>([])
@@ -96,66 +82,15 @@ export function FileUploadDialog({
     e.target.value = ''
   }
 
-  const resolveUserId = createClientOnlyFn(async (uid: string | null) => {
-    if (uid) return uid
-    const { data } = await authClient.getSession()
-    return data?.user?.id ?? null
-  })
-
-  const handleUpload = async () => {
+  const handleUpload = () => {
     if (!selectedFiles.length) {
       setUploadError('Select at least one file.')
       return
     }
-    setUploadError(null)
-    const uid = await resolveUserId(userId)
-    if (!uid) {
-      setUploadError('Session not ready.')
-      return
-    }
-
-    const newUploads: UploadingFile[] = selectedFiles.map((file) => ({
-      id: crypto.randomUUID(),
-      file,
-      progress: 0,
-      status: 'uploading' as const,
-      targetFolderId: currentFolderId,
-    }))
-    setUploads((prev) => [...newUploads, ...prev])
+    // Close right away; progress continues in the upload widget.
+    void uploadFiles(selectedFiles)
     setSelectedFiles([])
     onOpenChange(false)
-
-    const tasks = newUploads.map((u) => ({ id: u.id, file: u.file! }))
-    const count = await uploadBatch(
-      tasks,
-      uid,
-      currentFolderId,
-      3,
-      (fileInfo) => {
-        if (setItems) {
-          setItems((prev) => [
-            ...prev,
-            {
-              id: fileInfo.id,
-              name: fileInfo.name,
-              objectKey: fileInfo.objectKey,
-              mimeType: fileInfo.mimeType,
-              sizeInBytes: fileInfo.sizeInBytes,
-              userId: uid,
-              folderId: currentFolderId,
-              createdAt: fileInfo.createdAt,
-              updatedAt: fileInfo.createdAt,
-              type: 'file' as const,
-            },
-          ])
-        }
-      },
-    )
-    if (count > 0) {
-      toast.success(`${count} file${count > 1 ? 's' : ''} uploaded`)
-      router.invalidate()
-      if (!setItems) await onUploadComplete()
-    }
   }
 
   return (

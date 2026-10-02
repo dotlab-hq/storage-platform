@@ -95,12 +95,14 @@ export function useWebRTCConnection(sessionToken: string | null) {
     )
   }, [])
 
-  const saveFile = React.useCallback(
-    async (_fileId: string, _folderId: string | null) => {
-      return
-    },
-    [],
-  )
+  /** Marks a received file as saved (the upload itself is done by the caller). */
+  const markSaved = React.useCallback((fileId: string) => {
+    setIncomingFiles((previous) =>
+      previous.map((file) =>
+        file.id === fileId ? { ...file, status: 'saved' } : file,
+      ),
+    )
+  }, [])
 
   const clearReceived = React.useCallback(() => {
     setIncomingFiles((previous) =>
@@ -120,7 +122,7 @@ export function useWebRTCConnection(sessionToken: string | null) {
     outgoingFiles,
     sendFile,
     rejectFile,
-    saveFile,
+    markSaved,
     clearReceived,
     startConnection,
   }

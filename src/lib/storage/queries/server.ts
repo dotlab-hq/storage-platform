@@ -4,38 +4,6 @@ import { getFolderBreadcrumbs } from '@/lib/storage-queries'
 import { getTimeOrderedFolderItems } from './folder-items'
 import { touchFolderOpenedFn } from '@/lib/storage/mutations/touch'
 import { apiAuthMiddleware } from '@/middlewares/api-auth'
-import { eq } from 'drizzle-orm'
-import { Cache } from '@/lib/Cache'
-import {
-  DEFAULT_ALLOCATED_STORAGE_BYTES,
-  DEFAULT_FILE_SIZE_LIMIT_BYTES,
-} from '@/lib/storage-quota-constants'
-
-type CachedFolderItems = {
-  folders: Array<{
-    id: string
-    name: string
-    createdAt: Date
-    parentFolderId: string | null
-    isPrivatelyLocked?: boolean
-  }>
-  files: Array<{
-    id: string
-    name: string
-    sizeInBytes: number
-    mimeType: string | null
-    objectKey: string
-    createdAt: Date
-    isPrivatelyLocked?: boolean
-  }>
-  breadcrumbs: Array<{ id: string; name: string }>
-}
-
-type CachedQuota = {
-  usedStorage: number
-  allocatedStorage: number
-  fileSizeLimit: number
-}
 
 const FolderItemsSchema = z.object({
   folderId: z.string().nullable().optional(),
@@ -49,19 +17,12 @@ export const getFolderItemsFn = createServerFn({ method: 'GET' })
   .handler(async ({ data, context }) => {
     const user = context.user
     const folderId = data.folderId ?? null
-    const page = data.page ?? 1
-    const limit = data.limit ?? 100
-
-    const cacheKey = `items:${user.id}:${folderId ?? 'root'}:p${page}:l${limit}`
-    const cached = await Cache.get<CachedFolderItems>(cacheKey)
-    if (cached) {
-      if (folderId) {
-        void touchFolderOpenedFn({ data: { folderId } }).catch(() => {})
-      }
-      return cached
-    }
-
-    const items = await getTimeOrderedFolderItems(context, folderId, page, limit)
+    const items = await getTimeOrderedFolderItems(
+      context,
+      folderId,
+      data.page,
+      data.limit,
+    )
 
     let breadcrumbs: { id: string; name: string }[] = []
     if (folderId) {
@@ -69,86 +30,9 @@ export const getFolderItemsFn = createServerFn({ method: 'GET' })
       void touchFolderOpenedFn({ data: { folderId } }).catch(() => {})
     }
 
-    const result = { ...items, breadcrumbs }
-
-    // Cache for 60 seconds (can be invalidated explicitly on mutations)
-    await Cache.set(cacheKey, result, { expirationTtl: 60 })
-
-    return result
-  })
-
-function toNonNegativeBytes(
-  value: number | null | undefined,
-  fallback: number,
-): number {
-  if (typeof value !== 'number' || !Number.isFinite(value)) {
-    return fallback
-  }
-  return Math.max(0, value)
-}
-
-export const getQuotaFn = createServerFn({ method: 'GET' })
-  .middleware([apiAuthMiddleware])
-  .handler(async ({ context }) => {
-    const user = context.user
-    const userId = user.id
-
-    const cacheKey = `quota:${userId}`
-    const cached = await Cache.get<CachedQuota>(cacheKey)
-    if (cached) return cached
-
-    const [{ db }, { userStorage }] = await Promise.all([
-      import('@/db'),
-      import('@/db/schema/storage'),
-    ])
-
-    let [row] = await db
-      .select({
-        usedStorage: userStorage.usedStorage,
-        allocatedStorage: userStorage.allocatedStorage,
-        fileSizeLimit: userStorage.fileSizeLimit,
-      })
-      .from(userStorage)
-      .where(eq(userStorage.userId, userId))
-      .limit(1)
-
-    if (!row) {
-      const [inserted] = await db
-        .insert(userStorage)
-        .values({
-          userId,
-          allocatedStorage: DEFAULT_ALLOCATED_STORAGE_BYTES,
-          fileSizeLimit: DEFAULT_FILE_SIZE_LIMIT_BYTES,
-          usedStorage: 0,
-        })
-        .onConflictDoNothing()
-        .returning({
-          usedStorage: userStorage.usedStorage,
-          allocatedStorage: userStorage.allocatedStorage,
-          fileSizeLimit: userStorage.fileSizeLimit,
-        })
-      row = inserted ?? {
-        usedStorage: 0,
-        allocatedStorage: DEFAULT_ALLOCATED_STORAGE_BYTES,
-        fileSizeLimit: DEFAULT_FILE_SIZE_LIMIT_BYTES,
-      }
-    }
-
-    const result = {
-      usedStorage: toNonNegativeBytes(row.usedStorage, 0),
-      allocatedStorage: toNonNegativeBytes(
-        row.allocatedStorage,
-        DEFAULT_ALLOCATED_STORAGE_BYTES,
-      ),
-      fileSizeLimit: toNonNegativeBytes(
-        row.fileSizeLimit,
-        DEFAULT_FILE_SIZE_LIMIT_BYTES,
-      ),
-    }
-
-    await Cache.set(cacheKey, result, { expirationTtl: 300 }) // 5 min cache
-
-    return result
+    // Not cached in KV on purpose: KV is eventually consistent, so a cached
+    // listing could resurrect items right after a delete/rename/move.
+    return { ...items, breadcrumbs }
   })
 
 export const getAllFoldersFn = createServerFn({ method: 'GET' })

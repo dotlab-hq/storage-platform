@@ -21,6 +21,7 @@ export default [
       'eslint.config.js',
       'prettier.config.js',
       'playwright.s3.config.ts',
+      'vitest.config.ts',
     ],
   },
 ]

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import {
   Dialog,
   DialogContent,
@@ -6,30 +6,26 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
 import { S3BucketViewer } from './s3-bucket-viewer'
 
 type S3ViewerModalProps = {
-  open: boolean
+  bucketName: string
   onOpenChange: (open: boolean) => void
-  bucketName?: string | null
 }
 
+/**
+ * Read-only bucket browser in a dialog. Mounted only while open (by
+ * `BucketManagerDialogs`), so the bucket name is always present and folder
+ * navigation starts at the root each time.
+ */
 export function S3ViewerModal({
-  open,
-  onOpenChange,
   bucketName,
+  onOpenChange,
 }: S3ViewerModalProps) {
-  const [workingBucketName, setWorkingBucketName] = useState(bucketName ?? '')
-
-  useEffect(() => {
-    setWorkingBucketName(bucketName ?? '')
-  }, [bucketName])
-
-  const normalizedBucketName = workingBucketName.trim()
+  const [prefix, setPrefix] = useState('')
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open onOpenChange={onOpenChange}>
       <DialogContent className="flex h-[94vh] w-[min(98vw,1540px)] max-w-[1540px] flex-col gap-0 overflow-hidden border border-border/60 bg-background/95 p-0 shadow-sm">
         <DialogHeader className="border-b border-border/60 px-6 py-4 text-left">
           <DialogTitle className="text-lg font-semibold text-foreground">
@@ -40,30 +36,15 @@ export function S3ViewerModal({
           </DialogDescription>
         </DialogHeader>
 
-        <div className="flex-1 flex flex-col p-6 min-h-0 overflow-hidden">
-          {!bucketName ? (
-            <div className="mb-4">
-              <Input
-                value={workingBucketName}
-                onChange={(event) => setWorkingBucketName(event.target.value)}
-                placeholder="Enter bucket name..."
-                className="max-w-md"
-              />
-            </div>
-          ) : null}
-
-          {normalizedBucketName.length >= 3 ? (
-            <div className="flex-1 min-h-0 min-w-0 overflow-hidden">
-              <S3BucketViewer bucketName={normalizedBucketName} readOnly />
-            </div>
-          ) : (
-            <div className="text-muted-foreground rounded-lg border border-dashed flex-1 flex items-center justify-center p-6 text-sm">
-              Enter a bucket name to open viewer.
-            </div>
-          )}
+        <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden p-6">
+          <S3BucketViewer
+            bucketName={bucketName}
+            prefix={prefix}
+            onPrefixChange={setPrefix}
+            readOnly
+          />
         </div>
       </DialogContent>
     </Dialog>
   )
 }
-

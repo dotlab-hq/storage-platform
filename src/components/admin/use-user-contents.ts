@@ -1,11 +1,6 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useInfiniteQuery } from '@tanstack/react-query'
-import type {
-  StorageItem,
-  StorageFolder,
-  BreadcrumbItem,
-} from '@/types/storage'
-import { mapItems } from '@/hooks/storage-data-mapper'
+import type { BreadcrumbItem, StorageItem } from '@/types/storage'
 
 type RawFolder = {
   id: string
@@ -28,7 +23,7 @@ type RawFile = {
 type UserFolderApiResponse = {
   folders: RawFolder[]
   files: RawFile[]
-  breadcrumbs: Array<{ id: string; name: string }>
+  breadcrumbs: BreadcrumbItem[]
   hasMore: boolean
   nextPage: number | null
 }
@@ -70,102 +65,84 @@ async function loadUserFolderItems({
   return response.json()
 }
 
-export function useUserContents(userId: string, open: boolean) {
-  const [currentFolderId, setCurrentFolderId] = useState<string | null>(null)
+/** Converts one API page into the `StorageItem`s the file grid renders. */
+function toStorageItems(
+  page: UserFolderApiResponse,
+  userId: string,
+  folderId: string | null,
+) {
+  const folders: StorageItem[] = page.folders.map((folder) => ({
+    id: folder.id,
+    name: folder.name,
+    type: 'folder',
+    userId,
+    parentFolderId: folder.parentFolderId ?? null,
+    createdAt: new Date(folder.createdAt),
+    updatedAt: new Date(folder.createdAt),
+    isPrivatelyLocked: Boolean(folder.isPrivatelyLocked),
+  }))
+  const files: StorageItem[] = page.files.map((file) => ({
+    id: file.id,
+    name: file.name,
+    type: 'file',
+    userId,
+    folderId,
+    objectKey: file.objectKey ?? '',
+    mimeType: file.mimeType ?? null,
+    sizeInBytes: file.sizeInBytes,
+    createdAt: new Date(file.createdAt),
+    updatedAt: new Date(file.createdAt),
+    isPrivatelyLocked: Boolean(file.isPrivatelyLocked),
+  }))
+  return [...folders, ...files]
+}
 
-  useEffect(() => {
-    if (!open) {
-      setCurrentFolderId(null)
-    }
-  }, [open])
+/**
+ * Read-only browser over another user's files (admin "View Files"). Mount it
+ * only while the viewer is open; the open folder resets on unmount.
+ */
+export function useUserContents(userId: string, enabled: boolean) {
+  const [currentFolderId, setCurrentFolderId] = useState<string | null>(null)
 
   const query = useInfiniteQuery({
     queryKey: ['admin-user-contents', userId, currentFolderId],
-    queryFn: async ({ pageParam = 1 }) => {
-      return loadUserFolderItems({
+    queryFn: ({ pageParam }) =>
+      loadUserFolderItems({
         userId,
         folderId: currentFolderId,
         page: pageParam,
         limit: 100,
-      })
-    },
+      }),
     initialPageParam: 1,
     getNextPageParam: (lastPage) =>
-      lastPage.hasMore ? lastPage.nextPage : undefined,
-    enabled: open && !!userId,
+      lastPage.hasMore ? (lastPage.nextPage ?? undefined) : undefined,
+    enabled: enabled && userId.length > 0,
     staleTime: 15_000,
   })
 
-  const items = useMemo((): StorageItem[] => {
-    const allItems: StorageItem[] = []
-    for (const page of query.data?.pages ?? []) {
-      const mapped = mapItems(
-        {
-          folders: page.folders,
-          files: page.files,
-          breadcrumbs: page.breadcrumbs,
-        },
-        userId,
-      )
-      allItems.push(...mapped.items)
-    }
-    return allItems
-  }, [query.data?.pages, userId])
+  const items = useMemo(
+    () =>
+      (query.data?.pages ?? []).flatMap((page) =>
+        toStorageItems(page, userId, currentFolderId),
+      ),
+    [query.data?.pages, userId, currentFolderId],
+  )
 
-  const folders = useMemo((): StorageFolder[] => {
-    const allFolders: StorageFolder[] = []
-    for (const page of query.data?.pages ?? []) {
-      const mapped = mapItems(
-        {
-          folders: page.folders,
-          files: page.files,
-          breadcrumbs: page.breadcrumbs,
-        },
-        userId,
-      )
-      allFolders.push(...mapped.folders)
-    }
-    return allFolders
-  }, [query.data?.pages, userId])
-
-  const breadcrumbs = useMemo((): BreadcrumbItem[] => {
-    if (!query.data?.pages.length) return []
-    const latest = query.data.pages[query.data.pages.length - 1]
-    return latest.breadcrumbs.map((b) => ({
-      id: b.id,
-      name: b.name,
-      path: '',
-    }))
-  }, [query.data?.pages])
-
-  const loadMore = async () => {
-    if (query.hasNextPage && !query.isFetchingNextPage) {
-      await query.fetchNextPage()
-    }
-  }
-
-  const openFolder = (folderId: string | null) => {
-    setCurrentFolderId(folderId)
-  }
-
-  const refresh = async () => {
-    await query.refetch()
-  }
+  const breadcrumbs: BreadcrumbItem[] =
+    query.data?.pages.at(-1)?.breadcrumbs ?? []
 
   return {
     items,
-    folders,
     breadcrumbs,
     isLoading: query.isLoading,
-    isFetching: query.isFetching,
     isFetchingNextPage: query.isFetchingNextPage,
     hasNextPage: query.hasNextPage,
     error: query.error,
-    loadMore,
-    openFolder,
-    refresh,
-    currentFolderId,
+    loadMore: () => {
+      if (query.hasNextPage && !query.isFetchingNextPage) {
+        void query.fetchNextPage()
+      }
+    },
+    openFolder: setCurrentFolderId,
   }
 }
-
-export type UseUserContentsResult = ReturnType<typeof useUserContents>

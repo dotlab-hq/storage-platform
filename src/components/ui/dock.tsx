@@ -4,6 +4,8 @@ import * as React from 'react'
 import { Link, useNavigate, useLocation } from '@tanstack/react-router'
 import { motion } from 'motion/react'
 import { cn } from '@/lib/utils'
+import { useCurrentUser } from '@/lib/auth/current-user'
+import { useUiStore } from '@/stores/ui-store'
 import type { LucideIcon } from 'lucide-react'
 import { Upload, Settings, Trash2, Shield, FolderOpen } from 'lucide-react'
 
@@ -86,40 +88,14 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     const navigate = useNavigate()
     const location = useLocation()
 
+    const { isAdmin } = useCurrentUser()
+    const openUploadDialog = useUiStore((state) => state.setUploadFilesOpen)
+
     const handleUploadClick = () => {
-      const searchParams = new URLSearchParams(window.location.search)
-
-      // Preserve existing query params (like nav=) and add upload flag
-      if (!searchParams.has('upload')) {
-        searchParams.set('upload', 'true')
-      }
-
-      const isOnStoragePage = location.pathname === '/'
-
-      if (isOnStoragePage) {
-        // If already on storage page, just update the URL with the upload flag
-        const newSearch = searchParams.toString()
-        const currentSearch = window.location.search.replace(/^\?/, '')
-        if (newSearch !== currentSearch) {
-          window.history.replaceState(
-            null,
-            '',
-            `${location.pathname}?${newSearch}`,
-          )
-        }
-        // Dispatch event to open upload dialog (TopbarActions listens)
-        window.dispatchEvent(new CustomEvent('dot:open-upload'))
-      } else {
-        // Navigate to storage page preserving all query params
-        const nav = searchParams.get('nav') ?? undefined
-        navigate({
-          to: '/',
-          search: {
-            nav,
-            upload: true,
-          },
-        })
-      }
+      // The upload dialog lives on the files page; go there first (keeping
+      // the open folder if we are already on it).
+      if (location.pathname !== '/') void navigate({ to: '/' })
+      openUploadDialog(true)
     }
 
     const items = [
@@ -138,11 +114,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
         label: 'Trash',
         href: '/trash',
       },
-      {
-        icon: Shield,
-        label: 'Admin',
-        href: '/admin',
-      },
+      ...(isAdmin ? [{ icon: Shield, label: 'Admin', href: '/admin' }] : []),
       {
         icon: Settings,
         label: 'Settings',

@@ -1,28 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { lazy, Suspense } from 'react'
-import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
-
-const RecentPage = lazy(() =>
-  import('./-components/-recent-page').then((m) => ({
-    default: m.RecentPage,
-  })),
-)
+import { recentItemsQuery } from './-components/recent-query'
+import { RecentPage } from './-components/recent-page'
+import { RecentPageSkeleton } from './-components/recent-page-skeleton'
 
 export const Route = createFileRoute('/_app/recent/')({
   server: {
     middleware: [isAuthenticatedMiddleware],
   },
-  loader: () =>
-    import('./-components/-recent-server').then((m) => m.getRecentSnapshotFn()),
-  component: RecentRouteComponent,
+  loader: ({ context: { queryClient } }) =>
+    queryClient.ensureQueryData(recentItemsQuery()),
+  pendingComponent: RecentPageSkeleton,
+  component: RecentPage,
 })
-
-function RecentRouteComponent() {
-  const initial = Route.useLoaderData()
-  return (
-    <Suspense fallback={<PageSkeleton className="h-full" />}>
-      <RecentPage initial={initial} />
-    </Suspense>
-  )
-}

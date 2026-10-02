@@ -1,78 +1,62 @@
-'use client'
-
-import { SidebarTrigger } from '@/components/ui/sidebar'
-import { Separator } from '@/components/ui/separator'
-import {
-  Trash2,
-  RotateCcw,
-  AlertTriangle,
-  ArrowUpNarrowWide,
-  ArrowUp,
-} from 'lucide-react'
+import { ChevronRight, RotateCcw, Trash2, AlertTriangle } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button'
+import { PageHeader } from '@/components/app/page-header'
+import type { TrashCrumb } from '../index'
 
 type TrashHeaderProps = {
+  path: TrashCrumb[]
+  itemCount: number
   onRestoreAll: () => void
   onEmptyTrash: () => void
-  itemCount: number
-  breadcrumbPath: Array<{ id: string; name: string }>
-  onNavigateUp: () => void
 }
 
+const crumbClass =
+  'text-muted-foreground hover:text-foreground max-w-40 truncate rounded-md px-2 py-1 text-sm transition-colors hover:bg-accent'
+
 export function TrashHeader({
+  path,
+  itemCount,
   onRestoreAll,
   onEmptyTrash,
-  itemCount,
-  breadcrumbPath,
-  onNavigateUp,
 }: TrashHeaderProps) {
+  const isEmpty = itemCount === 0
   return (
-    <header className="flex h-14 shrink-0 items-center justify-between gap-2 px-4">
-      <div className="flex items-center gap-2">
-        <SidebarTrigger className="-ml-1" />
-        <Separator
-          orientation="vertical"
-          className="mr-2 data-[orientation=vertical]:h-4"
-        />
-        <Trash2 className="text-muted-foreground h-4 w-4" />
-        <h1 className="text-sm font-semibold">Trash</h1>
-        {breadcrumbPath.length > 0 && (
-          <>
-            <Separator
-              orientation="vertical"
-              className="mx-2 data-[orientation=vertical]:h-4"
-            />
-            <nav className="flex items-center gap-1 text-sm text-muted-foreground">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-6 px-2"
-                onClick={onNavigateUp}
+    <PageHeader
+      title={
+        <nav className="flex items-center gap-1" aria-label="Breadcrumb">
+          <Link to="/trash" search={{}} className={`${crumbClass} flex items-center gap-1`}>
+            <Trash2 className="h-3.5 w-3.5" />
+            <span className="font-semibold text-foreground">Trash</span>
+          </Link>
+          {path.map((crumb, index) => (
+            <span key={crumb.id} className="flex items-center gap-1">
+              <ChevronRight className="text-muted-foreground h-3.5 w-3.5" />
+              <Link
+                to="/trash"
+                search={{ path: path.slice(0, index + 1) }}
+                className={crumbClass}
               >
-                <ArrowUp className="h-3 w-3" />
-              </Button>
-              {breadcrumbPath.map((folder) => (
-                <span key={folder.id} className="flex items-center gap-1">
-                  <Separator orientation="vertical" className="h-3" />
-                  <span className="truncate max-w-[150px]">{folder.name}</span>
-                </span>
-              ))}
-            </nav>
-          </>
-        )}
-      </div>
-      {itemCount > 0 && (
-        <div className="flex items-center gap-2">
-          <Button size="sm" variant="outline" onClick={onRestoreAll}>
-            <RotateCcw className="mr-1 h-3 w-3" />
-            Restore all
+                {crumb.name}
+              </Link>
+            </span>
+          ))}
+        </nav>
+      }
+      actions={
+        <>
+          <Button variant="outline" size="sm" onClick={onRestoreAll} disabled={isEmpty}>
+            <RotateCcw className="mr-1 h-4 w-4" />
+            <span className="hidden sm:inline">
+              {path.length > 0 ? 'Restore folder contents' : 'Restore all'}
+            </span>
           </Button>
-          <Button size="sm" variant="destructive" onClick={onEmptyTrash}>
-            <AlertTriangle className="mr-1 h-3 w-3" />
-            Empty trash
+          <Button variant="destructive" size="sm" onClick={onEmptyTrash}>
+            <AlertTriangle className="mr-1 h-4 w-4" />
+            <span className="hidden sm:inline">Empty trash</span>
           </Button>
-        </div>
-      )}
-    </header>
+        </>
+      }
+    />
   )
 }

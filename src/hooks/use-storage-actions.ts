@@ -1,4 +1,4 @@
-import { useCallback, useOptimistic, useState, useTransition } from 'react'
+import { useCallback, useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from '@/components/ui/sonner'
 import { buildFileRedirectUrl, buildNavUrl } from '@/lib/nav-token'
@@ -8,238 +8,191 @@ import { generateFileSummaryForItem } from '@/lib/file-summary/client'
 import { createFolderFn } from '@/lib/storage-actions-server'
 import { renameItemFn } from '@/lib/storage/mutations/rename'
 import { getFilePresignedUrlFn } from '@/lib/storage/mutations/urls'
-import { STORAGE_QUERY_KEYS } from '@/lib/query-keys'
-import type { StorageItem, ContextMenuAction } from '@/types/storage'
-import type { UseStorageActionsParams } from '@/hooks/storage-actions.types'
+import {
+  addFolderItem,
+  folderItemsQuery,
+  refreshFolder,
+  updateFolderItems,
+} from '@/lib/storage/folder-query'
+import { useOpenFolder } from '@/hooks/use-folder-navigation'
+import { useSelectionStore } from '@/stores/selection-store'
+import { useUiStore } from '@/stores/ui-store'
+import type { ContextMenuAction, StorageItem } from '@/types/storage'
 
-function getErrorMessage(error: unknown, fallback: string): string {
-  return error instanceof Error ? error.message : fallback
+function errorMessage(error: unknown) {
+  return error instanceof Error ? error.message : 'Unknown error'
 }
 
-export function useStorageActions(params: UseStorageActionsParams) {
-  const {
-    userId,
-    currentFolderId,
-    setItems,
-    setCurrentFolderId,
-    select,
-    onDeleteOpen,
-    onMoveOpen,
-    onShareOpen,
-  } = params
+async function openFileInNewTab(file: StorageItem) {
+  // Open the tab synchronously (inside the click) so popup blockers allow it,
+  // then point it at the presigned URL once we have it.
+  const tab = window.open('', '_blank')
+  try {
+    const { url } = await getFilePresignedUrlFn({ data: { fileId: file.id } })
+    if (tab) tab.location.href = url
+    else window.open(url, '_blank')
+  } catch (error) {
+    tab?.close()
+    toast.error(`Failed to open file: ${errorMessage(error)}`)
+  }
+}
 
+/**
+ * Single-item actions for the file browser: open, rename, new folder and the
+ * context-menu commands. Bulk delete/move live in `use-bulk-actions.ts`.
+ */
+export function useStorageActions(folderId: string | null) {
   const queryClient = useQueryClient()
+  const openFolder = useOpenFolder()
   const [renamingItemId, setRenamingItemId] = useState<string | null>(null)
-  const [, startTransition] = useTransition()
 
-  // Optimistic state for items during rename
-  const [, addOptimisticRename] = useOptimistic<
-    StorageItem[],
-    { itemId: string; newName: string }
-  >([], (currentItems, { itemId, newName }) =>
-    currentItems.map((item) =>
-      item.id === itemId ? { ...item, name: newName } : item,
-    ),
-  )
-
-  // Rename mutation with optimistic update
   const renameMutation = useMutation({
-    mutationFn: async ({
-      item,
-      newName,
-    }: {
-      item: StorageItem
-      newName: string
-    }) => {
-      await renameItemFn({
-        data: { itemId: item.id, newName, itemType: item.type },
+    mutationFn: ({ item, newName }: { item: StorageItem; newName: string }) =>
+      renameItemFn({ data: { itemId: item.id, newName, itemType: item.type } }),
+    onMutate: async ({ item, newName }) => {
+      await queryClient.cancelQueries({
+        queryKey: folderItemsQuery(folderId).queryKey,
       })
-    },
-    onMutate: ({ item, newName }) => {
-      // Optimistic rename
-      setItems((previous) =>
-        previous.map((i) => (i.id === item.id ? { ...i, name: newName } : i)),
+      updateFolderItems(queryClient, folderId, (items) =>
+        items.map((i) => (i.id === item.id ? { ...i, name: newName } : i)),
       )
-      startTransition(() => {
-        addOptimisticRename({ itemId: item.id, newName })
-      })
     },
     onError: (error, { item }) => {
-      // Rollback on failure
-      setItems((previous) =>
-        previous.map((i) => (i.id === item.id ? { ...i, name: item.name } : i)),
+      updateFolderItems(queryClient, folderId, (items) =>
+        items.map((i) => (i.id === item.id ? { ...i, name: item.name } : i)),
       )
-      toast.error(`Rename failed: ${getErrorMessage(error, 'Unknown error')}`)
+      toast.error(`Rename failed: ${errorMessage(error)}`)
     },
-    onSettled: () => {
-      void queryClient.invalidateQueries({
-        queryKey: STORAGE_QUERY_KEYS.folderItems(currentFolderId),
-      })
-    },
+    onSettled: () => refreshFolder(queryClient, folderId),
   })
 
-  // Create folder mutation with optimistic update
   const createFolderMutation = useMutation({
     mutationFn: async (name: string) => {
-      const { folder: created } = await createFolderFn({
-        data: { name, parentFolderId: currentFolderId ?? undefined },
+      const { folder } = await createFolderFn({
+        data: { name, parentFolderId: folderId ?? undefined },
       })
-      return created
+      return folder
     },
-    onSuccess: (created) => {
-      if (!userId) return
-      const newFolder: StorageItem = {
-        id: created.id,
-        name: created.name,
+    onSuccess: (folder) => {
+      addFolderItem(queryClient, folderId, {
+        id: folder.id,
+        name: folder.name,
         type: 'folder',
-        userId,
-        parentFolderId: currentFolderId,
-        createdAt: new Date(created.createdAt),
-        updatedAt: new Date(created.createdAt),
-      }
-      startTransition(() => {
-        setItems((previous) => [newFolder, ...previous])
+        userId: '',
+        parentFolderId: folderId,
+        createdAt: new Date(folder.createdAt),
+        updatedAt: new Date(folder.createdAt),
       })
     },
-    onError: (error) => {
-      toast.error(
-        `Folder creation failed: ${getErrorMessage(error, 'Unknown error')}`,
-      )
-    },
-    onSettled: () => {
-      void queryClient.invalidateQueries({
-        queryKey: STORAGE_QUERY_KEYS.folderItems(currentFolderId),
-      })
-    },
+    onError: (error) =>
+      toast.error(`Folder creation failed: ${errorMessage(error)}`),
+    onSettled: () => refreshFolder(queryClient, folderId),
   })
 
-  const handleDoubleClick = useCallback(
-    async (item: StorageItem) => {
-      if (item.type === 'folder') {
-        startTransition(() => {
-          setCurrentFolderId(item.id)
-        })
-        return
-      }
-      if (!userId) return
-      try {
-        const result = await getFilePresignedUrlFn({
-          data: { fileId: item.id },
-        })
-        if (typeof result.url !== 'string') {
-          throw new Error('Invalid response from server')
-        }
-        window.open(result.url, '_blank')
-      } catch (error) {
-        toast.error(
-          `Failed to open file: ${getErrorMessage(error, 'Unknown error')}`,
-        )
-      }
+  const open = useCallback(
+    (item: StorageItem) => {
+      if (item.type === 'folder') openFolder(item.id)
+      else void openFileInNewTab(item)
     },
-    [setCurrentFolderId, userId],
+    [openFolder],
   )
 
-  const handleRename = useCallback(
-    async (item: StorageItem, newName: string) => {
-      if (!userId) return
+  const rename = useCallback(
+    (item: StorageItem, newName: string) => {
       setRenamingItemId(null)
-      renameMutation.mutate({ item, newName })
+      const trimmed = newName.trim()
+      if (!trimmed || trimmed === item.name) return
+      renameMutation.mutate({ item, newName: trimmed })
     },
-    [userId, renameMutation],
+    [renameMutation],
   )
 
-  const handleNewFolder = useCallback(
-    async (name: string) => {
-      if (!userId) {
-        toast.error('Session not ready')
-        return
-      }
-      createFolderMutation.mutate(name)
-    },
-    [userId, createFolderMutation],
+  const createFolder = useCallback(
+    (name: string) => createFolderMutation.mutateAsync(name).then(() => {}),
+    [createFolderMutation],
   )
 
   const handleContextAction = useCallback(
     async (action: ContextMenuAction, item: StorageItem) => {
+      const selection = useSelectionStore.getState()
+      const ui = useUiStore.getState()
+
       switch (action) {
         case 'open':
-          void handleDoubleClick(item)
+          open(item)
           return
         case 'rename':
           setRenamingItemId(item.id)
           return
         case 'select':
-          select(item.id, false)
+          selection.select(item.id)
           return
         case 'move':
-          select(item.id, false)
-          onMoveOpen('move')
-          return
         case 'update-path':
-          select(item.id, false)
-          onMoveOpen('update-path')
+          // Act on the whole selection if the item is part of it.
+          if (!selection.selectedIds.has(item.id)) selection.select(item.id)
+          ui.openMove(action)
           return
         case 'share':
-          onShareOpen(item)
+          ui.openShare(item)
           return
+        case 'delete': {
+          ui.confirmDelete([item])
+          return
+        }
         case 'private-lock':
-          if (!userId || item.type !== 'folder') return
-          void setFolderPrivateLockClient(item.id, !item.isPrivatelyLocked)
-            .then(() => params.refresh())
-            .catch((error: Error) => {
-              toast.error(`Private lock update failed: ${error.message}`)
-            })
+          if (item.type !== 'folder') return
+          try {
+            await setFolderPrivateLockClient(item.id, !item.isPrivatelyLocked)
+            await refreshFolder(queryClient, folderId)
+          } catch (error) {
+            toast.error(`Private lock update failed: ${errorMessage(error)}`)
+          }
           return
         case 'copy-link': {
-          const payload =
-            item.type === 'folder'
-              ? { folderId: item.id }
-              : { folderId: currentFolderId, fileId: item.id }
           const url =
             item.type === 'folder'
-              ? buildNavUrl(payload)
-              : buildFileRedirectUrl(payload)
-          void navigator.clipboard.writeText(url)
+              ? buildNavUrl({ folderId: item.id })
+              : buildFileRedirectUrl({ folderId, fileId: item.id })
+          try {
+            await navigator.clipboard.writeText(url)
+            toast.success('Link copied')
+          } catch {
+            toast.error('Could not copy the link')
+          }
           return
         }
-        case 'delete':
-          onDeleteOpen(item)
+        case 'download':
+          if (item.type !== 'file') return
+          try {
+            const { url } = await getFilePresignedUrlFn({
+              data: { fileId: item.id },
+            })
+            await downloadFromUrl(url, item.name)
+          } catch (error) {
+            toast.error(`Download failed: ${errorMessage(error)}`)
+          }
           return
-        case 'download': {
-          if (!userId || item.type !== 'file') return
-          const { url } = await getFilePresignedUrlFn({
-            data: { fileId: item.id },
-          })
-          downloadFromUrl(url, item.name)
-          return
-        }
         case 'generate-summary':
-          if (!userId || item.type !== 'file') return
-          void generateFileSummaryForItem(item.id)
-            .then((summary) => navigator.clipboard.writeText(summary))
-            .catch((error: Error) =>
-              toast.error(`Summary failed: ${error.message}`),
-            )
+          if (item.type !== 'file') return
+          try {
+            const summary = await generateFileSummaryForItem(item.id)
+            await navigator.clipboard.writeText(summary)
+            toast.success('Summary copied to clipboard')
+          } catch (error) {
+            toast.error(`Summary failed: ${errorMessage(error)}`)
+          }
           return
       }
     },
-    [
-      currentFolderId,
-      handleDoubleClick,
-      onDeleteOpen,
-      onMoveOpen,
-      onShareOpen,
-      params,
-      select,
-      userId,
-    ],
+    [folderId, open, queryClient],
   )
 
   return {
-    handleDoubleClick,
+    open,
+    rename,
+    createFolder,
     handleContextAction,
-    handleNewFolder,
-    handleRename,
     renamingItemId,
     setRenamingItemId,
   }

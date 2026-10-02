@@ -1,13 +1,16 @@
 'use client'
 
 import * as React from 'react'
+import { useQueryClient } from '@tanstack/react-query'
 import {
   useUploadStore,
   removeUpload,
   removeUploadWithChildren,
-} from '@/lib/stores/upload-store'
+  clearCompletedUploads,
+} from '@/stores/upload-store'
 import { retryUploadById } from '@/lib/upload-utils'
-import { authClient } from '@/lib/auth-client'
+import { useCurrentUser } from '@/lib/auth/current-user'
+import { refreshFolder } from '@/lib/storage/folder-query'
 import { toast } from '@/components/ui/sonner'
 import { UploadingCard } from '@/components/storage/uploading-card'
 import { Upload, X, ChevronDown, CheckCircle2, Trash2 } from 'lucide-react'
@@ -47,53 +50,40 @@ export function UploadWidget() {
     }
   }, [uploads.length])
 
-  // Callbacks - defined before conditional return to maintain hook order
-  const handleRetryUpload = React.useCallback(async (uploadId: string) => {
-    const { data } = await authClient.getSession()
-    const uid = data?.user?.id
-    if (!uid) {
-      toast.error('Session not ready. Please sign in again.')
-      return
-    }
+  const user = useCurrentUser()
+  const queryClient = useQueryClient()
 
-    const success = await retryUploadById(uploadId, uid)
-    if (!success) {
-      toast.error('Retry failed. Please try uploading again.')
-    }
-  }, [])
+  const retry = React.useCallback(
+    async (uploadId: string) => {
+      const upload = useUploadStore
+        .getState()
+        .uploads.find((entry) => entry.id === uploadId)
+      const ok = await retryUploadById(uploadId, user.id)
+      if (!ok) toast.error('Retry failed. Please try uploading again.')
+      // Show the retried file in its folder.
+      await refreshFolder(queryClient, upload?.targetFolderId ?? null)
+    },
+    [queryClient, user.id],
+  )
 
   const handleRetryAll = React.useCallback(async () => {
-    const { data } = await authClient.getSession()
-    const uid = data?.user?.id
-    if (!uid) {
-      toast.error('Session not ready. Please sign in again.')
-      return
-    }
-
     const retryableIds = uploads
       .filter(
         (upload) =>
           upload.status === 'failed' && !!upload.file && !upload.folderName,
       )
       .map((upload) => upload.id)
-
     if (retryableIds.length === 0) {
       toast.error('No retryable uploads found.')
       return
     }
-
+    // Retry up to 3 at a time.
     const queue = [...retryableIds]
-    const workers = Math.min(3, queue.length)
     const worker = async () => {
-      while (queue.length > 0) {
-        const nextId = queue.shift()
-        if (!nextId) break
-        await retryUploadById(nextId, uid)
-      }
+      for (let id = queue.shift(); id; id = queue.shift()) await retry(id)
     }
-
-    await Promise.all(Array.from({ length: workers }, () => worker()))
-  }, [uploads])
+    await Promise.all(Array.from({ length: Math.min(3, queue.length) }, worker))
+  }, [retry, uploads])
 
   // Never auto-hide; user manually dismisses with X button
   if (!isVisible || uploads.length === 0) return null
@@ -102,11 +92,7 @@ export function UploadWidget() {
     setIsVisible(false)
   }
 
-  const handleClearCompleted = () => {
-    uploads.forEach((u) => {
-      if (u.status === 'completed') removeUpload(u.id)
-    })
-  }
+  const handleClearCompleted = clearCompletedUploads
 
   // Circular progress: SVG stroke-dasharray trick
   const size = 48
@@ -118,14 +104,7 @@ export function UploadWidget() {
 
   return (
     <TooltipProvider>
-      <div
-        className={cn(
-          'fixed bottom-4 right-4 z-50 transition-all duration-300 ease-in-out',
-          isVisible
-            ? 'opacity-100 translate-y-0'
-            : 'opacity-0 translate-y-4 pointer-events-none',
-        )}
-      >
+      <div className="animate-in fade-in slide-in-from-bottom-4 fixed right-4 bottom-4 z-50 duration-300">
         {/* Main circular badge */}
         <Tooltip>
           <TooltipTrigger asChild>
@@ -255,7 +234,7 @@ export function UploadWidget() {
                 <div key={upload.id} className="relative group">
                   <UploadingCard
                     upload={upload}
-                    onRetry={!upload.folderName ? handleRetryUpload : undefined}
+                    onRetry={!upload.folderName ? retry : undefined}
                     variant="compact"
                     onRemove={() => {
                       if (upload.folderName) {

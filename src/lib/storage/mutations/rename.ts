@@ -65,14 +65,6 @@ export const renameItemFn = createServerFn({ method: 'POST' })
           }
         }
 
-        const { patchFolderCache } = await import('@/lib/cache-invalidation')
-        await patchFolderCache(user.id, parentFolderId, {
-          renameFolder:
-            itemType === 'folder' ? { id: itemId, name: newName } : undefined,
-          renameFile:
-            itemType === 'file' ? { id: itemId, name: newName } : undefined,
-        })
-
         return { id: itemId, name: newName }
       },
     )

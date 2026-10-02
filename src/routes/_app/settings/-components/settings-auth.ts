@@ -9,143 +9,143 @@ import { auth } from '@/lib/auth'
 import { db } from '@/db'
 import { session as authSession } from '@/db/schema/auth-schema'
 import {
-    PasswordSchema,
-    ProfileSchema,
-    TwoFactorPasswordSchema,
-    VerifyTotpSchema,
-    hasPasswordCredential,
-    toErrorMessage,
+  PasswordSchema,
+  ProfileSchema,
+  TwoFactorPasswordSchema,
+  VerifyTotpSchema,
+  hasPasswordCredential,
+  toErrorMessage,
 } from './settings-utils'
 
-export const updateProfileSettingsFn = createServerFn( { method: 'POST' } )
-    .middleware( [apiAuthMiddleware] )
-    .inputValidator( ProfileSchema )
-    .handler( async ( { data } ) => {
-        const request = getRequest()
-        const headers = request.headers
-        try {
-            await auth.api.updateUser( {
-                headers,
-                body: {
-                    name: data.name,
-                    image: data.image.trim() ? data.image.trim() : null,
-                },
-            } )
-            return { success: true, message: 'Profile updated.' }
-        } catch ( error ) {
-            throw new Error( toErrorMessage( error, 'Failed to update profile.' ) )
+export const updateProfileSettingsFn = createServerFn({ method: 'POST' })
+  .middleware([apiAuthMiddleware])
+  .inputValidator(ProfileSchema)
+  .handler(async ({ data }) => {
+    const request = getRequest()
+    const headers = request.headers
+    try {
+      await auth.api.updateUser({
+        headers,
+        body: {
+          name: data.name,
+          image: data.image.trim() ? data.image.trim() : null,
+        },
+      })
+      return { success: true, message: 'Profile updated.' }
+    } catch (error) {
+      throw new Error(toErrorMessage(error, 'Failed to update profile.'))
+    }
+  })
+
+export const changePasswordSettingsFn = createServerFn({ method: 'POST' })
+  .middleware([apiAuthMiddleware])
+  .inputValidator(PasswordSchema)
+  .handler(async ({ data, context }) => {
+    const currentUser = context.user
+    const request = getRequest()
+    const headers = request.headers
+    try {
+      const hasPassword = await hasPasswordCredential(currentUser.id)
+      if (hasPassword) {
+        if (!data.currentPassword?.trim()) {
+          throw new Error('Current password is required.')
         }
-    } )
+        await auth.api.changePassword({
+          headers,
+          body: {
+            currentPassword: data.currentPassword,
+            newPassword: data.newPassword,
+            revokeOtherSessions: true,
+          },
+        })
+      } else {
+        await auth.api.setPassword({
+          headers,
+          body: { newPassword: data.newPassword },
+        })
+      }
+      return { success: true, message: 'Password updated.' }
+    } catch (error) {
+      throw new Error(toErrorMessage(error, 'Failed to update password.'))
+    }
+  })
 
-export const changePasswordSettingsFn = createServerFn( { method: 'POST' } )
-    .middleware( [apiAuthMiddleware] )
-    .inputValidator( PasswordSchema )
-    .handler( async ( { data, context } ) => {
-        const currentUser = context.user
-        const request = getRequest()
-        const headers = request.headers
-        try {
-            const hasPassword = await hasPasswordCredential( currentUser.id )
-            if ( hasPassword ) {
-                if ( !data.currentPassword?.trim() ) {
-                    throw new Error( 'Current password is required.' )
-                }
-                await auth.api.changePassword( {
-                    headers,
-                    body: {
-                        currentPassword: data.currentPassword,
-                        newPassword: data.newPassword,
-                        revokeOtherSessions: true,
-                    },
-                } )
-            } else {
-                await auth.api.setPassword( {
-                    headers,
-                    body: { newPassword: data.newPassword },
-                } )
-            }
-            return { success: true, message: 'Password updated.' }
-        } catch ( error ) {
-            throw new Error( toErrorMessage( error, 'Failed to update password.' ) )
-        }
-    } )
+export const enableTwoFactorSettingsFn = createServerFn({ method: 'POST' })
+  .middleware([apiAuthMiddleware])
+  .inputValidator(TwoFactorPasswordSchema)
+  .handler(async ({ data }) => {
+    const request = getRequest()
+    const headers = request.headers
+    try {
+      return await auth.api.enableTwoFactor({
+        headers,
+        body: {
+          password: data.password,
+          issuer: 'DOT Storage Platform',
+        },
+      })
+    } catch (error) {
+      throw new Error(toErrorMessage(error, 'Failed to enable 2FA.'))
+    }
+  })
 
-export const enableTwoFactorSettingsFn = createServerFn( { method: 'POST' } )
-    .middleware( [apiAuthMiddleware] )
-    .inputValidator( TwoFactorPasswordSchema )
-    .handler( async ( { data } ) => {
-        const request = getRequest()
-        const headers = request.headers
-        try {
-            return await auth.api.enableTwoFactor( {
-                headers,
-                body: {
-                    password: data.password,
-                    issuer: 'DOT Storage Platform',
-                },
-            } )
-        } catch ( error ) {
-            throw new Error( toErrorMessage( error, 'Failed to enable 2FA.' ) )
-        }
-    } )
+export const verifyTwoFactorSettingsFn = createServerFn({ method: 'POST' })
+  .middleware([apiAuthMiddleware])
+  .inputValidator(VerifyTotpSchema)
+  .handler(async ({ data }) => {
+    const request = getRequest()
+    const headers = request.headers
+    try {
+      await auth.api.verifyTOTP({ headers, body: { code: data.code } })
+      return { success: true, message: '2FA verified and enabled.' }
+    } catch (error) {
+      throw new Error(toErrorMessage(error, 'Failed to verify 2FA code.'))
+    }
+  })
 
-export const verifyTwoFactorSettingsFn = createServerFn( { method: 'POST' } )
-    .middleware( [apiAuthMiddleware] )
-    .inputValidator( VerifyTotpSchema )
-    .handler( async ( { data } ) => {
-        const request = getRequest()
-        const headers = request.headers
-        try {
-            await auth.api.verifyTOTP( { headers, body: { code: data.code } } )
-            return { success: true, message: '2FA verified and enabled.' }
-        } catch ( error ) {
-            throw new Error( toErrorMessage( error, 'Failed to verify 2FA code.' ) )
-        }
-    } )
+export const disableTwoFactorSettingsFn = createServerFn({ method: 'POST' })
+  .middleware([apiAuthMiddleware])
+  .inputValidator(TwoFactorPasswordSchema)
+  .handler(async ({ data }) => {
+    const request = getRequest()
+    const headers = request.headers
+    try {
+      await auth.api.disableTwoFactor({
+        headers,
+        body: { password: data.password },
+      })
+      return { success: true, message: '2FA disabled.' }
+    } catch (error) {
+      throw new Error(toErrorMessage(error, 'Failed to disable 2FA.'))
+    }
+  })
 
-export const disableTwoFactorSettingsFn = createServerFn( { method: 'POST' } )
-    .middleware( [apiAuthMiddleware] )
-    .inputValidator( TwoFactorPasswordSchema )
-    .handler( async ( { data } ) => {
-        const request = getRequest()
-        const headers = request.headers
-        try {
-            await auth.api.disableTwoFactor( {
-                headers,
-                body: { password: data.password },
-            } )
-            return { success: true, message: '2FA disabled.' }
-        } catch ( error ) {
-            throw new Error( toErrorMessage( error, 'Failed to disable 2FA.' ) )
-        }
-    } )
+const RevokeSessionSchema = z.object({
+  sessionId: z.string().min(1),
+})
 
-const RevokeSessionSchema = z.object( {
-    sessionId: z.string().min( 1 ),
-} )
+export const revokeSessionSettingsFn = createServerFn({ method: 'POST' })
+  .middleware([apiAuthMiddleware])
+  .inputValidator(RevokeSessionSchema)
+  .handler(async ({ data, context }) => {
+    const currentUser = context.user
+    try {
+      const deletedRows = await db
+        .delete(authSession)
+        .where(
+          and(
+            eq(authSession.id, data.sessionId),
+            eq(authSession.userId, currentUser.id),
+          ),
+        )
+        .returning({ id: authSession.id })
 
-export const revokeSessionSettingsFn = createServerFn( { method: 'POST' } )
-    .middleware( [apiAuthMiddleware] )
-    .inputValidator( RevokeSessionSchema )
-    .handler( async ( { data, context } ) => {
-        const currentUser = context.user
-        try {
-            const [deletedSession] = await db
-                .delete( authSession )
-                .where(
-                    and(
-                        eq( authSession.id, data.sessionId ),
-                        eq( authSession.userId, currentUser.id ),
-                    ),
-                )
-                .returning( { id: authSession.id } )
+      if (deletedRows.length === 0) {
+        throw new Error('Session not found.')
+      }
 
-            if ( !deletedSession ) {
-                throw new Error( 'Session not found.' )
-            }
-
-            return { success: true, message: 'Session revoked.' }
-        } catch ( error ) {
-            throw new Error( toErrorMessage( error, 'Failed to revoke session.' ) )
-        }
-    } )
+      return { success: true, message: 'Session revoked.' }
+    } catch (error) {
+      throw new Error(toErrorMessage(error, 'Failed to revoke session.'))
+    }
+  })

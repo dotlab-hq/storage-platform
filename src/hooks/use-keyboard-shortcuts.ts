@@ -1,27 +1,25 @@
-import { useEffectEvent, useLayoutEffect } from 'react'
+import { useEffectEvent } from 'react'
 import { useHotkey } from '@tanstack/react-hotkeys'
-import { useKeyboardShortcutsStore } from '@/stores/keyboard-shortcuts-store'
 
-type ShortcutMap = Record<string, () => void>
+type Shortcuts = {
+  'mod+a'?: () => void
+  escape?: () => void
+  delete?: () => void
+}
 
-export function useKeyboardShortcuts(shortcuts: ShortcutMap) {
-  const register = useKeyboardShortcutsStore((state) => state.register)
-  const setHandlers = useKeyboardShortcutsStore((state) => state.setHandlers)
-  const run = useKeyboardShortcutsStore((state) => state.run)
-  const runShortcut = useEffectEvent((key: string) => run(key))
-
-  useLayoutEffect(() => {
-    setHandlers(shortcuts)
-    register(Object.keys(shortcuts))
-  }, [register, setHandlers, shortcuts])
-
-  useHotkey('Mod+A', () => runShortcut('mod+a'), {
-    enabled: Boolean(shortcuts['mod+a']),
+/**
+ * Page-level keyboard shortcuts. Handlers may change every render; the
+ * latest one always runs. They never fire (or block the browser default)
+ * while the user is typing in a field, so Cmd/Ctrl+A still selects text.
+ */
+export function useKeyboardShortcuts(shortcuts: Shortcuts) {
+  const run = useEffectEvent((key: keyof Shortcuts) => shortcuts[key]?.())
+  const options = (key: keyof Shortcuts) => ({
+    enabled: !!shortcuts[key],
+    ignoreInputs: true,
   })
-  useHotkey('Escape', () => runShortcut('escape'), {
-    enabled: Boolean(shortcuts.escape),
-  })
-  useHotkey('Delete', () => runShortcut('delete'), {
-    enabled: Boolean(shortcuts.delete),
-  })
+
+  useHotkey('Mod+A', () => run('mod+a'), options('mod+a'))
+  useHotkey('Escape', () => run('escape'), options('escape'))
+  useHotkey('Delete', () => run('delete'), options('delete'))
 }

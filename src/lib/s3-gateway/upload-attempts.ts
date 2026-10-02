@@ -189,11 +189,6 @@ export async function completeUpload(
     })
     .where(eq(uploadAttempt.id, uploadId))
 
-  const { invalidateFolderCache, invalidateQuotaCache } =
-    await import('@/lib/cache-invalidation')
-  await invalidateFolderCache(userId, attempt.mappedFolderId)
-  await invalidateQuotaCache(userId)
-
   return committed
 }
 

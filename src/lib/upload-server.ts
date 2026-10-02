@@ -237,7 +237,6 @@ const RegisterFileSchema = z.object( {
   fileSize: z.number().nonnegative(),
   parentFolderId: z.string().nullable().optional(),
   providerId: z.string().nullable().optional(),
-  deferFolderCacheInvalidation: z.boolean().optional(),
 } )
 
 export const registerFile = createServerFn( { method: 'POST' } )
@@ -349,13 +348,6 @@ export const registerFile = createServerFn( { method: 'POST' } )
       console.error( '[Server] Failed to update usedStorage:', storageErr )
     }
 
-    const { invalidateFolderCache, patchQuotaUsedStorage } =
-      await import( '@/lib/cache-invalidation' )
-    if ( !data.deferFolderCacheInvalidation ) {
-      await invalidateFolderCache( authUser.id, data.parentFolderId || null )
-    }
-    await patchQuotaUsedStorage( authUser.id, data.fileSize )
-
     await logActivity( {
       userId: authUser.id,
       eventType: 'file_upload',
@@ -372,19 +364,4 @@ export const registerFile = createServerFn( { method: 'POST' } )
     } )
 
     return { file: insertedFile }
-  } )
-
-const UploadCacheInvalidateSchema = z.object( {
-  parentFolderId: z.string().nullable().optional(),
-} )
-
-export const invalidateUploadFolderCache = createServerFn( { method: 'POST' } )
-  .middleware( [apiAuthMiddleware] )
-  .inputValidator( ( d: z.infer<typeof UploadCacheInvalidateSchema> ) =>
-    UploadCacheInvalidateSchema.parse( d ),
-  )
-  .handler( async ( { data, context } ) => {
-    const { invalidateFolderCache } = await import( '@/lib/cache-invalidation' )
-    await invalidateFolderCache( context.user.id, data.parentFolderId || null )
-    return { ok: true }
   } )

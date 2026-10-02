@@ -1,15 +1,24 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
 import * as React from 'react'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { QrCode, RefreshCcw } from 'lucide-react'
-import { useMutation, useQuery } from '@tanstack/react-query'
-import type { UseMutationResult } from '@tanstack/react-query'
 import * as QRCode from 'qrcode'
 import { Button } from '@/components/ui/button'
+import { CURRENT_USER_QUERY_KEY } from '@/lib/auth/current-user'
 import { isNotAuthenticatedMiddleware } from '@/middlewares/isNotAuthenticated'
 import { createQrOffer, pollQrStatus } from './-hot-qr-server'
 import type { OfferResponse, PollResponse } from './-hot-qr-server'
 
-const ONE_MINUTE_MS = 60_000
+/** Each QR is shown for one minute, then the user must generate a new one. */
+const QR_LIFETIME_MS = 60_000
+
+/** Poll results after which the offer can never change again. */
+const TERMINAL_STATUSES = new Set<PollResponse['status']>([
+  'approved',
+  'expired',
+  'rejected',
+  'not_found',
+])
 
 export const Route = createFileRoute('/hot')({
   component: HotRoute,
@@ -18,139 +27,83 @@ export const Route = createFileRoute('/hot')({
   },
 })
 
-type UseCreateQrOfferReturn = {
-  qrImage: string
-  setQrImage: (image: string) => void
-  createOfferMutation: UseMutationResult<OfferResponse, Error, void>
-}
+type QrOffer = { offer: OfferResponse; qrImage: string }
 
-function useCreateQrOffer(): UseCreateQrOfferReturn {
-  const [qrImage, setQrImage] = React.useState<string>('')
-
-  const createOfferMutation = useMutation({
-    mutationFn: async () => {
+/** Creates a login offer on the server and renders it as a QR image. */
+function useCreateQrOffer() {
+  return useMutation({
+    mutationFn: async (): Promise<QrOffer> => {
       const result = await createQrOffer()
-      if (!result.success) {
-        throw new Error(result.error)
-      }
-      return result.data
-    },
-    onSuccess: async (data) => {
-      try {
-        const dataUrl = await QRCode.toDataURL(data.payload, {
-          width: 260,
-          margin: 1,
-        })
-        setQrImage(dataUrl)
-      } catch (error) {
-        console.error('Failed to generate QR image:', error)
-      }
-    },
-    onError: () => {
-      setQrImage('')
+      if (!result.success) throw new Error(result.error)
+      const qrImage = await QRCode.toDataURL(result.data.payload, {
+        width: 260,
+        margin: 1,
+      })
+      return { offer: result.data, qrImage }
     },
   })
-
-  return { qrImage, setQrImage, createOfferMutation }
 }
 
-type UsePollQrStatusReturn = {
-  pollResult: PollResponse | null | undefined
-  isPolling: boolean
-}
-
-function usePollQrStatus(
-  currentOffer: OfferResponse | null | undefined,
-  enabled: boolean,
-): UsePollQrStatusReturn {
-  const { data: pollResult, isLoading: isPolling } = useQuery({
-    queryKey: ['pollQrStatus', currentOffer?.pollKey],
+/** Polls an offer until it reaches a terminal status or `enabled` turns false. */
+function usePollQrStatus(offer: OfferResponse | undefined, enabled: boolean) {
+  return useQuery({
+    queryKey: ['pollQrStatus', offer?.pollKey],
     queryFn: async () => {
-      if (!currentOffer) return null
-      const result = await pollQrStatus({
-        data: { pollKey: currentOffer.pollKey },
-      })
-      if (!result.success) {
-        throw new Error(result.error)
-      }
+      if (!offer) return null
+      const result = await pollQrStatus({ data: { pollKey: offer.pollKey } })
+      if (!result.success) throw new Error(result.error)
       return result.data
     },
-    enabled: enabled && currentOffer !== undefined && currentOffer !== null,
-    refetchInterval: currentOffer?.pollIntervalMs ?? 5000,
+    enabled: enabled && Boolean(offer),
+    refetchInterval: (query) => {
+      const status = query.state.data?.status
+      if (status && TERMINAL_STATUSES.has(status)) return false
+      return offer?.pollIntervalMs ?? 5000
+    },
     retry: false,
   })
-
-  return { pollResult, isPolling }
 }
 
+/** Marks the offer as expired once its one-minute window has passed. */
+function useQrExpiry(pollKey: string | undefined) {
+  const [expiredPollKey, setExpiredPollKey] = React.useState<string>()
+
+  React.useEffect(() => {
+    if (!pollKey) return
+    const timer = setTimeout(() => setExpiredPollKey(pollKey), QR_LIFETIME_MS)
+    return () => clearTimeout(timer)
+  }, [pollKey])
+
+  return pollKey !== undefined && expiredPollKey === pollKey
+}
+
+/** "Scan-based login": shows a QR that a signed-in device scans to grant this browser a tiny session. */
 function HotRoute() {
-  const [expired, setExpired] = React.useState<boolean>(false)
-  const startedAtRef = React.useRef<number | null>(null)
-  const [currentOffer, setCurrentOffer] = React.useState<OfferResponse | null>(
-    null,
-  )
+  const navigate = Route.useNavigate()
+  const queryClient = useQueryClient()
+  const createOffer = useCreateQrOffer()
+  // A failed (or in-flight) regenerate clears `data`, so the old offer stops polling.
+  const offer = createOffer.data?.offer
+  const expired = useQrExpiry(offer?.pollKey)
+  const poll = usePollQrStatus(offer, !expired)
+  const status = poll.data?.status
 
-  const { qrImage, createOfferMutation } = useCreateQrOffer()
-
-  const { pollResult, isPolling } = usePollQrStatus(
-    currentOffer,
-    !expired && !(Date.now() - (startedAtRef.current ?? 0) >= ONE_MINUTE_MS),
-  )
-
+  // Generate the first QR once, even under StrictMode's double effects.
+  const requestedRef = React.useRef(false)
+  const { mutate: generateQr } = createOffer
   React.useEffect(() => {
-    // Generate QR on mount
-    void createOfferMutation.mutate()
-  }, [])
+    if (requestedRef.current) return
+    requestedRef.current = true
+    generateQr()
+  }, [generateQr])
 
+  // Approved: the poll response set the session cookie. Drop the cached
+  // "anonymous" user so the app layout loads the new session.
   React.useEffect(() => {
-    if (createOfferMutation.isSuccess) {
-      startedAtRef.current = Date.now()
-      setExpired(false)
-      setCurrentOffer(createOfferMutation.data)
-    }
-  }, [createOfferMutation.isSuccess, createOfferMutation.data])
-
-  React.useEffect(() => {
-    if (!startedAtRef.current) return
-    if (Date.now() - startedAtRef.current >= ONE_MINUTE_MS) {
-      setExpired(true)
-    }
-  }, [pollResult])
-
-  React.useEffect(() => {
-    if (pollResult?.status === 'approved') {
-      window.location.href = '/'
-    }
-  }, [pollResult?.status])
-
-  const getStateMessage = (): string => {
-    if (createOfferMutation.isPending) {
-      return 'Generating QR...'
-    }
-    if (createOfferMutation.isError) {
-      return createOfferMutation.error.message || 'Failed to generate QR offer.'
-    }
-    if (!createOfferMutation.isSuccess) {
-      return 'Generate a QR to start a tiny session.'
-    }
-    if (expired) {
-      return 'QR has expired - generate new QR.'
-    }
-    if (isPolling) {
-      return 'Scan-based login ready. Processing...'
-    }
-    if (pollResult?.status === 'claimed') {
-      return 'QR scanned. Finalizing tiny session...'
-    }
-    if (
-      pollResult?.status === 'expired' ||
-      pollResult?.status === 'rejected' ||
-      pollResult?.status === 'not_found'
-    ) {
-      return pollResult.message ?? 'QR has expired - generate new QR.'
-    }
-    return 'Scan-based login ready. Tiny session lasts 10 minutes.'
-  }
+    if (status !== 'approved') return
+    queryClient.removeQueries({ queryKey: CURRENT_USER_QUERY_KEY })
+    void navigate({ to: '/' })
+  }, [status, queryClient, navigate])
 
   return (
     <div className="bg-background flex min-h-svh items-center justify-center p-6">
@@ -164,9 +117,9 @@ function HotRoute() {
         </div>
 
         <div className="rounded-lg border p-4">
-          {qrImage ? (
+          {createOffer.data ? (
             <img
-              src={qrImage}
+              src={createOffer.data.qrImage}
               alt="QR login code"
               className="mx-auto h-64 w-64 rounded-md"
             />
@@ -178,7 +131,9 @@ function HotRoute() {
           )}
         </div>
 
-        <p className="text-sm">{getStateMessage()}</p>
+        <p className="text-sm">
+          {describeState(createOffer, expired, poll.isLoading, poll.data)}
+        </p>
         {expired && (
           <p className="text-sm font-medium text-amber-600">
             QR has expired - generate new QR.
@@ -186,14 +141,9 @@ function HotRoute() {
         )}
 
         <div className="flex gap-2">
-          <Button
-            onClick={() => createOfferMutation.mutate()}
-            disabled={createOfferMutation.isPending}
-          >
+          <Button onClick={() => generateQr()} disabled={createOffer.isPending}>
             <RefreshCcw className="size-4" />
-            {createOfferMutation.isPending
-              ? 'Generating...'
-              : 'Generate new QR'}
+            {createOffer.isPending ? 'Generating...' : 'Generate new QR'}
           </Button>
           <Button asChild variant="ghost">
             <Link to="/auth">Back to login</Link>
@@ -202,4 +152,30 @@ function HotRoute() {
       </div>
     </div>
   )
+}
+
+function describeState(
+  createOffer: ReturnType<typeof useCreateQrOffer>,
+  expired: boolean,
+  isFirstPoll: boolean,
+  pollResult: PollResponse | null | undefined,
+): string {
+  if (createOffer.isPending) return 'Generating QR...'
+  if (createOffer.isError) {
+    return createOffer.error.message || 'Failed to generate QR offer.'
+  }
+  if (!createOffer.isSuccess) return 'Generate a QR to start a tiny session.'
+  if (expired) return 'QR has expired - generate new QR.'
+  if (isFirstPoll) return 'Scan-based login ready. Processing...'
+  if (pollResult?.status === 'claimed') {
+    return 'QR scanned. Finalizing tiny session...'
+  }
+  if (
+    pollResult?.status === 'expired' ||
+    pollResult?.status === 'rejected' ||
+    pollResult?.status === 'not_found'
+  ) {
+    return pollResult.message ?? 'QR has expired - generate new QR.'
+  }
+  return 'Scan-based login ready. Tiny session lasts 10 minutes.'
 }

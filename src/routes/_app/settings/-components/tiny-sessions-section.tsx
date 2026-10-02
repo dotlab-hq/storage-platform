@@ -1,119 +1,74 @@
-import { useMemo, useState } from 'react'
-import { createColumnHelper, type ColumnDef } from '@tanstack/react-table'
-import { Badge } from '@/components/ui/badge'
+import { useState } from 'react'
+import { useSuspenseQuery } from '@tanstack/react-query'
+import { createColumnHelper } from '@tanstack/react-table'
 import { Clock, Shield, TimerReset } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
 import { SettingsDataTable } from './settings-data-table'
 import { SessionDetailsDialog } from './session-details-dialog'
-
-type SessionRow = {
-  id: string
-  expiresAt: Date
-  createdAt: Date
-  ipAddress: string | null
-  userAgent: string | null
-}
+import type { SessionRow } from './session-details-dialog'
+import { settingsQuery } from './settings-query'
+import { formatDateTime } from './format-date'
 
 const columnHelper = createColumnHelper<SessionRow>()
 
-export function TinySessionsSection({
-  initial,
-}: {
-  initial: {
-    currentSessionId: string | null
-    tinySessions: {
-      active: SessionRow[]
-      recent: SessionRow[]
-    }
-  }
-}) {
-  const [selectedSession, setSelectedSession] = useState<SessionRow | null>(null)
+const deviceColumn = columnHelper.accessor('userAgent', {
+  header: 'Device',
+  cell: (info) => (
+    <div className="max-w-[20rem] truncate font-medium text-foreground">
+      {info.getValue() ?? 'Unknown device'}
+    </div>
+  ),
+})
 
-  const activeColumns = useMemo<ColumnDef<SessionRow>[]>(
-    () => [
-      columnHelper.accessor('userAgent', {
-        header: 'Device',
-        size: 320,
-        cell: (info) => (
-          <div className="max-w-[20rem] truncate font-medium text-foreground">
-            {info.getValue() ?? 'Unknown device'}
-          </div>
-        ),
-      }),
-      columnHelper.accessor('ipAddress', {
-        header: 'IP',
-        size: 160,
-        cell: (info) => (
-          <div className="font-mono text-xs text-muted-foreground">
-            {info.getValue() ?? 'Hidden'}
-          </div>
-        ),
-      }),
-      columnHelper.accessor('expiresAt', {
-        header: 'Expires',
-        size: 180,
-        cell: (info) => (
-          <div className="text-sm text-muted-foreground">
-            {new Date(info.getValue()).toLocaleString()}
-          </div>
-        ),
-      }),
-      {
-        id: 'status',
-        header: 'Status',
-        size: 120,
-        cell: () => (
-          <Badge
-            variant="secondary"
-            className="bg-emerald-500/10 text-emerald-700"
-          >
-            Active
-          </Badge>
-        ),
-      },
-    ],
-    [],
-  )
+const ipColumn = columnHelper.accessor('ipAddress', {
+  header: 'IP',
+  cell: (info) => (
+    <div className="font-mono text-xs text-muted-foreground">
+      {info.getValue() ?? 'Hidden'}
+    </div>
+  ),
+})
 
-  const recentColumns = useMemo<ColumnDef<SessionRow>[]>(
-    () => [
-      columnHelper.accessor('userAgent', {
-        header: 'Device',
-        size: 320,
-        cell: (info) => (
-          <div className="max-w-[20rem] truncate font-medium text-foreground">
-            {info.getValue() ?? 'Unknown device'}
-          </div>
-        ),
-      }),
-      columnHelper.accessor('createdAt', {
-        header: 'Created',
-        size: 180,
-        cell: (info) => (
-          <div className="text-sm text-muted-foreground">
-            {new Date(info.getValue()).toLocaleString()}
-          </div>
-        ),
-      }),
-      columnHelper.accessor('ipAddress', {
-        header: 'IP',
-        size: 160,
-        cell: (info) => (
-          <div className="font-mono text-xs text-muted-foreground">
-            {info.getValue() ?? 'Hidden'}
-          </div>
-        ),
-      }),
-      columnHelper.accessor('expiresAt', {
-        header: 'Expires',
-        size: 180,
-        cell: (info) => (
-          <div className="text-sm text-muted-foreground">
-            {new Date(info.getValue()).toLocaleString()}
-          </div>
-        ),
-      }),
-    ],
-    [],
+const dateCell = (value: Date) => (
+  <div className="text-sm text-muted-foreground">{formatDateTime(value)}</div>
+)
+
+const expiresColumn = columnHelper.accessor('expiresAt', {
+  header: 'Expires',
+  cell: (info) => dateCell(info.getValue()),
+})
+
+const activeColumns = [
+  deviceColumn,
+  ipColumn,
+  expiresColumn,
+  columnHelper.display({
+    id: 'status',
+    header: 'Status',
+    cell: () => (
+      <Badge variant="secondary" className="bg-emerald-500/10 text-emerald-700">
+        Active
+      </Badge>
+    ),
+  }),
+]
+
+const recentColumns = [
+  deviceColumn,
+  columnHelper.accessor('createdAt', {
+    header: 'Created',
+    cell: (info) => dateCell(info.getValue()),
+  }),
+  ipColumn,
+  expiresColumn,
+]
+
+/** Active and recent sign-in sessions; a row opens details with a revoke action. */
+export function TinySessionsSection() {
+  const { data: settings } = useSuspenseQuery(settingsQuery())
+  const { active, recent } = settings.tinySessions
+  const [selectedSession, setSelectedSession] = useState<SessionRow | null>(
+    null,
   )
 
   return (
@@ -146,14 +101,14 @@ export function TinySessionsSection({
             </div>
             <h3 className="font-medium">Active Sessions</h3>
             <Badge variant="secondary" className="ml-auto">
-              {initial.tinySessions.active.length}
+              {active.length}
             </Badge>
           </div>
           <SettingsDataTable
-            data={initial.tinySessions.active}
+            data={active}
             columns={activeColumns}
             emptyMessage="No active sessions found."
-            onRowAction={(session) => setSelectedSession(session)}
+            onRowAction={setSelectedSession}
             rowActionLabel="Open active session details"
           />
         </div>
@@ -163,27 +118,26 @@ export function TinySessionsSection({
             <Clock className="size-5 text-muted-foreground" />
             <h3 className="font-medium">Recent Sessions</h3>
             <Badge variant="secondary" className="ml-auto">
-              {initial.tinySessions.recent.length}
+              {recent.length}
             </Badge>
           </div>
           <SettingsDataTable
-            data={initial.tinySessions.recent}
+            data={recent}
             columns={recentColumns}
             emptyMessage="No recent sessions yet."
-            onRowAction={(session) => setSelectedSession(session)}
+            onRowAction={setSelectedSession}
             rowActionLabel="Open recent session details"
           />
         </div>
       </div>
 
-      <SessionDetailsDialog
-        open={selectedSession !== null}
-        onOpenChange={(open) => {
-          if (!open) setSelectedSession(null)
-        }}
-        session={selectedSession}
-        currentSessionId={initial.currentSessionId}
-      />
+      {selectedSession && (
+        <SessionDetailsDialog
+          session={selectedSession}
+          isCurrentSession={selectedSession.id === settings.currentSessionId}
+          onClose={() => setSelectedSession(null)}
+        />
+      )}
     </section>
   )
 }

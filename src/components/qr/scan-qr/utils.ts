@@ -2,6 +2,7 @@ import type { Html5QrScanner } from './types'
 
 export const SCAN_QR_INTRO_SEEN_KEY = 'dot_storage_scan_qr_intro_seen_v1'
 
+/** Starts the back camera, falling back to the front camera, then to any camera. */
 export async function startScannerWithFallback(
   scanner: Html5QrScanner,
   onSuccess: (decodedText: string) => void,

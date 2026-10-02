@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef } from 'react'
 import { FileCard } from './file-card'
 import { FileContextMenu } from './file-context-menu'
 import { UploadingCard } from './uploading-card'
-import { SkeletonGrid } from './skeleton-card'
+import { FILE_GRID_CLASS, FileGridSkeleton } from './file-grid-skeleton'
 import { FileGridEmptyState } from './file-grid-empty-state'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { useBoxSelection } from '@/hooks/use-box-selection'
@@ -42,6 +42,7 @@ type FileGridProps = {
   isTrash?: boolean
   selectedIds: Set<string>
   onDoubleClick: (item: StorageItem) => void
+  onItemClick?: (item: StorageItem, event: React.MouseEvent) => void
   onContextAction: (action: ContextMenuAction, item: StorageItem) => void
   onRetryUpload?: (id: string) => void
   renamingItemId?: string | null
@@ -67,6 +68,7 @@ export function FileGrid({
   isTrash = false,
   selectedIds,
   onDoubleClick,
+  onItemClick,
   onContextAction,
   onRetryUpload,
   renamingItemId,
@@ -195,13 +197,11 @@ export function FileGrid({
       observer.observe(el)
     }
 
-    return () => {
-      if (el) observer.unobserve(el)
-    }
+    return () => observer.disconnect()
   }, [hasMore, onLoadMore])
 
   if (isLoading && items.length === 0) {
-    return <SkeletonGrid count={12} />
+    return <FileGridSkeleton />
   }
 
   const activeUploads = uploads.filter((u) => {
@@ -211,7 +211,9 @@ export function FileGrid({
   })
   const hasContent = items.length > 0 || activeUploads.length > 0
 
-  if (!hasContent && !isLoading) return <FileGridEmptyState />
+  if (!hasContent && !isLoading) {
+    return <FileGridEmptyState isTrash={isTrash} />
+  }
 
   return (
     <div
@@ -226,7 +228,7 @@ export function FileGrid({
         }
       }}
     >
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+      <div className={FILE_GRID_CLASS}>
         {activeUploads.map((upload) => (
           <UploadingCard
             key={upload.id}
@@ -248,6 +250,7 @@ export function FileGrid({
               item={item}
               isSelected={selectedIds.has(item.id)}
               onDoubleClick={onDoubleClick}
+              onClick={onItemClick}
               onContextAction={onContextAction}
               isRenaming={renamingItemId === item.id}
               onRename={onRename}

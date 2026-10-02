@@ -1,35 +1,28 @@
-import { useCallback } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { createS3ViewerFolderFn } from '@/lib/storage/mutations/s3-viewer-rpc'
+import { S3_QUERY_KEYS } from '@/lib/query-keys'
 
-type UseS3ViewerFolderParams = {
-  bucketName: string
-  prefix: string
-  queryKey: unknown[]
-}
-
-export function useS3ViewerFolder({
-  bucketName,
-  prefix,
-  queryKey,
-}: UseS3ViewerFolderParams) {
+/**
+ * Creates a folder inside the current prefix. `createFolder` rejects on
+ * failure so the new-folder dialog can stay open and show the error.
+ */
+export function useS3ViewerFolder(bucketName: string, prefix: string) {
   const queryClient = useQueryClient()
   const createFolderMutation = useMutation({
-    mutationFn: async (folderName: string) => {
-      return createS3ViewerFolderFn({
+    mutationFn: (folderName: string) =>
+      createS3ViewerFolderFn({
         data: { bucketName, objectKey: `${prefix}${folderName}/` },
-      })
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey })
-    },
+      }),
+    onSettled: () =>
+      queryClient.invalidateQueries({
+        queryKey: S3_QUERY_KEYS.bucketItems(bucketName, prefix),
+      }),
   })
 
-  const createFolder = useCallback(async () => {
-    const folderName = window.prompt('Folder name')?.trim()
-    if (!folderName) return
-    await createFolderMutation.mutateAsync(folderName)
-  }, [createFolderMutation])
-
-  return { createFolder, createFolderMutation }
+  return {
+    createFolder: async (folderName: string) => {
+      await createFolderMutation.mutateAsync(folderName)
+    },
+    isCreatingFolder: createFolderMutation.isPending,
+  }
 }

@@ -105,22 +105,12 @@ export function getIconBgColor(fileName: string): string {
   return bgMap[ext] ?? 'bg-slate-50'
 }
 
+/**
+ * Stable YYYY-MM-DD date. Relative/locale formats differ between the server
+ * render and the browser and cause hydration mismatches.
+ */
 export function formatDate(dateString: string | null): string {
   if (!dateString) return '-'
-
   const date = new Date(dateString)
-  const now = new Date()
-  const diffInDays = Math.floor(
-    (now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24),
-  )
-
-  if (diffInDays === 0) return 'Today'
-  if (diffInDays === 1) return 'Yesterday'
-  if (diffInDays < 7) return `${diffInDays} days ago`
-
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: date.getFullYear() !== now.getFullYear() ? 'numeric' : undefined,
-  })
+  return Number.isNaN(date.getTime()) ? '-' : date.toISOString().slice(0, 10)
 }

@@ -1,194 +1,105 @@
-'use client'
-
-import {
-  lazy,
-  Suspense,
-  useState,
-  useMemo,
-  useTransition,
-  useLayoutEffect,
-  useCallback,
-} from 'react'
+import { useMemo, useState } from 'react'
+import { getRouteApi } from '@tanstack/react-router'
+import { useSuspenseQuery } from '@tanstack/react-query'
 import { SidebarInset } from '@/components/ui/sidebar'
-import { useTrashData } from '@/hooks/use-trash-data'
-import { useFileSelectionStore } from '@/stores/file-selection-store'
-import { PageSkeleton } from '@/components/ui/page-skeleton'
+import { TrashContent } from '@/components/storage/trash-content'
+import { ConfirmDeleteModal } from '@/components/storage/confirm-delete-modal'
+import { useShellView } from '@/components/shell/shell-actions-registry'
+import { trashFolderQuery } from '@/lib/storage/trash-query'
+import { useTrashActions } from '@/hooks/use-trash-actions'
+import { useSelectionStore } from '@/stores/selection-store'
+import type { TrashItem } from '@/lib/trash-queries'
 import { TrashHeader } from './trash-header'
 import { BulkActionBar } from './bulk-action-bar'
-import { useTrashShellActions } from '../-hooks'
 
-const TrashContent = lazy(() =>
-  import('@/components/storage/trash-content').then((m) => ({
-    default: m.TrashContent,
-  })),
-)
+const routeApi = getRouteApi('/_app/trash/')
 
-const ConfirmDeleteModal = lazy(() =>
-  import('@/components/storage/confirm-delete-modal').then((m) => ({
-    default: m.ConfirmDeleteModal,
-  })),
-)
-
+/** What the "delete forever" confirmation is about to delete. */
 type PendingDelete =
-  | { mode: 'items'; ids: string[]; types: ('file' | 'folder')[] }
-  | { mode: 'empty-all'; count: number }
+  | { mode: 'items'; items: TrashItem[] }
+  | { mode: 'empty-all' }
 
 export function TrashPage() {
-  const [currentFolderId, setCurrentFolderId] = useState<string | undefined>(
-    undefined,
-  )
-  const [folderPath, setFolderPath] = useState<
-    Array<{ id: string; name: string }>
-  >([])
-  const trash = useTrashData({ parentFolderId: currentFolderId })
-  const [, startTransition] = useTransition()
-  const selectedIds = useFileSelectionStore((s) => s.selectedIds)
-  const toggleSelect = useFileSelectionStore((s) => s.toggleSelect)
-  const clearSelection = useFileSelectionStore((s) => s.clearSelection)
-  const handleFolderClick = useCallback(
-    (folderId: string, folderName: string) => {
-      startTransition(() => {
-        clearSelection() // clear selection when navigating
-        setCurrentFolderId(folderId)
-        setFolderPath((prev) => [...prev, { id: folderId, name: folderName }])
-      })
-    },
-    [clearSelection],
-  )
-  const handleNavigateUp = useCallback(() => {
-    startTransition(() => {
-      clearSelection()
-      if (folderPath.length === 0) {
-        setCurrentFolderId(undefined)
-      } else {
-        const newPath = folderPath.slice(0, -1)
-        setFolderPath(newPath)
-        setCurrentFolderId(newPath[newPath.length - 1]?.id)
-      }
-    })
-  }, [folderPath, clearSelection])
-  const [deleteOpen, setDeleteOpen] = useState(false)
+  const { path = [] } = routeApi.useSearch()
+  const navigate = routeApi.useNavigate()
+  const folderId = path.at(-1)?.id ?? null
+
+  const { data: items } = useSuspenseQuery(trashFolderQuery(folderId))
+  const trash = useTrashActions()
   const [pendingDelete, setPendingDelete] = useState<PendingDelete | null>(null)
-  const [isDeleting, setIsDeleting] = useState(false)
-  useLayoutEffect(() => {
-    return () => clearSelection()
-  }, [clearSelection])
+
+  const selectedIds = useSelectionStore((state) => state.selectedIds)
   const selectedItems = useMemo(
-    () => trash.items.filter((i) => selectedIds.has(i.id)),
-    [trash.items, selectedIds],
+    () => items.filter((item) => selectedIds.has(item.id)),
+    [items, selectedIds],
   )
-  const selectedCount = useMemo(() => selectedIds.size, [selectedIds])
-  const handleRestoreOne = (id: string, type: 'file' | 'folder') => {
-    startTransition(() => {
-      void trash.handleRestore([id], [type])
-    })
-  }
-  const handleDeleteOne = (id: string, type: 'file' | 'folder') => {
-    startTransition(() => {
-      setPendingDelete({ mode: 'items', ids: [id], types: [type] })
-      setDeleteOpen(true)
-    })
-  }
-  const handleEmptyTrash = () => {
-    if (trash.items.length === 0) return
-    startTransition(() => {
-      setPendingDelete({ mode: 'empty-all', count: trash.items.length })
-      setDeleteOpen(true)
-    })
-  }
-  const handleRestoreAll = () => {
-    if (trash.items.length === 0) return
-    startTransition(() => {
-      void trash.handleRestore(
-        trash.items.map((i) => i.id),
-        trash.items.map((i) => i.type),
-      )
-    })
-  }
-  const handleBulkRestore = () => {
-    if (selectedItems.length === 0) return
-    startTransition(() => {
-      void trash.handleRestore(
-        selectedItems.map((i) => i.id),
-        selectedItems.map((i) => i.type),
-      )
-      clearSelection()
-    })
-  }
-  const handleBulkDelete = () => {
-    if (selectedItems.length === 0) return
-    startTransition(() => {
-      setPendingDelete({
-        mode: 'items',
-        ids: selectedItems.map((i) => i.id),
-        types: selectedItems.map((i) => i.type),
-      })
-      setDeleteOpen(true)
-      clearSelection()
-    })
-  }
-  const confirmPermanentDelete = async () => {
+
+  const openFolder = (item: TrashItem) =>
+    void navigate({ search: { path: [...path, { id: item.id, name: item.name }] } })
+
+  const restoreAll = () => trash.restore(items)
+  const emptyTrash = () => setPendingDelete({ mode: 'empty-all' })
+
+  const shellActions = useMemo(
+    () => ({
+      commandActions: [],
+      contextActions: [
+        { id: 'trash-restore-all', label: 'Restore all', onSelect: restoreAll },
+        {
+          id: 'trash-empty',
+          label: 'Empty trash',
+          onSelect: emptyTrash,
+          destructive: true,
+        },
+      ],
+    }),
+    // Re-register only when the listing changes (handlers read `items`).
+    [items],
+  )
+  useShellView('trash', shellActions)
+
+  const confirmDelete = async () => {
     if (!pendingDelete) return
-    setIsDeleting(true)
-    try {
-      if (pendingDelete.mode === 'empty-all') {
-        await trash.handleEmptyAll()
-      } else {
-        await trash.handlePermanentDelete(pendingDelete.ids, pendingDelete.types)
-      }
-    } finally {
-      startTransition(() => {
-        setIsDeleting(false)
-        setDeleteOpen(false)
-        setPendingDelete(null)
-      })
-    }
+    if (pendingDelete.mode === 'empty-all') await trash.emptyTrash()
+    else await trash.deleteForever(pendingDelete.items)
+    setPendingDelete(null)
   }
-  useTrashShellActions(handleRestoreAll, handleEmptyTrash)
+
   return (
     <SidebarInset>
       <TrashHeader
-        onRestoreAll={handleRestoreAll}
-        onEmptyTrash={handleEmptyTrash}
-        itemCount={trash.items.length}
-        breadcrumbPath={folderPath}
-        onNavigateUp={handleNavigateUp}
+        path={path}
+        itemCount={items.length}
+        onRestoreAll={restoreAll}
+        onEmptyTrash={emptyTrash}
       />
       <BulkActionBar
-        selectedCount={selectedCount}
-        onBulkRestore={handleBulkRestore}
-        onBulkDelete={handleBulkDelete}
-        onCancel={clearSelection}
+        selectedCount={selectedItems.length}
+        onBulkRestore={() => trash.restore(selectedItems)}
+        onBulkDelete={() =>
+          setPendingDelete({ mode: 'items', items: selectedItems })
+        }
+        onCancel={() => useSelectionStore.getState().clear()}
       />
-      <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
-        <TrashContent
-          items={trash.items}
-          isLoading={trash.isLoading}
-          selectedIds={selectedIds}
-          onToggleSelect={toggleSelect}
-          onRestore={handleRestoreOne}
-          onDelete={handleDeleteOne}
-          onFolderClick={handleFolderClick}
-        />
-      </Suspense>
-
-      <Suspense fallback={null}>
-        <ConfirmDeleteModal
-          open={deleteOpen}
-          onOpenChange={(open) => {
-            setDeleteOpen(open)
-            if (!open) setPendingDelete(null)
-          }}
-          isPermanent
-          itemCount={
-            pendingDelete?.mode === 'items'
-              ? pendingDelete.ids.length
-              : pendingDelete?.count ?? 1
-          }
-          onConfirm={() => void confirmPermanentDelete()}
-          isLoading={isDeleting}
-        />
-      </Suspense>
+      <TrashContent
+        items={items}
+        selectedIds={selectedIds}
+        onToggleSelect={(id) => useSelectionStore.getState().toggle(id)}
+        onRestore={(item) => trash.restore([item])}
+        onDelete={(item) => setPendingDelete({ mode: 'items', items: [item] })}
+        onFolderOpen={openFolder}
+      />
+      <ConfirmDeleteModal
+        open={pendingDelete !== null}
+        onOpenChange={(open) => {
+          if (!open && !trash.isDeleting) setPendingDelete(null)
+        }}
+        isPermanent
+        title={pendingDelete?.mode === 'empty-all' ? 'Empty the trash?' : undefined}
+        itemCount={pendingDelete?.mode === 'items' ? pendingDelete.items.length : 0}
+        onConfirm={() => void confirmDelete()}
+        isLoading={trash.isDeleting}
+      />
     </SidebarInset>
   )
 }

@@ -3,10 +3,11 @@
 import * as React from 'react'
 import { ChevronsUpDown, LogOut, Settings, Wifi, WifiOff } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
-import { createClientOnlyFn } from '@tanstack/react-start'
 import { sessionStatusFn } from '@/routes/-hot-qr-server'
 import { authClient } from '@/lib/auth-client'
 import { ScanQrDialog } from '@/components/qr/scan-qr-dialog'
+import { useCurrentUser } from '@/lib/auth/current-user'
+import { usePreferencesStore } from '@/stores/preferences-store'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
@@ -24,43 +25,41 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 
-const WEBRTC_ENABLED_KEY = 'dot_webrtc_enabled'
+function initials(name: string) {
+  return (
+    name
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0].toUpperCase())
+      .join('') || '?'
+  )
+}
 
-export function NavUser({
-  user,
-}: {
-  user: {
-    name: string
-    email: string
-    avatar: string
-    isAdmin: boolean
+export function NavUser() {
+  const currentUser = useCurrentUser()
+  const user = {
+    name: currentUser.name ?? currentUser.email,
+    email: currentUser.email,
+    avatar: currentUser.image ?? '/logo.svg',
   }
-}) {
   const { isMobile } = useSidebar()
   const [tinySession, setTinySession] = React.useState<{
     permission: 'read' | 'read-write'
     expiresAt: string
   } | null>(null)
-  const [webrtcEnabled, setWebrtcEnabled] = React.useState(false)
+  const webrtcEnabled = usePreferencesStore((state) => state.webrtcEnabled)
+  const setWebrtcEnabled = usePreferencesStore(
+    (state) => state.setWebrtcEnabled,
+  )
 
-  const logout = createClientOnlyFn(async () => {
+  const logout = async () => {
     await authClient.signOut()
-    window.location.reload()
-  })
-
-  React.useEffect(() => {
-    const stored = localStorage.getItem(WEBRTC_ENABLED_KEY)
-    setWebrtcEnabled(stored === 'true')
-  }, [])
-
-  const toggleWebRTC = () => {
-    const newValue = !webrtcEnabled
-    setWebrtcEnabled(newValue)
-    localStorage.setItem(WEBRTC_ENABLED_KEY, String(newValue))
-    window.dispatchEvent(
-      new CustomEvent('webrtc-toggled', { detail: newValue }),
-    )
+    // Full navigation drops every cached query of the signed-out user.
+    window.location.assign('/auth')
   }
+
+  const toggleWebRTC = () => setWebrtcEnabled(!webrtcEnabled)
 
   React.useEffect(() => {
     let cancelled = false
@@ -69,7 +68,7 @@ export function NavUser({
       try {
         const data = await sessionStatusFn()
 
-        if (!data?.active || !data.permission || !data.expiresAt) {
+        if (!data.active || !data.permission || !data.expiresAt) {
           if (!cancelled) {
             setTinySession(null)
           }
@@ -106,7 +105,7 @@ export function NavUser({
             >
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                <AvatarFallback className="rounded-lg">{initials(user.name)}</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{user.name}</span>
@@ -125,7 +124,7 @@ export function NavUser({
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                  <AvatarFallback className="rounded-lg">{initials(user.name)}</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">{user.name}</span>

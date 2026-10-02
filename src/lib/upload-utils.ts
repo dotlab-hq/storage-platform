@@ -3,12 +3,11 @@ import {
   uploadMultipartInit,
   uploadMultipartComplete,
   registerFile,
-  invalidateUploadFolderCache,
 } from './upload-server'
 import { uploadFileViaProxy } from './upload-proxy-client'
 import { prepareUploadTarget } from './upload-target-server'
 import { buildUploadObjectKey } from './upload-object-key'
-import { updateUpload, uploadStore } from '@/lib/stores/upload-store'
+import { getUploads, updateUpload } from '@/stores/upload-store'
 import type { UploadingFile } from '@/types/storage'
 
 const MIN_PART_SIZE_BYTES = 5 * 1024 * 1024
@@ -223,7 +222,6 @@ async function registerFileInDb(
   fileSize: number,
   parentFolderId: string | null,
   providerId: string | null,
-  deferFolderCacheInvalidation: boolean,
 ): Promise<CompletedFileInfo> {
   try {
     const data = await registerFile({
@@ -234,7 +232,6 @@ async function registerFileInDb(
         fileSize,
         parentFolderId,
         providerId,
-        deferFolderCacheInvalidation,
       },
     })
     if (!data.file) {
@@ -262,7 +259,6 @@ export async function uploadFileToS3(
   userId: string,
   folderId: string | null,
   onProgress: (progress: number) => void,
-  options: { deferFolderCacheInvalidation?: boolean } = {},
 ): Promise<CompletedFileInfo> {
   if (!userId) {
     throw new Error('User ID is required for upload')
@@ -332,7 +328,6 @@ export async function uploadFileToS3(
     file.size,
     folderId,
     providerId,
-    options.deferFolderCacheInvalidation ?? false,
   )
 }
 
@@ -376,7 +371,6 @@ export async function uploadBatch(
           (progress) => {
             updateUpload(task.id, { progress })
           },
-          { deferFolderCacheInvalidation: true },
         )
 
         updateUpload(task.id, { progress: 100, status: 'completed' })
@@ -402,9 +396,6 @@ export async function uploadBatch(
 
   const workerCount = Math.min(concurrency, files.length)
   await Promise.all(Array.from({ length: workerCount }, () => worker()))
-  if (completed > 0) {
-    await invalidateUploadFolderCache({ data: { parentFolderId: folderId } })
-  }
   return completed
 }
 
@@ -412,9 +403,9 @@ export async function retryUploadById(
   uploadId: string,
   userId: string,
 ): Promise<boolean> {
-  const upload = uploadStore
-    .getState()
-    .uploads.find((currentUpload) => currentUpload.id === uploadId)
+  const upload = getUploads().find(
+    (currentUpload) => currentUpload.id === uploadId,
+  )
 
   if (!upload) {
     return false

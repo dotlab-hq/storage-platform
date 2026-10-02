@@ -1,217 +1,134 @@
-import { useQuery, useMutation } from '@tanstack/react-query'
-import * as React from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { useMutation } from '@tanstack/react-query'
 import * as QRCode from 'qrcode'
-import { WEBRTC_TRANSFER_PREFIX } from '@/lib/webrtc-transfer-utils'
-import {
-  createWebrtcOfferFn,
-  pollWebrtcOfferFn,
-  scanWebrtcOfferFn,
-} from './webrtc-rpc'
+import { usePreferencesStore } from '@/stores/preferences-store'
+import { createWebrtcOfferFn, pollWebrtcOfferFn } from './webrtc-rpc'
+import type { WebrtcOfferRpcResponse } from './webrtc-rpc'
 
-export type WebrtcOfferResponse = {
-  code: string
-  payload: string
-  pollKey: string
-  sessionToken?: string
-  expiresAt: string
-  pollIntervalMs: number
+/** How long one QR offer is shown before a new one is generated. */
+const OFFER_LIFETIME_MS = 60_000
+const POLL_INTERVAL_MS = 1_000
+/** Pause on the "expired" message before replacing the QR. */
+const REGENERATE_DELAY_MS = 2_000
+
+type ActiveOffer = {
+  offer: WebrtcOfferRpcResponse
+  qrImage: string
+  receivedAt: number
 }
 
-export const WEBRTC_TRANSFER_ENABLED_KEY = 'dot_webrtc_transfer_enabled'
-
+/**
+ * The offering side of a WebRTC transfer. While transfers are enabled and no
+ * peer is connected it keeps a QR offer on screen and polls it until a peer
+ * claims it; after a minute (or when the server expires it) a new offer
+ * replaces it. A failed request stops and waits for a manual retry.
+ */
 export function useWebrtcTransfer(isConnected: boolean) {
-  const [webrtcEnabled, setWebrtcEnabled] = React.useState(false)
-  const [qrImage, setQrImage] = React.useState('')
-  const [offer, setOffer] = React.useState<WebrtcOfferResponse | null>(null)
-  const [expired, setExpired] = React.useState(false)
-  const [errorMessage, setErrorMessage] = React.useState('')
-  const [connectionStatus, setConnectionStatus] =
-    React.useState<string>('disconnected')
+  const webrtcEnabled = usePreferencesStore((state) => state.webrtcEnabled)
+  const setWebrtcEnabled = usePreferencesStore(
+    (state) => state.setWebrtcEnabled,
+  )
+  const [active, setActive] = useState<ActiveOffer | null>(null)
+  const [expired, setExpired] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
-  React.useEffect(() => {
-    const stored = localStorage.getItem(WEBRTC_TRANSFER_ENABLED_KEY)
-    setWebrtcEnabled(stored === 'true')
-  }, [])
-
-  const createOfferQuery = useQuery({
-    queryKey: ['webrtc-transfer-offer'],
-    queryFn: async () => {
-      const data = await createWebrtcOfferFn()
-      const dataUrl = await QRCode.toDataURL(data.payload, {
+  const { mutate: requestOffer, isPending: loading } = useMutation({
+    mutationFn: async (): Promise<ActiveOffer> => {
+      const offer = await createWebrtcOfferFn()
+      const qrImage = await QRCode.toDataURL(offer.payload, {
         width: 260,
         margin: 1,
       })
-      const offerResponse: WebrtcOfferResponse = {
-        code: data.code,
-        payload: data.payload,
-        pollKey: data.pollKey,
-        sessionToken: data.sessionToken,
-        expiresAt: data.expiresAt,
-        pollIntervalMs: data.pollIntervalMs,
-      }
-      return { offer: offerResponse, dataUrl }
+      return { offer, qrImage, receivedAt: Date.now() }
     },
-    enabled: false,
-  })
-
-  const generateQr = () => createOfferQuery.refetch()
-
-  React.useEffect(() => {
-    if (createOfferQuery.data) {
-      setOffer(createOfferQuery.data.offer)
-      setQrImage(createOfferQuery.data.dataUrl)
+    onSuccess: (next) => {
+      setActive(next)
       setExpired(false)
       setErrorMessage('')
-    }
-  }, [createOfferQuery.data])
+    },
+    onError: (error) => {
+      setActive(null)
+      setExpired(false)
+      setErrorMessage(error.message || 'Failed to generate QR code.')
+    },
+  })
 
-  React.useEffect(() => {
-    if (createOfferQuery.error) {
-      setErrorMessage(
-        createOfferQuery.error instanceof Error
-          ? createOfferQuery.error.message
-          : 'Failed to generate QR code.',
-      )
-      setExpired(true)
-      setOffer(null)
-      setQrImage('')
-    }
-  }, [createOfferQuery.error])
+  // `requestOffer` is stable, so this never restarts the effects below.
+  const generateQr = useCallback(() => requestOffer(), [requestOffer])
 
-  const loading = createOfferQuery.isFetching
-
-  const toggleWebRTC = () => {
-    const newValue = !webrtcEnabled
-    setWebrtcEnabled(newValue)
-    localStorage.setItem(WEBRTC_TRANSFER_ENABLED_KEY, String(newValue))
-    window.dispatchEvent(
-      new CustomEvent('webrtc-transfer-toggled', { detail: newValue }),
-    )
-
-    if (!newValue) {
-      setOffer(null)
-      setQrImage('')
-      setConnectionStatus('disconnected')
-    }
+  // Turning transfers off (here or from the sidebar) drops the current offer,
+  // so turning them back on starts fresh. Adjusting state while rendering
+  // avoids an extra effect pass.
+  if (!webrtcEnabled && (active || expired || errorMessage)) {
+    setActive(null)
+    setExpired(false)
+    setErrorMessage('')
   }
 
-  React.useEffect(() => {
-    if (webrtcEnabled && !offer && !isConnected) {
-      void generateQr()
-    }
-  }, [webrtcEnabled, offer, isConnected])
+  const needsOffer =
+    webrtcEnabled && !isConnected && !active && !loading && !errorMessage
+  useEffect(() => {
+    if (needsOffer) generateQr()
+  }, [needsOffer, generateQr])
 
-  React.useEffect(() => {
-    if (!offer || expired || isConnected) return
+  const pollKey = active?.offer.pollKey
+  const deadline = active ? active.receivedAt + OFFER_LIFETIME_MS : 0
+  const shouldPoll =
+    Boolean(pollKey) && webrtcEnabled && !isConnected && !expired
 
+  useEffect(() => {
+    if (!shouldPoll || !pollKey) return
     let cancelled = false
-    const startedAt = Date.now()
+    let timer: ReturnType<typeof setTimeout> | undefined
+
+    const expire = (message: string) => {
+      setExpired(true)
+      setErrorMessage(message)
+    }
 
     const poll = async () => {
-      if (cancelled) return
-
-      const ONE_MINUTE_MS = 60_000
-      if (Date.now() - startedAt >= ONE_MINUTE_MS) {
-        setExpired(true)
-        setErrorMessage('QR has expired. Generating new QR code.')
-        setTimeout(() => {
-          if (!cancelled) void generateQr()
-        }, 2000)
+      if (Date.now() >= deadline) {
+        expire('QR has expired. Generating new QR code.')
         return
       }
-
       try {
-        const pollData = await pollWebrtcOfferFn({
-          data: { pollKey: offer.pollKey },
-        })
-
-        const status = pollData.status
-
-        if (status === 'connected') {
-          setConnectionStatus('connected')
+        const { status } = await pollWebrtcOfferFn({ data: { pollKey } })
+        if (cancelled || status === 'connected') return
+        if (status === 'expired') {
+          expire('WebRTC offer has expired.')
           return
-        } else if (status === 'expired') {
-          setExpired(true)
-          setErrorMessage('WebRTC offer has expired.')
-          setTimeout(() => {
-            if (!cancelled) void generateQr()
-          }, 2000)
-          return
-        } else {
-          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-          if (!cancelled) setTimeout(poll, 1000)
         }
-      } catch (error) {
-        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-        if (!cancelled) setTimeout(poll, 1000)
+      } catch {
+        // Transient failure: keep polling until the deadline.
       }
+      if (!cancelled) timer = setTimeout(poll, POLL_INTERVAL_MS)
     }
 
-    const pollTimer = setTimeout(poll, 1000)
+    timer = setTimeout(poll, POLL_INTERVAL_MS)
     return () => {
       cancelled = true
-      clearTimeout(pollTimer)
+      clearTimeout(timer)
     }
-  }, [offer, expired, isConnected, generateQr])
+  }, [shouldPoll, pollKey, deadline])
+
+  // Replace an expired offer after showing the message briefly.
+  const shouldRegenerate = expired && webrtcEnabled && !isConnected
+  useEffect(() => {
+    if (!shouldRegenerate) return
+    const timer = setTimeout(generateQr, REGENERATE_DELAY_MS)
+    return () => clearTimeout(timer)
+  }, [shouldRegenerate, generateQr])
+
+  const toggleWebRTC = () => setWebrtcEnabled(!webrtcEnabled)
 
   return {
     webrtcEnabled,
-    qrImage,
-    offer,
+    offer: active?.offer ?? null,
+    qrImage: active?.qrImage ?? '',
     loading,
     expired,
     errorMessage,
-    connectionStatus,
     toggleWebRTC,
     generateQr,
-  }
-}
-
-export function useWebrtcScanner() {
-  const [error, setError] = React.useState<string>('')
-  const [connectionStatus, setConnectionStatus] = React.useState<
-    'idle' | 'claimed' | 'connected' | 'error'
-  >('idle')
-  const [sessionToken, setSessionToken] = React.useState<string | null>(null)
-
-  const submitMutation = useMutation({
-    mutationFn: async (payload: string) => {
-      return await scanWebrtcOfferFn({ data: { payload } })
-    },
-    onSuccess: (data) => {
-      if (data.sessionToken) {
-        setSessionToken(data.sessionToken)
-        setConnectionStatus('claimed')
-      }
-    },
-    onError: (err: Error) => {
-      setError(err.message)
-      setConnectionStatus('error')
-    },
-  })
-
-  const handleScanned = (payload: string) => {
-    if (!payload.startsWith(WEBRTC_TRANSFER_PREFIX)) {
-      setError('Invalid WebRTC transfer QR code')
-      return
-    }
-    submitMutation.mutate(payload)
-  }
-
-  const reset = () => {
-    setError('')
-    setConnectionStatus('idle')
-    setSessionToken(null)
-  }
-
-  return {
-    error,
-    setError,
-    handleScanned,
-    submitMutation,
-    isSubmitting: submitMutation.isPending,
-    connectionStatus,
-    sessionToken,
-    reset,
   }
 }
