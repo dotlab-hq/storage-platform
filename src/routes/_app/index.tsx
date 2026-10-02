@@ -1,57 +1,41 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
-import { lazy, Suspense } from 'react'
-import { PageSkeleton } from '@/components/ui/page-skeleton'
-import { HomeRoutePending } from '../-home-pending'
-import { getHomeSnapshotFn } from '../-home-server'
+import { folderItemsQuery, quotaQuery } from '@/lib/storage/folder-query'
+import { folderIdFromNav } from '@/hooks/use-folder-navigation'
+import { StoragePage } from './-storage-page'
+import { StoragePageSkeleton } from './-storage-page-skeleton'
 
 type HomeSearch = {
+  /** Opens the upload dialog on arrival (used by the dock / QR flows). */
   upload?: boolean
+  /** Encoded folder id, see `lib/nav-token.ts`. */
   nav?: string
 }
 
-function parseUploadSearchValue(value: unknown): boolean | undefined {
+function parseBoolean(value: unknown): boolean | undefined {
   if (typeof value === 'boolean') return value
-  if (typeof value !== 'string') return undefined
-  const normalized = value.trim().toLowerCase()
-  if (normalized === '1' || normalized === 'true') return true
-  if (normalized === '0' || normalized === 'false') return false
+  if (value === '1' || value === 'true') return true
+  if (value === '0' || value === 'false') return false
   return undefined
 }
-
-function validateHomeSearch(search: Record<string, unknown>): HomeSearch {
-  return {
-    upload: parseUploadSearchValue(search.upload),
-    nav: typeof search.nav === 'string' ? search.nav : undefined,
-  }
-}
-
-const StoragePage = lazy(() =>
-  import('./-storage-page').then((m) => ({ default: m.StoragePage })),
-)
 
 export const Route = createFileRoute('/_app/')({
   server: {
     middleware: [isAuthenticatedMiddleware],
   },
-  validateSearch: validateHomeSearch,
-  loaderDeps: ({ search }) => ({
-    upload: search.upload ?? false,
-    nav: search.nav,
+  validateSearch: (search: Record<string, unknown>): HomeSearch => ({
+    upload: parseBoolean(search.upload),
+    nav: typeof search.nav === 'string' ? search.nav : undefined,
   }),
-  component: StorageRouteComponent,
-  loader: async ({ deps }) => {
-    return getHomeSnapshotFn({ data: { nav: deps.nav ?? undefined } })
+  loaderDeps: ({ search }) => ({ folderId: folderIdFromNav(search.nav) }),
+  // Prefetch into the query cache; the page reads it back with suspense
+  // queries, so it renders complete on the first paint (SSR and client).
+  loader: async ({ context: { queryClient }, deps }) => {
+    await Promise.all([
+      queryClient.ensureInfiniteQueryData(folderItemsQuery(deps.folderId)),
+      queryClient.ensureQueryData(quotaQuery()),
+    ])
   },
-  pendingComponent: HomeRoutePending,
+  pendingComponent: StoragePageSkeleton,
+  component: StoragePage,
 })
-
-function StorageRouteComponent() {
-  const search = Route.useSearch()
-  const initial = Route.useLoaderData()
-  return (
-    <Suspense fallback={<PageSkeleton variant="default" />}>
-      <StoragePage initial={initial} search={search} />
-    </Suspense>
-  )
-}

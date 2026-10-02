@@ -1,6 +1,4 @@
 import { createServerFn } from '@tanstack/react-start'
-export * from './-admin-provider-save'
-
 import { db } from '@/db'
 import { file } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
@@ -24,42 +22,23 @@ const UpdateProviderAvailabilitySchema = z.object({
   isActive: z.boolean(),
 })
 
-export const getAdminDashboardDataFn = createServerFn({
-  method: 'GET',
-})
-  .middleware([isAdminMiddleware])
-  .handler(async () => {
-  const [summary, providers, users] = await Promise.all([
-    getStorageAdminSummary(),
-    listProvidersWithUsage(),
-    getUsersWithUsage(),
-  ])
-  return { summary, providers, users }
-})
-
 export const getAdminSummaryFn = createServerFn({
   method: 'GET',
 })
   .middleware([isAdminMiddleware])
-  .handler(async () => {
-  return getStorageAdminSummary()
-})
+  .handler(async () => getStorageAdminSummary())
 
 export const getAdminProvidersFn = createServerFn({
   method: 'GET',
 })
   .middleware([isAdminMiddleware])
-  .handler(async () => {
-  return listProvidersWithUsage()
-})
+  .handler(async () => listProvidersWithUsage())
 
 export const getAdminUsersFn = createServerFn({
   method: 'GET',
 })
   .middleware([isAdminMiddleware])
-  .handler(async () => {
-  return getUsersWithUsage()
-})
+  .handler(async () => getUsersWithUsage())
 
 export const setStorageProviderAvailabilityFn = createServerFn({
   method: 'POST',

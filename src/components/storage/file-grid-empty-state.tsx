@@ -1,4 +1,4 @@
-export function FileGridEmptyState() {
+export function FileGridEmptyState({ isTrash = false }: { isTrash?: boolean }) {
   return (
     <div className="flex flex-col items-center justify-center py-20 text-center">
       <div className="bg-muted mb-4 rounded-full p-4">
@@ -16,9 +16,13 @@ export function FileGridEmptyState() {
           />
         </svg>
       </div>
-      <h3 className="text-foreground mb-1 text-sm font-medium">No files yet</h3>
+      <h3 className="text-foreground mb-1 text-sm font-medium">
+        {isTrash ? 'Trash is empty' : 'This folder is empty'}
+      </h3>
       <p className="text-muted-foreground text-sm">
-        Upload files or create a folder to get started
+        {isTrash
+          ? 'Deleted files and folders will show up here'
+          : 'Upload files, drop them here, or create a folder'}
       </p>
     </div>
   )

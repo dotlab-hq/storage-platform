@@ -1,4 +1,4 @@
-import { Trash2, Share2, X } from 'lucide-react'
+import { FolderInput, Share2, Trash2, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -6,6 +6,7 @@ type FloatingActionBarProps = {
   selectedCount: number
   onDelete: () => void
   onShare: () => void
+  onMove: () => void
   onClear: () => void
 }
 
@@ -13,6 +14,7 @@ export function FloatingActionBar({
   selectedCount,
   onDelete,
   onShare,
+  onMove,
   onClear,
 }: FloatingActionBarProps) {
   if (selectedCount === 0) return null
@@ -40,7 +42,17 @@ export function FloatingActionBar({
           <Trash2 className="mr-1 h-4 w-4" />
           Trash
         </Button>
-        <Button size="sm" variant="ghost" onClick={onShare}>
+        <Button size="sm" variant="ghost" onClick={onMove}>
+          <FolderInput className="mr-1 h-4 w-4" />
+          Move
+        </Button>
+        <Button
+          size="sm"
+          variant="ghost"
+          onClick={onShare}
+          disabled={selectedCount !== 1}
+          title={selectedCount !== 1 ? 'Select a single item to share' : undefined}
+        >
           <Share2 className="mr-1 h-4 w-4" />
           Share
         </Button>

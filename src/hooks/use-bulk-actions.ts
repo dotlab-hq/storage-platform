@@ -1,203 +1,98 @@
-import {
-  useCallback,
-  useMemo,
-  useOptimistic,
-  useRef,
-  useTransition,
-} from 'react'
+import { useCallback } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from '@/components/ui/sonner'
 import { STORAGE_QUERY_KEYS } from '@/lib/query-keys'
-import type { StorageItem } from '@/types/storage'
 import { deleteItemsFn } from '@/lib/storage/mutations/delete'
 import { moveItemsFn } from '@/lib/storage/mutations/move'
+import {
+  folderItemsQuery,
+  refreshAllFolders,
+  refreshFolder,
+  removeFolderItems,
+} from '@/lib/storage/folder-query'
+import { useSelectionStore } from '@/stores/selection-store'
+import type { StorageItem } from '@/types/storage'
 
-function getItemTypes(ids: string[], items: StorageItem[]) {
-  return ids.map((id) => {
-    const item = items.find((entry) => entry.id === id)
-    return item?.type ?? 'file'
-  })
+type ItemRef = Pick<StorageItem, 'id' | 'type'>
+
+function toPayload(items: ItemRef[]) {
+  return {
+    itemIds: items.map((item) => item.id),
+    itemTypes: items.map((item) => item.type),
+  }
 }
 
-type UseBulkActionsParams = {
-  userId: string | null
-  items: StorageItem[]
-  selectedIds: Set<string>
-  setItems: React.Dispatch<React.SetStateAction<StorageItem[]>>
-  clearSelection: () => void
-  refresh: () => Promise<void>
-  setDeleteOpen: (open: boolean) => void
-  setMoveOpen: (open: boolean) => void
-}
-
-export function useBulkActions({
-  userId,
-  items,
-  selectedIds,
-  setItems,
-  clearSelection,
-  refresh,
-  setDeleteOpen,
-  setMoveOpen,
-}: UseBulkActionsParams) {
+/**
+ * Multi-item operations for the file browser (move to trash, move, drag
+ * onto a folder). Items disappear from the grid immediately; if the server
+ * call fails the folder is refetched, which brings them back.
+ */
+export function useBulkActions(folderId: string | null) {
   const queryClient = useQueryClient()
-  const selectedIdsRef = useRef(selectedIds)
-  selectedIdsRef.current = selectedIds
-  const [, startTransition] = useTransition()
 
-  // Optimistic state for items during bulk operations
-  const [, addOptimisticRemoval] = useOptimistic<StorageItem[], Set<string>>(
-    items,
-    (currentItems, idsToRemove) =>
-      currentItems.filter((item) => !idsToRemove.has(item.id)),
-  )
-
-  // Memoized query key for the current folder
-  const currentFolderId = useMemo(() => {
-    const firstItem = items[0]
-    if (!firstItem) return null
-    return firstItem.type === 'folder'
-      ? firstItem.parentFolderId
-      : (firstItem.folderId ?? null)
-  }, [items])
-
-  // Delete mutation
-  const deleteMutation = useMutation({
-    mutationFn: async ({
-      ids,
-      types,
-    }: {
-      ids: string[]
-      types: ('file' | 'folder')[]
-    }) => {
-      await deleteItemsFn({ data: { itemIds: ids, itemTypes: types } })
-    },
-    onMutate: ({ ids }) => {
-      const idSet = new Set(ids)
-      // Optimistic removal with useTransition
-      startTransition(() => {
-        addOptimisticRemoval(idSet)
-        setItems((previous) => previous.filter((item) => !idSet.has(item.id)))
+  const removeOptimistically = useCallback(
+    async (items: ItemRef[]) => {
+      await queryClient.cancelQueries({
+        queryKey: folderItemsQuery(folderId).queryKey,
       })
-      clearSelection()
-      setDeleteOpen(false)
-    },
-    onError: (error) => {
-      void refresh()
-      toast.error(
-        error instanceof Error ? error.message : 'Failed to delete items',
+      removeFolderItems(
+        queryClient,
+        folderId,
+        items.map((item) => item.id),
       )
+      useSelectionStore.getState().clear()
     },
-    onSettled: () => {
-      void queryClient.invalidateQueries({
-        queryKey: STORAGE_QUERY_KEYS.folderItems(currentFolderId),
-      })
-      void queryClient.invalidateQueries({
-        queryKey: STORAGE_QUERY_KEYS.quota,
-      })
-    },
+    [folderId, queryClient],
+  )
+
+  const trashMutation = useMutation({
+    mutationFn: (items: ItemRef[]) =>
+      deleteItemsFn({ data: toPayload(items) }),
+    onMutate: removeOptimistically,
+    onSuccess: (_result, items) =>
+      toast.success(
+        `Moved ${items.length} item${items.length > 1 ? 's' : ''} to trash`,
+      ),
+    onError: (error) =>
+      toast.error(error instanceof Error ? error.message : 'Delete failed'),
+    onSettled: () =>
+      Promise.all([
+        refreshFolder(queryClient, folderId),
+        queryClient.invalidateQueries({ queryKey: STORAGE_QUERY_KEYS.trash }),
+      ]),
   })
 
-  // Move mutation
   const moveMutation = useMutation({
-    mutationFn: async ({
-      ids,
-      types,
+    mutationFn: ({
+      items,
       targetFolderId,
     }: {
-      ids: string[]
-      types: ('file' | 'folder')[]
+      items: ItemRef[]
       targetFolderId: string | null
-    }) => {
-      await moveItemsFn({
-        data: { itemIds: ids, itemTypes: types, targetFolderId },
-      })
-    },
-    onMutate: ({ ids }) => {
-      const idSet = new Set(ids)
-      startTransition(() => {
-        addOptimisticRemoval(idSet)
-        setItems((previous) => previous.filter((item) => !idSet.has(item.id)))
-      })
-      clearSelection()
-      setMoveOpen(false)
-    },
-    onError: () => {
-      void refresh()
-      toast.error('Failed to move items')
-    },
-    onSettled: () => {
-      void queryClient.invalidateQueries({
-        queryKey: STORAGE_QUERY_KEYS.folderItems(currentFolderId),
-      })
-    },
+    }) =>
+      moveItemsFn({ data: { ...toPayload(items), targetFolderId } }),
+    onMutate: ({ items, targetFolderId }) =>
+      // Moving into the folder we're looking at changes nothing visible.
+      targetFolderId === folderId ? undefined : removeOptimistically(items),
+    onError: (error) =>
+      toast.error(error instanceof Error ? error.message : 'Move failed'),
+    // Both the source and the destination folder changed.
+    onSettled: () => refreshAllFolders(queryClient),
   })
 
-  // Drag-move mutation
-  const dragMoveMutation = useMutation({
-    mutationFn: async ({
-      itemId,
-      itemType,
-      targetFolderId,
-    }: {
-      itemId: string
-      itemType: 'file' | 'folder'
-      targetFolderId: string
-    }) => {
-      await moveItemsFn({
-        data: {
-          itemIds: [itemId],
-          itemTypes: [itemType],
-          targetFolderId,
-        },
-      })
-    },
-    onMutate: ({ itemId }) => {
-      startTransition(() => {
-        setItems((previous) => previous.filter((item) => item.id !== itemId))
-      })
-    },
-    onError: () => {
-      void refresh()
-      toast.error('Failed to move item')
-    },
-    onSettled: () => {
-      void queryClient.invalidateQueries({
-        queryKey: STORAGE_QUERY_KEYS.folderItems(currentFolderId),
-      })
-    },
-  })
-
-  const handleDelete = useCallback(
-    async (ids: string[], types: ('file' | 'folder')[]) => {
-      if (!userId || ids.length === 0) return
-      deleteMutation.mutate({ ids, types })
-    },
-    [userId, deleteMutation],
-  )
-
-  const handleMove = useCallback(
-    async (targetFolderId: string | null) => {
-      if (!userId) return
-      const ids = Array.from(selectedIdsRef.current)
-      if (ids.length === 0) return
-      const types = getItemTypes(ids, items)
-      moveMutation.mutate({ ids, types, targetFolderId })
-    },
-    [userId, items, moveMutation],
-  )
-
-  const handleDragMoveItem = useCallback(
-    async (
-      itemId: string,
-      itemType: 'file' | 'folder',
-      targetFolderId: string,
-    ) => {
-      if (!userId) return
-      dragMoveMutation.mutate({ itemId, itemType, targetFolderId })
-    },
-    [userId, dragMoveMutation],
-  )
-
-  return { handleDelete, handleMove, handleDragMoveItem }
+  return {
+    moveToTrash: useCallback(
+      (items: ItemRef[]) => {
+        if (items.length > 0) trashMutation.mutate(items)
+      },
+      [trashMutation],
+    ),
+    move: useCallback(
+      (items: ItemRef[], targetFolderId: string | null) => {
+        if (items.length > 0) moveMutation.mutate({ items, targetFolderId })
+      },
+      [moveMutation],
+    ),
+    isMoving: moveMutation.isPending,
+  }
 }

@@ -48,70 +48,6 @@ export async function restoreItems(
         ),
       ]
 
-      // Determine which parent folders are deleted
-      const deletedParentIds = new Set<string>()
-      if (parentFolderIds.length > 0) {
-        const parentFolders = await db
-          .select({
-            id: folder.id,
-            isDeleted: folder.isDeleted,
-          })
-          .from(folder)
-          .where(
-            and(eq(folder.userId, userId), inArray(folder.id, parentFolderIds)),
-          )
-        for (const p of parentFolders) {
-          if (p.isDeleted) deletedParentIds.add(p.id)
-        }
-      }
-
-      // Restore all folders: clear trash and deleted flags
-      await db
-        .update(folder)
-        .set({ isTrashed: false, isDeleted: false })
-        .where(and(eq(folder.userId, userId), inArray(folder.id, chunk)))
-
-      // Orphan folders whose parent folder is deleted
-      const orphanedIds = folders
-        .filter(
-          (f) => f.parentFolderId && deletedParentIds.has(f.parentFolderId),
-        )
-        .map((f) => f.id)
-
-      if (orphanedIds.length > 0) {
-        await db
-          .update(folder)
-          .set({ parentFolderId: null })
-          .where(
-            and(eq(folder.userId, userId), inArray(folder.id, orphanedIds)),
-          )
-      }
-    }
-  }
-
-  // Restore folders first (so children can check updated parent state)
-  if (folderIds.length > 0) {
-    for (let i = 0; i < folderIds.length; i += CHUNK_SIZE) {
-      const chunk = folderIds.slice(i, i + CHUNK_SIZE)
-
-      // Fetch folders to get parent folder info
-      const folders = await db
-        .select({
-          id: folder.id,
-          parentFolderId: folder.parentFolderId,
-        })
-        .from(folder)
-        .where(and(eq(folder.userId, userId), inArray(folder.id, chunk)))
-
-      // Collect non-null parent folder IDs
-      const parentFolderIds = [
-        ...new Set(
-          folders
-            .map((f) => f.parentFolderId)
-            .filter((id): id is string => id != null),
-        ),
-      ]
-
       // Determine which parent folders are unavailable (trashed or deleted)
       const unavailableParentIds = new Set<string>()
       if (parentFolderIds.length > 0) {
@@ -125,8 +61,12 @@ export async function restoreItems(
           .where(
             and(eq(folder.userId, userId), inArray(folder.id, parentFolderIds)),
           )
+        // A parent restored in this same request counts as available.
+        const restoringIds = new Set(folderIds)
         for (const p of parentFolders) {
-          if (p.isTrashed || p.isDeleted) unavailableParentIds.add(p.id)
+          if ((p.isTrashed || p.isDeleted) && !restoringIds.has(p.id)) {
+            unavailableParentIds.add(p.id)
+          }
         }
       }
 
@@ -190,8 +130,12 @@ export async function restoreItems(
           .where(
             and(eq(folder.userId, userId), inArray(folder.id, parentFolderIds)),
           )
+        // A parent restored in this same request counts as available.
+        const restoringIds = new Set(folderIds)
         for (const p of parentFolders) {
-          if (p.isTrashed || p.isDeleted) unavailableParentIds.add(p.id)
+          if ((p.isTrashed || p.isDeleted) && !restoringIds.has(p.id)) {
+            unavailableParentIds.add(p.id)
+          }
         }
       }
 
@@ -230,11 +174,6 @@ export async function restoreItems(
     ...folderIds.map((id) => seedNodeById(userId, 'folder', id)),
   ])
 
-  const { invalidateFolderCache, invalidateQuotaCache } =
-    await import('@/lib/cache-invalidation')
-  await invalidateQuotaCache(userId)
-  await invalidateFolderCache(userId, null)
-
   return { restored: itemIds.length }
 }
 
@@ -262,108 +201,9 @@ export async function permanentDeleteItems(
     deletedAt,
   )
 
-  const { invalidateFolderCache, invalidateQuotaCache } =
-    await import('@/lib/cache-invalidation')
-  await invalidateQuotaCache(userId)
-  await invalidateFolderCache(userId, null)
-
   return {
     deletedFiles: deletedFileIds.length + deletedFolderResult.fileIds.length,
     deletedFolders: deletedFolderResult.folderIds.length,
   }
 }
 
-export async function restoreAllTrash(userId: string) {
-  const [{ db }, { file: storageFile, folder }] = await Promise.all([
-    import('@/db'),
-    import('@/db/schema/storage'),
-  ])
-
-  // Fetch all trashed file IDs and folder IDs
-  const [fileRows, folderRows] = await Promise.all([
-    db
-      .select({ id: storageFile.id })
-      .from(storageFile)
-      .where(
-        and(
-          eq(storageFile.userId, userId),
-          eq(storageFile.isTrashed, true),
-          eq(storageFile.isDeleted, false),
-        ),
-      ),
-    db
-      .select({ id: folder.id })
-      .from(folder)
-      .where(
-        and(
-          eq(folder.userId, userId),
-          eq(folder.isTrashed, true),
-          eq(folder.isDeleted, false),
-        ),
-      ),
-  ])
-
-  const itemIds = [...fileRows.map((r) => r.id), ...folderRows.map((r) => r.id)]
-  const itemTypes = [
-    ...fileRows.map(() => 'file' as const),
-    ...folderRows.map(() => 'folder' as const),
-  ]
-
-  return restoreItems(userId, itemIds, itemTypes)
-}
-
-export async function emptyAllTrash(userId: string) {
-  const [{ db }, { file: storageFile, folder }] = await Promise.all([
-    import('@/db'),
-    import('@/db/schema/storage'),
-  ])
-
-  // Fetch all trashed file IDs and folder IDs in two queries
-  const [fileRows, folderRows] = await Promise.all([
-    db
-      .select({ id: storageFile.id })
-      .from(storageFile)
-      .where(
-        and(
-          eq(storageFile.userId, userId),
-          eq(storageFile.isTrashed, true),
-          eq(storageFile.isDeleted, false),
-        ),
-      ),
-    db
-      .select({ id: folder.id })
-      .from(folder)
-      .where(
-        and(
-          eq(folder.userId, userId),
-          eq(folder.isTrashed, true),
-          eq(folder.isDeleted, false),
-        ),
-      ),
-  ])
-
-  const fileIds = fileRows.map((r) => r.id)
-  const folderIds = folderRows.map((r) => r.id)
-
-  const deletedAt = new Date()
-  const deletedFileIds = await markFilesForDeletionSchedule(
-    userId,
-    fileIds,
-    deletedAt,
-  )
-  const deletedFolderResult = await markFolderSubtreesForDeletionSchedule(
-    userId,
-    folderIds,
-    deletedAt,
-  )
-
-  const { invalidateFolderCache, invalidateQuotaCache } =
-    await import('@/lib/cache-invalidation')
-  await invalidateQuotaCache(userId)
-  await invalidateFolderCache(userId, null)
-
-  return {
-    deletedFiles: deletedFileIds.length + deletedFolderResult.fileIds.length,
-    deletedFolders: deletedFolderResult.folderIds.length,
-  }
-}

@@ -1,90 +1,72 @@
-'use client'
-
-import { useMutation } from '@tanstack/react-query'
+import { useRef, useState } from 'react'
+import {
+  useMutation,
+  useQueryClient,
+  useSuspenseQuery,
+} from '@tanstack/react-query'
 import { useHotkey } from '@tanstack/react-hotkeys'
 import { toast } from '@/components/ui/sonner'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Activity } from '@/components/ui/activity'
 import { KeyboardShortcut } from '@/components/ui/keyboard-shortcut'
-import { updateSettings, useSettingsStore } from './-store'
-import { updateProfileSettingsFn } from './-settings-server'
-import { useRef } from 'react'
+import { CURRENT_USER_QUERY_KEY } from '@/lib/auth/current-user'
+import { updateProfileSettingsFn } from './settings-auth'
+import { refreshSettings, settingsQuery } from './settings-query'
 
-export function ProfileSection({
-  initial,
-}: {
-  initial: { user: { name: string; image?: string | null } }
-}) {
-  const name = useSettingsStore((state) => state.name)
-  const image = useSettingsStore((state) => state.image)
-  const isSavingProfile = useSettingsStore((state) => state.isSavingProfile)
+function getInitials(name: string) {
+  return name
+    .split(' ')
+    .map((part) => part[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2)
+}
+
+/** Edits the display name and avatar. */
+export function ProfileSection() {
+  const queryClient = useQueryClient()
+  const { data: settings } = useSuspenseQuery(settingsQuery())
+  const [name, setName] = useState(() => settings.user.name ?? '')
+  const [image, setImage] = useState(() => settings.user.image)
   const fileInputRef = useRef<HTMLInputElement>(null)
-  const canSave = !isSavingProfile && name.trim().length > 0
 
-  const getInitials = (name: string) => {
-    return name
-      .split(' ')
-      .map((n) => n[0])
-      .join('')
-      .toUpperCase()
-      .slice(0, 2)
-  }
-
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (file) {
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        updateSettings({ image: reader.result as string })
-      }
-      reader.readAsDataURL(file)
-    }
-  }
-
-  const saveProfileMutation = useMutation({
-    mutationFn: async () => {
-      await updateProfileSettingsFn({ data: { name, image } })
-    },
-    onMutate: () => {
-      updateSettings({ isSavingProfile: true })
-    },
+  const saveProfile = useMutation({
+    mutationFn: () => updateProfileSettingsFn({ data: { name, image } }),
     onSuccess: () => {
       toast.success('Profile saved.')
     },
     onError: (error) => {
-      const previous = { name: initial.user.name, image: initial.user.image }
-      updateSettings({ name: previous.name, image: previous.image ?? '' })
+      setName(settings.user.name ?? '')
+      setImage(settings.user.image)
       toast.error(
         error instanceof Error ? error.message : 'Failed to save profile.',
       )
     },
-    onSettled: () => {
-      updateSettings({ isSavingProfile: false })
-    },
+    // The sidebar shows the name from the current-user query.
+    onSettled: () =>
+      Promise.all([
+        refreshSettings(queryClient),
+        queryClient.invalidateQueries({ queryKey: CURRENT_USER_QUERY_KEY }),
+      ]),
   })
 
-  const saveProfile = () => {
-    const previous = { name: initial.user.name, image: initial.user.image }
-    if (name.trim().length === 0) {
-      updateSettings({ name: previous.name, image: previous.image ?? '' })
-      toast.error('Name is required.')
-      return
-    }
-    saveProfileMutation.mutate()
+  const canSave = !saveProfile.isPending && name.trim().length > 0
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+    const reader = new FileReader()
+    reader.onloadend = () => setImage(reader.result as string)
+    reader.readAsDataURL(file)
   }
 
-  useHotkey(
-    'Mod+Enter',
-    () => {
-      if (canSave) {
-        saveProfile()
-      }
-    },
-    { enabled: canSave },
-  )
+  const submit = () => {
+    if (canSave) saveProfile.mutate()
+  }
+
+  useHotkey('Mod+Enter', submit, { enabled: canSave })
 
   return (
     <section className="overflow-hidden rounded-2xl bg-linear-to-br from-background via-background to-muted/30 p-6 shadow-sm">
@@ -94,7 +76,6 @@ export function ProfileSection({
       </p>
 
       <div className="flex flex-col gap-8">
-        {/* Avatar Section */}
         <div className="flex items-start gap-6">
           <div className="relative">
             <Avatar className="size-24 ring-4 ring-background shadow-lg">
@@ -123,10 +104,13 @@ export function ProfileSection({
 
           <div className="flex-1 space-y-4">
             <div className="space-y-2">
-              <Label className="text-sm font-medium">Full Name</Label>
+              <Label htmlFor="profile-name" className="text-sm font-medium">
+                Full Name
+              </Label>
               <Input
+                id="profile-name"
                 value={name}
-                onChange={(e) => updateSettings({ name: e.target.value })}
+                onChange={(event) => setName(event.target.value)}
                 placeholder="Enter your full name"
                 className="max-w-md"
               />
@@ -138,18 +122,15 @@ export function ProfileSection({
         </div>
 
         <div className="flex justify-end border-t pt-4">
-          <Button disabled={!canSave} onClick={saveProfile} size="lg">
-            <Activity
-              when={isSavingProfile}
-              fallback={
-                <>
-                  Save changes
-                  <KeyboardShortcut keys="Mod+Enter" className="ml-2" />
-                </>
-              }
-            >
-              Saving...
-            </Activity>
+          <Button disabled={!canSave} onClick={submit} size="lg">
+            {saveProfile.isPending ? (
+              'Saving...'
+            ) : (
+              <>
+                Save changes
+                <KeyboardShortcut keys="Mod+Enter" className="ml-2" />
+              </>
+            )}
           </Button>
         </div>
       </div>

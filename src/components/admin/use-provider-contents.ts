@@ -5,7 +5,14 @@ import {
   getProviderObjectUrl,
   loadProviderContents,
 } from '@/components/admin/provider-contents-client'
+import { toast } from '@/components/ui/sonner'
+import { useDebouncedValue } from './use-debounced-value'
 
+/**
+ * Browses a provider bucket (folders, files, search) for the provider viewer.
+ * Search is debounced and the previous listing stays visible while the next
+ * one loads, so typing doesn't blank the list.
+ */
 export function useProviderContents(
   providerId: string | null,
   open: boolean,
@@ -21,8 +28,10 @@ export function useProviderContents(
     }
   }, [open, providerId])
 
+  const debouncedSearch = useDebouncedValue(searchQuery.trim())
+
   const query = useInfiniteQuery({
-    queryKey: ['provider-contents', scope, providerId, prefix, searchQuery],
+    queryKey: ['provider-contents', scope, providerId, prefix, debouncedSearch],
     enabled: open && providerId !== null,
     initialPageParam: null as string | null,
     queryFn: async ({ pageParam }) => {
@@ -34,12 +43,16 @@ export function useProviderContents(
         prefix,
         continuationToken: pageParam,
         scope,
-        searchQuery,
+        searchQuery: debouncedSearch,
       })
     },
     getNextPageParam: (lastPage) =>
       lastPage.isTruncated ? lastPage.nextContinuationToken : undefined,
     staleTime: 15_000,
+    // Keep showing the old listing while a new prefix/search loads, but never
+    // another provider's contents.
+    placeholderData: (previous, previousQuery) =>
+      previousQuery?.queryKey[2] === providerId ? previous : undefined,
   })
 
   const breadcrumbs = useMemo(() => {
@@ -107,11 +120,15 @@ export function useProviderContents(
       }
     },
     openFile: async (objectKey: string) => {
-      if (!providerId) {
-        throw new Error('Provider is required')
+      if (!providerId) return
+      try {
+        const url = await getProviderObjectUrl({ providerId, objectKey, scope })
+        window.open(url, '_blank', 'noopener,noreferrer')
+      } catch (error) {
+        toast.error(
+          error instanceof Error ? error.message : 'Failed to open file',
+        )
       }
-      const url = await getProviderObjectUrl({ providerId, objectKey, scope })
-      window.open(url, '_blank', 'noopener,noreferrer')
     },
     setSearchQuery,
   }

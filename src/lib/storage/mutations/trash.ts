@@ -2,20 +2,10 @@ import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { requireWritePermission } from '@/lib/server-auth.server'
 import { apiAuthMiddleware } from '@/middlewares/api-auth'
-import { listTrashItems } from '@/lib/trash-queries'
-import { restoreItems, permanentDeleteItems, restoreAllTrash } from '@/lib/trash-mutations'
+import { restoreItems, permanentDeleteItems } from '@/lib/trash-mutations'
 import { emptyAllTrashForUser } from '@/lib/trash-empty-all'
 import { withActivityLogging } from '@/lib/activity-logging'
 import { listTrashFolderContents } from '@/lib/trash-queries'
-
-export const listTrashItemsFn = createServerFn({ method: 'GET' })
-  .middleware([apiAuthMiddleware])
-  .handler(async ({ context }) => {
-    const { user } = context
-    // Skip logging for GET; page view will cover
-    const items = await listTrashItems(user.id)
-    return { items }
-  })
 
 const TrashActionSchema = z.object({
   itemIds: z.array(z.string()),
@@ -86,25 +76,6 @@ export const listTrashFolderContentsFn = createServerFn({ method: 'GET' })
       data.parentFolderId ?? null,
     )
     return { items }
-  })
-
-export const restoreAllTrashFn = createServerFn({ method: 'POST' })
-  .middleware([apiAuthMiddleware])
-  .handler(async ({ context }) => {
-    const { user } = context
-    return withActivityLogging(
-      user.id,
-      'file_restore',
-      {
-        tags: ['Trash', 'Files'],
-        meta: { all: true },
-      },
-      async () => {
-        requireWritePermission(user)
-        const result = await restoreAllTrash(user.id)
-        return result
-      },
-    )
   })
 
 export const emptyAllTrashFn = createServerFn({ method: 'POST' })

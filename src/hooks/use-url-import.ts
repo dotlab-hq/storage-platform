@@ -1,14 +1,14 @@
 'use client'
 
-import React, {
-  useMemo,
-  useOptimistic,
-  useTransition,
-  type Dispatch,
-  type SetStateAction,
-} from 'react'
-import { useMutation } from '@tanstack/react-query'
+import React, { useMemo, useTransition } from 'react'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { formatFileSize } from '@/lib/file-utils'
+import {
+  addFolderItem,
+  refreshFolder,
+  removeFolderItems,
+  updateFolderItems,
+} from '@/lib/storage/folder-query'
 import type { StorageItem } from '@/types/storage'
 
 export type ImportState =
@@ -26,18 +26,12 @@ export interface PendingImport {
 }
 
 interface UseUrlImportProps {
-  userId: string | null
-  currentFolderId: string | null
-  onImportComplete?: () => Promise<void> | void
-  setItems?: Dispatch<SetStateAction<StorageItem[]>>
+  /** Folder the file is imported into (null = My Files root). */
+  folderId: string | null
 }
 
-export function useUrlImport({
-  userId,
-  currentFolderId,
-  onImportComplete,
-  setItems,
-}: UseUrlImportProps) {
+export function useUrlImport({ folderId }: UseUrlImportProps) {
+  const queryClient = useQueryClient()
   const [url, setUrl] = React.useState('')
   const [fileName, setFileName] = React.useState('')
   const [importState, setImportState] = React.useState<ImportState>('idle')
@@ -45,13 +39,6 @@ export function useUrlImport({
   const [pendingImport, setPendingImport] =
     React.useState<PendingImport | null>(null)
   const [isPending, startTransition] = useTransition()
-
-  // Optimistic items list for instant UI feedback on import
-  const currentItems = useMemo(() => (setItems ? [] : []), [setItems])
-  const [, addOptimisticItem] = useOptimistic<StorageItem[], StorageItem>(
-    currentItems,
-    (current, newItem) => [...current, newItem],
-  )
 
   const reset = React.useCallback(() => {
     startTransition(() => {
@@ -136,7 +123,8 @@ export function useUrlImport({
     }
   }, [url, fileName, validateMutation])
 
-  // Import mutation with optimistic update
+  // Import mutation: shows a placeholder card immediately, swaps it for the
+  // real file on success and removes it again on failure.
   const importMutation = useMutation({
     mutationFn: async (pending: PendingImport) => {
       const { importFileFromUrl } =
@@ -145,58 +133,49 @@ export function useUrlImport({
         data: {
           url: pending.url,
           fileName: pending.fileName,
-          parentFolderId: currentFolderId,
+          parentFolderId: folderId,
         },
       })
     },
     onMutate: (pending) => {
-      if (setItems && userId) {
-        // Optimistic: add a placeholder item immediately
-        const optimisticItem: StorageItem = {
-          id: `optimistic-${crypto.randomUUID()}`,
-          name: pending.fileName,
-          objectKey: '',
-          mimeType: pending.mimeType ?? null,
-          sizeInBytes: 0,
-          userId,
-          folderId: currentFolderId,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          type: 'file' as const,
-        }
-        startTransition(() => {
-          addOptimisticItem(optimisticItem)
-          setItems((prev) => [...prev, optimisticItem])
-        })
+      const placeholder: StorageItem = {
+        id: `optimistic-${crypto.randomUUID()}`,
+        name: pending.fileName,
+        objectKey: '',
+        mimeType: pending.mimeType ?? null,
+        sizeInBytes: 0,
+        userId: '',
+        folderId,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        type: 'file',
+      }
+      addFolderItem(queryClient, folderId, placeholder)
+      return { placeholderId: placeholder.id }
+    },
+    onSuccess: (result, _pending, context) => {
+      const file: StorageItem = {
+        id: result.file.id,
+        name: result.file.name,
+        objectKey: result.file.objectKey,
+        mimeType: result.file.mimeType,
+        sizeInBytes: result.file.sizeInBytes,
+        userId: '',
+        folderId,
+        createdAt: new Date(result.file.createdAt),
+        updatedAt: new Date(result.file.createdAt),
+        type: 'file',
+      }
+      updateFolderItems(queryClient, folderId, (items) =>
+        items.map((item) => (item.id === context.placeholderId ? file : item)),
+      )
+    },
+    onError: (_error, _pending, context) => {
+      if (context) {
+        removeFolderItems(queryClient, folderId, [context.placeholderId])
       }
     },
-    onSuccess: (result) => {
-      if (setItems && userId) {
-        // Replace optimistic item with real one
-        startTransition(() => {
-          setItems((prev) => {
-            const withoutOptimistic = prev.filter(
-              (i) => !i.id.startsWith('optimistic-'),
-            )
-            return [
-              ...withoutOptimistic,
-              {
-                id: result.file.id,
-                name: result.file.name,
-                objectKey: result.file.objectKey,
-                mimeType: result.file.mimeType,
-                sizeInBytes: result.file.sizeInBytes,
-                userId,
-                folderId: currentFolderId,
-                createdAt: result.file.createdAt,
-                updatedAt: result.file.createdAt,
-                type: 'file' as const,
-              },
-            ]
-          })
-        })
-      }
-    },
+    onSettled: () => refreshFolder(queryClient, folderId),
   })
 
   const executeImport = React.useCallback(async () => {
@@ -212,7 +191,6 @@ export function useUrlImport({
 
     try {
       await importMutation.mutateAsync(pendingImport)
-      await onImportComplete?.()
       reset()
       return true
     } catch (err) {
@@ -222,7 +200,7 @@ export function useUrlImport({
       })
       return false
     }
-  }, [pendingImport, validateUrl, importMutation, onImportComplete, reset])
+  }, [pendingImport, validateUrl, importMutation, reset])
 
   const isProcessing = useMemo(
     () =>

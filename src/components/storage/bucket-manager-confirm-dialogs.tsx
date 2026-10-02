@@ -5,12 +5,11 @@ type BucketManagerConfirmDialogsProps = {
   pendingDeleteBucket: string | null
   onClearEmpty: () => void
   onClearDelete: () => void
-  onRunAction: (
-    bucketName: string,
-    action: 'empty' | 'delete',
-  ) => Promise<unknown>
+  /** Starts the action; progress and errors show in the bucket table. */
+  onRunAction: (bucketName: string, action: 'empty' | 'delete') => void
 }
 
+/** Confirmation dialogs for emptying and deleting a bucket. */
 export function BucketManagerConfirmDialogs({
   pendingEmptyBucket,
   pendingDeleteBucket,
@@ -30,11 +29,9 @@ export function BucketManagerConfirmDialogs({
         confirmLabel="Empty bucket"
         confirmVariant="destructive"
         requiresConfirmation
-        onConfirm={async () => {
-          if (pendingEmptyBucket) {
-            await onRunAction(pendingEmptyBucket, 'empty')
-            onClearEmpty()
-          }
+        onConfirm={() => {
+          if (pendingEmptyBucket) onRunAction(pendingEmptyBucket, 'empty')
+          onClearEmpty()
         }}
       />
 
@@ -48,11 +45,9 @@ export function BucketManagerConfirmDialogs({
         confirmLabel="Delete bucket"
         confirmVariant="destructive"
         requiresConfirmation
-        onConfirm={async () => {
-          if (pendingDeleteBucket) {
-            await onRunAction(pendingDeleteBucket, 'delete')
-            onClearDelete()
-          }
+        onConfirm={() => {
+          if (pendingDeleteBucket) onRunAction(pendingDeleteBucket, 'delete')
+          onClearDelete()
         }}
       />
     </>

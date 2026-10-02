@@ -30,6 +30,14 @@ const config = defineConfig({
       'qrcode',
       'use-sync-external-store/shim',
       'use-sync-external-store/shim/with-selector',
+      // The /landing 3D hero pulls in CommonJS packages (zustand v4,
+      // scheduler, ...). With `noDiscovery` they must be pre-bundled here or
+      // the dev server serves them raw and the page crashes.
+      '@react-three/fiber',
+      '@react-three/drei',
+      'use-sync-external-store/shim/index.js',
+      'use-sync-external-store/shim/with-selector.js',
+      'scheduler',
     ],
   },
   build: {

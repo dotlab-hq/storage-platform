@@ -1,210 +1,128 @@
-'use client'
-
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { toast } from '@/components/ui/sonner'
 import type { AdminUser } from '@/lib/storage-provider-queries'
 import {
-  updateUserRoleFn,
+  adminUsersQuery,
+  refreshAdminQueries,
+} from '@/routes/_app/admin/-admin-queries'
+import type { AdminQueryName } from '@/routes/_app/admin/-admin-queries'
+import {
   banUsersFn,
   deleteUsersFn,
-  updateUserStorageLimitFn,
+  updateUserRoleFn,
+} from '@/routes/_app/admin/-components/-admin-user-role-fns'
+import {
   updateUserFileSizeLimitFn,
-} from '@/routes/_app/admin/-components/-admin-server'
+  updateUserStorageLimitFn,
+} from '@/routes/_app/admin/-components/-admin-user-storage-fns'
 
-const ADMIN_USERS_QUERY_KEY = ['admin-users'] as const
+type OptimisticUsersMutation<TVariables> = {
+  mutationFn: (variables: TVariables) => Promise<unknown>
+  /** Applies the change to the cached user list before the server answers. */
+  applyOptimistic: (users: AdminUser[], variables: TVariables) => AdminUser[]
+  errorMessage: string
+  /** Admin queries the change can affect (the user list is always refetched). */
+  alsoRefresh?: AdminQueryName[]
+}
 
-export function useAdminUsersMutations() {
+/**
+ * A mutation on the admin user list: optimistic cache update, rollback and
+ * error toast on failure, and one refetch of the affected queries when done.
+ */
+function useOptimisticUsersMutation<TVariables>({
+  mutationFn,
+  applyOptimistic,
+  errorMessage,
+  alsoRefresh = [],
+}: OptimisticUsersMutation<TVariables>) {
   const queryClient = useQueryClient()
+  const { queryKey } = adminUsersQuery()
 
-  const updateRoleMutation = useMutation({
-    mutationFn: async ({
-      userId,
-      isAdmin,
-    }: {
-      userId: string
-      isAdmin: boolean
-    }) => {
-      const result = await updateUserRoleFn({ data: { userId, isAdmin } })
-      return result
-    },
-    onMutate: async ({ userId, isAdmin }) => {
-      // Cancel any outgoing refetches
-      await queryClient.cancelQueries({ queryKey: ADMIN_USERS_QUERY_KEY })
-
-      // Snapshot the previous value
-      const previousUsers = queryClient.getQueryData<AdminUser[]>(
-        ADMIN_USERS_QUERY_KEY,
+  return useMutation({
+    mutationFn,
+    onMutate: async (variables: TVariables) => {
+      await queryClient.cancelQueries({ queryKey })
+      const previousUsers = queryClient.getQueryData(queryKey)
+      queryClient.setQueryData(queryKey, (users) =>
+        users ? applyOptimistic(users, variables) : users,
       )
-
-      // Optimistically update
-      queryClient.setQueryData<AdminUser[]>(ADMIN_USERS_QUERY_KEY, (old) => {
-        if (!old) return old
-        return old.map((user) =>
-          user.id === userId ? { ...user, isAdmin } : user,
-        )
-      })
-
       return { previousUsers }
     },
-    onError: (err, variables, context) => {
-      void err
-      void variables
-      // If the mutation fails, revert to previous value
+    onError: (error, _variables, context) => {
       if (context?.previousUsers) {
-        queryClient.setQueryData(ADMIN_USERS_QUERY_KEY, context.previousUsers)
+        queryClient.setQueryData(queryKey, context.previousUsers)
       }
+      toast.error(error instanceof Error ? error.message : errorMessage)
     },
-    onSettled: () => {
-      // Refetch to ensure server state is correct
-      queryClient.invalidateQueries({ queryKey: ADMIN_USERS_QUERY_KEY })
-    },
+    onSettled: () =>
+      refreshAdminQueries(queryClient, ['users', ...alsoRefresh]),
+  })
+}
+
+/** Patches the users whose id is in `ids`. */
+function patchUsers(
+  users: AdminUser[],
+  ids: string[],
+  patch: Partial<AdminUser>,
+) {
+  return users.map((user) =>
+    ids.includes(user.id) ? { ...user, ...patch } : user,
+  )
+}
+
+/** Role, ban, delete and quota mutations used by the admin users panel. */
+export function useAdminUsersMutations() {
+  const updateRoleMutation = useOptimisticUsersMutation({
+    mutationFn: ({ userId, isAdmin }: { userId: string; isAdmin: boolean }) =>
+      updateUserRoleFn({ data: { userId, isAdmin } }),
+    applyOptimistic: (users, { userId, isAdmin }) =>
+      patchUsers(users, [userId], { isAdmin }),
+    errorMessage: 'Failed to update user role',
   })
 
-  const banUsersMutation = useMutation({
-    mutationFn: async ({
-      userIds,
-      banned,
-    }: {
-      userIds: string[]
-      banned: boolean
-    }) => {
-      const result = await banUsersFn({ data: { userIds, banned } })
-      return result
-    },
-    onMutate: async ({ userIds, banned }) => {
-      await queryClient.cancelQueries({ queryKey: ADMIN_USERS_QUERY_KEY })
-      const previousUsers = queryClient.getQueryData<AdminUser[]>(
-        ADMIN_USERS_QUERY_KEY,
-      )
-
-      queryClient.setQueryData<AdminUser[]>(ADMIN_USERS_QUERY_KEY, (old) => {
-        if (!old) return old
-        return old.map((user) =>
-          userIds.includes(user.id) ? { ...user, banned } : user,
-        )
-      })
-
-      return { previousUsers }
-    },
-    onError: (err, variables, context) => {
-      void err
-      void variables
-      if (context?.previousUsers) {
-        queryClient.setQueryData(ADMIN_USERS_QUERY_KEY, context.previousUsers)
-      }
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: ADMIN_USERS_QUERY_KEY })
-    },
+  const banUsersMutation = useOptimisticUsersMutation({
+    mutationFn: ({ userIds, banned }: { userIds: string[]; banned: boolean }) =>
+      banUsersFn({ data: { userIds, banned } }),
+    applyOptimistic: (users, { userIds, banned }) =>
+      patchUsers(users, userIds, { banned }),
+    errorMessage: 'Failed to update ban status',
+    alsoRefresh: ['providers'],
   })
 
-  const deleteUsersMutation = useMutation({
-    mutationFn: async ({ userIds }: { userIds: string[] }) => {
-      const result = await deleteUsersFn({ data: { userIds } })
-      return result
-    },
-    onMutate: async ({ userIds }) => {
-      await queryClient.cancelQueries({ queryKey: ADMIN_USERS_QUERY_KEY })
-      const previousUsers = queryClient.getQueryData<AdminUser[]>(
-        ADMIN_USERS_QUERY_KEY,
-      )
-
-      queryClient.setQueryData<AdminUser[]>(ADMIN_USERS_QUERY_KEY, (old) => {
-        if (!old) return old
-        return old.filter((user) => !userIds.includes(user.id))
-      })
-
-      return { previousUsers }
-    },
-    onError: (err, variables, context) => {
-      void err
-      void variables
-      if (context?.previousUsers) {
-        queryClient.setQueryData(ADMIN_USERS_QUERY_KEY, context.previousUsers)
-      }
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: ADMIN_USERS_QUERY_KEY })
-    },
+  const deleteUsersMutation = useOptimisticUsersMutation({
+    mutationFn: ({ userIds }: { userIds: string[] }) =>
+      deleteUsersFn({ data: { userIds } }),
+    applyOptimistic: (users, { userIds }) =>
+      users.filter((user) => !userIds.includes(user.id)),
+    errorMessage: 'Failed to delete user(s)',
+    // Deleting users removes their files: counts and provider usage change.
+    alsoRefresh: ['summary', 'providers'],
   })
 
-  const updateStorageLimitMutation = useMutation({
-    mutationFn: async ({
+  const updateStorageLimitMutation = useOptimisticUsersMutation({
+    mutationFn: ({
       userId,
       storageLimitBytes,
     }: {
       userId: string
       storageLimitBytes: number
-    }) => {
-      const result = await updateUserStorageLimitFn({
-        data: { userId, storageLimitBytes },
-      })
-      return result
-    },
-    onMutate: async ({ userId, storageLimitBytes }) => {
-      await queryClient.cancelQueries({ queryKey: ADMIN_USERS_QUERY_KEY })
-      const previousUsers = queryClient.getQueryData<AdminUser[]>(
-        ADMIN_USERS_QUERY_KEY,
-      )
-
-      queryClient.setQueryData<AdminUser[]>(ADMIN_USERS_QUERY_KEY, (old) => {
-        if (!old) return old
-        return old.map((user) =>
-          user.id === userId ? { ...user, storageLimitBytes } : user,
-        )
-      })
-
-      return { previousUsers }
-    },
-    onError: (err, variables, context) => {
-      void err
-      void variables
-      if (context?.previousUsers) {
-        queryClient.setQueryData(ADMIN_USERS_QUERY_KEY, context.previousUsers)
-      }
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: ADMIN_USERS_QUERY_KEY })
-    },
+    }) => updateUserStorageLimitFn({ data: { userId, storageLimitBytes } }),
+    applyOptimistic: (users, { userId, storageLimitBytes }) =>
+      patchUsers(users, [userId], { storageLimitBytes }),
+    errorMessage: 'Failed to update storage limit',
   })
 
-  const updateFileSizeLimitMutation = useMutation({
-    mutationFn: async ({
+  const updateFileSizeLimitMutation = useOptimisticUsersMutation({
+    mutationFn: ({
       userId,
       fileSizeLimitBytes,
     }: {
       userId: string
       fileSizeLimitBytes: number
-    }) => {
-      const result = await updateUserFileSizeLimitFn({
-        data: { userId, fileSizeLimitBytes },
-      })
-      return result
-    },
-    onMutate: async ({ userId, fileSizeLimitBytes }) => {
-      await queryClient.cancelQueries({ queryKey: ADMIN_USERS_QUERY_KEY })
-      const previousUsers = queryClient.getQueryData<AdminUser[]>(
-        ADMIN_USERS_QUERY_KEY,
-      )
-
-      queryClient.setQueryData<AdminUser[]>(ADMIN_USERS_QUERY_KEY, (old) => {
-        if (!old) return old
-        return old.map((user) =>
-          user.id === userId ? { ...user, fileSizeLimitBytes } : user,
-        )
-      })
-
-      return { previousUsers }
-    },
-    onError: (err, variables, context) => {
-      void err
-      void variables
-      if (context?.previousUsers) {
-        queryClient.setQueryData(ADMIN_USERS_QUERY_KEY, context.previousUsers)
-      }
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: ADMIN_USERS_QUERY_KEY })
-    },
+    }) => updateUserFileSizeLimitFn({ data: { userId, fileSizeLimitBytes } }),
+    applyOptimistic: (users, { userId, fileSizeLimitBytes }) =>
+      patchUsers(users, [userId], { fileSizeLimitBytes }),
+    errorMessage: 'Failed to update file size limit',
   })
 
   return {

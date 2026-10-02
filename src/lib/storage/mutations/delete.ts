@@ -96,14 +96,6 @@ export const deleteItemsFn = createServerFn({ method: 'POST' })
           )
         }
 
-        const { patchFolderCache } = await import('@/lib/cache-invalidation')
-        for (const parentId of Array.from(distinctParents)) {
-          await patchFolderCache(userId, parentId, {
-            removeFolderIds: folderIds,
-            removeFileIds: fileIds,
-          })
-        }
-
         return {
           trashedFiles: fileIds.length,
           trashedFolders: folderIds.length,

@@ -37,6 +37,8 @@ type FileCardProps = {
   item: StorageItem
   isSelected: boolean
   onDoubleClick: (item: StorageItem) => void
+  /** Single click (selection). Receives the event for modifier keys. */
+  onClick?: (item: StorageItem, event: React.MouseEvent) => void
   onContextAction: (action: ContextMenuAction, item: StorageItem) => void
   isRenaming?: boolean
   onRename?: (item: StorageItem, newName: string) => void
@@ -55,6 +57,7 @@ export function FileCard({
   item,
   isSelected,
   onDoubleClick,
+  onClick,
   onContextAction,
   isRenaming = false,
   onRename,
@@ -116,6 +119,9 @@ export function FileCard({
       data-file-card="true"
       data-storage-item-id={item.id}
       draggable={!isRenaming && !isReadOnly}
+      onClick={(event) => {
+        if (!isRenaming) onClick?.(item, event)
+      }}
       onDoubleClick={() => onDoubleClick(item)}
       onDragStart={handleDragStart}
       onDragOver={handleDragOver}

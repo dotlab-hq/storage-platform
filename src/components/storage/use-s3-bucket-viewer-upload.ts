@@ -1,49 +1,41 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { useCallback, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
+import { toast } from '@/components/ui/sonner'
 import { uploadFileWithMultipartPresignedUrl } from '@/components/storage/s3-viewer-upload'
 import type { UploadingFile } from '@/components/storage/s3-viewer-types'
+import { S3_QUERY_KEYS } from '@/lib/query-keys'
 
-type UseS3ViewerUploadParams = {
-  bucketName: string
-  prefix: string
-  queryKey: unknown[]
-}
+const COMPLETED_UPLOAD_LINGER_MS = 2000
 
-export function useS3ViewerUpload({
-  bucketName,
-  prefix,
-  queryKey,
-}: UseS3ViewerUploadParams) {
+/**
+ * Uploads a file into the current prefix of a bucket. In-flight uploads are
+ * listed with progress; failed ones stay listed (marked failed) until the
+ * user dismisses them.
+ */
+export function useS3ViewerUpload(bucketName: string, prefix: string) {
   const queryClient = useQueryClient()
   const [uploadingFiles, setUploadingFiles] = useState<UploadingFile[]>([])
   const inputRef = useRef<HTMLInputElement | null>(null)
 
+  const updateUpload = (id: string, patch: Partial<UploadingFile>) =>
+    setUploadingFiles((previous) =>
+      previous.map((item) => (item.id === id ? { ...item, ...patch } : item)),
+    )
+
+  const dismissUpload = (id: string) =>
+    setUploadingFiles((previous) => previous.filter((item) => item.id !== id))
+
   const uploadMutation = useMutation({
-    mutationFn: async ({
-      file,
-      uploadingId,
-    }: {
-      file: File
-      uploadingId: string
-    }) => {
-      const objectKey = `${prefix}${file.name}`
-      await uploadFileWithMultipartPresignedUrl({
+    mutationFn: ({ file, uploadingId }: { file: File; uploadingId: string }) =>
+      uploadFileWithMultipartPresignedUrl({
         bucketName,
-        objectKey,
+        objectKey: `${prefix}${file.name}`,
         file,
-        onProgress: (progress) => {
-          setUploadingFiles((prev) =>
-            prev.map((item) =>
-              item.id === uploadingId ? { ...item, progress } : item,
-            ),
-          )
-        },
-      })
-      return { uploadingId }
-    },
+        onProgress: (progress) => updateUpload(uploadingId, { progress }),
+      }),
     onMutate: ({ file, uploadingId }) => {
-      setUploadingFiles((prev) => [
-        ...prev,
+      setUploadingFiles((previous) => [
+        ...previous,
         {
           id: uploadingId,
           name: file.name,
@@ -53,53 +45,34 @@ export function useS3ViewerUpload({
         },
       ])
     },
-    onSuccess: ({ uploadingId }) => {
-      setUploadingFiles((prev) =>
-        prev.map((f) =>
-          f.id === uploadingId
-            ? { ...f, status: 'completed', progress: 100 }
-            : f,
-        ),
-      )
-      setTimeout(() => {
-        setUploadingFiles((prev) => prev.filter((f) => f.id !== uploadingId))
-      }, 2000)
-      queryClient.invalidateQueries({ queryKey })
+    onSuccess: (_result, { uploadingId }) => {
+      updateUpload(uploadingId, { status: 'completed', progress: 100 })
+      setTimeout(() => dismissUpload(uploadingId), COMPLETED_UPLOAD_LINGER_MS)
     },
-    onError: (error, { uploadingId }) => {
-      setUploadingFiles((prev) =>
-        prev.map((f) =>
-          f.id === uploadingId
-            ? {
-                ...f,
-                status: 'error',
-                errorMessage:
-                  error instanceof Error ? error.message : 'Upload failed',
-              }
-            : f,
-        ),
-      )
+    onError: (error, { file, uploadingId }) => {
+      const message = error instanceof Error ? error.message : 'Upload failed'
+      updateUpload(uploadingId, { status: 'error', errorMessage: message })
+      toast.error(`Failed to upload ${file.name}: ${message}`)
     },
+    onSettled: () =>
+      queryClient.invalidateQueries({
+        queryKey: S3_QUERY_KEYS.bucketItems(bucketName, prefix),
+      }),
   })
 
-  const handleUpload = useCallback(
-    async (event: React.ChangeEvent<HTMLInputElement>) => {
-      const file = event.target.files?.[0]
-      if (!file) return
-      const uploadingId = crypto.randomUUID()
-      try {
-        await uploadMutation.mutateAsync({ file, uploadingId })
-      } finally {
-        event.target.value = ''
-      }
-    },
-    [uploadMutation],
-  )
+  /** Change handler for the hidden file input. */
+  const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    event.target.value = ''
+    if (!file) return
+    uploadMutation.mutate({ file, uploadingId: crypto.randomUUID() })
+  }
 
   return {
     inputRef,
     uploadingFiles,
     handleUpload,
-    uploadMutation,
+    dismissUpload,
+    isUploading: uploadMutation.isPending,
   }
 }

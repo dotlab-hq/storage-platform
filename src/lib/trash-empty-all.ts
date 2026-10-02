@@ -43,7 +43,7 @@ export async function emptyAllTrashForUser(
 ): Promise<{ deletedFiles: number; deletedFolders: number }> {
   const deletedAt = new Date()
 
-  const [trashedFileCountRow, folderRows] = await Promise.all([
+  const [[trashedFileCountRow], folderRows] = await Promise.all([
     db
       .select({ count: sql<number>`count(*)` })
       .from(storageFile)
@@ -94,12 +94,6 @@ export async function emptyAllTrashForUser(
   if (trashedFileCount > 0 || deletedFolderResult.fileIds.length > 0) {
     await seedFilesByDeletedAt(userId, deletedAt)
   }
-
-  const { invalidateFolderCache, invalidateQuotaCache } = await import(
-    '@/lib/cache-invalidation'
-  )
-  await invalidateQuotaCache(userId)
-  await invalidateFolderCache(userId, null)
 
   return {
     deletedFiles: trashedFileCount + deletedFolderResult.fileIds.length,

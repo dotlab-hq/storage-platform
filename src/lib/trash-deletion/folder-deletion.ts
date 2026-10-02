@@ -2,10 +2,6 @@ import { and, eq, isNull } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
 import { deleteNodeByEntity } from '@/lib/storage-btree/index'
-import {
-  invalidateFolderCache,
-  invalidateQuotaCache,
-} from '@/lib/cache-invalidation'
 import type { TrashDeletionItem } from './params'
 import { getTrashDeletionDO } from './do-client'
 import type { QueueClient } from './do-client'
@@ -247,8 +243,6 @@ export async function deleteFolder(
     console.error('[Workflow Step] Failed to clear folder state:', error)
   }
 
-  await invalidateFolderCache(userId, null)
-  await invalidateQuotaCache(userId)
 
   console.log('[Workflow Step] deleteFolder completed for:', folderId)
 }
@@ -299,8 +293,6 @@ export async function checkAndDeleteCompletedFolders(
         folderId,
       )
       await trashDO.clearFolderState(folderId)
-      await invalidateFolderCache(folderRows[0].userId, null)
-      await invalidateQuotaCache(folderRows[0].userId)
       deleted++
       console.log(
         `[Workflow Step] Folder ${folderId} deleted (all children processed)`,

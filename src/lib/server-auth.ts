@@ -83,7 +83,9 @@ export async function requireAuthenticatedServerOnlySession(): Promise<void> {
   await getAuthenticatedUser()
 }
 
-export function requireWritePermission(user: AuthenticatedUser): void {
+export function requireWritePermission(
+  user: Pick<AuthenticatedUser, 'tinySessionPermission'>,
+): void {
   if (user.tinySessionPermission === 'read') {
     throw new Error('You have read-only access and cannot perform this action')
   }

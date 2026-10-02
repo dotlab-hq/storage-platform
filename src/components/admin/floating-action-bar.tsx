@@ -1,252 +1,180 @@
 import { useState } from 'react'
-import {
-  Ban,
-  Trash2,
-  X,
-  HardDrive,
-  Loader2,
-  ShieldCheck,
-  Shield,
-} from 'lucide-react'
+import { Ban, HardDrive, Shield, ShieldCheck, Trash2, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
+import { ConfirmActionDialog } from '@/components/ui/confirm-action-dialog'
 import { cn } from '@/lib/utils'
-import { toast } from '@/components/ui/sonner'
+import { ByteLimitDialog } from './byte-limit-dialog'
 
+/** Bulk actions; each resolves true on success (errors are already shown). */
 type AdminFloatingActionBarProps = {
   selectedCount: number
+  isPending: boolean
   onClear: () => void
-  onBan: (banned: boolean) => Promise<void>
-  onDelete: () => Promise<void>
-  onUpdateStorage: (storageLimitBytes: number) => Promise<void>
-  onUpdateFileSizeLimit?: (fileSizeLimitBytes: number) => Promise<void>
-  onMakeAdmin?: () => Promise<void>
-  onMakeUser?: () => Promise<void>
-  isLoading?: boolean
+  onBan: (banned: boolean) => Promise<boolean>
+  onSetAdmin: (isAdmin: boolean) => Promise<boolean>
+  onUpdateStorage: (bytes: number) => Promise<boolean>
+  onUpdateFileSizeLimit: (bytes: number) => Promise<boolean>
+  onDelete: () => Promise<boolean>
 }
 
+type OpenDialog = 'storage' | 'fileSize' | 'delete' | null
+
+/**
+ * Bottom bar shown while users are selected in the admin users table. It
+ * takes the dock's place (the dock hides while the selection store is
+ * non-empty).
+ */
 export function AdminFloatingActionBar({
   selectedCount,
+  isPending,
   onClear,
   onBan,
-  onDelete,
+  onSetAdmin,
   onUpdateStorage,
   onUpdateFileSizeLimit,
-  onMakeAdmin,
-  onMakeUser,
-  isLoading,
+  onDelete,
 }: AdminFloatingActionBarProps) {
-  const [showStorageModal, setShowStorageModal] = useState(false)
-  const [showFileSizeModal, setShowFileSizeModal] = useState(false)
-  const [storageInput, setStorageInput] = useState('')
-  const [fileSizeInput, setFileSizeInput] = useState('')
+  const [openDialog, setOpenDialog] = useState<OpenDialog>(null)
+  const closeDialog = () => setOpenDialog(null)
+  const usersLabel = `${selectedCount} user${selectedCount === 1 ? '' : 's'}`
 
-  if (selectedCount === 0) return null
+  if (selectedCount === 0 && openDialog === null) return null
 
-  const handleStorageSubmit = async () => {
-    const bytes = Number(storageInput)
-    if (!Number.isFinite(bytes) || bytes <= 0) {
-      toast.error('Please enter a valid storage limit')
-      return
-    }
-    await onUpdateStorage(bytes)
-    setShowStorageModal(false)
-    setStorageInput('')
-  }
-
-  const handleFileSizeSubmit = async () => {
-    const bytes = Number(fileSizeInput)
-    if (!Number.isFinite(bytes) || bytes <= 0) {
-      toast.error('Please enter a valid file size limit')
-      return
-    }
-    if (onUpdateFileSizeLimit) {
-      await onUpdateFileSizeLimit(bytes)
-    }
-    setShowFileSizeModal(false)
-    setFileSizeInput('')
+  const confirmDelete = async () => {
+    if (await onDelete()) closeDialog()
   }
 
   return (
     <>
-      <div
-        className={cn(
-          'fixed bottom-6 left-1/2 z-40 -translate-x-1/2',
-          'animate-in slide-in-from-bottom-4 fade-in duration-300',
-        )}
-      >
-        <div className="bg-card flex items-center gap-2 rounded-xl border px-4 py-2 shadow-lg backdrop-blur-sm">
-          <span className="text-foreground mr-2 text-sm font-medium">
-            {selectedCount} user{selectedCount > 1 ? 's' : ''} selected
-          </span>
+      {selectedCount > 0 && (
+        <div
+          className={cn(
+            'fixed bottom-6 left-1/2 z-40 -translate-x-1/2',
+            'animate-in slide-in-from-bottom-4 fade-in duration-300',
+          )}
+        >
+          <div className="bg-card flex items-center gap-2 rounded-xl border px-4 py-2 shadow-lg backdrop-blur-sm">
+            <span className="text-foreground mr-2 text-sm font-medium">
+              {usersLabel} selected
+            </span>
 
-          <div className="bg-border mx-1 h-6 w-px" />
+            <div className="bg-border mx-1 h-6 w-px" />
 
-          <Button
-            size="sm"
-            variant="ghost"
-            onClick={() => onBan(true)}
-            disabled={isLoading}
-            className="text-destructive hover:text-destructive"
-          >
-            <Ban className="mr-1 h-4 w-4" />
-            Ban
-          </Button>
-          <Button
-            size="sm"
-            variant="ghost"
-            onClick={() => onBan(false)}
-            disabled={isLoading}
-          >
-            <Ban className="mr-1 h-4 w-4" />
-            Unban
-          </Button>
-
-          <div className="bg-border mx-1 h-6 w-px" />
-
-          {onMakeAdmin && (
             <Button
               size="sm"
               variant="ghost"
-              onClick={() => void onMakeAdmin()}
-              disabled={isLoading}
+              onClick={() => void onBan(true)}
+              disabled={isPending}
+              className="text-destructive hover:text-destructive"
+            >
+              <Ban className="mr-1 h-4 w-4" />
+              Ban
+            </Button>
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => void onBan(false)}
+              disabled={isPending}
+            >
+              <Ban className="mr-1 h-4 w-4" />
+              Unban
+            </Button>
+
+            <div className="bg-border mx-1 h-6 w-px" />
+
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => void onSetAdmin(true)}
+              disabled={isPending}
             >
               <ShieldCheck className="mr-1 h-4 w-4" />
               Make Admin
             </Button>
-          )}
-          {onMakeUser && (
             <Button
               size="sm"
               variant="ghost"
-              onClick={() => void onMakeUser()}
-              disabled={isLoading}
+              onClick={() => void onSetAdmin(false)}
+              disabled={isPending}
             >
               <Shield className="mr-1 h-4 w-4" />
               Make User
             </Button>
-          )}
 
-          <div className="bg-border mx-1 h-6 w-px" />
+            <div className="bg-border mx-1 h-6 w-px" />
 
-          <Button
-            size="sm"
-            variant="ghost"
-            onClick={() => setShowStorageModal(true)}
-            disabled={isLoading}
-          >
-            <HardDrive className="mr-1 h-4 w-4" />
-            Update Storage
-          </Button>
-          {onUpdateFileSizeLimit && (
             <Button
               size="sm"
               variant="ghost"
-              onClick={() => setShowFileSizeModal(true)}
-              disabled={isLoading}
+              onClick={() => setOpenDialog('storage')}
+              disabled={isPending}
+            >
+              <HardDrive className="mr-1 h-4 w-4" />
+              Update Storage
+            </Button>
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => setOpenDialog('fileSize')}
+              disabled={isPending}
             >
               <HardDrive className="mr-1 h-4 w-4" />
               Update File Size
             </Button>
-          )}
-          <Button
-            size="sm"
-            variant="ghost"
-            onClick={() => onDelete()}
-            disabled={isLoading}
-            className="text-destructive hover:text-destructive"
-          >
-            <Trash2 className="mr-1 h-4 w-4" />
-            Delete
-          </Button>
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => setOpenDialog('delete')}
+              disabled={isPending}
+              className="text-destructive hover:text-destructive"
+            >
+              <Trash2 className="mr-1 h-4 w-4" />
+              Delete
+            </Button>
 
-          <div className="bg-border mx-1 h-6 w-px" />
+            <div className="bg-border mx-1 h-6 w-px" />
 
-          <Button
-            size="icon"
-            variant="ghost"
-            onClick={onClear}
-            disabled={isLoading}
-            className="h-7 w-7"
-            aria-label="Clear selection"
-          >
-            <X className="h-4 w-4" />
-          </Button>
-        </div>
-      </div>
-
-      {showStorageModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-          <div className="w-full max-w-md rounded-lg bg-card p-6 shadow-lg">
-            <h3 className="mb-4 text-lg font-semibold">Update Storage Limit</h3>
-            <p className="mb-4 text-sm text-muted-foreground">
-              Set the storage limit for the selected user(s).
-            </p>
-            <Input
-              type="number"
-              placeholder="Enter storage limit in bytes"
-              value={storageInput}
-              onChange={(e) => setStorageInput(e.target.value)}
-              className="mb-4"
-            />
-            <div className="flex justify-end gap-2">
-              <Button
-                variant="outline"
-                onClick={() => {
-                  setShowStorageModal(false)
-                  setStorageInput('')
-                }}
-              >
-                Cancel
-              </Button>
-              <Button onClick={handleStorageSubmit} disabled={isLoading}>
-                {isLoading ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  'Update'
-                )}
-              </Button>
-            </div>
+            <Button
+              size="icon"
+              variant="ghost"
+              onClick={onClear}
+              disabled={isPending}
+              className="h-7 w-7"
+              aria-label="Clear selection"
+            >
+              <X className="h-4 w-4" />
+            </Button>
           </div>
         </div>
       )}
 
-      {showFileSizeModal && onUpdateFileSizeLimit && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-          <div className="w-full max-w-md rounded-lg bg-card p-6 shadow-lg">
-            <h3 className="mb-4 text-lg font-semibold">
-              Update File Size Limit
-            </h3>
-            <p className="mb-4 text-sm text-muted-foreground">
-              Set the maximum file size allowed for the selected user(s).
-            </p>
-            <Input
-              type="number"
-              placeholder="Enter file size limit in bytes"
-              value={fileSizeInput}
-              onChange={(e) => setFileSizeInput(e.target.value)}
-              className="mb-4"
-            />
-            <div className="flex justify-end gap-2">
-              <Button
-                variant="outline"
-                onClick={() => {
-                  setShowFileSizeModal(false)
-                  setFileSizeInput('')
-                }}
-              >
-                Cancel
-              </Button>
-              <Button onClick={handleFileSizeSubmit} disabled={isLoading}>
-                {isLoading ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  'Update'
-                )}
-              </Button>
-            </div>
-          </div>
-        </div>
+      {openDialog === 'storage' && (
+        <ByteLimitDialog
+          title="Update Storage Limit"
+          description={`Set the storage limit for ${usersLabel}.`}
+          onSubmit={onUpdateStorage}
+          onClose={closeDialog}
+        />
+      )}
+      {openDialog === 'fileSize' && (
+        <ByteLimitDialog
+          title="Update File Size Limit"
+          description={`Set the maximum file size for ${usersLabel}.`}
+          onSubmit={onUpdateFileSizeLimit}
+          onClose={closeDialog}
+        />
+      )}
+      {openDialog === 'delete' && (
+        <ConfirmActionDialog
+          open
+          onOpenChange={(open) => !open && !isPending && closeDialog()}
+          title="Delete users"
+          description={`Delete ${usersLabel} and all of their files? This cannot be undone.`}
+          confirmLabel={isPending ? 'Deleting...' : 'Delete'}
+          confirmVariant="destructive"
+          isLoading={isPending}
+          onConfirm={() => void confirmDelete()}
+        />
       )}
     </>
   )

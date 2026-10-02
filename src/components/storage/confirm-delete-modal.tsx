@@ -13,7 +13,10 @@ type ConfirmDeleteModalProps = {
   open: boolean
   onOpenChange: (open: boolean) => void
   isPermanent: boolean
+  /** Number of items affected; 0 means "everything" (e.g. empty trash). */
   itemCount: number
+  /** Overrides the default title. */
+  title?: string
   onConfirm: () => void
   isLoading?: boolean
 }
@@ -23,10 +26,16 @@ export function ConfirmDeleteModal({
   onOpenChange,
   isPermanent,
   itemCount,
+  title,
   onConfirm,
   isLoading = false,
 }: ConfirmDeleteModalProps) {
-  const label = itemCount === 1 ? 'this item' : `${itemCount} items`
+  const label =
+    itemCount === 0
+      ? 'everything in the trash'
+      : itemCount === 1
+        ? 'this item'
+        : `${itemCount} items`
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -36,7 +45,7 @@ export function ConfirmDeleteModal({
             {isPermanent && (
               <AlertTriangle className="text-destructive h-5 w-5" />
             )}
-            {isPermanent ? 'Delete permanently?' : 'Move to Trash?'}
+            {title ?? (isPermanent ? 'Delete permanently?' : 'Move to Trash?')}
           </DialogTitle>
           <DialogDescription>
             {isPermanent
@@ -45,7 +54,11 @@ export function ConfirmDeleteModal({
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button variant="outline" onClick={() => onOpenChange(false)}>
+          <Button
+            variant="outline"
+            onClick={() => onOpenChange(false)}
+            disabled={isLoading}
+          >
             Cancel
           </Button>
           <Button

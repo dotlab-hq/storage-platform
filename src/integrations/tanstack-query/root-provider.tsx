@@ -1,45 +1,41 @@
 import type { ReactNode } from 'react'
 import { HotkeysProvider } from '@tanstack/react-hotkeys'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ProfilerBoundary } from '@/components/app/profiler-boundary'
+import { QueryClient } from '@tanstack/react-query'
 
-let context:
-  | {
-      queryClient: QueryClient
-    }
-  | undefined
-
-export function getContext() {
-  if (context) {
-    return context
-  }
-
-  const queryClient = new QueryClient()
-
-  context = {
-    queryClient,
-  }
-
-  return context
+/**
+ * Creates the QueryClient for one router instance.
+ *
+ * IMPORTANT: this must be called once per request on the server (the router
+ * factory does that). A module-level singleton would share cached data
+ * between users on the same Worker isolate.
+ */
+export function createQueryClient() {
+  return new QueryClient({
+    defaultOptions: {
+      queries: {
+        // Data is preloaded by route loaders; avoid immediately refetching it
+        // on mount/hydration, which is what made lists flash.
+        staleTime: 30_000,
+        refetchOnWindowFocus: false,
+        retry: 1,
+      },
+    },
+  })
 }
 
-export default function TanStackQueryProvider({
-  children,
-}: {
-  children: ReactNode
-}) {
-  const { queryClient } = getContext()
-
+/**
+ * App-wide client providers. The QueryClientProvider itself is installed by
+ * `setupRouterSsrQueryIntegration` in `src/router.tsx`.
+ */
+export default function AppProviders({ children }: { children: ReactNode }) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <HotkeysProvider
-        defaultOptions={{
-          hotkey: { preventDefault: true },
-          hotkeySequence: { timeout: 1500 },
-        }}
-      >
-        <ProfilerBoundary id="app-root">{children}</ProfilerBoundary>
-      </HotkeysProvider>
-    </QueryClientProvider>
+    <HotkeysProvider
+      defaultOptions={{
+        hotkey: { preventDefault: true },
+        hotkeySequence: { timeout: 1500 },
+      }}
+    >
+      {children}
+    </HotkeysProvider>
   )
 }

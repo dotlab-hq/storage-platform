@@ -8,7 +8,7 @@ const RecentFileInputSchema = z.object({
   fileId: z.string().min(1),
 })
 
-type RecentSnapshotItem = {
+export type RecentItem = {
   id: string
   name: string
   lastOpenedAt: string
@@ -16,13 +16,14 @@ type RecentSnapshotItem = {
   mimeType: string | null
 }
 
+/** Folders and files the signed-in user opened or created in the last 24h, newest first. */
 export const getRecentSnapshotFn = createServerFn({ method: 'GET' })
   .middleware([apiAuthMiddleware])
   .handler(async ({ context }) => {
     const currentUser = context.user
     const recent = await getRecentDriveItems(currentUser.id)
 
-    const items: RecentSnapshotItem[] = [
+    const items: RecentItem[] = [
       ...recent.folders.map((folder) => ({
         id: folder.id,
         name: folder.name,
@@ -46,7 +47,9 @@ export const getRecentSnapshotFn = createServerFn({ method: 'GET' })
     return { items }
   })
 
+/** A short-lived URL for opening one of the user's files. */
 export const getRecentFileUrlFn = createServerFn({ method: 'GET' })
+  .middleware([apiAuthMiddleware])
   .inputValidator(RecentFileInputSchema)
   .handler(async ({ data }) => {
     const result = await getFilePresignedUrlFn({

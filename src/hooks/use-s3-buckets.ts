@@ -1,131 +1,148 @@
-import { useMemo, useState } from 'react'
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import type {
-  S3BucketCredentials,
-  S3BucketListResponse,
-} from '@/types/s3-buckets'
+import { useState } from 'react'
 import {
-  parseJson,
-  readApiError,
-  type PendingByBucket,
-} from '@/hooks/use-s3-buckets.helpers'
+  useMutation,
+  useQueryClient,
+  useSuspenseQuery,
+} from '@tanstack/react-query'
+import { toast } from '@/components/ui/sonner'
+import { bucketsQuery } from '@/lib/s3-buckets/queries'
+import { S3_QUERY_KEYS } from '@/lib/query-keys'
+import type { S3BucketCredentials, S3BucketItem } from '@/types/s3-buckets'
+import type { PendingByBucket } from '@/hooks/use-s3-buckets.helpers'
 import {
-  createBucketWithOptimisticUpdate,
-  mutateBucketAction,
-  requestBucketCredentials,
-  rotateBucketCredentials,
+  bucketActionRequest,
+  createBucketRequest,
+  fetchCredentialsRequest,
+  rotateCredentialsRequest,
 } from '@/hooks/use-s3-buckets.mutations'
+import type { BucketAction } from '@/hooks/use-s3-buckets.mutations'
 
-const BUCKETS_QUERY_KEY = ['s3-buckets'] as const
+function errorMessage(error: unknown, fallback: string) {
+  return error instanceof Error ? error.message : fallback
+}
 
+/**
+ * Bucket list (preloaded by the /buckets loader) plus its mutations. Create
+ * and delete update the list optimistically, roll back on error, and refetch
+ * once settled.
+ */
 export function useS3Buckets() {
   const queryClient = useQueryClient()
+  const { data: buckets } = useSuspenseQuery(bucketsQuery())
   const [pendingByBucket, setPendingByBucket] = useState<PendingByBucket>({})
   const [credentialByBucket, setCredentialByBucket] = useState<
     Record<string, S3BucketCredentials | undefined>
   >({})
-  const [error, setError] = useState<string | null>(null)
 
-  const bucketsQuery = useQuery({
-    queryKey: BUCKETS_QUERY_KEY,
-    queryFn: async () => {
-      const response = await fetch('/api/storage/s3/buckets', { method: 'GET' })
-      if (!response.ok) {
-        throw new Error(await readApiError(response, 'Failed to load buckets'))
-      }
-      const payload = await parseJson<S3BucketListResponse>(response)
-      return payload.buckets
-    },
-  })
+  const setPending = (bucketName: string, action: BucketAction | undefined) =>
+    setPendingByBucket((previous) => ({ ...previous, [bucketName]: action }))
+
+  const saveCredentials = (credentials: S3BucketCredentials) =>
+    setCredentialByBucket((previous) => ({
+      ...previous,
+      [credentials.bucket]: credentials,
+    }))
+
+  /** Cancels in-flight list fetches and snapshots the list for rollback. */
+  const prepareOptimisticUpdate = async () => {
+    await queryClient.cancelQueries({ queryKey: S3_QUERY_KEYS.buckets })
+    return queryClient.getQueryData<S3BucketItem[]>(S3_QUERY_KEYS.buckets)
+  }
+
+  const refreshBuckets = () =>
+    queryClient.invalidateQueries({ queryKey: S3_QUERY_KEYS.buckets })
 
   const createMutation = useMutation({
-    mutationFn: async (bucketName: string) =>
-      createBucketWithOptimisticUpdate(queryClient, setError, bucketName),
+    mutationFn: (bucketName: string) => createBucketRequest(bucketName),
+    onMutate: async (bucketName) => {
+      const previous = await prepareOptimisticUpdate()
+      const placeholder: S3BucketItem = {
+        id: `temp-${crypto.randomUUID()}`,
+        name: bucketName,
+        mappedFolderId: null,
+        isActive: true,
+        isDefault: false,
+        createdAt: new Date().toISOString(),
+      }
+      queryClient.setQueryData<S3BucketItem[]>(
+        S3_QUERY_KEYS.buckets,
+        (list) => [placeholder, ...(list ?? [])],
+      )
+      return { previous }
+    },
+    onError: (error, _bucketName, context) => {
+      queryClient.setQueryData(S3_QUERY_KEYS.buckets, context?.previous)
+      toast.error(errorMessage(error, 'Failed to create bucket'))
+    },
+    onSettled: refreshBuckets,
   })
 
   const actionMutation = useMutation({
-    mutationFn: async (input: {
-      bucketName: string
-      action: 'empty' | 'delete'
-    }) =>
-      mutateBucketAction(
-        queryClient,
-        setError,
-        (bucketName, pending) => {
-          setPendingByBucket((previous) => ({
-            ...previous,
-            [bucketName]: pending,
-          }))
-        },
-        input.bucketName,
-        input.action,
-      ),
+    mutationFn: (input: { bucketName: string; action: BucketAction }) =>
+      bucketActionRequest(input.bucketName, input.action),
+    onMutate: async ({ bucketName, action }) => {
+      setPending(bucketName, action)
+      const previous = await prepareOptimisticUpdate()
+      if (action === 'delete') {
+        queryClient.setQueryData<S3BucketItem[]>(
+          S3_QUERY_KEYS.buckets,
+          (list) => list?.filter((bucket) => bucket.name !== bucketName),
+        )
+      }
+      return { previous }
+    },
+    onSuccess: (_data, { bucketName, action }) => {
+      toast.success(
+        action === 'empty' ? `Emptied ${bucketName}` : `Deleted ${bucketName}`,
+      )
+    },
+    onError: (error, { action }, context) => {
+      queryClient.setQueryData(S3_QUERY_KEYS.buckets, context?.previous)
+      toast.error(errorMessage(error, `Failed to ${action} bucket`))
+    },
+    onSettled: (_data, _error, { bucketName }) => {
+      setPending(bucketName, undefined)
+      void queryClient.invalidateQueries({
+        queryKey: S3_QUERY_KEYS.bucket(bucketName),
+      })
+      return refreshBuckets()
+    },
   })
 
   const credentialsMutation = useMutation({
-    mutationFn: async (bucketName?: string) =>
-      requestBucketCredentials(
-        setError,
-        (name, credentials) => {
-          setCredentialByBucket((previous) => ({
-            ...previous,
-            [name]: credentials,
-          }))
-        },
-        bucketName,
-      ),
+    mutationFn: fetchCredentialsRequest,
+    onSuccess: saveCredentials,
+    onError: (error) =>
+      toast.error(errorMessage(error, 'Failed to fetch credentials')),
   })
 
   const rotateMutation = useMutation({
-    mutationFn: async (bucketName: string) =>
-      rotateBucketCredentials(setError, bucketName),
+    mutationFn: rotateCredentialsRequest,
+    onSuccess: saveCredentials,
+    onError: (error) =>
+      toast.error(errorMessage(error, 'Failed to rotate credentials')),
   })
-
-  const buckets = bucketsQuery.data ?? []
-  const defaultBucket = useMemo(
-    () => buckets.find((bucket) => bucket.isDefault),
-    [buckets],
-  )
 
   return {
     buckets,
-    defaultBucket,
-    isLoading: bucketsQuery.isLoading,
-    isRefreshing: bucketsQuery.isFetching,
+    defaultBucket: buckets.find((bucket) => bucket.isDefault),
     isCreating: createMutation.isPending,
     pendingByBucket,
     credentialByBucket,
-    error,
-    hasBuckets: buckets.length > 0,
-    refreshBuckets: bucketsQuery.refetch,
-    createNewBucket: async (bucketName: string) => {
-      const result = await createMutation.mutateAsync(bucketName)
-      return result.ok
+    refreshBuckets,
+    /** Resolves to true when the bucket was created. */
+    createBucket: (bucketName: string) =>
+      createMutation
+        .mutateAsync(bucketName.trim())
+        .then(() => true)
+        .catch(() => false),
+    runBucketAction: (bucketName: string, action: BucketAction) => {
+      actionMutation.mutate({ bucketName, action })
     },
-    runBucketAction: async (bucketName: string, action: 'empty' | 'delete') => {
-      const result = await actionMutation.mutateAsync({ bucketName, action })
-      return result.ok
-    },
-    fetchCredentials: async (bucketName?: string) => {
-      try {
-        return await credentialsMutation.mutateAsync(bucketName)
-      } catch {
-        return null
-      }
-    },
-    rotateCredentials: async (bucketName: string) => {
-      try {
-        const credentials = await rotateMutation.mutateAsync(bucketName)
-        if (credentials) {
-          setCredentialByBucket((previous) => ({
-            ...previous,
-            [bucketName]: credentials,
-          }))
-        }
-        return credentials
-      } catch {
-        return null
-      }
-    },
+    /** Resolves to the credentials, or null when the request failed. */
+    fetchCredentials: (bucketName: string) =>
+      credentialsMutation.mutateAsync(bucketName).catch(() => null),
+    rotateCredentials: (bucketName: string) =>
+      rotateMutation.mutateAsync(bucketName).catch(() => null),
   }
 }

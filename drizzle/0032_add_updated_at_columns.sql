@@ -1,11 +1,4 @@
--- Migration: Add missing updated_at column (safe, non-destructive)
-
-PRAGMA foreign_keys=off;
-
--- Add missing updated_at column to folder table if it doesn't exist
-ALTER TABLE folder ADD COLUMN IF NOT EXISTS updated_at integer NOT NULL DEFAULT (cast(strftime('%s', 'now') as integer));
-
--- Add missing updated_at column to file table if it doesn't exist
-ALTER TABLE file ADD COLUMN IF NOT EXISTS updated_at integer NOT NULL DEFAULT (cast(strftime('%s', 'now') as integer));
-
-PRAGMA foreign_keys=on;
+-- No-op: file.updated_at and folder.updated_at already exist in the base
+-- schema (0000). The original statement used `ADD COLUMN IF NOT EXISTS`,
+-- which SQLite/D1 does not support, so it failed on every database.
+SELECT 1;

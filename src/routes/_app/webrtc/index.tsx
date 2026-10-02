@@ -1,27 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
-;('use client')
-
-import { lazy, Suspense } from 'react'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
-import { PageSkeleton } from '@/components/ui/page-skeleton'
-
-const WebRTCPage = lazy(() =>
-  import('./-components/webrtc-page').then((m) => ({
-    default: m.WebRTCPage,
-  })),
-)
+import { WebRTCPage } from './-components/webrtc-page'
 
 export const Route = createFileRoute('/_app/webrtc/')({
   server: {
     middleware: [isAuthenticatedMiddleware],
   },
-  component: WebRTCRoute,
+  component: WebRTCPage,
 })
-
-function WebRTCRoute() {
-  return (
-    <Suspense fallback={<PageSkeleton className="h-full w-full" />}>
-      <WebRTCPage />
-    </Suspense>
-  )
-}

@@ -1,58 +1,71 @@
 import { create } from 'zustand'
 import type { StorageItem } from '@/types/storage'
 
-interface UiState {
-  shareItem: StorageItem | null
-  moveOpen: boolean
-  moveMode: 'move' | 'update-path'
-  deleteOpen: boolean
-  pendingDelete: { ids: string[]; types: ('file' | 'folder')[] } | null
-  uploadFileOpen: boolean
+export type MoveMode = 'move' | 'update-path'
+export type PendingDelete = { ids: string[]; types: StorageItem['type'][] }
+
+/**
+ * Open/closed state of the file-browser dialogs.
+ *
+ * Kept global so the topbar, dock, command palette, context menus and the
+ * page itself all open the *same* dialog instance.
+ */
+type DialogState = {
+  uploadFilesOpen: boolean
   uploadFolderOpen: boolean
   urlImportOpen: boolean
   newFolderOpen: boolean
+  moveOpen: boolean
+  moveMode: MoveMode
+  shareItem: StorageItem | null
+  pendingDelete: PendingDelete | null
+}
 
-  setShareItem: (item: StorageItem | null) => void
-  setMoveOpen: (open: boolean) => void
-  setMoveMode: (mode: 'move' | 'update-path') => void
-  setDeleteOpen: (open: boolean) => void
-  setPendingDelete: (
-    pending: { ids: string[]; types: ('file' | 'folder')[] } | null,
-  ) => void
-  setUploadFileOpen: (open: boolean) => void
+type DialogActions = {
+  setUploadFilesOpen: (open: boolean) => void
   setUploadFolderOpen: (open: boolean) => void
   setUrlImportOpen: (open: boolean) => void
   setNewFolderOpen: (open: boolean) => void
-
-  openDeleteForItem: (item: StorageItem) => void
-  openMoveWithMode: (mode?: 'move' | 'update-path') => void
+  openMove: (mode?: MoveMode) => void
+  closeMove: () => void
+  openShare: (item: StorageItem) => void
+  closeShare: () => void
+  /** Opens the delete confirmation for the given items. */
+  confirmDelete: (items: Pick<StorageItem, 'id' | 'type'>[]) => void
+  closeDelete: () => void
+  /** Closes everything; called when leaving the page. */
+  reset: () => void
 }
 
-export const useUiStore = create<UiState>((set) => ({
-  shareItem: null,
-  moveOpen: false,
-  moveMode: 'move',
-  deleteOpen: false,
-  pendingDelete: null,
-  uploadFileOpen: false,
+const initialState: DialogState = {
+  uploadFilesOpen: false,
   uploadFolderOpen: false,
   urlImportOpen: false,
   newFolderOpen: false,
+  moveOpen: false,
+  moveMode: 'move',
+  shareItem: null,
+  pendingDelete: null,
+}
 
-  setShareItem: (item) => set({ shareItem: item }),
-  setMoveOpen: (open) => set({ moveOpen: open }),
-  setMoveMode: (mode) => set({ moveMode: mode }),
-  setDeleteOpen: (open) => set({ deleteOpen: open }),
-  setPendingDelete: (pending) => set({ pendingDelete: pending }),
-  setUploadFileOpen: (open) => set({ uploadFileOpen: open }),
+export const useUiStore = create<DialogState & DialogActions>((set) => ({
+  ...initialState,
+
+  setUploadFilesOpen: (open) => set({ uploadFilesOpen: open }),
   setUploadFolderOpen: (open) => set({ uploadFolderOpen: open }),
   setUrlImportOpen: (open) => set({ urlImportOpen: open }),
   setNewFolderOpen: (open) => set({ newFolderOpen: open }),
-
-  openDeleteForItem: (item) =>
+  openMove: (mode = 'move') => set({ moveOpen: true, moveMode: mode }),
+  closeMove: () => set({ moveOpen: false }),
+  openShare: (item) => set({ shareItem: item }),
+  closeShare: () => set({ shareItem: null }),
+  confirmDelete: (items) =>
     set({
-      pendingDelete: { ids: [item.id], types: [item.type] },
-      deleteOpen: true,
+      pendingDelete: {
+        ids: items.map((item) => item.id),
+        types: items.map((item) => item.type),
+      },
     }),
-  openMoveWithMode: (mode = 'move') => set({ moveMode: mode, moveOpen: true }),
+  closeDelete: () => set({ pendingDelete: null }),
+  reset: () => set(initialState),
 }))

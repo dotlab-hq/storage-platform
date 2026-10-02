@@ -8,8 +8,18 @@ import { Button } from '@/components/ui/button'
 import { Field, FieldDescription, FieldGroup } from '@/components/ui/field'
 import { KeyboardShortcut } from '@/components/ui/keyboard-shortcut'
 import { authClient } from '@/lib/auth-client'
+import { toast } from '@/components/ui/sonner'
 
-export function AuthForm({ className, ...props }: React.ComponentProps<'div'>) {
+type AuthFormProps = React.ComponentProps<'div'> & {
+  /** Same-site path to return to after signing in (defaults to "/"). */
+  redirectTo?: string
+}
+
+export function AuthForm({
+  className,
+  redirectTo = '/',
+  ...props
+}: AuthFormProps) {
   const containerRef = React.useRef<HTMLDivElement>(null)
   const [optimisticStatus, setOptimisticStatus] = React.useOptimistic<
     'idle' | 'submitting'
@@ -18,6 +28,7 @@ export function AuthForm({ className, ...props }: React.ComponentProps<'div'>) {
   const callGithubOauth = createClientOnlyFn(async () => {
     const data = await authClient.signIn.social({
       provider: 'github',
+      callbackURL: redirectTo,
     })
 
     if (data.error) {
@@ -38,10 +49,13 @@ export function AuthForm({ className, ...props }: React.ComponentProps<'div'>) {
       })
       await callGithubOauth()
     },
+    onError: (error) => {
+      toast.error(error instanceof Error ? error.message : 'Sign-in failed')
+    },
   })
 
   const submitGithub = React.useEffectEvent(() => {
-    void githubMutation.mutateAsync()
+    githubMutation.mutate()
   })
 
   React.useEffect(() => {

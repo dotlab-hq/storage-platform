@@ -13,5 +13,3 @@ export type Html5QrScanner = {
   stop: () => Promise<void>
   clear: () => void
 }
-
-export type ScanState = 'idle' | 'scanning' | 'review' | 'submitting'

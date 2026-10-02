@@ -15,16 +15,16 @@ import {
   Monitor,
   Wifi,
 } from 'lucide-react'
-import { ClientOnly, Link } from '@tanstack/react-router'
-import { createClientOnlyFn } from '@tanstack/react-start'
+import { Link } from '@tanstack/react-router'
+import { useQuery } from '@tanstack/react-query'
 
 import { NavMain } from '@/components/nav-main'
 import { NavUser } from '@/components/nav-user'
 import { StorageQuota } from '@/components/storage/storage-quota'
-import { normalizeUserRole } from '@/lib/authz'
-import { authClient } from '@/lib/auth-client'
+import { useCurrentUser } from '@/lib/auth/current-user'
+import { quotaQuery } from '@/lib/storage/folder-query'
 import { useTheme } from '@/hooks/use-theme'
-import type { UserQuota } from '@/types/storage'
+import { useHydrated } from '@/hooks/use-hydrated'
 import {
   Sidebar,
   SidebarContent,
@@ -37,23 +37,16 @@ import {
 } from '@/components/ui/sidebar'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Button } from '@/components/ui/button'
-import { PageSkeleton } from '@/components/ui/page-skeleton'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 
-const WebRTCScannerDialog = React.lazy(() =>
-  import('@/routes/_app/webrtc/-components/webrtc-scanner-dialog').then(
-    (m) => ({
-      default: m.WebRTCScannerDialog,
-    }),
-  ),
-)
+import { WebRTCScannerDialog } from '@/routes/_app/webrtc/-components/webrtc-scanner-dialog'
 
 const navItems = [
-  { title: 'My Files', url: '/', icon: Home, isActive: true },
+  { title: 'My Files', url: '/', icon: Home },
   { title: 'WebRTC Transfers', url: '/webrtc', icon: Wifi },
   { title: 'Buckets', url: '/buckets', icon: Database },
   { title: 'Recent', url: '/recent', icon: Clock },
@@ -62,64 +55,29 @@ const navItems = [
   { title: 'Settings', url: '/settings', icon: Settings },
 ]
 
-const defaultUser = {
-  name: 'User',
-  email: 'user@example.com',
-  avatar: '/logo.svg',
-  isAdmin: false,
-}
-
-type AppSidebarProps = React.ComponentProps<typeof Sidebar> & {
-  quota?: UserQuota | null
-}
-
 const themeConfig = {
   light: { icon: Sun, label: 'Light', next: 'dark' as const },
   dark: { icon: Moon, label: 'Dark', next: 'system' as const },
   system: { icon: Monitor, label: 'System', next: 'light' as const },
 } as const
 
-export function AppSidebar({ quota = null, ...props }: AppSidebarProps) {
-  const [navUser, setNavUser] = React.useState(defaultUser)
-  const [isAdmin, setIsAdmin] = React.useState(false)
+export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
+  const { isAdmin } = useCurrentUser()
+  const { data: quota = null } = useQuery(quotaQuery())
   const { theme, setTheme } = useTheme()
 
-  const getSessionUserRef = React.useRef(
-    createClientOnlyFn(async () => {
-      const { data: session, error } = await authClient.getSession()
-      if (error || !session?.user) return null
-      const sessionRole = normalizeUserRole(session.user.role)
-      return {
-        name: session.user.name,
-        email: session.user.email,
-        avatar: session.user.image ?? '/logo.svg',
-        isAdmin: sessionRole === 'admin',
-      }
-    }),
+  const items = React.useMemo(
+    () =>
+      isAdmin
+        ? [...navItems, { title: 'Admin', url: '/admin', icon: Shield }]
+        : navItems,
+    [isAdmin],
   )
 
-  React.useEffect(() => {
-    let mounted = true
-    void getSessionUserRef.current().then((sessionUser) => {
-      if (mounted && sessionUser) {
-        setNavUser(sessionUser)
-        setIsAdmin(sessionUser.isAdmin)
-      }
-    })
-    return () => {
-      mounted = false
-    }
-  }, [])
-
-  const items = React.useMemo(() => {
-    const baseItems = [...navItems]
-    if (isAdmin) {
-      baseItems.push({ title: 'Admin', url: '/admin', icon: Shield })
-    }
-    return baseItems
-  }, [isAdmin])
-
-  const currentTheme = theme in themeConfig ? theme : 'system'
+  // The saved theme is only known in the browser; render "system" until
+  // hydrated so the server and first client render match.
+  const hydrated = useHydrated()
+  const currentTheme = hydrated && theme in themeConfig ? theme : 'system'
   const { icon: ThemeIcon, label: themeLabel, next } = themeConfig[currentTheme]
 
   return (
@@ -145,21 +103,13 @@ export function AppSidebar({ quota = null, ...props }: AppSidebarProps) {
         <ScrollArea className="h-full">
           <div className="pr-4">
             <NavMain items={items} />
-            <React.Suspense
-              fallback={
-                <div className="px-3 py-2">
-                  <PageSkeleton variant="compact" className="h-9 w-full" />
-                </div>
-              }
-            >
-              <div className="px-3 py-2">
-                <WebRTCScannerDialog
-                  triggerLabel="Scan for Transfer"
-                  triggerVariant="secondary"
-                  className="w-full justify-start"
-                />
-              </div>
-            </React.Suspense>
+            <div className="px-3 py-2">
+              <WebRTCScannerDialog
+                triggerLabel="Scan for Transfer"
+                triggerVariant="secondary"
+                className="w-full justify-start"
+              />
+            </div>
           </div>
         </ScrollArea>
       </SidebarContent>
@@ -187,9 +137,7 @@ export function AppSidebar({ quota = null, ...props }: AppSidebarProps) {
           </Tooltip>
         </div>
         <SidebarSeparator />
-        <ClientOnly fallback={<PageSkeleton variant="sidebar" />}>
-          <NavUser user={navUser} />
-        </ClientOnly>
+        <NavUser />
       </SidebarFooter>
     </Sidebar>
   )

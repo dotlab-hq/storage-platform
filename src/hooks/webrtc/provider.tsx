@@ -13,7 +13,7 @@ export function WebRTCProvider({
     outgoingFiles,
     sendFile,
     rejectFile,
-    saveFile,
+    markSaved,
     clearReceived,
     startConnection,
   } = useWebRTCConnection(sessionToken)
@@ -26,7 +26,7 @@ export function WebRTCProvider({
         outgoingFiles,
         sendFile,
         rejectFile,
-        saveFile,
+        markSaved,
         clearReceived,
         startConnection,
       }}

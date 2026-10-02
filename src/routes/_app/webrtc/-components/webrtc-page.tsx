@@ -1,22 +1,15 @@
-'use client'
-
-import { Wifi, WifiOff, RefreshCcw } from 'lucide-react'
 import * as React from 'react'
+import { RefreshCcw, Wifi, WifiOff } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
-import { Separator } from '@/components/ui/separator'
+import { SidebarInset } from '@/components/ui/sidebar'
+import { PageHeader } from '@/components/app/page-header'
 import { SendFileDropZone } from '@/components/storage/send-file-drop-zone'
-import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { IncomingFilesRegion } from '@/components/storage/incoming-files-region'
 import { useWebRTC } from '@/hooks/use-webrtc'
-import { useWebrtcTransfer } from '../-hooks'
+import { useWebrtcTransfer } from './use-webrtc-transfer'
+import { WebRTCScannerDialog } from './webrtc-scanner-dialog'
 
-const WebRTCScannerDialog = React.lazy(() =>
-  import('./webrtc-scanner-dialog').then((m) => ({
-    default: m.WebRTCScannerDialog,
-  })),
-)
-
+/** Peer-to-peer transfers: show a QR offer or scan another device's, then send/receive files. */
 export function WebRTCPage() {
   const { isConnected, incomingFiles, startConnection } = useWebRTC()
   const {
@@ -31,18 +24,17 @@ export function WebRTCPage() {
   } = useWebrtcTransfer(isConnected)
 
   React.useEffect(() => {
-    if (offer && !isConnected && offer.sessionToken) {
+    if (offer?.sessionToken && !isConnected) {
       startConnection(offer.sessionToken, 'offerer')
     }
   }, [offer, isConnected, startConnection])
 
   return (
     <SidebarInset>
-      <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4">
-        <SidebarTrigger className="-ml-1" />
-        <Separator orientation="vertical" className="h-4" />
-        <div className="flex flex-1 items-center justify-between">
-          <h1 className="text-lg font-semibold">WebRTC Transfers</h1>
+      <PageHeader
+        title="WebRTC Transfers"
+        icon={<Wifi className="text-muted-foreground h-4 w-4" />}
+        actions={
           <Button
             variant={webrtcEnabled ? 'default' : 'outline'}
             size="sm"
@@ -50,19 +42,14 @@ export function WebRTCPage() {
             className="gap-2"
           >
             {webrtcEnabled ? (
-              <>
-                <Wifi className="h-4 w-4" />
-                Enabled
-              </>
+              <Wifi className="h-4 w-4" />
             ) : (
-              <>
-                <WifiOff className="h-4 w-4" />
-                Disabled
-              </>
+              <WifiOff className="h-4 w-4" />
             )}
+            {webrtcEnabled ? 'Enabled' : 'Disabled'}
           </Button>
-        </div>
-      </header>
+        }
+      />
 
       <main className="flex-1 overflow-y-auto">
         <div className="mx-auto max-w-4xl p-6 space-y-6">
@@ -111,6 +98,15 @@ export function WebRTCPage() {
                 </p>
               </div>
 
+              {!qrImage && !isConnected && errorMessage && !loading && (
+                <div className="flex justify-center">
+                  <Button variant="outline" size="sm" onClick={generateQr}>
+                    <RefreshCcw className="h-4 w-4" />
+                    Try again
+                  </Button>
+                </div>
+              )}
+
               {qrImage && !isConnected && (
                 <div className="rounded-lg border bg-card p-6">
                   <div className="flex flex-col items-center space-y-4">
@@ -126,7 +122,7 @@ export function WebRTCPage() {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => void generateQr()}
+                      onClick={generateQr}
                       disabled={loading || expired}
                       className="gap-2"
                     >
@@ -144,18 +140,10 @@ export function WebRTCPage() {
                     <p className="text-sm text-muted-foreground">
                       Scan the QR code from another device to connect
                     </p>
-                    <React.Suspense
-                      fallback={
-                        <div className="w-full">
-                          <PageSkeleton variant="compact" />
-                        </div>
-                      }
-                    >
-                      <WebRTCScannerDialog
-                        triggerLabel="Scan Now"
-                        triggerVariant="default"
-                      />
-                    </React.Suspense>
+                    <WebRTCScannerDialog
+                      triggerLabel="Scan Now"
+                      triggerVariant="default"
+                    />
                   </div>
                 </div>
               )}

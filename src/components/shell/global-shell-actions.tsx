@@ -9,7 +9,10 @@ import {
   CommandList,
 } from '@/components/ui/command'
 import { cn } from '@/lib/utils'
-import { getActiveConfig } from '@/components/shell/shell-actions-registry'
+import {
+  getActiveConfig,
+  useActiveShellConfig,
+} from '@/components/shell/shell-actions-registry'
 
 const MENU_WIDTH_PX = 240
 const MENU_HEIGHT_PX = 260
@@ -31,6 +34,14 @@ function isMacOS(): boolean {
 function isFileCardTarget(target: EventTarget | null): boolean {
   if (!(target instanceof Element)) return false
   return Boolean(target.closest("[data-file-card='true']"))
+}
+
+function isEditableTarget(target: EventTarget | null): boolean {
+  if (!(target instanceof HTMLElement)) return false
+  return (
+    target.isContentEditable ||
+    Boolean(target.closest('input, textarea, select, [contenteditable="true"]'))
+  )
 }
 
 function isShellMenuTarget(target: EventTarget | null): boolean {
@@ -60,14 +71,7 @@ export function GlobalShellActions({
 }) {
   const [commandOpen, setCommandOpen] = useState(false)
   const [contextOpen, setContextOpen] = useState(false)
-  const [activeConfig, setActiveConfig] = useState(() => getActiveConfig())
-
-  useEffect(() => {
-    const sync = () => setActiveConfig(getActiveConfig())
-    sync()
-    window.addEventListener('dot:shell-actions-changed', sync)
-    return () => window.removeEventListener('dot:shell-actions-changed', sync)
-  }, [])
+  const activeConfig = useActiveShellConfig()
 
   const closeContextMenu = useCallback(() => {
     setContextOpen(false)
@@ -78,16 +82,17 @@ export function GlobalShellActions({
       if (event.key.toLowerCase() !== 'k' || (!event.ctrlKey && !event.metaKey))
         return
       event.preventDefault()
-      const latestConfig = getActiveConfig()
-      setActiveConfig(latestConfig)
-      if (latestConfig.commandActions.length === 0) return
+      if (getActiveConfig().commandActions.length === 0) return
       setCommandOpen(true)
     }
 
     const onContextMenu = (event: MouseEvent) => {
-      if (isFileCardTarget(event.target)) return
+      // Keep the native menu for file cards (they have their own), editable
+      // fields (paste, spellcheck) and pages that register no actions.
+      if (isFileCardTarget(event.target) || isEditableTarget(event.target)) return
+      const latestConfig = getActiveConfig()
+      if (latestConfig.contextActions.length === 0) return
       event.preventDefault()
-      setActiveConfig(getActiveConfig())
       const { x, y } = clampToViewport(event.clientX + 2, event.clientY + 2)
       document.documentElement.style.setProperty('--dot-shell-menu-x', `${x}px`)
       document.documentElement.style.setProperty('--dot-shell-menu-y', `${y}px`)
@@ -115,7 +120,6 @@ export function GlobalShellActions({
     }
   }, [closeContextMenu])
 
-  const commandHint = isMacOS() ? 'Cmd+K' : 'Ctrl+K'
 
   return (
     <>
@@ -156,7 +160,9 @@ export function GlobalShellActions({
       <Dialog open={commandOpen} onOpenChange={setCommandOpen}>
         <DialogContent className="overflow-hidden p-0 shadow-lg">
           <Command>
-            <CommandInput placeholder={`Type a command (${commandHint})`} />
+            <CommandInput
+              placeholder={`Type a command (${isMacOS() ? 'Cmd+K' : 'Ctrl+K'})`}
+            />
             <CommandList>
               <CommandEmpty>No commands in this view.</CommandEmpty>
               <CommandGroup heading="Commands">
